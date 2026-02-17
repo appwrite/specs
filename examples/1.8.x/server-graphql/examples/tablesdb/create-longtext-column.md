@@ -6,7 +6,8 @@ mutation {
         key: "",
         required: false,
         default: "<DEFAULT>",
-        array: false
+        array: false,
+        encrypt: false
     ) {
         key
         type
@@ -17,6 +18,7 @@ mutation {
         _createdAt
         _updatedAt
         default
+        encrypt
     }
 }
 ```

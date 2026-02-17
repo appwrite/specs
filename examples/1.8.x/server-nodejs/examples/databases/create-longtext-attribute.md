@@ -14,6 +14,7 @@ const result = await databases.createLongtextAttribute({
     key: '',
     required: false,
     default: '<DEFAULT>', // optional
-    array: false // optional
+    array: false, // optional
+    encrypt: false // optional
 });
 ```

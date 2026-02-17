@@ -17,6 +17,7 @@ mutation {
         _createdAt
         _updatedAt
         default
+        encrypt
     }
 }
 ```
