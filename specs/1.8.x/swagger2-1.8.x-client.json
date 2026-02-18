@@ -510,6 +510,351 @@
                 ]
             }
         },
+        "\/account\/keys": {
+            "post": {
+                "summary": "Create account key",
+                "operationId": "accountCreateKey",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "description": "Create a new account API key.",
+                "responses": {
+                    "201": {
+                        "description": "Key",
+                        "schema": {
+                            "$ref": "#\/definitions\/key"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createKey",
+                    "group": "keys",
+                    "weight": 752,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "account\/create-key.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "account",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "methods": [
+                        {
+                            "name": "createKey",
+                            "namespace": "account",
+                            "desc": "",
+                            "auth": {
+                                "Project": []
+                            },
+                            "parameters": [
+                                "name",
+                                "scopes",
+                                "expire"
+                            ],
+                            "required": [
+                                "name",
+                                "scopes"
+                            ],
+                            "responses": [
+                                {
+                                    "code": 201,
+                                    "model": "#\/definitions\/key"
+                                }
+                            ],
+                            "description": "",
+                            "demo": "account\/create-key.md",
+                            "public": true
+                        }
+                    ],
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "Key name. Max length: 128 chars.",
+                                    "default": null,
+                                    "x-example": "<NAME>"
+                                },
+                                "scopes": {
+                                    "type": "array",
+                                    "description": "Key scopes list. Maximum of 100 scopes are allowed.",
+                                    "default": null,
+                                    "x-example": null,
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "account",
+                                            "teams.read",
+                                            "teams.write"
+                                        ],
+                                        "x-enum-name": null,
+                                        "x-enum-keys": []
+                                    }
+                                },
+                                "expire": {
+                                    "type": "string",
+                                    "description": "Expiration time in [ISO 8601](https:\/\/www.iso.org\/iso-8601-date-and-time-format.html) format. Use null for unlimited expiration.",
+                                    "default": null,
+                                    "x-example": null,
+                                    "x-nullable": true
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "scopes"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "\/account\/keys\/{keyId}": {
+            "put": {
+                "summary": "Update account key",
+                "operationId": "accountUpdateKey",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "description": "Update a key by its unique ID. Use this endpoint to update the name, scopes, or expiration time of an API key.",
+                "responses": {
+                    "200": {
+                        "description": "Key",
+                        "schema": {
+                            "$ref": "#\/definitions\/key"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "updateKey",
+                    "group": "keys",
+                    "weight": 754,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "account\/update-key.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "account",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "methods": [
+                        {
+                            "name": "updateKey",
+                            "namespace": "account",
+                            "desc": "",
+                            "auth": {
+                                "Project": []
+                            },
+                            "parameters": [
+                                "keyId",
+                                "name",
+                                "scopes",
+                                "expire"
+                            ],
+                            "required": [
+                                "keyId",
+                                "name",
+                                "scopes"
+                            ],
+                            "responses": [
+                                {
+                                    "code": 200,
+                                    "model": "#\/definitions\/key"
+                                }
+                            ],
+                            "description": "",
+                            "demo": "account\/update-key.md",
+                            "public": true
+                        }
+                    ],
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "keyId",
+                        "description": "Key unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<KEY_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "Key name. Max length: 128 chars.",
+                                    "default": null,
+                                    "x-example": "<NAME>"
+                                },
+                                "scopes": {
+                                    "type": "array",
+                                    "description": "Key scopes list. Maximum of 100 scopes are allowed.",
+                                    "default": null,
+                                    "x-example": null,
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "account",
+                                            "teams.read",
+                                            "teams.write"
+                                        ],
+                                        "x-enum-name": null,
+                                        "x-enum-keys": []
+                                    }
+                                },
+                                "expire": {
+                                    "type": "string",
+                                    "description": "Expiration time in [ISO 8601](https:\/\/www.iso.org\/iso-8601-date-and-time-format.html) format. Use null for unlimited expiration.",
+                                    "default": null,
+                                    "x-example": null,
+                                    "x-nullable": true
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "scopes"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete account key",
+                "operationId": "accountDeleteKey",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "description": "Delete a key by its unique ID. Once deleted, the key can no longer be used to authenticate API calls.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "deleteKey",
+                    "group": "keys",
+                    "weight": 753,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "account\/delete-key.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "account",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "methods": [
+                        {
+                            "name": "deleteKey",
+                            "namespace": "account",
+                            "desc": "",
+                            "auth": {
+                                "Project": []
+                            },
+                            "parameters": [
+                                "keyId"
+                            ],
+                            "required": [
+                                "keyId"
+                            ],
+                            "responses": [
+                                {
+                                    "code": 204
+                                }
+                            ],
+                            "description": "",
+                            "demo": "account\/delete-key.md",
+                            "public": true
+                        }
+                    ],
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "keyId",
+                        "description": "Key unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<KEY_ID>",
+                        "in": "path"
+                    }
+                ]
+            }
+        },
         "\/account\/logs": {
             "get": {
                 "summary": "List logs",
@@ -2651,7 +2996,7 @@
                 "parameters": [
                     {
                         "name": "provider",
-                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, auth0, authentik, autodesk, bitbucket, bitly, box, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, github, gitlab, google, linkedin, microsoft, notion, oidc, okta, paypal, paypalSandbox, podio, salesforce, slack, spotify, stripe, tradeshift, tradeshiftBox, twitch, wordpress, yahoo, yammer, yandex, zoho, zoom.",
+                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, auth0, authentik, autodesk, bitbucket, bitly, box, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, github, gitlab, google, linkedin, microsoft, notion, oidc, okta, paypal, paypalSandbox, podio, salesforce, slack, spotify, stripe, tradeshift, tradeshiftBox, twitch, wordpress, yahoo, yammer, yandex, zoho, zoom, githubImagine, googleImagine.",
                         "required": true,
                         "type": "string",
                         "x-example": "amazon",
@@ -2694,7 +3039,9 @@
                             "yammer",
                             "yandex",
                             "zoho",
-                            "zoom"
+                            "zoom",
+                            "githubImagine",
+                            "googleImagine"
                         ],
                         "x-enum-name": "OAuthProvider",
                         "x-enum-keys": [],
@@ -3607,7 +3954,7 @@
                 "parameters": [
                     {
                         "name": "provider",
-                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, auth0, authentik, autodesk, bitbucket, bitly, box, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, github, gitlab, google, linkedin, microsoft, notion, oidc, okta, paypal, paypalSandbox, podio, salesforce, slack, spotify, stripe, tradeshift, tradeshiftBox, twitch, wordpress, yahoo, yammer, yandex, zoho, zoom.",
+                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, auth0, authentik, autodesk, bitbucket, bitly, box, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, github, gitlab, google, linkedin, microsoft, notion, oidc, okta, paypal, paypalSandbox, podio, salesforce, slack, spotify, stripe, tradeshift, tradeshiftBox, twitch, wordpress, yahoo, yammer, yandex, zoho, zoom, githubImagine, googleImagine.",
                         "required": true,
                         "type": "string",
                         "x-example": "amazon",
@@ -3650,7 +3997,9 @@
                             "yammer",
                             "yandex",
                             "zoho",
-                            "zoom"
+                            "zoom",
+                            "githubImagine",
+                            "googleImagine"
                         ],
                         "x-enum-name": "OAuthProvider",
                         "x-enum-keys": [],
@@ -7392,7 +7741,7 @@
                 "x-appwrite": {
                     "method": "listExecutions",
                     "group": "executions",
-                    "weight": 436,
+                    "weight": 574,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/list-executions.md",
@@ -7475,7 +7824,7 @@
                 "x-appwrite": {
                     "method": "createExecution",
                     "group": "executions",
-                    "weight": 434,
+                    "weight": 572,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/create-execution.md",
@@ -7594,7 +7943,7 @@
                 "x-appwrite": {
                     "method": "getExecution",
                     "group": "executions",
-                    "weight": 435,
+                    "weight": 573,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/get-execution.md",
@@ -8372,6 +8721,140 @@
                 ]
             }
         },
+        "\/organizations\/{organizationId}\/estimations\/delete-organization": {
+            "patch": {
+                "summary": "Estimate delete team",
+                "operationId": "organizationsEstimationDeleteOrganization",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "organizations"
+                ],
+                "description": "Get estimation for deleting an organization.",
+                "responses": {
+                    "200": {
+                        "description": "EstimationDeleteOrganization",
+                        "schema": {
+                            "$ref": "#\/definitions\/estimationDeleteOrganization"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "estimationDeleteOrganization",
+                    "group": null,
+                    "weight": 722,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "organizations\/estimation-delete-organization.md",
+                    "rate-limit": 10,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "organizations.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/organizations\/estimation-delete-organization.md",
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "description": "Team ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<ORGANIZATION_ID>",
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/organizations\/{organizationId}\/payment-methods\/{paymentMethodId}": {
+            "get": {
+                "summary": "Get payment method",
+                "operationId": "organizationsGetPaymentMethod",
+                "consumes": [],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "organizations"
+                ],
+                "description": "Get an organization's payment method using it's payment method ID.",
+                "responses": {
+                    "200": {
+                        "description": "paymentMethod",
+                        "schema": {
+                            "$ref": "#\/definitions\/paymentMethod"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getPaymentMethod",
+                    "group": null,
+                    "weight": 699,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "organizations\/get-payment-method.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "billing.read",
+                    "platforms": [
+                        "console",
+                        "client"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/organizations\/get-payment-method.md",
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "description": "Organization ID",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<ORGANIZATION_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "paymentMethodId",
+                        "description": "Unique ID of payment method",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<PAYMENT_METHOD_ID>",
+                        "in": "path"
+                    }
+                ]
+            }
+        },
         "\/storage\/buckets\/{bucketId}\/files": {
             "get": {
                 "summary": "List files",
@@ -8489,7 +8972,7 @@
                 "x-appwrite": {
                     "method": "createFile",
                     "group": "files",
-                    "weight": 530,
+                    "weight": 774,
                     "cookies": false,
                     "type": "upload",
                     "demo": "storage\/create-file.md",
@@ -11313,7 +11796,9 @@
                 "consumes": [
                     "application\/json"
                 ],
-                "produces": [],
+                "produces": [
+                    "application\/json"
+                ],
                 "tags": [
                     "teams"
                 ],
@@ -11326,8 +11811,8 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "deleteMembership",
-                    "group": "memberships",
-                    "weight": 118,
+                    "group": null,
+                    "weight": 552,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/delete-membership.md",
@@ -13776,6 +14261,85 @@
                 "scheduledAt": "2020-10-15T06:38:00.000+00:00"
             }
         },
+        "key": {
+            "description": "Key",
+            "type": "object",
+            "properties": {
+                "$id": {
+                    "type": "string",
+                    "description": "Key ID.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "$createdAt": {
+                    "type": "string",
+                    "description": "Key creation date in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "$updatedAt": {
+                    "type": "string",
+                    "description": "Key update date in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Key name.",
+                    "x-example": "My API Key"
+                },
+                "expire": {
+                    "type": "string",
+                    "description": "Key expiration date in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "scopes": {
+                    "type": "array",
+                    "description": "Allowed permission scopes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "x-example": "users.read"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "Secret key.",
+                    "x-example": "919c2d18fb5d4...a2ae413da83346ad2"
+                },
+                "accessedAt": {
+                    "type": "string",
+                    "description": "Most recent access date in ISO 8601 format. This attribute is only updated again after 24 hours.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "sdks": {
+                    "type": "array",
+                    "description": "List of SDK user agents that used this key.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "x-example": "appwrite:flutter"
+                }
+            },
+            "required": [
+                "$id",
+                "$createdAt",
+                "$updatedAt",
+                "name",
+                "expire",
+                "scopes",
+                "secret",
+                "accessedAt",
+                "sdks"
+            ],
+            "example": {
+                "$id": "5e5ea5c16897e",
+                "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                "name": "My API Key",
+                "expire": "2020-10-15T06:38:00.000+00:00",
+                "scopes": "users.read",
+                "secret": "919c2d18fb5d4...a2ae413da83346ad2",
+                "accessedAt": "2020-10-15T06:38:00.000+00:00",
+                "sdks": "appwrite:flutter"
+            }
+        },
         "country": {
             "description": "Country",
             "type": "object",
@@ -14316,6 +14880,423 @@
                 "providerType": "email",
                 "identifier": "token",
                 "expired": false
+            }
+        },
+        "invoice": {
+            "description": "Invoice",
+            "type": "object",
+            "properties": {
+                "$id": {
+                    "type": "string",
+                    "description": "Invoice ID.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "$createdAt": {
+                    "type": "string",
+                    "description": "Invoice creation time in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "$updatedAt": {
+                    "type": "string",
+                    "description": "Invoice update date in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "$permissions": {
+                    "type": "array",
+                    "description": "Invoice permissions. [Learn more about permissions](\/docs\/permissions).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "x-example": [
+                        "read(\"any\")"
+                    ]
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "Project ID",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "aggregationId": {
+                    "type": "string",
+                    "description": "Aggregation ID",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "plan": {
+                    "type": "string",
+                    "description": "Billing plan selected. Can be one of `tier-0`, `tier-1` or `tier-2`.",
+                    "x-example": "tier-1"
+                },
+                "usage": {
+                    "type": "array",
+                    "description": "Usage breakdown per resource",
+                    "items": {
+                        "type": "object",
+                        "$ref": "#\/definitions\/usageResources"
+                    },
+                    "x-example": []
+                },
+                "amount": {
+                    "type": "number",
+                    "description": "Invoice Amount",
+                    "x-example": 50,
+                    "format": "double"
+                },
+                "tax": {
+                    "type": "number",
+                    "description": "Tax percentage",
+                    "x-example": 17,
+                    "format": "double"
+                },
+                "taxAmount": {
+                    "type": "number",
+                    "description": "Tax amount",
+                    "x-example": 12.5,
+                    "format": "double"
+                },
+                "vat": {
+                    "type": "number",
+                    "description": "VAT percentage",
+                    "x-example": 17,
+                    "format": "double"
+                },
+                "vatAmount": {
+                    "type": "number",
+                    "description": "VAT amount",
+                    "x-example": 12.5,
+                    "format": "double"
+                },
+                "grossAmount": {
+                    "type": "number",
+                    "description": "Gross amount after vat, tax, and discounts applied.",
+                    "x-example": 12.5,
+                    "format": "double"
+                },
+                "creditsUsed": {
+                    "type": "number",
+                    "description": "Credits used.",
+                    "x-example": 30,
+                    "format": "double"
+                },
+                "currency": {
+                    "type": "string",
+                    "description": "Currency the invoice is in",
+                    "x-example": "USD"
+                },
+                "clientSecret": {
+                    "type": "string",
+                    "description": "Client secret for processing failed payments in front-end",
+                    "x-example": "pi_daslfasdfkla_asdkfl"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Invoice status",
+                    "x-example": "succeeded"
+                },
+                "lastError": {
+                    "type": "string",
+                    "description": "Last payment error associated with the invoice",
+                    "x-example": "Your card has insufficient balance."
+                },
+                "dueAt": {
+                    "type": "string",
+                    "description": "Invoice due date.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "from": {
+                    "type": "string",
+                    "description": "Beginning date of the invoice",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "to": {
+                    "type": "string",
+                    "description": "End date of the invoice",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                }
+            },
+            "required": [
+                "$id",
+                "$createdAt",
+                "$updatedAt",
+                "$permissions",
+                "teamId",
+                "aggregationId",
+                "plan",
+                "usage",
+                "amount",
+                "tax",
+                "taxAmount",
+                "vat",
+                "vatAmount",
+                "grossAmount",
+                "creditsUsed",
+                "currency",
+                "clientSecret",
+                "status",
+                "lastError",
+                "dueAt",
+                "from",
+                "to"
+            ],
+            "example": {
+                "$id": "5e5ea5c16897e",
+                "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                "$permissions": [
+                    "read(\"any\")"
+                ],
+                "teamId": "5e5ea5c16897e",
+                "aggregationId": "5e5ea5c16897e",
+                "plan": "tier-1",
+                "usage": [],
+                "amount": 50,
+                "tax": 17,
+                "taxAmount": 12.5,
+                "vat": 17,
+                "vatAmount": 12.5,
+                "grossAmount": 12.5,
+                "creditsUsed": 30,
+                "currency": "USD",
+                "clientSecret": "pi_daslfasdfkla_asdkfl",
+                "status": "succeeded",
+                "lastError": "Your card has insufficient balance.",
+                "dueAt": "2020-10-15T06:38:00.000+00:00",
+                "from": "2020-10-15T06:38:00.000+00:00",
+                "to": "2020-10-15T06:38:00.000+00:00"
+            }
+        },
+        "paymentMethod": {
+            "description": "paymentMethod",
+            "type": "object",
+            "properties": {
+                "$id": {
+                    "type": "string",
+                    "description": "Payment Method ID.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "$createdAt": {
+                    "type": "string",
+                    "description": "Payment method creation time in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "$updatedAt": {
+                    "type": "string",
+                    "description": "Payment method update date in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "$permissions": {
+                    "type": "array",
+                    "description": "Payment method permissions. [Learn more about permissions](\/docs\/permissions).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "x-example": [
+                        "read(\"any\")"
+                    ]
+                },
+                "providerMethodId": {
+                    "type": "string",
+                    "description": "Payment method ID from the payment provider",
+                    "x-example": "abdk3ed3sdkfj"
+                },
+                "clientSecret": {
+                    "type": "string",
+                    "description": "Client secret hash for payment setup",
+                    "x-example": "seti_ddfe"
+                },
+                "providerUserId": {
+                    "type": "string",
+                    "description": "User ID from the payment provider.",
+                    "x-example": "abdk3ed3sdkfj"
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "ID of the Team.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "expiryMonth": {
+                    "type": "integer",
+                    "description": "Expiry month of the payment method.",
+                    "x-example": 2,
+                    "format": "int32"
+                },
+                "expiryYear": {
+                    "type": "integer",
+                    "description": "Expiry year of the payment method.",
+                    "x-example": 2024,
+                    "format": "int32"
+                },
+                "last4": {
+                    "type": "string",
+                    "description": "Last 4 digit of the payment method",
+                    "x-example": "4242"
+                },
+                "brand": {
+                    "type": "string",
+                    "description": "Payment method brand",
+                    "x-example": "visa"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the owner",
+                    "x-example": "John Doe"
+                },
+                "mandateId": {
+                    "type": "string",
+                    "description": "Mandate ID of the payment method",
+                    "x-example": "yxc"
+                },
+                "country": {
+                    "type": "string",
+                    "description": "Country of the payment method",
+                    "x-example": "de"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "State of the payment method",
+                    "x-example": ""
+                },
+                "lastError": {
+                    "type": "string",
+                    "description": "Last payment error associated with the payment method.",
+                    "x-example": "Your card has insufficient funds."
+                },
+                "default": {
+                    "type": "boolean",
+                    "description": "True when it's the default payment method.",
+                    "x-example": false
+                },
+                "expired": {
+                    "type": "boolean",
+                    "description": "True when payment method has expired.",
+                    "x-example": false
+                },
+                "failed": {
+                    "type": "boolean",
+                    "description": "True when payment method has failed to process multiple times.",
+                    "x-example": false
+                }
+            },
+            "required": [
+                "$id",
+                "$createdAt",
+                "$updatedAt",
+                "$permissions",
+                "providerMethodId",
+                "clientSecret",
+                "providerUserId",
+                "userId",
+                "expiryMonth",
+                "expiryYear",
+                "last4",
+                "brand",
+                "name",
+                "mandateId",
+                "country",
+                "state",
+                "lastError",
+                "default",
+                "expired",
+                "failed"
+            ],
+            "example": {
+                "$id": "5e5ea5c16897e",
+                "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                "$permissions": [
+                    "read(\"any\")"
+                ],
+                "providerMethodId": "abdk3ed3sdkfj",
+                "clientSecret": "seti_ddfe",
+                "providerUserId": "abdk3ed3sdkfj",
+                "userId": "5e5ea5c16897e",
+                "expiryMonth": 2,
+                "expiryYear": 2024,
+                "last4": "4242",
+                "brand": "visa",
+                "name": "John Doe",
+                "mandateId": "yxc",
+                "country": "de",
+                "state": "",
+                "lastError": "Your card has insufficient funds.",
+                "default": false,
+                "expired": false,
+                "failed": false
+            }
+        },
+        "usageResources": {
+            "description": "UsageResource",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Invoice name",
+                    "x-example": ""
+                },
+                "value": {
+                    "type": "integer",
+                    "description": "Invoice value",
+                    "x-example": 0,
+                    "format": "int32"
+                },
+                "amount": {
+                    "type": "number",
+                    "description": "Invoice amount",
+                    "x-example": 500,
+                    "format": "double"
+                },
+                "rate": {
+                    "type": "number",
+                    "description": "Invoice rate",
+                    "x-example": 12.5,
+                    "format": "double"
+                },
+                "desc": {
+                    "type": "string",
+                    "description": "Invoice description",
+                    "x-example": "Your monthly recurring Pro plan."
+                },
+                "resourceId": {
+                    "type": "string",
+                    "description": "Resource ID",
+                    "x-example": ""
+                }
+            },
+            "required": [
+                "name",
+                "value",
+                "amount",
+                "rate",
+                "desc",
+                "resourceId"
+            ],
+            "example": {
+                "name": "",
+                "value": 0,
+                "amount": 500,
+                "rate": 12.5,
+                "desc": "Your monthly recurring Pro plan.",
+                "resourceId": ""
+            }
+        },
+        "estimationDeleteOrganization": {
+            "description": "EstimationDeleteOrganization",
+            "type": "object",
+            "properties": {
+                "unpaidInvoices": {
+                    "type": "array",
+                    "description": "List of unpaid invoices",
+                    "items": {
+                        "type": "object",
+                        "$ref": "#\/definitions\/invoice"
+                    },
+                    "x-example": []
+                }
+            },
+            "required": [
+                "unpaidInvoices"
+            ],
+            "example": {
+                "unpaidInvoices": []
             }
         }
     },
