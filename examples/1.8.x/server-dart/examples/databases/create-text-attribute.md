@@ -15,6 +15,5 @@ AttributeText result = await databases.createTextAttribute(
     xrequired: false,
     xdefault: '<DEFAULT>', // (optional)
     array: false, // (optional)
-    encrypt: false, // (optional)
 );
 ```

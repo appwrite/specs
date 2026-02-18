@@ -10,7 +10,6 @@ X-Appwrite-Key: <YOUR_API_KEY>
   "key": "",
   "required": false,
   "default": "<DEFAULT>",
-  "array": false,
-  "encrypt": false
+  "array": false
 }
 ```

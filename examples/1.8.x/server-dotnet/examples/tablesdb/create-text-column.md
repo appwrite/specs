@@ -16,6 +16,5 @@ ColumnText result = await tablesDB.CreateTextColumn(
     key: "",
     required: false,
     default: "<DEFAULT>", // optional
-    array: false, // optional
-    encrypt: false // optional
+    array: false // optional
 );```

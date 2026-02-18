@@ -1,5 +1,4 @@
-```go
-package main
+```gopackage main
 
 import (
     "fmt"
@@ -22,6 +21,5 @@ response, error := service.CreateTextAttribute(
     false,
     databases.WithCreateTextAttributeDefault("<DEFAULT>"),
     databases.WithCreateTextAttributeArray(false),
-    databases.WithCreateTextAttributeEncrypt(false),
 )
 ```

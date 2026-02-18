@@ -15,6 +15,5 @@ ColumnText result = await tablesDB.createTextColumn(
     xrequired: false,
     xdefault: '<DEFAULT>', // (optional)
     array: false, // (optional)
-    encrypt: false, // (optional)
 );
 ```

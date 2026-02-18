@@ -16,7 +16,6 @@ result = databases.create_mediumtext_attribute(
     key: '',
     required: false,
     default: '<DEFAULT>', # optional
-    array: false, # optional
-    encrypt: false # optional
+    array: false # optional
 )
 ```

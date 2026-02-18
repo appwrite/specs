@@ -1,5 +1,4 @@
-```go
-package main
+```gopackage main
 
 import (
     "fmt"
@@ -22,6 +21,5 @@ response, error := service.CreateMediumtextColumn(
     false,
     tablesdb.WithCreateMediumtextColumnDefault("<DEFAULT>"),
     tablesdb.WithCreateMediumtextColumnArray(false),
-    tablesdb.WithCreateMediumtextColumnEncrypt(false),
 )
 ```

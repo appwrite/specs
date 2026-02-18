@@ -1,5 +1,4 @@
-```go
-package main
+```gopackage main
 
 import (
     "fmt"
@@ -23,6 +22,5 @@ response, error := service.CreateVarcharColumn(
     false,
     tablesdb.WithCreateVarcharColumnDefault("<DEFAULT>"),
     tablesdb.WithCreateVarcharColumnArray(false),
-    tablesdb.WithCreateVarcharColumnEncrypt(false),
 )
 ```

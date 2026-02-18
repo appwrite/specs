@@ -14,7 +14,6 @@ const result = await tablesDB.createLongtextColumn({
     key: '',
     required: false,
     default: '<DEFAULT>', // optional
-    array: false, // optional
-    encrypt: false // optional
+    array: false // optional
 });
 ```

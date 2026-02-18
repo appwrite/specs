@@ -15,8 +15,7 @@ let columnVarchar = try await tablesDB.createVarcharColumn(
     size: 1,
     required: false,
     default: "<DEFAULT>", // optional
-    array: false, // optional
-    encrypt: false // optional
+    array: false // optional
 )
 
 ```

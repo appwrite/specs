@@ -16,6 +16,5 @@ ColumnVarchar result = await tablesDB.createVarcharColumn(
     xrequired: false,
     xdefault: '<DEFAULT>', // (optional)
     array: false, // (optional)
-    encrypt: false, // (optional)
 );
 ```

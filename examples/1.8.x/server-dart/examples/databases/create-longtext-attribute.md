@@ -15,6 +15,5 @@ AttributeLongtext result = await databases.createLongtextAttribute(
     xrequired: false,
     xdefault: '<DEFAULT>', // (optional)
     array: false, // (optional)
-    encrypt: false, // (optional)
 );
 ```

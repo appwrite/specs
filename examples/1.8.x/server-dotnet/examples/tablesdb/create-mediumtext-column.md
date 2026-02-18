@@ -16,6 +16,5 @@ ColumnMediumtext result = await tablesDB.CreateMediumtextColumn(
     key: "",
     required: false,
     default: "<DEFAULT>", // optional
-    array: false, // optional
-    encrypt: false // optional
+    array: false // optional
 );```

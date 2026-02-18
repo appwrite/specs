@@ -15,6 +15,5 @@ ColumnMediumtext result = await tablesDB.createMediumtextColumn(
     xrequired: false,
     xdefault: '<DEFAULT>', // (optional)
     array: false, // (optional)
-    encrypt: false, // (optional)
 );
 ```

@@ -15,7 +15,6 @@ result = databases.create_longtext_attribute(
     key = '',
     required = False,
     default = '<DEFAULT>', # optional
-    array = False, # optional
-    encrypt = False # optional
+    array = False # optional
 )
 ```

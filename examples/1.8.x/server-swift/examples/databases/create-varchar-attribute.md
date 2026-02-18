@@ -15,8 +15,7 @@ let attributeVarchar = try await databases.createVarcharAttribute(
     size: 1,
     required: false,
     default: "<DEFAULT>", // optional
-    array: false, // optional
-    encrypt: false // optional
+    array: false // optional
 )
 
 ```

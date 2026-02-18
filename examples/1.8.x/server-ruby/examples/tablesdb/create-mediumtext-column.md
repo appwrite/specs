@@ -16,7 +16,6 @@ result = tables_db.create_mediumtext_column(
     key: '',
     required: false,
     default: '<DEFAULT>', # optional
-    array: false, # optional
-    encrypt: false # optional
+    array: false # optional
 )
 ```

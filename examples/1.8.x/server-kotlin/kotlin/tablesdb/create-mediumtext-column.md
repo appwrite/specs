@@ -16,7 +16,6 @@ val response = tablesDB.createMediumtextColumn(
     key = "",
     required = false,
     default = "<DEFAULT>", // optional
-    array = false, // optional
-    encrypt = false // optional
+    array = false // optional
 )
 ```

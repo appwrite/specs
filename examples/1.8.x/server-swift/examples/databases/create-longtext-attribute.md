@@ -14,8 +14,7 @@ let attributeLongtext = try await databases.createLongtextAttribute(
     key: "",
     required: false,
     default: "<DEFAULT>", // optional
-    array: false, // optional
-    encrypt: false // optional
+    array: false // optional
 )
 
 ```

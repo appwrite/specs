@@ -15,6 +15,5 @@ AttributeMediumtext result = await databases.createMediumtextAttribute(
     xrequired: false,
     xdefault: '<DEFAULT>', // (optional)
     array: false, // (optional)
-    encrypt: false, // (optional)
 );
 ```

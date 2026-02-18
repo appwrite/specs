@@ -1,0 +1,1906 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.8.1",
+        "title": "Appwrite",
+        "description": "Appwrite backend as a service cuts up to 70% of the time and costs required for building a modern application. We abstract and simplify common development tasks behind a REST APIs, to help you develop your app in a fast and secure way. For full API documentation and tutorials go to [https:\/\/appwrite.io\/docs](https:\/\/appwrite.io\/docs)",
+        "termsOfService": "https:\/\/appwrite.io\/policy\/terms",
+        "contact": {
+            "name": "Appwrite Team",
+            "url": "https:\/\/appwrite.io\/support",
+            "email": "team@appwrite.io"
+        },
+        "license": {
+            "name": "BSD-3-Clause",
+            "url": "https:\/\/raw.githubusercontent.com\/appwrite\/appwrite\/master\/LICENSE"
+        }
+    },
+    "servers": [
+        {
+            "url": "https:\/\/cloud.appwrite.io\/v1"
+        },
+        {
+            "url": "https:\/\/<REGION>.cloud.appwrite.io\/v1"
+        }
+    ],
+    "paths": {
+        "\/manager\/blocks": {
+            "post": {
+                "summary": "Create a new resource block for a project",
+                "operationId": "managerCreateBlock",
+                "tags": [
+                    "manager"
+                ],
+                "description": "Creates a new resource block.",
+                "responses": {
+                    "201": {
+                        "description": "Block",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/block"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createBlock",
+                    "group": null,
+                    "weight": 675,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "manager\/create-block.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "projectId": {
+                                        "type": "string",
+                                        "description": "Project ID",
+                                        "x-example": "<PROJECT_ID>"
+                                    },
+                                    "resourceType": {
+                                        "type": "string",
+                                        "description": "Resource type to block (e.g., projects, functions, databases, storage, etc.)",
+                                        "x-example": "projects",
+                                        "enum": [
+                                            "projects",
+                                            "functions",
+                                            "sites",
+                                            "databases",
+                                            "buckets",
+                                            "providers",
+                                            "topics",
+                                            "subscribers",
+                                            "messages"
+                                        ],
+                                        "x-enum-name": null,
+                                        "x-enum-keys": []
+                                    },
+                                    "resourceId": {
+                                        "type": "string",
+                                        "description": "Optional resource ID (if omitted, all resources of this type will be blocked)",
+                                        "x-example": "<RESOURCE_ID>"
+                                    },
+                                    "reason": {
+                                        "type": "string",
+                                        "description": "Optional reason why the resource is blocked",
+                                        "x-example": "<REASON>"
+                                    },
+                                    "expiredAt": {
+                                        "type": "string",
+                                        "description": "Optional expiration date for the block",
+                                        "x-example": null
+                                    }
+                                },
+                                "required": [
+                                    "projectId",
+                                    "resourceType"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete resource blocks for a project",
+                "operationId": "managerDeleteBlock",
+                "tags": [
+                    "manager"
+                ],
+                "description": "Deletes resource blocks for a project.",
+                "responses": {
+                    "200": {
+                        "description": "BlockDelete",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/blockDelete"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "deleteBlock",
+                    "group": null,
+                    "weight": 677,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "manager\/delete-block.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "projectId": {
+                                        "type": "string",
+                                        "description": "Project ID",
+                                        "x-example": "<PROJECT_ID>"
+                                    },
+                                    "resourceType": {
+                                        "type": "string",
+                                        "description": "Resource type to unblock",
+                                        "x-example": "projects",
+                                        "enum": [
+                                            "projects",
+                                            "functions",
+                                            "sites",
+                                            "databases",
+                                            "buckets",
+                                            "providers",
+                                            "topics",
+                                            "subscribers",
+                                            "messages"
+                                        ],
+                                        "x-enum-name": null,
+                                        "x-enum-keys": []
+                                    },
+                                    "resourceId": {
+                                        "type": "string",
+                                        "description": "Optional resource ID (if omitted, all blocks of this type will be removed)",
+                                        "x-example": "<RESOURCE_ID>"
+                                    }
+                                },
+                                "required": [
+                                    "projectId",
+                                    "resourceType"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/manager\/blocks\/{projectId}": {
+            "get": {
+                "summary": "List all resource blocks for a project",
+                "operationId": "managerListBlocks",
+                "tags": [
+                    "manager"
+                ],
+                "description": "Lists all resource blocks for a project.",
+                "responses": {
+                    "200": {
+                        "description": "Blocks list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/blockList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listBlocks",
+                    "group": null,
+                    "weight": 676,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "manager\/list-blocks.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "parameters": [
+                    {
+                        "name": "projectId",
+                        "description": "Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/manager\/domain": {
+            "get": {
+                "summary": "Find the DNS details for given domain.",
+                "operationId": "managerGetDomain",
+                "tags": [
+                    "manager"
+                ],
+                "description": "Retrieves DNS details for a given domain.",
+                "responses": {
+                    "200": {
+                        "description": "ManagerDomain",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/managerDomain"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getDomain",
+                    "group": null,
+                    "weight": 670,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "manager\/get-domain.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "parameters": [
+                    {
+                        "name": "domain",
+                        "description": "Domain name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/manager\/domains\/records": {
+            "get": {
+                "summary": "Find the DNS details for given domain.",
+                "operationId": "managerGetDNSRecords",
+                "tags": [
+                    "manager"
+                ],
+                "description": "Retrieves DNS records for a given domain.",
+                "responses": {
+                    "200": {
+                        "description": "DNS records list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/dnsRecordsList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getDNSRecords",
+                    "group": null,
+                    "weight": 672,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "manager\/get-dns-records.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "parameters": [
+                    {
+                        "name": "domain",
+                        "description": "Domain name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/manager\/domains\/{domain}\/zone": {
+            "get": {
+                "summary": "Retrieve the DNS zone file for the given domain.",
+                "operationId": "managerGetDomainZone",
+                "tags": [
+                    "manager"
+                ],
+                "description": "Retrieves the DNS zone file for a given domain.",
+                "responses": {
+                    "200": {
+                        "description": "File"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getDomainZone",
+                    "group": null,
+                    "weight": 671,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "manager\/get-domain-zone.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "parameters": [
+                    {
+                        "name": "domain",
+                        "description": "Domain to retrieve the DNS zone file for.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/manager\/events": {
+            "post": {
+                "summary": "Create a new event for the manager using CloudEvents specification",
+                "operationId": "managerCreateEvent",
+                "tags": [
+                    "manager"
+                ],
+                "description": "Creates a new event using CloudEvents specification for manager operations.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createEvent",
+                    "group": null,
+                    "weight": 673,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "manager\/create-event.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "specversion": {
+                                        "type": "string",
+                                        "description": "CloudEvents spec version",
+                                        "x-example": "<SPECVERSION>"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "Event type that maps to worker. e.g. v1-stats-usage",
+                                        "x-example": "<TYPE>"
+                                    },
+                                    "source": {
+                                        "type": "string",
+                                        "description": "Event source. e.g. imagine",
+                                        "x-example": "<SOURCE>"
+                                    },
+                                    "subject": {
+                                        "type": "string",
+                                        "description": "Subject of the event, i.e. projectId",
+                                        "x-example": "<SUBJECT>"
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "description": "Unique event ID",
+                                        "x-example": "<ID>"
+                                    },
+                                    "time": {
+                                        "type": "string",
+                                        "description": "Event timestamp in RFC3339 format",
+                                        "x-example": "<TIME>"
+                                    },
+                                    "datacontenttype": {
+                                        "type": "string",
+                                        "description": "Content type of data",
+                                        "x-example": "<DATACONTENTTYPE>"
+                                    },
+                                    "data": {
+                                        "type": "object",
+                                        "description": "Event data containing metrics. e.g. {\"metrics\": [...]}",
+                                        "x-example": "{}"
+                                    }
+                                },
+                                "required": [
+                                    "type",
+                                    "subject",
+                                    "data"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/manager\/projects\/{projectId}\/stats": {
+            "post": {
+                "summary": "Create stats for a project",
+                "operationId": "managerCreateProjectStats",
+                "tags": [
+                    "manager"
+                ],
+                "description": "Creates statistics records for a project.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createProjectStats",
+                    "group": null,
+                    "weight": 674,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "manager\/create-project-stats.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "parameters": [
+                    {
+                        "name": "projectId",
+                        "description": "Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Metric name",
+                                        "x-example": "<NAME>"
+                                    },
+                                    "key": {
+                                        "type": "string",
+                                        "description": "Metric key",
+                                        "x-example": "<KEY>"
+                                    },
+                                    "value": {
+                                        "type": "integer",
+                                        "description": "Metric value",
+                                        "x-example": null,
+                                        "format": "int32"
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "key",
+                                    "value"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/manager\/rule": {
+            "get": {
+                "summary": "Find the deployment rule for a given domain.",
+                "operationId": "managerGetRule",
+                "tags": [
+                    "manager"
+                ],
+                "description": "Retrieves the deployment rule for a given domain.",
+                "responses": {
+                    "200": {
+                        "description": "Rule",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/managerRule"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getRule",
+                    "group": null,
+                    "weight": 669,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "manager\/get-rule.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "parameters": [
+                    {
+                        "name": "domain",
+                        "description": "Domain name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/regions\/cache": {
+            "delete": {
+                "summary": "Purge platform manager cache resource from network regions",
+                "operationId": "regionsDeleteCache",
+                "tags": [
+                    "regions"
+                ],
+                "description": "Purges platform manager cache resource from network regions.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "deleteCache",
+                    "group": null,
+                    "weight": 682,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "regions\/delete-cache.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "documentId": {
+                                        "type": "string",
+                                        "description": "Document ID.",
+                                        "x-example": "<DOCUMENT_ID>"
+                                    },
+                                    "collectionId": {
+                                        "type": "string",
+                                        "description": "CollectionID.",
+                                        "x-example": "projects",
+                                        "enum": [
+                                            "projects",
+                                            "schedules",
+                                            "platforms",
+                                            "keys",
+                                            "devkeys",
+                                            "webhooks",
+                                            "certificates",
+                                            "realtime",
+                                            "rules",
+                                            "installations",
+                                            "repositories",
+                                            "vcscomments",
+                                            "vcscommentlocks",
+                                            "teams",
+                                            "users",
+                                            "cache",
+                                            "tokens",
+                                            "authenticators",
+                                            "challenges",
+                                            "sessions",
+                                            "identities",
+                                            "memberships",
+                                            "buckets",
+                                            "providers",
+                                            "messages",
+                                            "topics",
+                                            "subscribers",
+                                            "targets",
+                                            "companies",
+                                            "billingaddresses",
+                                            "paymentmethods",
+                                            "billingaggregations",
+                                            "billingaggregationresources",
+                                            "billingteamprojectaggregations",
+                                            "billingteamaggregations_v2",
+                                            "billingteamaggregationresources",
+                                            "billinginvoices_v2",
+                                            "credits",
+                                            "alerts",
+                                            "payments",
+                                            "billingdiscounts",
+                                            "sources",
+                                            "deals",
+                                            "blocks",
+                                            "regionmanagercachepurge",
+                                            "domains",
+                                            "dnsrecords",
+                                            "threats",
+                                            "feedbacks",
+                                            "databases",
+                                            "attributes",
+                                            "indexes",
+                                            "functions",
+                                            "sites",
+                                            "deployments",
+                                            "executions",
+                                            "variables",
+                                            "migrations",
+                                            "resourcetokens",
+                                            "transactions",
+                                            "transactionlogs",
+                                            "stats",
+                                            "policies",
+                                            "archives",
+                                            "restorations"
+                                        ],
+                                        "x-enum-name": null,
+                                        "x-enum-keys": []
+                                    },
+                                    "region": {
+                                        "type": "string",
+                                        "description": "Project Region.",
+                                        "x-example": "fra",
+                                        "enum": [
+                                            "fra",
+                                            "nyc",
+                                            "syd",
+                                            "sfo",
+                                            "sgp",
+                                            "tor"
+                                        ],
+                                        "x-enum-name": null,
+                                        "x-enum-keys": []
+                                    }
+                                },
+                                "required": [
+                                    "documentId",
+                                    "collectionId",
+                                    "region"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/regions\/deployments\/{deploymentId}\/runtime": {
+            "get": {
+                "summary": "Get the runtime information by deployment ID",
+                "operationId": "regionsGetDeploymentRuntime",
+                "tags": [
+                    "regions"
+                ],
+                "description": "Retrieves runtime information for a deployment by deployment ID.",
+                "responses": {
+                    "200": {
+                        "description": "Runtime",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/managerRuntime"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getDeploymentRuntime",
+                    "group": null,
+                    "weight": 678,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "regions\/get-deployment-runtime.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "parameters": [
+                    {
+                        "name": "projectId",
+                        "description": "Project ID",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "deploymentId",
+                        "description": "Deployment ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/regions\/events": {
+            "post": {
+                "summary": "Queue an event in the given region",
+                "operationId": "regionsCreateEvent",
+                "tags": [
+                    "regions"
+                ],
+                "description": "Queues an event in the given region using CloudEvents specification.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createEvent",
+                    "group": null,
+                    "weight": 683,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "regions\/create-event.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "specversion": {
+                                        "type": "string",
+                                        "description": "CloudEvents spec version",
+                                        "x-example": "<SPECVERSION>"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "Event type that maps to worker. e.g. v1-stats-usage",
+                                        "x-example": "<TYPE>"
+                                    },
+                                    "source": {
+                                        "type": "string",
+                                        "description": "Event source. e.g. imagine",
+                                        "x-example": "<SOURCE>"
+                                    },
+                                    "subject": {
+                                        "type": "string",
+                                        "description": "Subject of the event, i.e. projectId",
+                                        "x-example": "<SUBJECT>"
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "description": "Unique event ID",
+                                        "x-example": "<ID>"
+                                    },
+                                    "time": {
+                                        "type": "string",
+                                        "description": "Event timestamp in RFC3339 format",
+                                        "x-example": "<TIME>"
+                                    },
+                                    "datacontenttype": {
+                                        "type": "string",
+                                        "description": "Content type of data",
+                                        "x-example": "<DATACONTENTTYPE>"
+                                    },
+                                    "data": {
+                                        "type": "object",
+                                        "description": "Event data containing metrics. e.g. {\"metrics\": [...]}",
+                                        "x-example": "{}"
+                                    }
+                                },
+                                "required": [
+                                    "type",
+                                    "subject",
+                                    "data"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/regions\/events\/execution": {
+            "post": {
+                "summary": "Create a new execution for a function or site",
+                "operationId": "regionsCreateExecution",
+                "tags": [
+                    "regions"
+                ],
+                "description": "Creates a new execution record for a function or site.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createExecution",
+                    "group": null,
+                    "weight": 684,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "regions\/create-execution.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "projectId": {
+                                        "type": "string",
+                                        "description": "Project ID",
+                                        "x-example": null
+                                    },
+                                    "deploymentId": {
+                                        "type": "string",
+                                        "description": "Deployment ID",
+                                        "x-example": null
+                                    },
+                                    "responseStatusCode": {
+                                        "type": "integer",
+                                        "description": "Response status code",
+                                        "x-example": 100,
+                                        "format": "int32"
+                                    },
+                                    "responseHeaders": {
+                                        "type": "object",
+                                        "description": "Response headers",
+                                        "x-example": "{}"
+                                    },
+                                    "responseSize": {
+                                        "type": "integer",
+                                        "description": "Response size in bytes",
+                                        "x-example": null,
+                                        "format": "int32"
+                                    },
+                                    "requestPath": {
+                                        "type": "string",
+                                        "description": "Request path",
+                                        "x-example": "<REQUEST_PATH>"
+                                    },
+                                    "requestMethod": {
+                                        "type": "string",
+                                        "description": "Request method",
+                                        "x-example": "get",
+                                        "enum": [
+                                            "get",
+                                            "post",
+                                            "put",
+                                            "patch",
+                                            "delete",
+                                            "options",
+                                            "head"
+                                        ],
+                                        "x-enum-name": null,
+                                        "x-enum-keys": []
+                                    },
+                                    "requestHeaders": {
+                                        "type": "object",
+                                        "description": "Request headers",
+                                        "x-example": "{}"
+                                    },
+                                    "requestSize": {
+                                        "type": "integer",
+                                        "description": "Request size in bytes",
+                                        "x-example": null,
+                                        "format": "int32"
+                                    },
+                                    "errors": {
+                                        "type": "string",
+                                        "description": "Errors",
+                                        "x-example": "<ERRORS>"
+                                    },
+                                    "logs": {
+                                        "type": "string",
+                                        "description": "Logs",
+                                        "x-example": "<LOGS>"
+                                    },
+                                    "duration": {
+                                        "type": "number",
+                                        "description": "Execution duration in seconds",
+                                        "x-example": null,
+                                        "format": "float"
+                                    }
+                                },
+                                "required": [
+                                    "deploymentId",
+                                    "responseStatusCode",
+                                    "responseHeaders",
+                                    "responseSize",
+                                    "requestPath",
+                                    "requestMethod",
+                                    "requestHeaders",
+                                    "requestSize",
+                                    "errors",
+                                    "logs",
+                                    "duration"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/regions\/functions\/{functionId}\/runtime": {
+            "get": {
+                "summary": "Get the runtime information by function ID",
+                "operationId": "regionsGetFunctionRuntime",
+                "tags": [
+                    "regions"
+                ],
+                "description": "Retrieves runtime information for a function by function ID.",
+                "responses": {
+                    "200": {
+                        "description": "Runtime",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/managerRuntime"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getFunctionRuntime",
+                    "group": null,
+                    "weight": 679,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "regions\/get-function-runtime.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "parameters": [
+                    {
+                        "name": "projectId",
+                        "description": "Project ID",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "functionId",
+                        "description": "Function ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/regions\/project": {
+            "delete": {
+                "summary": "Delete project from network regions",
+                "operationId": "regionsDeleteProject",
+                "tags": [
+                    "regions"
+                ],
+                "description": "Deletes a project from network regions.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "deleteProject",
+                    "group": null,
+                    "weight": 680,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "regions\/delete-project.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "projectId": {
+                                        "type": "string",
+                                        "description": "Project ID.",
+                                        "x-example": "<PROJECT_ID>"
+                                    }
+                                },
+                                "required": [
+                                    "projectId"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/regions\/sites\/{siteId}\/runtime": {
+            "get": {
+                "summary": "Get the runtime information by site ID",
+                "operationId": "regionsGetSiteRuntime",
+                "tags": [
+                    "regions"
+                ],
+                "description": "Retrieves runtime information for a site by site ID.",
+                "responses": {
+                    "200": {
+                        "description": "Runtime",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/managerRuntime"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getSiteRuntime",
+                    "group": null,
+                    "weight": 681,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "regions\/get-site-runtime.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true
+                },
+                "parameters": [
+                    {
+                        "name": "projectId",
+                        "description": "Project ID",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "siteId",
+                        "description": "Site ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/regions\/usage": {
+            "post": {
+                "summary": "Push usage stats to stats usage queue",
+                "operationId": "regionsCreateUsage",
+                "tags": [
+                    "regions"
+                ],
+                "description": "Pushes usage statistics to the stats usage queue.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createUsage",
+                    "group": null,
+                    "weight": 686,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "regions\/create-usage.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "usage": {
+                                        "type": "object",
+                                        "description": "Usage stats with metrics in JSON format. Array of entries with projectId, metrics, and timestamp. eg: [{\"projectId\": \"123\", \"metrics\": [{\"key\": \"requests\", \"value\": 1}], \"timestamp\": \"2021-01-01 00:00:00\"}]",
+                                        "x-example": "{}"
+                                    }
+                                },
+                                "required": [
+                                    "usage"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [],
+    "components": {
+        "schemas": {
+            "error": {
+                "description": "Error",
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "description": "Error message.",
+                        "x-example": "Not found"
+                    },
+                    "code": {
+                        "type": "string",
+                        "description": "Error code.",
+                        "x-example": "404"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Error type. You can learn more about all the error types at https:\/\/appwrite.io\/docs\/error-codes#errorTypes",
+                        "x-example": "not_found"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "Server version number.",
+                        "x-example": "1.0"
+                    }
+                },
+                "required": [
+                    "message",
+                    "code",
+                    "type",
+                    "version"
+                ],
+                "example": {
+                    "message": "Not found",
+                    "code": "404",
+                    "type": "not_found",
+                    "version": "1.0"
+                }
+            },
+            "block": {
+                "description": "Block",
+                "type": "object",
+                "properties": {
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "Block creation date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Resource type that is blocked",
+                        "x-example": "project"
+                    },
+                    "resourceId": {
+                        "type": "string",
+                        "description": "Resource identifier that is blocked",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "Reason for the block",
+                        "x-example": "Payment overdue"
+                    },
+                    "expiredAt": {
+                        "type": "string",
+                        "description": "Block expiration date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    }
+                },
+                "required": [
+                    "$createdAt",
+                    "resourceType",
+                    "resourceId",
+                    "reason",
+                    "expiredAt"
+                ],
+                "example": {
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "resourceType": "project",
+                    "resourceId": "5e5ea5c16897e",
+                    "reason": "Payment overdue",
+                    "expiredAt": "2020-10-15T06:38:00.000+00:00"
+                }
+            },
+            "blockDelete": {
+                "description": "BlockDelete",
+                "type": "object",
+                "properties": {
+                    "deleted": {
+                        "type": "integer",
+                        "description": "Number of blocks deleted",
+                        "x-example": 1,
+                        "format": "int32"
+                    },
+                    "blocks": {
+                        "type": "array",
+                        "description": "List of deleted blocks",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/block"
+                        },
+                        "x-example": []
+                    }
+                },
+                "required": [
+                    "deleted",
+                    "blocks"
+                ],
+                "example": {
+                    "deleted": 1,
+                    "blocks": []
+                }
+            },
+            "managerRuntime": {
+                "description": "Runtime",
+                "type": "object",
+                "properties": {
+                    "deploymentId": {
+                        "type": "string",
+                        "description": "Deployment ID of function",
+                        "x-example": "fid8jx6ws45jana098ab7"
+                    },
+                    "variables": {
+                        "type": "object",
+                        "description": "Environment variables for the function execution",
+                        "x-example": "{\"API_KEY\":\"your-api-key\",\"DEBUG\":\"true\"}",
+                        "nullable": true
+                    },
+                    "headers": {
+                        "type": "object",
+                        "description": "Headers for the function execution",
+                        "x-example": "{\"X-Appwrite-Key\":\"your-api-key\",\"DEBUG\":\"true\"}",
+                        "nullable": true
+                    },
+                    "scopes": {
+                        "type": "array",
+                        "description": "Scopes for the dyanmic key passed in function execution",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": "[\"users.read\",\"users.write\"]",
+                        "nullable": true
+                    },
+                    "execute": {
+                        "type": "array",
+                        "description": "Allowed groups for the function execution",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": "[\"any\",\"guest\"]",
+                        "nullable": true
+                    },
+                    "timeout": {
+                        "type": "integer",
+                        "description": "Function timeout in seconds.",
+                        "x-example": 0,
+                        "format": "int32"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "Build source path",
+                        "x-example": ""
+                    },
+                    "entrypoint": {
+                        "type": "string",
+                        "description": "Build entrypoint file",
+                        "x-example": ""
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "Function version.",
+                        "x-example": "v4"
+                    },
+                    "cpus": {
+                        "type": "integer",
+                        "description": "Function CPU count.",
+                        "x-example": 0.5,
+                        "format": "int32"
+                    },
+                    "memory": {
+                        "type": "integer",
+                        "description": "Function memory limit in MB.",
+                        "x-example": 512,
+                        "format": "int32"
+                    },
+                    "logging": {
+                        "type": "boolean",
+                        "description": "Function logging.",
+                        "x-example": true
+                    },
+                    "image": {
+                        "type": "string",
+                        "description": "Runtime image name.",
+                        "x-example": ""
+                    },
+                    "command": {
+                        "type": "string",
+                        "description": "Function runtime command.",
+                        "x-example": "cp \/tmp\/code.tar.gz \/mnt\/code\/code.tar.gz && nohup helpers\/start.sh \"node index.js\""
+                    }
+                },
+                "required": [
+                    "deploymentId",
+                    "timeout",
+                    "source",
+                    "entrypoint",
+                    "version",
+                    "cpus",
+                    "memory",
+                    "logging",
+                    "image",
+                    "command"
+                ],
+                "example": {
+                    "deploymentId": "fid8jx6ws45jana098ab7",
+                    "variables": "{\"API_KEY\":\"your-api-key\",\"DEBUG\":\"true\"}",
+                    "headers": "{\"X-Appwrite-Key\":\"your-api-key\",\"DEBUG\":\"true\"}",
+                    "scopes": "[\"users.read\",\"users.write\"]",
+                    "execute": "[\"any\",\"guest\"]",
+                    "timeout": 0,
+                    "source": "",
+                    "entrypoint": "",
+                    "version": "v4",
+                    "cpus": 0.5,
+                    "memory": 512,
+                    "logging": true,
+                    "image": "",
+                    "command": "cp \/tmp\/code.tar.gz \/mnt\/code\/code.tar.gz && nohup helpers\/start.sh \"node index.js\""
+                }
+            },
+            "managerRule": {
+                "description": "Rule",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Rule ID.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "Rule creation date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "$updatedAt": {
+                        "type": "string",
+                        "description": "Rule update date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "domain": {
+                        "type": "string",
+                        "description": "Domain name.",
+                        "x-example": "appwrite.company.com"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Action definition for the rule. Possible values are \"api\", \"deployment\", or \"redirect\"",
+                        "x-example": "deployment"
+                    },
+                    "trigger": {
+                        "type": "string",
+                        "description": "Defines how the rule was created. Possible values are \"manual\" or \"deployment\"",
+                        "x-example": "manual"
+                    },
+                    "redirectUrl": {
+                        "type": "string",
+                        "description": "URL to redirect to. Used if type is \"redirect\"",
+                        "x-example": "https:\/\/appwrite.io\/docs"
+                    },
+                    "redirectStatusCode": {
+                        "type": "integer",
+                        "description": "Status code to apply during redirect. Used if type is \"redirect\"",
+                        "x-example": 301,
+                        "format": "int32"
+                    },
+                    "deploymentId": {
+                        "type": "string",
+                        "description": "ID of deployment. Used if type is \"deployment\"",
+                        "x-example": "n3u9feiwmf"
+                    },
+                    "deploymentResourceType": {
+                        "type": "string",
+                        "description": "Type of deployment. Possible values are \"function\", \"site\". Used if rule's type is \"deployment\".",
+                        "x-example": "function",
+                        "enum": [
+                            "function",
+                            "site"
+                        ]
+                    },
+                    "deploymentResourceId": {
+                        "type": "string",
+                        "description": "ID deployment's resource. Used if type is \"deployment\"",
+                        "x-example": "n3u9feiwmf"
+                    },
+                    "deploymentVcsProviderBranch": {
+                        "type": "string",
+                        "description": "Name of Git branch that updates rule. Used if type is \"deployment\"",
+                        "x-example": "main"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Domain verification status. Possible values are \"created\", \"verifying\", \"verified\" and \"unverified\"",
+                        "x-example": "verified",
+                        "enum": [
+                            "created",
+                            "verifying",
+                            "verified",
+                            "unverified"
+                        ]
+                    },
+                    "logs": {
+                        "type": "string",
+                        "description": "Logs from rule verification or certificate generation. Certificate generation logs are prioritized if both are available.",
+                        "x-example": "Verification of DNS records failed with DNS resolver 8.8.8.8. Domain stage.myapp.com does not have DNS record."
+                    },
+                    "renewAt": {
+                        "type": "string",
+                        "description": "Certificate auto-renewal date in ISO 8601 format.",
+                        "x-example": "datetime"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "Project ID.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Region ID.",
+                        "x-example": "fra"
+                    }
+                },
+                "required": [
+                    "$id",
+                    "$createdAt",
+                    "$updatedAt",
+                    "domain",
+                    "type",
+                    "trigger",
+                    "redirectUrl",
+                    "redirectStatusCode",
+                    "deploymentId",
+                    "deploymentResourceType",
+                    "deploymentResourceId",
+                    "deploymentVcsProviderBranch",
+                    "status",
+                    "logs",
+                    "renewAt",
+                    "projectId",
+                    "region"
+                ],
+                "example": {
+                    "$id": "5e5ea5c16897e",
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                    "domain": "appwrite.company.com",
+                    "type": "deployment",
+                    "trigger": "manual",
+                    "redirectUrl": "https:\/\/appwrite.io\/docs",
+                    "redirectStatusCode": 301,
+                    "deploymentId": "n3u9feiwmf",
+                    "deploymentResourceType": "function",
+                    "deploymentResourceId": "n3u9feiwmf",
+                    "deploymentVcsProviderBranch": "main",
+                    "status": "verified",
+                    "logs": "Verification of DNS records failed with DNS resolver 8.8.8.8. Domain stage.myapp.com does not have DNS record.",
+                    "renewAt": "datetime",
+                    "projectId": "5e5ea5c16897e",
+                    "region": "fra"
+                }
+            },
+            "dnsRecord": {
+                "description": "DNSRecord",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "DNS Record ID.",
+                        "x-example": "5f40a6e10c65e"
+                    },
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "DNS Record creation time in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "$updatedAt": {
+                        "type": "string",
+                        "description": "DNS Record update date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "DNS record type (e.g. A, CNAME, MX).",
+                        "x-example": "A"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Record name or subdomain.",
+                        "x-example": "mail"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "Value of the record (IP address, domain, etc.).",
+                        "x-example": "192.0.2.1"
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "Time to live (in seconds).",
+                        "x-example": 86400,
+                        "format": "int32"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "description": "Record priority (commonly used for MX).",
+                        "x-example": 10,
+                        "format": "int32"
+                    },
+                    "lock": {
+                        "type": "boolean",
+                        "description": "Whether this record is locked (read-only).",
+                        "x-example": false
+                    },
+                    "weight": {
+                        "type": "integer",
+                        "description": "Record weight (used for SRV records).",
+                        "x-example": 10,
+                        "format": "int32"
+                    },
+                    "port": {
+                        "type": "integer",
+                        "description": "Target port (used for SRV records).",
+                        "x-example": 443,
+                        "format": "int32"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "Comment for the DNS record.",
+                        "x-example": "Mail server record"
+                    }
+                },
+                "required": [
+                    "$id",
+                    "$createdAt",
+                    "$updatedAt",
+                    "type",
+                    "name",
+                    "value",
+                    "ttl",
+                    "priority",
+                    "lock",
+                    "weight",
+                    "port",
+                    "comment"
+                ],
+                "example": {
+                    "$id": "5f40a6e10c65e",
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                    "type": "A",
+                    "name": "mail",
+                    "value": "192.0.2.1",
+                    "ttl": 86400,
+                    "priority": 10,
+                    "lock": false,
+                    "weight": 10,
+                    "port": 443,
+                    "comment": "Mail server record"
+                }
+            },
+            "managerDomain": {
+                "description": "ManagerDomain",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Domain ID.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "Domain creation time in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "$updatedAt": {
+                        "type": "string",
+                        "description": "Domain update date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "domain": {
+                        "type": "string",
+                        "description": "Domain name.",
+                        "x-example": "example.com"
+                    },
+                    "registrar": {
+                        "type": "string",
+                        "description": "Domain registrar (e.g. \"appwrite\" or \"third_party\").",
+                        "x-example": "appwrite"
+                    },
+                    "nameservers": {
+                        "type": "string",
+                        "description": "Nameservers setting. \"Appwrite\" or empty string.",
+                        "x-example": "Appwrite"
+                    },
+                    "expire": {
+                        "type": "string",
+                        "description": "Domain expiry date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "renewal": {
+                        "type": "string",
+                        "description": "Domain renewal date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "autoRenewal": {
+                        "type": "boolean",
+                        "description": "If set to true, the domain will automatically renew.",
+                        "x-example": true
+                    },
+                    "renewalPrice": {
+                        "type": "number",
+                        "description": "Renewal price (in USD).",
+                        "x-example": 25.99,
+                        "format": "double"
+                    },
+                    "teamId": {
+                        "type": "string",
+                        "description": "Team ID.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "dnsRecords": {
+                        "type": "array",
+                        "description": "Dns records",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/dnsRecord"
+                        },
+                        "x-example": []
+                    },
+                    "soaSerial": {
+                        "type": "integer",
+                        "description": "SOA serial number",
+                        "x-example": 12,
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "$id",
+                    "$createdAt",
+                    "$updatedAt",
+                    "domain",
+                    "registrar",
+                    "nameservers",
+                    "expire",
+                    "renewal",
+                    "autoRenewal",
+                    "renewalPrice",
+                    "teamId",
+                    "dnsRecords",
+                    "soaSerial"
+                ],
+                "example": {
+                    "$id": "5e5ea5c16897e",
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                    "domain": "example.com",
+                    "registrar": "appwrite",
+                    "nameservers": "Appwrite",
+                    "expire": "2020-10-15T06:38:00.000+00:00",
+                    "renewal": "2020-10-15T06:38:00.000+00:00",
+                    "autoRenewal": true,
+                    "renewalPrice": 25.99,
+                    "teamId": "5e5ea5c16897e",
+                    "dnsRecords": [],
+                    "soaSerial": 12
+                }
+            },
+            "blockList": {
+                "description": "Blocks list",
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of blocks that matched your query.",
+                        "x-example": 5,
+                        "format": "int32"
+                    },
+                    "blocks": {
+                        "type": "array",
+                        "description": "List of blocks.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/block"
+                        },
+                        "x-example": ""
+                    }
+                },
+                "required": [
+                    "total",
+                    "blocks"
+                ],
+                "example": {
+                    "total": 5,
+                    "blocks": ""
+                }
+            },
+            "dnsRecordsList": {
+                "description": "DNS records list",
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of dnsRecords that matched your query.",
+                        "x-example": 5,
+                        "format": "int32"
+                    },
+                    "dnsRecords": {
+                        "type": "array",
+                        "description": "List of dnsRecords.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/dnsRecord"
+                        },
+                        "x-example": ""
+                    }
+                },
+                "required": [
+                    "total",
+                    "dnsRecords"
+                ],
+                "example": {
+                    "total": 5,
+                    "dnsRecords": ""
+                }
+            }
+        },
+        "securitySchemes": {
+            "Key": {
+                "type": "http",
+                "scheme": "bearer",
+                "description": "Bearer token using a JWT",
+                "bearerFormat": "JWT",
+                "x-appwrite": {
+                    "demo": "<YOUR_API_KEY>"
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Full API docs, specs and tutorials",
+        "url": "https:\/\/appwrite.io\/docs"
+    }
+}

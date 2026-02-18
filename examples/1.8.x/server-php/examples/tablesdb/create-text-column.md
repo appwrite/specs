@@ -17,6 +17,5 @@ $result = $tablesDB->createTextColumn(
     key: '',
     required: false,
     default: '<DEFAULT>', // optional
-    array: false, // optional
-    encrypt: false // optional
+    array: false // optional
 );```
