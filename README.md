@@ -1,7 +1,7 @@
 # Appwrite Specs
 
 [![Discord](https://img.shields.io/discord/564160730845151244?label=discord&style=flat-square)](https://appwrite.io/discord)
-[![Twitter Account](https://img.shields.io/twitter/follow/appwrite?color=00acee&label=twitter&style=flat-square)](https://twitter.com/appwrite)
+[![X (formerly Twitter)](https://img.shields.io/badge/follow-%40appwrite-00acee?logo=x&style=flat-square)](https://x.com/appwrite)
 
 This repository contains the official [Appwrite](https://appwrite.io) API specifications and SDK code examples for all supported versions.
 
