@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-specs:
+    name: Validate Specs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate all specs against Swagger Validator
+        run: |
+          set -e
+          FAILED=0
+          PASSED=0
+          VALIDATOR_URL="https://validator.swagger.io/validator/debug"
+
+          while IFS= read -r spec_file; do
+            echo "Validating: $spec_file"
+
+            response=$(curl -s --max-time 30 -X POST \
+              -H "Content-Type: application/json" \
+              --data @"$spec_file" \
+              "$VALIDATOR_URL")
+
+            errors=$(echo "$response" | jq '[.schemaValidationMessages[] | select(.level == "error")] | length' 2>/dev/null || echo "0")
+
+            if [ "$errors" -gt "0" ]; then
+              echo "  FAILED ($errors error(s)):"
+              echo "$response" | jq -r '.schemaValidationMessages[] | select(.level == "error") | "  - \(.message)"'
+              FAILED=$((FAILED + 1))
+            else
+              echo "  PASSED"
+              PASSED=$((PASSED + 1))
+            fi
+          done < <(find specs -name "*.json" | sort)
+
+          echo ""
+          echo "Results: $PASSED passed, $FAILED failed"
+
+          if [ "$FAILED" -ne "0" ]; then
+            echo "One or more specs failed validation."
+            exit 1
+          fi
+
+          echo "All specs passed validation."
