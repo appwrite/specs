@@ -310,8 +310,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "account",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -374,8 +373,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "account",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -476,8 +474,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "account",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -536,8 +533,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "account",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -643,8 +639,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "account",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -1322,9 +1317,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "account",
                     "platforms": [
-                        "console",
-                        "client",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -1359,8 +1352,7 @@
                 },
                 "security": [
                     {
-                        "Project": [],
-                        "JWT": []
+                        "Project": []
                     }
                 ],
                 "parameters": [
@@ -2990,8 +2982,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "account",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3054,8 +3045,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "account",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3104,8 +3094,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "account",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3164,8 +3153,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "account",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3254,8 +3242,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "account",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3316,8 +3303,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "account",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3410,8 +3396,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "account",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -33729,9 +33714,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "organizations.write",
                     "platforms": [
-                        "console",
-                        "client",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -33742,9 +33725,7 @@
                 },
                 "security": [
                     {
-                        "Project": [],
-                        "Key": [],
-                        "JWT": []
+                        "Project": []
                     }
                 ],
                 "parameters": [
@@ -34084,8 +34065,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "billing.read",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -34760,8 +34740,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "billing.write",
                     "platforms": [
-                        "console",
-                        "client"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
