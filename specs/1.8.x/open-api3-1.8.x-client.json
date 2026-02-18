@@ -2540,7 +2540,7 @@
                 "parameters": [
                     {
                         "name": "provider",
-                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, auth0, authentik, autodesk, bitbucket, bitly, box, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, github, gitlab, google, linkedin, microsoft, notion, oidc, okta, paypal, paypalSandbox, podio, salesforce, slack, spotify, stripe, tradeshift, tradeshiftBox, twitch, wordpress, yahoo, yammer, yandex, zoho, zoom.",
+                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, auth0, authentik, autodesk, bitbucket, bitly, box, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, github, gitlab, google, linkedin, microsoft, notion, oidc, okta, paypal, paypalSandbox, podio, salesforce, slack, spotify, stripe, tradeshift, tradeshiftBox, twitch, wordpress, yahoo, yammer, yandex, zoho, zoom, githubImagine, googleImagine.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -2584,7 +2584,9 @@
                                 "yammer",
                                 "yandex",
                                 "zoho",
-                                "zoom"
+                                "zoom",
+                                "githubImagine",
+                                "googleImagine"
                             ],
                             "x-enum-name": "OAuthProvider",
                             "x-enum-keys": []
@@ -3472,7 +3474,7 @@
                 "parameters": [
                     {
                         "name": "provider",
-                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, auth0, authentik, autodesk, bitbucket, bitly, box, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, github, gitlab, google, linkedin, microsoft, notion, oidc, okta, paypal, paypalSandbox, podio, salesforce, slack, spotify, stripe, tradeshift, tradeshiftBox, twitch, wordpress, yahoo, yammer, yandex, zoho, zoom.",
+                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, auth0, authentik, autodesk, bitbucket, bitly, box, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, github, gitlab, google, linkedin, microsoft, notion, oidc, okta, paypal, paypalSandbox, podio, salesforce, slack, spotify, stripe, tradeshift, tradeshiftBox, twitch, wordpress, yahoo, yammer, yandex, zoho, zoom, githubImagine, googleImagine.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -3516,7 +3518,9 @@
                                 "yammer",
                                 "yandex",
                                 "zoho",
-                                "zoom"
+                                "zoom",
+                                "githubImagine",
+                                "googleImagine"
                             ],
                             "x-enum-name": "OAuthProvider",
                             "x-enum-keys": []
@@ -7335,7 +7339,7 @@
                 "x-appwrite": {
                     "method": "listExecutions",
                     "group": "executions",
-                    "weight": 436,
+                    "weight": 574,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/list-executions.md",
@@ -7422,7 +7426,7 @@
                 "x-appwrite": {
                     "method": "createExecution",
                     "group": "executions",
-                    "weight": 434,
+                    "weight": 572,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/create-execution.md",
@@ -7540,7 +7544,7 @@
                 "x-appwrite": {
                     "method": "getExecution",
                     "group": "executions",
-                    "weight": 435,
+                    "weight": 573,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/get-execution.md",
@@ -8414,7 +8418,7 @@
                 "x-appwrite": {
                     "method": "createFile",
                     "group": "files",
-                    "weight": 530,
+                    "weight": 774,
                     "cookies": false,
                     "type": "upload",
                     "demo": "storage\/create-file.md",
@@ -11356,8 +11360,8 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "deleteMembership",
-                    "group": "memberships",
-                    "weight": 118,
+                    "group": null,
+                    "weight": 552,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/delete-membership.md",
