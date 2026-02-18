@@ -1,0 +1,12 @@
+{
+    "private": true,
+    "name": "@appwrite.io/specs",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/appwrite/appwrite.git"
+    },
+    "files": [
+        "examples",
+        "specs"
+    ]
+}
