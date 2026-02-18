@@ -20,13 +20,24 @@ jobs:
           PASSED=0
           VALIDATOR_URL="https://validator.swagger.io/validator/debug"
 
+          SPECS=$(find specs -name "*.json" | sort)
+
+          if [ -z "$SPECS" ]; then
+            echo "Error: no spec files found under specs/"
+            exit 1
+          fi
+
           while IFS= read -r spec_file; do
             echo "Validating: $spec_file"
 
-            response=$(curl -s --max-time 30 -X POST \
+            response=$(curl -s --fail-with-body --max-time 30 -X POST \
               -H "Content-Type: application/json" \
               --data @"$spec_file" \
-              "$VALIDATOR_URL")
+              "$VALIDATOR_URL") || {
+              echo "  FAILED (HTTP/network error)"
+              FAILED=$((FAILED + 1))
+              continue
+            }
 
             errors=$(echo "$response" | jq '[.schemaValidationMessages[] | select(.level == "error")] | length' 2>/dev/null || echo "0")
 
@@ -38,7 +49,7 @@ jobs:
               echo "  PASSED"
               PASSED=$((PASSED + 1))
             fi
-          done < <(find specs -name "*.json" | sort)
+          done <<< "$SPECS"
 
           echo ""
           echo "Results: $PASSED passed, $FAILED failed"
