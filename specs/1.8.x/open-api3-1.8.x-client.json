@@ -7335,7 +7335,7 @@
                 "x-appwrite": {
                     "method": "listExecutions",
                     "group": "executions",
-                    "weight": 574,
+                    "weight": 577,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/list-executions.md",
@@ -7422,7 +7422,7 @@
                 "x-appwrite": {
                     "method": "createExecution",
                     "group": "executions",
-                    "weight": 572,
+                    "weight": 575,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/create-execution.md",
@@ -7540,7 +7540,7 @@
                 "x-appwrite": {
                     "method": "getExecution",
                     "group": "executions",
-                    "weight": 573,
+                    "weight": 576,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/get-execution.md",
@@ -8315,7 +8315,7 @@
                 "x-appwrite": {
                     "method": "listFiles",
                     "group": "files",
-                    "weight": 532,
+                    "weight": 535,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/list-files.md",
@@ -8414,7 +8414,7 @@
                 "x-appwrite": {
                     "method": "createFile",
                     "group": "files",
-                    "weight": 774,
+                    "weight": 777,
                     "cookies": false,
                     "type": "upload",
                     "demo": "storage\/create-file.md",
@@ -8516,7 +8516,7 @@
                 "x-appwrite": {
                     "method": "getFile",
                     "group": "files",
-                    "weight": 531,
+                    "weight": 534,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/get-file.md",
@@ -8590,7 +8590,7 @@
                 "x-appwrite": {
                     "method": "updateFile",
                     "group": "files",
-                    "weight": 533,
+                    "weight": 536,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/update-file.md",
@@ -8682,7 +8682,7 @@
                 "x-appwrite": {
                     "method": "deleteFile",
                     "group": "files",
-                    "weight": 534,
+                    "weight": 537,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/delete-file.md",
@@ -8751,7 +8751,7 @@
                 "x-appwrite": {
                     "method": "getFileDownload",
                     "group": "files",
-                    "weight": 536,
+                    "weight": 539,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-download.md",
@@ -8831,7 +8831,7 @@
                 "x-appwrite": {
                     "method": "getFilePreview",
                     "group": "files",
-                    "weight": 535,
+                    "weight": 538,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-preview.md",
@@ -9061,7 +9061,7 @@
                 "x-appwrite": {
                     "method": "getFileView",
                     "group": "files",
-                    "weight": 537,
+                    "weight": 540,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-view.md",
@@ -11357,7 +11357,7 @@
                 "x-appwrite": {
                     "method": "deleteMembership",
                     "group": null,
-                    "weight": 552,
+                    "weight": 555,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/delete-membership.md",
