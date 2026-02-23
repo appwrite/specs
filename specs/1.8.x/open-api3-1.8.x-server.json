@@ -3768,7 +3768,7 @@
                 "x-appwrite": {
                     "method": "listEvents",
                     "group": null,
-                    "weight": 782,
+                    "weight": 779,
                     "cookies": false,
                     "type": "",
                     "demo": "activities\/list-events.md",
@@ -3832,7 +3832,7 @@
                 "x-appwrite": {
                     "method": "getEvent",
                     "group": "events",
-                    "weight": 783,
+                    "weight": 780,
                     "cookies": false,
                     "type": "",
                     "demo": "activities\/get-event.md",
@@ -5742,7 +5742,7 @@
                 "x-appwrite": {
                     "method": "listArchives",
                     "group": null,
-                    "weight": 750,
+                    "weight": 749,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/list-archives.md",
@@ -5807,7 +5807,7 @@
                 "x-appwrite": {
                     "method": "createArchive",
                     "group": null,
-                    "weight": 751,
+                    "weight": 750,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/create-archive.md",
@@ -5894,7 +5894,7 @@
                 "x-appwrite": {
                     "method": "getArchive",
                     "group": null,
-                    "weight": 749,
+                    "weight": 748,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/get-archive.md",
@@ -5949,7 +5949,7 @@
                 "x-appwrite": {
                     "method": "deleteArchive",
                     "group": null,
-                    "weight": 752,
+                    "weight": 751,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/delete-archive.md",
@@ -6013,7 +6013,7 @@
                 "x-appwrite": {
                     "method": "listPolicies",
                     "group": null,
-                    "weight": 745,
+                    "weight": 744,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/list-policies.md",
@@ -6078,7 +6078,7 @@
                 "x-appwrite": {
                     "method": "createPolicy",
                     "group": null,
-                    "weight": 746,
+                    "weight": 745,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/create-policy.md",
@@ -6194,7 +6194,7 @@
                 "x-appwrite": {
                     "method": "getPolicy",
                     "group": null,
-                    "weight": 744,
+                    "weight": 743,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/get-policy.md",
@@ -6256,7 +6256,7 @@
                 "x-appwrite": {
                     "method": "updatePolicy",
                     "group": null,
-                    "weight": 747,
+                    "weight": 746,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/update-policy.md",
@@ -6346,7 +6346,7 @@
                 "x-appwrite": {
                     "method": "deletePolicy",
                     "group": null,
-                    "weight": 748,
+                    "weight": 747,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/delete-policy.md",
@@ -6410,7 +6410,7 @@
                 "x-appwrite": {
                     "method": "createRestoration",
                     "group": null,
-                    "weight": 755,
+                    "weight": 754,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/create-restoration.md",
@@ -6507,7 +6507,7 @@
                 "x-appwrite": {
                     "method": "listRestorations",
                     "group": null,
-                    "weight": 754,
+                    "weight": 753,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/list-restorations.md",
@@ -6574,7 +6574,7 @@
                 "x-appwrite": {
                     "method": "getRestoration",
                     "group": null,
-                    "weight": 753,
+                    "weight": 752,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/get-restoration.md",
@@ -17240,82 +17240,6 @@
                 ]
             }
         },
-        "\/health\/console-pausing": {
-            "get": {
-                "summary": "Get console pausing health",
-                "operationId": "healthGetConsolePausing",
-                "tags": [
-                    "health"
-                ],
-                "description": "Get console pausing health status. Monitors projects approaching the pause threshold to detect potential issues with console access tracking.\n",
-                "responses": {
-                    "200": {
-                        "description": "Health Status",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/healthStatus"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "getConsolePausing",
-                    "group": null,
-                    "weight": 738,
-                    "cookies": false,
-                    "type": "",
-                    "demo": "health\/get-console-pausing.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "health.read",
-                    "platforms": [
-                        "console",
-                        "server"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/health\/get-console-pausing.md",
-                    "auth": {
-                        "Project": [],
-                        "Key": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": [],
-                        "Key": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "threshold",
-                        "description": "Percentage threshold of projects approaching pause. When hit (equal or higher), endpoint returns server error. Default value is 10.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32",
-                            "default": 10
-                        },
-                        "in": "query"
-                    },
-                    {
-                        "name": "inactivityDays",
-                        "description": "Number of days of inactivity before a project is paused. Should match the plan's projectInactivityDays setting. Default value is 7.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32",
-                            "default": 7
-                        },
-                        "in": "query"
-                    }
-                ]
-            }
-        },
         "\/health\/db": {
             "get": {
                 "summary": "Get DB",
@@ -27728,7 +27652,7 @@
                 "x-appwrite": {
                     "method": "createFile",
                     "group": "files",
-                    "weight": 784,
+                    "weight": 781,
                     "cookies": false,
                     "type": "upload",
                     "demo": "storage\/create-file.md",
