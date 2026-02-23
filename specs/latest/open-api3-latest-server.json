@@ -3768,7 +3768,7 @@
                 "x-appwrite": {
                     "method": "listEvents",
                     "group": null,
-                    "weight": 772,
+                    "weight": 779,
                     "cookies": false,
                     "type": "",
                     "demo": "activities\/list-events.md",
@@ -3832,7 +3832,7 @@
                 "x-appwrite": {
                     "method": "getEvent",
                     "group": "events",
-                    "weight": 773,
+                    "weight": 780,
                     "cookies": false,
                     "type": "",
                     "demo": "activities\/get-event.md",
@@ -5742,7 +5742,7 @@
                 "x-appwrite": {
                     "method": "listArchives",
                     "group": null,
-                    "weight": 745,
+                    "weight": 749,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/list-archives.md",
@@ -5807,7 +5807,7 @@
                 "x-appwrite": {
                     "method": "createArchive",
                     "group": null,
-                    "weight": 746,
+                    "weight": 750,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/create-archive.md",
@@ -5894,7 +5894,7 @@
                 "x-appwrite": {
                     "method": "getArchive",
                     "group": null,
-                    "weight": 744,
+                    "weight": 748,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/get-archive.md",
@@ -5949,7 +5949,7 @@
                 "x-appwrite": {
                     "method": "deleteArchive",
                     "group": null,
-                    "weight": 747,
+                    "weight": 751,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/delete-archive.md",
@@ -6013,7 +6013,7 @@
                 "x-appwrite": {
                     "method": "listPolicies",
                     "group": null,
-                    "weight": 740,
+                    "weight": 744,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/list-policies.md",
@@ -6078,7 +6078,7 @@
                 "x-appwrite": {
                     "method": "createPolicy",
                     "group": null,
-                    "weight": 741,
+                    "weight": 745,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/create-policy.md",
@@ -6194,7 +6194,7 @@
                 "x-appwrite": {
                     "method": "getPolicy",
                     "group": null,
-                    "weight": 739,
+                    "weight": 743,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/get-policy.md",
@@ -6256,7 +6256,7 @@
                 "x-appwrite": {
                     "method": "updatePolicy",
                     "group": null,
-                    "weight": 742,
+                    "weight": 746,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/update-policy.md",
@@ -6346,7 +6346,7 @@
                 "x-appwrite": {
                     "method": "deletePolicy",
                     "group": null,
-                    "weight": 743,
+                    "weight": 747,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/delete-policy.md",
@@ -6410,7 +6410,7 @@
                 "x-appwrite": {
                     "method": "createRestoration",
                     "group": null,
-                    "weight": 750,
+                    "weight": 754,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/create-restoration.md",
@@ -6507,7 +6507,7 @@
                 "x-appwrite": {
                     "method": "listRestorations",
                     "group": null,
-                    "weight": 749,
+                    "weight": 753,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/list-restorations.md",
@@ -6574,7 +6574,7 @@
                 "x-appwrite": {
                     "method": "getRestoration",
                     "group": null,
-                    "weight": 748,
+                    "weight": 752,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/get-restoration.md",
@@ -14343,7 +14343,7 @@
                 "x-appwrite": {
                     "method": "list",
                     "group": "functions",
-                    "weight": 558,
+                    "weight": 561,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/list.md",
@@ -14429,7 +14429,7 @@
                 "x-appwrite": {
                     "method": "create",
                     "group": "functions",
-                    "weight": 555,
+                    "weight": 558,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/create.md",
@@ -14506,6 +14506,9 @@
                                             "python-ml-3.11",
                                             "python-ml-3.12",
                                             "python-ml-3.13",
+                                            "deno-1.21",
+                                            "deno-1.24",
+                                            "deno-1.35",
                                             "deno-1.40",
                                             "deno-1.46",
                                             "deno-2.0",
@@ -14667,6 +14670,8 @@
                                                 "targets.write",
                                                 "rules.read",
                                                 "rules.write",
+                                                "schedules.read",
+                                                "schedules.write",
                                                 "migrations.read",
                                                 "migrations.write",
                                                 "vcs.read",
@@ -14754,7 +14759,7 @@
                 "x-appwrite": {
                     "method": "listRuntimes",
                     "group": "runtimes",
-                    "weight": 560,
+                    "weight": 563,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/list-runtimes.md",
@@ -14805,7 +14810,7 @@
                 "x-appwrite": {
                     "method": "listSpecifications",
                     "group": "runtimes",
-                    "weight": 561,
+                    "weight": 564,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/list-specifications.md",
@@ -14856,7 +14861,7 @@
                 "x-appwrite": {
                     "method": "get",
                     "group": "functions",
-                    "weight": 556,
+                    "weight": 559,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/get.md",
@@ -14917,7 +14922,7 @@
                 "x-appwrite": {
                     "method": "update",
                     "group": "functions",
-                    "weight": 557,
+                    "weight": 560,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/update.md",
@@ -15001,6 +15006,9 @@
                                             "python-ml-3.11",
                                             "python-ml-3.12",
                                             "python-ml-3.13",
+                                            "deno-1.21",
+                                            "deno-1.24",
+                                            "deno-1.35",
                                             "deno-1.40",
                                             "deno-1.46",
                                             "deno-2.0",
@@ -15162,6 +15170,8 @@
                                                 "targets.write",
                                                 "rules.read",
                                                 "rules.write",
+                                                "schedules.read",
+                                                "schedules.write",
                                                 "migrations.read",
                                                 "migrations.write",
                                                 "vcs.read",
@@ -15239,7 +15249,7 @@
                 "x-appwrite": {
                     "method": "delete",
                     "group": "functions",
-                    "weight": 559,
+                    "weight": 562,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/delete.md",
@@ -15302,7 +15312,7 @@
                 "x-appwrite": {
                     "method": "updateFunctionDeployment",
                     "group": "functions",
-                    "weight": 564,
+                    "weight": 567,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/update-function-deployment.md",
@@ -15384,7 +15394,7 @@
                 "x-appwrite": {
                     "method": "listDeployments",
                     "group": "deployments",
-                    "weight": 565,
+                    "weight": 568,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/list-deployments.md",
@@ -15480,7 +15490,7 @@
                 "x-appwrite": {
                     "method": "createDeployment",
                     "group": "deployments",
-                    "weight": 562,
+                    "weight": 565,
                     "cookies": false,
                     "type": "upload",
                     "demo": "functions\/create-deployment.md",
@@ -15581,7 +15591,7 @@
                 "x-appwrite": {
                     "method": "createDuplicateDeployment",
                     "group": "deployments",
-                    "weight": 570,
+                    "weight": 573,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/create-duplicate-deployment.md",
@@ -15668,7 +15678,7 @@
                 "x-appwrite": {
                     "method": "createTemplateDeployment",
                     "group": "deployments",
-                    "weight": 567,
+                    "weight": 570,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/create-template-deployment.md",
@@ -15786,7 +15796,7 @@
                 "x-appwrite": {
                     "method": "createVcsDeployment",
                     "group": "deployments",
-                    "weight": 568,
+                    "weight": 571,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/create-vcs-deployment.md",
@@ -15885,7 +15895,7 @@
                 "x-appwrite": {
                     "method": "getDeployment",
                     "group": "deployments",
-                    "weight": 563,
+                    "weight": 566,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/get-deployment.md",
@@ -15949,7 +15959,7 @@
                 "x-appwrite": {
                     "method": "deleteDeployment",
                     "group": "deployments",
-                    "weight": 566,
+                    "weight": 569,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/delete-deployment.md",
@@ -16015,7 +16025,7 @@
                 "x-appwrite": {
                     "method": "getDeploymentDownload",
                     "group": "deployments",
-                    "weight": 569,
+                    "weight": 572,
                     "cookies": false,
                     "type": "location",
                     "demo": "functions\/get-deployment-download.md",
@@ -16107,7 +16117,7 @@
                 "x-appwrite": {
                     "method": "updateDeploymentStatus",
                     "group": "deployments",
-                    "weight": 571,
+                    "weight": 574,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/update-deployment-status.md",
@@ -16180,7 +16190,7 @@
                 "x-appwrite": {
                     "method": "listExecutions",
                     "group": "executions",
-                    "weight": 574,
+                    "weight": 577,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/list-executions.md",
@@ -16269,7 +16279,7 @@
                 "x-appwrite": {
                     "method": "createExecution",
                     "group": "executions",
-                    "weight": 572,
+                    "weight": 575,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/create-execution.md",
@@ -16389,7 +16399,7 @@
                 "x-appwrite": {
                     "method": "getExecution",
                     "group": "executions",
-                    "weight": 573,
+                    "weight": 576,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/get-execution.md",
@@ -16457,7 +16467,7 @@
                 "x-appwrite": {
                     "method": "deleteExecution",
                     "group": "executions",
-                    "weight": 575,
+                    "weight": 578,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/delete-execution.md",
@@ -16530,7 +16540,7 @@
                 "x-appwrite": {
                     "method": "listVariables",
                     "group": "variables",
-                    "weight": 580,
+                    "weight": 583,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/list-variables.md",
@@ -16591,7 +16601,7 @@
                 "x-appwrite": {
                     "method": "createVariable",
                     "group": "variables",
-                    "weight": 578,
+                    "weight": 581,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/create-variable.md",
@@ -16684,7 +16694,7 @@
                 "x-appwrite": {
                     "method": "getVariable",
                     "group": "variables",
-                    "weight": 579,
+                    "weight": 582,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/get-variable.md",
@@ -16755,7 +16765,7 @@
                 "x-appwrite": {
                     "method": "updateVariable",
                     "group": "variables",
-                    "weight": 581,
+                    "weight": 584,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/update-variable.md",
@@ -16850,7 +16860,7 @@
                 "x-appwrite": {
                     "method": "deleteVariable",
                     "group": "variables",
-                    "weight": 582,
+                    "weight": 585,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/delete-variable.md",
@@ -17035,7 +17045,7 @@
                 "x-appwrite": {
                     "method": "get",
                     "group": "health",
-                    "weight": 447,
+                    "weight": 450,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get.md",
@@ -17087,7 +17097,7 @@
                 "x-appwrite": {
                     "method": "getAntivirus",
                     "group": "health",
-                    "weight": 456,
+                    "weight": 459,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-antivirus.md",
@@ -17139,7 +17149,7 @@
                 "x-appwrite": {
                     "method": "getCache",
                     "group": "health",
-                    "weight": 450,
+                    "weight": 453,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-cache.md",
@@ -17191,7 +17201,7 @@
                 "x-appwrite": {
                     "method": "getCertificate",
                     "group": "health",
-                    "weight": 453,
+                    "weight": 456,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-certificate.md",
@@ -17254,7 +17264,7 @@
                 "x-appwrite": {
                     "method": "getDB",
                     "group": "health",
-                    "weight": 449,
+                    "weight": 452,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-db.md",
@@ -17306,7 +17316,7 @@
                 "x-appwrite": {
                     "method": "getPubSub",
                     "group": "health",
-                    "weight": 451,
+                    "weight": 454,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-pub-sub.md",
@@ -17358,7 +17368,7 @@
                 "x-appwrite": {
                     "method": "getQueueAudits",
                     "group": "queue",
-                    "weight": 457,
+                    "weight": 460,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-audits.md",
@@ -17423,7 +17433,7 @@
                 "x-appwrite": {
                     "method": "getQueueBillingProjectAggregation",
                     "group": null,
-                    "weight": 730,
+                    "weight": 734,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-billing-project-aggregation.md",
@@ -17488,7 +17498,7 @@
                 "x-appwrite": {
                     "method": "getQueueBillingTeamAggregation",
                     "group": null,
-                    "weight": 729,
+                    "weight": 733,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-billing-team-aggregation.md",
@@ -17553,7 +17563,7 @@
                 "x-appwrite": {
                     "method": "getQueueBuilds",
                     "group": "queue",
-                    "weight": 461,
+                    "weight": 464,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-builds.md",
@@ -17618,7 +17628,7 @@
                 "x-appwrite": {
                     "method": "getQueuePriorityBuilds",
                     "group": null,
-                    "weight": 731,
+                    "weight": 735,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-priority-builds.md",
@@ -17683,7 +17693,7 @@
                 "x-appwrite": {
                     "method": "getQueueCertificates",
                     "group": "queue",
-                    "weight": 460,
+                    "weight": 463,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-certificates.md",
@@ -17748,7 +17758,7 @@
                 "x-appwrite": {
                     "method": "getQueueDatabases",
                     "group": "queue",
-                    "weight": 462,
+                    "weight": 465,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-databases.md",
@@ -17824,7 +17834,7 @@
                 "x-appwrite": {
                     "method": "getQueueDeletes",
                     "group": "queue",
-                    "weight": 463,
+                    "weight": 466,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-deletes.md",
@@ -17889,7 +17899,7 @@
                 "x-appwrite": {
                     "method": "getFailedJobs",
                     "group": "queue",
-                    "weight": 470,
+                    "weight": 473,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-failed-jobs.md",
@@ -17981,7 +17991,7 @@
                 "x-appwrite": {
                     "method": "getQueueFunctions",
                     "group": "queue",
-                    "weight": 467,
+                    "weight": 470,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-functions.md",
@@ -18046,7 +18056,7 @@
                 "x-appwrite": {
                     "method": "getQueueLogs",
                     "group": "queue",
-                    "weight": 459,
+                    "weight": 462,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-logs.md",
@@ -18111,7 +18121,7 @@
                 "x-appwrite": {
                     "method": "getQueueMails",
                     "group": "queue",
-                    "weight": 464,
+                    "weight": 467,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-mails.md",
@@ -18176,7 +18186,7 @@
                 "x-appwrite": {
                     "method": "getQueueMessaging",
                     "group": "queue",
-                    "weight": 465,
+                    "weight": 468,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-messaging.md",
@@ -18241,7 +18251,7 @@
                 "x-appwrite": {
                     "method": "getQueueMigrations",
                     "group": "queue",
-                    "weight": 466,
+                    "weight": 469,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-migrations.md",
@@ -18306,7 +18316,7 @@
                 "x-appwrite": {
                     "method": "getQueueRegionManager",
                     "group": null,
-                    "weight": 732,
+                    "weight": 736,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-region-manager.md",
@@ -18371,7 +18381,7 @@
                 "x-appwrite": {
                     "method": "getQueueStatsResources",
                     "group": "queue",
-                    "weight": 468,
+                    "weight": 471,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-stats-resources.md",
@@ -18436,7 +18446,7 @@
                 "x-appwrite": {
                     "method": "getQueueUsage",
                     "group": "queue",
-                    "weight": 469,
+                    "weight": 472,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-usage.md",
@@ -18501,7 +18511,7 @@
                 "x-appwrite": {
                     "method": "getQueueThreats",
                     "group": null,
-                    "weight": 733,
+                    "weight": 737,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-threats.md",
@@ -18566,7 +18576,7 @@
                 "x-appwrite": {
                     "method": "getQueueWebhooks",
                     "group": "queue",
-                    "weight": 458,
+                    "weight": 461,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-webhooks.md",
@@ -18631,7 +18641,7 @@
                 "x-appwrite": {
                     "method": "getStorage",
                     "group": "storage",
-                    "weight": 455,
+                    "weight": 458,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-storage.md",
@@ -18683,7 +18693,7 @@
                 "x-appwrite": {
                     "method": "getStorageLocal",
                     "group": "storage",
-                    "weight": 454,
+                    "weight": 457,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-storage-local.md",
@@ -18735,7 +18745,7 @@
                 "x-appwrite": {
                     "method": "getTime",
                     "group": "health",
-                    "weight": 452,
+                    "weight": 455,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-time.md",
@@ -24698,7 +24708,7 @@
                 "x-appwrite": {
                     "method": "list",
                     "group": "sites",
-                    "weight": 587,
+                    "weight": 590,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/list.md",
@@ -24784,7 +24794,7 @@
                 "x-appwrite": {
                     "method": "create",
                     "group": "sites",
-                    "weight": 585,
+                    "weight": 588,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/create.md",
@@ -24916,6 +24926,9 @@
                                             "python-ml-3.11",
                                             "python-ml-3.12",
                                             "python-ml-3.13",
+                                            "deno-1.21",
+                                            "deno-1.24",
+                                            "deno-1.35",
                                             "deno-1.40",
                                             "deno-1.46",
                                             "deno-2.0",
@@ -25058,7 +25071,7 @@
                 "x-appwrite": {
                     "method": "listFrameworks",
                     "group": "frameworks",
-                    "weight": 590,
+                    "weight": 593,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/list-frameworks.md",
@@ -25109,7 +25122,7 @@
                 "x-appwrite": {
                     "method": "listSpecifications",
                     "group": "frameworks",
-                    "weight": 613,
+                    "weight": 616,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/list-specifications.md",
@@ -25160,7 +25173,7 @@
                 "x-appwrite": {
                     "method": "get",
                     "group": "sites",
-                    "weight": 586,
+                    "weight": 589,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/get.md",
@@ -25221,7 +25234,7 @@
                 "x-appwrite": {
                     "method": "update",
                     "group": "sites",
-                    "weight": 588,
+                    "weight": 591,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/update.md",
@@ -25360,6 +25373,9 @@
                                             "python-ml-3.11",
                                             "python-ml-3.12",
                                             "python-ml-3.13",
+                                            "deno-1.21",
+                                            "deno-1.24",
+                                            "deno-1.35",
                                             "deno-1.40",
                                             "deno-1.46",
                                             "deno-2.0",
@@ -25491,7 +25507,7 @@
                 "x-appwrite": {
                     "method": "delete",
                     "group": "sites",
-                    "weight": 589,
+                    "weight": 592,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/delete.md",
@@ -25554,7 +25570,7 @@
                 "x-appwrite": {
                     "method": "updateSiteDeployment",
                     "group": "sites",
-                    "weight": 596,
+                    "weight": 599,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/update-site-deployment.md",
@@ -25636,7 +25652,7 @@
                 "x-appwrite": {
                     "method": "listDeployments",
                     "group": "deployments",
-                    "weight": 595,
+                    "weight": 598,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/list-deployments.md",
@@ -25732,7 +25748,7 @@
                 "x-appwrite": {
                     "method": "createDeployment",
                     "group": "deployments",
-                    "weight": 591,
+                    "weight": 594,
                     "cookies": false,
                     "type": "upload",
                     "demo": "sites\/create-deployment.md",
@@ -25839,7 +25855,7 @@
                 "x-appwrite": {
                     "method": "createDuplicateDeployment",
                     "group": "deployments",
-                    "weight": 599,
+                    "weight": 602,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/create-duplicate-deployment.md",
@@ -25921,7 +25937,7 @@
                 "x-appwrite": {
                     "method": "createTemplateDeployment",
                     "group": "deployments",
-                    "weight": 592,
+                    "weight": 595,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/create-template-deployment.md",
@@ -26039,7 +26055,7 @@
                 "x-appwrite": {
                     "method": "createVcsDeployment",
                     "group": "deployments",
-                    "weight": 593,
+                    "weight": 596,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/create-vcs-deployment.md",
@@ -26139,7 +26155,7 @@
                 "x-appwrite": {
                     "method": "getDeployment",
                     "group": "deployments",
-                    "weight": 594,
+                    "weight": 597,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/get-deployment.md",
@@ -26203,7 +26219,7 @@
                 "x-appwrite": {
                     "method": "deleteDeployment",
                     "group": "deployments",
-                    "weight": 597,
+                    "weight": 600,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/delete-deployment.md",
@@ -26269,7 +26285,7 @@
                 "x-appwrite": {
                     "method": "getDeploymentDownload",
                     "group": "deployments",
-                    "weight": 598,
+                    "weight": 601,
                     "cookies": false,
                     "type": "location",
                     "demo": "sites\/get-deployment-download.md",
@@ -26361,7 +26377,7 @@
                 "x-appwrite": {
                     "method": "updateDeploymentStatus",
                     "group": "deployments",
-                    "weight": 600,
+                    "weight": 603,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/update-deployment-status.md",
@@ -26434,7 +26450,7 @@
                 "x-appwrite": {
                     "method": "listLogs",
                     "group": "logs",
-                    "weight": 602,
+                    "weight": 605,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/list-logs.md",
@@ -26521,7 +26537,7 @@
                 "x-appwrite": {
                     "method": "getLog",
                     "group": "logs",
-                    "weight": 601,
+                    "weight": 604,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/get-log.md",
@@ -26585,7 +26601,7 @@
                 "x-appwrite": {
                     "method": "deleteLog",
                     "group": "logs",
-                    "weight": 603,
+                    "weight": 606,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/delete-log.md",
@@ -26658,7 +26674,7 @@
                 "x-appwrite": {
                     "method": "listVariables",
                     "group": "variables",
-                    "weight": 606,
+                    "weight": 609,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/list-variables.md",
@@ -26719,7 +26735,7 @@
                 "x-appwrite": {
                     "method": "createVariable",
                     "group": "variables",
-                    "weight": 604,
+                    "weight": 607,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/create-variable.md",
@@ -26812,7 +26828,7 @@
                 "x-appwrite": {
                     "method": "getVariable",
                     "group": "variables",
-                    "weight": 605,
+                    "weight": 608,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/get-variable.md",
@@ -26883,7 +26899,7 @@
                 "x-appwrite": {
                     "method": "updateVariable",
                     "group": "variables",
-                    "weight": 607,
+                    "weight": 610,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/update-variable.md",
@@ -26978,7 +26994,7 @@
                 "x-appwrite": {
                     "method": "deleteVariable",
                     "group": "variables",
-                    "weight": 608,
+                    "weight": 611,
                     "cookies": false,
                     "type": "",
                     "demo": "sites\/delete-variable.md",
@@ -27051,7 +27067,7 @@
                 "x-appwrite": {
                     "method": "listBuckets",
                     "group": "buckets",
-                    "weight": 527,
+                    "weight": 530,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/list-buckets.md",
@@ -27138,7 +27154,7 @@
                 "x-appwrite": {
                     "method": "createBucket",
                     "group": "buckets",
-                    "weight": 525,
+                    "weight": 528,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/create-bucket.md",
@@ -27275,7 +27291,7 @@
                 "x-appwrite": {
                     "method": "getBucket",
                     "group": "buckets",
-                    "weight": 526,
+                    "weight": 529,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/get-bucket.md",
@@ -27337,7 +27353,7 @@
                 "x-appwrite": {
                     "method": "updateBucket",
                     "group": "buckets",
-                    "weight": 528,
+                    "weight": 531,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/update-bucket.md",
@@ -27471,7 +27487,7 @@
                 "x-appwrite": {
                     "method": "deleteBucket",
                     "group": "buckets",
-                    "weight": 529,
+                    "weight": 532,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/delete-bucket.md",
@@ -27535,7 +27551,7 @@
                 "x-appwrite": {
                     "method": "listFiles",
                     "group": "files",
-                    "weight": 532,
+                    "weight": 535,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/list-files.md",
@@ -27636,7 +27652,7 @@
                 "x-appwrite": {
                     "method": "createFile",
                     "group": "files",
-                    "weight": 774,
+                    "weight": 781,
                     "cookies": false,
                     "type": "upload",
                     "demo": "storage\/create-file.md",
@@ -27740,7 +27756,7 @@
                 "x-appwrite": {
                     "method": "getFile",
                     "group": "files",
-                    "weight": 531,
+                    "weight": 534,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/get-file.md",
@@ -27816,7 +27832,7 @@
                 "x-appwrite": {
                     "method": "updateFile",
                     "group": "files",
-                    "weight": 533,
+                    "weight": 536,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/update-file.md",
@@ -27910,7 +27926,7 @@
                 "x-appwrite": {
                     "method": "deleteFile",
                     "group": "files",
-                    "weight": 534,
+                    "weight": 537,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/delete-file.md",
@@ -27981,7 +27997,7 @@
                 "x-appwrite": {
                     "method": "getFileDownload",
                     "group": "files",
-                    "weight": 536,
+                    "weight": 539,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-download.md",
@@ -28063,7 +28079,7 @@
                 "x-appwrite": {
                     "method": "getFilePreview",
                     "group": "files",
-                    "weight": 535,
+                    "weight": 538,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-preview.md",
@@ -28295,7 +28311,7 @@
                 "x-appwrite": {
                     "method": "getFileView",
                     "group": "files",
-                    "weight": 537,
+                    "weight": 540,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-view.md",
@@ -36678,7 +36694,7 @@
                 "x-appwrite": {
                     "method": "deleteMembership",
                     "group": null,
-                    "weight": 552,
+                    "weight": 555,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/delete-membership.md",
@@ -37006,7 +37022,7 @@
                 "x-appwrite": {
                     "method": "list",
                     "group": "files",
-                    "weight": 522,
+                    "weight": 525,
                     "cookies": false,
                     "type": "",
                     "demo": "tokens\/list.md",
@@ -37101,7 +37117,7 @@
                 "x-appwrite": {
                     "method": "createFileToken",
                     "group": "files",
-                    "weight": 520,
+                    "weight": 523,
                     "cookies": false,
                     "type": "",
                     "demo": "tokens\/create-file-token.md",
@@ -37191,7 +37207,7 @@
                 "x-appwrite": {
                     "method": "get",
                     "group": "tokens",
-                    "weight": 521,
+                    "weight": 524,
                     "cookies": false,
                     "type": "",
                     "demo": "tokens\/get.md",
@@ -37252,7 +37268,7 @@
                 "x-appwrite": {
                     "method": "update",
                     "group": "tokens",
-                    "weight": 523,
+                    "weight": 526,
                     "cookies": false,
                     "type": "",
                     "demo": "tokens\/update.md",
@@ -37323,7 +37339,7 @@
                 "x-appwrite": {
                     "method": "delete",
                     "group": "tokens",
-                    "weight": 524,
+                    "weight": 527,
                     "cookies": false,
                     "type": "",
                     "demo": "tokens\/delete.md",
