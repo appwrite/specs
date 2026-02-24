@@ -8414,7 +8414,7 @@
                 "x-appwrite": {
                     "method": "createFile",
                     "group": "files",
-                    "weight": 784,
+                    "weight": 781,
                     "cookies": false,
                     "type": "upload",
                     "demo": "storage\/create-file.md",

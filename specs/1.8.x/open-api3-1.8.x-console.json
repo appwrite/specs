@@ -227,7 +227,7 @@
                 "x-appwrite": {
                     "method": "listBillingAddresses",
                     "group": null,
-                    "weight": 770,
+                    "weight": 769,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-billing-addresses.md",
@@ -289,7 +289,7 @@
                 "x-appwrite": {
                     "method": "createBillingAddress",
                     "group": null,
-                    "weight": 768,
+                    "weight": 767,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-billing-address.md",
@@ -384,7 +384,7 @@
                 "x-appwrite": {
                     "method": "getBillingAddress",
                     "group": null,
-                    "weight": 769,
+                    "weight": 768,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get-billing-address.md",
@@ -443,7 +443,7 @@
                 "x-appwrite": {
                     "method": "updateBillingAddress",
                     "group": null,
-                    "weight": 771,
+                    "weight": 770,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-billing-address.md",
@@ -541,7 +541,7 @@
                 "x-appwrite": {
                     "method": "deleteBillingAddress",
                     "group": null,
-                    "weight": 772,
+                    "weight": 771,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/delete-billing-address.md",
@@ -602,7 +602,7 @@
                 "x-appwrite": {
                     "method": "getCoupon",
                     "group": null,
-                    "weight": 774,
+                    "weight": 773,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get-coupon.md",
@@ -877,7 +877,7 @@
                 "x-appwrite": {
                     "method": "listInvoices",
                     "group": null,
-                    "weight": 773,
+                    "weight": 772,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-invoices.md",
@@ -1010,7 +1010,7 @@
                 "x-appwrite": {
                     "method": "listKeys",
                     "group": "keys",
-                    "weight": 756,
+                    "weight": 755,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-keys.md",
@@ -1092,7 +1092,7 @@
                 "x-appwrite": {
                     "method": "createKey",
                     "group": "keys",
-                    "weight": 757,
+                    "weight": 756,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-key.md",
@@ -1209,7 +1209,7 @@
                 "x-appwrite": {
                     "method": "getKey",
                     "group": "keys",
-                    "weight": 760,
+                    "weight": 759,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get-key.md",
@@ -1292,7 +1292,7 @@
                 "x-appwrite": {
                     "method": "updateKey",
                     "group": "keys",
-                    "weight": 759,
+                    "weight": 758,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-key.md",
@@ -1414,7 +1414,7 @@
                 "x-appwrite": {
                     "method": "deleteKey",
                     "group": "keys",
-                    "weight": 758,
+                    "weight": 757,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/delete-key.md",
@@ -2846,7 +2846,7 @@
                 "x-appwrite": {
                     "method": "listPaymentMethods",
                     "group": null,
-                    "weight": 763,
+                    "weight": 762,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-payment-methods.md",
@@ -2908,7 +2908,7 @@
                 "x-appwrite": {
                     "method": "createPaymentMethod",
                     "group": null,
-                    "weight": 761,
+                    "weight": 760,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-payment-method.md",
@@ -2957,7 +2957,7 @@
                 "x-appwrite": {
                     "method": "getPaymentMethod",
                     "group": null,
-                    "weight": 762,
+                    "weight": 761,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get-payment-method.md",
@@ -3016,7 +3016,7 @@
                 "x-appwrite": {
                     "method": "updatePaymentMethod",
                     "group": null,
-                    "weight": 764,
+                    "weight": 763,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-payment-method.md",
@@ -3100,7 +3100,7 @@
                 "x-appwrite": {
                     "method": "deletePaymentMethod",
                     "group": null,
-                    "weight": 767,
+                    "weight": 766,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/delete-payment-method.md",
@@ -3161,7 +3161,7 @@
                 "x-appwrite": {
                     "method": "updatePaymentMethodProvider",
                     "group": null,
-                    "weight": 765,
+                    "weight": 764,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-payment-method-provider.md",
@@ -3253,7 +3253,7 @@
                 "x-appwrite": {
                     "method": "updatePaymentMethodMandateOptions",
                     "group": null,
-                    "weight": 766,
+                    "weight": 765,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-payment-method-mandate-options.md",
@@ -5507,7 +5507,7 @@
                 "x-appwrite": {
                     "method": "listEvents",
                     "group": null,
-                    "weight": 782,
+                    "weight": 779,
                     "cookies": false,
                     "type": "",
                     "demo": "activities\/list-events.md",
@@ -5570,7 +5570,7 @@
                 "x-appwrite": {
                     "method": "getEvent",
                     "group": "events",
-                    "weight": 783,
+                    "weight": 780,
                     "cookies": false,
                     "type": "",
                     "demo": "activities\/get-event.md",
@@ -7463,7 +7463,7 @@
                 "x-appwrite": {
                     "method": "listArchives",
                     "group": null,
-                    "weight": 750,
+                    "weight": 749,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/list-archives.md",
@@ -7527,7 +7527,7 @@
                 "x-appwrite": {
                     "method": "createArchive",
                     "group": null,
-                    "weight": 751,
+                    "weight": 750,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/create-archive.md",
@@ -7613,7 +7613,7 @@
                 "x-appwrite": {
                     "method": "getArchive",
                     "group": null,
-                    "weight": 749,
+                    "weight": 748,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/get-archive.md",
@@ -7667,7 +7667,7 @@
                 "x-appwrite": {
                     "method": "deleteArchive",
                     "group": null,
-                    "weight": 752,
+                    "weight": 751,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/delete-archive.md",
@@ -7730,7 +7730,7 @@
                 "x-appwrite": {
                     "method": "listPolicies",
                     "group": null,
-                    "weight": 745,
+                    "weight": 744,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/list-policies.md",
@@ -7794,7 +7794,7 @@
                 "x-appwrite": {
                     "method": "createPolicy",
                     "group": null,
-                    "weight": 746,
+                    "weight": 745,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/create-policy.md",
@@ -7909,7 +7909,7 @@
                 "x-appwrite": {
                     "method": "getPolicy",
                     "group": null,
-                    "weight": 744,
+                    "weight": 743,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/get-policy.md",
@@ -7970,7 +7970,7 @@
                 "x-appwrite": {
                     "method": "updatePolicy",
                     "group": null,
-                    "weight": 747,
+                    "weight": 746,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/update-policy.md",
@@ -8059,7 +8059,7 @@
                 "x-appwrite": {
                     "method": "deletePolicy",
                     "group": null,
-                    "weight": 748,
+                    "weight": 747,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/delete-policy.md",
@@ -8122,7 +8122,7 @@
                 "x-appwrite": {
                     "method": "createRestoration",
                     "group": null,
-                    "weight": 755,
+                    "weight": 754,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/create-restoration.md",
@@ -8218,7 +8218,7 @@
                 "x-appwrite": {
                     "method": "listRestorations",
                     "group": null,
-                    "weight": 754,
+                    "weight": 753,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/list-restorations.md",
@@ -8284,7 +8284,7 @@
                 "x-appwrite": {
                     "method": "getRestoration",
                     "group": null,
-                    "weight": 753,
+                    "weight": 752,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/get-restoration.md",
@@ -24620,81 +24620,6 @@
                 ]
             }
         },
-        "\/health\/console-pausing": {
-            "get": {
-                "summary": "Get console pausing health",
-                "operationId": "healthGetConsolePausing",
-                "tags": [
-                    "health"
-                ],
-                "description": "Get console pausing health status. Monitors projects approaching the pause threshold to detect potential issues with console access tracking.\n",
-                "responses": {
-                    "200": {
-                        "description": "Health Status",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/healthStatus"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "getConsolePausing",
-                    "group": null,
-                    "weight": 738,
-                    "cookies": false,
-                    "type": "",
-                    "demo": "health\/get-console-pausing.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "health.read",
-                    "platforms": [
-                        "console",
-                        "server"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/health\/get-console-pausing.md",
-                    "auth": {
-                        "Project": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": [],
-                        "Key": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "threshold",
-                        "description": "Percentage threshold of projects approaching pause. When hit (equal or higher), endpoint returns server error. Default value is 10.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32",
-                            "default": 10
-                        },
-                        "in": "query"
-                    },
-                    {
-                        "name": "inactivityDays",
-                        "description": "Number of days of inactivity before a project is paused. Should match the plan's projectInactivityDays setting. Default value is 7.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32",
-                            "default": 7
-                        },
-                        "in": "query"
-                    }
-                ]
-            }
-        },
         "\/health\/db": {
             "get": {
                 "summary": "Get DB",
@@ -37158,7 +37083,7 @@
                 "x-appwrite": {
                     "method": "list",
                     "group": "projects",
-                    "weight": 780,
+                    "weight": 777,
                     "cookies": false,
                     "type": "",
                     "demo": "projects\/list.md",
@@ -37241,7 +37166,7 @@
                 "x-appwrite": {
                     "method": "create",
                     "group": "projects",
-                    "weight": 778,
+                    "weight": 775,
                     "cookies": false,
                     "type": "",
                     "demo": "projects\/create.md",
@@ -37441,7 +37366,7 @@
                 "x-appwrite": {
                     "method": "update",
                     "group": "projects",
-                    "weight": 779,
+                    "weight": 776,
                     "cookies": false,
                     "type": "",
                     "demo": "projects\/update.md",
@@ -38810,60 +38735,6 @@
                         }
                     }
                 }
-            }
-        },
-        "\/projects\/{projectId}\/console-access": {
-            "patch": {
-                "summary": "Record console access to a project",
-                "operationId": "projectsUpdateConsoleAccess",
-                "tags": [
-                    "projects"
-                ],
-                "description": "Record console access to a project. This endpoint updates the last accessed timestamp for the project to track console activity.\n",
-                "responses": {
-                    "204": {
-                        "description": "No content"
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "updateConsoleAccess",
-                    "group": null,
-                    "weight": 775,
-                    "cookies": false,
-                    "type": "",
-                    "demo": "projects\/update-console-access.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "projects.write",
-                    "platforms": [
-                        "console"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/projects\/update-console-access.md",
-                    "auth": {
-                        "Project": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "projectId",
-                        "description": "Project ID",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "<PROJECT_ID>"
-                        },
-                        "in": "path"
-                    }
-                ]
             }
         },
         "\/projects\/{projectId}\/dev-keys": {
@@ -40722,7 +40593,7 @@
                 "x-appwrite": {
                     "method": "createSchedule",
                     "group": "schedules",
-                    "weight": 781,
+                    "weight": 778,
                     "cookies": false,
                     "type": "",
                     "demo": "projects\/create-schedule.md",
@@ -41475,84 +41346,6 @@
                 }
             }
         },
-        "\/projects\/{projectId}\/status": {
-            "patch": {
-                "summary": "Update the status of a project",
-                "operationId": "projectsUpdateStatus",
-                "tags": [
-                    "projects"
-                ],
-                "description": "Update the status of a project. Can be used to archive\/restore projects, and to restore paused projects. When restoring a paused project, the console fingerprint header must be provided and the project must not be blocked for any reason other than inactivity.\n",
-                "responses": {
-                    "204": {
-                        "description": "No content"
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "updateStatus",
-                    "group": null,
-                    "weight": 776,
-                    "cookies": false,
-                    "type": "",
-                    "demo": "projects\/update-status.md",
-                    "rate-limit": 10,
-                    "rate-time": 3600,
-                    "rate-key": "ip:{ip},userId:{userId}",
-                    "scope": "projects.write",
-                    "platforms": [
-                        "console"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/projects\/update-status.md",
-                    "auth": {
-                        "Project": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "projectId",
-                        "description": "Project ID",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "<PROJECT_ID>"
-                        },
-                        "in": "path"
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application\/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "status": {
-                                        "type": "string",
-                                        "description": "New status for the project",
-                                        "x-example": "active",
-                                        "enum": [
-                                            "active"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": []
-                                    }
-                                },
-                                "required": [
-                                    "status"
-                                ]
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "\/projects\/{projectId}\/team": {
             "patch": {
                 "summary": "Update project team",
@@ -41577,7 +41370,7 @@
                 "x-appwrite": {
                     "method": "updateTeam",
                     "group": "projects",
-                    "weight": 777,
+                    "weight": 774,
                     "cookies": false,
                     "type": "",
                     "demo": "projects\/update-team.md",
@@ -43773,7 +43566,7 @@
                 "x-appwrite": {
                     "method": "listRules",
                     "group": null,
-                    "weight": 790,
+                    "weight": 787,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/list-rules.md",
@@ -43858,7 +43651,7 @@
                 "x-appwrite": {
                     "method": "createAPIRule",
                     "group": null,
-                    "weight": 785,
+                    "weight": 782,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/create-api-rule.md",
@@ -43925,7 +43718,7 @@
                 "x-appwrite": {
                     "method": "createFunctionRule",
                     "group": null,
-                    "weight": 787,
+                    "weight": 784,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/create-function-rule.md",
@@ -44003,7 +43796,7 @@
                 "x-appwrite": {
                     "method": "createRedirectRule",
                     "group": null,
-                    "weight": 788,
+                    "weight": 785,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/create-redirect-rule.md",
@@ -44117,7 +43910,7 @@
                 "x-appwrite": {
                     "method": "createSiteRule",
                     "group": null,
-                    "weight": 786,
+                    "weight": 783,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/create-site-rule.md",
@@ -44195,7 +43988,7 @@
                 "x-appwrite": {
                     "method": "getRule",
                     "group": null,
-                    "weight": 789,
+                    "weight": 786,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/get-rule.md",
@@ -44246,7 +44039,7 @@
                 "x-appwrite": {
                     "method": "deleteRule",
                     "group": null,
-                    "weight": 791,
+                    "weight": 788,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/delete-rule.md",
@@ -44306,7 +44099,7 @@
                 "x-appwrite": {
                     "method": "updateRuleVerification",
                     "group": null,
-                    "weight": 792,
+                    "weight": 789,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/update-rule-verification.md",
@@ -47624,7 +47417,7 @@
                 "x-appwrite": {
                     "method": "createFile",
                     "group": "files",
-                    "weight": 784,
+                    "weight": 781,
                     "cookies": false,
                     "type": "upload",
                     "demo": "storage\/create-file.md",
@@ -71971,11 +71764,6 @@
                             "$ref": "#\/components\/schemas\/block"
                         },
                         "x-example": ""
-                    },
-                    "consoleAccessedAt": {
-                        "type": "string",
-                        "description": "Last time the project was accessed via console. Used with plan's projectInactivityDays to determine if project is paused.",
-                        "x-example": "2020-10-15T06:38:00.000+00:00"
                     }
                 },
                 "required": [
@@ -72045,8 +71833,7 @@
                     "serviceStatusForMessaging",
                     "region",
                     "billingLimits",
-                    "blocks",
-                    "consoleAccessedAt"
+                    "blocks"
                 ],
                 "example": {
                     "$id": "5e5ea5c16897e",
@@ -72121,8 +71908,7 @@
                     "serviceStatusForMessaging": true,
                     "region": "fra",
                     "billingLimits": "",
-                    "blocks": "",
-                    "consoleAccessedAt": "2020-10-15T06:38:00.000+00:00"
+                    "blocks": ""
                 }
             },
             "webhook": {
@@ -77209,12 +76995,6 @@
                         "x-example": 25,
                         "format": "int32"
                     },
-                    "projectInactivityDays": {
-                        "type": "integer",
-                        "description": "Number of days of console inactivity before a project is paused. 0 means pausing is disabled.",
-                        "x-example": 7,
-                        "format": "int32"
-                    },
                     "alertLimit": {
                         "type": "integer",
                         "description": "Alert threshold percentage",
@@ -77393,7 +77173,6 @@
                     "authPhone",
                     "domains",
                     "logs",
-                    "projectInactivityDays",
                     "alertLimit",
                     "usage",
                     "addons",
@@ -77451,7 +77230,6 @@
                     "authPhone": 10,
                     "domains": 5,
                     "logs": 25,
-                    "projectInactivityDays": 7,
                     "alertLimit": 80,
                     "usage": null,
                     "addons": null,
