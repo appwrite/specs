@@ -13,6 +13,7 @@ mutation {
         live
         logging
         runtime
+        deploymentRetention
         deploymentId
         deploymentCreatedAt
         latestDeploymentId
@@ -40,7 +41,8 @@ mutation {
         providerBranch
         providerRootDirectory
         providerSilentMode
-        specification
+        buildSpecification
+        runtimeSpecification
     }
 }
 ```

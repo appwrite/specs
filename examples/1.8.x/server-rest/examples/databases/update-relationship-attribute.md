@@ -1,5 +1,5 @@
 ```http
-PATCH /v1/databases/{databaseId}/collections/{collectionId}/attributes/{key}/relationship HTTP/1.1
+PATCH /v1/databases/{databaseId}/collections/{collectionId}/attributes/relationship/{key} HTTP/1.1
 Host: cloud.appwrite.io
 Content-Type: application/json
 X-Appwrite-Response-Format: 1.8.0

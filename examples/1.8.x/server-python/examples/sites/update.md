@@ -1,6 +1,7 @@
 ```python
 from appwrite.client import Client
 from appwrite.services.sites import Sites
+from appwrite.models import Site
 from appwrite.enums import Framework
 from appwrite.enums import BuildRuntime
 from appwrite.enums import Adapter
@@ -12,7 +13,7 @@ client.set_key('<YOUR_API_KEY>') # Your secret API key
 
 sites = Sites(client)
 
-result = sites.update(
+result: Site = sites.update(
     site_id = '<SITE_ID>',
     name = '<NAME>',
     framework = Framework.ANALOG,
@@ -21,6 +22,7 @@ result = sites.update(
     timeout = 1, # optional
     install_command = '<INSTALL_COMMAND>', # optional
     build_command = '<BUILD_COMMAND>', # optional
+    start_command = '<START_COMMAND>', # optional
     output_directory = '<OUTPUT_DIRECTORY>', # optional
     build_runtime = BuildRuntime.NODE_14_5, # optional
     adapter = Adapter.STATIC, # optional
@@ -30,6 +32,10 @@ result = sites.update(
     provider_branch = '<PROVIDER_BRANCH>', # optional
     provider_silent_mode = False, # optional
     provider_root_directory = '<PROVIDER_ROOT_DIRECTORY>', # optional
-    specification = '' # optional
+    build_specification = '', # optional
+    runtime_specification = '', # optional
+    deployment_retention = 0 # optional
 )
+
+print(result.model_dump())
 ```

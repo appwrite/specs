@@ -18,7 +18,9 @@ mutation {
         providerBranch: "<PROVIDER_BRANCH>",
         providerSilentMode: false,
         providerRootDirectory: "<PROVIDER_ROOT_DIRECTORY>",
-        specification: ""
+        buildSpecification: "",
+        runtimeSpecification: "",
+        deploymentRetention: 0
     ) {
         _id
         _createdAt
@@ -29,6 +31,7 @@ mutation {
         live
         logging
         runtime
+        deploymentRetention
         deploymentId
         deploymentCreatedAt
         latestDeploymentId
@@ -56,7 +59,8 @@ mutation {
         providerBranch
         providerRootDirectory
         providerSilentMode
-        specification
+        buildSpecification
+        runtimeSpecification
     }
 }
 ```
