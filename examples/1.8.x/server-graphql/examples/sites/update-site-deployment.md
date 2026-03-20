@@ -12,6 +12,7 @@ mutation {
         live
         logging
         framework
+        deploymentRetention
         deploymentId
         deploymentCreatedAt
         deploymentScreenshotLight
@@ -32,13 +33,15 @@ mutation {
         timeout
         installCommand
         buildCommand
+        startCommand
         outputDirectory
         installationId
         providerRepositoryId
         providerBranch
         providerRootDirectory
         providerSilentMode
-        specification
+        buildSpecification
+        runtimeSpecification
         buildRuntime
         adapter
         fallbackFile

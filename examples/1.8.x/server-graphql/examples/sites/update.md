@@ -9,6 +9,7 @@ mutation {
         timeout: 1,
         installCommand: "<INSTALL_COMMAND>",
         buildCommand: "<BUILD_COMMAND>",
+        startCommand: "<START_COMMAND>",
         outputDirectory: "<OUTPUT_DIRECTORY>",
         buildRuntime: "node-14.5",
         adapter: "static",
@@ -18,7 +19,9 @@ mutation {
         providerBranch: "<PROVIDER_BRANCH>",
         providerSilentMode: false,
         providerRootDirectory: "<PROVIDER_ROOT_DIRECTORY>",
-        specification: ""
+        buildSpecification: "",
+        runtimeSpecification: "",
+        deploymentRetention: 0
     ) {
         _id
         _createdAt
@@ -28,6 +31,7 @@ mutation {
         live
         logging
         framework
+        deploymentRetention
         deploymentId
         deploymentCreatedAt
         deploymentScreenshotLight
@@ -48,13 +52,15 @@ mutation {
         timeout
         installCommand
         buildCommand
+        startCommand
         outputDirectory
         installationId
         providerRepositoryId
         providerBranch
         providerRootDirectory
         providerSilentMode
-        specification
+        buildSpecification
+        runtimeSpecification
         buildRuntime
         adapter
         fallbackFile

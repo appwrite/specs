@@ -15,6 +15,7 @@ X-Appwrite-Key: <YOUR_API_KEY>
   "timeout": 1,
   "installCommand": "<INSTALL_COMMAND>",
   "buildCommand": "<BUILD_COMMAND>",
+  "startCommand": "<START_COMMAND>",
   "outputDirectory": "<OUTPUT_DIRECTORY>",
   "buildRuntime": "node-14.5",
   "adapter": "static",
@@ -24,6 +25,8 @@ X-Appwrite-Key: <YOUR_API_KEY>
   "providerBranch": "<PROVIDER_BRANCH>",
   "providerSilentMode": false,
   "providerRootDirectory": "<PROVIDER_ROOT_DIRECTORY>",
-  "specification": ""
+  "buildSpecification": "",
+  "runtimeSpecification": "",
+  "deploymentRetention": 0
 }
 ```

@@ -10,7 +10,7 @@ Content-Length: *Length of your entity body in bytes*
 --cec8e8123c05ba25
 Content-Disposition: form-data; name="operations"
 
-{ "query": "mutation { sitesCreateDeployment(siteId: $siteId, code: $code, activate: $activate, installCommand: $installCommand, buildCommand: $buildCommand, outputDirectory: $outputDirectory) { id }" }, "variables": { "siteId": "<SITE_ID>", "code": null, "activate": false, "installCommand": "<INSTALL_COMMAND>", "buildCommand": "<BUILD_COMMAND>", "outputDirectory": "<OUTPUT_DIRECTORY>" } }
+{ "query": "mutation { sitesCreateDeployment(siteId: $siteId, code: $code, installCommand: $installCommand, buildCommand: $buildCommand, outputDirectory: $outputDirectory, activate: $activate) { id }" }, "variables": { "siteId": "<SITE_ID>", "code": null, "installCommand": "<INSTALL_COMMAND>", "buildCommand": "<BUILD_COMMAND>", "outputDirectory": "<OUTPUT_DIRECTORY>", "activate": false } }
 
 --cec8e8123c05ba25
 Content-Disposition: form-data; name="map"
