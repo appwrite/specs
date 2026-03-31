@@ -18,8 +18,6 @@ result = databases.create_collection(
     name: '<NAME>',
     permissions: [Permission.read(Role.any())], # optional
     document_security: false, # optional
-    enabled: false, # optional
-    attributes: [], # optional
-    indexes: [] # optional
+    enabled: false # optional
 )
 ```

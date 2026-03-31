@@ -17,7 +17,5 @@ Table result = await tablesDB.createTable(
     permissions: [Permission.read(Role.any())], // (optional)
     rowSecurity: false, // (optional)
     enabled: false, // (optional)
-    columns: [], // (optional)
-    indexes: [], // (optional)
 );
 ```

@@ -22,7 +22,5 @@ response, error := service.CreateTable(
     tablesdb.WithCreateTablePermissions(interface{}{"read("any")"}),
     tablesdb.WithCreateTableRowSecurity(false),
     tablesdb.WithCreateTableEnabled(false),
-    tablesdb.WithCreateTableColumns([]interface{}{}),
-    tablesdb.WithCreateTableIndexes([]interface{}{}),
 )
 ```

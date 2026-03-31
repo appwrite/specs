@@ -18,8 +18,6 @@ val response = databases.createCollection(
     name = "<NAME>",
     permissions = listOf(Permission.read(Role.any())), // optional
     documentSecurity = false, // optional
-    enabled = false, // optional
-    attributes = listOf(), // optional
-    indexes = listOf() // optional
+    enabled = false // optional
 )
 ```

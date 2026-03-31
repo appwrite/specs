@@ -11,8 +11,6 @@ X-Appwrite-Key: <YOUR_API_KEY>
   "name": "<NAME>",
   "permissions": ["read(\"any\")"],
   "rowSecurity": false,
-  "enabled": false,
-  "columns": [],
-  "indexes": []
+  "enabled": false
 }
 ```
