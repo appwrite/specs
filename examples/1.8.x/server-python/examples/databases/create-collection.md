@@ -18,9 +18,7 @@ result: Collection = databases.create_collection(
     name = '<NAME>',
     permissions = [Permission.read(Role.any())], # optional
     document_security = False, # optional
-    enabled = False, # optional
-    attributes = [], # optional
-    indexes = [] # optional
+    enabled = False # optional
 )
 
 print(result.model_dump())

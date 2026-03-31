@@ -16,7 +16,5 @@ Table result = await tablesDB.CreateTable(
     name: "<NAME>",
     permissions: new List<string> { Permission.Read(Role.Any()) }, // optional
     rowSecurity: false, // optional
-    enabled: false, // optional
-    columns: new List<object>(), // optional
-    indexes: new List<object>() // optional
+    enabled: false // optional
 );```

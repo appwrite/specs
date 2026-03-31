@@ -19,7 +19,5 @@ $result = $databases->createCollection(
     name: '<NAME>',
     permissions: [Permission::read(Role::any())], // optional
     documentSecurity: false, // optional
-    enabled: false, // optional
-    attributes: [], // optional
-    indexes: [] // optional
+    enabled: false // optional
 );```

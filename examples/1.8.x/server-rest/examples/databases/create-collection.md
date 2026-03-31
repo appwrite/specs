@@ -11,8 +11,6 @@ X-Appwrite-Key: <YOUR_API_KEY>
   "name": "<NAME>",
   "permissions": ["read(\"any\")"],
   "documentSecurity": false,
-  "enabled": false,
-  "attributes": [],
-  "indexes": []
+  "enabled": false
 }
 ```
