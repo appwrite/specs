@@ -6,9 +6,9 @@ mutation {
         url: "",
         events: [],
         enabled: false,
-        security: false,
-        httpUser: "<HTTP_USER>",
-        httpPass: "<HTTP_PASS>"
+        tls: false,
+        authUsername: "<AUTH_USERNAME>",
+        authPassword: "<AUTH_PASSWORD>"
     ) {
         _id
         _createdAt
@@ -16,10 +16,10 @@ mutation {
         name
         url
         events
-        security
-        httpUser
-        httpPass
-        signatureKey
+        tls
+        authUsername
+        authPassword
+        secret
         enabled
         logs
         attempts
