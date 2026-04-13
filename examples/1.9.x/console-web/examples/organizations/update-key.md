@@ -11,8 +11,8 @@ const result = await organizations.updateKey({
     organizationId: '<ORGANIZATION_ID>',
     keyId: '<KEY_ID>',
     name: '<NAME>',
-    scopes: [Scopes.PlatformsRead],
-    expire: '' // optional
+    scopes: [Scopes.ProjectsRead],
+    expire: '2020-10-15T06:38:00.000+00:00' // optional
 });
 
 console.log(result);

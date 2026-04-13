@@ -16,7 +16,7 @@ mutation {
         tag: "<TAG>",
         badge: 0,
         draft: false,
-        scheduledAt: "",
+        scheduledAt: "2020-10-15T06:38:00.000+00:00",
         contentAvailable: false,
         critical: false,
         priority: "normal"
