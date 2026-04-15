@@ -12,6 +12,7 @@ Webhooks webhooks = new Webhooks(client);
 
 webhooks.updateSecret(
     "<WEBHOOK_ID>", // webhookId
+    "<SECRET>", // secret (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {
             error.printStackTrace();

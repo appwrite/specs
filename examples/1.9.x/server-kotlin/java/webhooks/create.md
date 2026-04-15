@@ -19,6 +19,7 @@ webhooks.create(
     false, // tls (optional)
     "<AUTH_USERNAME>", // authUsername (optional)
     "<AUTH_PASSWORD>", // authPassword (optional)
+    "<SECRET>", // secret (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {
             error.printStackTrace();

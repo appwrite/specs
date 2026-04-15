@@ -14,6 +14,7 @@ X-Appwrite-Key: <YOUR_API_KEY>
   "enabled": false,
   "tls": false,
   "authUsername": "<AUTH_USERNAME>",
-  "authPassword": "<AUTH_PASSWORD>"
+  "authPassword": "<AUTH_PASSWORD>",
+  "secret": "<SECRET>"
 }
 ```

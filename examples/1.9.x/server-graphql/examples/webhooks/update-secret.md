@@ -1,7 +1,8 @@
 ```graphql
 mutation {
     webhooksUpdateSecret(
-        webhookId: "<WEBHOOK_ID>"
+        webhookId: "<WEBHOOK_ID>",
+        secret: "<SECRET>"
     ) {
         _id
         _createdAt

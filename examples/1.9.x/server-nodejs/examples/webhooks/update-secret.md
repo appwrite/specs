@@ -9,6 +9,7 @@ const client = new sdk.Client()
 const webhooks = new sdk.Webhooks(client);
 
 const result = await webhooks.updateSecret({
-    webhookId: '<WEBHOOK_ID>'
+    webhookId: '<WEBHOOK_ID>',
+    secret: '<SECRET>' // optional
 });
 ```

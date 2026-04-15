@@ -11,6 +11,7 @@ val client = Client()
 val webhooks = Webhooks(client)
 
 val response = webhooks.updateSecret(
-    webhookId = "<WEBHOOK_ID>"
+    webhookId = "<WEBHOOK_ID>",
+    secret = "<SECRET>" // optional
 )
 ```

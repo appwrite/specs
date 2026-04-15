@@ -49826,6 +49826,13 @@
                                     "description": "Webhook HTTP password. Max length: 256 chars.",
                                     "default": "",
                                     "x-example": "<AUTH_PASSWORD>"
+                                },
+                                "secret": {
+                                    "type": "string",
+                                    "description": "Webhook secret key. If not provided, a new key will be generated automatically. Key must be at least 8 characters long, and at max 256 characters.",
+                                    "default": null,
+                                    "x-example": "<SECRET>",
+                                    "x-nullable": true
                                 }
                             },
                             "required": [
@@ -50135,6 +50142,22 @@
                         "type": "string",
                         "x-example": "<WEBHOOK_ID>",
                         "in": "path"
+                    },
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "secret": {
+                                    "type": "string",
+                                    "description": "Webhook secret key. If not provided, a new key will be generated automatically. Key must be at least 8 characters long, and at max 256 characters.",
+                                    "default": null,
+                                    "x-example": "<SECRET>",
+                                    "x-nullable": true
+                                }
+                            }
+                        }
                     }
                 ]
             }
@@ -59082,7 +59105,7 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "Signature key which can be used to validate incoming webhook payloads.",
+                    "description": "Signature key which can be used to validate incoming webhook payloads. Only returned on creation and secret rotation.",
                     "x-example": "ad3d581ca230e2b7059c545e5a"
                 },
                 "enabled": {
