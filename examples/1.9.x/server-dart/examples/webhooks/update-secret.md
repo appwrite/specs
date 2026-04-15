@@ -10,5 +10,6 @@ Webhooks webhooks = Webhooks(client);
 
 Webhook result = await webhooks.updateSecret(
     webhookId: '<WEBHOOK_ID>',
+    secret: '<SECRET>', // (optional)
 );
 ```

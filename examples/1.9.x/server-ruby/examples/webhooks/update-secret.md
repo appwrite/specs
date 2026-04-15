@@ -11,6 +11,7 @@ client = Client.new
 webhooks = Webhooks.new(client)
 
 result = webhooks.update_secret(
-    webhook_id: '<WEBHOOK_ID>'
+    webhook_id: '<WEBHOOK_ID>',
+    secret: '<SECRET>' # optional
 )
 ```

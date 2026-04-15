@@ -24,5 +24,6 @@ response, error := service.Create(
     webhooks.WithCreateTls(false),
     webhooks.WithCreateAuthUsername("<AUTH_USERNAME>"),
     webhooks.WithCreateAuthPassword("<AUTH_PASSWORD>"),
+    webhooks.WithCreateSecret("<SECRET>"),
 )
 ```

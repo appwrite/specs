@@ -17,5 +17,6 @@ Webhook result = await webhooks.create(
     tls: false, // (optional)
     authUsername: '<AUTH_USERNAME>', // (optional)
     authPassword: '<AUTH_PASSWORD>', // (optional)
+    secret: '<SECRET>', // (optional)
 );
 ```

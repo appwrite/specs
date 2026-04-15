@@ -17,5 +17,6 @@ service := webhooks.New(client)
 
 response, error := service.UpdateSecret(
     "<WEBHOOK_ID>",
+    webhooks.WithUpdateSecretSecret("<SECRET>"),
 )
 ```

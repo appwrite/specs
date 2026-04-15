@@ -11,7 +11,8 @@ client.set_key('<YOUR_API_KEY>') # Your secret API key
 webhooks = Webhooks(client)
 
 result: Webhook = webhooks.update_secret(
-    webhook_id = '<WEBHOOK_ID>'
+    webhook_id = '<WEBHOOK_ID>',
+    secret = '<SECRET>' # optional
 )
 
 print(result.model_dump())

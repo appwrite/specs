@@ -9,7 +9,8 @@ let client = Client()
 let webhooks = Webhooks(client)
 
 let webhook = try await webhooks.updateSecret(
-    webhookId: "<WEBHOOK_ID>"
+    webhookId: "<WEBHOOK_ID>",
+    secret: "<SECRET>" // optional
 )
 
 ```
