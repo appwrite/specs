@@ -66180,7 +66180,14 @@
                                 {
                                     "$ref": "#\/definitions\/providerRepositoryFrameworkList"
                                 }
-                            ]
+                            ],
+                            "x-discriminator": {
+                                "propertyName": "type",
+                                "mapping": {
+                                    "runtime": "#\/definitions\/providerRepositoryRuntimeList",
+                                    "framework": "#\/definitions\/providerRepositoryFrameworkList"
+                                }
+                            }
                         }
                     }
                 },
@@ -71123,15 +71130,22 @@
                         "$ref": "#\/definitions\/providerRepositoryFramework"
                     },
                     "x-example": ""
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Provider repository list type.",
+                    "x-example": "framework"
                 }
             },
             "required": [
                 "total",
-                "frameworkProviderRepositories"
+                "frameworkProviderRepositories",
+                "type"
             ],
             "example": {
                 "total": 5,
-                "frameworkProviderRepositories": ""
+                "frameworkProviderRepositories": "",
+                "type": "framework"
             }
         },
         "providerRepositoryRuntimeList": {
@@ -71152,15 +71166,22 @@
                         "$ref": "#\/definitions\/providerRepositoryRuntime"
                     },
                     "x-example": ""
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Provider repository list type.",
+                    "x-example": "runtime"
                 }
             },
             "required": [
                 "total",
-                "runtimeProviderRepositories"
+                "runtimeProviderRepositories",
+                "type"
             ],
             "example": {
                 "total": 5,
-                "runtimeProviderRepositories": ""
+                "runtimeProviderRepositories": "",
+                "type": "runtime"
             }
         },
         "branchList": {
