@@ -10,6 +10,6 @@ Client client = new Client()
 
 Project project = new Project(client);
 
-PlatformWeb result = await project.GetPlatform(
+object result = await project.GetPlatform(
     platformId: "<PLATFORM_ID>"
 );```

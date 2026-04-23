@@ -11,6 +11,7 @@ mutation {
         userId
         userName
         userEmail
+        userPhone
         teamId
         teamName
         invited

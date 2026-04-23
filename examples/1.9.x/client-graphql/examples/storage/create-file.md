@@ -2,7 +2,7 @@
 POST /v1/storage/buckets/{bucketId}/files HTTP/1.1
 Host: cloud.appwrite.io
 Content-Type: multipart/form-data; boundary="cec8e8123c05ba25"
-X-Appwrite-Response-Format: 1.9.1
+X-Appwrite-Response-Format: 1.9.2
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 X-Appwrite-Session: 
 X-Appwrite-JWT: <YOUR_JWT>
