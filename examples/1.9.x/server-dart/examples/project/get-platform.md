@@ -8,7 +8,7 @@ Client client = Client()
 
 Project project = Project(client);
 
-PlatformWeb result = await project.getPlatform(
+dynamic result = await project.getPlatform(
     platformId: '<PLATFORM_ID>',
 );
 ```

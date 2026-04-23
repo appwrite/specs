@@ -34,6 +34,8 @@ mutation {
         authMembershipsUserName
         authMembershipsUserEmail
         authMembershipsMfa
+        authMembershipsUserId
+        authMembershipsUserPhone
         authInvalidateSessions
         oAuthProviders {
             key
@@ -82,7 +84,8 @@ mutation {
         smtpEnabled
         smtpSenderName
         smtpSenderEmail
-        smtpReplyTo
+        smtpReplyToName
+        smtpReplyToEmail
         smtpHost
         smtpPort
         smtpUsername

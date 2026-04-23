@@ -8,7 +8,7 @@ let client = Client()
 
 let project = Project(client)
 
-let platformWeb = try await project.getPlatform(
+let result = try await project.getPlatform(
     platformId: "<PLATFORM_ID>"
 )
 
