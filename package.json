@@ -8,5 +8,11 @@
     "files": [
         "examples",
         "specs"
-    ]
+    ],
+    "scripts": {
+        "validate:refs": "node scripts/validate-local-refs.js"
+    },
+    "devDependencies": {
+        "@apidevtools/swagger-parser": "^12.1.0"
+    }
 }
