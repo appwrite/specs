@@ -37,6 +37,7 @@ SDK code examples for each supported language, organized by version, platform, a
 | Version | Specs | Examples |
 |---------|-------|----------|
 | latest  | [specs/latest](specs/latest) | - |
+| 1.9.x   | [specs/1.9.x](specs/1.9.x) | [examples/1.9.x](examples/1.9.x) |
 | 1.8.x   | [specs/1.8.x](specs/1.8.x) | [examples/1.8.x](examples/1.8.x) |
 | 1.7.x   | [specs/1.7.x](specs/1.7.x) | [examples/1.7.x](examples/1.7.x) |
 | 1.6.x   | [specs/1.6.x](specs/1.6.x) | [examples/1.6.x](examples/1.6.x) |
@@ -65,10 +66,10 @@ You can use these specs with any OpenAPI-compatible tool. For example, to genera
 
 ```bash
 # Download the spec
-curl -O https://raw.githubusercontent.com/appwrite/specs/main/specs/1.8.x/open-api3-1.8.x-server.json
+curl -O https://raw.githubusercontent.com/appwrite/specs/main/specs/1.9.x/open-api3-1.9.x-server.json
 
 # Generate a client
-openapi-generator generate -i open-api3-1.8.x-server.json -g python -o ./sdk
+openapi-generator generate -i open-api3-1.9.x-server.json -g python -o ./sdk
 ```
 
 Or import directly into tools like [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/), or [Swagger UI](https://swagger.io/tools/swagger-ui/).
@@ -82,7 +83,7 @@ Each example file is a Markdown document showing how to call a specific API meth
 Specs and examples are automatically generated from the [appwrite/appwrite](https://github.com/appwrite/appwrite) repository using the `specs` CLI task:
 
 ```bash
-php app/cli.php specs --version=1.8.x --git=yes --message="Update specs for 1.8.x"
+php app/cli.php specs --version=1.9.x --git=yes --message="Update specs for 1.9.x"
 ```
 
 This generates the API specification files, regenerates SDK examples for all supported languages, and creates a PR in this repository.
