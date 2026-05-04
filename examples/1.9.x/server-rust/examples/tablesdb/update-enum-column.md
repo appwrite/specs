@@ -17,7 +17,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         "",
         vec![],
         false,
-        "<DEFAULT>",
+        Some("<DEFAULT>"),
         Some("") // optional
     ).await?;
 

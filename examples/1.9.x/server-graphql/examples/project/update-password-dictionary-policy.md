@@ -27,8 +27,10 @@ mutation {
         authCanonicalEmails
         authFreeEmails
         authMockNumbers {
-            phone
+            number
             otp
+            _createdAt
+            _updatedAt
         }
         authSessionAlerts
         authMembershipsUserName
@@ -139,6 +141,11 @@ mutation {
             resourceId
             reason
             expiredAt
+            projectName
+            region
+            organizationName
+            organizationId
+            billingPlan
         }
         consoleAccessedAt
     }

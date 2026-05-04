@@ -16,7 +16,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         "<TABLE_ID>",
         "",
         false,
-        "",
+        Some(""),
         Some("") // optional
     ).await?;
 
