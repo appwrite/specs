@@ -16,7 +16,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         "<COLLECTION_ID>",
         "",
         false,
-        0,
+        Some(0),
         Some(0), // optional
         Some(0), // optional
         Some("") // optional

@@ -16,7 +16,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         "<COLLECTION_ID>",
         "",
         false,
-        "https://example.com",
+        Some("https://example.com"),
         Some("") // optional
     ).await?;
 
