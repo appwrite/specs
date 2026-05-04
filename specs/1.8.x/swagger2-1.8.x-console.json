@@ -62930,18 +62930,6 @@
                                 "$ref": "#\/definitions\/attributePolygon"
                             },
                             {
-                                "$ref": "#\/definitions\/attributeVarchar"
-                            },
-                            {
-                                "$ref": "#\/definitions\/attributeText"
-                            },
-                            {
-                                "$ref": "#\/definitions\/attributeMediumtext"
-                            },
-                            {
-                                "$ref": "#\/definitions\/attributeLongtext"
-                            },
-                            {
                                 "$ref": "#\/definitions\/attributeString"
                             }
                         ]
@@ -63051,18 +63039,6 @@
                             },
                             {
                                 "$ref": "#\/definitions\/attributePolygon"
-                            },
-                            {
-                                "$ref": "#\/definitions\/attributeVarchar"
-                            },
-                            {
-                                "$ref": "#\/definitions\/attributeText"
-                            },
-                            {
-                                "$ref": "#\/definitions\/attributeMediumtext"
-                            },
-                            {
-                                "$ref": "#\/definitions\/attributeLongtext"
                             },
                             {
                                 "$ref": "#\/definitions\/attributeString"
@@ -64420,18 +64396,6 @@
                                 "$ref": "#\/definitions\/columnPolygon"
                             },
                             {
-                                "$ref": "#\/definitions\/columnVarchar"
-                            },
-                            {
-                                "$ref": "#\/definitions\/columnText"
-                            },
-                            {
-                                "$ref": "#\/definitions\/columnMediumtext"
-                            },
-                            {
-                                "$ref": "#\/definitions\/columnLongtext"
-                            },
-                            {
                                 "$ref": "#\/definitions\/columnString"
                             }
                         ]
@@ -64541,18 +64505,6 @@
                             },
                             {
                                 "$ref": "#\/definitions\/columnPolygon"
-                            },
-                            {
-                                "$ref": "#\/definitions\/columnVarchar"
-                            },
-                            {
-                                "$ref": "#\/definitions\/columnText"
-                            },
-                            {
-                                "$ref": "#\/definitions\/columnMediumtext"
-                            },
-                            {
-                                "$ref": "#\/definitions\/columnLongtext"
                             },
                             {
                                 "$ref": "#\/definitions\/columnString"
