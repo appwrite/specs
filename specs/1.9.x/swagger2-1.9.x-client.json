@@ -68,6 +68,12 @@
             "description": "Your secret dev API key",
             "in": "header"
         },
+        "Cookie": {
+            "type": "apiKey",
+            "name": "Cookie",
+            "description": "The user cookie to authenticate with. Used by SDKs that forward an incoming Cookie header in server-side runtimes.",
+            "in": "header"
+        },
         "ImpersonateUserId": {
             "type": "apiKey",
             "name": "X-Appwrite-Impersonate-User-Id",
@@ -9916,7 +9922,7 @@
                 "x-appwrite": {
                     "method": "createFile",
                     "group": "files",
-                    "weight": 1186,
+                    "weight": 1187,
                     "cookies": false,
                     "type": "upload",
                     "demo": "storage\/create-file.md",
@@ -12764,7 +12770,7 @@
                 "x-appwrite": {
                     "method": "deleteMembership",
                     "group": "memberships",
-                    "weight": 1187,
+                    "weight": 1188,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/delete-membership.md",
