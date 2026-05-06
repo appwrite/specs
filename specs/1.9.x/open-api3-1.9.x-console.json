@@ -71,6 +71,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ]
@@ -121,6 +122,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -227,7 +229,7 @@
                 "x-appwrite": {
                     "method": "listBillingAddresses",
                     "group": null,
-                    "weight": 1075,
+                    "weight": 1076,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-billing-addresses.md",
@@ -289,7 +291,7 @@
                 "x-appwrite": {
                     "method": "createBillingAddress",
                     "group": null,
-                    "weight": 1073,
+                    "weight": 1074,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-billing-address.md",
@@ -384,7 +386,7 @@
                 "x-appwrite": {
                     "method": "getBillingAddress",
                     "group": null,
-                    "weight": 1074,
+                    "weight": 1075,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get-billing-address.md",
@@ -443,7 +445,7 @@
                 "x-appwrite": {
                     "method": "updateBillingAddress",
                     "group": null,
-                    "weight": 1076,
+                    "weight": 1077,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-billing-address.md",
@@ -541,7 +543,7 @@
                 "x-appwrite": {
                     "method": "deleteBillingAddress",
                     "group": null,
-                    "weight": 1077,
+                    "weight": 1078,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/delete-billing-address.md",
@@ -602,7 +604,7 @@
                 "x-appwrite": {
                     "method": "getCoupon",
                     "group": null,
-                    "weight": 1079,
+                    "weight": 1080,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get-coupon.md",
@@ -686,6 +688,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -765,6 +768,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -836,6 +840,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -877,7 +882,7 @@
                 "x-appwrite": {
                     "method": "listInvoices",
                     "group": null,
-                    "weight": 1078,
+                    "weight": 1079,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-invoices.md",
@@ -964,6 +969,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -1010,7 +1016,7 @@
                 "x-appwrite": {
                     "method": "listKeys",
                     "group": "keys",
-                    "weight": 1061,
+                    "weight": 1062,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-keys.md",
@@ -1069,7 +1075,7 @@
                 "x-appwrite": {
                     "method": "createKey",
                     "group": "keys",
-                    "weight": 1062,
+                    "weight": 1063,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-key.md",
@@ -1159,7 +1165,7 @@
                 "x-appwrite": {
                     "method": "getKey",
                     "group": "keys",
-                    "weight": 1065,
+                    "weight": 1066,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get-key.md",
@@ -1217,7 +1223,7 @@
                 "x-appwrite": {
                     "method": "updateKey",
                     "group": "keys",
-                    "weight": 1064,
+                    "weight": 1065,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-key.md",
@@ -1310,7 +1316,7 @@
                 "x-appwrite": {
                     "method": "deleteKey",
                     "group": "keys",
-                    "weight": 1063,
+                    "weight": 1064,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/delete-key.md",
@@ -1393,6 +1399,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -1471,6 +1478,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -1598,6 +1606,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -1725,6 +1734,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -1858,6 +1868,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -1983,6 +1994,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -2120,6 +2132,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -2245,6 +2258,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ]
@@ -2345,6 +2359,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ]
@@ -2443,6 +2458,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ]
@@ -2541,6 +2557,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ]
@@ -2593,6 +2610,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -2664,6 +2682,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -2718,7 +2737,7 @@
                 "x-appwrite": {
                     "method": "listPaymentMethods",
                     "group": null,
-                    "weight": 1068,
+                    "weight": 1069,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-payment-methods.md",
@@ -2780,7 +2799,7 @@
                 "x-appwrite": {
                     "method": "createPaymentMethod",
                     "group": null,
-                    "weight": 1066,
+                    "weight": 1067,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-payment-method.md",
@@ -2829,7 +2848,7 @@
                 "x-appwrite": {
                     "method": "getPaymentMethod",
                     "group": null,
-                    "weight": 1067,
+                    "weight": 1068,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get-payment-method.md",
@@ -2888,7 +2907,7 @@
                 "x-appwrite": {
                     "method": "updatePaymentMethod",
                     "group": null,
-                    "weight": 1069,
+                    "weight": 1070,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-payment-method.md",
@@ -2972,7 +2991,7 @@
                 "x-appwrite": {
                     "method": "deletePaymentMethod",
                     "group": null,
-                    "weight": 1072,
+                    "weight": 1073,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/delete-payment-method.md",
@@ -3033,7 +3052,7 @@
                 "x-appwrite": {
                     "method": "updatePaymentMethodProvider",
                     "group": null,
-                    "weight": 1070,
+                    "weight": 1071,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-payment-method-provider.md",
@@ -3125,7 +3144,7 @@
                 "x-appwrite": {
                     "method": "updatePaymentMethodMandateOptions",
                     "group": null,
-                    "weight": 1071,
+                    "weight": 1072,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-payment-method-mandate-options.md",
@@ -3209,6 +3228,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -3288,6 +3308,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ]
@@ -3338,6 +3359,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -3412,6 +3434,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -3489,6 +3512,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -3572,6 +3596,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ]
@@ -3615,6 +3640,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ]
@@ -3667,6 +3693,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ]
@@ -3719,6 +3746,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -3802,6 +3830,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -3872,6 +3901,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -4024,6 +4054,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -4101,6 +4132,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -4178,6 +4210,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -4240,6 +4273,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -4295,6 +4329,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -4359,6 +4394,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ]
@@ -4409,7 +4445,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Session": []
                     }
                 ],
                 "requestBody": {
@@ -4489,7 +4526,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Session": []
                     }
                 ],
                 "parameters": [
@@ -4561,7 +4599,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Session": []
                     }
                 ],
                 "parameters": [
@@ -4628,6 +4667,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -4714,6 +4754,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -4796,6 +4837,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -4947,6 +4989,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -5077,6 +5120,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -5203,6 +5247,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -5283,6 +5328,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ]
@@ -5333,6 +5379,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -5387,7 +5434,7 @@
                 "x-appwrite": {
                     "method": "listEvents",
                     "group": null,
-                    "weight": 1184,
+                    "weight": 1185,
                     "cookies": false,
                     "type": "",
                     "demo": "activities\/list-events.md",
@@ -5450,7 +5497,7 @@
                 "x-appwrite": {
                     "method": "getEvent",
                     "group": "events",
-                    "weight": 1185,
+                    "weight": 1186,
                     "cookies": false,
                     "type": "",
                     "demo": "activities\/get-event.md",
@@ -5530,6 +5577,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -5658,6 +5706,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -5792,6 +5841,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -5852,6 +5902,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -6342,6 +6393,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -6426,6 +6478,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -6520,6 +6573,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -6614,6 +6668,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -7343,7 +7398,7 @@
                 "x-appwrite": {
                     "method": "listArchives",
                     "group": null,
-                    "weight": 1055,
+                    "weight": 1056,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/list-archives.md",
@@ -7407,7 +7462,7 @@
                 "x-appwrite": {
                     "method": "createArchive",
                     "group": null,
-                    "weight": 1056,
+                    "weight": 1057,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/create-archive.md",
@@ -7496,7 +7551,7 @@
                 "x-appwrite": {
                     "method": "getArchive",
                     "group": null,
-                    "weight": 1054,
+                    "weight": 1055,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/get-archive.md",
@@ -7550,7 +7605,7 @@
                 "x-appwrite": {
                     "method": "deleteArchive",
                     "group": null,
-                    "weight": 1057,
+                    "weight": 1058,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/delete-archive.md",
@@ -7613,14 +7668,17 @@
                 "x-appwrite": {
                     "method": "listPolicies",
                     "group": null,
-                    "weight": 1050,
+                    "weight": 1051,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/list-policies.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.read",
+                    "scope": [
+                        "policies.read",
+                        "backups.policies.read"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -7677,14 +7735,17 @@
                 "x-appwrite": {
                     "method": "createPolicy",
                     "group": null,
-                    "weight": 1051,
+                    "weight": 1052,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/create-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.write",
+                    "scope": [
+                        "policies.write",
+                        "backups.policies.write"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -7795,14 +7856,17 @@
                 "x-appwrite": {
                     "method": "getPolicy",
                     "group": null,
-                    "weight": 1049,
+                    "weight": 1050,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/get-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.read",
+                    "scope": [
+                        "policies.read",
+                        "backups.policies.read"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -7856,14 +7920,17 @@
                 "x-appwrite": {
                     "method": "updatePolicy",
                     "group": null,
-                    "weight": 1052,
+                    "weight": 1053,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/update-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.write",
+                    "scope": [
+                        "policies.write",
+                        "backups.policies.write"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -7945,14 +8012,17 @@
                 "x-appwrite": {
                     "method": "deletePolicy",
                     "group": null,
-                    "weight": 1053,
+                    "weight": 1054,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/delete-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.write",
+                    "scope": [
+                        "policies.write",
+                        "backups.policies.write"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -8008,7 +8078,7 @@
                 "x-appwrite": {
                     "method": "createRestoration",
                     "group": null,
-                    "weight": 1060,
+                    "weight": 1061,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/create-restoration.md",
@@ -8107,7 +8177,7 @@
                 "x-appwrite": {
                     "method": "listRestorations",
                     "group": null,
-                    "weight": 1059,
+                    "weight": 1060,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/list-restorations.md",
@@ -8173,7 +8243,7 @@
                 "x-appwrite": {
                     "method": "getRestoration",
                     "group": null,
-                    "weight": 1058,
+                    "weight": 1059,
                     "cookies": false,
                     "type": "",
                     "demo": "backups\/get-restoration.md",
@@ -9150,6 +9220,173 @@
                 ]
             }
         },
+        "\/console\/suggestions\/queries": {
+            "get": {
+                "summary": "Get query suggestions for a list resource from free-text intent",
+                "operationId": "consoleSuggestQueries",
+                "tags": [
+                    "console"
+                ],
+                "description": "Suggest valid Appwrite query JSON objects for a supported list resource from free-text user intent. The endpoint picks a validator based on `type` \u2014 for system resources it uses the static validator and its allowed attributes, and for user-owned table rows it loads the table schema and validates against those attributes at request time. The returned queries are guaranteed to parse and pass the relevant queries validator.\n",
+                "responses": {
+                    "200": {
+                        "description": "Any",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/any"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "suggestQueries",
+                    "group": null,
+                    "weight": 916,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "console\/suggest-queries.md",
+                    "rate-limit": 10,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "databases.read",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/console\/suggest-queries.md",
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "description": "Resource list type to generate queries for.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "activities",
+                            "enum": [
+                                "activities",
+                                "activityevents",
+                                "archives",
+                                "credits",
+                                "dnsrecords",
+                                "domains",
+                                "invoices",
+                                "paymentmethods",
+                                "policies",
+                                "projects",
+                                "restorations",
+                                "teamaggregations",
+                                "teams",
+                                "databases",
+                                "tables",
+                                "rows",
+                                "schedules",
+                                "platforms",
+                                "keys",
+                                "devkeys",
+                                "webhooks",
+                                "certificates",
+                                "realtime",
+                                "rules",
+                                "installations",
+                                "repositories",
+                                "vcscomments",
+                                "vcscommentlocks",
+                                "users",
+                                "cache",
+                                "tokens",
+                                "authenticators",
+                                "challenges",
+                                "sessions",
+                                "identities",
+                                "memberships",
+                                "buckets",
+                                "providers",
+                                "messages",
+                                "topics",
+                                "subscribers",
+                                "targets",
+                                "companies",
+                                "billingaddresses",
+                                "billingaggregations",
+                                "billingaggregationresources",
+                                "billingteamprojectaggregations",
+                                "billingteamaggregations_v2",
+                                "billingteamaggregationresources",
+                                "billinginvoices_v2",
+                                "billingaddons",
+                                "alerts",
+                                "payments",
+                                "billingdiscounts",
+                                "sources",
+                                "deals",
+                                "blocks",
+                                "threats",
+                                "feedbacks",
+                                "sh_installations",
+                                "attributes",
+                                "indexes",
+                                "functions",
+                                "sites",
+                                "deployments",
+                                "executions",
+                                "variables",
+                                "migrations",
+                                "resourcetokens",
+                                "transactions",
+                                "transactionlogs",
+                                "stats"
+                            ],
+                            "x-enum-name": null,
+                            "x-enum-keys": []
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "input",
+                        "description": "Natural language query intent used to generate filters\/sorting\/pagination.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INPUT>"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID. Required when type is `tables` or `rows`.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "tableId",
+                        "description": "Table ID. Required when type is `rows`.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<TABLE_ID>"
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
         "\/console\/variables": {
             "get": {
                 "summary": "Get variables",
@@ -9483,6 +9720,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -9550,6 +9788,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -9621,6 +9860,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -9685,6 +9925,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -9763,6 +10004,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -9829,6 +10071,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -15232,6 +15475,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -15425,6 +15669,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -15891,6 +16136,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -16038,6 +16284,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -16157,6 +16404,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -16269,6 +16517,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -16474,6 +16723,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": [],
                         "Key": []
                     }
@@ -16603,6 +16853,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": [],
                         "Key": []
                     }
@@ -17709,6 +17960,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -17776,6 +18028,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -17847,6 +18100,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -17911,6 +18165,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -17989,6 +18244,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -18821,6 +19077,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -19000,6 +19257,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -19441,6 +19699,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -19580,6 +19839,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -19693,6 +19953,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -19799,6 +20060,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -19901,6 +20163,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": [],
                         "Key": []
                     }
@@ -20024,6 +20287,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": [],
                         "Key": []
                     }
@@ -20711,7 +20975,7 @@
                 "x-appwrite": {
                     "method": "list",
                     "group": null,
-                    "weight": 921,
+                    "weight": 922,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/list.md",
@@ -20783,7 +21047,7 @@
                 "x-appwrite": {
                     "method": "create",
                     "group": null,
-                    "weight": 916,
+                    "weight": 917,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create.md",
@@ -20856,7 +21120,7 @@
                 "x-appwrite": {
                     "method": "getPrice",
                     "group": null,
-                    "weight": 919,
+                    "weight": 920,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/get-price.md",
@@ -20945,7 +21209,7 @@
                 "x-appwrite": {
                     "method": "createPurchase",
                     "group": null,
-                    "weight": 966,
+                    "weight": 967,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-purchase.md",
@@ -21077,7 +21341,7 @@
                 "x-appwrite": {
                     "method": "updatePurchase",
                     "group": null,
-                    "weight": 967,
+                    "weight": 968,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-purchase.md",
@@ -21156,7 +21420,7 @@
                 "x-appwrite": {
                     "method": "listSuggestions",
                     "group": null,
-                    "weight": 965,
+                    "weight": 966,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/list-suggestions.md",
@@ -21275,7 +21539,7 @@
                 "x-appwrite": {
                     "method": "createTransferIn",
                     "group": null,
-                    "weight": 926,
+                    "weight": 927,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-transfer-in.md",
@@ -21365,7 +21629,7 @@
                 "x-appwrite": {
                     "method": "updateTransferIn",
                     "group": null,
-                    "weight": 927,
+                    "weight": 928,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-transfer-in.md",
@@ -21444,7 +21708,7 @@
                 "x-appwrite": {
                     "method": "createTransferOut",
                     "group": null,
-                    "weight": 928,
+                    "weight": 929,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-transfer-out.md",
@@ -21517,7 +21781,7 @@
                 "x-appwrite": {
                     "method": "get",
                     "group": null,
-                    "weight": 918,
+                    "weight": 919,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/get.md",
@@ -21568,7 +21832,7 @@
                 "x-appwrite": {
                     "method": "delete",
                     "group": null,
-                    "weight": 917,
+                    "weight": 918,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/delete.md",
@@ -21628,7 +21892,7 @@
                 "x-appwrite": {
                     "method": "updateAutoRenewal",
                     "group": null,
-                    "weight": 922,
+                    "weight": 923,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-auto-renewal.md",
@@ -21707,7 +21971,7 @@
                 "x-appwrite": {
                     "method": "updateNameservers",
                     "group": null,
-                    "weight": 923,
+                    "weight": 924,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-nameservers.md",
@@ -21767,7 +22031,7 @@
                 "x-appwrite": {
                     "method": "getPresetGoogleWorkspace",
                     "group": null,
-                    "weight": 954,
+                    "weight": 955,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/get-preset-google-workspace.md",
@@ -21825,7 +22089,7 @@
                 "x-appwrite": {
                     "method": "createPresetGoogleWorkspace",
                     "group": null,
-                    "weight": 953,
+                    "weight": 954,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-preset-google-workspace.md",
@@ -21885,7 +22149,7 @@
                 "x-appwrite": {
                     "method": "getPresetICloud",
                     "group": null,
-                    "weight": 964,
+                    "weight": 965,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/get-preset-i-cloud.md",
@@ -21943,7 +22207,7 @@
                 "x-appwrite": {
                     "method": "createPresetICloud",
                     "group": null,
-                    "weight": 963,
+                    "weight": 964,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-preset-i-cloud.md",
@@ -22003,7 +22267,7 @@
                 "x-appwrite": {
                     "method": "getPresetMailgun",
                     "group": null,
-                    "weight": 956,
+                    "weight": 957,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/get-preset-mailgun.md",
@@ -22061,7 +22325,7 @@
                 "x-appwrite": {
                     "method": "createPresetMailgun",
                     "group": null,
-                    "weight": 955,
+                    "weight": 956,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-preset-mailgun.md",
@@ -22121,7 +22385,7 @@
                 "x-appwrite": {
                     "method": "getPresetOutlook",
                     "group": null,
-                    "weight": 962,
+                    "weight": 963,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/get-preset-outlook.md",
@@ -22179,7 +22443,7 @@
                 "x-appwrite": {
                     "method": "createPresetOutlook",
                     "group": null,
-                    "weight": 961,
+                    "weight": 962,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-preset-outlook.md",
@@ -22239,7 +22503,7 @@
                 "x-appwrite": {
                     "method": "getPresetProtonMail",
                     "group": null,
-                    "weight": 960,
+                    "weight": 961,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/get-preset-proton-mail.md",
@@ -22297,7 +22561,7 @@
                 "x-appwrite": {
                     "method": "createPresetProtonMail",
                     "group": null,
-                    "weight": 959,
+                    "weight": 960,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-preset-proton-mail.md",
@@ -22357,7 +22621,7 @@
                 "x-appwrite": {
                     "method": "getPresetZoho",
                     "group": null,
-                    "weight": 958,
+                    "weight": 959,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/get-preset-zoho.md",
@@ -22415,7 +22679,7 @@
                 "x-appwrite": {
                     "method": "createPresetZoho",
                     "group": null,
-                    "weight": 957,
+                    "weight": 958,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-preset-zoho.md",
@@ -22475,7 +22739,7 @@
                 "x-appwrite": {
                     "method": "listRecords",
                     "group": null,
-                    "weight": 952,
+                    "weight": 953,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/list-records.md",
@@ -22548,7 +22812,7 @@
                 "x-appwrite": {
                     "method": "createRecordA",
                     "group": null,
-                    "weight": 930,
+                    "weight": 931,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-record-a.md",
@@ -22645,7 +22909,7 @@
                 "x-appwrite": {
                     "method": "updateRecordA",
                     "group": null,
-                    "weight": 931,
+                    "weight": 932,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-record-a.md",
@@ -22752,7 +23016,7 @@
                 "x-appwrite": {
                     "method": "createRecordAAAA",
                     "group": null,
-                    "weight": 932,
+                    "weight": 933,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-record-aaaa.md",
@@ -22849,7 +23113,7 @@
                 "x-appwrite": {
                     "method": "updateRecordAAAA",
                     "group": null,
-                    "weight": 933,
+                    "weight": 934,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-record-aaaa.md",
@@ -22956,7 +23220,7 @@
                 "x-appwrite": {
                     "method": "createRecordAlias",
                     "group": null,
-                    "weight": 934,
+                    "weight": 935,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-record-alias.md",
@@ -23053,7 +23317,7 @@
                 "x-appwrite": {
                     "method": "updateRecordAlias",
                     "group": null,
-                    "weight": 935,
+                    "weight": 936,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-record-alias.md",
@@ -23160,7 +23424,7 @@
                 "x-appwrite": {
                     "method": "createRecordCAA",
                     "group": null,
-                    "weight": 936,
+                    "weight": 937,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-record-caa.md",
@@ -23257,7 +23521,7 @@
                 "x-appwrite": {
                     "method": "updateRecordCAA",
                     "group": null,
-                    "weight": 937,
+                    "weight": 938,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-record-caa.md",
@@ -23364,7 +23628,7 @@
                 "x-appwrite": {
                     "method": "createRecordCNAME",
                     "group": null,
-                    "weight": 938,
+                    "weight": 939,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-record-cname.md",
@@ -23461,7 +23725,7 @@
                 "x-appwrite": {
                     "method": "updateRecordCNAME",
                     "group": null,
-                    "weight": 939,
+                    "weight": 940,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-record-cname.md",
@@ -23568,7 +23832,7 @@
                 "x-appwrite": {
                     "method": "createRecordHTTPS",
                     "group": null,
-                    "weight": 940,
+                    "weight": 941,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-record-https.md",
@@ -23665,7 +23929,7 @@
                 "x-appwrite": {
                     "method": "updateRecordHTTPS",
                     "group": null,
-                    "weight": 941,
+                    "weight": 942,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-record-https.md",
@@ -23772,7 +24036,7 @@
                 "x-appwrite": {
                     "method": "createRecordMX",
                     "group": null,
-                    "weight": 942,
+                    "weight": 943,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-record-mx.md",
@@ -23876,7 +24140,7 @@
                 "x-appwrite": {
                     "method": "updateRecordMX",
                     "group": null,
-                    "weight": 943,
+                    "weight": 944,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-record-mx.md",
@@ -23990,7 +24254,7 @@
                 "x-appwrite": {
                     "method": "createRecordNS",
                     "group": null,
-                    "weight": 944,
+                    "weight": 945,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-record-ns.md",
@@ -24087,7 +24351,7 @@
                 "x-appwrite": {
                     "method": "updateRecordNS",
                     "group": null,
-                    "weight": 945,
+                    "weight": 946,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-record-ns.md",
@@ -24194,7 +24458,7 @@
                 "x-appwrite": {
                     "method": "createRecordSRV",
                     "group": null,
-                    "weight": 946,
+                    "weight": 947,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-record-srv.md",
@@ -24312,7 +24576,7 @@
                 "x-appwrite": {
                     "method": "updateRecordSRV",
                     "group": null,
-                    "weight": 947,
+                    "weight": 948,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-record-srv.md",
@@ -24440,7 +24704,7 @@
                 "x-appwrite": {
                     "method": "createRecordTXT",
                     "group": null,
-                    "weight": 948,
+                    "weight": 949,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/create-record-txt.md",
@@ -24536,7 +24800,7 @@
                 "x-appwrite": {
                     "method": "updateRecordTXT",
                     "group": null,
-                    "weight": 949,
+                    "weight": 950,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-record-txt.md",
@@ -24643,7 +24907,7 @@
                 "x-appwrite": {
                     "method": "getRecord",
                     "group": null,
-                    "weight": 951,
+                    "weight": 952,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/get-record.md",
@@ -24704,7 +24968,7 @@
                 "x-appwrite": {
                     "method": "deleteRecord",
                     "group": null,
-                    "weight": 950,
+                    "weight": 951,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/delete-record.md",
@@ -24774,7 +25038,7 @@
                 "x-appwrite": {
                     "method": "updateTeam",
                     "group": null,
-                    "weight": 925,
+                    "weight": 926,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-team.md",
@@ -24853,7 +25117,7 @@
                 "x-appwrite": {
                     "method": "getTransferStatus",
                     "group": null,
-                    "weight": 929,
+                    "weight": 930,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/get-transfer-status.md",
@@ -24906,7 +25170,7 @@
                 "x-appwrite": {
                     "method": "getZone",
                     "group": null,
-                    "weight": 920,
+                    "weight": 921,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/get-zone.md",
@@ -24964,7 +25228,7 @@
                 "x-appwrite": {
                     "method": "updateZone",
                     "group": null,
-                    "weight": 924,
+                    "weight": 925,
                     "cookies": false,
                     "type": "",
                     "demo": "domains\/update-zone.md",
@@ -25333,6 +25597,8 @@
                                                 "mocks.write",
                                                 "policies.read",
                                                 "policies.write",
+                                                "project.policies.read",
+                                                "project.policies.write",
                                                 "templates.read",
                                                 "templates.write",
                                                 "oauth2.read",
@@ -25399,6 +25665,8 @@
                                                 "vcs.write",
                                                 "rules.read",
                                                 "rules.write",
+                                                "backups.policies.read",
+                                                "backups.policies.write",
                                                 "archives.read",
                                                 "archives.write",
                                                 "restorations.read",
@@ -26210,6 +26478,8 @@
                                                 "mocks.write",
                                                 "policies.read",
                                                 "policies.write",
+                                                "project.policies.read",
+                                                "project.policies.write",
                                                 "templates.read",
                                                 "templates.write",
                                                 "oauth2.read",
@@ -26276,6 +26546,8 @@
                                                 "vcs.write",
                                                 "rules.read",
                                                 "rules.write",
+                                                "backups.policies.read",
+                                                "backups.policies.write",
                                                 "archives.read",
                                                 "archives.write",
                                                 "restorations.read",
@@ -27311,6 +27583,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -27401,6 +27674,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -27522,6 +27796,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -28135,6 +28410,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ]
@@ -28189,6 +28465,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ]
@@ -28433,7 +28710,7 @@
                 "x-appwrite": {
                     "method": "getConsolePausing",
                     "group": null,
-                    "weight": 1043,
+                    "weight": 1044,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-console-pausing.md",
@@ -28674,7 +28951,7 @@
                 "x-appwrite": {
                     "method": "getQueueBillingProjectAggregation",
                     "group": null,
-                    "weight": 1039,
+                    "weight": 1040,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-billing-project-aggregation.md",
@@ -28738,7 +29015,7 @@
                 "x-appwrite": {
                     "method": "getQueueBillingTeamAggregation",
                     "group": null,
-                    "weight": 1038,
+                    "weight": 1039,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-billing-team-aggregation.md",
@@ -28866,7 +29143,7 @@
                 "x-appwrite": {
                     "method": "getQueuePriorityBuilds",
                     "group": null,
-                    "weight": 1040,
+                    "weight": 1041,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-priority-builds.md",
@@ -29544,7 +29821,7 @@
                 "x-appwrite": {
                     "method": "getQueueRegionManager",
                     "group": null,
-                    "weight": 1041,
+                    "weight": 1042,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-region-manager.md",
@@ -29736,7 +30013,7 @@
                 "x-appwrite": {
                     "method": "getQueueThreats",
                     "group": null,
-                    "weight": 1042,
+                    "weight": 1043,
                     "cookies": false,
                     "type": "",
                     "demo": "health\/get-queue-threats.md",
@@ -30041,6 +30318,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -30095,6 +30373,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -30149,6 +30428,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -30203,6 +30483,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -30257,6 +30538,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -30311,6 +30593,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -30365,6 +30648,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -30419,6 +30703,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -30449,7 +30734,7 @@
                 "x-appwrite": {
                     "method": "createBlock",
                     "group": null,
-                    "weight": 974,
+                    "weight": 975,
                     "cookies": false,
                     "type": "",
                     "demo": "manager\/create-block.md",
@@ -30541,7 +30826,7 @@
                 "x-appwrite": {
                     "method": "deleteBlock",
                     "group": null,
-                    "weight": 976,
+                    "weight": 977,
                     "cookies": false,
                     "type": "",
                     "demo": "manager\/delete-block.md",
@@ -30624,7 +30909,7 @@
                 "x-appwrite": {
                     "method": "listBlocks",
                     "group": null,
-                    "weight": 975,
+                    "weight": 976,
                     "cookies": false,
                     "type": "",
                     "demo": "manager\/list-blocks.md",
@@ -30676,7 +30961,7 @@
                 "x-appwrite": {
                     "method": "updateUserStatus",
                     "group": "users",
-                    "weight": 977,
+                    "weight": 978,
                     "cookies": false,
                     "type": "",
                     "demo": "manager\/update-user-status.md",
@@ -35947,6 +36232,7 @@
                     {
                         "Project": [],
                         "JWT": [],
+                        "Session": [],
                         "Key": []
                     }
                 ],
@@ -36102,6 +36388,7 @@
                     {
                         "Project": [],
                         "JWT": [],
+                        "Session": [],
                         "Key": []
                     }
                 ],
@@ -37753,7 +38040,7 @@
                 "x-appwrite": {
                     "method": "list",
                     "group": null,
-                    "weight": 989,
+                    "weight": 990,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/list.md",
@@ -37833,7 +38120,7 @@
                 "x-appwrite": {
                     "method": "create",
                     "group": null,
-                    "weight": 988,
+                    "weight": 989,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/create.md",
@@ -37963,7 +38250,7 @@
                 "x-appwrite": {
                     "method": "estimationCreateOrganization",
                     "group": null,
-                    "weight": 1023,
+                    "weight": 1024,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/estimation-create-organization.md",
@@ -38055,7 +38342,7 @@
                 "x-appwrite": {
                     "method": "delete",
                     "group": null,
-                    "weight": 990,
+                    "weight": 991,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/delete.md",
@@ -38116,7 +38403,7 @@
                 "x-appwrite": {
                     "method": "listAddons",
                     "group": null,
-                    "weight": 1031,
+                    "weight": 1032,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/list-addons.md",
@@ -38177,7 +38464,7 @@
                 "x-appwrite": {
                     "method": "createBaaAddon",
                     "group": null,
-                    "weight": 1034,
+                    "weight": 1035,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/create-baa-addon.md",
@@ -38238,7 +38525,7 @@
                 "x-appwrite": {
                     "method": "getAddon",
                     "group": null,
-                    "weight": 1032,
+                    "weight": 1033,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-addon.md",
@@ -38300,7 +38587,7 @@
                 "x-appwrite": {
                     "method": "deleteAddon",
                     "group": null,
-                    "weight": 1035,
+                    "weight": 1036,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/delete-addon.md",
@@ -38371,7 +38658,7 @@
                 "x-appwrite": {
                     "method": "confirmAddonPayment",
                     "group": null,
-                    "weight": 1036,
+                    "weight": 1037,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/confirm-addon-payment.md",
@@ -38442,7 +38729,7 @@
                 "x-appwrite": {
                     "method": "getAddonPrice",
                     "group": null,
-                    "weight": 1033,
+                    "weight": 1034,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-addon-price.md",
@@ -38518,7 +38805,7 @@
                 "x-appwrite": {
                     "method": "listAggregations",
                     "group": null,
-                    "weight": 1005,
+                    "weight": 1006,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/list-aggregations.md",
@@ -38592,7 +38879,7 @@
                 "x-appwrite": {
                     "method": "getAggregation",
                     "group": null,
-                    "weight": 1006,
+                    "weight": 1007,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-aggregation.md",
@@ -38686,7 +38973,7 @@
                 "x-appwrite": {
                     "method": "setBillingAddress",
                     "group": null,
-                    "weight": 998,
+                    "weight": 999,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/set-billing-address.md",
@@ -38757,7 +39044,7 @@
                 "x-appwrite": {
                     "method": "deleteBillingAddress",
                     "group": null,
-                    "weight": 999,
+                    "weight": 1000,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/delete-billing-address.md",
@@ -38818,7 +39105,7 @@
                 "x-appwrite": {
                     "method": "getBillingAddress",
                     "group": null,
-                    "weight": 997,
+                    "weight": 998,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-billing-address.md",
@@ -38889,7 +39176,7 @@
                 "x-appwrite": {
                     "method": "setBillingEmail",
                     "group": null,
-                    "weight": 1017,
+                    "weight": 1018,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/set-billing-email.md",
@@ -38970,7 +39257,7 @@
                 "x-appwrite": {
                     "method": "updateBudget",
                     "group": null,
-                    "weight": 994,
+                    "weight": 995,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/update-budget.md",
@@ -39060,7 +39347,7 @@
                 "x-appwrite": {
                     "method": "listCredits",
                     "group": null,
-                    "weight": 1009,
+                    "weight": 1010,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/list-credits.md",
@@ -39132,7 +39419,7 @@
                 "x-appwrite": {
                     "method": "addCredit",
                     "group": null,
-                    "weight": 1010,
+                    "weight": 1011,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/add-credit.md",
@@ -39212,7 +39499,7 @@
                 "x-appwrite": {
                     "method": "getAvailableCredits",
                     "group": null,
-                    "weight": 1008,
+                    "weight": 1009,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-available-credits.md",
@@ -39273,7 +39560,7 @@
                 "x-appwrite": {
                     "method": "getCredit",
                     "group": null,
-                    "weight": 1007,
+                    "weight": 1008,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-credit.md",
@@ -39344,7 +39631,7 @@
                 "x-appwrite": {
                     "method": "estimationDeleteOrganization",
                     "group": null,
-                    "weight": 1024,
+                    "weight": 1025,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/estimation-delete-organization.md",
@@ -39405,7 +39692,7 @@
                 "x-appwrite": {
                     "method": "estimationUpdatePlan",
                     "group": null,
-                    "weight": 1021,
+                    "weight": 1022,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/estimation-update-plan.md",
@@ -39499,7 +39786,7 @@
                 "x-appwrite": {
                     "method": "createDowngradeFeedback",
                     "group": null,
-                    "weight": 1025,
+                    "weight": 1026,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/create-downgrade-feedback.md",
@@ -39597,7 +39884,7 @@
                 "x-appwrite": {
                     "method": "listInvoices",
                     "group": null,
-                    "weight": 1012,
+                    "weight": 1013,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/list-invoices.md",
@@ -39671,7 +39958,7 @@
                 "x-appwrite": {
                     "method": "getInvoice",
                     "group": null,
-                    "weight": 1011,
+                    "weight": 1012,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-invoice.md",
@@ -39742,7 +40029,7 @@
                 "x-appwrite": {
                     "method": "getInvoiceDownload",
                     "group": null,
-                    "weight": 1015,
+                    "weight": 1016,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-invoice-download.md",
@@ -39813,7 +40100,7 @@
                 "x-appwrite": {
                     "method": "createInvoicePayment",
                     "group": null,
-                    "weight": 1016,
+                    "weight": 1017,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/create-invoice-payment.md",
@@ -39903,7 +40190,7 @@
                 "x-appwrite": {
                     "method": "validateInvoice",
                     "group": null,
-                    "weight": 1013,
+                    "weight": 1014,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/validate-invoice.md",
@@ -39974,7 +40261,7 @@
                 "x-appwrite": {
                     "method": "getInvoiceView",
                     "group": null,
-                    "weight": 1014,
+                    "weight": 1015,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-invoice-view.md",
@@ -40045,7 +40332,7 @@
                 "x-appwrite": {
                     "method": "listKeys",
                     "group": "keys",
-                    "weight": 1028,
+                    "weight": 1029,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/list-keys.md",
@@ -40114,7 +40401,7 @@
                 "x-appwrite": {
                     "method": "createKey",
                     "group": "keys",
-                    "weight": 1026,
+                    "weight": 1027,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/create-key.md",
@@ -40221,7 +40508,7 @@
                 "x-appwrite": {
                     "method": "getKey",
                     "group": "keys",
-                    "weight": 1030,
+                    "weight": 1031,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-key.md",
@@ -40289,7 +40576,7 @@
                 "x-appwrite": {
                     "method": "updateKey",
                     "group": "keys",
-                    "weight": 1027,
+                    "weight": 1028,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/update-key.md",
@@ -40397,7 +40684,7 @@
                 "x-appwrite": {
                     "method": "deleteKey",
                     "group": "keys",
-                    "weight": 1029,
+                    "weight": 1030,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/delete-key.md",
@@ -40467,7 +40754,7 @@
                 "x-appwrite": {
                     "method": "setDefaultPaymentMethod",
                     "group": null,
-                    "weight": 1001,
+                    "weight": 1002,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/set-default-payment-method.md",
@@ -40545,7 +40832,7 @@
                 "x-appwrite": {
                     "method": "deleteDefaultPaymentMethod",
                     "group": null,
-                    "weight": 1003,
+                    "weight": 1004,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/delete-default-payment-method.md",
@@ -40606,7 +40893,7 @@
                 "x-appwrite": {
                     "method": "setBackupPaymentMethod",
                     "group": null,
-                    "weight": 1002,
+                    "weight": 1003,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/set-backup-payment-method.md",
@@ -40684,7 +40971,7 @@
                 "x-appwrite": {
                     "method": "deleteBackupPaymentMethod",
                     "group": null,
-                    "weight": 1004,
+                    "weight": 1005,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/delete-backup-payment-method.md",
@@ -40745,7 +41032,7 @@
                 "x-appwrite": {
                     "method": "getPaymentMethod",
                     "group": null,
-                    "weight": 1000,
+                    "weight": 1001,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-payment-method.md",
@@ -40816,7 +41103,7 @@
                 "x-appwrite": {
                     "method": "getPlan",
                     "group": null,
-                    "weight": 991,
+                    "weight": 992,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-plan.md",
@@ -40875,7 +41162,7 @@
                 "x-appwrite": {
                     "method": "updatePlan",
                     "group": null,
-                    "weight": 992,
+                    "weight": 993,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/update-plan.md",
@@ -40993,7 +41280,7 @@
                 "x-appwrite": {
                     "method": "cancelDowngrade",
                     "group": null,
-                    "weight": 993,
+                    "weight": 994,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/cancel-downgrade.md",
@@ -41054,7 +41341,7 @@
                 "x-appwrite": {
                     "method": "createPlanEstimation",
                     "group": null,
-                    "weight": 1022,
+                    "weight": 1023,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/create-plan-estimation.md",
@@ -41148,7 +41435,7 @@
                 "x-appwrite": {
                     "method": "listRegions",
                     "group": null,
-                    "weight": 1020,
+                    "weight": 1021,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/list-regions.md",
@@ -41209,7 +41496,7 @@
                 "x-appwrite": {
                     "method": "getScopes",
                     "group": null,
-                    "weight": 1019,
+                    "weight": 1020,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-scopes.md",
@@ -41281,7 +41568,7 @@
                 "x-appwrite": {
                     "method": "setBillingTaxId",
                     "group": null,
-                    "weight": 995,
+                    "weight": 996,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/set-billing-tax-id.md",
@@ -41362,7 +41649,7 @@
                 "x-appwrite": {
                     "method": "getUsage",
                     "group": null,
-                    "weight": 996,
+                    "weight": 997,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/get-usage.md",
@@ -41445,7 +41732,7 @@
                 "x-appwrite": {
                     "method": "validatePayment",
                     "group": null,
-                    "weight": 1018,
+                    "weight": 1019,
                     "cookies": false,
                     "type": "",
                     "demo": "organizations\/validate-payment.md",
@@ -41518,7 +41805,7 @@
                 "x-appwrite": {
                     "method": "delete",
                     "group": null,
-                    "weight": 1087,
+                    "weight": 1088,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/delete.md",
@@ -41568,7 +41855,7 @@
                 "x-appwrite": {
                     "method": "updateAuthMethod",
                     "group": null,
-                    "weight": 1136,
+                    "weight": 1137,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-auth-method.md",
@@ -41660,7 +41947,7 @@
                 "x-appwrite": {
                     "method": "updateCanonicalEmails",
                     "group": "auth",
-                    "weight": 1181,
+                    "weight": 1182,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-canonical-emails.md",
@@ -41729,7 +42016,7 @@
                 "x-appwrite": {
                     "method": "updateDisposableEmails",
                     "group": "auth",
-                    "weight": 1182,
+                    "weight": 1183,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-disposable-emails.md",
@@ -41798,7 +42085,7 @@
                 "x-appwrite": {
                     "method": "updateFreeEmails",
                     "group": "auth",
-                    "weight": 1183,
+                    "weight": 1184,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-free-emails.md",
@@ -41867,7 +42154,7 @@
                 "x-appwrite": {
                     "method": "listKeys",
                     "group": "keys",
-                    "weight": 1103,
+                    "weight": 1104,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/list-keys.md",
@@ -41941,7 +42228,7 @@
                 "x-appwrite": {
                     "method": "createKey",
                     "group": "keys",
-                    "weight": 1101,
+                    "weight": 1102,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/create-key.md",
@@ -41998,6 +42285,8 @@
                                                 "mocks.write",
                                                 "policies.read",
                                                 "policies.write",
+                                                "project.policies.read",
+                                                "project.policies.write",
                                                 "templates.read",
                                                 "templates.write",
                                                 "oauth2.read",
@@ -42064,6 +42353,8 @@
                                                 "vcs.write",
                                                 "rules.read",
                                                 "rules.write",
+                                                "backups.policies.read",
+                                                "backups.policies.write",
                                                 "archives.read",
                                                 "archives.write",
                                                 "restorations.read",
@@ -42119,7 +42410,7 @@
                 "x-appwrite": {
                     "method": "createEphemeralKey",
                     "group": "keys",
-                    "weight": 1102,
+                    "weight": 1103,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/create-ephemeral-key.md",
@@ -42166,6 +42457,8 @@
                                                 "mocks.write",
                                                 "policies.read",
                                                 "policies.write",
+                                                "project.policies.read",
+                                                "project.policies.write",
                                                 "templates.read",
                                                 "templates.write",
                                                 "oauth2.read",
@@ -42232,6 +42525,8 @@
                                                 "vcs.write",
                                                 "rules.read",
                                                 "rules.write",
+                                                "backups.policies.read",
+                                                "backups.policies.write",
                                                 "archives.read",
                                                 "archives.write",
                                                 "restorations.read",
@@ -42285,7 +42580,7 @@
                 "x-appwrite": {
                     "method": "getKey",
                     "group": "keys",
-                    "weight": 1104,
+                    "weight": 1105,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/get-key.md",
@@ -42345,7 +42640,7 @@
                 "x-appwrite": {
                     "method": "updateKey",
                     "group": "keys",
-                    "weight": 1106,
+                    "weight": 1107,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-key.md",
@@ -42409,6 +42704,8 @@
                                                 "mocks.write",
                                                 "policies.read",
                                                 "policies.write",
+                                                "project.policies.read",
+                                                "project.policies.write",
                                                 "templates.read",
                                                 "templates.write",
                                                 "oauth2.read",
@@ -42475,6 +42772,8 @@
                                                 "vcs.write",
                                                 "rules.read",
                                                 "rules.write",
+                                                "backups.policies.read",
+                                                "backups.policies.write",
                                                 "archives.read",
                                                 "archives.write",
                                                 "restorations.read",
@@ -42520,7 +42819,7 @@
                 "x-appwrite": {
                     "method": "deleteKey",
                     "group": "keys",
-                    "weight": 1105,
+                    "weight": 1106,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/delete-key.md",
@@ -42582,7 +42881,7 @@
                 "x-appwrite": {
                     "method": "updateLabels",
                     "group": null,
-                    "weight": 1088,
+                    "weight": 1089,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-labels.md",
@@ -42654,7 +42953,7 @@
                 "x-appwrite": {
                     "method": "listMockPhones",
                     "group": "mocks",
-                    "weight": 1121,
+                    "weight": 1122,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/list-mock-phones.md",
@@ -42728,7 +43027,7 @@
                 "x-appwrite": {
                     "method": "createMockPhone",
                     "group": "mocks",
-                    "weight": 1120,
+                    "weight": 1121,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/create-mock-phone.md",
@@ -42804,7 +43103,7 @@
                 "x-appwrite": {
                     "method": "getMockPhone",
                     "group": "mocks",
-                    "weight": 1122,
+                    "weight": 1123,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/get-mock-phone.md",
@@ -42865,7 +43164,7 @@
                 "x-appwrite": {
                     "method": "updateMockPhone",
                     "group": "mocks",
-                    "weight": 1123,
+                    "weight": 1124,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-mock-phone.md",
@@ -42938,7 +43237,7 @@
                 "x-appwrite": {
                     "method": "deleteMockPhone",
                     "group": "mocks",
-                    "weight": 1124,
+                    "weight": 1125,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/delete-mock-phone.md",
@@ -43001,7 +43300,7 @@
                 "x-appwrite": {
                     "method": "listOAuth2Providers",
                     "group": "oauth2",
-                    "weight": 1137,
+                    "weight": 1138,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/list-o-auth-2-providers.md",
@@ -43051,7 +43350,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Amazon",
                     "group": "oauth2",
-                    "weight": 1164,
+                    "weight": 1165,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-amazon.md",
@@ -43130,7 +43429,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Apple",
                     "group": "oauth2",
-                    "weight": 1179,
+                    "weight": 1180,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-apple.md",
@@ -43221,7 +43520,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Auth0",
                     "group": "oauth2",
-                    "weight": 1173,
+                    "weight": 1174,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-auth-0.md",
@@ -43306,7 +43605,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Authentik",
                     "group": "oauth2",
-                    "weight": 1172,
+                    "weight": 1173,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-authentik.md",
@@ -43391,7 +43690,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Autodesk",
                     "group": "oauth2",
-                    "weight": 1147,
+                    "weight": 1148,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-autodesk.md",
@@ -43470,7 +43769,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Bitbucket",
                     "group": "oauth2",
-                    "weight": 1144,
+                    "weight": 1145,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-bitbucket.md",
@@ -43549,7 +43848,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Bitly",
                     "group": "oauth2",
-                    "weight": 1145,
+                    "weight": 1146,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-bitly.md",
@@ -43628,7 +43927,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Box",
                     "group": "oauth2",
-                    "weight": 1146,
+                    "weight": 1147,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-box.md",
@@ -43707,7 +44006,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Dailymotion",
                     "group": "oauth2",
-                    "weight": 1143,
+                    "weight": 1144,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-dailymotion.md",
@@ -43786,7 +44085,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Discord",
                     "group": "oauth2",
-                    "weight": 1140,
+                    "weight": 1141,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-discord.md",
@@ -43865,7 +44164,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Disqus",
                     "group": "oauth2",
-                    "weight": 1163,
+                    "weight": 1164,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-disqus.md",
@@ -43944,7 +44243,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Dropbox",
                     "group": "oauth2",
-                    "weight": 1142,
+                    "weight": 1143,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-dropbox.md",
@@ -44023,7 +44322,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Etsy",
                     "group": "oauth2",
-                    "weight": 1165,
+                    "weight": 1166,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-etsy.md",
@@ -44102,7 +44401,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Facebook",
                     "group": "oauth2",
-                    "weight": 1166,
+                    "weight": 1167,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-facebook.md",
@@ -44181,7 +44480,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Figma",
                     "group": "oauth2",
-                    "weight": 1141,
+                    "weight": 1142,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-figma.md",
@@ -44260,7 +44559,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2FusionAuth",
                     "group": "oauth2",
-                    "weight": 1174,
+                    "weight": 1175,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-fusion-auth.md",
@@ -44345,7 +44644,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2GitHub",
                     "group": "oauth2",
-                    "weight": 1139,
+                    "weight": 1140,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-git-hub.md",
@@ -44424,7 +44723,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Gitlab",
                     "group": "oauth2",
-                    "weight": 1171,
+                    "weight": 1172,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-gitlab.md",
@@ -44510,7 +44809,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Google",
                     "group": "oauth2",
-                    "weight": 1148,
+                    "weight": 1149,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-google.md",
@@ -44589,7 +44888,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Keycloak",
                     "group": "oauth2",
-                    "weight": 1175,
+                    "weight": 1176,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-keycloak.md",
@@ -44680,7 +44979,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Kick",
                     "group": "oauth2",
-                    "weight": 1178,
+                    "weight": 1179,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-kick.md",
@@ -44759,7 +45058,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Linkedin",
                     "group": "oauth2",
-                    "weight": 1162,
+                    "weight": 1163,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-linkedin.md",
@@ -44838,7 +45137,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Microsoft",
                     "group": "oauth2",
-                    "weight": 1180,
+                    "weight": 1181,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-microsoft.md",
@@ -44923,7 +45222,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Notion",
                     "group": "oauth2",
-                    "weight": 1159,
+                    "weight": 1160,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-notion.md",
@@ -45002,7 +45301,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Oidc",
                     "group": "oauth2",
-                    "weight": 1176,
+                    "weight": 1177,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-oidc.md",
@@ -45109,7 +45408,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Okta",
                     "group": "oauth2",
-                    "weight": 1177,
+                    "weight": 1178,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-okta.md",
@@ -45200,7 +45499,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Paypal",
                     "group": "oauth2",
-                    "weight": 1169,
+                    "weight": 1170,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-paypal.md",
@@ -45279,7 +45578,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2PaypalSandbox",
                     "group": "oauth2",
-                    "weight": 1170,
+                    "weight": 1171,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-paypal-sandbox.md",
@@ -45358,7 +45657,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Podio",
                     "group": "oauth2",
-                    "weight": 1158,
+                    "weight": 1159,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-podio.md",
@@ -45437,7 +45736,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Salesforce",
                     "group": "oauth2",
-                    "weight": 1160,
+                    "weight": 1161,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-salesforce.md",
@@ -45516,7 +45815,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Slack",
                     "group": "oauth2",
-                    "weight": 1157,
+                    "weight": 1158,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-slack.md",
@@ -45595,7 +45894,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Spotify",
                     "group": "oauth2",
-                    "weight": 1156,
+                    "weight": 1157,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-spotify.md",
@@ -45674,7 +45973,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Stripe",
                     "group": "oauth2",
-                    "weight": 1155,
+                    "weight": 1156,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-stripe.md",
@@ -45753,7 +46052,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Tradeshift",
                     "group": "oauth2",
-                    "weight": 1167,
+                    "weight": 1168,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-tradeshift.md",
@@ -45832,7 +46131,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2TradeshiftSandbox",
                     "group": "oauth2",
-                    "weight": 1168,
+                    "weight": 1169,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-tradeshift-sandbox.md",
@@ -45911,7 +46210,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Twitch",
                     "group": "oauth2",
-                    "weight": 1154,
+                    "weight": 1155,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-twitch.md",
@@ -45990,7 +46289,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2WordPress",
                     "group": "oauth2",
-                    "weight": 1153,
+                    "weight": 1154,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-word-press.md",
@@ -46069,7 +46368,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2X",
                     "group": "oauth2",
-                    "weight": 1152,
+                    "weight": 1153,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2x.md",
@@ -46148,7 +46447,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Yahoo",
                     "group": "oauth2",
-                    "weight": 1161,
+                    "weight": 1162,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-yahoo.md",
@@ -46227,7 +46526,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Yandex",
                     "group": "oauth2",
-                    "weight": 1151,
+                    "weight": 1152,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-yandex.md",
@@ -46306,7 +46605,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Zoho",
                     "group": "oauth2",
-                    "weight": 1150,
+                    "weight": 1151,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-zoho.md",
@@ -46385,7 +46684,7 @@
                 "x-appwrite": {
                     "method": "updateOAuth2Zoom",
                     "group": "oauth2",
-                    "weight": 1149,
+                    "weight": 1150,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-o-auth-2-zoom.md",
@@ -46632,7 +46931,7 @@
                 "x-appwrite": {
                     "method": "getOAuth2Provider",
                     "group": "oauth2",
-                    "weight": 1138,
+                    "weight": 1139,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/get-o-auth-2-provider.md",
@@ -46694,7 +46993,7 @@
                 "x-appwrite": {
                     "method": "listPlatforms",
                     "group": "platforms",
-                    "weight": 1119,
+                    "weight": 1120,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/list-platforms.md",
@@ -46770,7 +47069,7 @@
                 "x-appwrite": {
                     "method": "createAndroidPlatform",
                     "group": "platforms",
-                    "weight": 1115,
+                    "weight": 1116,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/create-android-platform.md",
@@ -46851,7 +47150,7 @@
                 "x-appwrite": {
                     "method": "updateAndroidPlatform",
                     "group": "platforms",
-                    "weight": 1110,
+                    "weight": 1111,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-android-platform.md",
@@ -46938,7 +47237,7 @@
                 "x-appwrite": {
                     "method": "createApplePlatform",
                     "group": "platforms",
-                    "weight": 1114,
+                    "weight": 1115,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/create-apple-platform.md",
@@ -47019,7 +47318,7 @@
                 "x-appwrite": {
                     "method": "updateApplePlatform",
                     "group": "platforms",
-                    "weight": 1109,
+                    "weight": 1110,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-apple-platform.md",
@@ -47106,7 +47405,7 @@
                 "x-appwrite": {
                     "method": "createLinuxPlatform",
                     "group": "platforms",
-                    "weight": 1117,
+                    "weight": 1118,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/create-linux-platform.md",
@@ -47187,7 +47486,7 @@
                 "x-appwrite": {
                     "method": "updateLinuxPlatform",
                     "group": "platforms",
-                    "weight": 1112,
+                    "weight": 1113,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-linux-platform.md",
@@ -47274,7 +47573,7 @@
                 "x-appwrite": {
                     "method": "createWebPlatform",
                     "group": "platforms",
-                    "weight": 1113,
+                    "weight": 1114,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/create-web-platform.md",
@@ -47355,7 +47654,7 @@
                 "x-appwrite": {
                     "method": "updateWebPlatform",
                     "group": "platforms",
-                    "weight": 1108,
+                    "weight": 1109,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-web-platform.md",
@@ -47442,7 +47741,7 @@
                 "x-appwrite": {
                     "method": "createWindowsPlatform",
                     "group": "platforms",
-                    "weight": 1116,
+                    "weight": 1117,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/create-windows-platform.md",
@@ -47523,7 +47822,7 @@
                 "x-appwrite": {
                     "method": "updateWindowsPlatform",
                     "group": "platforms",
-                    "weight": 1111,
+                    "weight": 1112,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-windows-platform.md",
@@ -47636,7 +47935,7 @@
                 "x-appwrite": {
                     "method": "getPlatform",
                     "group": "platforms",
-                    "weight": 1118,
+                    "weight": 1119,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/get-platform.md",
@@ -47689,7 +47988,7 @@
                 "x-appwrite": {
                     "method": "deletePlatform",
                     "group": "platforms",
-                    "weight": 1107,
+                    "weight": 1108,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/delete-platform.md",
@@ -47751,14 +48050,17 @@
                 "x-appwrite": {
                     "method": "listPolicies",
                     "group": "policies",
-                    "weight": 1125,
+                    "weight": 1126,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/list-policies.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.read",
+                    "scope": [
+                        "policies.read",
+                        "project.policies.read"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -47827,14 +48129,17 @@
                 "x-appwrite": {
                     "method": "updateMembershipPrivacyPolicy",
                     "group": "policies",
-                    "weight": 1127,
+                    "weight": 1128,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-membership-privacy-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.write",
+                    "scope": [
+                        "policies.write",
+                        "project.policies.write"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -47913,14 +48218,17 @@
                 "x-appwrite": {
                     "method": "updatePasswordDictionaryPolicy",
                     "group": "policies",
-                    "weight": 1128,
+                    "weight": 1129,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-password-dictionary-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.write",
+                    "scope": [
+                        "policies.write",
+                        "project.policies.write"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -47982,14 +48290,17 @@
                 "x-appwrite": {
                     "method": "updatePasswordHistoryPolicy",
                     "group": "policies",
-                    "weight": 1129,
+                    "weight": 1130,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-password-history-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.write",
+                    "scope": [
+                        "policies.write",
+                        "project.policies.write"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -48053,14 +48364,17 @@
                 "x-appwrite": {
                     "method": "updatePasswordPersonalDataPolicy",
                     "group": "policies",
-                    "weight": 1130,
+                    "weight": 1131,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-password-personal-data-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.write",
+                    "scope": [
+                        "policies.write",
+                        "project.policies.write"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -48122,14 +48436,17 @@
                 "x-appwrite": {
                     "method": "updateSessionAlertPolicy",
                     "group": "policies",
-                    "weight": 1131,
+                    "weight": 1132,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-session-alert-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.write",
+                    "scope": [
+                        "policies.write",
+                        "project.policies.write"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -48191,14 +48508,17 @@
                 "x-appwrite": {
                     "method": "updateSessionDurationPolicy",
                     "group": "policies",
-                    "weight": 1132,
+                    "weight": 1133,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-session-duration-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.write",
+                    "scope": [
+                        "policies.write",
+                        "project.policies.write"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -48261,14 +48581,17 @@
                 "x-appwrite": {
                     "method": "updateSessionInvalidationPolicy",
                     "group": "policies",
-                    "weight": 1133,
+                    "weight": 1134,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-session-invalidation-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.write",
+                    "scope": [
+                        "policies.write",
+                        "project.policies.write"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -48330,14 +48653,17 @@
                 "x-appwrite": {
                     "method": "updateSessionLimitPolicy",
                     "group": "policies",
-                    "weight": 1134,
+                    "weight": 1135,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-session-limit-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.write",
+                    "scope": [
+                        "policies.write",
+                        "project.policies.write"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -48401,14 +48727,17 @@
                 "x-appwrite": {
                     "method": "updateUserLimitPolicy",
                     "group": "policies",
-                    "weight": 1135,
+                    "weight": 1136,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-user-limit-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.write",
+                    "scope": [
+                        "policies.write",
+                        "project.policies.write"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -48514,14 +48843,17 @@
                 "x-appwrite": {
                     "method": "getPolicy",
                     "group": "policies",
-                    "weight": 1126,
+                    "weight": 1127,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/get-policy.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "policies.read",
+                    "scope": [
+                        "policies.read",
+                        "project.policies.read"
+                    ],
                     "platforms": [
                         "console",
                         "server"
@@ -48589,7 +48921,7 @@
                 "x-appwrite": {
                     "method": "updateProtocol",
                     "group": null,
-                    "weight": 1089,
+                    "weight": 1090,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-protocol.md",
@@ -48677,7 +49009,7 @@
                 "x-appwrite": {
                     "method": "updateService",
                     "group": null,
-                    "weight": 1090,
+                    "weight": 1091,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-service.md",
@@ -48779,7 +49111,7 @@
                 "x-appwrite": {
                     "method": "updateSMTP",
                     "group": "smtp",
-                    "weight": 1091,
+                    "weight": 1092,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-smtp.md",
@@ -48902,7 +49234,7 @@
                 "x-appwrite": {
                     "method": "createSMTPTest",
                     "group": "smtp",
-                    "weight": 1092,
+                    "weight": 1093,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/create-smtp-test.md",
@@ -48974,7 +49306,7 @@
                 "x-appwrite": {
                     "method": "listEmailTemplates",
                     "group": "templates",
-                    "weight": 1093,
+                    "weight": 1094,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/list-email-templates.md",
@@ -49048,7 +49380,7 @@
                 "x-appwrite": {
                     "method": "updateEmailTemplate",
                     "group": "templates",
-                    "weight": 1095,
+                    "weight": 1096,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-email-template.md",
@@ -49306,7 +49638,7 @@
                 "x-appwrite": {
                     "method": "getEmailTemplate",
                     "group": "templates",
-                    "weight": 1094,
+                    "weight": 1095,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/get-email-template.md",
@@ -49618,7 +49950,7 @@
                 "x-appwrite": {
                     "method": "listVariables",
                     "group": "variables",
-                    "weight": 1097,
+                    "weight": 1098,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/list-variables.md",
@@ -49692,7 +50024,7 @@
                 "x-appwrite": {
                     "method": "createVariable",
                     "group": "variables",
-                    "weight": 1096,
+                    "weight": 1097,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/create-variable.md",
@@ -49778,7 +50110,7 @@
                 "x-appwrite": {
                     "method": "getVariable",
                     "group": "variables",
-                    "weight": 1098,
+                    "weight": 1099,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/get-variable.md",
@@ -49838,7 +50170,7 @@
                 "x-appwrite": {
                     "method": "updateVariable",
                     "group": "variables",
-                    "weight": 1100,
+                    "weight": 1101,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/update-variable.md",
@@ -49920,7 +50252,7 @@
                 "x-appwrite": {
                     "method": "deleteVariable",
                     "group": "variables",
-                    "weight": 1099,
+                    "weight": 1100,
                     "cookies": false,
                     "type": "",
                     "demo": "project\/delete-variable.md",
@@ -49982,7 +50314,7 @@
                 "x-appwrite": {
                     "method": "list",
                     "group": "projects",
-                    "weight": 1085,
+                    "weight": 1086,
                     "cookies": false,
                     "type": "",
                     "demo": "projects\/list.md",
@@ -50065,7 +50397,7 @@
                 "x-appwrite": {
                     "method": "create",
                     "group": "projects",
-                    "weight": 1083,
+                    "weight": 1084,
                     "cookies": false,
                     "type": "",
                     "demo": "projects\/create.md",
@@ -50265,7 +50597,7 @@
                 "x-appwrite": {
                     "method": "update",
                     "group": "projects",
-                    "weight": 1084,
+                    "weight": 1085,
                     "cookies": false,
                     "type": "",
                     "demo": "projects\/update.md",
@@ -50384,7 +50716,7 @@
                 "x-appwrite": {
                     "method": "updateConsoleAccess",
                     "group": null,
-                    "weight": 1080,
+                    "weight": 1081,
                     "cookies": false,
                     "type": "",
                     "demo": "projects\/update-console-access.md",
@@ -50910,7 +51242,7 @@
                 "x-appwrite": {
                     "method": "createSchedule",
                     "group": "schedules",
-                    "weight": 1086,
+                    "weight": 1087,
                     "cookies": false,
                     "type": "",
                     "demo": "projects\/create-schedule.md",
@@ -51084,7 +51416,7 @@
                 "x-appwrite": {
                     "method": "updateStatus",
                     "group": null,
-                    "weight": 1081,
+                    "weight": 1082,
                     "cookies": false,
                     "type": "",
                     "demo": "projects\/update-status.md",
@@ -51169,7 +51501,7 @@
                 "x-appwrite": {
                     "method": "updateTeam",
                     "group": "projects",
-                    "weight": 1082,
+                    "weight": 1083,
                     "cookies": false,
                     "type": "",
                     "demo": "projects\/update-team.md",
@@ -51249,7 +51581,7 @@
                 "x-appwrite": {
                     "method": "listRules",
                     "group": null,
-                    "weight": 1193,
+                    "weight": 1194,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/list-rules.md",
@@ -51334,7 +51666,7 @@
                 "x-appwrite": {
                     "method": "createAPIRule",
                     "group": null,
-                    "weight": 1188,
+                    "weight": 1189,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/create-api-rule.md",
@@ -51401,7 +51733,7 @@
                 "x-appwrite": {
                     "method": "createFunctionRule",
                     "group": null,
-                    "weight": 1190,
+                    "weight": 1191,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/create-function-rule.md",
@@ -51479,7 +51811,7 @@
                 "x-appwrite": {
                     "method": "createRedirectRule",
                     "group": null,
-                    "weight": 1191,
+                    "weight": 1192,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/create-redirect-rule.md",
@@ -51593,7 +51925,7 @@
                 "x-appwrite": {
                     "method": "createSiteRule",
                     "group": null,
-                    "weight": 1189,
+                    "weight": 1190,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/create-site-rule.md",
@@ -51671,7 +52003,7 @@
                 "x-appwrite": {
                     "method": "getRule",
                     "group": null,
-                    "weight": 1192,
+                    "weight": 1193,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/get-rule.md",
@@ -51722,7 +52054,7 @@
                 "x-appwrite": {
                     "method": "deleteRule",
                     "group": null,
-                    "weight": 1194,
+                    "weight": 1195,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/delete-rule.md",
@@ -51782,7 +52114,7 @@
                 "x-appwrite": {
                     "method": "updateRuleVerification",
                     "group": null,
-                    "weight": 1195,
+                    "weight": 1196,
                     "cookies": false,
                     "type": "",
                     "demo": "proxy\/update-rule-verification.md",
@@ -55062,6 +55394,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -55137,7 +55470,7 @@
                 "x-appwrite": {
                     "method": "createFile",
                     "group": "files",
-                    "weight": 1186,
+                    "weight": 1187,
                     "cookies": false,
                     "type": "upload",
                     "demo": "storage\/create-file.md",
@@ -55161,6 +55494,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -55263,6 +55597,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -55337,6 +55672,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -55429,6 +55765,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -55498,6 +55835,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -55578,6 +55916,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -55808,6 +56147,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -56222,6 +56562,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -56292,6 +56633,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -56366,6 +56708,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -56433,6 +56776,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -56514,6 +56858,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -56583,6 +56928,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -62443,6 +62789,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -62627,6 +62974,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -63085,6 +63433,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -63227,6 +63576,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -63345,6 +63695,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -63456,6 +63807,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -63659,6 +64011,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": [],
                         "Key": []
                     }
@@ -63787,6 +64140,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": [],
                         "Key": []
                     }
@@ -64120,6 +64474,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -64209,6 +64564,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -64296,6 +64652,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -64360,6 +64717,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -64436,6 +64794,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -64587,6 +64946,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -64686,6 +65046,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -64802,6 +65163,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -64876,6 +65238,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -64941,7 +65304,7 @@
                 "x-appwrite": {
                     "method": "deleteMembership",
                     "group": "memberships",
-                    "weight": 1187,
+                    "weight": 1188,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/delete-membership.md",
@@ -64965,6 +65328,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -65040,6 +65404,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -65139,6 +65504,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -65201,6 +65567,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -70067,7 +70434,7 @@
                 "x-appwrite": {
                     "method": "updateExternalDeployments",
                     "group": "repositories",
-                    "weight": 1197,
+                    "weight": 1198,
                     "cookies": false,
                     "type": "",
                     "demo": "vcs\/update-external-deployments.md",
@@ -70659,6 +71026,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -70726,6 +71094,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -70797,6 +71166,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -70861,6 +71231,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -70939,6 +71310,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -71005,6 +71377,7 @@
                     {
                         "Project": [],
                         "Key": [],
+                        "Session": [],
                         "JWT": []
                     }
                 ],
@@ -71847,6 +72220,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -72026,6 +72400,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -72467,6 +72842,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -72606,6 +72982,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -72719,6 +73096,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -72825,6 +73203,7 @@
                 "security": [
                     {
                         "Project": [],
+                        "Session": [],
                         "Key": [],
                         "JWT": []
                     }
@@ -97470,7 +97849,19 @@
             "Cookie": {
                 "type": "apiKey",
                 "name": "Cookie",
-                "description": "The user cookie to authenticate with",
+                "description": "The user cookie to authenticate with. Used by SDKs that forward an incoming Cookie header in server-side runtimes.",
+                "in": "header"
+            },
+            "Session": {
+                "type": "apiKey",
+                "name": "X-Appwrite-Session",
+                "description": "The user session to authenticate with",
+                "in": "header"
+            },
+            "DevKey": {
+                "type": "apiKey",
+                "name": "X-Appwrite-Dev-Key",
+                "description": "Your secret dev API key",
                 "in": "header"
             },
             "ImpersonateUserId": {
