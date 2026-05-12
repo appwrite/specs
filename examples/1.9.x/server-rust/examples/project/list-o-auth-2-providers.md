@@ -11,7 +11,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let project = Project::new(&client);
 
-    let result = project.list_o_auth2_providers().await?;
+    let result = project.list_o_auth2_providers(
+        Some(vec![]), // optional
+        Some(false) // optional
+    ).await?;
 
     let _ = result;
 

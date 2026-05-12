@@ -2,6 +2,7 @@
 require 'appwrite'
 
 include Appwrite
+include Appwrite::Enums
 
 client = Client.new
     .set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
@@ -11,6 +12,6 @@ client = Client.new
 project = Project.new(client)
 
 result = project.get_o_auth2_provider(
-    provider: '<PROVIDER>'
+    provider_id: OAuthProvider::AMAZON
 )
 ```

@@ -2,6 +2,7 @@
 mutation {
     functionsCreateVariable(
         functionId: "<FUNCTION_ID>",
+        variableId: "<VARIABLE_ID>",
         key: "<KEY>",
         value: "<VALUE>",
         secret: false

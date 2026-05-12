@@ -13,5 +13,5 @@ Project project = new Project(client);
 
 EphemeralKey result = await project.CreateEphemeralKey(
     scopes: new List&lt;Scopes&gt; { Scopes.ProjectRead },
-    duration: 1
+    duration: 600
 );```

@@ -10,5 +10,8 @@ val client = Client()
 
 val project = Project(client)
 
-val response = project.listOAuth2Providers()
+val response = project.listOAuth2Providers(
+    queries = listOf(), // optional
+    total = false // optional
+)
 ```

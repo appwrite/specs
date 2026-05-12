@@ -10,6 +10,6 @@ const project = new sdk.Project(client);
 
 const result = await project.createEphemeralKey({
     scopes: [sdk.Scopes.ProjectRead],
-    duration: 1
+    duration: 600
 });
 ```

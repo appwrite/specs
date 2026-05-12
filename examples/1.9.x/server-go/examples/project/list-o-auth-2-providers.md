@@ -15,5 +15,8 @@ client := client.New(
 
 service := project.New(client)
 
-response, error := service.ListOAuth2Providers())
+response, error := service.ListOAuth2Providers(
+    project.WithListOAuth2ProvidersQueries([]interface{}{}),
+    project.WithListOAuth2ProvidersTotal(false),
+)
 ```

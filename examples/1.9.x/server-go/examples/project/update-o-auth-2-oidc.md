@@ -20,8 +20,8 @@ response, error := service.UpdateOAuth2Oidc(
     project.WithUpdateOAuth2OidcClientSecret("<CLIENT_SECRET>"),
     project.WithUpdateOAuth2OidcWellKnownURL("https://example.com"),
     project.WithUpdateOAuth2OidcAuthorizationURL("https://example.com"),
-    project.WithUpdateOAuth2OidcTokenUrl("https://example.com"),
-    project.WithUpdateOAuth2OidcUserInfoUrl("https://example.com"),
+    project.WithUpdateOAuth2OidcTokenURL("https://example.com"),
+    project.WithUpdateOAuth2OidcUserInfoURL("https://example.com"),
     project.WithUpdateOAuth2OidcEnabled(false),
 )
 ```

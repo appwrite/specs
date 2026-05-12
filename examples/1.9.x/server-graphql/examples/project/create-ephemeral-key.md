@@ -2,7 +2,7 @@
 mutation {
     projectCreateEphemeralKey(
         scopes: [],
-        duration: 1
+        duration: 600
     ) {
         _id
         _createdAt

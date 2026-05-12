@@ -2,6 +2,7 @@
 mutation {
     sitesCreateVariable(
         siteId: "<SITE_ID>",
+        variableId: "<VARIABLE_ID>",
         key: "<KEY>",
         value: "<VALUE>",
         secret: false

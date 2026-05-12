@@ -18,6 +18,7 @@ service := project.New(client)
 response, error := service.UpdateOAuth2Google(
     project.WithUpdateOAuth2GoogleClientId("<CLIENT_ID>"),
     project.WithUpdateOAuth2GoogleClientSecret("<CLIENT_SECRET>"),
+    project.WithUpdateOAuth2GooglePrompt([]interface{}{}),
     project.WithUpdateOAuth2GoogleEnabled(false),
 )
 ```

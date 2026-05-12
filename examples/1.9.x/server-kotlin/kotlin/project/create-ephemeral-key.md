@@ -13,6 +13,6 @@ val project = Project(client)
 
 val response = project.createEphemeralKey(
     scopes = listOf(Scopes.PROJECT_READ),
-    duration = 1
+    duration = 600
 )
 ```

@@ -10,7 +10,10 @@ client.set_key('<YOUR_API_KEY>') # Your secret API key
 
 project = Project(client)
 
-result: OAuth2ProviderList = project.list_o_auth2_providers()
+result: OAuth2ProviderList = project.list_o_auth2_providers(
+    queries = [], # optional
+    total = False # optional
+)
 
 print(result.model_dump())
 ```

@@ -13,7 +13,7 @@ project = Project(client)
 
 result: EphemeralKey = project.create_ephemeral_key(
     scopes = [Scopes.PROJECT_READ],
-    duration = 1
+    duration = 600
 )
 
 print(result.model_dump())

@@ -1,5 +1,6 @@
 ```swift
 import Appwrite
+import AppwriteEnums
 
 let client = Client()
     .setEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
@@ -9,7 +10,7 @@ let client = Client()
 let project = Project(client)
 
 let result = try await project.getOAuth2Provider(
-    provider: "<PROVIDER>"
+    providerId: .amazon
 )
 
 ```
