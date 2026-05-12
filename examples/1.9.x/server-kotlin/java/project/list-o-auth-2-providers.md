@@ -10,12 +10,17 @@ Client client = new Client()
 
 Project project = new Project(client);
 
-project.listOAuth2Providers(new CoroutineCallback<>((result, error) -> {
-    if (error != null) {
-        error.printStackTrace();
-        return;
-    }
+project.listOAuth2Providers(
+    List.of(), // queries (optional)
+    false, // total (optional)
+    new CoroutineCallback<>((result, error) -> {
+        if (error != null) {
+            error.printStackTrace();
+            return;
+        }
 
-    System.out.println(result);
-}));
+        System.out.println(result);
+    })
+);
+
 ```

@@ -14,5 +14,5 @@ $project = new Project($client);
 
 $result = $project->createEphemeralKey(
     scopes: [Scopes::PROJECTREAD()],
-    duration: 1
+    duration: 600
 );```

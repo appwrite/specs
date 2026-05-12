@@ -10,5 +10,8 @@ client = Client.new
 
 project = Project.new(client)
 
-result = project.list_o_auth2_providers()
+result = project.list_o_auth2_providers(
+    queries: [], # optional
+    total: false # optional
+)
 ```

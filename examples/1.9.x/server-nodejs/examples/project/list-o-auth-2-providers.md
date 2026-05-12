@@ -8,5 +8,8 @@ const client = new sdk.Client()
 
 const project = new sdk.Project(client);
 
-const result = await project.listOAuth2Providers();
+const result = await project.listOAuth2Providers({
+    queries: [], // optional
+    total: false // optional
+});
 ```

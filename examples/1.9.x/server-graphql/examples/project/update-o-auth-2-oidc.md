@@ -5,8 +5,8 @@ mutation {
         clientSecret: "<CLIENT_SECRET>",
         wellKnownURL: "https://example.com",
         authorizationURL: "https://example.com",
-        tokenUrl: "https://example.com",
-        userInfoUrl: "https://example.com",
+        tokenURL: "https://example.com",
+        userInfoURL: "https://example.com",
         enabled: false
     ) {
         _id
@@ -15,8 +15,8 @@ mutation {
         clientSecret
         wellKnownURL
         authorizationURL
-        tokenUrl
-        userInfoUrl
+        tokenURL
+        userInfoURL
     }
 }
 ```

@@ -17,6 +17,6 @@ service := project.New(client)
 
 response, error := service.CreateEphemeralKey(
     []interface{}{},
-    1,
+    600,
 )
 ```

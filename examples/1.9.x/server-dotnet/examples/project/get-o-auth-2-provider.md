@@ -1,5 +1,6 @@
 ```csharp
 using Appwrite;
+using Appwrite.Enums;
 using Appwrite.Models;
 using Appwrite.Services;
 
@@ -11,5 +12,5 @@ Client client = new Client()
 Project project = new Project(client);
 
 object result = await project.GetOAuth2Provider(
-    provider: "<PROVIDER>"
+    providerId: OAuthProvider.Amazon
 );```

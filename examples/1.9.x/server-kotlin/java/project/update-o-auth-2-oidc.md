@@ -15,8 +15,8 @@ project.updateOAuth2Oidc(
     "<CLIENT_SECRET>", // clientSecret (optional)
     "https://example.com", // wellKnownURL (optional)
     "https://example.com", // authorizationURL (optional)
-    "https://example.com", // tokenUrl (optional)
-    "https://example.com", // userInfoUrl (optional)
+    "https://example.com", // tokenURL (optional)
+    "https://example.com", // userInfoURL (optional)
     false, // enabled (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {

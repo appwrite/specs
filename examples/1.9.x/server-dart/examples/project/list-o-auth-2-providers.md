@@ -8,5 +8,8 @@ Client client = Client()
 
 Project project = Project(client);
 
-OAuth2ProviderList result = await project.listOAuth2Providers();
+OAuth2ProviderList result = await project.listOAuth2Providers(
+    queries: [], // (optional)
+    total: false, // (optional)
+);
 ```

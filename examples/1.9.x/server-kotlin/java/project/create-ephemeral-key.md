@@ -13,7 +13,7 @@ Project project = new Project(client);
 
 project.createEphemeralKey(
     List.of(Scopes.PROJECT_READ), // scopes
-    1, // duration
+    600, // duration
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {
             error.printStackTrace();

@@ -3,6 +3,7 @@
 
 use Appwrite\Client;
 use Appwrite\Services\Project;
+use Appwrite\Enums\OAuthProvider;
 
 $client = (new Client())
     ->setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -12,5 +13,5 @@ $client = (new Client())
 $project = new Project($client);
 
 $result = $project->getOAuth2Provider(
-    provider: '<PROVIDER>'
+    providerId: OAuthProvider::AMAZON()
 );```

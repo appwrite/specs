@@ -8,6 +8,9 @@ let client = Client()
 
 let project = Project(client)
 
-let oAuth2ProviderList = try await project.listOAuth2Providers()
+let oAuth2ProviderList = try await project.listOAuth2Providers(
+    queries: [], // optional
+    total: false // optional
+)
 
 ```
