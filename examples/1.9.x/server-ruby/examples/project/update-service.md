@@ -12,7 +12,7 @@ client = Client.new
 project = Project.new(client)
 
 result = project.update_service(
-    service_id: ServiceId::ACCOUNT,
+    service_id: ProjectServiceId::ACCOUNT,
     enabled: false
 )
 ```

@@ -12,7 +12,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let project = Project::new(&client);
 
     let result = project.update_auth_method(
-        appwrite::enums::AuthMethod::EmailPassword,
+        appwrite::enums::ProjectAuthMethodId::EmailPassword,
         false
     ).await?;
 

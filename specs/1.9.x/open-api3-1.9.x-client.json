@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "version": "1.9.4",
+        "version": "1.9.5",
         "title": "Appwrite",
         "description": "Appwrite backend as a service cuts up to 70% of the time and costs required for building a modern application. We abstract and simplify common development tasks behind a REST APIs, to help you develop your app in a fast and secure way. For full API documentation and tutorials go to [https:\/\/appwrite.io\/docs](https:\/\/appwrite.io\/docs)",
         "termsOfService": "https:\/\/appwrite.io\/policy\/terms",
@@ -17,12 +17,23 @@
     },
     "servers": [
         {
-            "url": "https:\/\/cloud.appwrite.io\/v1"
+            "url": "https:\/\/cloud.appwrite.io\/v1",
+            "description": "Appwrite Cloud endpoint."
         },
         {
-            "url": "https:\/\/<REGION>.cloud.appwrite.io\/v1"
+            "url": "https:\/\/{region}.cloud.appwrite.io\/v1",
+            "description": "Appwrite Cloud regional endpoint. Replace `{region}` with your project region.",
+            "variables": {
+                "region": {
+                    "default": "fra",
+                    "description": "Appwrite Cloud region."
+                }
+            }
         }
     ],
+    "x-appwrite": {
+        "endpointDocs": "https:\/\/<REGION>.cloud.appwrite.io\/v1"
+    },
     "paths": {
         "\/account": {
             "get": {
@@ -555,7 +566,7 @@
                 "x-appwrite": {
                     "method": "updateMFA",
                     "group": "mfa",
-                    "weight": 166,
+                    "weight": 165,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-mfa.md",
@@ -627,7 +638,7 @@
                 "x-appwrite": {
                     "method": "createMfaAuthenticator",
                     "group": "mfa",
-                    "weight": 168,
+                    "weight": 167,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-mfa-authenticator.md",
@@ -751,7 +762,7 @@
                 "x-appwrite": {
                     "method": "updateMfaAuthenticator",
                     "group": "mfa",
-                    "weight": 169,
+                    "weight": 168,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-mfa-authenticator.md",
@@ -891,7 +902,7 @@
                 "x-appwrite": {
                     "method": "deleteMfaAuthenticator",
                     "group": "mfa",
-                    "weight": 170,
+                    "weight": 169,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/delete-mfa-authenticator.md",
@@ -1015,7 +1026,7 @@
                 "x-appwrite": {
                     "method": "createMfaChallenge",
                     "group": "mfa",
-                    "weight": 174,
+                    "weight": 173,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-mfa-challenge.md",
@@ -1149,7 +1160,7 @@
                 "x-appwrite": {
                     "method": "updateMfaChallenge",
                     "group": "mfa",
-                    "weight": 175,
+                    "weight": 174,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-mfa-challenge.md",
@@ -1287,7 +1298,7 @@
                 "x-appwrite": {
                     "method": "listMfaFactors",
                     "group": "mfa",
-                    "weight": 167,
+                    "weight": 166,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-mfa-factors.md",
@@ -1388,7 +1399,7 @@
                 "x-appwrite": {
                     "method": "getMfaRecoveryCodes",
                     "group": "mfa",
-                    "weight": 173,
+                    "weight": 172,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get-mfa-recovery-codes.md",
@@ -1487,7 +1498,7 @@
                 "x-appwrite": {
                     "method": "createMfaRecoveryCodes",
                     "group": "mfa",
-                    "weight": 171,
+                    "weight": 170,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-mfa-recovery-codes.md",
@@ -1586,7 +1597,7 @@
                 "x-appwrite": {
                     "method": "updateMfaRecoveryCodes",
                     "group": "mfa",
-                    "weight": 172,
+                    "weight": 171,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-mfa-recovery-codes.md",
@@ -3066,7 +3077,8 @@
                     "scope": "targets.write",
                     "platforms": [
                         "console",
-                        "client"
+                        "client",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3078,7 +3090,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Session": []
+                        "Session": [],
+                        "JWT": []
                     }
                 ],
                 "requestBody": {
@@ -3147,7 +3160,8 @@
                     "scope": "targets.write",
                     "platforms": [
                         "console",
-                        "client"
+                        "client",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3159,7 +3173,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Session": []
+                        "Session": [],
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -3220,7 +3235,8 @@
                     "scope": "targets.write",
                     "platforms": [
                         "console",
-                        "client"
+                        "client",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3232,7 +3248,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Session": []
+                        "Session": [],
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -4059,7 +4076,7 @@
                 "x-appwrite": {
                     "method": "getBrowser",
                     "group": null,
-                    "weight": 177,
+                    "weight": 176,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-browser.md",
@@ -4187,7 +4204,7 @@
                 "x-appwrite": {
                     "method": "getCreditCard",
                     "group": null,
-                    "weight": 176,
+                    "weight": 175,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-credit-card.md",
@@ -4321,7 +4338,7 @@
                 "x-appwrite": {
                     "method": "getFavicon",
                     "group": null,
-                    "weight": 180,
+                    "weight": 179,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-favicon.md",
@@ -4381,7 +4398,7 @@
                 "x-appwrite": {
                     "method": "getFlag",
                     "group": null,
-                    "weight": 178,
+                    "weight": 177,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-flag.md",
@@ -4871,7 +4888,7 @@
                 "x-appwrite": {
                     "method": "getImage",
                     "group": null,
-                    "weight": 179,
+                    "weight": 178,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-image.md",
@@ -4955,7 +4972,7 @@
                 "x-appwrite": {
                     "method": "getInitials",
                     "group": null,
-                    "weight": 182,
+                    "weight": 181,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-initials.md",
@@ -5049,7 +5066,7 @@
                 "x-appwrite": {
                     "method": "getQR",
                     "group": null,
-                    "weight": 181,
+                    "weight": 180,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-qr.md",
@@ -5143,7 +5160,7 @@
                 "x-appwrite": {
                     "method": "getScreenshot",
                     "group": null,
-                    "weight": 183,
+                    "weight": 182,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-screenshot.md",
@@ -5286,7 +5303,7 @@
                         "required": false,
                         "schema": {
                             "type": "string",
-                            "x-example": "america\/new_york",
+                            "x-example": "America\/New_York",
                             "enum": [
                                 "africa\/abidjan",
                                 "africa\/accra",
@@ -5709,8 +5726,7 @@
                                 "utc"
                             ],
                             "x-enum-name": null,
-                            "x-enum-keys": [],
-                            "default": ""
+                            "x-enum-keys": []
                         },
                         "in": "query"
                     },
@@ -5864,8 +5880,7 @@
                                 "gif"
                             ],
                             "x-enum-name": "ImageFormat",
-                            "x-enum-keys": [],
-                            "default": ""
+                            "x-enum-keys": []
                         },
                         "in": "query"
                     }
@@ -5896,7 +5911,7 @@
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
-                    "weight": 761,
+                    "weight": 774,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/list-transactions.md",
@@ -5963,7 +5978,7 @@
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
-                    "weight": 757,
+                    "weight": 770,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/create-transaction.md",
@@ -6034,7 +6049,7 @@
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
-                    "weight": 758,
+                    "weight": 771,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/get-transaction.md",
@@ -6098,7 +6113,7 @@
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
-                    "weight": 759,
+                    "weight": 772,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/update-transaction.md",
@@ -6176,7 +6191,7 @@
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
-                    "weight": 760,
+                    "weight": 773,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/delete-transaction.md",
@@ -6242,7 +6257,7 @@
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
-                    "weight": 762,
+                    "weight": 775,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/create-operations.md",
@@ -6327,7 +6342,7 @@
                 "x-appwrite": {
                     "method": "listDocuments",
                     "group": "documents",
-                    "weight": 905,
+                    "weight": 918,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/list-documents.md",
@@ -6451,7 +6466,7 @@
                 "x-appwrite": {
                     "method": "createDocument",
                     "group": "documents",
-                    "weight": 702,
+                    "weight": 715,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/create-document.md",
@@ -6612,7 +6627,7 @@
                 "x-appwrite": {
                     "method": "getDocument",
                     "group": "documents",
-                    "weight": 703,
+                    "weight": 716,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/get-document.md",
@@ -6723,7 +6738,7 @@
                 "x-appwrite": {
                     "method": "upsertDocument",
                     "group": "documents",
-                    "weight": 706,
+                    "weight": 719,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/upsert-document.md",
@@ -6878,7 +6893,7 @@
                 "x-appwrite": {
                     "method": "updateDocument",
                     "group": "documents",
-                    "weight": 704,
+                    "weight": 717,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/update-document.md",
@@ -6990,7 +7005,7 @@
                 "x-appwrite": {
                     "method": "deleteDocument",
                     "group": "documents",
-                    "weight": 708,
+                    "weight": 721,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/delete-document.md",
@@ -7097,7 +7112,7 @@
                 "x-appwrite": {
                     "method": "decrementDocumentAttribute",
                     "group": "documents",
-                    "weight": 713,
+                    "weight": 726,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/decrement-document-attribute.md",
@@ -7226,7 +7241,7 @@
                 "x-appwrite": {
                     "method": "incrementDocumentAttribute",
                     "group": "documents",
-                    "weight": 712,
+                    "weight": 725,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/increment-document-attribute.md",
@@ -7355,7 +7370,7 @@
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
-                    "weight": 870,
+                    "weight": 883,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/list-transactions.md",
@@ -7422,7 +7437,7 @@
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
-                    "weight": 866,
+                    "weight": 879,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/create-transaction.md",
@@ -7493,7 +7508,7 @@
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
-                    "weight": 867,
+                    "weight": 880,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/get-transaction.md",
@@ -7557,7 +7572,7 @@
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
-                    "weight": 868,
+                    "weight": 881,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/update-transaction.md",
@@ -7635,7 +7650,7 @@
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
-                    "weight": 869,
+                    "weight": 882,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/delete-transaction.md",
@@ -7701,7 +7716,7 @@
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
-                    "weight": 871,
+                    "weight": 884,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/create-operations.md",
@@ -7785,7 +7800,7 @@
                 "x-appwrite": {
                     "method": "listDocuments",
                     "group": "documents",
-                    "weight": 906,
+                    "weight": 921,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/list-documents.md",
@@ -7905,7 +7920,7 @@
                 "x-appwrite": {
                     "method": "createDocument",
                     "group": "documents",
-                    "weight": 855,
+                    "weight": 868,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/create-document.md",
@@ -8082,7 +8097,7 @@
                 "x-appwrite": {
                     "method": "getDocument",
                     "group": "documents",
-                    "weight": 856,
+                    "weight": 869,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/get-document.md",
@@ -8189,7 +8204,7 @@
                 "x-appwrite": {
                     "method": "upsertDocument",
                     "group": "documents",
-                    "weight": 859,
+                    "weight": 872,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/upsert-document.md",
@@ -8334,7 +8349,7 @@
                 "x-appwrite": {
                     "method": "updateDocument",
                     "group": "documents",
-                    "weight": 857,
+                    "weight": 870,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/update-document.md",
@@ -8440,7 +8455,7 @@
                 "x-appwrite": {
                     "method": "deleteDocument",
                     "group": "documents",
-                    "weight": 861,
+                    "weight": 874,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/delete-document.md",
@@ -8542,7 +8557,7 @@
                 "x-appwrite": {
                     "method": "decrementDocumentAttribute",
                     "group": "documents",
-                    "weight": 865,
+                    "weight": 878,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/decrement-document-attribute.md",
@@ -8665,7 +8680,7 @@
                 "x-appwrite": {
                     "method": "incrementDocumentAttribute",
                     "group": "documents",
-                    "weight": 864,
+                    "weight": 877,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/increment-document-attribute.md",
@@ -8788,7 +8803,7 @@
                 "x-appwrite": {
                     "method": "listExecutions",
                     "group": "executions",
-                    "weight": 436,
+                    "weight": 441,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/list-executions.md",
@@ -8878,7 +8893,7 @@
                 "x-appwrite": {
                     "method": "createExecution",
                     "group": "executions",
-                    "weight": 434,
+                    "weight": 439,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/create-execution.md",
@@ -8999,7 +9014,7 @@
                 "x-appwrite": {
                     "method": "getExecution",
                     "group": "executions",
-                    "weight": 435,
+                    "weight": 440,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/get-execution.md",
@@ -9077,7 +9092,7 @@
                 "x-appwrite": {
                     "method": "query",
                     "group": "graphql",
-                    "weight": 117,
+                    "weight": 116,
                     "cookies": false,
                     "type": "graphql",
                     "demo": "graphql\/query.md",
@@ -9131,7 +9146,7 @@
                 "x-appwrite": {
                     "method": "mutation",
                     "group": "graphql",
-                    "weight": 116,
+                    "weight": 115,
                     "cookies": false,
                     "type": "graphql",
                     "demo": "graphql\/mutation.md",
@@ -9617,7 +9632,7 @@
                 "x-appwrite": {
                     "method": "createSubscriber",
                     "group": "subscribers",
-                    "weight": 150,
+                    "weight": 149,
                     "cookies": false,
                     "type": "",
                     "demo": "messaging\/create-subscriber.md",
@@ -9701,7 +9716,7 @@
                 "x-appwrite": {
                     "method": "deleteSubscriber",
                     "group": "subscribers",
-                    "weight": 154,
+                    "weight": 153,
                     "cookies": false,
                     "type": "",
                     "demo": "messaging\/delete-subscriber.md",
@@ -9753,6 +9768,489 @@
                 ]
             }
         },
+        "\/presences": {
+            "get": {
+                "summary": "List presences",
+                "operationId": "presencesList",
+                "tags": [
+                    "presences"
+                ],
+                "description": "List presence logs. Expired entries are filtered out automatically.\n",
+                "responses": {
+                    "200": {
+                        "description": "Presences List",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/presenceList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "list",
+                    "group": "presences",
+                    "weight": 419,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "presences\/list.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "presences.read",
+                    "platforms": [
+                        "console",
+                        "server",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/list.md",
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "total",
+                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "x-example": false,
+                            "default": true
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "ttl",
+                        "description": "TTL (seconds) for caching list responses. Responses are stored in an in-memory key-value cache, keyed per project, collection, schema version (attributes and indexes), caller authorization roles, and the exact query \u2014 so users with different permissions never share cached entries. Schema changes invalidate cached entries automatically; document writes do not, so choose a TTL you are comfortable serving as stale data. Set to 0 to disable caching. Must be between 0 and 86400 (24 hours).",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 0,
+                            "default": 0
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/presences\/{presenceId}": {
+            "get": {
+                "summary": "Get presence",
+                "operationId": "presencesGet",
+                "tags": [
+                    "presences"
+                ],
+                "description": "Get a presence log by its unique ID. Entries whose `expiresAt` is in the past are treated as not found.\n",
+                "responses": {
+                    "200": {
+                        "description": "Presence",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/presence"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "get",
+                    "group": "presences",
+                    "weight": 418,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "presences\/get.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "presences.read",
+                    "platforms": [
+                        "console",
+                        "server",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/get.md",
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "presenceId",
+                        "description": "Presence unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PRESENCE_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Upsert presence",
+                "operationId": "presencesUpsert",
+                "tags": [
+                    "presences"
+                ],
+                "description": "Create or update a presence log by its user ID.\n",
+                "responses": {
+                    "200": {
+                        "description": "Presence",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/presence"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "upsert",
+                    "group": "presences",
+                    "weight": 416,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "presences\/upsert.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "presences.write",
+                    "platforms": [
+                        "client"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/upsert.md",
+                    "methods": [
+                        {
+                            "name": "upsert",
+                            "namespace": "presences",
+                            "desc": "Upsert presence",
+                            "auth": {
+                                "Project": []
+                            },
+                            "parameters": [
+                                "presenceId",
+                                "status",
+                                "permissions",
+                                "expiresAt",
+                                "metadata"
+                            ],
+                            "required": [
+                                "presenceId",
+                                "status"
+                            ],
+                            "responses": [
+                                {
+                                    "code": 200,
+                                    "model": "#\/components\/schemas\/presence"
+                                }
+                            ],
+                            "description": "Create or update a presence log by its user ID.\n",
+                            "demo": "presences\/upsert.md",
+                            "public": true
+                        }
+                    ],
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "presenceId",
+                        "description": "Presence unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PRESENCE_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "userId": {
+                                        "type": "string",
+                                        "description": "User ID.",
+                                        "x-example": "<USER_ID>"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "description": "Presence status.",
+                                        "x-example": "<STATUS>"
+                                    },
+                                    "permissions": {
+                                        "type": "array",
+                                        "description": "An array of permissions strings. By default, only the current user is granted all permissions. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
+                                        "x-example": "[\"read(\"any\")\"]",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "expiresAt": {
+                                        "type": "string",
+                                        "description": "Presence expiry datetime.",
+                                        "x-example": "2020-10-15T06:38:00.000+00:00",
+                                        "format": "datetime"
+                                    },
+                                    "metadata": {
+                                        "type": "object",
+                                        "description": "Presence metadata object.",
+                                        "x-example": "{}"
+                                    }
+                                },
+                                "required": [
+                                    "status"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update presence",
+                "operationId": "presencesUpdate",
+                "tags": [
+                    "presences"
+                ],
+                "description": "Update a presence log by its unique ID. Using the patch method you can pass only specific fields that will get updated.\n",
+                "responses": {
+                    "200": {
+                        "description": "Presence",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/presence"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "update",
+                    "group": "presences",
+                    "weight": 420,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "presences\/update.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "presences.write",
+                    "platforms": [
+                        "client"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/update.md",
+                    "methods": [
+                        {
+                            "name": "update",
+                            "namespace": "presences",
+                            "desc": "Update presence",
+                            "auth": {
+                                "Project": []
+                            },
+                            "parameters": [
+                                "presenceId",
+                                "status",
+                                "expiresAt",
+                                "metadata",
+                                "permissions",
+                                "purge"
+                            ],
+                            "required": [
+                                "presenceId"
+                            ],
+                            "responses": [
+                                {
+                                    "code": 200,
+                                    "model": "#\/components\/schemas\/presence"
+                                }
+                            ],
+                            "description": "Update a presence log by its unique ID. Using the patch method you can pass only specific fields that will get updated.\n",
+                            "demo": "presences\/update.md",
+                            "public": true
+                        }
+                    ],
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "presenceId",
+                        "description": "Presence unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PRESENCE_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "userId": {
+                                        "type": "string",
+                                        "description": "User ID.",
+                                        "x-example": "<USER_ID>"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "description": "Presence status.",
+                                        "x-example": "<STATUS>"
+                                    },
+                                    "expiresAt": {
+                                        "type": "string",
+                                        "description": "Presence expiry datetime.",
+                                        "x-example": "2020-10-15T06:38:00.000+00:00",
+                                        "format": "datetime"
+                                    },
+                                    "metadata": {
+                                        "type": "object",
+                                        "description": "Presence metadata object.",
+                                        "x-example": "{}"
+                                    },
+                                    "permissions": {
+                                        "type": "array",
+                                        "description": "An array of permissions strings. By default, only the current user is granted all permissions. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
+                                        "x-example": "[\"read(\"any\")\"]",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "purge": {
+                                        "type": "boolean",
+                                        "description": "When true, purge cached responses used by list presences endpoint.",
+                                        "x-example": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete presence",
+                "operationId": "presencesDelete",
+                "tags": [
+                    "presences"
+                ],
+                "description": "Delete a presence log by its unique ID.\n",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "delete",
+                    "group": "presences",
+                    "weight": 421,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "presences\/delete.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "presences.write",
+                    "platforms": [
+                        "console",
+                        "server",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/delete.md",
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "presenceId",
+                        "description": "Presence unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PRESENCE_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
         "\/storage\/buckets\/{bucketId}\/files": {
             "get": {
                 "summary": "List files",
@@ -9777,7 +10275,7 @@
                 "x-appwrite": {
                     "method": "listFiles",
                     "group": "files",
-                    "weight": 548,
+                    "weight": 555,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/list-files.md",
@@ -9876,7 +10374,7 @@
                 "x-appwrite": {
                     "method": "createFile",
                     "group": "files",
-                    "weight": 1195,
+                    "weight": 1260,
                     "cookies": false,
                     "type": "upload",
                     "demo": "storage\/create-file.md",
@@ -9978,7 +10476,7 @@
                 "x-appwrite": {
                     "method": "getFile",
                     "group": "files",
-                    "weight": 547,
+                    "weight": 554,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/get-file.md",
@@ -10052,7 +10550,7 @@
                 "x-appwrite": {
                     "method": "updateFile",
                     "group": "files",
-                    "weight": 549,
+                    "weight": 556,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/update-file.md",
@@ -10144,7 +10642,7 @@
                 "x-appwrite": {
                     "method": "deleteFile",
                     "group": "files",
-                    "weight": 550,
+                    "weight": 557,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/delete-file.md",
@@ -10213,7 +10711,7 @@
                 "x-appwrite": {
                     "method": "getFileDownload",
                     "group": "files",
-                    "weight": 552,
+                    "weight": 559,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-download.md",
@@ -10293,7 +10791,7 @@
                 "x-appwrite": {
                     "method": "getFilePreview",
                     "group": "files",
-                    "weight": 551,
+                    "weight": 558,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-preview.md",
@@ -10487,8 +10985,7 @@
                                 "gif"
                             ],
                             "x-enum-name": "ImageFormat",
-                            "x-enum-keys": [],
-                            "default": ""
+                            "x-enum-keys": []
                         },
                         "in": "query"
                     },
@@ -10523,7 +11020,7 @@
                 "x-appwrite": {
                     "method": "getFileView",
                     "group": "files",
-                    "weight": 553,
+                    "weight": 560,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-view.md",
@@ -10610,7 +11107,7 @@
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
-                    "weight": 836,
+                    "weight": 849,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/list-transactions.md",
@@ -10680,7 +11177,7 @@
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
-                    "weight": 832,
+                    "weight": 845,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/create-transaction.md",
@@ -10754,7 +11251,7 @@
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
-                    "weight": 833,
+                    "weight": 846,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/get-transaction.md",
@@ -10821,7 +11318,7 @@
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
-                    "weight": 834,
+                    "weight": 847,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/update-transaction.md",
@@ -10902,7 +11399,7 @@
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
-                    "weight": 835,
+                    "weight": 848,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/delete-transaction.md",
@@ -10971,7 +11468,7 @@
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
-                    "weight": 837,
+                    "weight": 850,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/create-operations.md",
@@ -11059,7 +11556,7 @@
                 "x-appwrite": {
                     "method": "listRows",
                     "group": "rows",
-                    "weight": 907,
+                    "weight": 919,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/list-rows.md",
@@ -11182,7 +11679,7 @@
                 "x-appwrite": {
                     "method": "createRow",
                     "group": "rows",
-                    "weight": 820,
+                    "weight": 833,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/create-row.md",
@@ -11338,7 +11835,7 @@
                 "x-appwrite": {
                     "method": "getRow",
                     "group": "rows",
-                    "weight": 821,
+                    "weight": 834,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/get-row.md",
@@ -11448,7 +11945,7 @@
                 "x-appwrite": {
                     "method": "upsertRow",
                     "group": "rows",
-                    "weight": 824,
+                    "weight": 837,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/upsert-row.md",
@@ -11598,7 +12095,7 @@
                 "x-appwrite": {
                     "method": "updateRow",
                     "group": "rows",
-                    "weight": 822,
+                    "weight": 835,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/update-row.md",
@@ -11709,7 +12206,7 @@
                 "x-appwrite": {
                     "method": "deleteRow",
                     "group": "rows",
-                    "weight": 826,
+                    "weight": 839,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/delete-row.md",
@@ -11815,7 +12312,7 @@
                 "x-appwrite": {
                     "method": "decrementRowColumn",
                     "group": "rows",
-                    "weight": 831,
+                    "weight": 844,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/decrement-row-column.md",
@@ -11943,7 +12440,7 @@
                 "x-appwrite": {
                     "method": "incrementRowColumn",
                     "group": "rows",
-                    "weight": 830,
+                    "weight": 843,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/increment-row-column.md",
@@ -12071,7 +12568,7 @@
                 "x-appwrite": {
                     "method": "list",
                     "group": "teams",
-                    "weight": 524,
+                    "weight": 531,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/list.md",
@@ -12160,7 +12657,7 @@
                 "x-appwrite": {
                     "method": "create",
                     "group": "teams",
-                    "weight": 522,
+                    "weight": 529,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/create.md",
@@ -12247,7 +12744,7 @@
                 "x-appwrite": {
                     "method": "get",
                     "group": "teams",
-                    "weight": 523,
+                    "weight": 530,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/get.md",
@@ -12311,7 +12808,7 @@
                 "x-appwrite": {
                     "method": "updateName",
                     "group": "teams",
-                    "weight": 526,
+                    "weight": 533,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/update-name.md",
@@ -12387,7 +12884,7 @@
                 "x-appwrite": {
                     "method": "delete",
                     "group": "teams",
-                    "weight": 525,
+                    "weight": 532,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/delete.md",
@@ -12453,7 +12950,7 @@
                 "x-appwrite": {
                     "method": "listMemberships",
                     "group": "memberships",
-                    "weight": 531,
+                    "weight": 538,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/list-memberships.md",
@@ -12552,7 +13049,7 @@
                 "x-appwrite": {
                     "method": "createMembership",
                     "group": "memberships",
-                    "weight": 529,
+                    "weight": 536,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/create-membership.md",
@@ -12668,7 +13165,7 @@
                 "x-appwrite": {
                     "method": "getMembership",
                     "group": "memberships",
-                    "weight": 530,
+                    "weight": 537,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/get-membership.md",
@@ -12742,7 +13239,7 @@
                 "x-appwrite": {
                     "method": "updateMembership",
                     "group": "memberships",
-                    "weight": 532,
+                    "weight": 539,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/update-membership.md",
@@ -12831,7 +13328,7 @@
                 "x-appwrite": {
                     "method": "deleteMembership",
                     "group": "memberships",
-                    "weight": 1196,
+                    "weight": 1261,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/delete-membership.md",
@@ -12907,7 +13404,7 @@
                 "x-appwrite": {
                     "method": "updateMembershipStatus",
                     "group": "memberships",
-                    "weight": 534,
+                    "weight": 541,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/update-membership-status.md",
@@ -13007,7 +13504,7 @@
                 "x-appwrite": {
                     "method": "getPrefs",
                     "group": "teams",
-                    "weight": 527,
+                    "weight": 534,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/get-prefs.md",
@@ -13070,7 +13567,7 @@
                 "x-appwrite": {
                     "method": "updatePrefs",
                     "group": "teams",
-                    "weight": 528,
+                    "weight": 535,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/update-prefs.md",
@@ -13154,7 +13651,7 @@
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
-                    "weight": 903,
+                    "weight": 916,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/list-transactions.md",
@@ -13221,7 +13718,7 @@
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
-                    "weight": 899,
+                    "weight": 912,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/create-transaction.md",
@@ -13292,7 +13789,7 @@
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
-                    "weight": 900,
+                    "weight": 913,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/get-transaction.md",
@@ -13356,7 +13853,7 @@
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
-                    "weight": 901,
+                    "weight": 914,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/update-transaction.md",
@@ -13434,7 +13931,7 @@
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
-                    "weight": 902,
+                    "weight": 915,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/delete-transaction.md",
@@ -13500,7 +13997,7 @@
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
-                    "weight": 904,
+                    "weight": 917,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/create-operations.md",
@@ -13585,7 +14082,7 @@
                 "x-appwrite": {
                     "method": "listDocuments",
                     "group": "documents",
-                    "weight": 893,
+                    "weight": 906,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/list-documents.md",
@@ -13705,7 +14202,7 @@
                 "x-appwrite": {
                     "method": "createDocument",
                     "group": "documents",
-                    "weight": 889,
+                    "weight": 902,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/create-document.md",
@@ -13855,7 +14352,7 @@
                 "x-appwrite": {
                     "method": "getDocument",
                     "group": "documents",
-                    "weight": 892,
+                    "weight": 905,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/get-document.md",
@@ -13962,7 +14459,7 @@
                 "x-appwrite": {
                     "method": "upsertDocument",
                     "group": "documents",
-                    "weight": 891,
+                    "weight": 904,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/upsert-document.md",
@@ -14107,7 +14604,7 @@
                 "x-appwrite": {
                     "method": "updateDocument",
                     "group": "documents",
-                    "weight": 890,
+                    "weight": 903,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/update-document.md",
@@ -14213,7 +14710,7 @@
                 "x-appwrite": {
                     "method": "deleteDocument",
                     "group": "documents",
-                    "weight": 894,
+                    "weight": 907,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/delete-document.md",
@@ -14466,6 +14963,34 @@
                 "example": {
                     "total": 5,
                     "documents": ""
+                }
+            },
+            "presenceList": {
+                "description": "Presences List",
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of presences that matched your query.",
+                        "x-example": 5,
+                        "format": "int32"
+                    },
+                    "presences": {
+                        "type": "array",
+                        "description": "List of presences.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/presence"
+                        },
+                        "x-example": ""
+                    }
+                },
+                "required": [
+                    "total",
+                    "presences"
+                ],
+                "example": {
+                    "total": 5,
+                    "presences": ""
                 }
             },
             "sessionList": {
@@ -15003,6 +15528,81 @@
                     "fullName": "John Doe",
                     "age": 30,
                     "isAdmin": false
+                }
+            },
+            "presence": {
+                "description": "Presence",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Presence ID.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "Presence creation date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "$updatedAt": {
+                        "type": "string",
+                        "description": "Presence update date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "$permissions": {
+                        "type": "array",
+                        "description": "Presence permissions. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "read(\"any\")"
+                        ]
+                    },
+                    "userId": {
+                        "type": "string",
+                        "description": "User ID.",
+                        "x-example": "674af8f3e12a5f9ac0be"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Presence status.",
+                        "x-example": "online",
+                        "nullable": true
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "Presence source.",
+                        "x-example": "HTTP"
+                    },
+                    "expiresAt": {
+                        "type": "string",
+                        "description": "Presence expiry date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": true,
+                "x-additional-properties-key": "metadata",
+                "required": [
+                    "$id",
+                    "$createdAt",
+                    "$updatedAt",
+                    "$permissions",
+                    "userId",
+                    "source"
+                ],
+                "example": {
+                    "$id": "5e5ea5c16897e",
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                    "$permissions": [
+                        "read(\"any\")"
+                    ],
+                    "userId": "674af8f3e12a5f9ac0be",
+                    "status": "online",
+                    "source": "HTTP",
+                    "expiresAt": "2020-10-15T06:38:00.000+00:00"
                 }
             },
             "log": {
@@ -16095,6 +16695,12 @@
                         "x-example": 17890,
                         "format": "int32"
                     },
+                    "sizeActual": {
+                        "type": "integer",
+                        "description": "File actual stored size in bytes after compression and\/or encryption.",
+                        "x-example": 12345,
+                        "format": "int32"
+                    },
                     "chunksTotal": {
                         "type": "integer",
                         "description": "Total number of chunks available",
@@ -16128,6 +16734,7 @@
                     "signature",
                     "mimeType",
                     "sizeOriginal",
+                    "sizeActual",
                     "chunksTotal",
                     "chunksUploaded",
                     "encryption",
@@ -16145,6 +16752,7 @@
                     "signature": "5d529fd02b544198ae075bd57c1762bb",
                     "mimeType": "image\/png",
                     "sizeOriginal": 17890,
+                    "sizeActual": 12345,
                     "chunksTotal": 17890,
                     "chunksUploaded": 17890,
                     "encryption": true,

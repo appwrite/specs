@@ -12,7 +12,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let project = Project::new(&client);
 
     let result = project.get_o_auth2_provider(
-        appwrite::enums::OAuthProvider::Amazon
+        appwrite::enums::ProjectOAuthProviderId::Amazon
     ).await?;
 
     let _ = result;

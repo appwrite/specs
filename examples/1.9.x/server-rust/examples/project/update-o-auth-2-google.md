@@ -14,7 +14,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let result = project.update_o_auth2_google(
         Some("<CLIENT_ID>"), // optional
         Some("<CLIENT_SECRET>"), // optional
-        Some(vec![appwrite::enums::Prompt::None]), // optional
+        Some(vec![appwrite::enums::ProjectOAuth2GooglePrompt::None]), // optional
         Some(false) // optional
     ).await?;
 

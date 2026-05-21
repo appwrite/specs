@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "version": "1.9.4",
+        "version": "1.9.5",
         "title": "Appwrite",
         "description": "Appwrite backend as a service cuts up to 70% of the time and costs required for building a modern application. We abstract and simplify common development tasks behind a REST APIs, to help you develop your app in a fast and secure way. For full API documentation and tutorials go to [https:\/\/appwrite.io\/docs](https:\/\/appwrite.io\/docs)",
         "termsOfService": "https:\/\/appwrite.io\/policy\/terms",
@@ -17,6 +17,9 @@
     },
     "host": "cloud.appwrite.io",
     "x-host-docs": "<REGION>.cloud.appwrite.io",
+    "x-appwrite": {
+        "endpointDocs": "https:\/\/<REGION>.cloud.appwrite.io\/v1"
+    },
     "basePath": "\/v1",
     "schemes": [
         "https"
@@ -208,27 +211,24 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "default": null,
                                     "x-example": "<USER_ID>"
                                 },
                                 "email": {
                                     "type": "string",
                                     "description": "User email.",
-                                    "default": null,
                                     "x-example": "email@example.com",
                                     "format": "email"
                                 },
                                 "password": {
                                     "type": "string",
                                     "description": "New user password. Must be between 8 and 256 chars.",
-                                    "default": null,
                                     "x-example": null
                                 },
                                 "name": {
                                     "type": "string",
                                     "description": "User name. Max length: 128 chars.",
-                                    "default": "",
-                                    "x-example": "<NAME>"
+                                    "x-example": "<NAME>",
+                                    "default": ""
                                 }
                             },
                             "required": [
@@ -304,14 +304,12 @@
                                 "email": {
                                     "type": "string",
                                     "description": "User email.",
-                                    "default": null,
                                     "x-example": "email@example.com",
                                     "format": "email"
                                 },
                                 "password": {
                                     "type": "string",
                                     "description": "User password. Must be at least 8 chars.",
-                                    "default": null,
                                     "x-example": "password",
                                     "format": "password"
                                 }
@@ -524,8 +522,8 @@
                                 "duration": {
                                     "type": "integer",
                                     "description": "Time in seconds before JWT expires. Default duration is 900 seconds, and maximum is 3600 seconds.",
-                                    "default": 900,
                                     "x-example": 0,
+                                    "default": 900,
                                     "format": "int32"
                                 }
                             }
@@ -636,7 +634,7 @@
                 "x-appwrite": {
                     "method": "updateMFA",
                     "group": "mfa",
-                    "weight": 166,
+                    "weight": 165,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-mfa.md",
@@ -673,7 +671,6 @@
                                 "mfa": {
                                     "type": "boolean",
                                     "description": "Enable or disable MFA.",
-                                    "default": null,
                                     "x-example": false
                                 }
                             },
@@ -711,7 +708,7 @@
                 "x-appwrite": {
                     "method": "createMfaAuthenticator",
                     "group": "mfa",
-                    "weight": 168,
+                    "weight": 167,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-mfa-authenticator.md",
@@ -835,7 +832,7 @@
                 "x-appwrite": {
                     "method": "updateMfaAuthenticator",
                     "group": "mfa",
-                    "weight": 169,
+                    "weight": 168,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-mfa-authenticator.md",
@@ -945,7 +942,6 @@
                                 "otp": {
                                     "type": "string",
                                     "description": "Valid verification token.",
-                                    "default": null,
                                     "x-example": "<OTP>"
                                 }
                             },
@@ -976,7 +972,7 @@
                 "x-appwrite": {
                     "method": "deleteMfaAuthenticator",
                     "group": "mfa",
-                    "weight": 170,
+                    "weight": 169,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/delete-mfa-authenticator.md",
@@ -1100,7 +1096,7 @@
                 "x-appwrite": {
                     "method": "createMfaChallenge",
                     "group": "mfa",
-                    "weight": 174,
+                    "weight": 173,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-mfa-challenge.md",
@@ -1193,7 +1189,6 @@
                                 "factor": {
                                     "type": "string",
                                     "description": "Factor used for verification. Must be one of following: `email`, `phone`, `totp`, `recoveryCode`.",
-                                    "default": null,
                                     "x-example": "email",
                                     "enum": [
                                         "email",
@@ -1237,7 +1232,7 @@
                 "x-appwrite": {
                     "method": "updateMfaChallenge",
                     "group": "mfa",
-                    "weight": 175,
+                    "weight": 174,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-mfa-challenge.md",
@@ -1334,13 +1329,11 @@
                                 "challengeId": {
                                     "type": "string",
                                     "description": "ID of the challenge.",
-                                    "default": null,
                                     "x-example": "<CHALLENGE_ID>"
                                 },
                                 "otp": {
                                     "type": "string",
                                     "description": "Valid verification token.",
-                                    "default": null,
                                     "x-example": "<OTP>"
                                 }
                             },
@@ -1377,7 +1370,7 @@
                 "x-appwrite": {
                     "method": "listMfaFactors",
                     "group": "mfa",
-                    "weight": 167,
+                    "weight": 166,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-mfa-factors.md",
@@ -1478,7 +1471,7 @@
                 "x-appwrite": {
                     "method": "getMfaRecoveryCodes",
                     "group": "mfa",
-                    "weight": 173,
+                    "weight": 172,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get-mfa-recovery-codes.md",
@@ -1579,7 +1572,7 @@
                 "x-appwrite": {
                     "method": "createMfaRecoveryCodes",
                     "group": "mfa",
-                    "weight": 171,
+                    "weight": 170,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-mfa-recovery-codes.md",
@@ -1680,7 +1673,7 @@
                 "x-appwrite": {
                     "method": "updateMfaRecoveryCodes",
                     "group": "mfa",
-                    "weight": 172,
+                    "weight": 171,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-mfa-recovery-codes.md",
@@ -1820,7 +1813,6 @@
                                 "name": {
                                     "type": "string",
                                     "description": "User name. Max length: 128 chars.",
-                                    "default": null,
                                     "x-example": "<NAME>"
                                 }
                             },
@@ -1895,14 +1887,13 @@
                                 "password": {
                                     "type": "string",
                                     "description": "New user password. Must be at least 8 chars.",
-                                    "default": null,
                                     "x-example": null
                                 },
                                 "oldPassword": {
                                     "type": "string",
                                     "description": "Current user password. Must be at least 8 chars.",
-                                    "default": "",
                                     "x-example": "password",
+                                    "default": "",
                                     "format": "password"
                                 }
                             },
@@ -1977,14 +1968,12 @@
                                 "phone": {
                                     "type": "string",
                                     "description": "Phone number. Format this number with a leading '+' and a country code, e.g., +16175551212.",
-                                    "default": null,
                                     "x-example": "+12065550100",
                                     "format": "phone"
                                 },
                                 "password": {
                                     "type": "string",
                                     "description": "User password. Must be at least 8 chars.",
-                                    "default": null,
                                     "x-example": "password",
                                     "format": "password"
                                 }
@@ -2112,8 +2101,8 @@
                                 "prefs": {
                                     "type": "object",
                                     "description": "Prefs key-value JSON object.",
-                                    "default": {},
-                                    "x-example": "{\"language\":\"en\",\"timezone\":\"UTC\",\"darkTheme\":true}"
+                                    "x-example": "{\"language\":\"en\",\"timezone\":\"UTC\",\"darkTheme\":true}",
+                                    "default": {}
                                 }
                             },
                             "required": [
@@ -2190,14 +2179,12 @@
                                 "email": {
                                     "type": "string",
                                     "description": "User email.",
-                                    "default": null,
                                     "x-example": "email@example.com",
                                     "format": "email"
                                 },
                                 "url": {
                                     "type": "string",
                                     "description": "URL to redirect the user back to your app from the recovery email. Only URLs from hostnames in your project platform list are allowed. This requirement helps to prevent an [open redirect](https:\/\/cheatsheetseries.owasp.org\/cheatsheets\/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html) attack against your project API.",
-                                    "default": null,
                                     "x-example": "https:\/\/example.com",
                                     "format": "url"
                                 }
@@ -2272,19 +2259,16 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID.",
-                                    "default": null,
                                     "x-example": "<USER_ID>"
                                 },
                                 "secret": {
                                     "type": "string",
                                     "description": "Valid reset token.",
-                                    "default": null,
                                     "x-example": "<SECRET>"
                                 },
                                 "password": {
                                     "type": "string",
                                     "description": "New user password. Must be between 8 and 256 chars.",
-                                    "default": null,
                                     "x-example": null
                                 }
                             },
@@ -2517,14 +2501,12 @@
                                 "email": {
                                     "type": "string",
                                     "description": "User email.",
-                                    "default": null,
                                     "x-example": "email@example.com",
                                     "format": "email"
                                 },
                                 "password": {
                                     "type": "string",
                                     "description": "User password. Must be at least 8 chars.",
-                                    "default": null,
                                     "x-example": "password",
                                     "format": "password"
                                 }
@@ -2605,13 +2587,11 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "default": null,
                                     "x-example": "<USER_ID>"
                                 },
                                 "secret": {
                                     "type": "string",
                                     "description": "Valid verification token.",
-                                    "default": null,
                                     "x-example": "<SECRET>"
                                 }
                             },
@@ -2830,13 +2810,11 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "default": null,
                                     "x-example": "<USER_ID>"
                                 },
                                 "secret": {
                                     "type": "string",
                                     "description": "Valid verification token.",
-                                    "default": null,
                                     "x-example": "<SECRET>"
                                 }
                             },
@@ -2912,13 +2890,11 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "default": null,
                                     "x-example": "<USER_ID>"
                                 },
                                 "secret": {
                                     "type": "string",
                                     "description": "Secret of a token generated by login methods. For example, the `createMagicURLToken` or `createPhoneToken` methods.",
-                                    "default": null,
                                     "x-example": "<SECRET>"
                                 }
                             },
@@ -3206,7 +3182,8 @@
                     "scope": "targets.write",
                     "platforms": [
                         "console",
-                        "client"
+                        "client",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3218,7 +3195,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Session": []
+                        "Session": [],
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -3231,20 +3209,18 @@
                                 "targetId": {
                                     "type": "string",
                                     "description": "Target ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "default": null,
                                     "x-example": "<TARGET_ID>"
                                 },
                                 "identifier": {
                                     "type": "string",
                                     "description": "The target identifier (token, email, phone etc.)",
-                                    "default": null,
                                     "x-example": "<IDENTIFIER>"
                                 },
                                 "providerId": {
                                     "type": "string",
                                     "description": "Provider ID. Message will be sent to this target from the specified provider ID. If no provider ID is set the first setup provider will be used.",
-                                    "default": "",
-                                    "x-example": "<PROVIDER_ID>"
+                                    "x-example": "<PROVIDER_ID>",
+                                    "default": ""
                                 }
                             },
                             "required": [
@@ -3292,7 +3268,8 @@
                     "scope": "targets.write",
                     "platforms": [
                         "console",
-                        "client"
+                        "client",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3304,7 +3281,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Session": []
+                        "Session": [],
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -3325,7 +3303,6 @@
                                 "identifier": {
                                     "type": "string",
                                     "description": "The target identifier (token, email, phone etc.)",
-                                    "default": null,
                                     "x-example": "<IDENTIFIER>"
                                 }
                             },
@@ -3366,7 +3343,8 @@
                     "scope": "targets.write",
                     "platforms": [
                         "console",
-                        "client"
+                        "client",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3378,7 +3356,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Session": []
+                        "Session": [],
+                        "JWT": []
                     }
                 ],
                 "parameters": [
@@ -3459,21 +3438,19 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars. If the email address has never been used, a new account is created using the provided userId. Otherwise, if the email address is already attached to an account, the user ID is ignored.",
-                                    "default": null,
                                     "x-example": "<USER_ID>"
                                 },
                                 "email": {
                                     "type": "string",
                                     "description": "User email.",
-                                    "default": null,
                                     "x-example": "email@example.com",
                                     "format": "email"
                                 },
                                 "phrase": {
                                     "type": "boolean",
                                     "description": "Toggle for security phrase. If enabled, email will be send with a randomly generated phrase and the phrase will also be included in the response. Confirming phrases match increases the security of your authentication flow.",
-                                    "default": false,
-                                    "x-example": false
+                                    "x-example": false,
+                                    "default": false
                                 }
                             },
                             "required": [
@@ -3551,28 +3528,26 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "Unique Id. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars. If the email address has never been used, a new account is created using the provided userId. Otherwise, if the email address is already attached to an account, the user ID is ignored.",
-                                    "default": null,
                                     "x-example": "<USER_ID>"
                                 },
                                 "email": {
                                     "type": "string",
                                     "description": "User email.",
-                                    "default": null,
                                     "x-example": "email@example.com",
                                     "format": "email"
                                 },
                                 "url": {
                                     "type": "string",
                                     "description": "URL to redirect the user back to your app from the magic URL login. Only URLs from hostnames in your project platform list are allowed. This requirement helps to prevent an [open redirect](https:\/\/cheatsheetseries.owasp.org\/cheatsheets\/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html) attack against your project API.",
-                                    "default": "",
                                     "x-example": "https:\/\/example.com",
+                                    "default": "",
                                     "format": "url"
                                 },
                                 "phrase": {
                                     "type": "boolean",
                                     "description": "Toggle for security phrase. If enabled, email will be send with a randomly generated phrase and the phrase will also be included in the response. Confirming phrases match increases the security of your authentication flow.",
-                                    "default": false,
-                                    "x-example": false
+                                    "x-example": false,
+                                    "default": false
                                 }
                             },
                             "required": [
@@ -3789,13 +3764,11 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "Unique Id. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars. If the phone number has never been used, a new account is created using the provided userId. Otherwise, if the phone number is already attached to an account, the user ID is ignored.",
-                                    "default": null,
                                     "x-example": "<USER_ID>"
                                 },
                                 "phone": {
                                     "type": "string",
                                     "description": "Phone number. Format this number with a leading '+' and a country code, e.g., +16175551212.",
-                                    "default": null,
                                     "x-example": "+12065550100",
                                     "format": "phone"
                                 }
@@ -3924,7 +3897,6 @@
                                 "url": {
                                     "type": "string",
                                     "description": "URL to redirect the user back to your app from the verification email. Only URLs from hostnames in your project platform list are allowed. This requirement helps to prevent an [open redirect](https:\/\/cheatsheetseries.owasp.org\/cheatsheets\/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html) attack against your project API.",
-                                    "default": null,
                                     "x-example": "https:\/\/example.com",
                                     "format": "url"
                                 }
@@ -4054,13 +4026,11 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID.",
-                                    "default": null,
                                     "x-example": "<USER_ID>"
                                 },
                                 "secret": {
                                     "type": "string",
                                     "description": "Valid verification token.",
-                                    "default": null,
                                     "x-example": "<SECRET>"
                                 }
                             },
@@ -4192,13 +4162,11 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID.",
-                                    "default": null,
                                     "x-example": "<USER_ID>"
                                 },
                                 "secret": {
                                     "type": "string",
                                     "description": "Valid verification token.",
-                                    "default": null,
                                     "x-example": "<SECRET>"
                                 }
                             },
@@ -4235,7 +4203,7 @@
                 "x-appwrite": {
                     "method": "getBrowser",
                     "group": null,
-                    "weight": 177,
+                    "weight": 176,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-browser.md",
@@ -4361,7 +4329,7 @@
                 "x-appwrite": {
                     "method": "getCreditCard",
                     "group": null,
-                    "weight": 176,
+                    "weight": 175,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-credit-card.md",
@@ -4493,7 +4461,7 @@
                 "x-appwrite": {
                     "method": "getFavicon",
                     "group": null,
-                    "weight": 180,
+                    "weight": 179,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-favicon.md",
@@ -4557,7 +4525,7 @@
                 "x-appwrite": {
                     "method": "getFlag",
                     "group": null,
-                    "weight": 178,
+                    "weight": 177,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-flag.md",
@@ -5045,7 +5013,7 @@
                 "x-appwrite": {
                     "method": "getImage",
                     "group": null,
-                    "weight": 179,
+                    "weight": 178,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-image.md",
@@ -5129,7 +5097,7 @@
                 "x-appwrite": {
                     "method": "getInitials",
                     "group": null,
-                    "weight": 182,
+                    "weight": 181,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-initials.md",
@@ -5221,7 +5189,7 @@
                 "x-appwrite": {
                     "method": "getQR",
                     "group": null,
-                    "weight": 181,
+                    "weight": 180,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-qr.md",
@@ -5313,7 +5281,7 @@
                 "x-appwrite": {
                     "method": "getScreenshot",
                     "group": null,
-                    "weight": 183,
+                    "weight": 182,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-screenshot.md",
@@ -5436,7 +5404,7 @@
                         "description": "IANA timezone identifier (e.g., \"America\/New_York\", \"Europe\/London\"). Defaults to browser default.",
                         "required": false,
                         "type": "string",
-                        "x-example": "america\/new_york",
+                        "x-example": "America\/New_York",
                         "enum": [
                             "africa\/abidjan",
                             "africa\/accra",
@@ -5860,7 +5828,6 @@
                         ],
                         "x-enum-name": null,
                         "x-enum-keys": [],
-                        "default": "",
                         "in": "query"
                     },
                     {
@@ -5996,7 +5963,6 @@
                         ],
                         "x-enum-name": "ImageFormat",
                         "x-enum-keys": [],
-                        "default": "",
                         "in": "query"
                     }
                 ]
@@ -6026,7 +5992,7 @@
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
-                    "weight": 761,
+                    "weight": 774,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/list-transactions.md",
@@ -6093,7 +6059,7 @@
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
-                    "weight": 757,
+                    "weight": 770,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/create-transaction.md",
@@ -6130,8 +6096,8 @@
                                 "ttl": {
                                     "type": "integer",
                                     "description": "Seconds before the transaction expires.",
-                                    "default": 300,
                                     "x-example": 60,
+                                    "default": 300,
                                     "format": "int32"
                                 }
                             }
@@ -6164,7 +6130,7 @@
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
-                    "weight": 758,
+                    "weight": 771,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/get-transaction.md",
@@ -6227,7 +6193,7 @@
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
-                    "weight": 759,
+                    "weight": 772,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/update-transaction.md",
@@ -6272,14 +6238,14 @@
                                 "commit": {
                                     "type": "boolean",
                                     "description": "Commit transaction?",
-                                    "default": false,
-                                    "x-example": false
+                                    "x-example": false,
+                                    "default": false
                                 },
                                 "rollback": {
                                     "type": "boolean",
                                     "description": "Rollback transaction?",
-                                    "default": false,
-                                    "x-example": false
+                                    "x-example": false,
+                                    "default": false
                                 }
                             }
                         }
@@ -6306,7 +6272,7 @@
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
-                    "weight": 760,
+                    "weight": 773,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/delete-transaction.md",
@@ -6371,7 +6337,7 @@
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
-                    "weight": 762,
+                    "weight": 775,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/create-operations.md",
@@ -6416,8 +6382,8 @@
                                 "operations": {
                                     "type": "array",
                                     "description": "Array of staged operations.",
-                                    "default": [],
                                     "x-example": "[\n\t    {\n\t        \"action\": \"create\",\n\t        \"databaseId\": \"<DATABASE_ID>\",\n\t        \"collectionId\": \"<COLLECTION_ID>\",\n\t        \"documentId\": \"<DOCUMENT_ID>\",\n\t        \"data\": {\n\t            \"name\": \"Walter O'Brien\"\n\t        }\n\t    }\n\t]",
+                                    "default": [],
                                     "items": {
                                         "type": "object"
                                     }
@@ -6452,7 +6418,7 @@
                 "x-appwrite": {
                     "method": "listDocuments",
                     "group": "documents",
-                    "weight": 905,
+                    "weight": 918,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/list-documents.md",
@@ -6566,7 +6532,7 @@
                 "x-appwrite": {
                     "method": "createDocument",
                     "group": "documents",
-                    "weight": 702,
+                    "weight": 715,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/create-document.md",
@@ -6660,19 +6626,18 @@
                                 "documentId": {
                                     "type": "string",
                                     "description": "Document ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "default": "",
-                                    "x-example": "<DOCUMENT_ID>"
+                                    "x-example": "<DOCUMENT_ID>",
+                                    "default": ""
                                 },
                                 "data": {
                                     "type": "object",
                                     "description": "Document data as JSON object.",
-                                    "default": [],
-                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}"
+                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}",
+                                    "default": []
                                 },
                                 "permissions": {
                                     "type": "array",
                                     "description": "An array of permissions strings. By default, only the current user is granted all permissions. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
-                                    "default": null,
                                     "x-example": "[\"read(\"any\")\"]",
                                     "x-nullable": true,
                                     "items": {
@@ -6682,8 +6647,8 @@
                                 "documents": {
                                     "type": "array",
                                     "description": "Array of documents data as JSON objects.",
-                                    "default": [],
                                     "x-example": null,
+                                    "default": [],
                                     "items": {
                                         "type": "object"
                                     }
@@ -6691,7 +6656,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>",
                                     "x-nullable": true
                                 }
@@ -6725,7 +6689,7 @@
                 "x-appwrite": {
                     "method": "getDocument",
                     "group": "documents",
-                    "weight": 703,
+                    "weight": 716,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/get-document.md",
@@ -6828,7 +6792,7 @@
                 "x-appwrite": {
                     "method": "upsertDocument",
                     "group": "documents",
-                    "weight": 706,
+                    "weight": 719,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/upsert-document.md",
@@ -6929,13 +6893,12 @@
                                 "data": {
                                     "type": "object",
                                     "description": "Document data as JSON object. Include all required attributes of the document to be created or updated.",
-                                    "default": [],
-                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}"
+                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}",
+                                    "default": []
                                 },
                                 "permissions": {
                                     "type": "array",
                                     "description": "An array of permissions strings. By default, the current permissions are inherited. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
-                                    "default": null,
                                     "x-example": "[\"read(\"any\")\"]",
                                     "x-nullable": true,
                                     "items": {
@@ -6945,7 +6908,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>",
                                     "x-nullable": true
                                 }
@@ -6979,7 +6941,7 @@
                 "x-appwrite": {
                     "method": "updateDocument",
                     "group": "documents",
-                    "weight": 704,
+                    "weight": 717,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/update-document.md",
@@ -7044,13 +7006,12 @@
                                 "data": {
                                     "type": "object",
                                     "description": "Document data as JSON object. Include only attribute and value pairs to be updated.",
-                                    "default": [],
-                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":33,\"isAdmin\":false}"
+                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":33,\"isAdmin\":false}",
+                                    "default": []
                                 },
                                 "permissions": {
                                     "type": "array",
                                     "description": "An array of permissions strings. By default, the current permissions are inherited. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
-                                    "default": null,
                                     "x-example": "[\"read(\"any\")\"]",
                                     "x-nullable": true,
                                     "items": {
@@ -7060,7 +7021,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>",
                                     "x-nullable": true
                                 }
@@ -7089,7 +7049,7 @@
                 "x-appwrite": {
                     "method": "deleteDocument",
                     "group": "documents",
-                    "weight": 708,
+                    "weight": 721,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/delete-document.md",
@@ -7154,7 +7114,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>",
                                     "x-nullable": true
                                 }
@@ -7190,7 +7149,7 @@
                 "x-appwrite": {
                     "method": "decrementDocumentAttribute",
                     "group": "documents",
-                    "weight": 713,
+                    "weight": 726,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/decrement-document-attribute.md",
@@ -7262,14 +7221,13 @@
                                 "value": {
                                     "type": "number",
                                     "description": "Value to increment the attribute by. The value must be a number.",
-                                    "default": 1,
                                     "x-example": null,
+                                    "default": 1,
                                     "format": "float"
                                 },
                                 "min": {
                                     "type": "number",
                                     "description": "Minimum value for the attribute. If the current value is lesser than this value, an exception will be thrown.",
-                                    "default": null,
                                     "x-example": null,
                                     "format": "float",
                                     "x-nullable": true
@@ -7277,7 +7235,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>",
                                     "x-nullable": true
                                 }
@@ -7313,7 +7270,7 @@
                 "x-appwrite": {
                     "method": "incrementDocumentAttribute",
                     "group": "documents",
-                    "weight": 712,
+                    "weight": 725,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/increment-document-attribute.md",
@@ -7385,14 +7342,13 @@
                                 "value": {
                                     "type": "number",
                                     "description": "Value to increment the attribute by. The value must be a number.",
-                                    "default": 1,
                                     "x-example": null,
+                                    "default": 1,
                                     "format": "float"
                                 },
                                 "max": {
                                     "type": "number",
                                     "description": "Maximum value for the attribute. If the current value is greater than this value, an error will be thrown.",
-                                    "default": null,
                                     "x-example": null,
                                     "format": "float",
                                     "x-nullable": true
@@ -7400,7 +7356,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>",
                                     "x-nullable": true
                                 }
@@ -7434,7 +7389,7 @@
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
-                    "weight": 870,
+                    "weight": 883,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/list-transactions.md",
@@ -7501,7 +7456,7 @@
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
-                    "weight": 866,
+                    "weight": 879,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/create-transaction.md",
@@ -7538,8 +7493,8 @@
                                 "ttl": {
                                     "type": "integer",
                                     "description": "Seconds before the transaction expires.",
-                                    "default": 300,
                                     "x-example": 60,
+                                    "default": 300,
                                     "format": "int32"
                                 }
                             }
@@ -7572,7 +7527,7 @@
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
-                    "weight": 867,
+                    "weight": 880,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/get-transaction.md",
@@ -7635,7 +7590,7 @@
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
-                    "weight": 868,
+                    "weight": 881,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/update-transaction.md",
@@ -7680,14 +7635,14 @@
                                 "commit": {
                                     "type": "boolean",
                                     "description": "Commit transaction?",
-                                    "default": false,
-                                    "x-example": false
+                                    "x-example": false,
+                                    "default": false
                                 },
                                 "rollback": {
                                     "type": "boolean",
                                     "description": "Rollback transaction?",
-                                    "default": false,
-                                    "x-example": false
+                                    "x-example": false,
+                                    "default": false
                                 }
                             }
                         }
@@ -7714,7 +7669,7 @@
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
-                    "weight": 869,
+                    "weight": 882,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/delete-transaction.md",
@@ -7779,7 +7734,7 @@
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
-                    "weight": 871,
+                    "weight": 884,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/create-operations.md",
@@ -7823,8 +7778,8 @@
                                 "operations": {
                                     "type": "array",
                                     "description": "Array of staged operations.",
-                                    "default": [],
                                     "x-example": "[\n\t    {\n\t        \"action\": \"create\",\n\t        \"databaseId\": \"<DATABASE_ID>\",\n\t        \"collectionId\": \"<COLLECTION_ID>\",\n\t        \"documentId\": \"<DOCUMENT_ID>\",\n\t        \"data\": {\n\t            \"name\": \"Walter O'Brien\"\n\t        }\n\t    }\n\t]",
+                                    "default": [],
                                     "items": {
                                         "type": "object"
                                     }
@@ -7859,7 +7814,7 @@
                 "x-appwrite": {
                     "method": "listDocuments",
                     "group": "documents",
-                    "weight": 906,
+                    "weight": 921,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/list-documents.md",
@@ -7969,7 +7924,7 @@
                 "x-appwrite": {
                     "method": "createDocument",
                     "group": "documents",
-                    "weight": 855,
+                    "weight": 868,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/create-document.md",
@@ -8081,19 +8036,18 @@
                                 "documentId": {
                                     "type": "string",
                                     "description": "Document ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "default": "",
-                                    "x-example": "<DOCUMENT_ID>"
+                                    "x-example": "<DOCUMENT_ID>",
+                                    "default": ""
                                 },
                                 "data": {
                                     "type": "object",
                                     "description": "Document data as JSON object.",
-                                    "default": [],
-                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}"
+                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}",
+                                    "default": []
                                 },
                                 "permissions": {
                                     "type": "array",
                                     "description": "An array of permissions strings. By default, only the current user is granted all permissions. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
-                                    "default": null,
                                     "x-example": "[\"read(\"any\")\"]",
                                     "items": {
                                         "type": "string"
@@ -8102,8 +8056,8 @@
                                 "documents": {
                                     "type": "array",
                                     "description": "Array of documents data as JSON objects.",
-                                    "default": [],
                                     "x-example": null,
+                                    "default": [],
                                     "items": {
                                         "type": "object"
                                     }
@@ -8111,7 +8065,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>"
                                 }
                             }
@@ -8144,7 +8097,7 @@
                 "x-appwrite": {
                     "method": "getDocument",
                     "group": "documents",
-                    "weight": 856,
+                    "weight": 869,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/get-document.md",
@@ -8243,7 +8196,7 @@
                 "x-appwrite": {
                     "method": "upsertDocument",
                     "group": "documents",
-                    "weight": 859,
+                    "weight": 872,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/upsert-document.md",
@@ -8336,13 +8289,12 @@
                                 "data": {
                                     "type": "object",
                                     "description": "Document data as JSON object. Include all required fields of the document to be created or updated.",
-                                    "default": [],
-                                    "x-example": "{}"
+                                    "x-example": "{}",
+                                    "default": []
                                 },
                                 "permissions": {
                                     "type": "array",
                                     "description": "An array of permissions strings. By default, the current permissions are inherited. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
-                                    "default": null,
                                     "x-example": "[\"read(\"any\")\"]",
                                     "items": {
                                         "type": "string"
@@ -8351,7 +8303,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>"
                                 }
                             }
@@ -8384,7 +8335,7 @@
                 "x-appwrite": {
                     "method": "updateDocument",
                     "group": "documents",
-                    "weight": 857,
+                    "weight": 870,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/update-document.md",
@@ -8445,13 +8396,12 @@
                                 "data": {
                                     "type": "object",
                                     "description": "Document data as JSON object. Include only fields and value pairs to be updated.",
-                                    "default": [],
-                                    "x-example": "{}"
+                                    "x-example": "{}",
+                                    "default": []
                                 },
                                 "permissions": {
                                     "type": "array",
                                     "description": "An array of permissions strings. By default, the current permissions are inherited. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
-                                    "default": null,
                                     "x-example": "[\"read(\"any\")\"]",
                                     "items": {
                                         "type": "string"
@@ -8460,7 +8410,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>"
                                 }
                             }
@@ -8488,7 +8437,7 @@
                 "x-appwrite": {
                     "method": "deleteDocument",
                     "group": "documents",
-                    "weight": 861,
+                    "weight": 874,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/delete-document.md",
@@ -8549,7 +8498,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>"
                                 }
                             }
@@ -8584,7 +8532,7 @@
                 "x-appwrite": {
                     "method": "decrementDocumentAttribute",
                     "group": "documents",
-                    "weight": 865,
+                    "weight": 878,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/decrement-document-attribute.md",
@@ -8652,21 +8600,19 @@
                                 "value": {
                                     "type": "number",
                                     "description": "Value to decrement the attribute by. The value must be a number.",
-                                    "default": 1,
                                     "x-example": null,
+                                    "default": 1,
                                     "format": "float"
                                 },
                                 "min": {
                                     "type": "number",
                                     "description": "Minimum value for the attribute. If the current value is lesser than this value, an exception will be thrown.",
-                                    "default": null,
                                     "x-example": null,
                                     "format": "float"
                                 },
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>"
                                 }
                             }
@@ -8701,7 +8647,7 @@
                 "x-appwrite": {
                     "method": "incrementDocumentAttribute",
                     "group": "documents",
-                    "weight": 864,
+                    "weight": 877,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/increment-document-attribute.md",
@@ -8769,21 +8715,19 @@
                                 "value": {
                                     "type": "number",
                                     "description": "Value to increment the attribute by. The value must be a number.",
-                                    "default": 1,
                                     "x-example": null,
+                                    "default": 1,
                                     "format": "float"
                                 },
                                 "max": {
                                     "type": "number",
                                     "description": "Maximum value for the attribute. If the current value is greater than this value, an error will be thrown.",
-                                    "default": null,
                                     "x-example": null,
                                     "format": "float"
                                 },
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>"
                                 }
                             }
@@ -8816,7 +8760,7 @@
                 "x-appwrite": {
                     "method": "listExecutions",
                     "group": "executions",
-                    "weight": 436,
+                    "weight": 441,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/list-executions.md",
@@ -8902,7 +8846,7 @@
                 "x-appwrite": {
                     "method": "createExecution",
                     "group": "executions",
-                    "weight": 434,
+                    "weight": 439,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/create-execution.md",
@@ -8949,26 +8893,26 @@
                                 "body": {
                                     "type": "string",
                                     "description": "HTTP body of execution. Default value is empty string.",
-                                    "default": "",
-                                    "x-example": "<BODY>"
+                                    "x-example": "<BODY>",
+                                    "default": ""
                                 },
                                 "async": {
                                     "type": "boolean",
                                     "description": "Execute code in the background. Default value is false.",
-                                    "default": false,
-                                    "x-example": false
+                                    "x-example": false,
+                                    "default": false
                                 },
                                 "path": {
                                     "type": "string",
                                     "description": "HTTP path of execution. Path can include query params. Default value is \/",
-                                    "default": "\/",
-                                    "x-example": "<PATH>"
+                                    "x-example": "<PATH>",
+                                    "default": "\/"
                                 },
                                 "method": {
                                     "type": "string",
                                     "description": "HTTP method of execution. Default value is POST.",
-                                    "default": "POST",
                                     "x-example": "GET",
+                                    "default": "POST",
                                     "enum": [
                                         "GET",
                                         "POST",
@@ -8984,13 +8928,12 @@
                                 "headers": {
                                     "type": "object",
                                     "description": "HTTP headers of execution. Defaults to empty.",
-                                    "default": [],
-                                    "x-example": "{}"
+                                    "x-example": "{}",
+                                    "default": []
                                 },
                                 "scheduledAt": {
                                     "type": "string",
                                     "description": "Scheduled execution time in [ISO 8601](https:\/\/www.iso.org\/iso-8601-date-and-time-format.html) format. DateTime value must be in future with precision in minutes.",
-                                    "default": null,
                                     "x-example": "<SCHEDULED_AT>",
                                     "x-nullable": true
                                 }
@@ -9024,7 +8967,7 @@
                 "x-appwrite": {
                     "method": "getExecution",
                     "group": "executions",
-                    "weight": 435,
+                    "weight": 440,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/get-execution.md",
@@ -9099,7 +9042,7 @@
                 "x-appwrite": {
                     "method": "query",
                     "group": "graphql",
-                    "weight": 117,
+                    "weight": 116,
                     "cookies": false,
                     "type": "graphql",
                     "demo": "graphql\/query.md",
@@ -9136,8 +9079,8 @@
                                 "query": {
                                     "type": "object",
                                     "description": "The query or queries to execute.",
-                                    "default": {},
-                                    "x-example": "{}"
+                                    "x-example": "{}",
+                                    "default": {}
                                 }
                             },
                             "required": [
@@ -9174,7 +9117,7 @@
                 "x-appwrite": {
                     "method": "mutation",
                     "group": "graphql",
-                    "weight": 116,
+                    "weight": 115,
                     "cookies": false,
                     "type": "graphql",
                     "demo": "graphql\/mutation.md",
@@ -9211,8 +9154,8 @@
                                 "query": {
                                     "type": "object",
                                     "description": "The query or queries to execute.",
-                                    "default": {},
-                                    "x-example": "{}"
+                                    "x-example": "{}",
+                                    "default": {}
                                 }
                             },
                             "required": [
@@ -9673,7 +9616,7 @@
                 "x-appwrite": {
                     "method": "createSubscriber",
                     "group": "subscribers",
-                    "weight": 150,
+                    "weight": 149,
                     "cookies": false,
                     "type": "",
                     "demo": "messaging\/create-subscriber.md",
@@ -9718,13 +9661,11 @@
                                 "subscriberId": {
                                     "type": "string",
                                     "description": "Subscriber ID. Choose a custom Subscriber ID or a new Subscriber ID.",
-                                    "default": null,
                                     "x-example": "<SUBSCRIBER_ID>"
                                 },
                                 "targetId": {
                                     "type": "string",
                                     "description": "Target ID. The target ID to link to the specified Topic ID.",
-                                    "default": null,
                                     "x-example": "<TARGET_ID>"
                                 }
                             },
@@ -9758,7 +9699,7 @@
                 "x-appwrite": {
                     "method": "deleteSubscriber",
                     "group": "subscribers",
-                    "weight": 154,
+                    "weight": 153,
                     "cookies": false,
                     "type": "",
                     "demo": "messaging\/delete-subscriber.md",
@@ -9805,6 +9746,480 @@
                 ]
             }
         },
+        "\/presences": {
+            "get": {
+                "summary": "List presences",
+                "operationId": "presencesList",
+                "consumes": [],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "presences"
+                ],
+                "description": "List presence logs. Expired entries are filtered out automatically.\n",
+                "responses": {
+                    "200": {
+                        "description": "Presences List",
+                        "schema": {
+                            "$ref": "#\/definitions\/presenceList"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "list",
+                    "group": "presences",
+                    "weight": 419,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "presences\/list.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "presences.read",
+                    "platforms": [
+                        "console",
+                        "server",
+                        "client"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/list.md",
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK.",
+                        "required": false,
+                        "type": "array",
+                        "collectionFormat": "multi",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [],
+                        "in": "query"
+                    },
+                    {
+                        "name": "total",
+                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "required": false,
+                        "type": "boolean",
+                        "x-example": false,
+                        "default": true,
+                        "in": "query"
+                    },
+                    {
+                        "name": "ttl",
+                        "description": "TTL (seconds) for caching list responses. Responses are stored in an in-memory key-value cache, keyed per project, collection, schema version (attributes and indexes), caller authorization roles, and the exact query \u2014 so users with different permissions never share cached entries. Schema changes invalidate cached entries automatically; document writes do not, so choose a TTL you are comfortable serving as stale data. Set to 0 to disable caching. Must be between 0 and 86400 (24 hours).",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32",
+                        "x-example": 0,
+                        "default": 0,
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/presences\/{presenceId}": {
+            "get": {
+                "summary": "Get presence",
+                "operationId": "presencesGet",
+                "consumes": [],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "presences"
+                ],
+                "description": "Get a presence log by its unique ID. Entries whose `expiresAt` is in the past are treated as not found.\n",
+                "responses": {
+                    "200": {
+                        "description": "Presence",
+                        "schema": {
+                            "$ref": "#\/definitions\/presence"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "get",
+                    "group": "presences",
+                    "weight": 418,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "presences\/get.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "presences.read",
+                    "platforms": [
+                        "console",
+                        "server",
+                        "client"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/get.md",
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "presenceId",
+                        "description": "Presence unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<PRESENCE_ID>",
+                        "in": "path"
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Upsert presence",
+                "operationId": "presencesUpsert",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "presences"
+                ],
+                "description": "Create or update a presence log by its user ID.\n",
+                "responses": {
+                    "200": {
+                        "description": "Presence",
+                        "schema": {
+                            "$ref": "#\/definitions\/presence"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "upsert",
+                    "group": "presences",
+                    "weight": 416,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "presences\/upsert.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "presences.write",
+                    "platforms": [
+                        "client"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/upsert.md",
+                    "methods": [
+                        {
+                            "name": "upsert",
+                            "namespace": "presences",
+                            "desc": "Upsert presence",
+                            "auth": {
+                                "Project": []
+                            },
+                            "parameters": [
+                                "presenceId",
+                                "status",
+                                "permissions",
+                                "expiresAt",
+                                "metadata"
+                            ],
+                            "required": [
+                                "presenceId",
+                                "status"
+                            ],
+                            "responses": [
+                                {
+                                    "code": 200,
+                                    "model": "#\/definitions\/presence"
+                                }
+                            ],
+                            "description": "Create or update a presence log by its user ID.\n",
+                            "demo": "presences\/upsert.md",
+                            "public": true
+                        }
+                    ],
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "presenceId",
+                        "description": "Presence unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<PRESENCE_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "userId": {
+                                    "type": "string",
+                                    "description": "User ID.",
+                                    "x-example": "<USER_ID>"
+                                },
+                                "status": {
+                                    "type": "string",
+                                    "description": "Presence status.",
+                                    "x-example": "<STATUS>"
+                                },
+                                "permissions": {
+                                    "type": "array",
+                                    "description": "An array of permissions strings. By default, only the current user is granted all permissions. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
+                                    "x-example": "[\"read(\"any\")\"]",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "expiresAt": {
+                                    "type": "string",
+                                    "description": "Presence expiry datetime.",
+                                    "x-example": "2020-10-15T06:38:00.000+00:00",
+                                    "format": "datetime"
+                                },
+                                "metadata": {
+                                    "type": "object",
+                                    "description": "Presence metadata object.",
+                                    "x-example": "{}",
+                                    "default": []
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "summary": "Update presence",
+                "operationId": "presencesUpdate",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "presences"
+                ],
+                "description": "Update a presence log by its unique ID. Using the patch method you can pass only specific fields that will get updated.\n",
+                "responses": {
+                    "200": {
+                        "description": "Presence",
+                        "schema": {
+                            "$ref": "#\/definitions\/presence"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "update",
+                    "group": "presences",
+                    "weight": 420,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "presences\/update.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "presences.write",
+                    "platforms": [
+                        "client"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/update.md",
+                    "methods": [
+                        {
+                            "name": "update",
+                            "namespace": "presences",
+                            "desc": "Update presence",
+                            "auth": {
+                                "Project": []
+                            },
+                            "parameters": [
+                                "presenceId",
+                                "status",
+                                "expiresAt",
+                                "metadata",
+                                "permissions",
+                                "purge"
+                            ],
+                            "required": [
+                                "presenceId"
+                            ],
+                            "responses": [
+                                {
+                                    "code": 200,
+                                    "model": "#\/definitions\/presence"
+                                }
+                            ],
+                            "description": "Update a presence log by its unique ID. Using the patch method you can pass only specific fields that will get updated.\n",
+                            "demo": "presences\/update.md",
+                            "public": true
+                        }
+                    ],
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "presenceId",
+                        "description": "Presence unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<PRESENCE_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "userId": {
+                                    "type": "string",
+                                    "description": "User ID.",
+                                    "x-example": "<USER_ID>"
+                                },
+                                "status": {
+                                    "type": "string",
+                                    "description": "Presence status.",
+                                    "x-example": "<STATUS>"
+                                },
+                                "expiresAt": {
+                                    "type": "string",
+                                    "description": "Presence expiry datetime.",
+                                    "x-example": "2020-10-15T06:38:00.000+00:00",
+                                    "format": "datetime"
+                                },
+                                "metadata": {
+                                    "type": "object",
+                                    "description": "Presence metadata object.",
+                                    "x-example": "{}",
+                                    "default": {}
+                                },
+                                "permissions": {
+                                    "type": "array",
+                                    "description": "An array of permissions strings. By default, only the current user is granted all permissions. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
+                                    "x-example": "[\"read(\"any\")\"]",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "purge": {
+                                    "type": "boolean",
+                                    "description": "When true, purge cached responses used by list presences endpoint.",
+                                    "x-example": false,
+                                    "default": false
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete presence",
+                "operationId": "presencesDelete",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [],
+                "tags": [
+                    "presences"
+                ],
+                "description": "Delete a presence log by its unique ID.\n",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "delete",
+                    "group": "presences",
+                    "weight": 421,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "presences\/delete.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "presences.write",
+                    "platforms": [
+                        "console",
+                        "server",
+                        "client"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/delete.md",
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "presenceId",
+                        "description": "Presence unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<PRESENCE_ID>",
+                        "in": "path"
+                    }
+                ]
+            }
+        },
         "\/storage\/buckets\/{bucketId}\/files": {
             "get": {
                 "summary": "List files",
@@ -9829,7 +10244,7 @@
                 "x-appwrite": {
                     "method": "listFiles",
                     "group": "files",
-                    "weight": 548,
+                    "weight": 555,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/list-files.md",
@@ -9922,7 +10337,7 @@
                 "x-appwrite": {
                     "method": "createFile",
                     "group": "files",
-                    "weight": 1195,
+                    "weight": 1260,
                     "cookies": false,
                     "type": "upload",
                     "demo": "storage\/create-file.md",
@@ -10013,7 +10428,7 @@
                 "x-appwrite": {
                     "method": "getFile",
                     "group": "files",
-                    "weight": 547,
+                    "weight": 554,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/get-file.md",
@@ -10084,7 +10499,7 @@
                 "x-appwrite": {
                     "method": "updateFile",
                     "group": "files",
-                    "weight": 549,
+                    "weight": 556,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/update-file.md",
@@ -10137,13 +10552,11 @@
                                 "name": {
                                     "type": "string",
                                     "description": "File name.",
-                                    "default": null,
                                     "x-example": "<NAME>"
                                 },
                                 "permissions": {
                                     "type": "array",
                                     "description": "An array of permission strings. By default, the current permissions are inherited. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
-                                    "default": null,
                                     "x-example": "[\"read(\"any\")\"]",
                                     "x-nullable": true,
                                     "items": {
@@ -10175,7 +10588,7 @@
                 "x-appwrite": {
                     "method": "deleteFile",
                     "group": "files",
-                    "weight": 550,
+                    "weight": 557,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/delete-file.md",
@@ -10246,7 +10659,7 @@
                 "x-appwrite": {
                     "method": "getFileDownload",
                     "group": "files",
-                    "weight": 552,
+                    "weight": 559,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-download.md",
@@ -10326,7 +10739,7 @@
                 "x-appwrite": {
                     "method": "getFilePreview",
                     "group": "files",
-                    "weight": 551,
+                    "weight": 558,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-preview.md",
@@ -10495,7 +10908,6 @@
                         ],
                         "x-enum-name": "ImageFormat",
                         "x-enum-keys": [],
-                        "default": "",
                         "in": "query"
                     },
                     {
@@ -10534,7 +10946,7 @@
                 "x-appwrite": {
                     "method": "getFileView",
                     "group": "files",
-                    "weight": 553,
+                    "weight": 560,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-view.md",
@@ -10614,7 +11026,7 @@
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
-                    "weight": 836,
+                    "weight": 849,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/list-transactions.md",
@@ -10684,7 +11096,7 @@
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
-                    "weight": 832,
+                    "weight": 845,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/create-transaction.md",
@@ -10724,8 +11136,8 @@
                                 "ttl": {
                                     "type": "integer",
                                     "description": "Seconds before the transaction expires.",
-                                    "default": 300,
                                     "x-example": 60,
+                                    "default": 300,
                                     "format": "int32"
                                 }
                             }
@@ -10758,7 +11170,7 @@
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
-                    "weight": 833,
+                    "weight": 846,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/get-transaction.md",
@@ -10824,7 +11236,7 @@
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
-                    "weight": 834,
+                    "weight": 847,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/update-transaction.md",
@@ -10872,14 +11284,14 @@
                                 "commit": {
                                     "type": "boolean",
                                     "description": "Commit transaction?",
-                                    "default": false,
-                                    "x-example": false
+                                    "x-example": false,
+                                    "default": false
                                 },
                                 "rollback": {
                                     "type": "boolean",
                                     "description": "Rollback transaction?",
-                                    "default": false,
-                                    "x-example": false
+                                    "x-example": false,
+                                    "default": false
                                 }
                             }
                         }
@@ -10906,7 +11318,7 @@
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
-                    "weight": 835,
+                    "weight": 848,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/delete-transaction.md",
@@ -10974,7 +11386,7 @@
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
-                    "weight": 837,
+                    "weight": 850,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/create-operations.md",
@@ -11022,8 +11434,8 @@
                                 "operations": {
                                     "type": "array",
                                     "description": "Array of staged operations.",
-                                    "default": [],
                                     "x-example": "[\n\t    {\n\t        \"action\": \"create\",\n\t        \"databaseId\": \"<DATABASE_ID>\",\n\t        \"tableId\": \"<TABLE_ID>\",\n\t        \"rowId\": \"<ROW_ID>\",\n\t        \"data\": {\n\t            \"name\": \"Walter O'Brien\"\n\t        }\n\t    }\n\t]",
+                                    "default": [],
                                     "items": {
                                         "type": "object"
                                     }
@@ -11058,7 +11470,7 @@
                 "x-appwrite": {
                     "method": "listRows",
                     "group": "rows",
-                    "weight": 907,
+                    "weight": 919,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/list-rows.md",
@@ -11171,7 +11583,7 @@
                 "x-appwrite": {
                     "method": "createRow",
                     "group": "rows",
-                    "weight": 820,
+                    "weight": 833,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/create-row.md",
@@ -11260,19 +11672,18 @@
                                 "rowId": {
                                     "type": "string",
                                     "description": "Row ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "default": "",
-                                    "x-example": "<ROW_ID>"
+                                    "x-example": "<ROW_ID>",
+                                    "default": ""
                                 },
                                 "data": {
                                     "type": "object",
                                     "description": "Row data as JSON object.",
-                                    "default": [],
-                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}"
+                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}",
+                                    "default": []
                                 },
                                 "permissions": {
                                     "type": "array",
                                     "description": "An array of permissions strings. By default, only the current user is granted all permissions. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
-                                    "default": null,
                                     "x-example": "[\"read(\"any\")\"]",
                                     "x-nullable": true,
                                     "items": {
@@ -11282,8 +11693,8 @@
                                 "rows": {
                                     "type": "array",
                                     "description": "Array of rows data as JSON objects.",
-                                    "default": [],
                                     "x-example": null,
+                                    "default": [],
                                     "items": {
                                         "type": "object"
                                     }
@@ -11291,7 +11702,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>",
                                     "x-nullable": true
                                 }
@@ -11325,7 +11735,7 @@
                 "x-appwrite": {
                     "method": "getRow",
                     "group": "rows",
-                    "weight": 821,
+                    "weight": 834,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/get-row.md",
@@ -11427,7 +11837,7 @@
                 "x-appwrite": {
                     "method": "upsertRow",
                     "group": "rows",
-                    "weight": 824,
+                    "weight": 837,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/upsert-row.md",
@@ -11523,13 +11933,12 @@
                                 "data": {
                                     "type": "object",
                                     "description": "Row data as JSON object. Include all required columns of the row to be created or updated.",
-                                    "default": [],
-                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":33,\"isAdmin\":false}"
+                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":33,\"isAdmin\":false}",
+                                    "default": []
                                 },
                                 "permissions": {
                                     "type": "array",
                                     "description": "An array of permissions strings. By default, the current permissions are inherited. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
-                                    "default": null,
                                     "x-example": "[\"read(\"any\")\"]",
                                     "x-nullable": true,
                                     "items": {
@@ -11539,7 +11948,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>",
                                     "x-nullable": true
                                 }
@@ -11573,7 +11981,7 @@
                 "x-appwrite": {
                     "method": "updateRow",
                     "group": "rows",
-                    "weight": 822,
+                    "weight": 835,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/update-row.md",
@@ -11637,13 +12045,12 @@
                                 "data": {
                                     "type": "object",
                                     "description": "Row data as JSON object. Include only columns and value pairs to be updated.",
-                                    "default": [],
-                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":33,\"isAdmin\":false}"
+                                    "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":33,\"isAdmin\":false}",
+                                    "default": []
                                 },
                                 "permissions": {
                                     "type": "array",
                                     "description": "An array of permissions strings. By default, the current permissions are inherited. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
-                                    "default": null,
                                     "x-example": "[\"read(\"any\")\"]",
                                     "x-nullable": true,
                                     "items": {
@@ -11653,7 +12060,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>",
                                     "x-nullable": true
                                 }
@@ -11682,7 +12088,7 @@
                 "x-appwrite": {
                     "method": "deleteRow",
                     "group": "rows",
-                    "weight": 826,
+                    "weight": 839,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/delete-row.md",
@@ -11746,7 +12152,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>",
                                     "x-nullable": true
                                 }
@@ -11782,7 +12187,7 @@
                 "x-appwrite": {
                     "method": "decrementRowColumn",
                     "group": "rows",
-                    "weight": 831,
+                    "weight": 844,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/decrement-row-column.md",
@@ -11853,14 +12258,13 @@
                                 "value": {
                                     "type": "number",
                                     "description": "Value to increment the column by. The value must be a number.",
-                                    "default": 1,
                                     "x-example": null,
+                                    "default": 1,
                                     "format": "float"
                                 },
                                 "min": {
                                     "type": "number",
                                     "description": "Minimum value for the column. If the current value is lesser than this value, an exception will be thrown.",
-                                    "default": null,
                                     "x-example": null,
                                     "format": "float",
                                     "x-nullable": true
@@ -11868,7 +12272,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>",
                                     "x-nullable": true
                                 }
@@ -11904,7 +12307,7 @@
                 "x-appwrite": {
                     "method": "incrementRowColumn",
                     "group": "rows",
-                    "weight": 830,
+                    "weight": 843,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/increment-row-column.md",
@@ -11975,14 +12378,13 @@
                                 "value": {
                                     "type": "number",
                                     "description": "Value to increment the column by. The value must be a number.",
-                                    "default": 1,
                                     "x-example": null,
+                                    "default": 1,
                                     "format": "float"
                                 },
                                 "max": {
                                     "type": "number",
                                     "description": "Maximum value for the column. If the current value is greater than this value, an error will be thrown.",
-                                    "default": null,
                                     "x-example": null,
                                     "format": "float",
                                     "x-nullable": true
@@ -11990,7 +12392,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>",
                                     "x-nullable": true
                                 }
@@ -12024,7 +12425,7 @@
                 "x-appwrite": {
                     "method": "list",
                     "group": "teams",
-                    "weight": 524,
+                    "weight": 531,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/list.md",
@@ -12109,7 +12510,7 @@
                 "x-appwrite": {
                     "method": "create",
                     "group": "teams",
-                    "weight": 522,
+                    "weight": 529,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/create.md",
@@ -12146,22 +12547,20 @@
                                 "teamId": {
                                     "type": "string",
                                     "description": "Team ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "default": null,
                                     "x-example": "<TEAM_ID>"
                                 },
                                 "name": {
                                     "type": "string",
                                     "description": "Team name. Max length: 128 chars.",
-                                    "default": null,
                                     "x-example": "<NAME>"
                                 },
                                 "roles": {
                                     "type": "array",
                                     "description": "Array of strings. Use this param to set the roles in the team for the user who created it. The default role is **owner**. A role can be any string. Learn more about [roles and permissions](https:\/\/appwrite.io\/docs\/permissions). Maximum of 100 roles are allowed, each 32 characters long.",
+                                    "x-example": null,
                                     "default": [
                                         "owner"
                                     ],
-                                    "x-example": null,
                                     "items": {
                                         "type": "string"
                                     }
@@ -12200,7 +12599,7 @@
                 "x-appwrite": {
                     "method": "get",
                     "group": "teams",
-                    "weight": 523,
+                    "weight": 530,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/get.md",
@@ -12263,7 +12662,7 @@
                 "x-appwrite": {
                     "method": "updateName",
                     "group": "teams",
-                    "weight": 526,
+                    "weight": 533,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/update-name.md",
@@ -12308,7 +12707,6 @@
                                 "name": {
                                     "type": "string",
                                     "description": "New team name. Max length: 128 chars.",
-                                    "default": null,
                                     "x-example": "<NAME>"
                                 }
                             },
@@ -12339,7 +12737,7 @@
                 "x-appwrite": {
                     "method": "delete",
                     "group": "teams",
-                    "weight": 525,
+                    "weight": 532,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/delete.md",
@@ -12402,7 +12800,7 @@
                 "x-appwrite": {
                     "method": "listMemberships",
                     "group": "memberships",
-                    "weight": 531,
+                    "weight": 538,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/list-memberships.md",
@@ -12495,7 +12893,7 @@
                 "x-appwrite": {
                     "method": "createMembership",
                     "group": "memberships",
-                    "weight": 529,
+                    "weight": 536,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/create-membership.md",
@@ -12540,27 +12938,26 @@
                                 "email": {
                                     "type": "string",
                                     "description": "Email of the new team member.",
-                                    "default": "",
                                     "x-example": "email@example.com",
+                                    "default": "",
                                     "format": "email"
                                 },
                                 "userId": {
                                     "type": "string",
                                     "description": "ID of the user to be added to a team.",
-                                    "default": "",
-                                    "x-example": "<USER_ID>"
+                                    "x-example": "<USER_ID>",
+                                    "default": ""
                                 },
                                 "phone": {
                                     "type": "string",
                                     "description": "Phone number. Format this number with a leading '+' and a country code, e.g., +16175551212.",
-                                    "default": "",
                                     "x-example": "+12065550100",
+                                    "default": "",
                                     "format": "phone"
                                 },
                                 "roles": {
                                     "type": "array",
                                     "description": "Array of strings. Use this param to set the user roles in the team. A role can be any string. Learn more about [roles and permissions](https:\/\/appwrite.io\/docs\/permissions). Maximum of 100 roles are allowed, each 81 characters long.",
-                                    "default": null,
                                     "x-example": null,
                                     "items": {
                                         "type": "string"
@@ -12569,15 +12966,15 @@
                                 "url": {
                                     "type": "string",
                                     "description": "URL to redirect the user back to your app from the invitation email. This parameter is not required when an API key is supplied. Only URLs from hostnames in your project platform list are allowed. This requirement helps to prevent an [open redirect](https:\/\/cheatsheetseries.owasp.org\/cheatsheets\/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html) attack against your project API.",
-                                    "default": "",
                                     "x-example": "https:\/\/example.com",
+                                    "default": "",
                                     "format": "url"
                                 },
                                 "name": {
                                     "type": "string",
                                     "description": "Name of the new team member. Max length: 128 chars.",
-                                    "default": "",
-                                    "x-example": "<NAME>"
+                                    "x-example": "<NAME>",
+                                    "default": ""
                                 }
                             },
                             "required": [
@@ -12612,7 +13009,7 @@
                 "x-appwrite": {
                     "method": "getMembership",
                     "group": "memberships",
-                    "weight": 530,
+                    "weight": 537,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/get-membership.md",
@@ -12683,7 +13080,7 @@
                 "x-appwrite": {
                     "method": "updateMembership",
                     "group": "memberships",
-                    "weight": 532,
+                    "weight": 539,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/update-membership.md",
@@ -12736,7 +13133,6 @@
                                 "roles": {
                                     "type": "array",
                                     "description": "An array of strings. Use this param to set the user's roles in the team. A role can be any string. Learn more about [roles and permissions](https:\/\/appwrite.io\/docs\/permissions). Maximum of 100 roles are allowed, each 81 characters long.",
-                                    "default": null,
                                     "x-example": null,
                                     "items": {
                                         "type": "string"
@@ -12770,7 +13166,7 @@
                 "x-appwrite": {
                     "method": "deleteMembership",
                     "group": "memberships",
-                    "weight": 1196,
+                    "weight": 1261,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/delete-membership.md",
@@ -12843,7 +13239,7 @@
                 "x-appwrite": {
                     "method": "updateMembershipStatus",
                     "group": "memberships",
-                    "weight": 534,
+                    "weight": 541,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/update-membership-status.md",
@@ -12896,13 +13292,11 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID.",
-                                    "default": null,
                                     "x-example": "<USER_ID>"
                                 },
                                 "secret": {
                                     "type": "string",
                                     "description": "Secret key.",
-                                    "default": null,
                                     "x-example": "<SECRET>"
                                 }
                             },
@@ -12939,7 +13333,7 @@
                 "x-appwrite": {
                     "method": "getPrefs",
                     "group": "teams",
-                    "weight": 527,
+                    "weight": 534,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/get-prefs.md",
@@ -13002,7 +13396,7 @@
                 "x-appwrite": {
                     "method": "updatePrefs",
                     "group": "teams",
-                    "weight": 528,
+                    "weight": 535,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/update-prefs.md",
@@ -13047,8 +13441,8 @@
                                 "prefs": {
                                     "type": "object",
                                     "description": "Prefs key-value JSON object.",
-                                    "default": {},
-                                    "x-example": "{}"
+                                    "x-example": "{}",
+                                    "default": {}
                                 }
                             },
                             "required": [
@@ -13083,7 +13477,7 @@
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
-                    "weight": 903,
+                    "weight": 916,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/list-transactions.md",
@@ -13150,7 +13544,7 @@
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
-                    "weight": 899,
+                    "weight": 912,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/create-transaction.md",
@@ -13187,8 +13581,8 @@
                                 "ttl": {
                                     "type": "integer",
                                     "description": "Seconds before the transaction expires.",
-                                    "default": 300,
                                     "x-example": 60,
+                                    "default": 300,
                                     "format": "int32"
                                 }
                             }
@@ -13221,7 +13615,7 @@
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
-                    "weight": 900,
+                    "weight": 913,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/get-transaction.md",
@@ -13284,7 +13678,7 @@
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
-                    "weight": 901,
+                    "weight": 914,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/update-transaction.md",
@@ -13329,14 +13723,14 @@
                                 "commit": {
                                     "type": "boolean",
                                     "description": "Commit transaction?",
-                                    "default": false,
-                                    "x-example": false
+                                    "x-example": false,
+                                    "default": false
                                 },
                                 "rollback": {
                                     "type": "boolean",
                                     "description": "Rollback transaction?",
-                                    "default": false,
-                                    "x-example": false
+                                    "x-example": false,
+                                    "default": false
                                 }
                             }
                         }
@@ -13363,7 +13757,7 @@
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
-                    "weight": 902,
+                    "weight": 915,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/delete-transaction.md",
@@ -13428,7 +13822,7 @@
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
-                    "weight": 904,
+                    "weight": 917,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/create-operations.md",
@@ -13473,8 +13867,8 @@
                                 "operations": {
                                     "type": "array",
                                     "description": "Array of staged operations.",
-                                    "default": [],
                                     "x-example": "[\n\t    {\n\t        \"action\": \"create\",\n\t        \"databaseId\": \"<DATABASE_ID>\",\n\t        \"collectionId\": \"<COLLECTION_ID>\",\n\t        \"documentId\": \"<DOCUMENT_ID>\",\n\t        \"data\": {\n\t            \"name\": \"Walter O'Brien\"\n\t        }\n\t    }\n\t]",
+                                    "default": [],
                                     "items": {
                                         "type": "object"
                                     }
@@ -13509,7 +13903,7 @@
                 "x-appwrite": {
                     "method": "listDocuments",
                     "group": "documents",
-                    "weight": 893,
+                    "weight": 906,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/list-documents.md",
@@ -13619,7 +14013,7 @@
                 "x-appwrite": {
                     "method": "createDocument",
                     "group": "documents",
-                    "weight": 889,
+                    "weight": 902,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/create-document.md",
@@ -13704,19 +14098,18 @@
                                 "documentId": {
                                     "type": "string",
                                     "description": "Document ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "default": "",
-                                    "x-example": "<DOCUMENT_ID>"
+                                    "x-example": "<DOCUMENT_ID>",
+                                    "default": ""
                                 },
                                 "data": {
                                     "type": "object",
                                     "description": "Document data as JSON object.",
-                                    "default": [],
-                                    "x-example": "{\"embeddings\": [0.12, -0.55, 0.88, 1.02], \"metadata\": {\"key\":\"value\"} }"
+                                    "x-example": "{\"embeddings\": [0.12, -0.55, 0.88, 1.02], \"metadata\": {\"key\":\"value\"} }",
+                                    "default": []
                                 },
                                 "permissions": {
                                     "type": "array",
                                     "description": "An array of permissions strings. By default, only the current user is granted all permissions. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
-                                    "default": null,
                                     "x-example": "[\"read(\"any\")\"]",
                                     "items": {
                                         "type": "string"
@@ -13725,8 +14118,8 @@
                                 "documents": {
                                     "type": "array",
                                     "description": "Array of documents data as JSON objects.",
-                                    "default": [],
                                     "x-example": null,
+                                    "default": [],
                                     "items": {
                                         "type": "object"
                                     }
@@ -13734,7 +14127,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>"
                                 }
                             }
@@ -13767,7 +14159,7 @@
                 "x-appwrite": {
                     "method": "getDocument",
                     "group": "documents",
-                    "weight": 892,
+                    "weight": 905,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/get-document.md",
@@ -13866,7 +14258,7 @@
                 "x-appwrite": {
                     "method": "upsertDocument",
                     "group": "documents",
-                    "weight": 891,
+                    "weight": 904,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/upsert-document.md",
@@ -13959,13 +14351,12 @@
                                 "data": {
                                     "type": "object",
                                     "description": "Document data as JSON object. Include all required fields of the document to be created or updated.",
-                                    "default": [],
-                                    "x-example": "{}"
+                                    "x-example": "{}",
+                                    "default": []
                                 },
                                 "permissions": {
                                     "type": "array",
                                     "description": "An array of permissions strings. By default, the current permissions are inherited. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
-                                    "default": null,
                                     "x-example": "[\"read(\"any\")\"]",
                                     "items": {
                                         "type": "string"
@@ -13974,7 +14365,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>"
                                 }
                             }
@@ -14007,7 +14397,7 @@
                 "x-appwrite": {
                     "method": "updateDocument",
                     "group": "documents",
-                    "weight": 890,
+                    "weight": 903,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/update-document.md",
@@ -14068,13 +14458,12 @@
                                 "data": {
                                     "type": "object",
                                     "description": "Document data as JSON object. Include only fields and value pairs to be updated.",
-                                    "default": [],
-                                    "x-example": "{}"
+                                    "x-example": "{}",
+                                    "default": []
                                 },
                                 "permissions": {
                                     "type": "array",
                                     "description": "An array of permissions strings. By default, the current permissions are inherited. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
-                                    "default": null,
                                     "x-example": "[\"read(\"any\")\"]",
                                     "items": {
                                         "type": "string"
@@ -14083,7 +14472,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>"
                                 }
                             }
@@ -14111,7 +14499,7 @@
                 "x-appwrite": {
                     "method": "deleteDocument",
                     "group": "documents",
-                    "weight": 894,
+                    "weight": 907,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/delete-document.md",
@@ -14172,7 +14560,6 @@
                                 "transactionId": {
                                     "type": "string",
                                     "description": "Transaction ID for staging the operation.",
-                                    "default": null,
                                     "x-example": "<TRANSACTION_ID>"
                                 }
                             }
@@ -14319,6 +14706,35 @@
             "example": {
                 "total": 5,
                 "documents": ""
+            }
+        },
+        "presenceList": {
+            "description": "Presences List",
+            "type": "object",
+            "properties": {
+                "total": {
+                    "type": "integer",
+                    "description": "Total number of presences that matched your query.",
+                    "x-example": 5,
+                    "format": "int32"
+                },
+                "presences": {
+                    "type": "array",
+                    "description": "List of presences.",
+                    "items": {
+                        "type": "object",
+                        "$ref": "#\/definitions\/presence"
+                    },
+                    "x-example": ""
+                }
+            },
+            "required": [
+                "total",
+                "presences"
+            ],
+            "example": {
+                "total": 5,
+                "presences": ""
             }
         },
         "sessionList": {
@@ -14870,6 +15286,81 @@
                 "fullName": "John Doe",
                 "age": 30,
                 "isAdmin": false
+            }
+        },
+        "presence": {
+            "description": "Presence",
+            "type": "object",
+            "properties": {
+                "$id": {
+                    "type": "string",
+                    "description": "Presence ID.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "$createdAt": {
+                    "type": "string",
+                    "description": "Presence creation date in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "$updatedAt": {
+                    "type": "string",
+                    "description": "Presence update date in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "$permissions": {
+                    "type": "array",
+                    "description": "Presence permissions. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "x-example": [
+                        "read(\"any\")"
+                    ]
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "User ID.",
+                    "x-example": "674af8f3e12a5f9ac0be"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Presence status.",
+                    "x-example": "online",
+                    "x-nullable": true
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Presence source.",
+                    "x-example": "HTTP"
+                },
+                "expiresAt": {
+                    "type": "string",
+                    "description": "Presence expiry date in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00",
+                    "x-nullable": true
+                }
+            },
+            "additionalProperties": true,
+            "x-additional-properties-key": "metadata",
+            "required": [
+                "$id",
+                "$createdAt",
+                "$updatedAt",
+                "$permissions",
+                "userId",
+                "source"
+            ],
+            "example": {
+                "$id": "5e5ea5c16897e",
+                "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                "$permissions": [
+                    "read(\"any\")"
+                ],
+                "userId": "674af8f3e12a5f9ac0be",
+                "status": "online",
+                "source": "HTTP",
+                "expiresAt": "2020-10-15T06:38:00.000+00:00"
             }
         },
         "log": {
@@ -15964,6 +16455,12 @@
                     "x-example": 17890,
                     "format": "int32"
                 },
+                "sizeActual": {
+                    "type": "integer",
+                    "description": "File actual stored size in bytes after compression and\/or encryption.",
+                    "x-example": 12345,
+                    "format": "int32"
+                },
                 "chunksTotal": {
                     "type": "integer",
                     "description": "Total number of chunks available",
@@ -15997,6 +16494,7 @@
                 "signature",
                 "mimeType",
                 "sizeOriginal",
+                "sizeActual",
                 "chunksTotal",
                 "chunksUploaded",
                 "encryption",
@@ -16014,6 +16512,7 @@
                 "signature": "5d529fd02b544198ae075bd57c1762bb",
                 "mimeType": "image\/png",
                 "sizeOriginal": 17890,
+                "sizeActual": 12345,
                 "chunksTotal": 17890,
                 "chunksUploaded": 17890,
                 "encryption": true,

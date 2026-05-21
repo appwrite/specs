@@ -20,7 +20,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Some("<SENDER_NAME>"), // optional
         Some("email@example.com"), // optional
         Some("<REPLY_TO_NAME>"), // optional
-        Some(appwrite::enums::Secure::Tls), // optional
+        Some(appwrite::enums::ProjectSMTPSecure::Tls), // optional
         Some(false) // optional
     ).await?;
 

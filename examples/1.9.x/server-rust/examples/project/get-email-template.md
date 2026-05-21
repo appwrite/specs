@@ -12,8 +12,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let project = Project::new(&client);
 
     let result = project.get_email_template(
-        appwrite::enums::EmailTemplateType::Verification,
-        Some(appwrite::enums::EmailTemplateLocale::Af) // optional
+        appwrite::enums::ProjectEmailTemplateId::Verification,
+        Some(appwrite::enums::ProjectEmailTemplateLocale::Af) // optional
     ).await?;
 
     let _ = result;

@@ -1,0 +1,23 @@
+```go
+package main
+
+import (
+    "fmt"
+    "github.com/appwrite/sdk-for-go/v4/client"
+    "github.com/appwrite/sdk-for-go/v4/account"
+)
+
+client := client.New(
+    client.WithEndpoint("https://<REGION>.cloud.appwrite.io/v1")
+    client.WithProject("<YOUR_PROJECT_ID>")
+    client.WithSession("")
+)
+
+service := account.New(client)
+
+response, error := service.CreatePushTarget(
+    "<TARGET_ID>",
+    "<IDENTIFIER>",
+    account.WithCreatePushTargetProviderId("<PROVIDER_ID>"),
+)
+```

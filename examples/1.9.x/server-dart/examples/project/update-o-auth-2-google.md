@@ -12,7 +12,7 @@ Project project = Project(client);
 OAuth2Google result = await project.updateOAuth2Google(
     clientId: '<CLIENT_ID>', // (optional)
     clientSecret: '<CLIENT_SECRET>', // (optional)
-    prompt: [enums.Prompt.none], // (optional)
+    prompt: [enums.ProjectOAuth2GooglePrompt.none], // (optional)
     enabled: false, // (optional)
 );
 ```

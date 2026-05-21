@@ -12,7 +12,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let project = Project::new(&client);
 
     let result = project.update_service(
-        appwrite::enums::ServiceId::Account,
+        appwrite::enums::ProjectServiceId::Account,
         false
     ).await?;
 
