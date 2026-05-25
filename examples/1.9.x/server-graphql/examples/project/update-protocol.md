@@ -8,72 +8,7 @@ mutation {
         _createdAt
         _updatedAt
         name
-        description
         teamId
-        logo
-        url
-        legalName
-        legalCountry
-        legalState
-        legalCity
-        legalAddress
-        legalTaxId
-        authDuration
-        authLimit
-        authSessionsLimit
-        authPasswordHistory
-        authPasswordDictionary
-        authPersonalDataCheck
-        authDisposableEmails
-        authCanonicalEmails
-        authFreeEmails
-        authMockNumbers {
-            number
-            otp
-            _createdAt
-            _updatedAt
-        }
-        authSessionAlerts
-        authMembershipsUserName
-        authMembershipsUserEmail
-        authMembershipsMfa
-        authMembershipsUserId
-        authMembershipsUserPhone
-        authInvalidateSessions
-        oAuthProviders {
-            key
-            name
-            appId
-            secret
-            enabled
-        }
-        platforms
-        webhooks {
-            _id
-            _createdAt
-            _updatedAt
-            name
-            url
-            events
-            tls
-            authUsername
-            authPassword
-            secret
-            enabled
-            logs
-            attempts
-        }
-        keys {
-            _id
-            _createdAt
-            _updatedAt
-            name
-            expire
-            scopes
-            secret
-            accessedAt
-            sdks
-        }
         devKeys {
             _id
             _createdAt
@@ -98,33 +33,18 @@ mutation {
         pingedAt
         labels
         status
-        authEmailPassword
-        authUsersAuthMagicURL
-        authEmailOtp
-        authAnonymous
-        authInvites
-        authJWT
-        authPhone
-        serviceStatusForAccount
-        serviceStatusForAvatars
-        serviceStatusForDatabases
-        serviceStatusForTablesdb
-        serviceStatusForLocale
-        serviceStatusForHealth
-        serviceStatusForProject
-        serviceStatusForStorage
-        serviceStatusForTeams
-        serviceStatusForUsers
-        serviceStatusForVcs
-        serviceStatusForSites
-        serviceStatusForFunctions
-        serviceStatusForProxy
-        serviceStatusForGraphql
-        serviceStatusForMigrations
-        serviceStatusForMessaging
-        protocolStatusForRest
-        protocolStatusForGraphql
-        protocolStatusForWebsocket
+        authMethods {
+            _id
+            enabled
+        }
+        services {
+            _id
+            enabled
+        }
+        protocols {
+            _id
+            enabled
+        }
         region
         billingLimits {
             bandwidth

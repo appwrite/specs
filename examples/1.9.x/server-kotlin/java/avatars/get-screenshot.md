@@ -27,7 +27,7 @@ avatars.getScreenshot(
     "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15", // userAgent (optional)
     true, // fullpage (optional)
     "en-US", // locale (optional)
-    Timezone.AMERICA_NEW_YORK, // timezone (optional)
+    Timezone.AFRICA_ABIDJAN, // timezone (optional)
     37.7749, // latitude (optional)
     -122.4194, // longitude (optional)
     100, // accuracy (optional)

@@ -15,6 +15,7 @@ mutation {
         signature
         mimeType
         sizeOriginal
+        sizeActual
         chunksTotal
         chunksUploaded
         encryption

@@ -9,7 +9,7 @@ const client = new sdk.Client()
 const project = new sdk.Project(client);
 
 const result = await project.updateProtocol({
-    protocolId: sdk.ProtocolId.Rest,
+    protocolId: sdk.ProjectProtocolId.Rest,
     enabled: false
 });
 ```

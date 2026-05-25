@@ -2,7 +2,7 @@
 import io.appwrite.Client;
 import io.appwrite.coroutines.CoroutineCallback;
 import io.appwrite.services.Project;
-import io.appwrite.enums.Prompt;
+import io.appwrite.enums.ProjectOAuth2GooglePrompt;
 
 Client client = new Client()
     .setEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
@@ -14,7 +14,7 @@ Project project = new Project(client);
 project.updateOAuth2Google(
     "<CLIENT_ID>", // clientId (optional)
     "<CLIENT_SECRET>", // clientSecret (optional)
-    List.of(Prompt.NONE), // prompt (optional)
+    List.of(ProjectOAuth2GooglePrompt.NONE), // prompt (optional)
     false, // enabled (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {

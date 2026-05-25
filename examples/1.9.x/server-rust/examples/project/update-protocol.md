@@ -12,7 +12,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let project = Project::new(&client);
 
     let result = project.update_protocol(
-        appwrite::enums::ProtocolId::Rest,
+        appwrite::enums::ProjectProtocolId::Rest,
         false
     ).await?;
 
