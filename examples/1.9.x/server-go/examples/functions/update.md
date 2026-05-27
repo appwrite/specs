@@ -8,7 +8,7 @@ import (
 )
 
 client := client.New(
-    client.WithEndpoint("https://<REGION>.cloud.appwrite.io/v1")
+    client.WithEndpoint("")
     client.WithProject("<YOUR_PROJECT_ID>")
     client.WithKey("<YOUR_API_KEY>")
 )
@@ -33,6 +33,8 @@ response, error := service.Update(
     functions.WithUpdateProviderBranch("<PROVIDER_BRANCH>"),
     functions.WithUpdateProviderSilentMode(false),
     functions.WithUpdateProviderRootDirectory("<PROVIDER_ROOT_DIRECTORY>"),
+    functions.WithUpdateProviderBranches([]interface{}{}),
+    functions.WithUpdateProviderPaths([]interface{}{}),
     functions.WithUpdateBuildSpecification(""),
     functions.WithUpdateRuntimeSpecification(""),
     functions.WithUpdateDeploymentRetention(0),

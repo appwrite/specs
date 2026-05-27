@@ -31,9 +31,6 @@
             }
         }
     ],
-    "x-appwrite": {
-        "endpointDocs": "https:\/\/<REGION>.cloud.appwrite.io\/v1"
-    },
     "paths": {
         "\/account": {
             "get": {
@@ -59,7 +56,6 @@
                 "x-appwrite": {
                     "method": "get",
                     "group": "account",
-                    "weight": 9,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get.md",
@@ -110,7 +106,6 @@
                 "x-appwrite": {
                     "method": "create",
                     "group": "account",
-                    "weight": 8,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create.md",
@@ -162,6 +157,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "User name. Max length: 128 chars.",
+                                        "default": "",
                                         "x-example": "<NAME>"
                                     }
                                 },
@@ -200,7 +196,6 @@
                 "x-appwrite": {
                     "method": "updateEmail",
                     "group": "account",
-                    "weight": 34,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-email.md",
@@ -280,7 +275,6 @@
                 "x-appwrite": {
                     "method": "listIdentities",
                     "group": "identities",
-                    "weight": 47,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-identities.md",
@@ -352,7 +346,6 @@
                 "x-appwrite": {
                     "method": "deleteIdentity",
                     "group": "identities",
-                    "weight": 48,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/delete-identity.md",
@@ -417,7 +410,6 @@
                 "x-appwrite": {
                     "method": "createJWT",
                     "group": "tokens",
-                    "weight": 29,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-jwt.md",
@@ -453,6 +445,7 @@
                                     "duration": {
                                         "type": "integer",
                                         "description": "Time in seconds before JWT expires. Default duration is 900 seconds, and maximum is 3600 seconds.",
+                                        "default": 900,
                                         "x-example": 0,
                                         "format": "int32"
                                     }
@@ -487,7 +480,6 @@
                 "x-appwrite": {
                     "method": "listLogs",
                     "group": "logs",
-                    "weight": 31,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-logs.md",
@@ -566,7 +558,6 @@
                 "x-appwrite": {
                     "method": "updateMFA",
                     "group": "mfa",
-                    "weight": 165,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-mfa.md",
@@ -638,7 +629,6 @@
                 "x-appwrite": {
                     "method": "createMfaAuthenticator",
                     "group": "mfa",
-                    "weight": 167,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-mfa-authenticator.md",
@@ -732,8 +722,7 @@
                             "enum": [
                                 "totp"
                             ],
-                            "x-enum-name": "AuthenticatorType",
-                            "x-enum-keys": []
+                            "x-enum-name": "AuthenticatorType"
                         },
                         "in": "path"
                     }
@@ -762,7 +751,6 @@
                 "x-appwrite": {
                     "method": "updateMfaAuthenticator",
                     "group": "mfa",
-                    "weight": 168,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-mfa-authenticator.md",
@@ -860,8 +848,7 @@
                             "enum": [
                                 "totp"
                             ],
-                            "x-enum-name": "AuthenticatorType",
-                            "x-enum-keys": []
+                            "x-enum-name": "AuthenticatorType"
                         },
                         "in": "path"
                     }
@@ -902,7 +889,6 @@
                 "x-appwrite": {
                     "method": "deleteMfaAuthenticator",
                     "group": "mfa",
-                    "weight": 169,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/delete-mfa-authenticator.md",
@@ -994,8 +980,7 @@
                             "enum": [
                                 "totp"
                             ],
-                            "x-enum-name": "AuthenticatorType",
-                            "x-enum-keys": []
+                            "x-enum-name": "AuthenticatorType"
                         },
                         "in": "path"
                     }
@@ -1026,7 +1011,6 @@
                 "x-appwrite": {
                     "method": "createMfaChallenge",
                     "group": "mfa",
-                    "weight": 173,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-mfa-challenge.md",
@@ -1125,8 +1109,7 @@
                                             "totp",
                                             "recoverycode"
                                         ],
-                                        "x-enum-name": "AuthenticationFactor",
-                                        "x-enum-keys": []
+                                        "x-enum-name": "AuthenticationFactor"
                                     }
                                 },
                                 "required": [
@@ -1160,7 +1143,6 @@
                 "x-appwrite": {
                     "method": "updateMfaChallenge",
                     "group": "mfa",
-                    "weight": 174,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-mfa-challenge.md",
@@ -1298,7 +1280,6 @@
                 "x-appwrite": {
                     "method": "listMfaFactors",
                     "group": "mfa",
-                    "weight": 166,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-mfa-factors.md",
@@ -1399,7 +1380,6 @@
                 "x-appwrite": {
                     "method": "getMfaRecoveryCodes",
                     "group": "mfa",
-                    "weight": 172,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get-mfa-recovery-codes.md",
@@ -1498,7 +1478,6 @@
                 "x-appwrite": {
                     "method": "createMfaRecoveryCodes",
                     "group": "mfa",
-                    "weight": 170,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-mfa-recovery-codes.md",
@@ -1597,7 +1576,6 @@
                 "x-appwrite": {
                     "method": "updateMfaRecoveryCodes",
                     "group": "mfa",
-                    "weight": 171,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-mfa-recovery-codes.md",
@@ -1698,7 +1676,6 @@
                 "x-appwrite": {
                     "method": "updateName",
                     "group": "account",
-                    "weight": 32,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-name.md",
@@ -1770,7 +1747,6 @@
                 "x-appwrite": {
                     "method": "updatePassword",
                     "group": "account",
-                    "weight": 33,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-password.md",
@@ -1811,6 +1787,7 @@
                                     "oldPassword": {
                                         "type": "string",
                                         "description": "Current user password. Must be at least 8 chars.",
+                                        "default": "",
                                         "x-example": "password",
                                         "format": "password"
                                     }
@@ -1848,7 +1825,6 @@
                 "x-appwrite": {
                     "method": "updatePhone",
                     "group": "account",
-                    "weight": 35,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-phone.md",
@@ -1928,7 +1904,6 @@
                 "x-appwrite": {
                     "method": "getPrefs",
                     "group": "account",
-                    "weight": 30,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get-prefs.md",
@@ -1979,7 +1954,6 @@
                 "x-appwrite": {
                     "method": "updatePrefs",
                     "group": "account",
-                    "weight": 36,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-prefs.md",
@@ -2051,7 +2025,6 @@
                 "x-appwrite": {
                     "method": "createRecovery",
                     "group": "recovery",
-                    "weight": 38,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-recovery.md",
@@ -2132,7 +2105,6 @@
                 "x-appwrite": {
                     "method": "updateRecovery",
                     "group": "recovery",
-                    "weight": 39,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-recovery.md",
@@ -2216,7 +2188,6 @@
                 "x-appwrite": {
                     "method": "listSessions",
                     "group": "sessions",
-                    "weight": 11,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/list-sessions.md",
@@ -2260,7 +2231,6 @@
                 "x-appwrite": {
                     "method": "deleteSessions",
                     "group": "sessions",
-                    "weight": 12,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/delete-sessions.md",
@@ -2313,7 +2283,6 @@
                 "x-appwrite": {
                     "method": "createAnonymousSession",
                     "group": "sessions",
-                    "weight": 17,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-anonymous-session.md",
@@ -2366,7 +2335,6 @@
                 "x-appwrite": {
                     "method": "createEmailPasswordSession",
                     "group": "sessions",
-                    "weight": 16,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-email-password-session.md",
@@ -2446,7 +2414,6 @@
                 "x-appwrite": {
                     "method": "updateMagicURLSession",
                     "group": "sessions",
-                    "weight": 26,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-magic-url-session.md",
@@ -2521,7 +2488,6 @@
                 "x-appwrite": {
                     "method": "createOAuth2Session",
                     "group": "sessions",
-                    "weight": 19,
                     "cookies": false,
                     "type": "webAuth",
                     "demo": "account\/create-o-auth-2-session.md",
@@ -2601,8 +2567,7 @@
                                 "zoho",
                                 "zoom"
                             ],
-                            "x-enum-name": "OAuthProvider",
-                            "x-enum-keys": []
+                            "x-enum-name": "OAuthProvider"
                         },
                         "in": "path"
                     },
@@ -2670,7 +2635,6 @@
                 "x-appwrite": {
                     "method": "updatePhoneSession",
                     "group": "sessions",
-                    "weight": 27,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-phone-session.md",
@@ -2752,7 +2716,6 @@
                 "x-appwrite": {
                     "method": "createSession",
                     "group": "sessions",
-                    "weight": 18,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-session.md",
@@ -2830,7 +2793,6 @@
                 "x-appwrite": {
                     "method": "getSession",
                     "group": "sessions",
-                    "weight": 13,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/get-session.md",
@@ -2893,7 +2855,6 @@
                 "x-appwrite": {
                     "method": "updateSession",
                     "group": "sessions",
-                    "weight": 15,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-session.md",
@@ -2949,7 +2910,6 @@
                 "x-appwrite": {
                     "method": "deleteSession",
                     "group": "sessions",
-                    "weight": 14,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/delete-session.md",
@@ -3014,7 +2974,6 @@
                 "x-appwrite": {
                     "method": "updateStatus",
                     "group": "account",
-                    "weight": 37,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-status.md",
@@ -3067,7 +3026,6 @@
                 "x-appwrite": {
                     "method": "createPushTarget",
                     "group": "pushTargets",
-                    "weight": 44,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-push-target.md",
@@ -3077,8 +3035,7 @@
                     "scope": "targets.write",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3090,8 +3047,7 @@
                 "security": [
                     {
                         "Project": [],
-                        "Session": [],
-                        "JWT": []
+                        "Session": []
                     }
                 ],
                 "requestBody": {
@@ -3113,6 +3069,7 @@
                                     "providerId": {
                                         "type": "string",
                                         "description": "Provider ID. Message will be sent to this target from the specified provider ID. If no provider ID is set the first setup provider will be used.",
+                                        "default": "",
                                         "x-example": "<PROVIDER_ID>"
                                     }
                                 },
@@ -3150,7 +3107,6 @@
                 "x-appwrite": {
                     "method": "updatePushTarget",
                     "group": "pushTargets",
-                    "weight": 45,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-push-target.md",
@@ -3160,8 +3116,7 @@
                     "scope": "targets.write",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3173,8 +3128,7 @@
                 "security": [
                     {
                         "Project": [],
-                        "Session": [],
-                        "JWT": []
+                        "Session": []
                     }
                 ],
                 "parameters": [
@@ -3225,7 +3179,6 @@
                 "x-appwrite": {
                     "method": "deletePushTarget",
                     "group": "pushTargets",
-                    "weight": 46,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/delete-push-target.md",
@@ -3235,8 +3188,7 @@
                     "scope": "targets.write",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -3248,8 +3200,7 @@
                 "security": [
                     {
                         "Project": [],
-                        "Session": [],
-                        "JWT": []
+                        "Session": []
                     }
                 ],
                 "parameters": [
@@ -3290,7 +3241,6 @@
                 "x-appwrite": {
                     "method": "createEmailToken",
                     "group": "tokens",
-                    "weight": 25,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-email-token.md",
@@ -3340,6 +3290,7 @@
                                     "phrase": {
                                         "type": "boolean",
                                         "description": "Toggle for security phrase. If enabled, email will be send with a randomly generated phrase and the phrase will also be included in the response. Confirming phrases match increases the security of your authentication flow.",
+                                        "default": false,
                                         "x-example": false
                                     }
                                 },
@@ -3377,7 +3328,6 @@
                 "x-appwrite": {
                     "method": "createMagicURLToken",
                     "group": "tokens",
-                    "weight": 24,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-magic-url-token.md",
@@ -3427,12 +3377,14 @@
                                     "url": {
                                         "type": "string",
                                         "description": "URL to redirect the user back to your app from the magic URL login. Only URLs from hostnames in your project platform list are allowed. This requirement helps to prevent an [open redirect](https:\/\/cheatsheetseries.owasp.org\/cheatsheets\/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html) attack against your project API.",
+                                        "default": "",
                                         "x-example": "https:\/\/example.com",
                                         "format": "url"
                                     },
                                     "phrase": {
                                         "type": "boolean",
                                         "description": "Toggle for security phrase. If enabled, email will be send with a randomly generated phrase and the phrase will also be included in the response. Confirming phrases match increases the security of your authentication flow.",
+                                        "default": false,
                                         "x-example": false
                                     }
                                 },
@@ -3463,7 +3415,6 @@
                 "x-appwrite": {
                     "method": "createOAuth2Token",
                     "group": "tokens",
-                    "weight": 23,
                     "cookies": false,
                     "type": "webAuth",
                     "demo": "account\/create-o-auth-2-token.md",
@@ -3543,8 +3494,7 @@
                                 "zoho",
                                 "zoom"
                             ],
-                            "x-enum-name": "OAuthProvider",
-                            "x-enum-keys": []
+                            "x-enum-name": "OAuthProvider"
                         },
                         "in": "path"
                     },
@@ -3612,7 +3562,6 @@
                 "x-appwrite": {
                     "method": "createPhoneToken",
                     "group": "tokens",
-                    "weight": 28,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-phone-token.md",
@@ -3694,7 +3643,6 @@
                 "x-appwrite": {
                     "method": "createEmailVerification",
                     "group": "verification",
-                    "weight": 40,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-email-verification.md",
@@ -3817,7 +3765,6 @@
                 "x-appwrite": {
                     "method": "updateEmailVerification",
                     "group": "verification",
-                    "weight": 41,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-email-verification.md",
@@ -3951,7 +3898,6 @@
                 "x-appwrite": {
                     "method": "createPhoneVerification",
                     "group": "verification",
-                    "weight": 42,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/create-phone-verification.md",
@@ -4005,7 +3951,6 @@
                 "x-appwrite": {
                     "method": "updatePhoneVerification",
                     "group": "verification",
-                    "weight": 43,
                     "cookies": false,
                     "type": "",
                     "demo": "account\/update-phone-verification.md",
@@ -4076,7 +4021,6 @@
                 "x-appwrite": {
                     "method": "getBrowser",
                     "group": null,
-                    "weight": 176,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-browser.md",
@@ -4204,7 +4148,6 @@
                 "x-appwrite": {
                     "method": "getCreditCard",
                     "group": null,
-                    "weight": 175,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-credit-card.md",
@@ -4338,7 +4281,6 @@
                 "x-appwrite": {
                     "method": "getFavicon",
                     "group": null,
-                    "weight": 179,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-favicon.md",
@@ -4398,7 +4340,6 @@
                 "x-appwrite": {
                     "method": "getFlag",
                     "group": null,
-                    "weight": 177,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-flag.md",
@@ -4888,7 +4829,6 @@
                 "x-appwrite": {
                     "method": "getImage",
                     "group": null,
-                    "weight": 178,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-image.md",
@@ -4972,7 +4912,6 @@
                 "x-appwrite": {
                     "method": "getInitials",
                     "group": null,
-                    "weight": 181,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-initials.md",
@@ -5066,7 +5005,6 @@
                 "x-appwrite": {
                     "method": "getQR",
                     "group": null,
-                    "weight": 180,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-qr.md",
@@ -5160,7 +5098,6 @@
                 "x-appwrite": {
                     "method": "getScreenshot",
                     "group": null,
-                    "weight": 182,
                     "cookies": false,
                     "type": "location",
                     "demo": "avatars\/get-screenshot.md",
@@ -5258,8 +5195,7 @@
                                 "light",
                                 "dark"
                             ],
-                            "x-enum-name": null,
-                            "x-enum-keys": [],
+                            "x-enum-name": "BrowserTheme",
                             "default": "light"
                         },
                         "in": "query"
@@ -5725,8 +5661,7 @@
                                 "pacific\/wallis",
                                 "utc"
                             ],
-                            "x-enum-name": null,
-                            "x-enum-keys": []
+                            "x-enum-name": "Timezone"
                         },
                         "in": "query"
                     },
@@ -5807,8 +5742,7 @@
                                     "web-share",
                                     "xr-spatial-tracking"
                                 ],
-                                "x-enum-name": "BrowserPermission",
-                                "x-enum-keys": []
+                                "x-enum-name": "BrowserPermission"
                             },
                             "x-example": "[\"geolocation\",\"notifications\"]",
                             "default": []
@@ -5879,8 +5813,7 @@
                                 "avif",
                                 "gif"
                             ],
-                            "x-enum-name": "ImageFormat",
-                            "x-enum-keys": []
+                            "x-enum-name": "ImageFormat"
                         },
                         "in": "query"
                     }
@@ -5911,7 +5844,6 @@
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
-                    "weight": 774,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/list-transactions.md",
@@ -5978,7 +5910,6 @@
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
-                    "weight": 770,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/create-transaction.md",
@@ -6015,6 +5946,7 @@
                                     "ttl": {
                                         "type": "integer",
                                         "description": "Seconds before the transaction expires.",
+                                        "default": 300,
                                         "x-example": 60,
                                         "format": "int32"
                                     }
@@ -6049,7 +5981,6 @@
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
-                    "weight": 771,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/get-transaction.md",
@@ -6113,7 +6044,6 @@
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
-                    "weight": 772,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/update-transaction.md",
@@ -6162,11 +6092,13 @@
                                     "commit": {
                                         "type": "boolean",
                                         "description": "Commit transaction?",
+                                        "default": false,
                                         "x-example": false
                                     },
                                     "rollback": {
                                         "type": "boolean",
                                         "description": "Rollback transaction?",
+                                        "default": false,
                                         "x-example": false
                                     }
                                 }
@@ -6191,7 +6123,6 @@
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
-                    "weight": 773,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/delete-transaction.md",
@@ -6257,7 +6188,6 @@
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
-                    "weight": 775,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/create-operations.md",
@@ -6306,6 +6236,7 @@
                                     "operations": {
                                         "type": "array",
                                         "description": "Array of staged operations.",
+                                        "default": [],
                                         "x-example": "[\n\t    {\n\t        \"action\": \"create\",\n\t        \"databaseId\": \"<DATABASE_ID>\",\n\t        \"collectionId\": \"<COLLECTION_ID>\",\n\t        \"documentId\": \"<DOCUMENT_ID>\",\n\t        \"data\": {\n\t            \"name\": \"Walter O'Brien\"\n\t        }\n\t    }\n\t]",
                                         "items": {
                                             "type": "object"
@@ -6342,7 +6273,6 @@
                 "x-appwrite": {
                     "method": "listDocuments",
                     "group": "documents",
-                    "weight": 918,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/list-documents.md",
@@ -6466,7 +6396,6 @@
                 "x-appwrite": {
                     "method": "createDocument",
                     "group": "documents",
-                    "weight": 715,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/create-document.md",
@@ -6566,11 +6495,13 @@
                                     "documentId": {
                                         "type": "string",
                                         "description": "Document ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
+                                        "default": "",
                                         "x-example": "<DOCUMENT_ID>"
                                     },
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object.",
+                                        "default": {},
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -6585,6 +6516,7 @@
                                     "documents": {
                                         "type": "array",
                                         "description": "Array of documents data as JSON objects.",
+                                        "default": [],
                                         "x-example": null,
                                         "items": {
                                             "type": "object"
@@ -6627,7 +6559,6 @@
                 "x-appwrite": {
                     "method": "getDocument",
                     "group": "documents",
-                    "weight": 716,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/get-document.md",
@@ -6738,7 +6669,6 @@
                 "x-appwrite": {
                     "method": "upsertDocument",
                     "group": "documents",
-                    "weight": 719,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/upsert-document.md",
@@ -6847,6 +6777,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object. Include all required attributes of the document to be created or updated.",
+                                        "default": {},
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -6893,7 +6824,6 @@
                 "x-appwrite": {
                     "method": "updateDocument",
                     "group": "documents",
-                    "weight": 717,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/update-document.md",
@@ -6966,6 +6896,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object. Include only attribute and value pairs to be updated.",
+                                        "default": {},
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":33,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -7005,7 +6936,6 @@
                 "x-appwrite": {
                     "method": "deleteDocument",
                     "group": "documents",
-                    "weight": 721,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/delete-document.md",
@@ -7112,7 +7042,6 @@
                 "x-appwrite": {
                     "method": "decrementDocumentAttribute",
                     "group": "documents",
-                    "weight": 726,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/decrement-document-attribute.md",
@@ -7194,6 +7123,7 @@
                                     "value": {
                                         "type": "number",
                                         "description": "Value to increment the attribute by. The value must be a number.",
+                                        "default": 1,
                                         "x-example": null,
                                         "format": "float"
                                     },
@@ -7241,7 +7171,6 @@
                 "x-appwrite": {
                     "method": "incrementDocumentAttribute",
                     "group": "documents",
-                    "weight": 725,
                     "cookies": false,
                     "type": "",
                     "demo": "databases\/increment-document-attribute.md",
@@ -7323,6 +7252,7 @@
                                     "value": {
                                         "type": "number",
                                         "description": "Value to increment the attribute by. The value must be a number.",
+                                        "default": 1,
                                         "x-example": null,
                                         "format": "float"
                                     },
@@ -7370,7 +7300,6 @@
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
-                    "weight": 883,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/list-transactions.md",
@@ -7437,7 +7366,6 @@
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
-                    "weight": 879,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/create-transaction.md",
@@ -7474,6 +7402,7 @@
                                     "ttl": {
                                         "type": "integer",
                                         "description": "Seconds before the transaction expires.",
+                                        "default": 300,
                                         "x-example": 60,
                                         "format": "int32"
                                     }
@@ -7508,7 +7437,6 @@
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
-                    "weight": 880,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/get-transaction.md",
@@ -7572,7 +7500,6 @@
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
-                    "weight": 881,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/update-transaction.md",
@@ -7621,11 +7548,13 @@
                                     "commit": {
                                         "type": "boolean",
                                         "description": "Commit transaction?",
+                                        "default": false,
                                         "x-example": false
                                     },
                                     "rollback": {
                                         "type": "boolean",
                                         "description": "Rollback transaction?",
+                                        "default": false,
                                         "x-example": false
                                     }
                                 }
@@ -7650,7 +7579,6 @@
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
-                    "weight": 882,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/delete-transaction.md",
@@ -7716,7 +7644,6 @@
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
-                    "weight": 884,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/create-operations.md",
@@ -7764,6 +7691,7 @@
                                     "operations": {
                                         "type": "array",
                                         "description": "Array of staged operations.",
+                                        "default": [],
                                         "x-example": "[\n\t    {\n\t        \"action\": \"create\",\n\t        \"databaseId\": \"<DATABASE_ID>\",\n\t        \"collectionId\": \"<COLLECTION_ID>\",\n\t        \"documentId\": \"<DOCUMENT_ID>\",\n\t        \"data\": {\n\t            \"name\": \"Walter O'Brien\"\n\t        }\n\t    }\n\t]",
                                         "items": {
                                             "type": "object"
@@ -7800,7 +7728,6 @@
                 "x-appwrite": {
                     "method": "listDocuments",
                     "group": "documents",
-                    "weight": 921,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/list-documents.md",
@@ -7920,7 +7847,6 @@
                 "x-appwrite": {
                     "method": "createDocument",
                     "group": "documents",
-                    "weight": 868,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/create-document.md",
@@ -8038,11 +7964,13 @@
                                     "documentId": {
                                         "type": "string",
                                         "description": "Document ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
+                                        "default": "",
                                         "x-example": "<DOCUMENT_ID>"
                                     },
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object.",
+                                        "default": {},
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -8056,6 +7984,7 @@
                                     "documents": {
                                         "type": "array",
                                         "description": "Array of documents data as JSON objects.",
+                                        "default": [],
                                         "x-example": null,
                                         "items": {
                                             "type": "object"
@@ -8097,7 +8026,6 @@
                 "x-appwrite": {
                     "method": "getDocument",
                     "group": "documents",
-                    "weight": 869,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/get-document.md",
@@ -8204,7 +8132,6 @@
                 "x-appwrite": {
                     "method": "upsertDocument",
                     "group": "documents",
-                    "weight": 872,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/upsert-document.md",
@@ -8305,6 +8232,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object. Include all required fields of the document to be created or updated.",
+                                        "default": {},
                                         "x-example": "{}"
                                     },
                                     "permissions": {
@@ -8349,7 +8277,6 @@
                 "x-appwrite": {
                     "method": "updateDocument",
                     "group": "documents",
-                    "weight": 870,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/update-document.md",
@@ -8418,6 +8345,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object. Include only fields and value pairs to be updated.",
+                                        "default": {},
                                         "x-example": "{}"
                                     },
                                     "permissions": {
@@ -8455,7 +8383,6 @@
                 "x-appwrite": {
                     "method": "deleteDocument",
                     "group": "documents",
-                    "weight": 874,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/delete-document.md",
@@ -8557,7 +8484,6 @@
                 "x-appwrite": {
                     "method": "decrementDocumentAttribute",
                     "group": "documents",
-                    "weight": 878,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/decrement-document-attribute.md",
@@ -8635,6 +8561,7 @@
                                     "value": {
                                         "type": "number",
                                         "description": "Value to decrement the attribute by. The value must be a number.",
+                                        "default": 1,
                                         "x-example": null,
                                         "format": "float"
                                     },
@@ -8680,7 +8607,6 @@
                 "x-appwrite": {
                     "method": "incrementDocumentAttribute",
                     "group": "documents",
-                    "weight": 877,
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/increment-document-attribute.md",
@@ -8758,6 +8684,7 @@
                                     "value": {
                                         "type": "number",
                                         "description": "Value to increment the attribute by. The value must be a number.",
+                                        "default": 1,
                                         "x-example": null,
                                         "format": "float"
                                     },
@@ -8803,7 +8730,6 @@
                 "x-appwrite": {
                     "method": "listExecutions",
                     "group": "executions",
-                    "weight": 441,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/list-executions.md",
@@ -8893,7 +8819,6 @@
                 "x-appwrite": {
                     "method": "createExecution",
                     "group": "executions",
-                    "weight": 439,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/create-execution.md",
@@ -8944,21 +8869,25 @@
                                     "body": {
                                         "type": "string",
                                         "description": "HTTP body of execution. Default value is empty string.",
+                                        "default": "",
                                         "x-example": "<BODY>"
                                     },
                                     "async": {
                                         "type": "boolean",
                                         "description": "Execute code in the background. Default value is false.",
+                                        "default": false,
                                         "x-example": false
                                     },
                                     "path": {
                                         "type": "string",
                                         "description": "HTTP path of execution. Path can include query params. Default value is \/",
+                                        "default": "\/",
                                         "x-example": "<PATH>"
                                     },
                                     "method": {
                                         "type": "string",
                                         "description": "HTTP method of execution. Default value is POST.",
+                                        "default": "POST",
                                         "x-example": "GET",
                                         "enum": [
                                             "GET",
@@ -8969,12 +8898,12 @@
                                             "OPTIONS",
                                             "HEAD"
                                         ],
-                                        "x-enum-name": "ExecutionMethod",
-                                        "x-enum-keys": []
+                                        "x-enum-name": "ExecutionMethod"
                                     },
                                     "headers": {
                                         "type": "object",
                                         "description": "HTTP headers of execution. Defaults to empty.",
+                                        "default": {},
                                         "x-example": "{}"
                                     },
                                     "scheduledAt": {
@@ -9014,7 +8943,6 @@
                 "x-appwrite": {
                     "method": "getExecution",
                     "group": "executions",
-                    "weight": 440,
                     "cookies": false,
                     "type": "",
                     "demo": "functions\/get-execution.md",
@@ -9092,7 +9020,6 @@
                 "x-appwrite": {
                     "method": "query",
                     "group": "graphql",
-                    "weight": 116,
                     "cookies": false,
                     "type": "graphql",
                     "demo": "graphql\/query.md",
@@ -9146,7 +9073,6 @@
                 "x-appwrite": {
                     "method": "mutation",
                     "group": "graphql",
-                    "weight": 115,
                     "cookies": false,
                     "type": "graphql",
                     "demo": "graphql\/mutation.md",
@@ -9200,7 +9126,6 @@
                 "x-appwrite": {
                     "method": "get",
                     "group": null,
-                    "weight": 49,
                     "cookies": false,
                     "type": "",
                     "demo": "locale\/get.md",
@@ -9254,7 +9179,6 @@
                 "x-appwrite": {
                     "method": "listCodes",
                     "group": null,
-                    "weight": 50,
                     "cookies": false,
                     "type": "",
                     "demo": "locale\/list-codes.md",
@@ -9308,7 +9232,6 @@
                 "x-appwrite": {
                     "method": "listContinents",
                     "group": null,
-                    "weight": 54,
                     "cookies": false,
                     "type": "",
                     "demo": "locale\/list-continents.md",
@@ -9362,7 +9285,6 @@
                 "x-appwrite": {
                     "method": "listCountries",
                     "group": null,
-                    "weight": 51,
                     "cookies": false,
                     "type": "",
                     "demo": "locale\/list-countries.md",
@@ -9416,7 +9338,6 @@
                 "x-appwrite": {
                     "method": "listCountriesEU",
                     "group": null,
-                    "weight": 52,
                     "cookies": false,
                     "type": "",
                     "demo": "locale\/list-countries-eu.md",
@@ -9470,7 +9391,6 @@
                 "x-appwrite": {
                     "method": "listCountriesPhones",
                     "group": null,
-                    "weight": 53,
                     "cookies": false,
                     "type": "",
                     "demo": "locale\/list-countries-phones.md",
@@ -9524,7 +9444,6 @@
                 "x-appwrite": {
                     "method": "listCurrencies",
                     "group": null,
-                    "weight": 55,
                     "cookies": false,
                     "type": "",
                     "demo": "locale\/list-currencies.md",
@@ -9578,7 +9497,6 @@
                 "x-appwrite": {
                     "method": "listLanguages",
                     "group": null,
-                    "weight": 56,
                     "cookies": false,
                     "type": "",
                     "demo": "locale\/list-languages.md",
@@ -9632,7 +9550,6 @@
                 "x-appwrite": {
                     "method": "createSubscriber",
                     "group": "subscribers",
-                    "weight": 149,
                     "cookies": false,
                     "type": "",
                     "demo": "messaging\/create-subscriber.md",
@@ -9716,7 +9633,6 @@
                 "x-appwrite": {
                     "method": "deleteSubscriber",
                     "group": "subscribers",
-                    "weight": 153,
                     "cookies": false,
                     "type": "",
                     "demo": "messaging\/delete-subscriber.md",
@@ -9792,7 +9708,6 @@
                 "x-appwrite": {
                     "method": "list",
                     "group": "presences",
-                    "weight": 419,
                     "cookies": false,
                     "type": "",
                     "demo": "presences\/list.md",
@@ -9884,7 +9799,6 @@
                 "x-appwrite": {
                     "method": "get",
                     "group": "presences",
-                    "weight": 418,
                     "cookies": false,
                     "type": "",
                     "demo": "presences\/get.md",
@@ -9948,7 +9862,6 @@
                 "x-appwrite": {
                     "method": "upsert",
                     "group": "presences",
-                    "weight": 416,
                     "cookies": false,
                     "type": "",
                     "demo": "presences\/upsert.md",
@@ -10047,6 +9960,7 @@
                                     "metadata": {
                                         "type": "object",
                                         "description": "Presence metadata object.",
+                                        "default": {},
                                         "x-example": "{}"
                                     }
                                 },
@@ -10081,7 +9995,6 @@
                 "x-appwrite": {
                     "method": "update",
                     "group": "presences",
-                    "weight": 420,
                     "cookies": false,
                     "type": "",
                     "demo": "presences\/update.md",
@@ -10185,6 +10098,7 @@
                                     "purge": {
                                         "type": "boolean",
                                         "description": "When true, purge cached responses used by list presences endpoint.",
+                                        "default": false,
                                         "x-example": false
                                     }
                                 }
@@ -10209,7 +10123,6 @@
                 "x-appwrite": {
                     "method": "delete",
                     "group": "presences",
-                    "weight": 421,
                     "cookies": false,
                     "type": "",
                     "demo": "presences\/delete.md",
@@ -10275,7 +10188,6 @@
                 "x-appwrite": {
                     "method": "listFiles",
                     "group": "files",
-                    "weight": 555,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/list-files.md",
@@ -10374,7 +10286,6 @@
                 "x-appwrite": {
                     "method": "createFile",
                     "group": "files",
-                    "weight": 1260,
                     "cookies": false,
                     "type": "upload",
                     "demo": "storage\/create-file.md",
@@ -10476,7 +10387,6 @@
                 "x-appwrite": {
                     "method": "getFile",
                     "group": "files",
-                    "weight": 554,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/get-file.md",
@@ -10550,7 +10460,6 @@
                 "x-appwrite": {
                     "method": "updateFile",
                     "group": "files",
-                    "weight": 556,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/update-file.md",
@@ -10642,7 +10551,6 @@
                 "x-appwrite": {
                     "method": "deleteFile",
                     "group": "files",
-                    "weight": 557,
                     "cookies": false,
                     "type": "",
                     "demo": "storage\/delete-file.md",
@@ -10711,7 +10619,6 @@
                 "x-appwrite": {
                     "method": "getFileDownload",
                     "group": "files",
-                    "weight": 559,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-download.md",
@@ -10791,7 +10698,6 @@
                 "x-appwrite": {
                     "method": "getFilePreview",
                     "group": "files",
-                    "weight": 558,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-preview.md",
@@ -10883,7 +10789,6 @@
                                 "bottom-right"
                             ],
                             "x-enum-name": "ImageGravity",
-                            "x-enum-keys": [],
                             "default": "center"
                         },
                         "in": "query"
@@ -10984,8 +10889,7 @@
                                 "avif",
                                 "gif"
                             ],
-                            "x-enum-name": "ImageFormat",
-                            "x-enum-keys": []
+                            "x-enum-name": "ImageFormat"
                         },
                         "in": "query"
                     },
@@ -11020,7 +10924,6 @@
                 "x-appwrite": {
                     "method": "getFileView",
                     "group": "files",
-                    "weight": 560,
                     "cookies": false,
                     "type": "location",
                     "demo": "storage\/get-file-view.md",
@@ -11107,7 +11010,6 @@
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
-                    "weight": 849,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/list-transactions.md",
@@ -11177,7 +11079,6 @@
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
-                    "weight": 845,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/create-transaction.md",
@@ -11217,6 +11118,7 @@
                                     "ttl": {
                                         "type": "integer",
                                         "description": "Seconds before the transaction expires.",
+                                        "default": 300,
                                         "x-example": 60,
                                         "format": "int32"
                                     }
@@ -11251,7 +11153,6 @@
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
-                    "weight": 846,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/get-transaction.md",
@@ -11318,7 +11219,6 @@
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
-                    "weight": 847,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/update-transaction.md",
@@ -11370,11 +11270,13 @@
                                     "commit": {
                                         "type": "boolean",
                                         "description": "Commit transaction?",
+                                        "default": false,
                                         "x-example": false
                                     },
                                     "rollback": {
                                         "type": "boolean",
                                         "description": "Rollback transaction?",
+                                        "default": false,
                                         "x-example": false
                                     }
                                 }
@@ -11399,7 +11301,6 @@
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
-                    "weight": 848,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/delete-transaction.md",
@@ -11468,7 +11369,6 @@
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
-                    "weight": 850,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/create-operations.md",
@@ -11520,6 +11420,7 @@
                                     "operations": {
                                         "type": "array",
                                         "description": "Array of staged operations.",
+                                        "default": [],
                                         "x-example": "[\n\t    {\n\t        \"action\": \"create\",\n\t        \"databaseId\": \"<DATABASE_ID>\",\n\t        \"tableId\": \"<TABLE_ID>\",\n\t        \"rowId\": \"<ROW_ID>\",\n\t        \"data\": {\n\t            \"name\": \"Walter O'Brien\"\n\t        }\n\t    }\n\t]",
                                         "items": {
                                             "type": "object"
@@ -11556,7 +11457,6 @@
                 "x-appwrite": {
                     "method": "listRows",
                     "group": "rows",
-                    "weight": 919,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/list-rows.md",
@@ -11679,7 +11579,6 @@
                 "x-appwrite": {
                     "method": "createRow",
                     "group": "rows",
-                    "weight": 833,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/create-row.md",
@@ -11774,11 +11673,13 @@
                                     "rowId": {
                                         "type": "string",
                                         "description": "Row ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
+                                        "default": "",
                                         "x-example": "<ROW_ID>"
                                     },
                                     "data": {
                                         "type": "object",
                                         "description": "Row data as JSON object.",
+                                        "default": {},
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -11793,6 +11694,7 @@
                                     "rows": {
                                         "type": "array",
                                         "description": "Array of rows data as JSON objects.",
+                                        "default": [],
                                         "x-example": null,
                                         "items": {
                                             "type": "object"
@@ -11835,7 +11737,6 @@
                 "x-appwrite": {
                     "method": "getRow",
                     "group": "rows",
-                    "weight": 834,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/get-row.md",
@@ -11945,7 +11846,6 @@
                 "x-appwrite": {
                     "method": "upsertRow",
                     "group": "rows",
-                    "weight": 837,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/upsert-row.md",
@@ -12049,6 +11949,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Row data as JSON object. Include all required columns of the row to be created or updated.",
+                                        "default": {},
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":33,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -12095,7 +11996,6 @@
                 "x-appwrite": {
                     "method": "updateRow",
                     "group": "rows",
-                    "weight": 835,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/update-row.md",
@@ -12167,6 +12067,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Row data as JSON object. Include only columns and value pairs to be updated.",
+                                        "default": {},
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":33,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -12206,7 +12107,6 @@
                 "x-appwrite": {
                     "method": "deleteRow",
                     "group": "rows",
-                    "weight": 839,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/delete-row.md",
@@ -12312,7 +12212,6 @@
                 "x-appwrite": {
                     "method": "decrementRowColumn",
                     "group": "rows",
-                    "weight": 844,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/decrement-row-column.md",
@@ -12393,6 +12292,7 @@
                                     "value": {
                                         "type": "number",
                                         "description": "Value to increment the column by. The value must be a number.",
+                                        "default": 1,
                                         "x-example": null,
                                         "format": "float"
                                     },
@@ -12440,7 +12340,6 @@
                 "x-appwrite": {
                     "method": "incrementRowColumn",
                     "group": "rows",
-                    "weight": 843,
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/increment-row-column.md",
@@ -12521,6 +12420,7 @@
                                     "value": {
                                         "type": "number",
                                         "description": "Value to increment the column by. The value must be a number.",
+                                        "default": 1,
                                         "x-example": null,
                                         "format": "float"
                                     },
@@ -12568,7 +12468,6 @@
                 "x-appwrite": {
                     "method": "list",
                     "group": "teams",
-                    "weight": 531,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/list.md",
@@ -12657,7 +12556,6 @@
                 "x-appwrite": {
                     "method": "create",
                     "group": "teams",
-                    "weight": 529,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/create.md",
@@ -12704,6 +12602,9 @@
                                     "roles": {
                                         "type": "array",
                                         "description": "Array of strings. Use this param to set the roles in the team for the user who created it. The default role is **owner**. A role can be any string. Learn more about [roles and permissions](https:\/\/appwrite.io\/docs\/permissions). Maximum of 100 roles are allowed, each 32 characters long.",
+                                        "default": [
+                                            "owner"
+                                        ],
                                         "x-example": null,
                                         "items": {
                                             "type": "string"
@@ -12744,7 +12645,6 @@
                 "x-appwrite": {
                     "method": "get",
                     "group": "teams",
-                    "weight": 530,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/get.md",
@@ -12808,7 +12708,6 @@
                 "x-appwrite": {
                     "method": "updateName",
                     "group": "teams",
-                    "weight": 533,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/update-name.md",
@@ -12884,7 +12783,6 @@
                 "x-appwrite": {
                     "method": "delete",
                     "group": "teams",
-                    "weight": 532,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/delete.md",
@@ -12950,7 +12848,6 @@
                 "x-appwrite": {
                     "method": "listMemberships",
                     "group": "memberships",
-                    "weight": 538,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/list-memberships.md",
@@ -13049,7 +12946,6 @@
                 "x-appwrite": {
                     "method": "createMembership",
                     "group": "memberships",
-                    "weight": 536,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/create-membership.md",
@@ -13098,17 +12994,20 @@
                                     "email": {
                                         "type": "string",
                                         "description": "Email of the new team member.",
+                                        "default": "",
                                         "x-example": "email@example.com",
                                         "format": "email"
                                     },
                                     "userId": {
                                         "type": "string",
                                         "description": "ID of the user to be added to a team.",
+                                        "default": "",
                                         "x-example": "<USER_ID>"
                                     },
                                     "phone": {
                                         "type": "string",
                                         "description": "Phone number. Format this number with a leading '+' and a country code, e.g., +16175551212.",
+                                        "default": "",
                                         "x-example": "+12065550100",
                                         "format": "phone"
                                     },
@@ -13123,12 +13022,14 @@
                                     "url": {
                                         "type": "string",
                                         "description": "URL to redirect the user back to your app from the invitation email. This parameter is not required when an API key is supplied. Only URLs from hostnames in your project platform list are allowed. This requirement helps to prevent an [open redirect](https:\/\/cheatsheetseries.owasp.org\/cheatsheets\/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html) attack against your project API.",
+                                        "default": "",
                                         "x-example": "https:\/\/example.com",
                                         "format": "url"
                                     },
                                     "name": {
                                         "type": "string",
                                         "description": "Name of the new team member. Max length: 128 chars.",
+                                        "default": "",
                                         "x-example": "<NAME>"
                                     }
                                 },
@@ -13165,7 +13066,6 @@
                 "x-appwrite": {
                     "method": "getMembership",
                     "group": "memberships",
-                    "weight": 537,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/get-membership.md",
@@ -13239,7 +13139,6 @@
                 "x-appwrite": {
                     "method": "updateMembership",
                     "group": "memberships",
-                    "weight": 539,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/update-membership.md",
@@ -13328,7 +13227,6 @@
                 "x-appwrite": {
                     "method": "deleteMembership",
                     "group": "memberships",
-                    "weight": 1261,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/delete-membership.md",
@@ -13404,7 +13302,6 @@
                 "x-appwrite": {
                     "method": "updateMembershipStatus",
                     "group": "memberships",
-                    "weight": 541,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/update-membership-status.md",
@@ -13504,7 +13401,6 @@
                 "x-appwrite": {
                     "method": "getPrefs",
                     "group": "teams",
-                    "weight": 534,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/get-prefs.md",
@@ -13567,7 +13463,6 @@
                 "x-appwrite": {
                     "method": "updatePrefs",
                     "group": "teams",
-                    "weight": 535,
                     "cookies": false,
                     "type": "",
                     "demo": "teams\/update-prefs.md",
@@ -13651,7 +13546,6 @@
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
-                    "weight": 916,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/list-transactions.md",
@@ -13718,7 +13612,6 @@
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
-                    "weight": 912,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/create-transaction.md",
@@ -13755,6 +13648,7 @@
                                     "ttl": {
                                         "type": "integer",
                                         "description": "Seconds before the transaction expires.",
+                                        "default": 300,
                                         "x-example": 60,
                                         "format": "int32"
                                     }
@@ -13789,7 +13683,6 @@
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
-                    "weight": 913,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/get-transaction.md",
@@ -13853,7 +13746,6 @@
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
-                    "weight": 914,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/update-transaction.md",
@@ -13902,11 +13794,13 @@
                                     "commit": {
                                         "type": "boolean",
                                         "description": "Commit transaction?",
+                                        "default": false,
                                         "x-example": false
                                     },
                                     "rollback": {
                                         "type": "boolean",
                                         "description": "Rollback transaction?",
+                                        "default": false,
                                         "x-example": false
                                     }
                                 }
@@ -13931,7 +13825,6 @@
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
-                    "weight": 915,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/delete-transaction.md",
@@ -13997,7 +13890,6 @@
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
-                    "weight": 917,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/create-operations.md",
@@ -14046,6 +13938,7 @@
                                     "operations": {
                                         "type": "array",
                                         "description": "Array of staged operations.",
+                                        "default": [],
                                         "x-example": "[\n\t    {\n\t        \"action\": \"create\",\n\t        \"databaseId\": \"<DATABASE_ID>\",\n\t        \"collectionId\": \"<COLLECTION_ID>\",\n\t        \"documentId\": \"<DOCUMENT_ID>\",\n\t        \"data\": {\n\t            \"name\": \"Walter O'Brien\"\n\t        }\n\t    }\n\t]",
                                         "items": {
                                             "type": "object"
@@ -14082,7 +13975,6 @@
                 "x-appwrite": {
                     "method": "listDocuments",
                     "group": "documents",
-                    "weight": 906,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/list-documents.md",
@@ -14202,7 +14094,6 @@
                 "x-appwrite": {
                     "method": "createDocument",
                     "group": "documents",
-                    "weight": 902,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/create-document.md",
@@ -14293,11 +14184,13 @@
                                     "documentId": {
                                         "type": "string",
                                         "description": "Document ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
+                                        "default": "",
                                         "x-example": "<DOCUMENT_ID>"
                                     },
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object.",
+                                        "default": {},
                                         "x-example": "{\"embeddings\": [0.12, -0.55, 0.88, 1.02], \"metadata\": {\"key\":\"value\"} }"
                                     },
                                     "permissions": {
@@ -14311,6 +14204,7 @@
                                     "documents": {
                                         "type": "array",
                                         "description": "Array of documents data as JSON objects.",
+                                        "default": [],
                                         "x-example": null,
                                         "items": {
                                             "type": "object"
@@ -14352,7 +14246,6 @@
                 "x-appwrite": {
                     "method": "getDocument",
                     "group": "documents",
-                    "weight": 905,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/get-document.md",
@@ -14459,7 +14352,6 @@
                 "x-appwrite": {
                     "method": "upsertDocument",
                     "group": "documents",
-                    "weight": 904,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/upsert-document.md",
@@ -14560,6 +14452,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object. Include all required fields of the document to be created or updated.",
+                                        "default": {},
                                         "x-example": "{}"
                                     },
                                     "permissions": {
@@ -14604,7 +14497,6 @@
                 "x-appwrite": {
                     "method": "updateDocument",
                     "group": "documents",
-                    "weight": 903,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/update-document.md",
@@ -14673,6 +14565,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object. Include only fields and value pairs to be updated.",
+                                        "default": {},
                                         "x-example": "{}"
                                     },
                                     "permissions": {
@@ -14710,7 +14603,6 @@
                 "x-appwrite": {
                     "method": "deleteDocument",
                     "group": "documents",
-                    "weight": 907,
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/delete-document.md",

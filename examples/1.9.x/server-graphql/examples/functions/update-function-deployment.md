@@ -41,6 +41,8 @@ mutation {
         providerBranch
         providerRootDirectory
         providerSilentMode
+        providerBranches
+        providerPaths
         buildSpecification
         runtimeSpecification
     }

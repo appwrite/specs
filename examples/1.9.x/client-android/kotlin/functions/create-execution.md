@@ -5,7 +5,7 @@ import io.appwrite.services.Functions
 import io.appwrite.enums.ExecutionMethod
 
 val client = Client(context)
-    .setEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
+    .setEndpoint("") // Your API Endpoint
     .setProject("<YOUR_PROJECT_ID>") // Your project ID
 
 val functions = Functions(client)

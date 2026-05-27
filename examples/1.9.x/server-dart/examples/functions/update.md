@@ -3,7 +3,7 @@ import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/enums.dart' as enums;
 
 Client client = Client()
-    .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
+    .setEndpoint('') // Your API Endpoint
     .setProject('<YOUR_PROJECT_ID>') // Your project ID
     .setKey('<YOUR_API_KEY>'); // Your secret API key
 
@@ -12,7 +12,7 @@ Functions functions = Functions(client);
 Func result = await functions.update(
     functionId: '<FUNCTION_ID>',
     name: '<NAME>',
-    runtime: enums.Runtime.node145, // (optional)
+    runtime: enums.FunctionRuntime.node145, // (optional)
     execute: ["any"], // (optional)
     events: [], // (optional)
     schedule: '', // (optional)
@@ -21,12 +21,14 @@ Func result = await functions.update(
     logging: false, // (optional)
     entrypoint: '<ENTRYPOINT>', // (optional)
     commands: '<COMMANDS>', // (optional)
-    scopes: [enums.Scopes.projectRead], // (optional)
+    scopes: [enums.ProjectKeyScopes.projectRead], // (optional)
     installationId: '<INSTALLATION_ID>', // (optional)
     providerRepositoryId: '<PROVIDER_REPOSITORY_ID>', // (optional)
     providerBranch: '<PROVIDER_BRANCH>', // (optional)
     providerSilentMode: false, // (optional)
     providerRootDirectory: '<PROVIDER_ROOT_DIRECTORY>', // (optional)
+    providerBranches: [], // (optional)
+    providerPaths: [], // (optional)
     buildSpecification: '', // (optional)
     runtimeSpecification: '', // (optional)
     deploymentRetention: 0, // (optional)

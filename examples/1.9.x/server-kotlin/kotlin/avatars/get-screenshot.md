@@ -2,13 +2,13 @@
 import io.appwrite.Client
 import io.appwrite.coroutines.CoroutineCallback
 import io.appwrite.services.Avatars
-import io.appwrite.enums.Theme
+import io.appwrite.enums.BrowserTheme
 import io.appwrite.enums.Timezone
 import io.appwrite.enums.BrowserPermission
 import io.appwrite.enums.ImageFormat
 
 val client = Client()
-    .setEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
+    .setEndpoint("") // Your API Endpoint
     .setProject("<YOUR_PROJECT_ID>") // Your project ID
     .setSession("") // The user session to authenticate with
 
@@ -23,7 +23,7 @@ val result = avatars.getScreenshot(
     viewportWidth = 1920, // optional
     viewportHeight = 1080, // optional
     scale = 2, // optional
-    theme = Theme.DARK, // optional
+    theme = BrowserTheme.DARK, // optional
     userAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15", // optional
     fullpage = true, // optional
     locale = "en-US", // optional

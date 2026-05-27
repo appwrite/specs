@@ -25,6 +25,8 @@ X-Appwrite-Key: <YOUR_API_KEY>
   "providerBranch": "<PROVIDER_BRANCH>",
   "providerSilentMode": false,
   "providerRootDirectory": "<PROVIDER_ROOT_DIRECTORY>",
+  "providerBranches": [],
+  "providerPaths": [],
   "buildSpecification": "",
   "runtimeSpecification": "",
   "deploymentRetention": 0

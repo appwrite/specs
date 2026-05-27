@@ -5,7 +5,7 @@ import io.appwrite.services.Account;
 import io.appwrite.enums.AuthenticationFactor;
 
 Client client = new Client()
-    .setEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
+    .setEndpoint("") // Your API Endpoint
     .setProject("<YOUR_PROJECT_ID>") // Your project ID
     .setSession(""); // The user session to authenticate with
 

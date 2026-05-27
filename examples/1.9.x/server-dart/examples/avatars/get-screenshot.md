@@ -3,7 +3,7 @@ import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/enums.dart' as enums;
 
 Client client = Client()
-    .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
+    .setEndpoint('') // Your API Endpoint
     .setProject('<YOUR_PROJECT_ID>') // Your project ID
     .setSession(''); // The user session to authenticate with
 
@@ -18,7 +18,7 @@ Uint8List result = await avatars.getScreenshot(
     viewportWidth: 1920, // (optional)
     viewportHeight: 1080, // (optional)
     scale: 2, // (optional)
-    theme: enums.Theme.dark, // (optional)
+    theme: enums.BrowserTheme.dark, // (optional)
     userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15', // (optional)
     fullpage: true, // (optional)
     locale: 'en-US', // (optional)

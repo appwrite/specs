@@ -2,7 +2,7 @@
 import { Client, Presences, Permission, Role } from "@appwrite.io/console";
 
 const client = new Client()
-    .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
+    .setEndpoint('') // Your API Endpoint
     .setProject('<YOUR_PROJECT_ID>'); // Your project ID
 
 const presences = new Presences(client);

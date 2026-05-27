@@ -3,7 +3,7 @@ import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/enums.dart' as enums;
 
 Client client = Client()
-    .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
+    .setEndpoint('') // Your API Endpoint
     .setProject('<YOUR_PROJECT_ID>') // Your project ID
     .setKey('<YOUR_API_KEY>'); // Your secret API key
 
@@ -12,8 +12,8 @@ Sites sites = Sites(client);
 Site result = await sites.create(
     siteId: '<SITE_ID>',
     name: '<NAME>',
-    framework: enums.Framework.analog,
-    buildRuntime: enums.BuildRuntime.node145,
+    framework: enums.SiteFramework.analog,
+    buildRuntime: enums.SiteBuildRuntime.node145,
     enabled: false, // (optional)
     logging: false, // (optional)
     timeout: 1, // (optional)
@@ -21,13 +21,15 @@ Site result = await sites.create(
     buildCommand: '<BUILD_COMMAND>', // (optional)
     startCommand: '<START_COMMAND>', // (optional)
     outputDirectory: '<OUTPUT_DIRECTORY>', // (optional)
-    adapter: enums.Adapter.static, // (optional)
+    adapter: enums.SiteAdapter.static, // (optional)
     installationId: '<INSTALLATION_ID>', // (optional)
     fallbackFile: '<FALLBACK_FILE>', // (optional)
     providerRepositoryId: '<PROVIDER_REPOSITORY_ID>', // (optional)
     providerBranch: '<PROVIDER_BRANCH>', // (optional)
     providerSilentMode: false, // (optional)
     providerRootDirectory: '<PROVIDER_ROOT_DIRECTORY>', // (optional)
+    providerBranches: [], // (optional)
+    providerPaths: [], // (optional)
     buildSpecification: '', // (optional)
     runtimeSpecification: '', // (optional)
     deploymentRetention: 0, // (optional)

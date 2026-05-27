@@ -5,7 +5,7 @@ use appwrite::services::Avatars;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
-    client.set_endpoint("https://<REGION>.cloud.appwrite.io/v1"); // Your API Endpoint
+    client.set_endpoint(""); // Your API Endpoint
     client.set_project("<YOUR_PROJECT_ID>"); // Your project ID
     client.set_session(""); // The user session to authenticate with
 
@@ -17,7 +17,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Some(1920), // optional
         Some(1080), // optional
         Some(2), // optional
-        Some(appwrite::enums::Theme::Dark), // optional
+        Some(appwrite::enums::BrowserTheme::Dark), // optional
         Some("Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15"), // optional
         Some(true), // optional
         Some("en-US"), // optional

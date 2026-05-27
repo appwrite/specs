@@ -5,7 +5,7 @@ from appwrite.models import OAuth2Google
 from appwrite.enums import ProjectOAuth2GooglePrompt
 
 client = Client()
-client.set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
+client.set_endpoint('') # Your API Endpoint
 client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 client.set_key('<YOUR_API_KEY>') # Your secret API key
 

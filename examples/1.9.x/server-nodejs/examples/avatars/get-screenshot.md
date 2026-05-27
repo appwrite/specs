@@ -2,7 +2,7 @@
 const sdk = require('node-appwrite');
 
 const client = new sdk.Client()
-    .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
+    .setEndpoint('') // Your API Endpoint
     .setProject('<YOUR_PROJECT_ID>') // Your project ID
     .setSession(''); // The user session to authenticate with
 
@@ -17,7 +17,7 @@ const result = await avatars.getScreenshot({
     viewportWidth: 1920, // optional
     viewportHeight: 1080, // optional
     scale: 2, // optional
-    theme: sdk.Theme.Dark, // optional
+    theme: sdk.BrowserTheme.Dark, // optional
     userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15', // optional
     fullpage: true, // optional
     locale: 'en-US', // optional

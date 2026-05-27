@@ -5,7 +5,7 @@ include Appwrite
 include Appwrite::Enums
 
 client = Client.new
-    .set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
+    .set_endpoint('') # Your API Endpoint
     .set_project('<YOUR_PROJECT_ID>') # Your project ID
     .set_session('') # The user session to authenticate with
 
@@ -20,7 +20,7 @@ result = avatars.get_screenshot(
     viewport_width: 1920, # optional
     viewport_height: 1080, # optional
     scale: 2, # optional
-    theme: Theme::DARK, # optional
+    theme: BrowserTheme::DARK, # optional
     user_agent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15', # optional
     fullpage: true, # optional
     locale: 'en-US', # optional
