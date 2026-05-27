@@ -6,7 +6,7 @@ use Appwrite\Services\Messaging;
 use Appwrite\Enums\SmtpEncryption;
 
 $client = (new Client())
-    ->setEndpoint('') // Your API Endpoint
+    ->setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
     ->setProject('<YOUR_PROJECT_ID>') // Your project ID
     ->setKey('<YOUR_API_KEY>'); // Your secret API key
 
