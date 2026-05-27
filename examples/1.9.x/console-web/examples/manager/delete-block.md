@@ -2,7 +2,7 @@
 import { Client, Manager, BlockResourceType } from "@appwrite.io/console";
 
 const client = new Client()
-    .setEndpoint('') // Your API Endpoint
+    .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
 
 const manager = new Manager(client);
 

@@ -8,7 +8,7 @@ import io.appwrite.enums.BrowserPermission
 import io.appwrite.enums.ImageFormat
 
 val client = Client(context)
-    .setEndpoint("") // Your API Endpoint
+    .setEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
     .setProject("<YOUR_PROJECT_ID>") // Your project ID
 
 val avatars = Avatars(client)

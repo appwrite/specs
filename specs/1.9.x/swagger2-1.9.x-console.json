@@ -1213,7 +1213,12 @@
                                             "teams.read",
                                             "teams.write"
                                         ],
-                                        "x-enum-name": "AccountKeyScopes"
+                                        "x-enum-name": "AccountKeyScopes",
+                                        "x-enum-keys": [
+                                            "account",
+                                            "teams.read",
+                                            "teams.write"
+                                        ]
                                     }
                                 },
                                 "expire": {
@@ -1366,7 +1371,12 @@
                                             "teams.read",
                                             "teams.write"
                                         ],
-                                        "x-enum-name": "AccountKeyScopes"
+                                        "x-enum-name": "AccountKeyScopes",
+                                        "x-enum-keys": [
+                                            "account",
+                                            "teams.read",
+                                            "teams.write"
+                                        ]
                                     }
                                 },
                                 "expire": {
@@ -1707,6 +1717,9 @@
                             "totp"
                         ],
                         "x-enum-name": "AuthenticatorType",
+                        "x-enum-keys": [
+                            "totp"
+                        ],
                         "in": "path"
                     }
                 ]
@@ -1833,6 +1846,9 @@
                             "totp"
                         ],
                         "x-enum-name": "AuthenticatorType",
+                        "x-enum-keys": [
+                            "totp"
+                        ],
                         "in": "path"
                     },
                     {
@@ -1965,6 +1981,9 @@
                             "totp"
                         ],
                         "x-enum-name": "AuthenticatorType",
+                        "x-enum-keys": [
+                            "totp"
+                        ],
                         "in": "path"
                     }
                 ]
@@ -2095,7 +2114,13 @@
                                         "totp",
                                         "recoverycode"
                                     ],
-                                    "x-enum-name": "AuthenticationFactor"
+                                    "x-enum-name": "AuthenticationFactor",
+                                    "x-enum-keys": [
+                                        "email",
+                                        "phone",
+                                        "totp",
+                                        "recoverycode"
+                                    ]
                                 }
                             },
                             "required": [
@@ -4045,6 +4070,51 @@
                             "zoom"
                         ],
                         "x-enum-name": "OAuthProvider",
+                        "x-enum-keys": [
+                            "amazon",
+                            "apple",
+                            "auth0",
+                            "authentik",
+                            "autodesk",
+                            "bitbucket",
+                            "bitly",
+                            "box",
+                            "dailymotion",
+                            "discord",
+                            "disqus",
+                            "dropbox",
+                            "etsy",
+                            "facebook",
+                            "figma",
+                            "fusionauth",
+                            "github",
+                            "gitlab",
+                            "google",
+                            "keycloak",
+                            "kick",
+                            "linkedin",
+                            "microsoft",
+                            "notion",
+                            "oidc",
+                            "okta",
+                            "paypal",
+                            "paypalSandbox",
+                            "podio",
+                            "salesforce",
+                            "slack",
+                            "spotify",
+                            "stripe",
+                            "tradeshift",
+                            "tradeshiftBox",
+                            "twitch",
+                            "wordpress",
+                            "x",
+                            "yahoo",
+                            "yammer",
+                            "yandex",
+                            "zoho",
+                            "zoom"
+                        ],
                         "in": "path"
                     },
                     {
@@ -4981,6 +5051,51 @@
                             "zoom"
                         ],
                         "x-enum-name": "OAuthProvider",
+                        "x-enum-keys": [
+                            "amazon",
+                            "apple",
+                            "auth0",
+                            "authentik",
+                            "autodesk",
+                            "bitbucket",
+                            "bitly",
+                            "box",
+                            "dailymotion",
+                            "discord",
+                            "disqus",
+                            "dropbox",
+                            "etsy",
+                            "facebook",
+                            "figma",
+                            "fusionauth",
+                            "github",
+                            "gitlab",
+                            "google",
+                            "keycloak",
+                            "kick",
+                            "linkedin",
+                            "microsoft",
+                            "notion",
+                            "oidc",
+                            "okta",
+                            "paypal",
+                            "paypalSandbox",
+                            "podio",
+                            "salesforce",
+                            "slack",
+                            "spotify",
+                            "stripe",
+                            "tradeshift",
+                            "tradeshiftBox",
+                            "twitch",
+                            "wordpress",
+                            "x",
+                            "yahoo",
+                            "yammer",
+                            "yandex",
+                            "zoho",
+                            "zoom"
+                        ],
                         "in": "path"
                     },
                     {
@@ -6803,6 +6918,10 @@
                             "dark"
                         ],
                         "x-enum-name": "BrowserTheme",
+                        "x-enum-keys": [
+                            "light",
+                            "dark"
+                        ],
                         "default": "light",
                         "in": "query"
                     },
@@ -7261,6 +7380,427 @@
                             "utc"
                         ],
                         "x-enum-name": "Timezone",
+                        "x-enum-keys": [
+                            "africa\/abidjan",
+                            "africa\/accra",
+                            "africa\/addis_ababa",
+                            "africa\/algiers",
+                            "africa\/asmara",
+                            "africa\/bamako",
+                            "africa\/bangui",
+                            "africa\/banjul",
+                            "africa\/bissau",
+                            "africa\/blantyre",
+                            "africa\/brazzaville",
+                            "africa\/bujumbura",
+                            "africa\/cairo",
+                            "africa\/casablanca",
+                            "africa\/ceuta",
+                            "africa\/conakry",
+                            "africa\/dakar",
+                            "africa\/dar_es_salaam",
+                            "africa\/djibouti",
+                            "africa\/douala",
+                            "africa\/el_aaiun",
+                            "africa\/freetown",
+                            "africa\/gaborone",
+                            "africa\/harare",
+                            "africa\/johannesburg",
+                            "africa\/juba",
+                            "africa\/kampala",
+                            "africa\/khartoum",
+                            "africa\/kigali",
+                            "africa\/kinshasa",
+                            "africa\/lagos",
+                            "africa\/libreville",
+                            "africa\/lome",
+                            "africa\/luanda",
+                            "africa\/lubumbashi",
+                            "africa\/lusaka",
+                            "africa\/malabo",
+                            "africa\/maputo",
+                            "africa\/maseru",
+                            "africa\/mbabane",
+                            "africa\/mogadishu",
+                            "africa\/monrovia",
+                            "africa\/nairobi",
+                            "africa\/ndjamena",
+                            "africa\/niamey",
+                            "africa\/nouakchott",
+                            "africa\/ouagadougou",
+                            "africa\/porto-novo",
+                            "africa\/sao_tome",
+                            "africa\/tripoli",
+                            "africa\/tunis",
+                            "africa\/windhoek",
+                            "america\/adak",
+                            "america\/anchorage",
+                            "america\/anguilla",
+                            "america\/antigua",
+                            "america\/araguaina",
+                            "america\/argentina\/buenos_aires",
+                            "america\/argentina\/catamarca",
+                            "america\/argentina\/cordoba",
+                            "america\/argentina\/jujuy",
+                            "america\/argentina\/la_rioja",
+                            "america\/argentina\/mendoza",
+                            "america\/argentina\/rio_gallegos",
+                            "america\/argentina\/salta",
+                            "america\/argentina\/san_juan",
+                            "america\/argentina\/san_luis",
+                            "america\/argentina\/tucuman",
+                            "america\/argentina\/ushuaia",
+                            "america\/aruba",
+                            "america\/asuncion",
+                            "america\/atikokan",
+                            "america\/bahia",
+                            "america\/bahia_banderas",
+                            "america\/barbados",
+                            "america\/belem",
+                            "america\/belize",
+                            "america\/blanc-sablon",
+                            "america\/boa_vista",
+                            "america\/bogota",
+                            "america\/boise",
+                            "america\/cambridge_bay",
+                            "america\/campo_grande",
+                            "america\/cancun",
+                            "america\/caracas",
+                            "america\/cayenne",
+                            "america\/cayman",
+                            "america\/chicago",
+                            "america\/chihuahua",
+                            "america\/ciudad_juarez",
+                            "america\/costa_rica",
+                            "america\/coyhaique",
+                            "america\/creston",
+                            "america\/cuiaba",
+                            "america\/curacao",
+                            "america\/danmarkshavn",
+                            "america\/dawson",
+                            "america\/dawson_creek",
+                            "america\/denver",
+                            "america\/detroit",
+                            "america\/dominica",
+                            "america\/edmonton",
+                            "america\/eirunepe",
+                            "america\/el_salvador",
+                            "america\/fort_nelson",
+                            "america\/fortaleza",
+                            "america\/glace_bay",
+                            "america\/goose_bay",
+                            "america\/grand_turk",
+                            "america\/grenada",
+                            "america\/guadeloupe",
+                            "america\/guatemala",
+                            "america\/guayaquil",
+                            "america\/guyana",
+                            "america\/halifax",
+                            "america\/havana",
+                            "america\/hermosillo",
+                            "america\/indiana\/indianapolis",
+                            "america\/indiana\/knox",
+                            "america\/indiana\/marengo",
+                            "america\/indiana\/petersburg",
+                            "america\/indiana\/tell_city",
+                            "america\/indiana\/vevay",
+                            "america\/indiana\/vincennes",
+                            "america\/indiana\/winamac",
+                            "america\/inuvik",
+                            "america\/iqaluit",
+                            "america\/jamaica",
+                            "america\/juneau",
+                            "america\/kentucky\/louisville",
+                            "america\/kentucky\/monticello",
+                            "america\/kralendijk",
+                            "america\/la_paz",
+                            "america\/lima",
+                            "america\/los_angeles",
+                            "america\/lower_princes",
+                            "america\/maceio",
+                            "america\/managua",
+                            "america\/manaus",
+                            "america\/marigot",
+                            "america\/martinique",
+                            "america\/matamoros",
+                            "america\/mazatlan",
+                            "america\/menominee",
+                            "america\/merida",
+                            "america\/metlakatla",
+                            "america\/mexico_city",
+                            "america\/miquelon",
+                            "america\/moncton",
+                            "america\/monterrey",
+                            "america\/montevideo",
+                            "america\/montserrat",
+                            "america\/nassau",
+                            "america\/new_york",
+                            "america\/nome",
+                            "america\/noronha",
+                            "america\/north_dakota\/beulah",
+                            "america\/north_dakota\/center",
+                            "america\/north_dakota\/new_salem",
+                            "america\/nuuk",
+                            "america\/ojinaga",
+                            "america\/panama",
+                            "america\/paramaribo",
+                            "america\/phoenix",
+                            "america\/port-au-prince",
+                            "america\/port_of_spain",
+                            "america\/porto_velho",
+                            "america\/puerto_rico",
+                            "america\/punta_arenas",
+                            "america\/rankin_inlet",
+                            "america\/recife",
+                            "america\/regina",
+                            "america\/resolute",
+                            "america\/rio_branco",
+                            "america\/santarem",
+                            "america\/santiago",
+                            "america\/santo_domingo",
+                            "america\/sao_paulo",
+                            "america\/scoresbysund",
+                            "america\/sitka",
+                            "america\/st_barthelemy",
+                            "america\/st_johns",
+                            "america\/st_kitts",
+                            "america\/st_lucia",
+                            "america\/st_thomas",
+                            "america\/st_vincent",
+                            "america\/swift_current",
+                            "america\/tegucigalpa",
+                            "america\/thule",
+                            "america\/tijuana",
+                            "america\/toronto",
+                            "america\/tortola",
+                            "america\/vancouver",
+                            "america\/whitehorse",
+                            "america\/winnipeg",
+                            "america\/yakutat",
+                            "antarctica\/casey",
+                            "antarctica\/davis",
+                            "antarctica\/dumontdurville",
+                            "antarctica\/macquarie",
+                            "antarctica\/mawson",
+                            "antarctica\/mcmurdo",
+                            "antarctica\/palmer",
+                            "antarctica\/rothera",
+                            "antarctica\/syowa",
+                            "antarctica\/troll",
+                            "antarctica\/vostok",
+                            "arctic\/longyearbyen",
+                            "asia\/aden",
+                            "asia\/almaty",
+                            "asia\/amman",
+                            "asia\/anadyr",
+                            "asia\/aqtau",
+                            "asia\/aqtobe",
+                            "asia\/ashgabat",
+                            "asia\/atyrau",
+                            "asia\/baghdad",
+                            "asia\/bahrain",
+                            "asia\/baku",
+                            "asia\/bangkok",
+                            "asia\/barnaul",
+                            "asia\/beirut",
+                            "asia\/bishkek",
+                            "asia\/brunei",
+                            "asia\/chita",
+                            "asia\/colombo",
+                            "asia\/damascus",
+                            "asia\/dhaka",
+                            "asia\/dili",
+                            "asia\/dubai",
+                            "asia\/dushanbe",
+                            "asia\/famagusta",
+                            "asia\/gaza",
+                            "asia\/hebron",
+                            "asia\/ho_chi_minh",
+                            "asia\/hong_kong",
+                            "asia\/hovd",
+                            "asia\/irkutsk",
+                            "asia\/jakarta",
+                            "asia\/jayapura",
+                            "asia\/jerusalem",
+                            "asia\/kabul",
+                            "asia\/kamchatka",
+                            "asia\/karachi",
+                            "asia\/kathmandu",
+                            "asia\/khandyga",
+                            "asia\/kolkata",
+                            "asia\/krasnoyarsk",
+                            "asia\/kuala_lumpur",
+                            "asia\/kuching",
+                            "asia\/kuwait",
+                            "asia\/macau",
+                            "asia\/magadan",
+                            "asia\/makassar",
+                            "asia\/manila",
+                            "asia\/muscat",
+                            "asia\/nicosia",
+                            "asia\/novokuznetsk",
+                            "asia\/novosibirsk",
+                            "asia\/omsk",
+                            "asia\/oral",
+                            "asia\/phnom_penh",
+                            "asia\/pontianak",
+                            "asia\/pyongyang",
+                            "asia\/qatar",
+                            "asia\/qostanay",
+                            "asia\/qyzylorda",
+                            "asia\/riyadh",
+                            "asia\/sakhalin",
+                            "asia\/samarkand",
+                            "asia\/seoul",
+                            "asia\/shanghai",
+                            "asia\/singapore",
+                            "asia\/srednekolymsk",
+                            "asia\/taipei",
+                            "asia\/tashkent",
+                            "asia\/tbilisi",
+                            "asia\/tehran",
+                            "asia\/thimphu",
+                            "asia\/tokyo",
+                            "asia\/tomsk",
+                            "asia\/ulaanbaatar",
+                            "asia\/urumqi",
+                            "asia\/ust-nera",
+                            "asia\/vientiane",
+                            "asia\/vladivostok",
+                            "asia\/yakutsk",
+                            "asia\/yangon",
+                            "asia\/yekaterinburg",
+                            "asia\/yerevan",
+                            "atlantic\/azores",
+                            "atlantic\/bermuda",
+                            "atlantic\/canary",
+                            "atlantic\/cape_verde",
+                            "atlantic\/faroe",
+                            "atlantic\/madeira",
+                            "atlantic\/reykjavik",
+                            "atlantic\/south_georgia",
+                            "atlantic\/st_helena",
+                            "atlantic\/stanley",
+                            "australia\/adelaide",
+                            "australia\/brisbane",
+                            "australia\/broken_hill",
+                            "australia\/darwin",
+                            "australia\/eucla",
+                            "australia\/hobart",
+                            "australia\/lindeman",
+                            "australia\/lord_howe",
+                            "australia\/melbourne",
+                            "australia\/perth",
+                            "australia\/sydney",
+                            "europe\/amsterdam",
+                            "europe\/andorra",
+                            "europe\/astrakhan",
+                            "europe\/athens",
+                            "europe\/belgrade",
+                            "europe\/berlin",
+                            "europe\/bratislava",
+                            "europe\/brussels",
+                            "europe\/bucharest",
+                            "europe\/budapest",
+                            "europe\/busingen",
+                            "europe\/chisinau",
+                            "europe\/copenhagen",
+                            "europe\/dublin",
+                            "europe\/gibraltar",
+                            "europe\/guernsey",
+                            "europe\/helsinki",
+                            "europe\/isle_of_man",
+                            "europe\/istanbul",
+                            "europe\/jersey",
+                            "europe\/kaliningrad",
+                            "europe\/kirov",
+                            "europe\/kyiv",
+                            "europe\/lisbon",
+                            "europe\/ljubljana",
+                            "europe\/london",
+                            "europe\/luxembourg",
+                            "europe\/madrid",
+                            "europe\/malta",
+                            "europe\/mariehamn",
+                            "europe\/minsk",
+                            "europe\/monaco",
+                            "europe\/moscow",
+                            "europe\/oslo",
+                            "europe\/paris",
+                            "europe\/podgorica",
+                            "europe\/prague",
+                            "europe\/riga",
+                            "europe\/rome",
+                            "europe\/samara",
+                            "europe\/san_marino",
+                            "europe\/sarajevo",
+                            "europe\/saratov",
+                            "europe\/simferopol",
+                            "europe\/skopje",
+                            "europe\/sofia",
+                            "europe\/stockholm",
+                            "europe\/tallinn",
+                            "europe\/tirane",
+                            "europe\/ulyanovsk",
+                            "europe\/vaduz",
+                            "europe\/vatican",
+                            "europe\/vienna",
+                            "europe\/vilnius",
+                            "europe\/volgograd",
+                            "europe\/warsaw",
+                            "europe\/zagreb",
+                            "europe\/zurich",
+                            "indian\/antananarivo",
+                            "indian\/chagos",
+                            "indian\/christmas",
+                            "indian\/cocos",
+                            "indian\/comoro",
+                            "indian\/kerguelen",
+                            "indian\/mahe",
+                            "indian\/maldives",
+                            "indian\/mauritius",
+                            "indian\/mayotte",
+                            "indian\/reunion",
+                            "pacific\/apia",
+                            "pacific\/auckland",
+                            "pacific\/bougainville",
+                            "pacific\/chatham",
+                            "pacific\/chuuk",
+                            "pacific\/easter",
+                            "pacific\/efate",
+                            "pacific\/fakaofo",
+                            "pacific\/fiji",
+                            "pacific\/funafuti",
+                            "pacific\/galapagos",
+                            "pacific\/gambier",
+                            "pacific\/guadalcanal",
+                            "pacific\/guam",
+                            "pacific\/honolulu",
+                            "pacific\/kanton",
+                            "pacific\/kiritimati",
+                            "pacific\/kosrae",
+                            "pacific\/kwajalein",
+                            "pacific\/majuro",
+                            "pacific\/marquesas",
+                            "pacific\/midway",
+                            "pacific\/nauru",
+                            "pacific\/niue",
+                            "pacific\/norfolk",
+                            "pacific\/noumea",
+                            "pacific\/pago_pago",
+                            "pacific\/palau",
+                            "pacific\/pitcairn",
+                            "pacific\/pohnpei",
+                            "pacific\/port_moresby",
+                            "pacific\/rarotonga",
+                            "pacific\/saipan",
+                            "pacific\/tahiti",
+                            "pacific\/tarawa",
+                            "pacific\/tongatapu",
+                            "pacific\/wake",
+                            "pacific\/wallis",
+                            "utc"
+                        ],
                         "in": "query"
                     },
                     {
@@ -7332,7 +7872,29 @@
                                 "web-share",
                                 "xr-spatial-tracking"
                             ],
-                            "x-enum-name": "BrowserPermission"
+                            "x-enum-name": "BrowserPermission",
+                            "x-enum-keys": [
+                                "geolocation",
+                                "camera",
+                                "microphone",
+                                "notifications",
+                                "midi",
+                                "push",
+                                "clipboard-read",
+                                "clipboard-write",
+                                "payment-handler",
+                                "usb",
+                                "bluetooth",
+                                "accelerometer",
+                                "gyroscope",
+                                "magnetometer",
+                                "ambient-light-sensor",
+                                "background-sync",
+                                "persistent-storage",
+                                "screen-wake-lock",
+                                "web-share",
+                                "xr-spatial-tracking"
+                            ]
                         },
                         "x-example": "[\"geolocation\",\"notifications\"]",
                         "default": [],
@@ -7394,6 +7956,15 @@
                             "gif"
                         ],
                         "x-enum-name": "ImageFormat",
+                        "x-enum-keys": [
+                            "jpg",
+                            "jpeg",
+                            "png",
+                            "webp",
+                            "heic",
+                            "avif",
+                            "gif"
+                        ],
                         "in": "query"
                     }
                 ]
@@ -7532,7 +8103,15 @@
                                             "functions",
                                             "storage"
                                         ],
-                                        "x-enum-name": "BackupServices"
+                                        "x-enum-name": "BackupServices",
+                                        "x-enum-keys": [
+                                            "databases",
+                                            "tablesdb",
+                                            "documentsdb",
+                                            "vectorsdb",
+                                            "functions",
+                                            "storage"
+                                        ]
                                     }
                                 },
                                 "resourceId": {
@@ -7817,7 +8396,15 @@
                                             "functions",
                                             "storage"
                                         ],
-                                        "x-enum-name": "BackupServices"
+                                        "x-enum-name": "BackupServices",
+                                        "x-enum-keys": [
+                                            "databases",
+                                            "tablesdb",
+                                            "documentsdb",
+                                            "vectorsdb",
+                                            "functions",
+                                            "storage"
+                                        ]
                                     }
                                 },
                                 "resourceId": {
@@ -8150,7 +8737,15 @@
                                             "functions",
                                             "storage"
                                         ],
-                                        "x-enum-name": "BackupServices"
+                                        "x-enum-name": "BackupServices",
+                                        "x-enum-keys": [
+                                            "databases",
+                                            "tablesdb",
+                                            "documentsdb",
+                                            "vectorsdb",
+                                            "functions",
+                                            "storage"
+                                        ]
                                     }
                                 },
                                 "newResourceId": {
@@ -11948,6 +12543,10 @@
                             "imagine"
                         ],
                         "x-enum-name": "Platform",
+                        "x-enum-keys": [
+                            "appwrite",
+                            "imagine"
+                        ],
                         "default": "appwrite",
                         "in": "query"
                     }
@@ -12237,6 +12836,9 @@
                             "rules"
                         ],
                         "x-enum-name": "ConsoleResourceType",
+                        "x-enum-keys": [
+                            "rules"
+                        ],
                         "in": "query"
                     }
                 ]
@@ -12706,6 +13308,7 @@
                             "topics",
                             "subscribers",
                             "targets",
+                            "presencelogs",
                             "companies",
                             "billingaddresses",
                             "billingaggregations",
@@ -12735,7 +13338,6 @@
                             "resourcetokens",
                             "transactions",
                             "transactionlogs",
-                            "presencelogs",
                             "stats",
                             "dedicateddatabases",
                             "dedicateddatabaseconfigs",
@@ -12790,6 +13392,7 @@
                             "topics",
                             "subscribers",
                             "targets",
+                            "presence_logs",
                             "companies",
                             "billing_addresses",
                             "billing_aggregations",
@@ -12819,7 +13422,6 @@
                             "resource_tokens",
                             "transactions",
                             "transaction_logs",
-                            "presence_logs",
                             "stats",
                             "dedicated_databases",
                             "dedicated_database_configs",
@@ -12919,6 +13521,15 @@
                             "otpSession"
                         ],
                         "x-enum-name": "ProjectEmailTemplateId",
+                        "x-enum-keys": [
+                            "verification",
+                            "magicSession",
+                            "recovery",
+                            "invitation",
+                            "mfaChallenge",
+                            "sessionAlert",
+                            "otpSession"
+                        ],
                         "in": "path"
                     },
                     {
@@ -13061,6 +13672,139 @@
                             "zu"
                         ],
                         "x-enum-name": "ProjectEmailTemplateLocale",
+                        "x-enum-keys": [
+                            "af",
+                            "ar-ae",
+                            "ar-bh",
+                            "ar-dz",
+                            "ar-eg",
+                            "ar-iq",
+                            "ar-jo",
+                            "ar-kw",
+                            "ar-lb",
+                            "ar-ly",
+                            "ar-ma",
+                            "ar-om",
+                            "ar-qa",
+                            "ar-sa",
+                            "ar-sy",
+                            "ar-tn",
+                            "ar-ye",
+                            "as",
+                            "az",
+                            "be",
+                            "bg",
+                            "bh",
+                            "bn",
+                            "bs",
+                            "ca",
+                            "cs",
+                            "cy",
+                            "da",
+                            "de",
+                            "de-at",
+                            "de-ch",
+                            "de-li",
+                            "de-lu",
+                            "el",
+                            "en",
+                            "en-au",
+                            "en-bz",
+                            "en-ca",
+                            "en-gb",
+                            "en-ie",
+                            "en-jm",
+                            "en-nz",
+                            "en-tt",
+                            "en-us",
+                            "en-za",
+                            "eo",
+                            "es",
+                            "es-ar",
+                            "es-bo",
+                            "es-cl",
+                            "es-co",
+                            "es-cr",
+                            "es-do",
+                            "es-ec",
+                            "es-gt",
+                            "es-hn",
+                            "es-mx",
+                            "es-ni",
+                            "es-pa",
+                            "es-pe",
+                            "es-pr",
+                            "es-py",
+                            "es-sv",
+                            "es-uy",
+                            "es-ve",
+                            "et",
+                            "eu",
+                            "fa",
+                            "fi",
+                            "fo",
+                            "fr",
+                            "fr-be",
+                            "fr-ca",
+                            "fr-ch",
+                            "fr-lu",
+                            "ga",
+                            "gd",
+                            "he",
+                            "hi",
+                            "hr",
+                            "hu",
+                            "id",
+                            "is",
+                            "it",
+                            "it-ch",
+                            "ja",
+                            "ji",
+                            "ko",
+                            "ku",
+                            "lt",
+                            "lv",
+                            "mk",
+                            "ml",
+                            "ms",
+                            "mt",
+                            "nb",
+                            "ne",
+                            "nl",
+                            "nl-be",
+                            "nn",
+                            "no",
+                            "pa",
+                            "pl",
+                            "pt",
+                            "pt-br",
+                            "rm",
+                            "ro",
+                            "ro-md",
+                            "ru",
+                            "ru-md",
+                            "sb",
+                            "sk",
+                            "sl",
+                            "sq",
+                            "sr",
+                            "sv",
+                            "sv-fi",
+                            "th",
+                            "tn",
+                            "tr",
+                            "ts",
+                            "ua",
+                            "ur",
+                            "ve",
+                            "vi",
+                            "xh",
+                            "zh-cn",
+                            "zh-hk",
+                            "zh-sg",
+                            "zh-tw",
+                            "zu"
+                        ],
                         "in": "query"
                     }
                 ]
@@ -17771,7 +18515,13 @@
                                         "manyToMany",
                                         "oneToMany"
                                     ],
-                                    "x-enum-name": "RelationshipType"
+                                    "x-enum-name": "RelationshipType",
+                                    "x-enum-keys": [
+                                        "oneToOne",
+                                        "manyToOne",
+                                        "manyToMany",
+                                        "oneToMany"
+                                    ]
                                 },
                                 "twoWay": {
                                     "type": "boolean",
@@ -17801,7 +18551,12 @@
                                         "restrict",
                                         "setNull"
                                     ],
-                                    "x-enum-name": "RelationMutate"
+                                    "x-enum-name": "RelationMutate",
+                                    "x-enum-keys": [
+                                        "cascade",
+                                        "restrict",
+                                        "setNull"
+                                    ]
                                 }
                             },
                             "required": [
@@ -17906,7 +18661,12 @@
                                         "restrict",
                                         "setNull"
                                     ],
-                                    "x-enum-name": "RelationMutate"
+                                    "x-enum-name": "RelationMutate",
+                                    "x-enum-keys": [
+                                        "cascade",
+                                        "restrict",
+                                        "setNull"
+                                    ]
                                 },
                                 "newKey": {
                                     "type": "string",
@@ -20673,7 +21433,13 @@
                                         "unique",
                                         "spatial"
                                     ],
-                                    "x-enum-name": "DatabasesIndexType"
+                                    "x-enum-name": "DatabasesIndexType",
+                                    "x-enum-keys": [
+                                        "key",
+                                        "fulltext",
+                                        "unique",
+                                        "spatial"
+                                    ]
                                 },
                                 "attributes": {
                                     "type": "array",
@@ -20694,7 +21460,11 @@
                                             "asc",
                                             "desc"
                                         ],
-                                        "x-enum-name": "OrderBy"
+                                        "x-enum-name": "OrderBy",
+                                        "x-enum-keys": [
+                                            "asc",
+                                            "desc"
+                                        ]
                                     }
                                 },
                                 "lengths": {
@@ -23931,7 +24701,12 @@
                                         "fulltext",
                                         "unique"
                                     ],
-                                    "x-enum-name": "DocumentsDBIndexType"
+                                    "x-enum-name": "DocumentsDBIndexType",
+                                    "x-enum-keys": [
+                                        "key",
+                                        "fulltext",
+                                        "unique"
+                                    ]
                                 },
                                 "attributes": {
                                     "type": "array",
@@ -23952,7 +24727,11 @@
                                             "asc",
                                             "desc"
                                         ],
-                                        "x-enum-name": "OrderBy"
+                                        "x-enum-name": "OrderBy",
+                                        "x-enum-keys": [
+                                            "asc",
+                                            "desc"
+                                        ]
                                     }
                                 },
                                 "lengths": {
@@ -24527,6 +25306,12 @@
                             "trade"
                         ],
                         "x-enum-name": "DomainRegistrationType",
+                        "x-enum-keys": [
+                            "new",
+                            "transfer",
+                            "renewal",
+                            "trade"
+                        ],
                         "default": "new",
                         "in": "query"
                     }
@@ -24831,6 +25616,10 @@
                             "suggestion"
                         ],
                         "x-enum-name": "DomainSuggestionType",
+                        "x-enum-keys": [
+                            "premium",
+                            "suggestion"
+                        ],
                         "in": "query"
                     },
                     {
@@ -28765,7 +29554,103 @@
                                         "flutter-3.41",
                                         "flutter-3.44"
                                     ],
-                                    "x-enum-name": "FunctionRuntime"
+                                    "x-enum-name": "FunctionRuntime",
+                                    "x-enum-keys": [
+                                        "node-14.5",
+                                        "node-16.0",
+                                        "node-18.0",
+                                        "node-19.0",
+                                        "node-20.0",
+                                        "node-21.0",
+                                        "node-22",
+                                        "node-23",
+                                        "node-24",
+                                        "node-25",
+                                        "php-8.0",
+                                        "php-8.1",
+                                        "php-8.2",
+                                        "php-8.3",
+                                        "php-8.4",
+                                        "ruby-3.0",
+                                        "ruby-3.1",
+                                        "ruby-3.2",
+                                        "ruby-3.3",
+                                        "ruby-3.4",
+                                        "ruby-4.0",
+                                        "python-3.8",
+                                        "python-3.9",
+                                        "python-3.10",
+                                        "python-3.11",
+                                        "python-3.12",
+                                        "python-3.13",
+                                        "python-3.14",
+                                        "python-ml-3.11",
+                                        "python-ml-3.12",
+                                        "python-ml-3.13",
+                                        "deno-1.21",
+                                        "deno-1.24",
+                                        "deno-1.35",
+                                        "deno-1.40",
+                                        "deno-1.46",
+                                        "deno-2.0",
+                                        "deno-2.5",
+                                        "deno-2.6",
+                                        "dart-2.15",
+                                        "dart-2.16",
+                                        "dart-2.17",
+                                        "dart-2.18",
+                                        "dart-2.19",
+                                        "dart-3.0",
+                                        "dart-3.1",
+                                        "dart-3.3",
+                                        "dart-3.5",
+                                        "dart-3.8",
+                                        "dart-3.9",
+                                        "dart-3.10",
+                                        "dart-3.11",
+                                        "dart-3.12",
+                                        "dotnet-6.0",
+                                        "dotnet-7.0",
+                                        "dotnet-8.0",
+                                        "dotnet-10",
+                                        "java-8.0",
+                                        "java-11.0",
+                                        "java-17.0",
+                                        "java-18.0",
+                                        "java-21.0",
+                                        "java-22",
+                                        "java-25",
+                                        "swift-5.5",
+                                        "swift-5.8",
+                                        "swift-5.9",
+                                        "swift-5.10",
+                                        "swift-6.2",
+                                        "kotlin-1.6",
+                                        "kotlin-1.8",
+                                        "kotlin-1.9",
+                                        "kotlin-2.0",
+                                        "kotlin-2.3",
+                                        "cpp-17",
+                                        "cpp-20",
+                                        "bun-1.0",
+                                        "bun-1.1",
+                                        "bun-1.2",
+                                        "bun-1.3",
+                                        "go-1.23",
+                                        "go-1.24",
+                                        "go-1.25",
+                                        "go-1.26",
+                                        "rust-1.83",
+                                        "static-1",
+                                        "flutter-3.24",
+                                        "flutter-3.27",
+                                        "flutter-3.29",
+                                        "flutter-3.32",
+                                        "flutter-3.35",
+                                        "flutter-3.38",
+                                        "flutter-3.41",
+                                        "flutter-3.44"
+                                    ]
                                 },
                                 "execute": {
                                     "type": "array",
@@ -28925,7 +29810,103 @@
                                             "events.read",
                                             "usage.read"
                                         ],
-                                        "x-enum-name": "ProjectKeyScopes"
+                                        "x-enum-name": "ProjectKeyScopes",
+                                        "x-enum-keys": [
+                                            "project.read",
+                                            "project.write",
+                                            "keys.read",
+                                            "keys.write",
+                                            "platforms.read",
+                                            "platforms.write",
+                                            "mocks.read",
+                                            "mocks.write",
+                                            "policies.read",
+                                            "policies.write",
+                                            "project.policies.read",
+                                            "project.policies.write",
+                                            "templates.read",
+                                            "templates.write",
+                                            "oauth2.read",
+                                            "oauth2.write",
+                                            "users.read",
+                                            "users.write",
+                                            "sessions.read",
+                                            "sessions.write",
+                                            "teams.read",
+                                            "teams.write",
+                                            "databases.read",
+                                            "databases.write",
+                                            "tables.read",
+                                            "tables.write",
+                                            "columns.read",
+                                            "columns.write",
+                                            "indexes.read",
+                                            "indexes.write",
+                                            "rows.read",
+                                            "rows.write",
+                                            "collections.read",
+                                            "collections.write",
+                                            "attributes.read",
+                                            "attributes.write",
+                                            "documents.read",
+                                            "documents.write",
+                                            "buckets.read",
+                                            "buckets.write",
+                                            "files.read",
+                                            "files.write",
+                                            "tokens.read",
+                                            "tokens.write",
+                                            "functions.read",
+                                            "functions.write",
+                                            "executions.read",
+                                            "executions.write",
+                                            "execution.read",
+                                            "execution.write",
+                                            "sites.read",
+                                            "sites.write",
+                                            "log.read",
+                                            "log.write",
+                                            "providers.read",
+                                            "providers.write",
+                                            "topics.read",
+                                            "topics.write",
+                                            "subscribers.read",
+                                            "subscribers.write",
+                                            "targets.read",
+                                            "targets.write",
+                                            "messages.read",
+                                            "messages.write",
+                                            "rules.read",
+                                            "rules.write",
+                                            "webhooks.read",
+                                            "webhooks.write",
+                                            "locale.read",
+                                            "avatars.read",
+                                            "health.read",
+                                            "assistant.read",
+                                            "migrations.read",
+                                            "migrations.write",
+                                            "schedules.read",
+                                            "schedules.write",
+                                            "vcs.read",
+                                            "vcs.write",
+                                            "insights.read",
+                                            "insights.write",
+                                            "reports.read",
+                                            "reports.write",
+                                            "presences.read",
+                                            "presences.write",
+                                            "backups.policies.read",
+                                            "backups.policies.write",
+                                            "archives.read",
+                                            "archives.write",
+                                            "restorations.read",
+                                            "restorations.write",
+                                            "domains.read",
+                                            "domains.write",
+                                            "events.read",
+                                            "usage.read"
+                                        ]
                                     }
                                 },
                                 "installationId": {
@@ -29254,7 +30235,103 @@
                                 "flutter-3.41",
                                 "flutter-3.44"
                             ],
-                            "x-enum-name": "FunctionRuntime"
+                            "x-enum-name": "FunctionRuntime",
+                            "x-enum-keys": [
+                                "node-14.5",
+                                "node-16.0",
+                                "node-18.0",
+                                "node-19.0",
+                                "node-20.0",
+                                "node-21.0",
+                                "node-22",
+                                "node-23",
+                                "node-24",
+                                "node-25",
+                                "php-8.0",
+                                "php-8.1",
+                                "php-8.2",
+                                "php-8.3",
+                                "php-8.4",
+                                "ruby-3.0",
+                                "ruby-3.1",
+                                "ruby-3.2",
+                                "ruby-3.3",
+                                "ruby-3.4",
+                                "ruby-4.0",
+                                "python-3.8",
+                                "python-3.9",
+                                "python-3.10",
+                                "python-3.11",
+                                "python-3.12",
+                                "python-3.13",
+                                "python-3.14",
+                                "python-ml-3.11",
+                                "python-ml-3.12",
+                                "python-ml-3.13",
+                                "deno-1.21",
+                                "deno-1.24",
+                                "deno-1.35",
+                                "deno-1.40",
+                                "deno-1.46",
+                                "deno-2.0",
+                                "deno-2.5",
+                                "deno-2.6",
+                                "dart-2.15",
+                                "dart-2.16",
+                                "dart-2.17",
+                                "dart-2.18",
+                                "dart-2.19",
+                                "dart-3.0",
+                                "dart-3.1",
+                                "dart-3.3",
+                                "dart-3.5",
+                                "dart-3.8",
+                                "dart-3.9",
+                                "dart-3.10",
+                                "dart-3.11",
+                                "dart-3.12",
+                                "dotnet-6.0",
+                                "dotnet-7.0",
+                                "dotnet-8.0",
+                                "dotnet-10",
+                                "java-8.0",
+                                "java-11.0",
+                                "java-17.0",
+                                "java-18.0",
+                                "java-21.0",
+                                "java-22",
+                                "java-25",
+                                "swift-5.5",
+                                "swift-5.8",
+                                "swift-5.9",
+                                "swift-5.10",
+                                "swift-6.2",
+                                "kotlin-1.6",
+                                "kotlin-1.8",
+                                "kotlin-1.9",
+                                "kotlin-2.0",
+                                "kotlin-2.3",
+                                "cpp-17",
+                                "cpp-20",
+                                "bun-1.0",
+                                "bun-1.1",
+                                "bun-1.2",
+                                "bun-1.3",
+                                "go-1.23",
+                                "go-1.24",
+                                "go-1.25",
+                                "go-1.26",
+                                "rust-1.83",
+                                "static-1",
+                                "flutter-3.24",
+                                "flutter-3.27",
+                                "flutter-3.29",
+                                "flutter-3.32",
+                                "flutter-3.35",
+                                "flutter-3.38",
+                                "flutter-3.41",
+                                "flutter-3.44"
+                            ]
                         },
                         "default": [],
                         "in": "query"
@@ -29276,7 +30353,16 @@
                                 "dev-tools",
                                 "auth"
                             ],
-                            "x-enum-name": "FunctionTemplateUseCase"
+                            "x-enum-name": "FunctionTemplateUseCase",
+                            "x-enum-keys": [
+                                "starter",
+                                "databases",
+                                "ai",
+                                "messaging",
+                                "utilities",
+                                "dev-tools",
+                                "auth"
+                            ]
                         },
                         "default": [],
                         "in": "query"
@@ -29665,7 +30751,103 @@
                                         "flutter-3.41",
                                         "flutter-3.44"
                                     ],
-                                    "x-enum-name": "FunctionRuntime"
+                                    "x-enum-name": "FunctionRuntime",
+                                    "x-enum-keys": [
+                                        "node-14.5",
+                                        "node-16.0",
+                                        "node-18.0",
+                                        "node-19.0",
+                                        "node-20.0",
+                                        "node-21.0",
+                                        "node-22",
+                                        "node-23",
+                                        "node-24",
+                                        "node-25",
+                                        "php-8.0",
+                                        "php-8.1",
+                                        "php-8.2",
+                                        "php-8.3",
+                                        "php-8.4",
+                                        "ruby-3.0",
+                                        "ruby-3.1",
+                                        "ruby-3.2",
+                                        "ruby-3.3",
+                                        "ruby-3.4",
+                                        "ruby-4.0",
+                                        "python-3.8",
+                                        "python-3.9",
+                                        "python-3.10",
+                                        "python-3.11",
+                                        "python-3.12",
+                                        "python-3.13",
+                                        "python-3.14",
+                                        "python-ml-3.11",
+                                        "python-ml-3.12",
+                                        "python-ml-3.13",
+                                        "deno-1.21",
+                                        "deno-1.24",
+                                        "deno-1.35",
+                                        "deno-1.40",
+                                        "deno-1.46",
+                                        "deno-2.0",
+                                        "deno-2.5",
+                                        "deno-2.6",
+                                        "dart-2.15",
+                                        "dart-2.16",
+                                        "dart-2.17",
+                                        "dart-2.18",
+                                        "dart-2.19",
+                                        "dart-3.0",
+                                        "dart-3.1",
+                                        "dart-3.3",
+                                        "dart-3.5",
+                                        "dart-3.8",
+                                        "dart-3.9",
+                                        "dart-3.10",
+                                        "dart-3.11",
+                                        "dart-3.12",
+                                        "dotnet-6.0",
+                                        "dotnet-7.0",
+                                        "dotnet-8.0",
+                                        "dotnet-10",
+                                        "java-8.0",
+                                        "java-11.0",
+                                        "java-17.0",
+                                        "java-18.0",
+                                        "java-21.0",
+                                        "java-22",
+                                        "java-25",
+                                        "swift-5.5",
+                                        "swift-5.8",
+                                        "swift-5.9",
+                                        "swift-5.10",
+                                        "swift-6.2",
+                                        "kotlin-1.6",
+                                        "kotlin-1.8",
+                                        "kotlin-1.9",
+                                        "kotlin-2.0",
+                                        "kotlin-2.3",
+                                        "cpp-17",
+                                        "cpp-20",
+                                        "bun-1.0",
+                                        "bun-1.1",
+                                        "bun-1.2",
+                                        "bun-1.3",
+                                        "go-1.23",
+                                        "go-1.24",
+                                        "go-1.25",
+                                        "go-1.26",
+                                        "rust-1.83",
+                                        "static-1",
+                                        "flutter-3.24",
+                                        "flutter-3.27",
+                                        "flutter-3.29",
+                                        "flutter-3.32",
+                                        "flutter-3.35",
+                                        "flutter-3.38",
+                                        "flutter-3.41",
+                                        "flutter-3.44"
+                                    ]
                                 },
                                 "execute": {
                                     "type": "array",
@@ -29825,7 +31007,103 @@
                                             "events.read",
                                             "usage.read"
                                         ],
-                                        "x-enum-name": "ProjectKeyScopes"
+                                        "x-enum-name": "ProjectKeyScopes",
+                                        "x-enum-keys": [
+                                            "project.read",
+                                            "project.write",
+                                            "keys.read",
+                                            "keys.write",
+                                            "platforms.read",
+                                            "platforms.write",
+                                            "mocks.read",
+                                            "mocks.write",
+                                            "policies.read",
+                                            "policies.write",
+                                            "project.policies.read",
+                                            "project.policies.write",
+                                            "templates.read",
+                                            "templates.write",
+                                            "oauth2.read",
+                                            "oauth2.write",
+                                            "users.read",
+                                            "users.write",
+                                            "sessions.read",
+                                            "sessions.write",
+                                            "teams.read",
+                                            "teams.write",
+                                            "databases.read",
+                                            "databases.write",
+                                            "tables.read",
+                                            "tables.write",
+                                            "columns.read",
+                                            "columns.write",
+                                            "indexes.read",
+                                            "indexes.write",
+                                            "rows.read",
+                                            "rows.write",
+                                            "collections.read",
+                                            "collections.write",
+                                            "attributes.read",
+                                            "attributes.write",
+                                            "documents.read",
+                                            "documents.write",
+                                            "buckets.read",
+                                            "buckets.write",
+                                            "files.read",
+                                            "files.write",
+                                            "tokens.read",
+                                            "tokens.write",
+                                            "functions.read",
+                                            "functions.write",
+                                            "executions.read",
+                                            "executions.write",
+                                            "execution.read",
+                                            "execution.write",
+                                            "sites.read",
+                                            "sites.write",
+                                            "log.read",
+                                            "log.write",
+                                            "providers.read",
+                                            "providers.write",
+                                            "topics.read",
+                                            "topics.write",
+                                            "subscribers.read",
+                                            "subscribers.write",
+                                            "targets.read",
+                                            "targets.write",
+                                            "messages.read",
+                                            "messages.write",
+                                            "rules.read",
+                                            "rules.write",
+                                            "webhooks.read",
+                                            "webhooks.write",
+                                            "locale.read",
+                                            "avatars.read",
+                                            "health.read",
+                                            "assistant.read",
+                                            "migrations.read",
+                                            "migrations.write",
+                                            "schedules.read",
+                                            "schedules.write",
+                                            "vcs.read",
+                                            "vcs.write",
+                                            "insights.read",
+                                            "insights.write",
+                                            "reports.read",
+                                            "reports.write",
+                                            "presences.read",
+                                            "presences.write",
+                                            "backups.policies.read",
+                                            "backups.policies.write",
+                                            "archives.read",
+                                            "archives.write",
+                                            "restorations.read",
+                                            "restorations.write",
+                                            "domains.read",
+                                            "domains.write",
+                                            "events.read",
+                                            "usage.read"
+                                        ]
                                     }
                                 },
                                 "installationId": {
@@ -30387,7 +31665,12 @@
                                         "branch",
                                         "tag"
                                     ],
-                                    "x-enum-name": "TemplateReferenceType"
+                                    "x-enum-name": "TemplateReferenceType",
+                                    "x-enum-keys": [
+                                        "commit",
+                                        "branch",
+                                        "tag"
+                                    ]
                                 },
                                 "reference": {
                                     "type": "string",
@@ -30485,7 +31768,11 @@
                                         "branch",
                                         "commit"
                                     ],
-                                    "x-enum-name": "VCSReferenceType"
+                                    "x-enum-name": "VCSReferenceType",
+                                    "x-enum-keys": [
+                                        "branch",
+                                        "commit"
+                                    ]
                                 },
                                 "reference": {
                                     "type": "string",
@@ -30713,6 +32000,10 @@
                             "output"
                         ],
                         "x-enum-name": "DeploymentDownloadType",
+                        "x-enum-keys": [
+                            "source",
+                            "output"
+                        ],
                         "default": "source",
                         "in": "query"
                     }
@@ -30974,7 +32265,16 @@
                                         "OPTIONS",
                                         "HEAD"
                                     ],
-                                    "x-enum-name": "ExecutionMethod"
+                                    "x-enum-name": "ExecutionMethod",
+                                    "x-enum-keys": [
+                                        "GET",
+                                        "POST",
+                                        "PUT",
+                                        "PATCH",
+                                        "DELETE",
+                                        "OPTIONS",
+                                        "HEAD"
+                                    ]
                                 },
                                 "headers": {
                                     "type": "object",
@@ -32703,6 +34003,21 @@
                             "v1-migrations"
                         ],
                         "x-enum-name": "HealthQueueName",
+                        "x-enum-keys": [
+                            "v1-database",
+                            "v1-deletes",
+                            "v1-audits",
+                            "v1-mails",
+                            "v1-functions",
+                            "v1-stats-resources",
+                            "v1-stats-usage",
+                            "v1-webhooks",
+                            "v1-certificates",
+                            "v1-builds",
+                            "v1-screenshots",
+                            "v1-messaging",
+                            "v1-migrations"
+                        ],
                         "in": "path"
                     },
                     {
@@ -33967,7 +35282,18 @@
                                         "subscribers",
                                         "messages"
                                     ],
-                                    "x-enum-name": "BlockResourceType"
+                                    "x-enum-name": "BlockResourceType",
+                                    "x-enum-keys": [
+                                        "projects",
+                                        "functions",
+                                        "sites",
+                                        "databases",
+                                        "buckets",
+                                        "providers",
+                                        "topics",
+                                        "subscribers",
+                                        "messages"
+                                    ]
                                 },
                                 "resourceId": {
                                     "type": "string",
@@ -34062,7 +35388,18 @@
                                         "subscribers",
                                         "messages"
                                     ],
-                                    "x-enum-name": "BlockResourceType"
+                                    "x-enum-name": "BlockResourceType",
+                                    "x-enum-keys": [
+                                        "projects",
+                                        "functions",
+                                        "sites",
+                                        "databases",
+                                        "buckets",
+                                        "providers",
+                                        "topics",
+                                        "subscribers",
+                                        "messages"
+                                    ]
                                 },
                                 "resourceId": {
                                     "type": "string",
@@ -34786,7 +36123,11 @@
                                         "normal",
                                         "high"
                                     ],
-                                    "x-enum-name": "MessagePriority"
+                                    "x-enum-name": "MessagePriority",
+                                    "x-enum-keys": [
+                                        "normal",
+                                        "high"
+                                    ]
                                 }
                             },
                             "required": [
@@ -34985,6 +36326,10 @@
                                         "high"
                                     ],
                                     "x-enum-name": "MessagePriority",
+                                    "x-enum-keys": [
+                                        "normal",
+                                        "high"
+                                    ],
                                     "x-nullable": true
                                 }
                             }
@@ -37497,7 +38842,12 @@
                                         "ssl",
                                         "tls"
                                     ],
-                                    "x-enum-name": "SmtpEncryption"
+                                    "x-enum-name": "SmtpEncryption",
+                                    "x-enum-keys": [
+                                        "none",
+                                        "ssl",
+                                        "tls"
+                                    ]
                                 },
                                 "autoTLS": {
                                     "type": "boolean",
@@ -37741,7 +39091,12 @@
                                         "ssl",
                                         "tls"
                                     ],
-                                    "x-enum-name": "SmtpEncryption"
+                                    "x-enum-name": "SmtpEncryption",
+                                    "x-enum-keys": [
+                                        "none",
+                                        "ssl",
+                                        "tls"
+                                    ]
                                 },
                                 "autoTLS": {
                                     "type": "boolean",
@@ -39809,7 +41164,36 @@
                                             "platform",
                                             "backup-policy"
                                         ],
-                                        "x-enum-name": "AppwriteMigrationResource"
+                                        "x-enum-name": "AppwriteMigrationResource",
+                                        "x-enum-keys": [
+                                            "user",
+                                            "team",
+                                            "membership",
+                                            "database",
+                                            "table",
+                                            "column",
+                                            "index",
+                                            "row",
+                                            "document",
+                                            "attribute",
+                                            "collection",
+                                            "documentsdb",
+                                            "vectorsdb",
+                                            "bucket",
+                                            "file",
+                                            "function",
+                                            "deployment",
+                                            "environment-variable",
+                                            "provider",
+                                            "topic",
+                                            "subscriber",
+                                            "message",
+                                            "site",
+                                            "site-deployment",
+                                            "site-variable",
+                                            "platform",
+                                            "backup-policy"
+                                        ]
                                     }
                                 },
                                 "endpoint": {
@@ -39838,7 +41222,12 @@
                                         "skip",
                                         "overwrite"
                                     ],
-                                    "x-enum-name": "MigrationOnDuplicate"
+                                    "x-enum-name": "MigrationOnDuplicate",
+                                    "x-enum-keys": [
+                                        "fail",
+                                        "skip",
+                                        "overwrite"
+                                    ]
                                 }
                             },
                             "required": [
@@ -39936,7 +41325,36 @@
                                 "platform",
                                 "backup-policy"
                             ],
-                            "x-enum-name": "AppwriteMigrationResource"
+                            "x-enum-name": "AppwriteMigrationResource",
+                            "x-enum-keys": [
+                                "user",
+                                "team",
+                                "membership",
+                                "database",
+                                "table",
+                                "column",
+                                "index",
+                                "row",
+                                "document",
+                                "attribute",
+                                "collection",
+                                "documentsdb",
+                                "vectorsdb",
+                                "bucket",
+                                "file",
+                                "function",
+                                "deployment",
+                                "environment-variable",
+                                "provider",
+                                "topic",
+                                "subscriber",
+                                "message",
+                                "site",
+                                "site-deployment",
+                                "site-variable",
+                                "platform",
+                                "backup-policy"
+                            ]
                         },
                         "in": "query"
                     },
@@ -40177,7 +41595,12 @@
                                         "skip",
                                         "overwrite"
                                     ],
-                                    "x-enum-name": "MigrationOnDuplicate"
+                                    "x-enum-name": "MigrationOnDuplicate",
+                                    "x-enum-keys": [
+                                        "fail",
+                                        "skip",
+                                        "overwrite"
+                                    ]
                                 }
                             },
                             "required": [
@@ -40263,7 +41686,19 @@
                                             "bucket",
                                             "file"
                                         ],
-                                        "x-enum-name": "FirebaseMigrationResource"
+                                        "x-enum-name": "FirebaseMigrationResource",
+                                        "x-enum-keys": [
+                                            "user",
+                                            "database",
+                                            "table",
+                                            "column",
+                                            "row",
+                                            "document",
+                                            "attribute",
+                                            "collection",
+                                            "bucket",
+                                            "file"
+                                        ]
                                     }
                                 },
                                 "serviceAccount": {
@@ -40348,7 +41783,19 @@
                                 "bucket",
                                 "file"
                             ],
-                            "x-enum-name": "FirebaseMigrationResource"
+                            "x-enum-name": "FirebaseMigrationResource",
+                            "x-enum-keys": [
+                                "user",
+                                "database",
+                                "table",
+                                "column",
+                                "row",
+                                "document",
+                                "attribute",
+                                "collection",
+                                "bucket",
+                                "file"
+                            ]
                         },
                         "in": "query"
                     },
@@ -40548,7 +41995,12 @@
                                         "skip",
                                         "overwrite"
                                     ],
-                                    "x-enum-name": "MigrationOnDuplicate"
+                                    "x-enum-name": "MigrationOnDuplicate",
+                                    "x-enum-keys": [
+                                        "fail",
+                                        "skip",
+                                        "overwrite"
+                                    ]
                                 }
                             },
                             "required": [
@@ -40635,7 +42087,20 @@
                                             "bucket",
                                             "file"
                                         ],
-                                        "x-enum-name": "NHostMigrationResource"
+                                        "x-enum-name": "NHostMigrationResource",
+                                        "x-enum-keys": [
+                                            "user",
+                                            "database",
+                                            "table",
+                                            "column",
+                                            "index",
+                                            "row",
+                                            "document",
+                                            "attribute",
+                                            "collection",
+                                            "bucket",
+                                            "file"
+                                        ]
                                     }
                                 },
                                 "subdomain": {
@@ -40758,7 +42223,20 @@
                                 "bucket",
                                 "file"
                             ],
-                            "x-enum-name": "NHostMigrationResource"
+                            "x-enum-name": "NHostMigrationResource",
+                            "x-enum-keys": [
+                                "user",
+                                "database",
+                                "table",
+                                "column",
+                                "index",
+                                "row",
+                                "document",
+                                "attribute",
+                                "collection",
+                                "bucket",
+                                "file"
+                            ]
                         },
                         "in": "query"
                     },
@@ -40896,7 +42374,20 @@
                                             "bucket",
                                             "file"
                                         ],
-                                        "x-enum-name": "SupabaseMigrationResource"
+                                        "x-enum-name": "SupabaseMigrationResource",
+                                        "x-enum-keys": [
+                                            "user",
+                                            "database",
+                                            "table",
+                                            "column",
+                                            "index",
+                                            "row",
+                                            "document",
+                                            "attribute",
+                                            "collection",
+                                            "bucket",
+                                            "file"
+                                        ]
                                     }
                                 },
                                 "endpoint": {
@@ -41014,7 +42505,20 @@
                                 "bucket",
                                 "file"
                             ],
-                            "x-enum-name": "SupabaseMigrationResource"
+                            "x-enum-name": "SupabaseMigrationResource",
+                            "x-enum-keys": [
+                                "user",
+                                "database",
+                                "table",
+                                "column",
+                                "index",
+                                "row",
+                                "document",
+                                "attribute",
+                                "collection",
+                                "bucket",
+                                "file"
+                            ]
                         },
                         "in": "query"
                     },
@@ -41394,7 +42898,19 @@
                                             "keys.read",
                                             "keys.write"
                                         ],
-                                        "x-enum-name": "OrganizationKeyScopes"
+                                        "x-enum-name": "OrganizationKeyScopes",
+                                        "x-enum-keys": [
+                                            "projects.read",
+                                            "projects.write",
+                                            "devKeys.read",
+                                            "devKeys.write",
+                                            "organization.keys.read",
+                                            "organization.keys.write",
+                                            "domains.read",
+                                            "domains.write",
+                                            "keys.read",
+                                            "keys.write"
+                                        ]
                                     }
                                 },
                                 "expire": {
@@ -41559,7 +43075,19 @@
                                             "keys.read",
                                             "keys.write"
                                         ],
-                                        "x-enum-name": "OrganizationKeyScopes"
+                                        "x-enum-name": "OrganizationKeyScopes",
+                                        "x-enum-keys": [
+                                            "projects.read",
+                                            "projects.write",
+                                            "devKeys.read",
+                                            "devKeys.write",
+                                            "organization.keys.read",
+                                            "organization.keys.write",
+                                            "domains.read",
+                                            "domains.write",
+                                            "keys.read",
+                                            "keys.write"
+                                        ]
                                     }
                                 },
                                 "expire": {
@@ -41790,7 +43318,15 @@
                                         "sgp",
                                         "tor"
                                     ],
-                                    "x-enum-name": "Region"
+                                    "x-enum-name": "Region",
+                                    "x-enum-keys": [
+                                        "fra",
+                                        "nyc",
+                                        "syd",
+                                        "sfo",
+                                        "sgp",
+                                        "tor"
+                                    ]
                                 }
                             },
                             "required": [
@@ -42185,7 +43721,11 @@
                                         "appwrite",
                                         "imagine"
                                     ],
-                                    "x-enum-name": "Platform"
+                                    "x-enum-name": "Platform",
+                                    "x-enum-keys": [
+                                        "appwrite",
+                                        "imagine"
+                                    ]
                                 }
                             },
                             "required": [
@@ -42288,7 +43828,11 @@
                                         "appwrite",
                                         "imagine"
                                     ],
-                                    "x-enum-name": "Platform"
+                                    "x-enum-name": "Platform",
+                                    "x-enum-keys": [
+                                        "appwrite",
+                                        "imagine"
+                                    ]
                                 }
                             },
                             "required": [
@@ -42737,6 +44281,10 @@
                             "backup_recovery"
                         ],
                         "x-enum-name": "OrganizationAddon",
+                        "x-enum-keys": [
+                            "baa",
+                            "backup_recovery"
+                        ],
                         "in": "path"
                     }
                 ]
@@ -45921,6 +47469,15 @@
                             "phone"
                         ],
                         "x-enum-name": "ProjectAuthMethodId",
+                        "x-enum-keys": [
+                            "email-password",
+                            "magic-url",
+                            "email-otp",
+                            "anonymous",
+                            "invites",
+                            "jwt",
+                            "phone"
+                        ],
                         "in": "path"
                     },
                     {
@@ -46181,7 +47738,103 @@
                                             "events.read",
                                             "usage.read"
                                         ],
-                                        "x-enum-name": "ProjectKeyScopes"
+                                        "x-enum-name": "ProjectKeyScopes",
+                                        "x-enum-keys": [
+                                            "project.read",
+                                            "project.write",
+                                            "keys.read",
+                                            "keys.write",
+                                            "platforms.read",
+                                            "platforms.write",
+                                            "mocks.read",
+                                            "mocks.write",
+                                            "policies.read",
+                                            "policies.write",
+                                            "project.policies.read",
+                                            "project.policies.write",
+                                            "templates.read",
+                                            "templates.write",
+                                            "oauth2.read",
+                                            "oauth2.write",
+                                            "users.read",
+                                            "users.write",
+                                            "sessions.read",
+                                            "sessions.write",
+                                            "teams.read",
+                                            "teams.write",
+                                            "databases.read",
+                                            "databases.write",
+                                            "tables.read",
+                                            "tables.write",
+                                            "columns.read",
+                                            "columns.write",
+                                            "indexes.read",
+                                            "indexes.write",
+                                            "rows.read",
+                                            "rows.write",
+                                            "collections.read",
+                                            "collections.write",
+                                            "attributes.read",
+                                            "attributes.write",
+                                            "documents.read",
+                                            "documents.write",
+                                            "buckets.read",
+                                            "buckets.write",
+                                            "files.read",
+                                            "files.write",
+                                            "tokens.read",
+                                            "tokens.write",
+                                            "functions.read",
+                                            "functions.write",
+                                            "executions.read",
+                                            "executions.write",
+                                            "execution.read",
+                                            "execution.write",
+                                            "sites.read",
+                                            "sites.write",
+                                            "log.read",
+                                            "log.write",
+                                            "providers.read",
+                                            "providers.write",
+                                            "topics.read",
+                                            "topics.write",
+                                            "subscribers.read",
+                                            "subscribers.write",
+                                            "targets.read",
+                                            "targets.write",
+                                            "messages.read",
+                                            "messages.write",
+                                            "rules.read",
+                                            "rules.write",
+                                            "webhooks.read",
+                                            "webhooks.write",
+                                            "locale.read",
+                                            "avatars.read",
+                                            "health.read",
+                                            "assistant.read",
+                                            "migrations.read",
+                                            "migrations.write",
+                                            "schedules.read",
+                                            "schedules.write",
+                                            "vcs.read",
+                                            "vcs.write",
+                                            "insights.read",
+                                            "insights.write",
+                                            "reports.read",
+                                            "reports.write",
+                                            "presences.read",
+                                            "presences.write",
+                                            "backups.policies.read",
+                                            "backups.policies.write",
+                                            "archives.read",
+                                            "archives.write",
+                                            "restorations.read",
+                                            "restorations.write",
+                                            "domains.read",
+                                            "domains.write",
+                                            "events.read",
+                                            "usage.read"
+                                        ]
                                     }
                                 },
                                 "expire": {
@@ -46360,7 +48013,103 @@
                                             "events.read",
                                             "usage.read"
                                         ],
-                                        "x-enum-name": "ProjectKeyScopes"
+                                        "x-enum-name": "ProjectKeyScopes",
+                                        "x-enum-keys": [
+                                            "project.read",
+                                            "project.write",
+                                            "keys.read",
+                                            "keys.write",
+                                            "platforms.read",
+                                            "platforms.write",
+                                            "mocks.read",
+                                            "mocks.write",
+                                            "policies.read",
+                                            "policies.write",
+                                            "project.policies.read",
+                                            "project.policies.write",
+                                            "templates.read",
+                                            "templates.write",
+                                            "oauth2.read",
+                                            "oauth2.write",
+                                            "users.read",
+                                            "users.write",
+                                            "sessions.read",
+                                            "sessions.write",
+                                            "teams.read",
+                                            "teams.write",
+                                            "databases.read",
+                                            "databases.write",
+                                            "tables.read",
+                                            "tables.write",
+                                            "columns.read",
+                                            "columns.write",
+                                            "indexes.read",
+                                            "indexes.write",
+                                            "rows.read",
+                                            "rows.write",
+                                            "collections.read",
+                                            "collections.write",
+                                            "attributes.read",
+                                            "attributes.write",
+                                            "documents.read",
+                                            "documents.write",
+                                            "buckets.read",
+                                            "buckets.write",
+                                            "files.read",
+                                            "files.write",
+                                            "tokens.read",
+                                            "tokens.write",
+                                            "functions.read",
+                                            "functions.write",
+                                            "executions.read",
+                                            "executions.write",
+                                            "execution.read",
+                                            "execution.write",
+                                            "sites.read",
+                                            "sites.write",
+                                            "log.read",
+                                            "log.write",
+                                            "providers.read",
+                                            "providers.write",
+                                            "topics.read",
+                                            "topics.write",
+                                            "subscribers.read",
+                                            "subscribers.write",
+                                            "targets.read",
+                                            "targets.write",
+                                            "messages.read",
+                                            "messages.write",
+                                            "rules.read",
+                                            "rules.write",
+                                            "webhooks.read",
+                                            "webhooks.write",
+                                            "locale.read",
+                                            "avatars.read",
+                                            "health.read",
+                                            "assistant.read",
+                                            "migrations.read",
+                                            "migrations.write",
+                                            "schedules.read",
+                                            "schedules.write",
+                                            "vcs.read",
+                                            "vcs.write",
+                                            "insights.read",
+                                            "insights.write",
+                                            "reports.read",
+                                            "reports.write",
+                                            "presences.read",
+                                            "presences.write",
+                                            "backups.policies.read",
+                                            "backups.policies.write",
+                                            "archives.read",
+                                            "archives.write",
+                                            "restorations.read",
+                                            "restorations.write",
+                                            "domains.read",
+                                            "domains.write",
+                                            "events.read",
+                                            "usage.read"
+                                        ]
                                     }
                                 },
                                 "duration": {
@@ -46607,7 +48356,103 @@
                                             "events.read",
                                             "usage.read"
                                         ],
-                                        "x-enum-name": "ProjectKeyScopes"
+                                        "x-enum-name": "ProjectKeyScopes",
+                                        "x-enum-keys": [
+                                            "project.read",
+                                            "project.write",
+                                            "keys.read",
+                                            "keys.write",
+                                            "platforms.read",
+                                            "platforms.write",
+                                            "mocks.read",
+                                            "mocks.write",
+                                            "policies.read",
+                                            "policies.write",
+                                            "project.policies.read",
+                                            "project.policies.write",
+                                            "templates.read",
+                                            "templates.write",
+                                            "oauth2.read",
+                                            "oauth2.write",
+                                            "users.read",
+                                            "users.write",
+                                            "sessions.read",
+                                            "sessions.write",
+                                            "teams.read",
+                                            "teams.write",
+                                            "databases.read",
+                                            "databases.write",
+                                            "tables.read",
+                                            "tables.write",
+                                            "columns.read",
+                                            "columns.write",
+                                            "indexes.read",
+                                            "indexes.write",
+                                            "rows.read",
+                                            "rows.write",
+                                            "collections.read",
+                                            "collections.write",
+                                            "attributes.read",
+                                            "attributes.write",
+                                            "documents.read",
+                                            "documents.write",
+                                            "buckets.read",
+                                            "buckets.write",
+                                            "files.read",
+                                            "files.write",
+                                            "tokens.read",
+                                            "tokens.write",
+                                            "functions.read",
+                                            "functions.write",
+                                            "executions.read",
+                                            "executions.write",
+                                            "execution.read",
+                                            "execution.write",
+                                            "sites.read",
+                                            "sites.write",
+                                            "log.read",
+                                            "log.write",
+                                            "providers.read",
+                                            "providers.write",
+                                            "topics.read",
+                                            "topics.write",
+                                            "subscribers.read",
+                                            "subscribers.write",
+                                            "targets.read",
+                                            "targets.write",
+                                            "messages.read",
+                                            "messages.write",
+                                            "rules.read",
+                                            "rules.write",
+                                            "webhooks.read",
+                                            "webhooks.write",
+                                            "locale.read",
+                                            "avatars.read",
+                                            "health.read",
+                                            "assistant.read",
+                                            "migrations.read",
+                                            "migrations.write",
+                                            "schedules.read",
+                                            "schedules.write",
+                                            "vcs.read",
+                                            "vcs.write",
+                                            "insights.read",
+                                            "insights.write",
+                                            "reports.read",
+                                            "reports.write",
+                                            "presences.read",
+                                            "presences.write",
+                                            "backups.policies.read",
+                                            "backups.policies.write",
+                                            "archives.read",
+                                            "archives.write",
+                                            "restorations.read",
+                                            "restorations.write",
+                                            "domains.read",
+                                            "domains.write",
+                                            "events.read",
+                                            "usage.read"
+                                        ]
                                     }
                                 },
                                 "expire": {
@@ -48722,7 +50567,12 @@
                                             "consent",
                                             "select_account"
                                         ],
-                                        "x-enum-name": "ProjectOAuth2GooglePrompt"
+                                        "x-enum-name": "ProjectOAuth2GooglePrompt",
+                                        "x-enum-keys": [
+                                            "none",
+                                            "consent",
+                                            "select_account"
+                                        ]
                                     }
                                 },
                                 "enabled": {
@@ -50903,6 +52753,51 @@
                             "zoom"
                         ],
                         "x-enum-name": "ProjectOAuthProviderId",
+                        "x-enum-keys": [
+                            "amazon",
+                            "apple",
+                            "auth0",
+                            "authentik",
+                            "autodesk",
+                            "bitbucket",
+                            "bitly",
+                            "box",
+                            "dailymotion",
+                            "discord",
+                            "disqus",
+                            "dropbox",
+                            "etsy",
+                            "facebook",
+                            "figma",
+                            "fusionauth",
+                            "github",
+                            "gitlab",
+                            "google",
+                            "keycloak",
+                            "kick",
+                            "linkedin",
+                            "microsoft",
+                            "notion",
+                            "oidc",
+                            "okta",
+                            "paypal",
+                            "paypalSandbox",
+                            "podio",
+                            "salesforce",
+                            "slack",
+                            "spotify",
+                            "stripe",
+                            "tradeshift",
+                            "tradeshiftBox",
+                            "twitch",
+                            "wordpress",
+                            "x",
+                            "yahoo",
+                            "yammer",
+                            "yandex",
+                            "zoho",
+                            "zoom"
+                        ],
                         "in": "path"
                     }
                 ]
@@ -53035,6 +54930,17 @@
                             "membership-privacy"
                         ],
                         "x-enum-name": "ProjectPolicyId",
+                        "x-enum-keys": [
+                            "password-dictionary",
+                            "password-history",
+                            "password-personal-data",
+                            "session-alert",
+                            "session-duration",
+                            "session-invalidation",
+                            "session-limit",
+                            "user-limit",
+                            "membership-privacy"
+                        ],
                         "in": "path"
                     }
                 ]
@@ -53102,6 +55008,11 @@
                             "websocket"
                         ],
                         "x-enum-name": "ProjectProtocolId",
+                        "x-enum-keys": [
+                            "rest",
+                            "graphql",
+                            "websocket"
+                        ],
                         "in": "path"
                     },
                     {
@@ -53201,6 +55112,26 @@
                             "advisor"
                         ],
                         "x-enum-name": "ProjectServiceId",
+                        "x-enum-keys": [
+                            "account",
+                            "avatars",
+                            "databases",
+                            "tablesdb",
+                            "locale",
+                            "health",
+                            "project",
+                            "storage",
+                            "teams",
+                            "users",
+                            "vcs",
+                            "sites",
+                            "functions",
+                            "proxy",
+                            "graphql",
+                            "migrations",
+                            "messaging",
+                            "advisor"
+                        ],
                         "in": "path"
                     },
                     {
@@ -53339,6 +55270,10 @@
                                         "ssl"
                                     ],
                                     "x-enum-name": "ProjectSMTPSecure",
+                                    "x-enum-keys": [
+                                        "tls",
+                                        "ssl"
+                                    ],
                                     "x-nullable": true
                                 },
                                 "enabled": {
@@ -53560,7 +55495,16 @@
                                         "sessionAlert",
                                         "otpSession"
                                     ],
-                                    "x-enum-name": "ProjectEmailTemplateId"
+                                    "x-enum-name": "ProjectEmailTemplateId",
+                                    "x-enum-keys": [
+                                        "verification",
+                                        "magicSession",
+                                        "recovery",
+                                        "invitation",
+                                        "mfaChallenge",
+                                        "sessionAlert",
+                                        "otpSession"
+                                    ]
                                 },
                                 "locale": {
                                     "type": "string",
@@ -53699,7 +55643,140 @@
                                         "zh-tw",
                                         "zu"
                                     ],
-                                    "x-enum-name": "ProjectEmailTemplateLocale"
+                                    "x-enum-name": "ProjectEmailTemplateLocale",
+                                    "x-enum-keys": [
+                                        "af",
+                                        "ar-ae",
+                                        "ar-bh",
+                                        "ar-dz",
+                                        "ar-eg",
+                                        "ar-iq",
+                                        "ar-jo",
+                                        "ar-kw",
+                                        "ar-lb",
+                                        "ar-ly",
+                                        "ar-ma",
+                                        "ar-om",
+                                        "ar-qa",
+                                        "ar-sa",
+                                        "ar-sy",
+                                        "ar-tn",
+                                        "ar-ye",
+                                        "as",
+                                        "az",
+                                        "be",
+                                        "bg",
+                                        "bh",
+                                        "bn",
+                                        "bs",
+                                        "ca",
+                                        "cs",
+                                        "cy",
+                                        "da",
+                                        "de",
+                                        "de-at",
+                                        "de-ch",
+                                        "de-li",
+                                        "de-lu",
+                                        "el",
+                                        "en",
+                                        "en-au",
+                                        "en-bz",
+                                        "en-ca",
+                                        "en-gb",
+                                        "en-ie",
+                                        "en-jm",
+                                        "en-nz",
+                                        "en-tt",
+                                        "en-us",
+                                        "en-za",
+                                        "eo",
+                                        "es",
+                                        "es-ar",
+                                        "es-bo",
+                                        "es-cl",
+                                        "es-co",
+                                        "es-cr",
+                                        "es-do",
+                                        "es-ec",
+                                        "es-gt",
+                                        "es-hn",
+                                        "es-mx",
+                                        "es-ni",
+                                        "es-pa",
+                                        "es-pe",
+                                        "es-pr",
+                                        "es-py",
+                                        "es-sv",
+                                        "es-uy",
+                                        "es-ve",
+                                        "et",
+                                        "eu",
+                                        "fa",
+                                        "fi",
+                                        "fo",
+                                        "fr",
+                                        "fr-be",
+                                        "fr-ca",
+                                        "fr-ch",
+                                        "fr-lu",
+                                        "ga",
+                                        "gd",
+                                        "he",
+                                        "hi",
+                                        "hr",
+                                        "hu",
+                                        "id",
+                                        "is",
+                                        "it",
+                                        "it-ch",
+                                        "ja",
+                                        "ji",
+                                        "ko",
+                                        "ku",
+                                        "lt",
+                                        "lv",
+                                        "mk",
+                                        "ml",
+                                        "ms",
+                                        "mt",
+                                        "nb",
+                                        "ne",
+                                        "nl",
+                                        "nl-be",
+                                        "nn",
+                                        "no",
+                                        "pa",
+                                        "pl",
+                                        "pt",
+                                        "pt-br",
+                                        "rm",
+                                        "ro",
+                                        "ro-md",
+                                        "ru",
+                                        "ru-md",
+                                        "sb",
+                                        "sk",
+                                        "sl",
+                                        "sq",
+                                        "sr",
+                                        "sv",
+                                        "sv-fi",
+                                        "th",
+                                        "tn",
+                                        "tr",
+                                        "ts",
+                                        "ua",
+                                        "ur",
+                                        "ve",
+                                        "vi",
+                                        "xh",
+                                        "zh-cn",
+                                        "zh-hk",
+                                        "zh-sg",
+                                        "zh-tw",
+                                        "zu"
+                                    ]
                                 },
                                 "subject": {
                                     "type": "string",
@@ -53812,6 +55889,15 @@
                             "otpSession"
                         ],
                         "x-enum-name": "ProjectEmailTemplateId",
+                        "x-enum-keys": [
+                            "verification",
+                            "magicSession",
+                            "recovery",
+                            "invitation",
+                            "mfaChallenge",
+                            "sessionAlert",
+                            "otpSession"
+                        ],
                         "in": "path"
                     },
                     {
@@ -53954,6 +56040,139 @@
                             "zu"
                         ],
                         "x-enum-name": "ProjectEmailTemplateLocale",
+                        "x-enum-keys": [
+                            "af",
+                            "ar-ae",
+                            "ar-bh",
+                            "ar-dz",
+                            "ar-eg",
+                            "ar-iq",
+                            "ar-jo",
+                            "ar-kw",
+                            "ar-lb",
+                            "ar-ly",
+                            "ar-ma",
+                            "ar-om",
+                            "ar-qa",
+                            "ar-sa",
+                            "ar-sy",
+                            "ar-tn",
+                            "ar-ye",
+                            "as",
+                            "az",
+                            "be",
+                            "bg",
+                            "bh",
+                            "bn",
+                            "bs",
+                            "ca",
+                            "cs",
+                            "cy",
+                            "da",
+                            "de",
+                            "de-at",
+                            "de-ch",
+                            "de-li",
+                            "de-lu",
+                            "el",
+                            "en",
+                            "en-au",
+                            "en-bz",
+                            "en-ca",
+                            "en-gb",
+                            "en-ie",
+                            "en-jm",
+                            "en-nz",
+                            "en-tt",
+                            "en-us",
+                            "en-za",
+                            "eo",
+                            "es",
+                            "es-ar",
+                            "es-bo",
+                            "es-cl",
+                            "es-co",
+                            "es-cr",
+                            "es-do",
+                            "es-ec",
+                            "es-gt",
+                            "es-hn",
+                            "es-mx",
+                            "es-ni",
+                            "es-pa",
+                            "es-pe",
+                            "es-pr",
+                            "es-py",
+                            "es-sv",
+                            "es-uy",
+                            "es-ve",
+                            "et",
+                            "eu",
+                            "fa",
+                            "fi",
+                            "fo",
+                            "fr",
+                            "fr-be",
+                            "fr-ca",
+                            "fr-ch",
+                            "fr-lu",
+                            "ga",
+                            "gd",
+                            "he",
+                            "hi",
+                            "hr",
+                            "hu",
+                            "id",
+                            "is",
+                            "it",
+                            "it-ch",
+                            "ja",
+                            "ji",
+                            "ko",
+                            "ku",
+                            "lt",
+                            "lv",
+                            "mk",
+                            "ml",
+                            "ms",
+                            "mt",
+                            "nb",
+                            "ne",
+                            "nl",
+                            "nl-be",
+                            "nn",
+                            "no",
+                            "pa",
+                            "pl",
+                            "pt",
+                            "pt-br",
+                            "rm",
+                            "ro",
+                            "ro-md",
+                            "ru",
+                            "ru-md",
+                            "sb",
+                            "sk",
+                            "sl",
+                            "sq",
+                            "sr",
+                            "sv",
+                            "sv-fi",
+                            "th",
+                            "tn",
+                            "tr",
+                            "ts",
+                            "ua",
+                            "ur",
+                            "ve",
+                            "vi",
+                            "xh",
+                            "zh-cn",
+                            "zh-hk",
+                            "zh-sg",
+                            "zh-tw",
+                            "zu"
+                        ],
                         "in": "query"
                     }
                 ]
@@ -54973,7 +57192,13 @@
                                         "message",
                                         "backup"
                                     ],
-                                    "x-enum-name": "ScheduleResourceType"
+                                    "x-enum-name": "ScheduleResourceType",
+                                    "x-enum-keys": [
+                                        "function",
+                                        "execution",
+                                        "message",
+                                        "backup"
+                                    ]
                                 },
                                 "resourceId": {
                                     "type": "string",
@@ -55141,7 +57366,10 @@
                                     "enum": [
                                         "active"
                                     ],
-                                    "x-enum-name": "ProjectStatus"
+                                    "x-enum-name": "ProjectStatus",
+                                    "x-enum-keys": [
+                                        "active"
+                                    ]
                                 }
                             },
                             "required": [
@@ -56329,7 +58557,24 @@
                                         "vite",
                                         "other"
                                     ],
-                                    "x-enum-name": "SiteFramework"
+                                    "x-enum-name": "SiteFramework",
+                                    "x-enum-keys": [
+                                        "analog",
+                                        "angular",
+                                        "nextjs",
+                                        "react",
+                                        "nuxt",
+                                        "vue",
+                                        "sveltekit",
+                                        "astro",
+                                        "tanstack-start",
+                                        "remix",
+                                        "lynx",
+                                        "flutter",
+                                        "react-native",
+                                        "vite",
+                                        "other"
+                                    ]
                                 },
                                 "enabled": {
                                     "type": "boolean",
@@ -56474,7 +58719,103 @@
                                         "flutter-3.41",
                                         "flutter-3.44"
                                     ],
-                                    "x-enum-name": "SiteBuildRuntime"
+                                    "x-enum-name": "SiteBuildRuntime",
+                                    "x-enum-keys": [
+                                        "node-14.5",
+                                        "node-16.0",
+                                        "node-18.0",
+                                        "node-19.0",
+                                        "node-20.0",
+                                        "node-21.0",
+                                        "node-22",
+                                        "node-23",
+                                        "node-24",
+                                        "node-25",
+                                        "php-8.0",
+                                        "php-8.1",
+                                        "php-8.2",
+                                        "php-8.3",
+                                        "php-8.4",
+                                        "ruby-3.0",
+                                        "ruby-3.1",
+                                        "ruby-3.2",
+                                        "ruby-3.3",
+                                        "ruby-3.4",
+                                        "ruby-4.0",
+                                        "python-3.8",
+                                        "python-3.9",
+                                        "python-3.10",
+                                        "python-3.11",
+                                        "python-3.12",
+                                        "python-3.13",
+                                        "python-3.14",
+                                        "python-ml-3.11",
+                                        "python-ml-3.12",
+                                        "python-ml-3.13",
+                                        "deno-1.21",
+                                        "deno-1.24",
+                                        "deno-1.35",
+                                        "deno-1.40",
+                                        "deno-1.46",
+                                        "deno-2.0",
+                                        "deno-2.5",
+                                        "deno-2.6",
+                                        "dart-2.15",
+                                        "dart-2.16",
+                                        "dart-2.17",
+                                        "dart-2.18",
+                                        "dart-2.19",
+                                        "dart-3.0",
+                                        "dart-3.1",
+                                        "dart-3.3",
+                                        "dart-3.5",
+                                        "dart-3.8",
+                                        "dart-3.9",
+                                        "dart-3.10",
+                                        "dart-3.11",
+                                        "dart-3.12",
+                                        "dotnet-6.0",
+                                        "dotnet-7.0",
+                                        "dotnet-8.0",
+                                        "dotnet-10",
+                                        "java-8.0",
+                                        "java-11.0",
+                                        "java-17.0",
+                                        "java-18.0",
+                                        "java-21.0",
+                                        "java-22",
+                                        "java-25",
+                                        "swift-5.5",
+                                        "swift-5.8",
+                                        "swift-5.9",
+                                        "swift-5.10",
+                                        "swift-6.2",
+                                        "kotlin-1.6",
+                                        "kotlin-1.8",
+                                        "kotlin-1.9",
+                                        "kotlin-2.0",
+                                        "kotlin-2.3",
+                                        "cpp-17",
+                                        "cpp-20",
+                                        "bun-1.0",
+                                        "bun-1.1",
+                                        "bun-1.2",
+                                        "bun-1.3",
+                                        "go-1.23",
+                                        "go-1.24",
+                                        "go-1.25",
+                                        "go-1.26",
+                                        "rust-1.83",
+                                        "static-1",
+                                        "flutter-3.24",
+                                        "flutter-3.27",
+                                        "flutter-3.29",
+                                        "flutter-3.32",
+                                        "flutter-3.35",
+                                        "flutter-3.38",
+                                        "flutter-3.41",
+                                        "flutter-3.44"
+                                    ]
                                 },
                                 "adapter": {
                                     "type": "string",
@@ -56484,7 +58825,11 @@
                                         "static",
                                         "ssr"
                                     ],
-                                    "x-enum-name": "SiteAdapter"
+                                    "x-enum-name": "SiteAdapter",
+                                    "x-enum-keys": [
+                                        "static",
+                                        "ssr"
+                                    ]
                                 },
                                 "installationId": {
                                     "type": "string",
@@ -56740,7 +59085,24 @@
                                 "vite",
                                 "other"
                             ],
-                            "x-enum-name": "SiteFramework"
+                            "x-enum-name": "SiteFramework",
+                            "x-enum-keys": [
+                                "analog",
+                                "angular",
+                                "nextjs",
+                                "react",
+                                "nuxt",
+                                "vue",
+                                "sveltekit",
+                                "astro",
+                                "tanstack-start",
+                                "remix",
+                                "lynx",
+                                "flutter",
+                                "react-native",
+                                "vite",
+                                "other"
+                            ]
                         },
                         "default": [],
                         "in": "query"
@@ -56764,7 +59126,18 @@
                                 "forms",
                                 "dashboard"
                             ],
-                            "x-enum-name": "SiteTemplateUseCase"
+                            "x-enum-name": "SiteTemplateUseCase",
+                            "x-enum-keys": [
+                                "portfolio",
+                                "starter",
+                                "events",
+                                "ecommerce",
+                                "documentation",
+                                "blog",
+                                "ai",
+                                "forms",
+                                "dashboard"
+                            ]
                         },
                         "default": [],
                         "in": "query"
@@ -57065,7 +59438,24 @@
                                         "vite",
                                         "other"
                                     ],
-                                    "x-enum-name": "SiteFramework"
+                                    "x-enum-name": "SiteFramework",
+                                    "x-enum-keys": [
+                                        "analog",
+                                        "angular",
+                                        "nextjs",
+                                        "react",
+                                        "nuxt",
+                                        "vue",
+                                        "sveltekit",
+                                        "astro",
+                                        "tanstack-start",
+                                        "remix",
+                                        "lynx",
+                                        "flutter",
+                                        "react-native",
+                                        "vite",
+                                        "other"
+                                    ]
                                 },
                                 "enabled": {
                                     "type": "boolean",
@@ -57210,7 +59600,103 @@
                                         "flutter-3.41",
                                         "flutter-3.44"
                                     ],
-                                    "x-enum-name": "SiteBuildRuntime"
+                                    "x-enum-name": "SiteBuildRuntime",
+                                    "x-enum-keys": [
+                                        "node-14.5",
+                                        "node-16.0",
+                                        "node-18.0",
+                                        "node-19.0",
+                                        "node-20.0",
+                                        "node-21.0",
+                                        "node-22",
+                                        "node-23",
+                                        "node-24",
+                                        "node-25",
+                                        "php-8.0",
+                                        "php-8.1",
+                                        "php-8.2",
+                                        "php-8.3",
+                                        "php-8.4",
+                                        "ruby-3.0",
+                                        "ruby-3.1",
+                                        "ruby-3.2",
+                                        "ruby-3.3",
+                                        "ruby-3.4",
+                                        "ruby-4.0",
+                                        "python-3.8",
+                                        "python-3.9",
+                                        "python-3.10",
+                                        "python-3.11",
+                                        "python-3.12",
+                                        "python-3.13",
+                                        "python-3.14",
+                                        "python-ml-3.11",
+                                        "python-ml-3.12",
+                                        "python-ml-3.13",
+                                        "deno-1.21",
+                                        "deno-1.24",
+                                        "deno-1.35",
+                                        "deno-1.40",
+                                        "deno-1.46",
+                                        "deno-2.0",
+                                        "deno-2.5",
+                                        "deno-2.6",
+                                        "dart-2.15",
+                                        "dart-2.16",
+                                        "dart-2.17",
+                                        "dart-2.18",
+                                        "dart-2.19",
+                                        "dart-3.0",
+                                        "dart-3.1",
+                                        "dart-3.3",
+                                        "dart-3.5",
+                                        "dart-3.8",
+                                        "dart-3.9",
+                                        "dart-3.10",
+                                        "dart-3.11",
+                                        "dart-3.12",
+                                        "dotnet-6.0",
+                                        "dotnet-7.0",
+                                        "dotnet-8.0",
+                                        "dotnet-10",
+                                        "java-8.0",
+                                        "java-11.0",
+                                        "java-17.0",
+                                        "java-18.0",
+                                        "java-21.0",
+                                        "java-22",
+                                        "java-25",
+                                        "swift-5.5",
+                                        "swift-5.8",
+                                        "swift-5.9",
+                                        "swift-5.10",
+                                        "swift-6.2",
+                                        "kotlin-1.6",
+                                        "kotlin-1.8",
+                                        "kotlin-1.9",
+                                        "kotlin-2.0",
+                                        "kotlin-2.3",
+                                        "cpp-17",
+                                        "cpp-20",
+                                        "bun-1.0",
+                                        "bun-1.1",
+                                        "bun-1.2",
+                                        "bun-1.3",
+                                        "go-1.23",
+                                        "go-1.24",
+                                        "go-1.25",
+                                        "go-1.26",
+                                        "rust-1.83",
+                                        "static-1",
+                                        "flutter-3.24",
+                                        "flutter-3.27",
+                                        "flutter-3.29",
+                                        "flutter-3.32",
+                                        "flutter-3.35",
+                                        "flutter-3.38",
+                                        "flutter-3.41",
+                                        "flutter-3.44"
+                                    ]
                                 },
                                 "adapter": {
                                     "type": "string",
@@ -57220,7 +59706,11 @@
                                         "static",
                                         "ssr"
                                     ],
-                                    "x-enum-name": "SiteAdapter"
+                                    "x-enum-name": "SiteAdapter",
+                                    "x-enum-keys": [
+                                        "static",
+                                        "ssr"
+                                    ]
                                 },
                                 "fallbackFile": {
                                     "type": "string",
@@ -57791,7 +60281,12 @@
                                         "commit",
                                         "tag"
                                     ],
-                                    "x-enum-name": "TemplateReferenceType"
+                                    "x-enum-name": "TemplateReferenceType",
+                                    "x-enum-keys": [
+                                        "branch",
+                                        "commit",
+                                        "tag"
+                                    ]
                                 },
                                 "reference": {
                                     "type": "string",
@@ -57890,7 +60385,12 @@
                                         "commit",
                                         "tag"
                                     ],
-                                    "x-enum-name": "VCSReferenceType"
+                                    "x-enum-name": "VCSReferenceType",
+                                    "x-enum-keys": [
+                                        "branch",
+                                        "commit",
+                                        "tag"
+                                    ]
                                 },
                                 "reference": {
                                     "type": "string",
@@ -58118,6 +60618,10 @@
                             "output"
                         ],
                         "x-enum-name": "DeploymentDownloadType",
+                        "x-enum-keys": [
+                            "source",
+                            "output"
+                        ],
                         "default": "source",
                         "in": "query"
                     }
@@ -59072,7 +61576,12 @@
                                         "gzip",
                                         "zstd"
                                     ],
-                                    "x-enum-name": "Compression"
+                                    "x-enum-name": "Compression",
+                                    "x-enum-keys": [
+                                        "none",
+                                        "gzip",
+                                        "zstd"
+                                    ]
                                 },
                                 "encryption": {
                                     "type": "boolean",
@@ -59277,7 +61786,12 @@
                                         "gzip",
                                         "zstd"
                                     ],
-                                    "x-enum-name": "Compression"
+                                    "x-enum-name": "Compression",
+                                    "x-enum-keys": [
+                                        "none",
+                                        "gzip",
+                                        "zstd"
+                                    ]
                                 },
                                 "encryption": {
                                     "type": "boolean",
@@ -59962,6 +62476,17 @@
                             "bottom-right"
                         ],
                         "x-enum-name": "ImageGravity",
+                        "x-enum-keys": [
+                            "center",
+                            "top-left",
+                            "top",
+                            "top-right",
+                            "left",
+                            "right",
+                            "bottom-left",
+                            "bottom",
+                            "bottom-right"
+                        ],
                         "default": "center",
                         "in": "query"
                     },
@@ -60047,6 +62572,15 @@
                             "gif"
                         ],
                         "x-enum-name": "ImageFormat",
+                        "x-enum-keys": [
+                            "jpg",
+                            "jpeg",
+                            "png",
+                            "webp",
+                            "heic",
+                            "avif",
+                            "gif"
+                        ],
                         "in": "query"
                     },
                     {
@@ -64830,7 +67364,13 @@
                                         "manyToMany",
                                         "oneToMany"
                                     ],
-                                    "x-enum-name": "RelationshipType"
+                                    "x-enum-name": "RelationshipType",
+                                    "x-enum-keys": [
+                                        "oneToOne",
+                                        "manyToOne",
+                                        "manyToMany",
+                                        "oneToMany"
+                                    ]
                                 },
                                 "twoWay": {
                                     "type": "boolean",
@@ -64860,7 +67400,12 @@
                                         "restrict",
                                         "setNull"
                                     ],
-                                    "x-enum-name": "RelationMutate"
+                                    "x-enum-name": "RelationMutate",
+                                    "x-enum-keys": [
+                                        "cascade",
+                                        "restrict",
+                                        "setNull"
+                                    ]
                                 }
                             },
                             "required": [
@@ -66148,6 +68693,11 @@
                                         "setNull"
                                     ],
                                     "x-enum-name": "RelationMutate",
+                                    "x-enum-keys": [
+                                        "cascade",
+                                        "restrict",
+                                        "setNull"
+                                    ],
                                     "x-nullable": true
                                 },
                                 "newKey": {
@@ -66345,7 +68895,13 @@
                                         "unique",
                                         "spatial"
                                     ],
-                                    "x-enum-name": "TablesDBIndexType"
+                                    "x-enum-name": "TablesDBIndexType",
+                                    "x-enum-keys": [
+                                        "key",
+                                        "fulltext",
+                                        "unique",
+                                        "spatial"
+                                    ]
                                 },
                                 "columns": {
                                     "type": "array",
@@ -66366,7 +68922,11 @@
                                             "asc",
                                             "desc"
                                         ],
-                                        "x-enum-name": "OrderBy"
+                                        "x-enum-name": "OrderBy",
+                                        "x-enum-keys": [
+                                            "asc",
+                                            "desc"
+                                        ]
                                     }
                                 },
                                 "lengths": {
@@ -70850,7 +73410,20 @@
                                         "sha3-384",
                                         "sha3-512"
                                     ],
-                                    "x-enum-name": "PasswordHash"
+                                    "x-enum-name": "PasswordHash",
+                                    "x-enum-keys": [
+                                        "sha1",
+                                        "sha224",
+                                        "sha256",
+                                        "sha384",
+                                        "sha512\/224",
+                                        "sha512\/256",
+                                        "sha512",
+                                        "sha3-224",
+                                        "sha3-256",
+                                        "sha3-384",
+                                        "sha3-512"
+                                    ]
                                 },
                                 "name": {
                                     "type": "string",
@@ -70928,6 +73501,11 @@
                             "90d"
                         ],
                         "x-enum-name": "UsageRange",
+                        "x-enum-keys": [
+                            "24h",
+                            "30d",
+                            "90d"
+                        ],
                         "default": "30d",
                         "in": "query"
                     }
@@ -71806,6 +74384,9 @@
                             "totp"
                         ],
                         "x-enum-name": "AuthenticatorType",
+                        "x-enum-keys": [
+                            "totp"
+                        ],
                         "in": "path"
                     }
                 ]
@@ -73149,7 +75730,12 @@
                                         "sms",
                                         "push"
                                     ],
-                                    "x-enum-name": "MessagingProviderType"
+                                    "x-enum-name": "MessagingProviderType",
+                                    "x-enum-keys": [
+                                        "email",
+                                        "sms",
+                                        "push"
+                                    ]
                                 },
                                 "identifier": {
                                     "type": "string",
@@ -73738,7 +76324,11 @@
                                         "runtime",
                                         "framework"
                                     ],
-                                    "x-enum-name": "VCSDetectionType"
+                                    "x-enum-name": "VCSDetectionType",
+                                    "x-enum-keys": [
+                                        "runtime",
+                                        "framework"
+                                    ]
                                 },
                                 "providerRootDirectory": {
                                     "type": "string",
@@ -73836,6 +76426,10 @@
                             "framework"
                         ],
                         "x-enum-name": "VCSDetectionType",
+                        "x-enum-keys": [
+                            "runtime",
+                            "framework"
+                        ],
                         "in": "query"
                     },
                     {
@@ -74707,7 +77301,10 @@
                                     "enum": [
                                         "embeddinggemma"
                                     ],
-                                    "x-enum-name": "EmbeddingModel"
+                                    "x-enum-name": "EmbeddingModel",
+                                    "x-enum-keys": [
+                                        "embeddinggemma"
+                                    ]
                                 }
                             },
                             "required": [
@@ -77081,7 +79678,15 @@
                                         "key",
                                         "unique"
                                     ],
-                                    "x-enum-name": "VectorsDBIndexType"
+                                    "x-enum-name": "VectorsDBIndexType",
+                                    "x-enum-keys": [
+                                        "hnsw_euclidean",
+                                        "hnsw_dot",
+                                        "hnsw_cosine",
+                                        "object",
+                                        "key",
+                                        "unique"
+                                    ]
                                 },
                                 "attributes": {
                                     "type": "array",
@@ -77102,7 +79707,11 @@
                                             "asc",
                                             "desc"
                                         ],
-                                        "x-enum-name": "OrderBy"
+                                        "x-enum-name": "OrderBy",
+                                        "x-enum-keys": [
+                                            "asc",
+                                            "desc"
+                                        ]
                                     }
                                 },
                                 "lengths": {
