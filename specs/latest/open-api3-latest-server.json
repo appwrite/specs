@@ -38383,7 +38383,13 @@
                                             "307",
                                             "308"
                                         ],
-                                        "x-enum-name": "RedirectStatusCode"
+                                        "x-enum-name": "RedirectStatusCode",
+                                        "x-enum-keys": [
+                                            "MovedPermanently",
+                                            "Found",
+                                            "TemporaryRedirect",
+                                            "PermanentRedirect"
+                                        ]
                                     },
                                     "resourceId": {
                                         "type": "string",
