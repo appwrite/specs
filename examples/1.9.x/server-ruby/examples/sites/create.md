@@ -5,7 +5,7 @@ include Appwrite
 include Appwrite::Enums
 
 client = Client.new
-    .set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
+    .set_endpoint('') # Your API Endpoint
     .set_project('<YOUR_PROJECT_ID>') # Your project ID
     .set_key('<YOUR_API_KEY>') # Your secret API key
 
@@ -14,8 +14,8 @@ sites = Sites.new(client)
 result = sites.create(
     site_id: '<SITE_ID>',
     name: '<NAME>',
-    framework: Framework::ANALOG,
-    build_runtime: BuildRuntime::NODE_14_5,
+    framework: SiteFramework::ANALOG,
+    build_runtime: SiteBuildRuntime::NODE_14_5,
     enabled: false, # optional
     logging: false, # optional
     timeout: 1, # optional
@@ -23,13 +23,15 @@ result = sites.create(
     build_command: '<BUILD_COMMAND>', # optional
     start_command: '<START_COMMAND>', # optional
     output_directory: '<OUTPUT_DIRECTORY>', # optional
-    adapter: Adapter::STATIC, # optional
+    adapter: SiteAdapter::STATIC, # optional
     installation_id: '<INSTALLATION_ID>', # optional
     fallback_file: '<FALLBACK_FILE>', # optional
     provider_repository_id: '<PROVIDER_REPOSITORY_ID>', # optional
     provider_branch: '<PROVIDER_BRANCH>', # optional
     provider_silent_mode: false, # optional
     provider_root_directory: '<PROVIDER_ROOT_DIRECTORY>', # optional
+    provider_branches: [], # optional
+    provider_paths: [], # optional
     build_specification: '', # optional
     runtime_specification: '', # optional
     deployment_retention: 0 # optional

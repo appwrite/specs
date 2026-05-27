@@ -2,11 +2,11 @@
 from appwrite.client import Client
 from appwrite.services.functions import Functions
 from appwrite.models import Function
-from appwrite.enums import Runtime
-from appwrite.enums import Scopes
+from appwrite.enums import FunctionRuntime
+from appwrite.enums import ProjectKeyScopes
 
 client = Client()
-client.set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
+client.set_endpoint('') # Your API Endpoint
 client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 client.set_key('<YOUR_API_KEY>') # Your secret API key
 
@@ -15,7 +15,7 @@ functions = Functions(client)
 result: Function = functions.update(
     function_id = '<FUNCTION_ID>',
     name = '<NAME>',
-    runtime = Runtime.NODE_14_5, # optional
+    runtime = FunctionRuntime.NODE_14_5, # optional
     execute = ["any"], # optional
     events = [], # optional
     schedule = '', # optional
@@ -24,12 +24,14 @@ result: Function = functions.update(
     logging = False, # optional
     entrypoint = '<ENTRYPOINT>', # optional
     commands = '<COMMANDS>', # optional
-    scopes = [Scopes.PROJECT_READ], # optional
+    scopes = [ProjectKeyScopes.PROJECT_READ], # optional
     installation_id = '<INSTALLATION_ID>', # optional
     provider_repository_id = '<PROVIDER_REPOSITORY_ID>', # optional
     provider_branch = '<PROVIDER_BRANCH>', # optional
     provider_silent_mode = False, # optional
     provider_root_directory = '<PROVIDER_ROOT_DIRECTORY>', # optional
+    provider_branches = [], # optional
+    provider_paths = [], # optional
     build_specification = '', # optional
     runtime_specification = '', # optional
     deployment_retention = 0 # optional

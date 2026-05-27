@@ -5,7 +5,7 @@ using Appwrite.Models;
 using Appwrite.Services;
 
 Client client = new Client()
-    .SetEndPoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
+    .SetEndPoint("") // Your API Endpoint
     .SetProject("<YOUR_PROJECT_ID>") // Your project ID
     .SetSession(""); // The user session to authenticate with
 
@@ -20,7 +20,7 @@ byte[] result = await avatars.GetScreenshot(
     viewportWidth: 1920, // optional
     viewportHeight: 1080, // optional
     scale: 2, // optional
-    theme: Theme.Dark, // optional
+    theme: BrowserTheme.Dark, // optional
     userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15", // optional
     fullpage: true, // optional
     locale: "en-US", // optional

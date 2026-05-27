@@ -2,11 +2,11 @@
 import io.appwrite.Client
 import io.appwrite.coroutines.CoroutineCallback
 import io.appwrite.services.Functions
-import io.appwrite.enums.Runtime
-import io.appwrite.enums.Scopes
+import io.appwrite.enums.FunctionRuntime
+import io.appwrite.enums.ProjectKeyScopes
 
 val client = Client()
-    .setEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
+    .setEndpoint("") // Your API Endpoint
     .setProject("<YOUR_PROJECT_ID>") // Your project ID
     .setKey("<YOUR_API_KEY>") // Your secret API key
 
@@ -15,7 +15,7 @@ val functions = Functions(client)
 val response = functions.update(
     functionId = "<FUNCTION_ID>",
     name = "<NAME>",
-    runtime = Runtime.NODE_14_5, // optional
+    runtime = FunctionRuntime.NODE_14_5, // optional
     execute = listOf("any"), // optional
     events = listOf(), // optional
     schedule = "", // optional
@@ -24,12 +24,14 @@ val response = functions.update(
     logging = false, // optional
     entrypoint = "<ENTRYPOINT>", // optional
     commands = "<COMMANDS>", // optional
-    scopes = listOf(Scopes.PROJECT_READ), // optional
+    scopes = listOf(ProjectKeyScopes.PROJECT_READ), // optional
     installationId = "<INSTALLATION_ID>", // optional
     providerRepositoryId = "<PROVIDER_REPOSITORY_ID>", // optional
     providerBranch = "<PROVIDER_BRANCH>", // optional
     providerSilentMode = false, // optional
     providerRootDirectory = "<PROVIDER_ROOT_DIRECTORY>", // optional
+    providerBranches = listOf(), // optional
+    providerPaths = listOf(), // optional
     buildSpecification = "", // optional
     runtimeSpecification = "", // optional
     deploymentRetention = 0 // optional

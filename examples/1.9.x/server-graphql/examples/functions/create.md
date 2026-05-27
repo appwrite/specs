@@ -18,6 +18,8 @@ mutation {
         providerBranch: "<PROVIDER_BRANCH>",
         providerSilentMode: false,
         providerRootDirectory: "<PROVIDER_ROOT_DIRECTORY>",
+        providerBranches: [],
+        providerPaths: [],
         buildSpecification: "",
         runtimeSpecification: "",
         deploymentRetention: 0
@@ -59,6 +61,8 @@ mutation {
         providerBranch
         providerRootDirectory
         providerSilentMode
+        providerBranches
+        providerPaths
         buildSpecification
         runtimeSpecification
     }

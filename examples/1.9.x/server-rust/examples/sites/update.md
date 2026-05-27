@@ -5,7 +5,7 @@ use appwrite::services::Sites;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::new();
-    client.set_endpoint("https://<REGION>.cloud.appwrite.io/v1"); // Your API Endpoint
+    client.set_endpoint(""); // Your API Endpoint
     client.set_project("<YOUR_PROJECT_ID>"); // Your project ID
     client.set_key("<YOUR_API_KEY>"); // Your secret API key
 
@@ -14,7 +14,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let result = sites.update(
         "<SITE_ID>",
         "<NAME>",
-        appwrite::enums::Framework::Analog,
+        appwrite::enums::SiteFramework::Analog,
         Some(false), // optional
         Some(false), // optional
         Some(1), // optional
@@ -22,14 +22,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Some("<BUILD_COMMAND>"), // optional
         Some("<START_COMMAND>"), // optional
         Some("<OUTPUT_DIRECTORY>"), // optional
-        Some(appwrite::enums::BuildRuntime::Node145), // optional
-        Some(appwrite::enums::Adapter::Static), // optional
+        Some(appwrite::enums::SiteBuildRuntime::Node145), // optional
+        Some(appwrite::enums::SiteAdapter::Static), // optional
         Some("<FALLBACK_FILE>"), // optional
         Some("<INSTALLATION_ID>"), // optional
         Some("<PROVIDER_REPOSITORY_ID>"), // optional
         Some("<PROVIDER_BRANCH>"), // optional
         Some(false), // optional
         Some("<PROVIDER_ROOT_DIRECTORY>"), // optional
+        Some(vec![]), // optional
+        Some(vec![]), // optional
         Some(""), // optional
         Some(""), // optional
         Some(0) // optional
