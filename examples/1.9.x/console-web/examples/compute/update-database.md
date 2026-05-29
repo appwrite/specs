@@ -18,6 +18,7 @@ const result = await compute.updateDatabase({
     storageClass: 'ssd', // optional
     highAvailability: false, // optional
     highAvailabilityReplicaCount: 0, // optional
+    highAvailabilitySyncMode: 'async', // optional
     networkMaxConnections: 10, // optional
     networkIdleTimeoutSeconds: 60, // optional
     networkIPAllowlist: [], // optional

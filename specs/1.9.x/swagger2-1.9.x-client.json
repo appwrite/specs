@@ -10377,7 +10377,8 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "presences.write",
                     "platforms": [
-                        "client"
+                        "client",
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -10508,7 +10509,8 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "presences.write",
                     "platforms": [
-                        "client"
+                        "client",
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -15756,10 +15758,16 @@
                     "description": "Presence expiry date in ISO 8601 format.",
                     "x-example": "2020-10-15T06:38:00.000+00:00",
                     "x-nullable": true
+                },
+                "metadata": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Presence metadata.",
+                    "x-example": {
+                        "key": "value"
+                    }
                 }
             },
-            "additionalProperties": true,
-            "x-additional-properties-key": "metadata",
             "required": [
                 "$id",
                 "$createdAt",
@@ -15778,7 +15786,10 @@
                 "userId": "674af8f3e12a5f9ac0be",
                 "status": "online",
                 "source": "HTTP",
-                "expiresAt": "2020-10-15T06:38:00.000+00:00"
+                "expiresAt": "2020-10-15T06:38:00.000+00:00",
+                "metadata": {
+                    "key": "value"
+                }
             }
         },
         "log": {

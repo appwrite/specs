@@ -6406,6 +6406,7 @@
                                             "tablesdb",
                                             "documentsdb",
                                             "vectorsdb",
+                                            "dedicatedDatabases",
                                             "functions",
                                             "storage"
                                         ],
@@ -6415,6 +6416,7 @@
                                             "tablesdb",
                                             "documentsdb",
                                             "vectorsdb",
+                                            "dedicatedDatabases",
                                             "functions",
                                             "storage"
                                         ]
@@ -6703,6 +6705,7 @@
                                             "tablesdb",
                                             "documentsdb",
                                             "vectorsdb",
+                                            "dedicatedDatabases",
                                             "functions",
                                             "storage"
                                         ],
@@ -6712,6 +6715,7 @@
                                             "tablesdb",
                                             "documentsdb",
                                             "vectorsdb",
+                                            "dedicatedDatabases",
                                             "functions",
                                             "storage"
                                         ]
@@ -7048,6 +7052,7 @@
                                             "tablesdb",
                                             "documentsdb",
                                             "vectorsdb",
+                                            "dedicatedDatabases",
                                             "functions",
                                             "storage"
                                         ],
@@ -7057,6 +7062,7 @@
                                             "tablesdb",
                                             "documentsdb",
                                             "vectorsdb",
+                                            "dedicatedDatabases",
                                             "functions",
                                             "storage"
                                         ]
@@ -29719,7 +29725,8 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "presences.write",
                     "platforms": [
-                        "client"
+                        "client",
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -29854,14 +29861,15 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "presences.write",
                     "platforms": [
-                        "client"
+                        "client",
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/update.md",
                     "methods": [
                         {
-                            "name": "updatePresence",
+                            "name": "update",
                             "namespace": "presences",
                             "desc": "Update presence",
                             "auth": {
@@ -29888,7 +29896,7 @@
                                 }
                             ],
                             "description": "Update a presence log by its unique ID. Using the patch method you can pass only specific fields that will get updated.\n",
-                            "demo": "presences\/update-presence.md",
+                            "demo": "presences\/update.md",
                             "public": true
                         }
                     ],
@@ -53328,7 +53336,7 @@
                 "tags": [
                     "usage"
                 ],
-                "description": "Query usage gauge metrics (point-in-time resource snapshots) from the usage database. Returns individual gauge snapshots with metric, value, and timestamp. Pass Query objects as JSON strings to filter, paginate, and order results. Supported query methods: equal, greaterThanEqual, lessThanEqual, orderAsc, orderDesc, limit, offset. Supported filter attributes: metric, time. Use `orderDesc(\"time\"), limit(1)` to fetch the most recent snapshot. When no time filter is supplied the endpoint defaults to the last 7 days. Default `limit(100)` is applied if none is given; user-supplied limits are capped at 500. The `total` field is capped at 5000 to keep counts predictable \u2014 pass `total=false` to skip the count entirely.",
+                "description": "Query usage gauge metrics (point-in-time resource snapshots) from the usage database. Returns individual gauge snapshots with metric, value, timestamp, resourceType, and resourceId. Pass Query objects as JSON strings to filter, paginate, and order results. Supported query methods: equal, greaterThanEqual, lessThanEqual, orderAsc, orderDesc, limit, offset. Supported filter attributes: metric, time. Use `orderDesc(\"time\"), limit(1)` to fetch the most recent snapshot. When no time filter is supplied the endpoint defaults to the last 7 days. Default `limit(100)` is applied if none is given; user-supplied limits are capped at 500. The `total` field is capped at 5000 to keep counts predictable \u2014 pass `total=false` to skip the count entirely.",
                 "responses": {
                     "200": {
                         "description": "Usage gauges list",
@@ -56564,7 +56572,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "targets.read",
+                    "scope": "users.read",
                     "platforms": [
                         "server",
                         "console"
@@ -56646,7 +56654,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "targets.write",
+                    "scope": "users.write",
                     "platforms": [
                         "server",
                         "console"
@@ -56759,7 +56767,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "targets.read",
+                    "scope": "users.read",
                     "platforms": [
                         "server",
                         "console"
@@ -56828,7 +56836,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "targets.write",
+                    "scope": "users.write",
                     "platforms": [
                         "server",
                         "console"
@@ -56919,7 +56927,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "targets.write",
+                    "scope": "users.write",
                     "platforms": [
                         "server",
                         "console"
@@ -67068,10 +67076,16 @@
                     "description": "Presence expiry date in ISO 8601 format.",
                     "x-example": "2020-10-15T06:38:00.000+00:00",
                     "x-nullable": true
+                },
+                "metadata": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Presence metadata.",
+                    "x-example": {
+                        "key": "value"
+                    }
                 }
             },
-            "additionalProperties": true,
-            "x-additional-properties-key": "metadata",
             "required": [
                 "$id",
                 "$createdAt",
@@ -67090,7 +67104,10 @@
                 "userId": "674af8f3e12a5f9ac0be",
                 "status": "online",
                 "source": "HTTP",
-                "expiresAt": "2020-10-15T06:38:00.000+00:00"
+                "expiresAt": "2020-10-15T06:38:00.000+00:00",
+                "metadata": {
+                    "key": "value"
+                }
             }
         },
         "log": {
@@ -75267,17 +75284,31 @@
                     "type": "string",
                     "description": "The snapshot timestamp.",
                     "x-example": "2026-04-09T12:00:00.000+00:00"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "The resource type.",
+                    "x-example": "dedicatedDatabases"
+                },
+                "resourceId": {
+                    "type": "string",
+                    "description": "The resource ID.",
+                    "x-example": "production"
                 }
             },
             "required": [
                 "metric",
                 "value",
-                "time"
+                "time",
+                "resourceType",
+                "resourceId"
             ],
             "example": {
                 "metric": "users",
                 "value": 1500,
-                "time": "2026-04-09T12:00:00.000+00:00"
+                "time": "2026-04-09T12:00:00.000+00:00",
+                "resourceType": "dedicatedDatabases",
+                "resourceId": "production"
             }
         },
         "activityEventList": {

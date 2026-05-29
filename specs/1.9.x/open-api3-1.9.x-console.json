@@ -7432,6 +7432,7 @@
                                                 "tablesdb",
                                                 "documentsdb",
                                                 "vectorsdb",
+                                                "dedicatedDatabases",
                                                 "functions",
                                                 "storage"
                                             ],
@@ -7714,6 +7715,7 @@
                                                 "tablesdb",
                                                 "documentsdb",
                                                 "vectorsdb",
+                                                "dedicatedDatabases",
                                                 "functions",
                                                 "storage"
                                             ],
@@ -8045,6 +8047,7 @@
                                                 "tablesdb",
                                                 "documentsdb",
                                                 "vectorsdb",
+                                                "dedicatedDatabases",
                                                 "functions",
                                                 "storage"
                                             ],
@@ -8322,6 +8325,12 @@
                                         "description": "Database display name. Max length: 128 chars.",
                                         "x-example": "<NAME>"
                                     },
+                                    "database": {
+                                        "type": "string",
+                                        "description": "Physical database\/catalog name. Defaults to databaseId.",
+                                        "default": "",
+                                        "x-example": "<DATABASE>"
+                                    },
                                     "engine": {
                                         "type": "string",
                                         "description": "Database engine: postgres, mysql, mariadb, or mongodb.",
@@ -8343,13 +8352,13 @@
                                     "type": {
                                         "type": "string",
                                         "description": "Database type: shared (serverless) or dedicated (always-on).",
-                                        "default": "shared",
+                                        "default": "dedicated",
                                         "x-example": "shared"
                                     },
                                     "specification": {
                                         "type": "string",
                                         "description": "Specification identifier.",
-                                        "default": "starter",
+                                        "default": "s-2vcpu-2gb",
                                         "x-example": "<SPECIFICATION>"
                                     },
                                     "backend": {
@@ -8361,21 +8370,21 @@
                                     "cpu": {
                                         "type": "integer",
                                         "description": "CPU in millicores (125-16000).",
-                                        "default": 1000,
+                                        "default": 2000,
                                         "x-example": 125,
                                         "format": "int32"
                                     },
                                     "memory": {
                                         "type": "integer",
                                         "description": "Memory in MB to allocate (128-65536).",
-                                        "default": 1024,
+                                        "default": 2048,
                                         "x-example": 128,
                                         "format": "int32"
                                     },
                                     "storage": {
                                         "type": "integer",
                                         "description": "Storage in GB to allocate (1-16384).",
-                                        "default": 10,
+                                        "default": 25,
                                         "x-example": 1,
                                         "format": "int32"
                                     },
@@ -8407,7 +8416,7 @@
                                     },
                                     "highAvailabilitySyncMode": {
                                         "type": "string",
-                                        "description": "Replication sync mode. Allowed values: async, sync, quorum.",
+                                        "description": "Replication sync mode preference. Allowed values: async, sync, quorum.",
                                         "x-example": "async",
                                         "x-nullable": true
                                     },
@@ -8496,7 +8505,7 @@
                                     "metricsEnabled": {
                                         "type": "boolean",
                                         "description": "Enable metrics collection.",
-                                        "default": true,
+                                        "default": false,
                                         "x-example": false
                                     },
                                     "poolerEnabled": {
@@ -8692,6 +8701,12 @@
                                         "description": "Number of high availability replicas (0-5).",
                                         "x-example": 0,
                                         "format": "int32",
+                                        "x-nullable": true
+                                    },
+                                    "highAvailabilitySyncMode": {
+                                        "type": "string",
+                                        "description": "Replication sync mode preference. Allowed values: async, sync, quorum.",
+                                        "x-example": "async",
                                         "x-nullable": true
                                     },
                                     "networkMaxConnections": {
@@ -9035,6 +9050,185 @@
                                         "x-example": "full"
                                     }
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/compute\/databases\/{databaseId}\/backups\/policies": {
+            "get": {
+                "summary": "List database backup policies.",
+                "operationId": "computeListDatabaseBackupPolicies",
+                "tags": [
+                    "compute"
+                ],
+                "description": "    List scheduled backup policies for a dedicated database.",
+                "responses": {
+                    "200": {
+                        "description": "Backup policy list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/backupPolicyList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listDatabaseBackupPolicies",
+                    "group": "databases",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "compute\/list-database-backup-policies.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "databases.read",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "in": "query"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create a database backup policy.",
+                "operationId": "computeCreateDatabaseBackupPolicy",
+                "tags": [
+                    "compute"
+                ],
+                "description": "    Create a scheduled backup policy for a dedicated database.",
+                "responses": {
+                    "201": {
+                        "description": "backup",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/backupPolicy"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createDatabaseBackupPolicy",
+                    "group": "databases",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "compute\/create-database-backup-policy.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "databases.write",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "policyId": {
+                                        "type": "string",
+                                        "description": "Policy ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
+                                        "x-example": "<POLICY_ID>"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Policy name. Max length: 128 chars.",
+                                        "x-example": "<NAME>"
+                                    },
+                                    "schedule": {
+                                        "type": "string",
+                                        "description": "Schedule CRON syntax.",
+                                        "x-example": null
+                                    },
+                                    "retention": {
+                                        "type": "integer",
+                                        "description": "Days to keep backups before deletion.",
+                                        "x-example": 1,
+                                        "format": "int32"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "Backup type: full or incremental.",
+                                        "default": "full",
+                                        "x-example": "full"
+                                    },
+                                    "enabled": {
+                                        "type": "boolean",
+                                        "description": "Is policy enabled? When disabled, no backups will be taken.",
+                                        "default": true,
+                                        "x-example": false
+                                    }
+                                },
+                                "required": [
+                                    "policyId",
+                                    "name",
+                                    "schedule",
+                                    "retention"
+                                ]
                             }
                         }
                     }
@@ -9754,7 +9948,7 @@
                     }
                 ]
             },
-            "post": {
+            "patch": {
                 "summary": "Update database credentials.",
                 "operationId": "computeUpdateDatabaseCredentials",
                 "tags": [
@@ -10401,97 +10595,6 @@
                             "type": "integer",
                             "format": "int32",
                             "default": 25
-                        },
-                        "in": "query"
-                    }
-                ]
-            }
-        },
-        "\/compute\/databases\/{databaseId}\/logs": {
-            "get": {
-                "summary": "List database audit logs.",
-                "operationId": "computeListDatabaseLogs",
-                "tags": [
-                    "compute"
-                ],
-                "description": "List audit logs for a dedicated database. Returns DDL operations and security-relevant events.",
-                "responses": {
-                    "200": {
-                        "description": "Dedicated database audit logs list",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/dedicatedDatabaseAuditLogList"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "listDatabaseLogs",
-                    "group": "databases",
-                    "cookies": false,
-                    "type": "",
-                    "demo": "compute\/list-database-logs.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "databases.read",
-                    "platforms": [
-                        "console"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "auth": {
-                        "Project": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "databaseId",
-                        "description": "Database ID.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "<DATABASE_ID>"
-                        },
-                        "in": "path"
-                    },
-                    {
-                        "name": "startTime",
-                        "description": "Start time in ISO 8601 format.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "<START_TIME>"
-                        },
-                        "in": "query"
-                    },
-                    {
-                        "name": "endTime",
-                        "description": "End time in ISO 8601 format.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "<END_TIME>"
-                        },
-                        "in": "query"
-                    },
-                    {
-                        "name": "limit",
-                        "description": "Maximum number of logs to return.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32",
-                            "x-example": 1,
-                            "default": 100
                         },
                         "in": "query"
                     }
@@ -11581,76 +11684,6 @@
                         }
                     }
                 }
-            }
-        },
-        "\/compute\/databases\/{databaseId}\/usage": {
-            "get": {
-                "summary": "Get database usage metrics.",
-                "operationId": "computeGetDatabaseUsage",
-                "tags": [
-                    "compute"
-                ],
-                "description": "Get usage metrics for a dedicated database including CPU, memory, storage, connections, and query statistics.",
-                "responses": {
-                    "200": {
-                        "description": "DedicatedDatabase",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/dedicatedDatabaseUsage"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "getDatabaseUsage",
-                    "group": "databases",
-                    "cookies": false,
-                    "type": "",
-                    "demo": "compute\/get-database-usage.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "databases.read",
-                    "platforms": [
-                        "console"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "auth": {
-                        "Project": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "databaseId",
-                        "description": "Database ID.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "<DATABASE_ID>"
-                        },
-                        "in": "path"
-                    },
-                    {
-                        "name": "range",
-                        "description": "Date range.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "24h",
-                            "default": "30d"
-                        },
-                        "in": "query"
-                    }
-                ]
             }
         },
         "\/console\/assistant": {
@@ -34876,6 +34909,114 @@
                 ]
             }
         },
+        "\/manager\/cache": {
+            "delete": {
+                "summary": "Clear internal cache",
+                "operationId": "managerDeleteCache",
+                "tags": [
+                    "manager"
+                ],
+                "description": "Clears internal cache.",
+                "responses": {
+                    "200": {
+                        "description": "File"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "deleteCache",
+                    "group": "cache",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "manager\/delete-cache.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true
+                },
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "region": {
+                                        "type": "string",
+                                        "description": "Target region.",
+                                        "x-example": "fra",
+                                        "enum": [
+                                            "fra",
+                                            "nyc",
+                                            "syd",
+                                            "sfo",
+                                            "sgp",
+                                            "tor"
+                                        ],
+                                        "x-enum-name": "Region"
+                                    },
+                                    "cache": {
+                                        "type": "string",
+                                        "description": "Cache target.",
+                                        "default": "cache",
+                                        "x-example": "cache",
+                                        "enum": [
+                                            "cache",
+                                            "timelimit",
+                                            "locks",
+                                            "pubsub",
+                                            "queue",
+                                            "all"
+                                        ],
+                                        "x-enum-name": "CacheTarget"
+                                    },
+                                    "all": {
+                                        "type": "boolean",
+                                        "description": "Clear the entire selected cache target.",
+                                        "default": false,
+                                        "x-example": false
+                                    },
+                                    "database": {
+                                        "type": "string",
+                                        "description": "Database cache scope.",
+                                        "default": "console",
+                                        "x-example": "console",
+                                        "enum": [
+                                            "console",
+                                            "project",
+                                            "logs"
+                                        ],
+                                        "x-enum-name": "CacheDatabase"
+                                    },
+                                    "projectId": {
+                                        "type": "string",
+                                        "description": "Project ID for project or logs database cache.",
+                                        "default": "",
+                                        "x-example": "<PROJECT_ID>"
+                                    },
+                                    "collectionId": {
+                                        "type": "string",
+                                        "description": "Collection ID.",
+                                        "default": "",
+                                        "x-example": "<COLLECTION_ID>"
+                                    },
+                                    "documentId": {
+                                        "type": "string",
+                                        "description": "Document ID.",
+                                        "default": "",
+                                        "x-example": "<DOCUMENT_ID>"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/manager\/users\/status": {
             "patch": {
                 "summary": "Update a user status by ID or email",
@@ -46399,7 +46540,8 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "presences.write",
                     "platforms": [
-                        "client"
+                        "client",
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -46414,7 +46556,6 @@
                             },
                             "parameters": [
                                 "presenceId",
-                                "userId",
                                 "status",
                                 "permissions",
                                 "expiresAt",
@@ -46422,7 +46563,6 @@
                             ],
                             "required": [
                                 "presenceId",
-                                "userId",
                                 "status"
                             ],
                             "responses": [
@@ -46534,14 +46674,15 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "presences.write",
                     "platforms": [
-                        "client"
+                        "client",
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/update.md",
                     "methods": [
                         {
-                            "name": "updatePresence",
+                            "name": "update",
                             "namespace": "presences",
                             "desc": "Update presence",
                             "auth": {
@@ -46549,7 +46690,6 @@
                             },
                             "parameters": [
                                 "presenceId",
-                                "userId",
                                 "status",
                                 "expiresAt",
                                 "metadata",
@@ -46557,8 +46697,7 @@
                                 "purge"
                             ],
                             "required": [
-                                "presenceId",
-                                "userId"
+                                "presenceId"
                             ],
                             "responses": [
                                 {
@@ -46567,7 +46706,7 @@
                                 }
                             ],
                             "description": "Update a presence log by its unique ID. Using the patch method you can pass only specific fields that will get updated.\n",
-                            "demo": "presences\/update-presence.md",
+                            "demo": "presences\/update.md",
                             "public": true
                         }
                     ],
@@ -71233,7 +71372,7 @@
                 "tags": [
                     "usage"
                 ],
-                "description": "Query usage gauge metrics (point-in-time resource snapshots) from the usage database. Returns individual gauge snapshots with metric, value, and timestamp. Pass Query objects as JSON strings to filter, paginate, and order results. Supported query methods: equal, greaterThanEqual, lessThanEqual, orderAsc, orderDesc, limit, offset. Supported filter attributes: metric, time. Use `orderDesc(\"time\"), limit(1)` to fetch the most recent snapshot. When no time filter is supplied the endpoint defaults to the last 7 days. Default `limit(100)` is applied if none is given; user-supplied limits are capped at 500. The `total` field is capped at 5000 to keep counts predictable \u2014 pass `total=false` to skip the count entirely.",
+                "description": "Query usage gauge metrics (point-in-time resource snapshots) from the usage database. Returns individual gauge snapshots with metric, value, timestamp, resourceType, and resourceId. Pass Query objects as JSON strings to filter, paginate, and order results. Supported query methods: equal, greaterThanEqual, lessThanEqual, orderAsc, orderDesc, limit, offset. Supported filter attributes: metric, time. Use `orderDesc(\"time\"), limit(1)` to fetch the most recent snapshot. When no time filter is supplied the endpoint defaults to the last 7 days. Default `limit(100)` is applied if none is given; user-supplied limits are capped at 500. The `total` field is capped at 5000 to keep counts predictable \u2014 pass `total=false` to skip the count entirely.",
                 "responses": {
                     "200": {
                         "description": "Usage gauges list",
@@ -74510,7 +74649,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "targets.read",
+                    "scope": "users.read",
                     "platforms": [
                         "server",
                         "console"
@@ -74594,7 +74733,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "targets.write",
+                    "scope": "users.write",
                     "platforms": [
                         "server",
                         "console"
@@ -74705,7 +74844,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "targets.read",
+                    "scope": "users.read",
                     "platforms": [
                         "server",
                         "console"
@@ -74775,7 +74914,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "targets.write",
+                    "scope": "users.write",
                     "platforms": [
                         "server",
                         "console"
@@ -74867,7 +75006,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "targets.write",
+                    "scope": "users.write",
                     "platforms": [
                         "server",
                         "console"
@@ -86830,10 +86969,16 @@
                         "description": "Presence expiry date in ISO 8601 format.",
                         "x-example": "2020-10-15T06:38:00.000+00:00",
                         "nullable": true
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "description": "Presence metadata.",
+                        "x-example": {
+                            "key": "value"
+                        },
+                        "nullable": true
                     }
                 },
-                "additionalProperties": true,
-                "x-additional-properties-key": "metadata",
                 "required": [
                     "$id",
                     "$createdAt",
@@ -86852,7 +86997,10 @@
                     "userId": "674af8f3e12a5f9ac0be",
                     "status": "online",
                     "source": "HTTP",
-                    "expiresAt": "2020-10-15T06:38:00.000+00:00"
+                    "expiresAt": "2020-10-15T06:38:00.000+00:00",
+                    "metadata": {
+                        "key": "value"
+                    }
                 }
             },
             "log": {
@@ -99101,65 +99249,6 @@
                     "resourceType": "database"
                 }
             },
-            "dedicatedDatabaseAuditLog": {
-                "description": "AuditLog",
-                "type": "object",
-                "properties": {
-                    "timestamp": {
-                        "type": "string",
-                        "description": "When the event occurred.",
-                        "x-example": "2020-10-15T06:38:00.000+00:00"
-                    },
-                    "user": {
-                        "type": "string",
-                        "description": "Database user that performed the action.",
-                        "x-example": "appwrite"
-                    },
-                    "database": {
-                        "type": "string",
-                        "description": "Database name.",
-                        "x-example": "appwrite"
-                    },
-                    "action": {
-                        "type": "string",
-                        "description": "The action performed (e.g., CREATE TABLE, DROP INDEX).",
-                        "x-example": "CREATE TABLE"
-                    },
-                    "object": {
-                        "type": "string",
-                        "description": "The database object affected.",
-                        "x-example": "public.users"
-                    },
-                    "statement": {
-                        "type": "string",
-                        "description": "The full SQL statement.",
-                        "x-example": "CREATE TABLE users (id serial PRIMARY KEY)"
-                    },
-                    "clientAddress": {
-                        "type": "string",
-                        "description": "Client IP address.",
-                        "x-example": "192.168.1.100"
-                    }
-                },
-                "required": [
-                    "timestamp",
-                    "user",
-                    "database",
-                    "action",
-                    "object",
-                    "statement",
-                    "clientAddress"
-                ],
-                "example": {
-                    "timestamp": "2020-10-15T06:38:00.000+00:00",
-                    "user": "appwrite",
-                    "database": "appwrite",
-                    "action": "CREATE TABLE",
-                    "object": "public.users",
-                    "statement": "CREATE TABLE users (id serial PRIMARY KEY)",
-                    "clientAddress": "192.168.1.100"
-                }
-            },
             "dedicatedDatabaseBackup": {
                 "description": "Backup",
                 "type": "object",
@@ -99183,6 +99272,16 @@
                         "type": "string",
                         "description": "Project ID.",
                         "x-example": "5e5ea5c16897e"
+                    },
+                    "policyId": {
+                        "type": "string",
+                        "description": "Backup policy ID when the backup was created by a schedule.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "trigger": {
+                        "type": "string",
+                        "description": "Backup trigger. Possible values: manual, schedule.",
+                        "x-example": "schedule"
                     },
                     "type": {
                         "type": "string",
@@ -99231,6 +99330,8 @@
                     "$createdAt",
                     "databaseId",
                     "projectId",
+                    "policyId",
+                    "trigger",
                     "type",
                     "status",
                     "sizeBytes",
@@ -99245,6 +99346,8 @@
                     "$createdAt": "2020-10-15T06:38:00.000+00:00",
                     "databaseId": "5e5ea5c16897e",
                     "projectId": "5e5ea5c16897e",
+                    "policyId": "5e5ea5c16897e",
+                    "trigger": "schedule",
                     "type": "full",
                     "status": "completed",
                     "sizeBytes": 1073741824,
@@ -100846,6 +100949,11 @@
                         "description": "Database type: shared (serverless) or dedicated (always-on).",
                         "x-example": "dedicated"
                     },
+                    "api": {
+                        "type": "string",
+                        "description": "Product API that owns this database: compute, documentsdb, or vectorsdb.",
+                        "x-example": "compute"
+                    },
                     "region": {
                         "type": "string",
                         "description": "Region identifier (e.g., fra, nyc, syd).",
@@ -100864,7 +100972,7 @@
                     "specification": {
                         "type": "string",
                         "description": "Specification identifier.",
-                        "x-example": "starter"
+                        "x-example": "s-2vcpu-2gb"
                     },
                     "backend": {
                         "type": "string",
@@ -101054,7 +101162,7 @@
                     "metricsEnabled": {
                         "type": "boolean",
                         "description": "Whether metrics collection is enabled.",
-                        "x-example": true
+                        "x-example": false
                     },
                     "sqlApiEnabled": {
                         "type": "boolean",
@@ -101100,6 +101208,7 @@
                     "projectId",
                     "name",
                     "type",
+                    "api",
                     "region",
                     "engine",
                     "version",
@@ -101152,10 +101261,11 @@
                     "projectId": "5e5ea5c16897e",
                     "name": "My Production Database",
                     "type": "dedicated",
+                    "api": "compute",
                     "region": "fra",
                     "engine": "postgres",
                     "version": "16",
-                    "specification": "starter",
+                    "specification": "s-2vcpu-2gb",
                     "backend": "edge",
                     "hostname": "db-myproject-mydb.fra.appwrite.network",
                     "connectionPort": 5432,
@@ -101192,7 +101302,7 @@
                     "storageAutoscalingMaxGb": 500,
                     "maintenanceWindowDay": "sun",
                     "maintenanceWindowHourUtc": 3,
-                    "metricsEnabled": true,
+                    "metricsEnabled": false,
                     "sqlApiEnabled": true,
                     "sqlApiAllowedStatements": "SELECT",
                     "sqlApiMaxRows": 10000,
@@ -104396,260 +104506,6 @@
                     "credits": null
                 }
             },
-            "dedicatedDatabaseUsage": {
-                "description": "DedicatedDatabase",
-                "type": "object",
-                "properties": {
-                    "$id": {
-                        "type": "string",
-                        "description": "Database ID.",
-                        "x-example": "5e5ea5c16897e"
-                    },
-                    "range": {
-                        "type": "string",
-                        "description": "The time range of the usage stats.",
-                        "x-example": "30d"
-                    },
-                    "provisionedCpu": {
-                        "type": "number",
-                        "description": "Provisioned CPU cores for the database specification.",
-                        "x-example": 2,
-                        "format": "double"
-                    },
-                    "provisionedMemoryBytes": {
-                        "type": "integer",
-                        "description": "Provisioned memory in bytes for the database specification.",
-                        "x-example": 4294967296,
-                        "format": "int32"
-                    },
-                    "provisionedStorageBytes": {
-                        "type": "integer",
-                        "description": "Provisioned storage in bytes for the database specification.",
-                        "x-example": 107374182400,
-                        "format": "int32"
-                    },
-                    "provisionedConnections": {
-                        "type": "integer",
-                        "description": "Maximum concurrent connections allowed by the database specification.",
-                        "x-example": 200,
-                        "format": "int32"
-                    },
-                    "computeTotal": {
-                        "type": "integer",
-                        "description": "Total aggregated compute time in milliseconds.",
-                        "x-example": 0,
-                        "format": "int32"
-                    },
-                    "storageTotal": {
-                        "type": "integer",
-                        "description": "Total aggregated storage used in bytes.",
-                        "x-example": 0,
-                        "format": "int32"
-                    },
-                    "inboundTotal": {
-                        "type": "integer",
-                        "description": "Total aggregated inbound network traffic in bytes.",
-                        "x-example": 0,
-                        "format": "int32"
-                    },
-                    "outboundTotal": {
-                        "type": "integer",
-                        "description": "Total aggregated outbound network traffic in bytes.",
-                        "x-example": 0,
-                        "format": "int32"
-                    },
-                    "connectionsTotal": {
-                        "type": "integer",
-                        "description": "Total aggregated number of database connections.",
-                        "x-example": 0,
-                        "format": "int32"
-                    },
-                    "coldStartsTotal": {
-                        "type": "integer",
-                        "description": "Total aggregated number of cold starts.",
-                        "x-example": 0,
-                        "format": "int32"
-                    },
-                    "cpuTotal": {
-                        "type": "number",
-                        "description": "Latest CPU usage percent (0-100).",
-                        "x-example": 45.2,
-                        "format": "double"
-                    },
-                    "memoryTotal": {
-                        "type": "number",
-                        "description": "Latest memory usage percent (0-100).",
-                        "x-example": 62.1,
-                        "format": "double"
-                    },
-                    "qpsTotal": {
-                        "type": "number",
-                        "description": "Latest queries per second.",
-                        "x-example": 230.7,
-                        "format": "double"
-                    },
-                    "iopsReadTotal": {
-                        "type": "number",
-                        "description": "Latest read IOPS.",
-                        "x-example": 125.5,
-                        "format": "double"
-                    },
-                    "iopsWriteTotal": {
-                        "type": "number",
-                        "description": "Latest write IOPS.",
-                        "x-example": 45.3,
-                        "format": "double"
-                    },
-                    "compute": {
-                        "type": "array",
-                        "description": "Aggregated compute time per period in milliseconds.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/metric"
-                        },
-                        "x-example": []
-                    },
-                    "storage": {
-                        "type": "array",
-                        "description": "Aggregated storage used per period in bytes.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/metric"
-                        },
-                        "x-example": []
-                    },
-                    "inbound": {
-                        "type": "array",
-                        "description": "Aggregated inbound network traffic per period in bytes.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/metric"
-                        },
-                        "x-example": []
-                    },
-                    "outbound": {
-                        "type": "array",
-                        "description": "Aggregated outbound network traffic per period in bytes.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/metric"
-                        },
-                        "x-example": []
-                    },
-                    "connections": {
-                        "type": "array",
-                        "description": "Aggregated number of database connections per period.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/metric"
-                        },
-                        "x-example": []
-                    },
-                    "coldStarts": {
-                        "type": "array",
-                        "description": "Aggregated number of cold starts per period.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/metric"
-                        },
-                        "x-example": []
-                    },
-                    "cpu": {
-                        "type": "array",
-                        "description": "CPU usage percent per period.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/metric"
-                        },
-                        "x-example": []
-                    },
-                    "memory": {
-                        "type": "array",
-                        "description": "Memory usage percent per period.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/metric"
-                        },
-                        "x-example": []
-                    },
-                    "qps": {
-                        "type": "array",
-                        "description": "Queries per second per period.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/metric"
-                        },
-                        "x-example": []
-                    },
-                    "iopsRead": {
-                        "type": "array",
-                        "description": "Read IOPS per period.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/metric"
-                        },
-                        "x-example": []
-                    },
-                    "iopsWrite": {
-                        "type": "array",
-                        "description": "Write IOPS per period.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/metric"
-                        },
-                        "x-example": []
-                    }
-                },
-                "required": [
-                    "$id",
-                    "range",
-                    "provisionedCpu",
-                    "provisionedMemoryBytes",
-                    "provisionedStorageBytes",
-                    "provisionedConnections",
-                    "computeTotal",
-                    "storageTotal",
-                    "inboundTotal",
-                    "outboundTotal",
-                    "connectionsTotal",
-                    "coldStartsTotal",
-                    "cpuTotal",
-                    "memoryTotal",
-                    "qpsTotal",
-                    "iopsReadTotal",
-                    "iopsWriteTotal",
-                    "compute",
-                    "storage",
-                    "inbound",
-                    "outbound",
-                    "connections",
-                    "coldStarts",
-                    "cpu",
-                    "memory",
-                    "qps",
-                    "iopsRead",
-                    "iopsWrite"
-                ],
-                "example": {
-                    "$id": "5e5ea5c16897e",
-                    "range": "30d",
-                    "provisionedCpu": 2,
-                    "provisionedMemoryBytes": 4294967296,
-                    "provisionedStorageBytes": 107374182400,
-                    "provisionedConnections": 200,
-                    "computeTotal": 0,
-                    "storageTotal": 0,
-                    "inboundTotal": 0,
-                    "outboundTotal": 0,
-                    "connectionsTotal": 0,
-                    "coldStartsTotal": 0,
-                    "cpuTotal": 45.2,
-                    "memoryTotal": 62.1,
-                    "qpsTotal": 230.7,
-                    "iopsReadTotal": 125.5,
-                    "iopsWriteTotal": 45.3,
-                    "compute": [],
-                    "storage": [],
-                    "inbound": [],
-                    "outbound": [],
-                    "connections": [],
-                    "coldStarts": [],
-                    "cpu": [],
-                    "memory": [],
-                    "qps": [],
-                    "iopsRead": [],
-                    "iopsWrite": []
-                }
-            },
             "usageEvent": {
                 "description": "usageEvent",
                 "type": "object",
@@ -104750,17 +104606,31 @@
                         "type": "string",
                         "description": "The snapshot timestamp.",
                         "x-example": "2026-04-09T12:00:00.000+00:00"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "The resource type.",
+                        "x-example": "dedicatedDatabases"
+                    },
+                    "resourceId": {
+                        "type": "string",
+                        "description": "The resource ID.",
+                        "x-example": "production"
                     }
                 },
                 "required": [
                     "metric",
                     "value",
-                    "time"
+                    "time",
+                    "resourceType",
+                    "resourceId"
                 ],
                 "example": {
                     "metric": "users",
                     "value": 1500,
-                    "time": "2026-04-09T12:00:00.000+00:00"
+                    "time": "2026-04-09T12:00:00.000+00:00",
+                    "resourceType": "dedicatedDatabases",
+                    "resourceId": "production"
                 }
             },
             "usageOrganization": {
@@ -105575,34 +105445,6 @@
                 "example": {
                     "total": 5,
                     "blocks": ""
-                }
-            },
-            "dedicatedDatabaseAuditLogList": {
-                "description": "Dedicated database audit logs list",
-                "type": "object",
-                "properties": {
-                    "total": {
-                        "type": "integer",
-                        "description": "Total number of auditLogs that matched your query.",
-                        "x-example": 5,
-                        "format": "int32"
-                    },
-                    "auditLogs": {
-                        "type": "array",
-                        "description": "List of auditLogs.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/dedicatedDatabaseAuditLog"
-                        },
-                        "x-example": ""
-                    }
-                },
-                "required": [
-                    "total",
-                    "auditLogs"
-                ],
-                "example": {
-                    "total": 5,
-                    "auditLogs": ""
                 }
             },
             "dedicatedDatabaseConnectionList": {

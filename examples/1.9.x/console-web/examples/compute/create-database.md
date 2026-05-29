@@ -10,6 +10,7 @@ const compute = new Compute(client);
 const result = await compute.createDatabase({
     databaseId: '<DATABASE_ID>',
     name: '<NAME>',
+    database: '<DATABASE>', // optional
     engine: 'postgres', // optional
     version: '17', // optional
     region: 'fra', // optional

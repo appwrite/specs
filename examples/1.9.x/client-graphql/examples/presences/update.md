@@ -16,7 +16,7 @@ mutation {
         status
         source
         expiresAt
-        data
+        metadata
     }
 }
 ```
