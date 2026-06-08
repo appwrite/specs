@@ -8304,7 +8304,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    List all dedicated databases. Results support pagination.",
+                "description": "List all dedicated databases. Results support pagination.",
                 "responses": {
                     "200": {
                         "description": "Dedicated databases list",
@@ -8321,7 +8321,6 @@
                 "x-appwrite": {
                     "method": "listDatabases",
                     "group": "databases",
-                    "weight": 929,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/list-databases.md",
@@ -8365,7 +8364,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Create a new dedicated database with the chosen engine and configuration. Status will be 'provisioning' until the database is ready.",
+                "description": "Create a new dedicated database with the chosen engine and configuration. Status will be 'provisioning' until the database is ready.",
                 "responses": {
                     "201": {
                         "description": "DedicatedDatabase",
@@ -8382,7 +8381,6 @@
                 "x-appwrite": {
                     "method": "createDatabase",
                     "group": "databases",
-                    "weight": 927,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/create-database.md",
@@ -8420,155 +8418,112 @@
                                         "description": "Database display name. Max length: 128 chars.",
                                         "x-example": "<NAME>"
                                     },
+                                    "database": {
+                                        "type": "string",
+                                        "description": "Physical database\/catalog name. Defaults to databaseId.",
+                                        "default": "",
+                                        "x-example": "<DATABASE>"
+                                    },
                                     "engine": {
                                         "type": "string",
                                         "description": "Database engine: postgres, mysql, mariadb, or mongodb.",
-                                        "x-example": "postgres",
-                                        "enum": [
-                                            "postgres",
-                                            "mysql",
-                                            "mariadb",
-                                            "mongodb"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": []
+                                        "default": "postgres",
+                                        "x-example": "postgres"
                                     },
                                     "version": {
                                         "type": "string",
                                         "description": "Database engine version. Defaults to latest for selected engine.",
                                         "x-example": "17",
-                                        "enum": [
-                                            "17",
-                                            "18",
-                                            "8.0",
-                                            "8.4",
-                                            "10.11",
-                                            "11.4",
-                                            "7.0"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": [
-                                            "Postgres 17",
-                                            "Postgres 18",
-                                            "MySQL 8.0",
-                                            "MySQL 8.4",
-                                            "MariaDB 10.11",
-                                            "MariaDB 11.4",
-                                            "MongoDB 7.0"
-                                        ],
                                         "x-nullable": true
                                     },
                                     "region": {
                                         "type": "string",
                                         "description": "Region identifier. Use one of the enabled region codes (e.g., fra, nyc, syd).",
-                                        "x-example": "fra",
-                                        "enum": [
-                                            "fra",
-                                            "nyc",
-                                            "syd",
-                                            "sfo",
-                                            "sgp",
-                                            "tor"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": []
+                                        "default": "fra",
+                                        "x-example": "fra"
                                     },
                                     "type": {
                                         "type": "string",
                                         "description": "Database type: shared (serverless) or dedicated (always-on).",
-                                        "x-example": "shared",
-                                        "enum": [
-                                            "shared",
-                                            "dedicated"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": []
+                                        "default": "dedicated",
+                                        "x-example": "shared"
                                     },
                                     "specification": {
                                         "type": "string",
                                         "description": "Specification identifier.",
+                                        "default": "s-2vcpu-2gb",
                                         "x-example": "<SPECIFICATION>"
                                     },
                                     "backend": {
                                         "type": "string",
                                         "description": "Database backend provider: prisma, or edge.",
-                                        "x-example": "prisma",
-                                        "enum": [
-                                            "prisma",
-                                            "edge"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": []
+                                        "default": "edge",
+                                        "x-example": "prisma"
                                     },
                                     "cpu": {
                                         "type": "integer",
                                         "description": "CPU in millicores (125-16000).",
+                                        "default": 2000,
                                         "x-example": 125,
                                         "format": "int32"
                                     },
                                     "memory": {
                                         "type": "integer",
                                         "description": "Memory in MB to allocate (128-65536).",
+                                        "default": 2048,
                                         "x-example": 128,
                                         "format": "int32"
                                     },
                                     "storage": {
                                         "type": "integer",
                                         "description": "Storage in GB to allocate (1-16384).",
+                                        "default": 25,
                                         "x-example": 1,
                                         "format": "int32"
                                     },
                                     "storageClass": {
                                         "type": "string",
                                         "description": "Storage class: ssd, nvme, or hdd.",
-                                        "x-example": "ssd",
-                                        "enum": [
-                                            "ssd",
-                                            "nvme",
-                                            "hdd"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": []
+                                        "default": "ssd",
+                                        "x-example": "ssd"
                                     },
                                     "storageMaxGb": {
                                         "type": "integer",
                                         "description": "Maximum storage limit in GB. 0 uses system default.",
+                                        "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
                                     },
                                     "highAvailability": {
                                         "type": "boolean",
                                         "description": "Enable high availability.",
+                                        "default": false,
                                         "x-example": false
                                     },
                                     "highAvailabilityReplicaCount": {
                                         "type": "integer",
                                         "description": "Number of high availability replicas (0-5).",
+                                        "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
                                     },
                                     "highAvailabilitySyncMode": {
                                         "type": "string",
-                                        "description": "Replication sync mode. Allowed values: async, sync, quorum.",
+                                        "description": "Replication sync mode preference. Allowed values: async, sync, quorum.",
                                         "x-example": "async",
-                                        "enum": [
-                                            "async",
-                                            "sync",
-                                            "quorum"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": [],
                                         "x-nullable": true
                                     },
                                     "networkMaxConnections": {
                                         "type": "integer",
                                         "description": "Maximum concurrent connections.",
+                                        "default": 100,
                                         "x-example": 10,
                                         "format": "int32"
                                     },
                                     "networkIdleTimeoutSeconds": {
                                         "type": "integer",
                                         "description": "Connection idle timeout in seconds.",
+                                        "default": 900,
                                         "x-example": 60,
                                         "format": "int32"
                                     },
@@ -8584,61 +8539,72 @@
                                     "idleTimeoutMinutes": {
                                         "type": "integer",
                                         "description": "Minutes of inactivity before container scales to zero.",
+                                        "default": 15,
                                         "x-example": 5,
                                         "format": "int32"
                                     },
                                     "backupEnabled": {
                                         "type": "boolean",
                                         "description": "Enable automatic backups.",
+                                        "default": true,
                                         "x-example": false
                                     },
                                     "backupPitr": {
                                         "type": "boolean",
                                         "description": "Enable point-in-time recovery.",
+                                        "default": true,
                                         "x-example": false
                                     },
                                     "backupCron": {
                                         "type": "string",
                                         "description": "Backup schedule in cron format.",
+                                        "default": "0 3 * * *",
                                         "x-example": null
                                     },
                                     "backupRetentionDays": {
                                         "type": "integer",
                                         "description": "Number of days to retain backups.",
+                                        "default": 14,
                                         "x-example": 1,
                                         "format": "int32"
                                     },
                                     "pitrRetentionDays": {
                                         "type": "integer",
                                         "description": "Number of days to retain PITR data.",
+                                        "default": 7,
                                         "x-example": 1,
                                         "format": "int32"
                                     },
                                     "storageAutoscaling": {
                                         "type": "boolean",
                                         "description": "Enable automatic storage expansion when usage exceeds threshold.",
+                                        "default": false,
                                         "x-example": false
                                     },
                                     "storageAutoscalingThresholdPercent": {
                                         "type": "integer",
                                         "description": "Storage usage percentage (50-95) that triggers automatic expansion.",
+                                        "default": 85,
                                         "x-example": 50,
                                         "format": "int32"
                                     },
                                     "storageAutoscalingMaxGb": {
                                         "type": "integer",
                                         "description": "Maximum storage size in GB for autoscaling. 0 means no limit.",
+                                        "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
                                     },
                                     "metricsEnabled": {
                                         "type": "boolean",
                                         "description": "Enable metrics collection.",
+                                        "default": false,
                                         "x-example": false
                                     },
                                     "poolerEnabled": {
                                         "type": "boolean",
                                         "description": "Enable connection pooler on provision.",
+                                        "default": true,
                                         "x-example": false
                                     }
                                 },
@@ -8659,7 +8625,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Get a dedicated database by its unique ID. Returns the database configuration and current status.",
+                "description": "Get a dedicated database by its unique ID. Returns the database configuration and current status.",
                 "responses": {
                     "200": {
                         "description": "DedicatedDatabase",
@@ -8676,7 +8642,6 @@
                 "x-appwrite": {
                     "method": "getDatabase",
                     "group": "databases",
-                    "weight": 928,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/get-database.md",
@@ -8717,7 +8682,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Update a dedicated database configuration. All changes are applied with zero downtime. Resource changes (cpu, memory) are handled via rolling cutover. Storage expansion is done online. All other settings are applied in-place.",
+                "description": "Update a dedicated database configuration. All changes are applied with zero downtime. Resource changes (cpu, memory) are handled via rolling cutover. Storage expansion is done online. All other settings are applied in-place.",
                 "responses": {
                     "200": {
                         "description": "DedicatedDatabase",
@@ -8734,7 +8699,6 @@
                 "x-appwrite": {
                     "method": "updateDatabase",
                     "group": "databases",
-                    "weight": 930,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/update-database.md",
@@ -8784,13 +8748,6 @@
                                         "type": "string",
                                         "description": "Database status. Allowed values: ready, paused, inactive. Set to \"paused\" to pause, \"ready\" to resume, or \"inactive\" to spin down a shared database.",
                                         "x-example": "ready",
-                                        "enum": [
-                                            "ready",
-                                            "paused",
-                                            "inactive"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": [],
                                         "x-nullable": true
                                     },
                                     "specification": {
@@ -8824,13 +8781,6 @@
                                         "type": "string",
                                         "description": "Storage class. Allowed values: ssd, nvme, hdd.",
                                         "x-example": "ssd",
-                                        "enum": [
-                                            "ssd",
-                                            "nvme",
-                                            "hdd"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": [],
                                         "x-nullable": true
                                     },
                                     "highAvailability": {
@@ -8844,6 +8794,12 @@
                                         "description": "Number of high availability replicas (0-5).",
                                         "x-example": 0,
                                         "format": "int32",
+                                        "x-nullable": true
+                                    },
+                                    "highAvailabilitySyncMode": {
+                                        "type": "string",
+                                        "description": "Replication sync mode preference. Allowed values: async, sync, quorum.",
+                                        "x-example": "async",
                                         "x-nullable": true
                                     },
                                     "networkMaxConnections": {
@@ -8965,15 +8921,7 @@
                                         "description": "Statement types the SQL API accepts. Allowed values: SELECT, INSERT, UPDATE, DELETE.",
                                         "x-example": null,
                                         "items": {
-                                            "type": "string",
-                                            "enum": [
-                                                "select",
-                                                "insert",
-                                                "update",
-                                                "delete"
-                                            ],
-                                            "x-enum-name": null,
-                                            "x-enum-keys": []
+                                            "type": "string"
                                         },
                                         "x-nullable": true
                                     },
@@ -9010,7 +8958,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Delete a dedicated database. This action is irreversible. The database status will be set to 'deleting' and all resources will be cleaned up.",
+                "description": "Delete a dedicated database. This action is irreversible. The database status will be set to 'deleting' and all resources will be cleaned up.",
                 "responses": {
                     "204": {
                         "description": "No content"
@@ -9020,7 +8968,6 @@
                 "x-appwrite": {
                     "method": "deleteDatabase",
                     "group": "databases",
-                    "weight": 931,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/delete-database.md",
@@ -9063,7 +9010,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    List all backups for a dedicated database. Results can be filtered by status and type.",
+                "description": "List all backups for a dedicated database. Results can be filtered by status and type.",
                 "responses": {
                     "200": {
                         "description": "BackupList",
@@ -9080,7 +9027,6 @@
                 "x-appwrite": {
                     "method": "listDatabaseBackups",
                     "group": "databases",
-                    "weight": 959,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/list-database-backups.md",
@@ -9134,7 +9080,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Create a manual backup of a dedicated database. The backup will be created asynchronously and its status can be checked via the get backup endpoint.",
+                "description": "Create a manual backup of a dedicated database. The backup will be created asynchronously and its status can be checked via the get backup endpoint.",
                 "responses": {
                     "202": {
                         "description": "Backup",
@@ -9151,7 +9097,6 @@
                 "x-appwrite": {
                     "method": "createDatabaseBackup",
                     "group": "databases",
-                    "weight": 957,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/create-database-backup.md",
@@ -9194,13 +9139,8 @@
                                     "type": {
                                         "type": "string",
                                         "description": "Backup type: full or incremental.",
-                                        "x-example": "full",
-                                        "enum": [
-                                            "full",
-                                            "incremental"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": []
+                                        "default": "full",
+                                        "x-example": "full"
                                     }
                                 }
                             }
@@ -9216,7 +9156,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Configure off-cluster backup storage for a dedicated database. Supports S3, GCS, and Azure Blob Storage destinations. Backups will be stored to the configured destination in addition to on-cluster storage.",
+                "description": "Configure off-cluster backup storage for a dedicated database. Supports S3, GCS, and Azure Blob Storage destinations. Backups will be stored to the configured destination in addition to on-cluster storage.",
                 "responses": {
                     "200": {
                         "description": "BackupStorageConfig",
@@ -9233,7 +9173,6 @@
                 "x-appwrite": {
                     "method": "updateDatabaseBackupStorage",
                     "group": "databases",
-                    "weight": 961,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/update-database-backup-storage.md",
@@ -9276,14 +9215,7 @@
                                     "provider": {
                                         "type": "string",
                                         "description": "Storage provider for off-cluster backups. Allowed values: s3 (Amazon S3 or S3-compatible), gcs (Google Cloud Storage), azure (Azure Blob Storage).",
-                                        "x-example": "s3",
-                                        "enum": [
-                                            "s3",
-                                            "gcs",
-                                            "azure"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": []
+                                        "x-example": "s3"
                                     },
                                     "bucket": {
                                         "type": "string",
@@ -9293,16 +9225,19 @@
                                     "region": {
                                         "type": "string",
                                         "description": "Storage region.",
+                                        "default": "",
                                         "x-example": "<REGION>"
                                     },
                                     "prefix": {
                                         "type": "string",
                                         "description": "Object key prefix for backups.",
+                                        "default": "backups\/",
                                         "x-example": "<PREFIX>"
                                     },
                                     "endpoint": {
                                         "type": "string",
                                         "description": "Custom endpoint for S3-compatible storage (e.g. MinIO).",
+                                        "default": "",
                                         "x-example": "<ENDPOINT>"
                                     },
                                     "accessKey": {
@@ -9335,7 +9270,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Get details of a specific database backup including its status, size, and timestamps.",
+                "description": "Get details of a specific database backup including its status, size, and timestamps.",
                 "responses": {
                     "200": {
                         "description": "Backup",
@@ -9352,7 +9287,6 @@
                 "x-appwrite": {
                     "method": "getDatabaseBackup",
                     "group": "databases",
-                    "weight": 958,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/get-database-backup.md",
@@ -9403,7 +9337,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Delete a database backup. This will permanently remove the backup from storage and cannot be undone.",
+                "description": "Delete a database backup. This will permanently remove the backup from storage and cannot be undone.",
                 "responses": {
                     "204": {
                         "description": "No content"
@@ -9413,7 +9347,6 @@
                 "x-appwrite": {
                     "method": "deleteDatabaseBackup",
                     "group": "databases",
-                    "weight": 960,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/delete-database-backup.md",
@@ -9466,7 +9399,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    List all ephemeral branches for a dedicated database. Returns branch metadata including ID, name, namespace, and expiration time.",
+                "description": "List all ephemeral branches for a dedicated database. Returns branch metadata including ID, name, namespace, and expiration time.",
                 "responses": {
                     "200": {
                         "description": "BranchList",
@@ -9483,7 +9416,6 @@
                 "x-appwrite": {
                     "method": "listDatabaseBranches",
                     "group": "databases",
-                    "weight": 949,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/list-database-branches.md",
@@ -9524,7 +9456,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Create an ephemeral database branch from the primary via PVC snapshot. The branch is a full copy of the database at the current point in time, useful for testing schema migrations or running experiments without affecting production data. Branches expire after the configured TTL (default 24 hours). The branch is created asynchronously.",
+                "description": "Create an ephemeral database branch from the primary via PVC snapshot. The branch is a full copy of the database at the current point in time, useful for testing schema migrations or running experiments without affecting production data. Branches expire after the configured TTL (default 24 hours). The branch is created asynchronously.",
                 "responses": {
                     "202": {
                         "description": "DedicatedDatabase",
@@ -9541,7 +9473,6 @@
                 "x-appwrite": {
                     "method": "createDatabaseBranch",
                     "group": "databases",
-                    "weight": 948,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/create-database-branch.md",
@@ -9584,11 +9515,13 @@
                                     "branchId": {
                                         "type": "string",
                                         "description": "Branch ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
+                                        "default": "",
                                         "x-example": "<BRANCH_ID>"
                                     },
                                     "ttl": {
                                         "type": "integer",
                                         "description": "Time-to-live in seconds before the branch expires. Min 300 (5 min), max 604800 (7 days). Default: 86400 (24h).",
+                                        "default": 86400,
                                         "x-example": 300,
                                         "format": "int32"
                                     }
@@ -9606,7 +9539,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Delete an ephemeral database branch. This removes the branch namespace, its PVC, and the associated VolumeSnapshot. The deletion runs asynchronously and is irreversible.",
+                "description": "Delete an ephemeral database branch. This removes the branch namespace, its PVC, and the associated VolumeSnapshot. The deletion runs asynchronously and is irreversible.",
                 "responses": {
                     "202": {
                         "description": "DedicatedDatabase",
@@ -9623,7 +9556,6 @@
                 "x-appwrite": {
                     "method": "deleteDatabaseBranch",
                     "group": "databases",
-                    "weight": 950,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/delete-database-branch.md",
@@ -9676,7 +9608,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    List all database connection users\/roles for a dedicated database.",
+                "description": "List all database connection users\/roles for a dedicated database.",
                 "responses": {
                     "200": {
                         "description": "Dedicated database connections list",
@@ -9693,7 +9625,6 @@
                 "x-appwrite": {
                     "method": "listDatabaseConnections",
                     "group": "databases",
-                    "weight": 940,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/list-database-connections.md",
@@ -9734,7 +9665,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Create a new database connection user\/role. Returns the connection details including the generated credentials.",
+                "description": "Create a new database connection user\/role. Returns the connection details including the generated credentials.",
                 "responses": {
                     "201": {
                         "description": "Connection",
@@ -9751,7 +9682,6 @@
                 "x-appwrite": {
                     "method": "createDatabaseConnection",
                     "group": "databases",
-                    "weight": 939,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/create-database-connection.md",
@@ -9799,6 +9729,7 @@
                                     "role": {
                                         "type": "string",
                                         "description": "Connection role for the new user. Common values: readonly (read-only access), readwrite (full read and write access).",
+                                        "default": "readwrite",
                                         "x-example": "<ROLE>"
                                     }
                                 },
@@ -9818,7 +9749,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Delete a database connection user\/role. The connection will be terminated immediately.",
+                "description": "Delete a database connection user\/role. The connection will be terminated immediately.",
                 "responses": {
                     "204": {
                         "description": "No content"
@@ -9828,7 +9759,6 @@
                 "x-appwrite": {
                     "method": "deleteDatabaseConnection",
                     "group": "databases",
-                    "weight": 941,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/delete-database-connection.md",
@@ -9881,7 +9811,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Get connection credentials for a dedicated database. Returns the hostname, port, username, password, database name, and full connection string.",
+                "description": "Get connection credentials for a dedicated database. Returns the hostname, port, username, password, database name, and full connection string.",
                 "responses": {
                     "200": {
                         "description": "Credentials",
@@ -9898,7 +9828,6 @@
                 "x-appwrite": {
                     "method": "getDatabaseCredentials",
                     "group": "databases",
-                    "weight": 932,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/get-database-credentials.md",
@@ -9933,13 +9862,13 @@
                     }
                 ]
             },
-            "post": {
+            "patch": {
                 "summary": "Update database credentials.",
                 "operationId": "computeUpdateDatabaseCredentials",
                 "tags": [
                     "compute"
                 ],
-                "description": "    Rotate the primary credentials for a dedicated database. Generates a new password and updates the database. Previous credentials will stop working immediately.",
+                "description": "Rotate the primary credentials for a dedicated database. Generates a new password and updates the database. Previous credentials will stop working immediately.",
                 "responses": {
                     "200": {
                         "description": "Credentials",
@@ -9956,7 +9885,6 @@
                 "x-appwrite": {
                     "method": "updateDatabaseCredentials",
                     "group": "databases",
-                    "weight": 933,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/update-database-credentials.md",
@@ -9999,7 +9927,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "Execute SQL through the console-facing Cloud endpoint. Cloud proxies through the edge platform to the per-database SQL API sidecar. Application traffic should bypass cloud entirely and POST directly to the per-database hostname: `https:\/\/db-{project}-{db}.{region}.appwrite.network\/v1\/sql\/execute` with an `X-Appwrite-Key` header \u2014 that path scales to the whole DB fleet without a per-query cloud round-trip. The statement type must be on the database's configured allow-list. Use bound parameters for any user-supplied values \u2014 the API does not interpolate raw strings.",
+                "description": "Execute SQL through the console-facing Cloud endpoint. Cloud proxies through the edge platform to the per-database SQL API sidecar. Application traffic should bypass cloud entirely and POST directly to the per-database hostname: `https:\/\/db-{project}-{db}.{region}.appwrite.center\/v1\/sql\/execute` with an `X-Appwrite-Key` header \u2014 that path scales to the whole DB fleet without a per-query cloud round-trip. The statement type must be on the database's configured allow-list. Use bound parameters for any user-supplied values \u2014 the API does not interpolate raw strings.",
                 "responses": {
                     "200": {
                         "description": "Execution",
@@ -10016,7 +9944,6 @@
                 "x-appwrite": {
                     "method": "createDatabaseExecution",
                     "group": "databases",
-                    "weight": 947,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/create-database-execution.md",
@@ -10091,7 +10018,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Run EXPLAIN on a query against a dedicated database. Available for SQL-compatible engines. Returns the query execution plan including scan types, estimated cost, and resource usage. Optionally run EXPLAIN ANALYZE to get actual execution statistics.",
+                "description": "Run EXPLAIN on a query against a dedicated database. Available for SQL-compatible engines. Returns the query execution plan including scan types, estimated cost, and resource usage. Optionally run EXPLAIN ANALYZE to get actual execution statistics.",
                 "responses": {
                     "200": {
                         "description": "QueryExplanation",
@@ -10108,7 +10035,6 @@
                 "x-appwrite": {
                     "method": "createDatabaseQueryExplanation",
                     "group": "databases",
-                    "weight": 968,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/create-database-query-explanation.md",
@@ -10156,6 +10082,7 @@
                                     "analyze": {
                                         "type": "boolean",
                                         "description": "Run EXPLAIN ANALYZE to get actual execution statistics. This executes the query.",
+                                        "default": false,
                                         "x-example": false
                                     }
                                 },
@@ -10175,7 +10102,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    List installed and available extensions for a PostgreSQL database.",
+                "description": "List installed and available extensions for a PostgreSQL database.",
                 "responses": {
                     "200": {
                         "description": "Extensions",
@@ -10192,7 +10119,6 @@
                 "x-appwrite": {
                     "method": "listDatabaseExtensions",
                     "group": "databases",
-                    "weight": 943,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/list-database-extensions.md",
@@ -10233,7 +10159,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Install a database extension. Only available for PostgreSQL databases. The install runs asynchronously; poll the extensions list endpoint for status.",
+                "description": "Install a database extension. Only available for PostgreSQL databases. The install runs asynchronously; poll the extensions list endpoint for status.",
                 "responses": {
                     "202": {
                         "description": "DedicatedDatabase",
@@ -10250,7 +10176,6 @@
                 "x-appwrite": {
                     "method": "createDatabaseExtension",
                     "group": "databases",
-                    "weight": 942,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/create-database-extension.md",
@@ -10312,7 +10237,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Uninstall a database extension from a PostgreSQL database. The uninstall runs asynchronously; poll the extensions list endpoint for status.",
+                "description": "Uninstall a database extension from a PostgreSQL database. The uninstall runs asynchronously; poll the extensions list endpoint for status.",
                 "responses": {
                     "202": {
                         "description": "DedicatedDatabase",
@@ -10329,7 +10254,6 @@
                 "x-appwrite": {
                     "method": "deleteDatabaseExtension",
                     "group": "databases",
-                    "weight": 944,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/delete-database-extension.md",
@@ -10382,7 +10306,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Get high availability status for a dedicated database. Returns replica statuses, replication lag, and sync mode.",
+                "description": "Get high availability status for a dedicated database. Returns replica statuses, replication lag, and sync mode.",
                 "responses": {
                     "200": {
                         "description": "HAStatus",
@@ -10399,7 +10323,6 @@
                 "x-appwrite": {
                     "method": "getDatabaseHAStatus",
                     "group": "databases",
-                    "weight": 954,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/get-database-ha-status.md",
@@ -10442,7 +10365,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates.",
+                "description": "Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates.",
                 "responses": {
                     "202": {
                         "description": "DedicatedDatabase",
@@ -10459,7 +10382,6 @@
                 "x-appwrite": {
                     "method": "createDatabaseFailover",
                     "group": "databases",
-                    "weight": 955,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/create-database-failover.md",
@@ -10519,7 +10441,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Get query-level performance insights for a dedicated database. Returns top queries by execution time, wait events, and aggregate query statistics.",
+                "description": "Get query-level performance insights for a dedicated database. Returns top queries by execution time, wait events, and aggregate query statistics.",
                 "responses": {
                     "200": {
                         "description": "PerformanceInsights",
@@ -10536,7 +10458,6 @@
                 "x-appwrite": {
                     "method": "getDatabaseInsights",
                     "group": "databases",
-                    "weight": 953,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/get-database-insights.md",
@@ -10576,17 +10497,6 @@
                         "schema": {
                             "type": "string",
                             "x-example": "1h",
-                            "enum": [
-                                "1h",
-                                "24h",
-                                "7d"
-                            ],
-                            "x-enum-name": null,
-                            "x-enum-keys": [
-                                "One Hour",
-                                "Twenty Four Hours",
-                                "Seven Days"
-                            ],
                             "default": "1h"
                         },
                         "in": "query"
@@ -10605,98 +10515,6 @@
                 ]
             }
         },
-        "\/compute\/databases\/{databaseId}\/logs": {
-            "get": {
-                "summary": "List database audit logs.",
-                "operationId": "computeListDatabaseLogs",
-                "tags": [
-                    "compute"
-                ],
-                "description": "    List audit logs for a dedicated database. Returns DDL operations and security-relevant events.",
-                "responses": {
-                    "200": {
-                        "description": "Dedicated database audit logs list",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/dedicatedDatabaseAuditLogList"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "listDatabaseLogs",
-                    "group": "databases",
-                    "weight": 952,
-                    "cookies": false,
-                    "type": "",
-                    "demo": "compute\/list-database-logs.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "databases.read",
-                    "platforms": [
-                        "console"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "auth": {
-                        "Project": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "databaseId",
-                        "description": "Database ID.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "<DATABASE_ID>"
-                        },
-                        "in": "path"
-                    },
-                    {
-                        "name": "startTime",
-                        "description": "Start time in ISO 8601 format.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "<START_TIME>"
-                        },
-                        "in": "query"
-                    },
-                    {
-                        "name": "endTime",
-                        "description": "End time in ISO 8601 format.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "<END_TIME>"
-                        },
-                        "in": "query"
-                    },
-                    {
-                        "name": "limit",
-                        "description": "Maximum number of logs to return.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32",
-                            "x-example": 1,
-                            "default": 100
-                        },
-                        "in": "query"
-                    }
-                ]
-            }
-        },
         "\/compute\/databases\/{databaseId}\/maintenance": {
             "patch": {
                 "summary": "Update database maintenance window.",
@@ -10704,7 +10522,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Update the maintenance window for a dedicated database. Maintenance operations like minor version upgrades will be performed during this window.",
+                "description": "Update the maintenance window for a dedicated database. Maintenance operations like minor version upgrades will be performed during this window.",
                 "responses": {
                     "200": {
                         "description": "DedicatedDatabase",
@@ -10721,7 +10539,6 @@
                 "x-appwrite": {
                     "method": "updateDatabaseMaintenanceWindow",
                     "group": "databases",
-                    "weight": 938,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/update-database-maintenance-window.md",
@@ -10764,18 +10581,7 @@
                                     "day": {
                                         "type": "string",
                                         "description": "Day of the week for the maintenance window. Allowed values: sun, mon, tue, wed, thu, fri, sat.",
-                                        "x-example": "sun",
-                                        "enum": [
-                                            "sun",
-                                            "mon",
-                                            "tue",
-                                            "wed",
-                                            "thu",
-                                            "fri",
-                                            "sat"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": []
+                                        "x-example": "sun"
                                     },
                                     "hourUtc": {
                                         "type": "integer",
@@ -10801,7 +10607,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Get detailed performance metrics for a dedicated database. Returns CPU, memory, storage, IOPS, QPS, and connection metrics.",
+                "description": "Get detailed performance metrics for a dedicated database. Returns CPU, memory, storage, IOPS, QPS, and connection metrics.",
                 "responses": {
                     "200": {
                         "description": "DatabaseMetrics",
@@ -10818,7 +10624,6 @@
                 "x-appwrite": {
                     "method": "getDatabaseMetrics",
                     "group": "databases",
-                    "weight": 936,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/get-database-metrics.md",
@@ -10858,19 +10663,6 @@
                         "schema": {
                             "type": "string",
                             "x-example": "1h",
-                            "enum": [
-                                "1h",
-                                "24h",
-                                "7d",
-                                "30d"
-                            ],
-                            "x-enum-name": null,
-                            "x-enum-keys": [
-                                "One Hour",
-                                "Twenty Four Hours",
-                                "Seven Days",
-                                "Thirty Days"
-                            ],
                             "default": "24h"
                         },
                         "in": "query"
@@ -10885,7 +10677,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Migrate a database between shared and dedicated types. Shared to dedicated creates an always-on StatefulSet with external access. Dedicated to shared converts to a serverless pod that scales to zero when idle. Data is preserved during migration.",
+                "description": "Migrate a database between shared and dedicated types. Shared to dedicated provisions an always-on dedicated instance; dedicated to shared converts to a serverless instance that scales to zero when idle. Data is copied to the target with a brief read-only window during cutover.",
                 "responses": {
                     "200": {
                         "description": "DedicatedDatabase",
@@ -10902,7 +10694,6 @@
                 "x-appwrite": {
                     "method": "createDatabaseMigration",
                     "group": "databases",
-                    "weight": 965,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/create-database-migration.md",
@@ -10945,13 +10736,13 @@
                                     "targetType": {
                                         "type": "string",
                                         "description": "Target database type to migrate to. Allowed values: shared (serverless, scales to zero when idle), dedicated (always-on with persistent resources).",
-                                        "x-example": "shared",
-                                        "enum": [
-                                            "shared",
-                                            "dedicated"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": []
+                                        "x-example": "shared"
+                                    },
+                                    "specification": {
+                                        "type": "string",
+                                        "description": "Target compute specification to provision when migrating to dedicated. Ignored for shared. Defaults to the database's current specification.",
+                                        "x-example": "<SPECIFICATION>",
+                                        "x-nullable": true
                                     }
                                 },
                                 "required": [
@@ -10970,7 +10761,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Get available point-in-time recovery windows for a dedicated database. Returns the earliest and latest recovery points.",
+                "description": "Get available point-in-time recovery windows for a dedicated database. Returns the earliest and latest recovery points.",
                 "responses": {
                     "200": {
                         "description": "PITRWindows",
@@ -10987,7 +10778,6 @@
                 "x-appwrite": {
                     "method": "getDatabasePITRWindows",
                     "group": "databases",
-                    "weight": 956,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/get-database-pitr-windows.md",
@@ -11030,7 +10820,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Get the connection pooler configuration for a dedicated database. Returns pooler mode, max connections, and pool size settings.",
+                "description": "Get the connection pooler configuration for a dedicated database. Returns pooler mode, max connections, and pool size settings.",
                 "responses": {
                     "200": {
                         "description": "PoolerConfig",
@@ -11047,7 +10837,6 @@
                 "x-appwrite": {
                     "method": "getDatabasePooler",
                     "group": "databases",
-                    "weight": 945,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/get-database-pooler.md",
@@ -11088,7 +10877,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Update the connection pooler configuration for a dedicated database. Configure pool mode, max connections, and pool sizes.",
+                "description": "Update the connection pooler configuration for a dedicated database. Configure pool mode, max connections, and pool sizes.",
                 "responses": {
                     "200": {
                         "description": "PoolerConfig",
@@ -11105,7 +10894,6 @@
                 "x-appwrite": {
                     "method": "updateDatabasePooler",
                     "group": "databases",
-                    "weight": 946,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/update-database-pooler.md",
@@ -11149,12 +10937,6 @@
                                         "type": "string",
                                         "description": "Connection pool mode. Allowed values: transaction, session. Transaction mode returns connections to the pool after each transaction; session mode holds connections for the entire session lifetime.",
                                         "x-example": "transaction",
-                                        "enum": [
-                                            "transaction",
-                                            "session"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": [],
                                         "x-nullable": true
                                     },
                                     "maxConnections": {
@@ -11215,7 +10997,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    List all restorations for a dedicated database. Results can be filtered by status and type.",
+                "description": "List all restorations for a dedicated database. Results can be filtered by status and type.",
                 "responses": {
                     "200": {
                         "description": "Dedicated database restorations list",
@@ -11232,7 +11014,6 @@
                 "x-appwrite": {
                     "method": "listDatabaseRestorations",
                     "group": "databases",
-                    "weight": 964,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/list-database-restorations.md",
@@ -11271,15 +11052,7 @@
                         "required": false,
                         "schema": {
                             "type": "string",
-                            "x-example": "pending",
-                            "enum": [
-                                "pending",
-                                "running",
-                                "completed",
-                                "failed"
-                            ],
-                            "x-enum-name": null,
-                            "x-enum-keys": []
+                            "x-example": "pending"
                         },
                         "in": "query"
                     },
@@ -11289,13 +11062,7 @@
                         "required": false,
                         "schema": {
                             "type": "string",
-                            "x-example": "backup",
-                            "enum": [
-                                "backup",
-                                "pitr"
-                            ],
-                            "x-enum-name": null,
-                            "x-enum-keys": []
+                            "x-example": "backup"
                         },
                         "in": "query"
                     },
@@ -11331,7 +11098,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Restore a database from a backup or to a specific point in time (PITR). For backup restoration, provide a backupId. For PITR, provide a targetTime. PITR requires the database to have PITR enabled and is only available for enterprise databases.",
+                "description": "Restore a database from a backup or to a specific point in time (PITR). For backup restoration, provide a backupId. For PITR, provide a targetTime. PITR requires the database to have PITR enabled and is only available for enterprise databases.",
                 "responses": {
                     "202": {
                         "description": "Restoration",
@@ -11348,7 +11115,6 @@
                 "x-appwrite": {
                     "method": "createDatabaseRestoration",
                     "group": "databases",
-                    "weight": 962,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/create-database-restoration.md",
@@ -11391,13 +11157,8 @@
                                     "type": {
                                         "type": "string",
                                         "description": "Restoration type. Allowed values: backup, pitr. Use \"backup\" to restore from a specific backup, or \"pitr\" for point-in-time recovery.",
-                                        "x-example": "backup",
-                                        "enum": [
-                                            "backup",
-                                            "pitr"
-                                        ],
-                                        "x-enum-name": null,
-                                        "x-enum-keys": []
+                                        "default": "backup",
+                                        "x-example": "backup"
                                     },
                                     "backupId": {
                                         "type": "string",
@@ -11426,7 +11187,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Get details of a specific database restoration including its status, type, and timestamps.",
+                "description": "Get details of a specific database restoration including its status, type, and timestamps.",
                 "responses": {
                     "200": {
                         "description": "Restoration",
@@ -11443,7 +11204,6 @@
                 "x-appwrite": {
                     "method": "getDatabaseRestoration",
                     "group": "databases",
-                    "weight": 963,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/get-database-restoration.md",
@@ -11496,7 +11256,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Get the current schema for a dedicated database. Returns collections, fields, data types, constraints, and indexes.",
+                "description": "Get the current schema for a dedicated database. Returns collections, fields, data types, constraints, and indexes.",
                 "responses": {
                     "200": {
                         "description": "Schema",
@@ -11513,7 +11273,6 @@
                 "x-appwrite": {
                     "method": "getDatabaseSchema",
                     "group": "databases",
-                    "weight": 966,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/get-database-schema.md",
@@ -11556,7 +11315,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Preview a schema change against a dedicated database. Returns the expected impact including affected collections, records, and a dry-run diff of the schema before and after the change.",
+                "description": "Preview a schema change against a dedicated database. Returns the expected impact including affected collections, records, and a dry-run diff of the schema before and after the change.",
                 "responses": {
                     "200": {
                         "description": "SchemaPreview",
@@ -11573,7 +11332,6 @@
                 "x-appwrite": {
                     "method": "createDatabaseSchemaPreview",
                     "group": "databases",
-                    "weight": 967,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/create-database-schema-preview.md",
@@ -11635,7 +11393,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    List slow queries for a dedicated database. Returns queries that exceeded the specified threshold.",
+                "description": "List slow queries for a dedicated database. Returns queries that exceeded the specified threshold.",
                 "responses": {
                     "200": {
                         "description": "Dedicated database slow queries list",
@@ -11652,7 +11410,6 @@
                 "x-appwrite": {
                     "method": "listDatabaseQueries",
                     "group": "databases",
-                    "weight": 951,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/list-database-queries.md",
@@ -11719,7 +11476,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Get real-time health and status information for a dedicated database. Returns health status, readiness, uptime, connection info, replica status, and volume information.",
+                "description": "Get real-time health and status information for a dedicated database. Returns health status, readiness, uptime, connection info, replica status, and volume information.",
                 "responses": {
                     "200": {
                         "description": "Status",
@@ -11736,7 +11493,6 @@
                 "x-appwrite": {
                     "method": "getDatabaseStatus",
                     "group": "databases",
-                    "weight": 934,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/get-database-status.md",
@@ -11779,7 +11535,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Upgrade a dedicated database to a new engine version. Uses blue-green deployment for zero-downtime cutover.",
+                "description": "Upgrade a dedicated database to a new engine version. Uses blue-green deployment for zero-downtime cutover.",
                 "responses": {
                     "200": {
                         "description": "DedicatedDatabase",
@@ -11796,7 +11552,6 @@
                 "x-appwrite": {
                     "method": "createDatabaseUpgrade",
                     "group": "databases",
-                    "weight": 937,
                     "cookies": false,
                     "type": "",
                     "demo": "compute\/create-database-upgrade.md",
@@ -11849,88 +11604,6 @@
                         }
                     }
                 }
-            }
-        },
-        "\/compute\/databases\/{databaseId}\/usage": {
-            "get": {
-                "summary": "Get database usage metrics.",
-                "operationId": "computeGetDatabaseUsage",
-                "tags": [
-                    "compute"
-                ],
-                "description": "    Get usage metrics for a dedicated database including CPU, memory, storage, connections, and query statistics.",
-                "responses": {
-                    "200": {
-                        "description": "DedicatedDatabase",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/dedicatedDatabaseUsage"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "getDatabaseUsage",
-                    "group": "databases",
-                    "weight": 935,
-                    "cookies": false,
-                    "type": "",
-                    "demo": "compute\/get-database-usage.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "databases.read",
-                    "platforms": [
-                        "console"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "auth": {
-                        "Project": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "databaseId",
-                        "description": "Database ID.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "<DATABASE_ID>"
-                        },
-                        "in": "path"
-                    },
-                    {
-                        "name": "range",
-                        "description": "Date range.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "24h",
-                            "enum": [
-                                "24h",
-                                "30d",
-                                "90d"
-                            ],
-                            "x-enum-name": null,
-                            "x-enum-keys": [
-                                "Twenty Four Hours",
-                                "Thirty Days",
-                                "Ninety Days"
-                            ],
-                            "default": "30d"
-                        },
-                        "in": "query"
-                    }
-                ]
             }
         },
         "\/console\/assistant": {
@@ -80127,6 +79800,232 @@
                     }
                 }
             }
+        },
+        "\/compute\/databases\/specifications": {
+            "get": {
+                "summary": "List dedicated database specifications.",
+                "operationId": "computeListDatabaseSpecifications",
+                "tags": [
+                    "compute"
+                ],
+                "description": "List the dedicated database specifications available on the current plan. Each specification reports its resource limits, pricing, and whether it is enabled for the organization.",
+                "responses": {
+                    "200": {
+                        "description": "SpecificationList",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/dedicatedDatabaseSpecificationList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listDatabaseSpecifications",
+                    "group": "databases",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "compute\/list-database-specifications.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "databases.read",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ]
+            }
+        },
+        "\/compute\/databases\/{databaseId}\/backups\/policies": {
+            "get": {
+                "summary": "List database backup policies.",
+                "operationId": "computeListDatabaseBackupPolicies",
+                "tags": [
+                    "compute"
+                ],
+                "description": "    List scheduled backup policies for a dedicated database.",
+                "responses": {
+                    "200": {
+                        "description": "Backup policy list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/backupPolicyList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listDatabaseBackupPolicies",
+                    "group": "databases",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "compute\/list-database-backup-policies.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "databases.read",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "in": "query"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create a database backup policy.",
+                "operationId": "computeCreateDatabaseBackupPolicy",
+                "tags": [
+                    "compute"
+                ],
+                "description": "    Create a scheduled backup policy for a dedicated database.",
+                "responses": {
+                    "201": {
+                        "description": "backup",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/backupPolicy"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createDatabaseBackupPolicy",
+                    "group": "databases",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "compute\/create-database-backup-policy.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "databases.write",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "policyId": {
+                                        "type": "string",
+                                        "description": "Policy ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
+                                        "x-example": "<POLICY_ID>"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Policy name. Max length: 128 chars.",
+                                        "x-example": "<NAME>"
+                                    },
+                                    "schedule": {
+                                        "type": "string",
+                                        "description": "Schedule CRON syntax.",
+                                        "x-example": null
+                                    },
+                                    "retention": {
+                                        "type": "integer",
+                                        "description": "Days to keep backups before deletion.",
+                                        "x-example": 1,
+                                        "format": "int32"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "Backup type: full or incremental.",
+                                        "default": "full",
+                                        "x-example": "full"
+                                    },
+                                    "enabled": {
+                                        "type": "boolean",
+                                        "description": "Is policy enabled? When disabled, no backups will be taken.",
+                                        "default": true,
+                                        "x-example": false
+                                    }
+                                },
+                                "required": [
+                                    "policyId",
+                                    "name",
+                                    "schedule",
+                                    "retention"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "tags": [
@@ -99626,6 +99525,16 @@
                         "description": "Project ID.",
                         "x-example": "5e5ea5c16897e"
                     },
+                    "policyId": {
+                        "type": "string",
+                        "description": "Backup policy ID when the backup was created by a schedule.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "trigger": {
+                        "type": "string",
+                        "description": "Backup trigger. Possible values: manual, schedule.",
+                        "x-example": "schedule"
+                    },
                     "type": {
                         "type": "string",
                         "description": "Backup type. Possible values: full (complete database snapshot), incremental (changes since last backup), wal (write-ahead log continuous archival).",
@@ -99673,6 +99582,8 @@
                     "$createdAt",
                     "databaseId",
                     "projectId",
+                    "policyId",
+                    "trigger",
                     "type",
                     "status",
                     "sizeBytes",
@@ -99687,6 +99598,8 @@
                     "$createdAt": "2020-10-15T06:38:00.000+00:00",
                     "databaseId": "5e5ea5c16897e",
                     "projectId": "5e5ea5c16897e",
+                    "policyId": "5e5ea5c16897e",
+                    "trigger": "schedule",
                     "type": "full",
                     "status": "completed",
                     "sizeBytes": 1073741824,
@@ -100945,7 +100858,7 @@
                     "host": {
                         "type": "string",
                         "description": "Database hostname.",
-                        "x-example": "db-myproject-mydb.fra.appwrite.network"
+                        "x-example": "db-myproject-mydb.fra.appwrite.center"
                     },
                     "port": {
                         "type": "integer",
@@ -100968,6 +100881,22 @@
                         "description": "Database name.",
                         "x-example": "appwrite"
                     },
+                    "tcpHost": {
+                        "type": "string",
+                        "description": "Database TCP hostname or address.",
+                        "x-example": "db-myproject-mydb.fra.appwrite.center"
+                    },
+                    "tcpPort": {
+                        "type": "integer",
+                        "description": "Database TCP port.",
+                        "x-example": 5432,
+                        "format": "int32"
+                    },
+                    "tcpDatabase": {
+                        "type": "string",
+                        "description": "Database name for direct TCP connections.",
+                        "x-example": "appwrite"
+                    },
                     "engine": {
                         "type": "string",
                         "description": "Database engine. Possible values: postgres, mysql, mariadb, mongodb.",
@@ -100976,12 +100905,12 @@
                     "ssl": {
                         "type": "boolean",
                         "description": "Whether SSL is required.",
-                        "x-example": true
+                        "x-example": false
                     },
                     "connectionString": {
                         "type": "string",
                         "description": "Full connection string.",
-                        "x-example": "postgresql:\/\/appwrite:****@db-myproject-mydb.fra.appwrite.network:5432\/appwrite?sslmode=require"
+                        "x-example": "postgresql:\/\/appwrite:****@db-myproject-mydb.fra.appwrite.center:5432\/appwrite?sslmode=disable"
                     }
                 },
                 "required": [
@@ -100991,20 +100920,26 @@
                     "username",
                     "password",
                     "database",
+                    "tcpHost",
+                    "tcpPort",
+                    "tcpDatabase",
                     "engine",
                     "ssl",
                     "connectionString"
                 ],
                 "example": {
                     "$id": "5e5ea5c16897e",
-                    "host": "db-myproject-mydb.fra.appwrite.network",
+                    "host": "db-myproject-mydb.fra.appwrite.center",
                     "port": 5432,
                     "username": "appwrite",
                     "password": "********",
                     "database": "appwrite",
+                    "tcpHost": "db-myproject-mydb.fra.appwrite.center",
+                    "tcpPort": 5432,
+                    "tcpDatabase": "appwrite",
                     "engine": "postgres",
-                    "ssl": true,
-                    "connectionString": "postgresql:\/\/appwrite:****@db-myproject-mydb.fra.appwrite.network:5432\/appwrite?sslmode=require"
+                    "ssl": false,
+                    "connectionString": "postgresql:\/\/appwrite:****@db-myproject-mydb.fra.appwrite.center:5432\/appwrite?sslmode=disable"
                 }
             },
             "credit": {
@@ -101288,6 +101223,11 @@
                         "description": "Database type: shared (serverless) or dedicated (always-on).",
                         "x-example": "dedicated"
                     },
+                    "api": {
+                        "type": "string",
+                        "description": "Product API that owns this database: compute, documentsdb, or vectorsdb.",
+                        "x-example": "compute"
+                    },
                     "region": {
                         "type": "string",
                         "description": "Region identifier (e.g., fra, nyc, syd).",
@@ -101306,7 +101246,7 @@
                     "specification": {
                         "type": "string",
                         "description": "Specification identifier.",
-                        "x-example": "starter"
+                        "x-example": "s-2vcpu-2gb"
                     },
                     "backend": {
                         "type": "string",
@@ -101316,7 +101256,7 @@
                     "hostname": {
                         "type": "string",
                         "description": "Database hostname for connections.",
-                        "x-example": "db-myproject-mydb.fra.appwrite.network"
+                        "x-example": "db-myproject-mydb.fra.appwrite.center"
                     },
                     "connectionPort": {
                         "type": "integer",
@@ -101337,7 +101277,7 @@
                     "connectionString": {
                         "type": "string",
                         "description": "Full database connection string (URI format).",
-                        "x-example": "postgresql:\/\/user:pass@db-myproject-mydb.fra.appwrite.network:5432\/postgres"
+                        "x-example": "postgresql:\/\/user:pass@db-myproject-mydb.fra.appwrite.center:5432\/postgres"
                     },
                     "status": {
                         "type": "string",
@@ -101496,7 +101436,7 @@
                     "metricsEnabled": {
                         "type": "boolean",
                         "description": "Whether metrics collection is enabled.",
-                        "x-example": true
+                        "x-example": false
                     },
                     "sqlApiEnabled": {
                         "type": "boolean",
@@ -101542,6 +101482,7 @@
                     "projectId",
                     "name",
                     "type",
+                    "api",
                     "region",
                     "engine",
                     "version",
@@ -101594,16 +101535,17 @@
                     "projectId": "5e5ea5c16897e",
                     "name": "My Production Database",
                     "type": "dedicated",
+                    "api": "compute",
                     "region": "fra",
                     "engine": "postgres",
                     "version": "16",
-                    "specification": "starter",
+                    "specification": "s-2vcpu-2gb",
                     "backend": "edge",
-                    "hostname": "db-myproject-mydb.fra.appwrite.network",
+                    "hostname": "db-myproject-mydb.fra.appwrite.center",
                     "connectionPort": 5432,
                     "connectionUser": "appwrite_user",
                     "connectionPassword": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022",
-                    "connectionString": "postgresql:\/\/user:pass@db-myproject-mydb.fra.appwrite.network:5432\/postgres",
+                    "connectionString": "postgresql:\/\/user:pass@db-myproject-mydb.fra.appwrite.center:5432\/postgres",
                     "status": "ready",
                     "containerStatus": "active",
                     "lastAccessedAt": "2020-10-15T06:38:00.000+00:00",
@@ -101634,7 +101576,7 @@
                     "storageAutoscalingMaxGb": 500,
                     "maintenanceWindowDay": "sun",
                     "maintenanceWindowHourUtc": 3,
-                    "metricsEnabled": true,
+                    "metricsEnabled": false,
                     "sqlApiEnabled": true,
                     "sqlApiAllowedStatements": "SELECT",
                     "sqlApiMaxRows": 10000,
@@ -106353,6 +106295,181 @@
                 "example": {
                     "total": 5,
                     "gauges": ""
+                }
+            },
+            "dedicatedDatabaseSpecificationList": {
+                "description": "SpecificationList",
+                "type": "object",
+                "properties": {
+                    "specifications": {
+                        "type": "array",
+                        "description": "List of dedicated database specifications.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/dedicatedDatabaseSpecification"
+                        },
+                        "x-example": []
+                    },
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of specifications.",
+                        "x-example": 9,
+                        "format": "int32"
+                    },
+                    "pricing": {
+                        "type": "object",
+                        "description": "Overage and add-on pricing shared across all specifications.",
+                        "x-example": null,
+                        "items": {
+                            "$ref": "#\/components\/schemas\/dedicatedDatabaseSpecificationPricing"
+                        }
+                    }
+                },
+                "required": [
+                    "specifications",
+                    "total",
+                    "pricing"
+                ],
+                "example": {
+                    "specifications": [],
+                    "total": 9,
+                    "pricing": null
+                }
+            },
+            "dedicatedDatabaseSpecification": {
+                "description": "Specification",
+                "type": "object",
+                "properties": {
+                    "slug": {
+                        "type": "string",
+                        "description": "Specification slug. Use this value when creating a dedicated database.",
+                        "x-example": "s-2vcpu-2gb"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Human readable specification name.",
+                        "x-example": "Standard"
+                    },
+                    "price": {
+                        "type": "number",
+                        "description": "Monthly price of the specification in USD.",
+                        "x-example": 23,
+                        "format": "double"
+                    },
+                    "cpu": {
+                        "type": "integer",
+                        "description": "Allocated CPU in millicores.",
+                        "x-example": 2000,
+                        "format": "int32"
+                    },
+                    "memory": {
+                        "type": "integer",
+                        "description": "Allocated memory in MB.",
+                        "x-example": 2048,
+                        "format": "int32"
+                    },
+                    "maxConnections": {
+                        "type": "integer",
+                        "description": "Maximum number of concurrent connections.",
+                        "x-example": 200,
+                        "format": "int32"
+                    },
+                    "includedStorage": {
+                        "type": "integer",
+                        "description": "Included storage in GB before overage charges apply.",
+                        "x-example": 25,
+                        "format": "int32"
+                    },
+                    "includedBandwidth": {
+                        "type": "integer",
+                        "description": "Included bandwidth in GB before overage charges apply.",
+                        "x-example": 200,
+                        "format": "int32"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the specification is available on the current plan.",
+                        "x-example": true
+                    }
+                },
+                "required": [
+                    "slug",
+                    "name",
+                    "price",
+                    "cpu",
+                    "memory",
+                    "maxConnections",
+                    "includedStorage",
+                    "includedBandwidth",
+                    "enabled"
+                ],
+                "example": {
+                    "slug": "s-2vcpu-2gb",
+                    "name": "Standard",
+                    "price": 23,
+                    "cpu": 2000,
+                    "memory": 2048,
+                    "maxConnections": 200,
+                    "includedStorage": 25,
+                    "includedBandwidth": 200,
+                    "enabled": true
+                }
+            },
+            "dedicatedDatabaseSpecificationPricing": {
+                "description": "SpecificationPricing",
+                "type": "object",
+                "properties": {
+                    "storageOverageRate": {
+                        "type": "number",
+                        "description": "Price per GB of storage above the included amount, per month, in USD.",
+                        "x-example": 0.125,
+                        "format": "double"
+                    },
+                    "bandwidthOverageRate": {
+                        "type": "number",
+                        "description": "Price per GB of bandwidth above the included amount, per month, in USD.",
+                        "x-example": 0.08,
+                        "format": "double"
+                    },
+                    "haReplicaRate": {
+                        "type": "number",
+                        "description": "High availability replica price as a fraction of the specification cost.",
+                        "x-example": 0.5,
+                        "format": "double"
+                    },
+                    "crossRegionReplicaRate": {
+                        "type": "number",
+                        "description": "Cross-region replica price as a fraction of the specification cost.",
+                        "x-example": 0.75,
+                        "format": "double"
+                    },
+                    "crossRegionRate": {
+                        "type": "number",
+                        "description": "Cross-region transfer price as a fraction of the specification cost.",
+                        "x-example": 0.5,
+                        "format": "double"
+                    },
+                    "pitrRate": {
+                        "type": "number",
+                        "description": "Point-in-time recovery price as a fraction of the specification cost.",
+                        "x-example": 0.2,
+                        "format": "double"
+                    }
+                },
+                "required": [
+                    "storageOverageRate",
+                    "bandwidthOverageRate",
+                    "haReplicaRate",
+                    "crossRegionReplicaRate",
+                    "crossRegionRate",
+                    "pitrRate"
+                ],
+                "example": {
+                    "storageOverageRate": 0.125,
+                    "bandwidthOverageRate": 0.08,
+                    "haReplicaRate": 0.5,
+                    "crossRegionReplicaRate": 0.75,
+                    "crossRegionRate": 0.5,
+                    "pitrRate": 0.2
                 }
             }
         },
