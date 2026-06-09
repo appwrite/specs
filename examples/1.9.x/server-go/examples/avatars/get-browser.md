@@ -3,14 +3,15 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/avatars"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/avatars"
 )
 
 client := client.New(
     client.WithEndpoint("https://<REGION>.cloud.appwrite.io/v1")
     client.WithProject("<YOUR_PROJECT_ID>")
     client.WithSession("")
+    client.WithImpersonateUserId("")
 )
 
 service := avatars.New(client)

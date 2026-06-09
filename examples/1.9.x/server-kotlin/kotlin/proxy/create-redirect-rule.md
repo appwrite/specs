@@ -2,7 +2,7 @@
 import io.appwrite.Client
 import io.appwrite.coroutines.CoroutineCallback
 import io.appwrite.services.Proxy
-import io.appwrite.enums.RedirectStatusCode
+import io.appwrite.enums.StatusCode
 import io.appwrite.enums.ProxyResourceType
 
 val client = Client()
@@ -15,7 +15,7 @@ val proxy = Proxy(client)
 val response = proxy.createRedirectRule(
     domain = "",
     url = "https://example.com",
-    statusCode = RedirectStatusCode.MOVEDPERMANENTLY,
+    statusCode = StatusCode.MOVEDPERMANENTLY,
     resourceId = "<RESOURCE_ID>",
     resourceType = ProxyResourceType.SITE
 )

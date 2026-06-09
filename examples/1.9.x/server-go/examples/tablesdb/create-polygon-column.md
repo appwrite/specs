@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/tablesdb"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/tablesdb"
 )
 
 client := client.New(
@@ -20,6 +20,6 @@ response, error := service.CreatePolygonColumn(
     "<TABLE_ID>",
     "",
     false,
-    tablesdb.WithCreatePolygonColumnDefault(interface{}{[[1, 2], [3, 4], [5, 6], [1, 2]]}),
+    tablesdb.WithCreatePolygonColumnDefault([]interface{}{[[1, 2], [3, 4], [5, 6], [1, 2]]}),
 )
 ```

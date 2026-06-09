@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/databases"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/databases"
 )
 
 client := client.New(
@@ -19,7 +19,7 @@ response, error := service.GetDocument(
     "<DATABASE_ID>",
     "<COLLECTION_ID>",
     "<DOCUMENT_ID>",
-    databases.WithGetDocumentQueries([]interface{}{}),
+    databases.WithGetDocumentQueries([]string{}),
     databases.WithGetDocumentTransactionId("<TRANSACTION_ID>"),
 )
 ```

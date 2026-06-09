@@ -2,7 +2,7 @@
 from appwrite.client import Client
 from appwrite.services.proxy import Proxy
 from appwrite.models import ProxyRule
-from appwrite.enums import RedirectStatusCode
+from appwrite.enums import StatusCode
 from appwrite.enums import ProxyResourceType
 
 client = Client()
@@ -15,7 +15,7 @@ proxy = Proxy(client)
 result: ProxyRule = proxy.create_redirect_rule(
     domain = '',
     url = 'https://example.com',
-    status_code = RedirectStatusCode.MOVEDPERMANENTLY,
+    status_code = StatusCode.MOVEDPERMANENTLY,
     resource_id = '<RESOURCE_ID>',
     resource_type = ProxyResourceType.SITE
 )

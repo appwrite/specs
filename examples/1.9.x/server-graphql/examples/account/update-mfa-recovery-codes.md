@@ -4,4 +4,9 @@ mutation {
         recoveryCodes
     }
 }
+mutation {
+    accountUpdateMFARecoveryCodes {
+        recoveryCodes
+    }
+}
 ```

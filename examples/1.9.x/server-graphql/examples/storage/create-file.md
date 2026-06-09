@@ -2,11 +2,9 @@
 POST /v1/storage/buckets/{bucketId}/files HTTP/1.1
 Host: cloud.appwrite.io
 Content-Type: multipart/form-data; boundary="cec8e8123c05ba25"
+Accept: application/json
 X-Appwrite-Response-Format: 1.9.5
 X-Appwrite-Project: <YOUR_PROJECT_ID>
-X-Appwrite-Session: 
-X-Appwrite-Key: <YOUR_API_KEY>
-X-Appwrite-JWT: <YOUR_JWT>
 Content-Length: *Length of your entity body in bytes*
 
 --cec8e8123c05ba25
@@ -25,4 +23,27 @@ Content-Disposition: form-data; name="0"; filename="file.ext"
 File contents
 
 --cec8e8123c05ba25--
+mutation {
+    storageCreateFile(
+        bucketId: "<BUCKET_ID>",
+        fileId: "<FILE_ID>",
+        file: null,
+        permissions: ["read("any")"]
+    ) {
+        _id
+        bucketId
+        _createdAt
+        _updatedAt
+        _permissions
+        name
+        signature
+        mimeType
+        sizeOriginal
+        sizeActual
+        chunksTotal
+        chunksUploaded
+        encryption
+        compression
+    }
+}
 ```

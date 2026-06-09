@@ -12,7 +12,7 @@ Sites sites = Sites(client);
 Site result = await sites.update(
     siteId: '<SITE_ID>',
     name: '<NAME>',
-    framework: enums.SiteFramework.analog,
+    framework: enums.Framework.analog,
     enabled: false, // (optional)
     logging: false, // (optional)
     timeout: 1, // (optional)
@@ -20,8 +20,8 @@ Site result = await sites.update(
     buildCommand: '<BUILD_COMMAND>', // (optional)
     startCommand: '<START_COMMAND>', // (optional)
     outputDirectory: '<OUTPUT_DIRECTORY>', // (optional)
-    buildRuntime: enums.SiteBuildRuntime.node145, // (optional)
-    adapter: enums.SiteAdapter.static, // (optional)
+    buildRuntime: enums.BuildRuntime.node145, // (optional)
+    adapter: enums.Adapter.static, // (optional)
     fallbackFile: '<FALLBACK_FILE>', // (optional)
     installationId: '<INSTALLATION_ID>', // (optional)
     providerRepositoryId: '<PROVIDER_REPOSITORY_ID>', // (optional)

@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/tablesdb"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/tablesdb"
 )
 
 client := client.New(
@@ -25,7 +25,7 @@ response, error := service.UpdateRows(
         "age": 33,
         "isAdmin": false
     }),
-    tablesdb.WithUpdateRowsQueries([]interface{}{}),
+    tablesdb.WithUpdateRowsQueries([]string{}),
     tablesdb.WithUpdateRowsTransactionId("<TRANSACTION_ID>"),
 )
 ```

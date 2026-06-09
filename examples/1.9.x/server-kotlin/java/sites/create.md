@@ -2,9 +2,9 @@
 import io.appwrite.Client;
 import io.appwrite.coroutines.CoroutineCallback;
 import io.appwrite.services.Sites;
-import io.appwrite.enums.SiteFramework;
-import io.appwrite.enums.SiteBuildRuntime;
-import io.appwrite.enums.SiteAdapter;
+import io.appwrite.enums.Framework;
+import io.appwrite.enums.BuildRuntime;
+import io.appwrite.enums.Adapter;
 
 Client client = new Client()
     .setEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
@@ -16,8 +16,8 @@ Sites sites = new Sites(client);
 sites.create(
     "<SITE_ID>", // siteId
     "<NAME>", // name
-    SiteFramework.ANALOG, // framework
-    SiteBuildRuntime.NODE_14_5, // buildRuntime
+    Framework.ANALOG, // framework
+    BuildRuntime.NODE_14_5, // buildRuntime
     false, // enabled (optional)
     false, // logging (optional)
     1, // timeout (optional)
@@ -25,7 +25,7 @@ sites.create(
     "<BUILD_COMMAND>", // buildCommand (optional)
     "<START_COMMAND>", // startCommand (optional)
     "<OUTPUT_DIRECTORY>", // outputDirectory (optional)
-    SiteAdapter.STATIC, // adapter (optional)
+    Adapter.STATIC, // adapter (optional)
     "<INSTALLATION_ID>", // installationId (optional)
     "<FALLBACK_FILE>", // fallbackFile (optional)
     "<PROVIDER_REPOSITORY_ID>", // providerRepositoryId (optional)

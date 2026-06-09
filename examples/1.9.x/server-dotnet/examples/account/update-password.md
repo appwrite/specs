@@ -11,6 +11,6 @@ Client client = new Client()
 Account account = new Account(client);
 
 User result = await account.UpdatePassword(
-    password: "",
+    password: "password",
     oldPassword: "password" // optional
 );```

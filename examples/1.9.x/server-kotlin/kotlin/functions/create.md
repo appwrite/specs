@@ -2,7 +2,7 @@
 import io.appwrite.Client
 import io.appwrite.coroutines.CoroutineCallback
 import io.appwrite.services.Functions
-import io.appwrite.enums.FunctionRuntime
+import io.appwrite.enums.Runtime
 import io.appwrite.enums.ProjectKeyScopes
 
 val client = Client()
@@ -15,7 +15,7 @@ val functions = Functions(client)
 val response = functions.create(
     functionId = "<FUNCTION_ID>",
     name = "<NAME>",
-    runtime = FunctionRuntime.NODE_14_5,
+    runtime = Runtime.NODE_14_5,
     execute = listOf("any"), // optional
     events = listOf(), // optional
     schedule = "", // optional

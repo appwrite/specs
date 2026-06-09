@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/tablesdb"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/tablesdb"
 )
 
 client := client.New(
@@ -19,7 +19,7 @@ response, error := service.UpdateEnumColumn(
     "<DATABASE_ID>",
     "<TABLE_ID>",
     "",
-    []interface{}{},
+    []string{},
     false,
     "<DEFAULT>",
     tablesdb.WithUpdateEnumColumnNewKey(""),

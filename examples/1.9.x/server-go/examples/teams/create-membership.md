@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/teams"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/teams"
 )
 
 client := client.New(
@@ -17,7 +17,7 @@ service := teams.New(client)
 
 response, error := service.CreateMembership(
     "<TEAM_ID>",
-    []interface{}{},
+    []string{},
     teams.WithCreateMembershipEmail("email@example.com"),
     teams.WithCreateMembershipUserId("<USER_ID>"),
     teams.WithCreateMembershipPhone("+12065550100"),

@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/backups"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/backups"
 )
 
 client := client.New(
@@ -17,7 +17,7 @@ service := backups.New(client)
 
 response, error := service.CreateRestoration(
     "<ARCHIVE_ID>",
-    []interface{}{},
+    []string{},
     backups.WithCreateRestorationNewResourceId("<NEW_RESOURCE_ID>"),
     backups.WithCreateRestorationNewResourceName("<NEW_RESOURCE_NAME>"),
 )

@@ -14,7 +14,7 @@ functions = Functions.new(client)
 result = functions.create(
     function_id: '<FUNCTION_ID>',
     name: '<NAME>',
-    runtime: FunctionRuntime::NODE_14_5,
+    runtime: Runtime::NODE_14_5,
     execute: ["any"], # optional
     events: [], # optional
     schedule: '', # optional

@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/tablesdb"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/tablesdb"
 )
 
 client := client.New(
@@ -19,7 +19,7 @@ response, error := service.CreateTable(
     "<DATABASE_ID>",
     "<TABLE_ID>",
     "<NAME>",
-    tablesdb.WithCreateTablePermissions(interface{}{"read("any")"}),
+    tablesdb.WithCreateTablePermissions([]string{"read("any")"}),
     tablesdb.WithCreateTableRowSecurity(false),
     tablesdb.WithCreateTableEnabled(false),
     tablesdb.WithCreateTableColumns([]interface{}{}),

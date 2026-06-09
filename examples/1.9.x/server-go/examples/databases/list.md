@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/databases"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/databases"
 )
 
 client := client.New(
@@ -16,7 +16,7 @@ client := client.New(
 service := databases.New(client)
 
 response, error := service.List(
-    databases.WithListQueries([]interface{}{}),
+    databases.WithListQueries([]string{}),
     databases.WithListSearch("<SEARCH>"),
     databases.WithListTotal(false),
 )

@@ -12,6 +12,6 @@ $client = (new Client())
 $account = new Account($client);
 
 $result = $account->updatePassword(
-    password: '',
+    password: 'password',
     oldPassword: 'password' // optional
 );```

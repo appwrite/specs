@@ -4,7 +4,7 @@ mutation {
         host: "",
         port: 0,
         username: "<USERNAME>",
-        password: "<PASSWORD>",
+        password: "password",
         senderEmail: "email@example.com",
         senderName: "<SENDER_NAME>",
         replyToEmail: "email@example.com",
@@ -17,6 +17,7 @@ mutation {
         _updatedAt
         name
         teamId
+        region
         devKeys {
             _id
             _createdAt
@@ -53,7 +54,19 @@ mutation {
             _id
             enabled
         }
-        region
+        blocks {
+            _createdAt
+            resourceType
+            resourceId
+            reason
+            expiredAt
+            projectName
+            region
+            organizationName
+            organizationId
+            billingPlan
+        }
+        consoleAccessedAt
         billingLimits {
             bandwidth
             storage
@@ -63,6 +76,77 @@ mutation {
             imageTransformations
             authPhone
             budgetLimit
+        }
+        oAuth2ServerEnabled
+        oAuth2ServerAuthorizationUrl
+        oAuth2ServerScopes
+        oAuth2ServerAuthorizationDetailsTypes
+        oAuth2ServerAccessTokenDuration
+        oAuth2ServerRefreshTokenDuration
+        oAuth2ServerPublicAccessTokenDuration
+        oAuth2ServerPublicRefreshTokenDuration
+        oAuth2ServerConfidentialPkce
+        oAuth2ServerVerificationUrl
+        oAuth2ServerUserCodeLength
+        oAuth2ServerUserCodeFormat
+        oAuth2ServerDeviceCodeDuration
+        oAuth2ServerDiscoveryUrl
+    }
+}
+mutation {
+    projectUpdateSMTP(
+        host: "",
+        port: 0,
+        username: "<USERNAME>",
+        password: "password",
+        senderEmail: "email@example.com",
+        senderName: "<SENDER_NAME>",
+        replyToEmail: "email@example.com",
+        replyToName: "<REPLY_TO_NAME>",
+        secure: "tls",
+        enabled: false
+    ) {
+        _id
+        _createdAt
+        _updatedAt
+        name
+        teamId
+        region
+        devKeys {
+            _id
+            _createdAt
+            _updatedAt
+            name
+            expire
+            secret
+            accessedAt
+            sdks
+        }
+        smtpEnabled
+        smtpSenderName
+        smtpSenderEmail
+        smtpReplyToName
+        smtpReplyToEmail
+        smtpHost
+        smtpPort
+        smtpUsername
+        smtpPassword
+        smtpSecure
+        pingCount
+        pingedAt
+        labels
+        status
+        authMethods {
+            _id
+            enabled
+        }
+        services {
+            _id
+            enabled
+        }
+        protocols {
+            _id
+            enabled
         }
         blocks {
             _createdAt
@@ -77,6 +161,30 @@ mutation {
             billingPlan
         }
         consoleAccessedAt
+        billingLimits {
+            bandwidth
+            storage
+            users
+            executions
+            GBHours
+            imageTransformations
+            authPhone
+            budgetLimit
+        }
+        oAuth2ServerEnabled
+        oAuth2ServerAuthorizationUrl
+        oAuth2ServerScopes
+        oAuth2ServerAuthorizationDetailsTypes
+        oAuth2ServerAccessTokenDuration
+        oAuth2ServerRefreshTokenDuration
+        oAuth2ServerPublicAccessTokenDuration
+        oAuth2ServerPublicRefreshTokenDuration
+        oAuth2ServerConfidentialPkce
+        oAuth2ServerVerificationUrl
+        oAuth2ServerUserCodeLength
+        oAuth2ServerUserCodeFormat
+        oAuth2ServerDeviceCodeDuration
+        oAuth2ServerDiscoveryUrl
     }
 }
 ```

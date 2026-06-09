@@ -9,7 +9,7 @@ const client = new sdk.Client()
 const account = new sdk.Account(client);
 
 const result = await account.updatePassword({
-    password: '',
+    password: 'password',
     oldPassword: 'password' // optional
 });
 ```

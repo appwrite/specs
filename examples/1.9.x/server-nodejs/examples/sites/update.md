@@ -11,7 +11,7 @@ const sites = new sdk.Sites(client);
 const result = await sites.update({
     siteId: '<SITE_ID>',
     name: '<NAME>',
-    framework: sdk.SiteFramework.Analog,
+    framework: sdk.Framework.Analog,
     enabled: false, // optional
     logging: false, // optional
     timeout: 1, // optional
@@ -19,8 +19,8 @@ const result = await sites.update({
     buildCommand: '<BUILD_COMMAND>', // optional
     startCommand: '<START_COMMAND>', // optional
     outputDirectory: '<OUTPUT_DIRECTORY>', // optional
-    buildRuntime: sdk.SiteBuildRuntime.Node145, // optional
-    adapter: sdk.SiteAdapter.Static, // optional
+    buildRuntime: sdk.BuildRuntime.Node145, // optional
+    adapter: sdk.Adapter.Static, // optional
     fallbackFile: '<FALLBACK_FILE>', // optional
     installationId: '<INSTALLATION_ID>', // optional
     providerRepositoryId: '<PROVIDER_REPOSITORY_ID>', // optional

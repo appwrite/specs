@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/account"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/account"
 )
 
 client := client.New(
@@ -16,7 +16,7 @@ client := client.New(
 service := account.New(client)
 
 response, error := service.ListIdentities(
-    account.WithListIdentitiesQueries([]interface{}{}),
+    account.WithListIdentitiesQueries([]string{}),
     account.WithListIdentitiesTotal(false),
 )
 ```

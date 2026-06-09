@@ -12,7 +12,7 @@ Functions functions = Functions(client);
 Func result = await functions.update(
     functionId: '<FUNCTION_ID>',
     name: '<NAME>',
-    runtime: enums.FunctionRuntime.node145, // (optional)
+    runtime: enums.Runtime.node145, // (optional)
     execute: ["any"], // (optional)
     events: [], // (optional)
     schedule: '', // (optional)

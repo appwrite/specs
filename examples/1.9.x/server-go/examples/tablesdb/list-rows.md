@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/tablesdb"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/tablesdb"
 )
 
 client := client.New(
@@ -18,7 +18,7 @@ service := tablesdb.New(client)
 response, error := service.ListRows(
     "<DATABASE_ID>",
     "<TABLE_ID>",
-    tablesdb.WithListRowsQueries([]interface{}{}),
+    tablesdb.WithListRowsQueries([]string{}),
     tablesdb.WithListRowsTransactionId("<TRANSACTION_ID>"),
     tablesdb.WithListRowsTotal(false),
     tablesdb.WithListRowsTtl(0),

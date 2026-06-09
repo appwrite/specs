@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/presences"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/presences"
 )
 
 client := client.New(
@@ -19,7 +19,7 @@ response, error := service.Upsert(
     "<PRESENCE_ID>",
     "<USER_ID>",
     "<STATUS>",
-    presences.WithUpsertPermissions(interface{}{"read("any")"}),
+    presences.WithUpsertPermissions([]string{"read("any")"}),
     presences.WithUpsertExpiresAt("2020-10-15T06:38:00.000+00:00"),
     presences.WithUpsertMetadata(map[string]interface{}{}),
 )

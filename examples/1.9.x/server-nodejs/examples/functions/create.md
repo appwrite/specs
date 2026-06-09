@@ -11,7 +11,7 @@ const functions = new sdk.Functions(client);
 const result = await functions.create({
     functionId: '<FUNCTION_ID>',
     name: '<NAME>',
-    runtime: sdk.FunctionRuntime.Node145,
+    runtime: sdk.Runtime.Node145,
     execute: ["any"], // optional
     events: [], // optional
     schedule: '', // optional
