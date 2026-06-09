@@ -14,7 +14,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let result = functions.create(
         "<FUNCTION_ID>",
         "<NAME>",
-        appwrite::enums::FunctionRuntime::Node145,
+        appwrite::enums::Runtime::Node145,
         Some(vec!["any".into()]), // optional
         Some(vec![]), // optional
         Some(""), // optional

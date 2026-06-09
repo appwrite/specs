@@ -14,7 +14,7 @@ functions = Functions.new(client)
 result = functions.update(
     function_id: '<FUNCTION_ID>',
     name: '<NAME>',
-    runtime: FunctionRuntime::NODE_14_5, # optional
+    runtime: Runtime::NODE_14_5, # optional
     execute: ["any"], # optional
     events: [], # optional
     schedule: '', # optional

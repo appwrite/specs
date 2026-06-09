@@ -2,10 +2,14 @@
 PATCH /v1/account/email HTTP/1.1
 Host: cloud.appwrite.io
 Content-Type: application/json
+Accept: application/json
 X-Appwrite-Response-Format: 1.9.5
 X-Appwrite-Project: <YOUR_PROJECT_ID>
-X-Appwrite-Session: 
-X-Appwrite-JWT: <YOUR_JWT>
+
+{
+  "email": "email@example.com",
+  "password": "password"
+}
 
 {
   "email": "email@example.com",

@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/messaging"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/messaging"
 )
 
 client := client.New(
@@ -19,12 +19,12 @@ response, error := service.CreateEmail(
     "<MESSAGE_ID>",
     "<SUBJECT>",
     "<CONTENT>",
-    messaging.WithCreateEmailTopics([]interface{}{}),
-    messaging.WithCreateEmailUsers([]interface{}{}),
-    messaging.WithCreateEmailTargets([]interface{}{}),
-    messaging.WithCreateEmailCc([]interface{}{}),
-    messaging.WithCreateEmailBcc([]interface{}{}),
-    messaging.WithCreateEmailAttachments([]interface{}{}),
+    messaging.WithCreateEmailTopics([]string{}),
+    messaging.WithCreateEmailUsers([]string{}),
+    messaging.WithCreateEmailTargets([]string{}),
+    messaging.WithCreateEmailCc([]string{}),
+    messaging.WithCreateEmailBcc([]string{}),
+    messaging.WithCreateEmailAttachments([]string{}),
     messaging.WithCreateEmailDraft(false),
     messaging.WithCreateEmailHtml(false),
     messaging.WithCreateEmailScheduledAt("2020-10-15T06:38:00.000+00:00"),

@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/databases"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/databases"
 )
 
 client := client.New(
@@ -18,7 +18,7 @@ service := databases.New(client)
 response, error := service.ListDocuments(
     "<DATABASE_ID>",
     "<COLLECTION_ID>",
-    databases.WithListDocumentsQueries([]interface{}{}),
+    databases.WithListDocumentsQueries([]string{}),
     databases.WithListDocumentsTransactionId("<TRANSACTION_ID>"),
     databases.WithListDocumentsTotal(false),
     databases.WithListDocumentsTtl(0),

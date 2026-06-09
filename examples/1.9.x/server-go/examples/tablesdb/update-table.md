@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/tablesdb"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/tablesdb"
 )
 
 client := client.New(
@@ -19,7 +19,7 @@ response, error := service.UpdateTable(
     "<DATABASE_ID>",
     "<TABLE_ID>",
     tablesdb.WithUpdateTableName("<NAME>"),
-    tablesdb.WithUpdateTablePermissions(interface{}{"read("any")"}),
+    tablesdb.WithUpdateTablePermissions([]string{"read("any")"}),
     tablesdb.WithUpdateTableRowSecurity(false),
     tablesdb.WithUpdateTableEnabled(false),
     tablesdb.WithUpdateTablePurge(false),

@@ -9,7 +9,7 @@ let client = Client()
 let account = Account(client)
 
 let user = try await account.updatePassword(
-    password: "",
+    password: "password",
     oldPassword: "password" // optional
 )
 

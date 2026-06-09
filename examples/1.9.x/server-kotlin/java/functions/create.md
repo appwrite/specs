@@ -2,7 +2,7 @@
 import io.appwrite.Client;
 import io.appwrite.coroutines.CoroutineCallback;
 import io.appwrite.services.Functions;
-import io.appwrite.enums.FunctionRuntime;
+import io.appwrite.enums.Runtime;
 import io.appwrite.enums.ProjectKeyScopes;
 
 Client client = new Client()
@@ -15,7 +15,7 @@ Functions functions = new Functions(client);
 functions.create(
     "<FUNCTION_ID>", // functionId
     "<NAME>", // name
-    FunctionRuntime.NODE_14_5, // runtime
+    Runtime.NODE_14_5, // runtime
     List.of("any"), // execute (optional)
     List.of(), // events (optional)
     "", // schedule (optional)

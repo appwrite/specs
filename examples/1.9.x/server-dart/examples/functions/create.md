@@ -12,7 +12,7 @@ Functions functions = Functions(client);
 Func result = await functions.create(
     functionId: '<FUNCTION_ID>',
     name: '<NAME>',
-    runtime: enums.FunctionRuntime.node145,
+    runtime: enums.Runtime.node145,
     execute: ["any"], // (optional)
     events: [], // (optional)
     schedule: '', // (optional)

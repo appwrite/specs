@@ -11,4 +11,16 @@ mutation {
         clientSecret
     }
 }
+mutation {
+    projectUpdateOAuth2Discord(
+        clientId: "<CLIENT_ID>",
+        clientSecret: "<CLIENT_SECRET>",
+        enabled: false
+    ) {
+        _id
+        enabled
+        clientId
+        clientSecret
+    }
+}
 ```

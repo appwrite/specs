@@ -14,8 +14,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let result = sites.create(
         "<SITE_ID>",
         "<NAME>",
-        appwrite::enums::SiteFramework::Analog,
-        appwrite::enums::SiteBuildRuntime::Node145,
+        appwrite::enums::Framework::Analog,
+        appwrite::enums::BuildRuntime::Node145,
         Some(false), // optional
         Some(false), // optional
         Some(1), // optional
@@ -23,7 +23,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Some("<BUILD_COMMAND>"), // optional
         Some("<START_COMMAND>"), // optional
         Some("<OUTPUT_DIRECTORY>"), // optional
-        Some(appwrite::enums::SiteAdapter::Static), // optional
+        Some(appwrite::enums::Adapter::Static), // optional
         Some("<INSTALLATION_ID>"), // optional
         Some("<FALLBACK_FILE>"), // optional
         Some("<PROVIDER_REPOSITORY_ID>"), // optional

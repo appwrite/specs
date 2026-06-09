@@ -9,7 +9,8 @@ const compute = new Compute(client);
 
 const result = await compute.createDatabaseMigration({
     databaseId: '<DATABASE_ID>',
-    targetType: 'shared'
+    targetType: 'shared',
+    specification: '<SPECIFICATION>' // optional
 });
 
 console.log(result);

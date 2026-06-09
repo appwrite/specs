@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/storage"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/storage"
 )
 
 client := client.New(
@@ -18,11 +18,11 @@ service := storage.New(client)
 response, error := service.CreateBucket(
     "<BUCKET_ID>",
     "<NAME>",
-    storage.WithCreateBucketPermissions(interface{}{"read("any")"}),
+    storage.WithCreateBucketPermissions([]string{"read("any")"}),
     storage.WithCreateBucketFileSecurity(false),
     storage.WithCreateBucketEnabled(false),
     storage.WithCreateBucketMaximumFileSize(1),
-    storage.WithCreateBucketAllowedFileExtensions([]interface{}{}),
+    storage.WithCreateBucketAllowedFileExtensions([]string{}),
     storage.WithCreateBucketCompression("none"),
     storage.WithCreateBucketEncryption(false),
     storage.WithCreateBucketAntivirus(false),

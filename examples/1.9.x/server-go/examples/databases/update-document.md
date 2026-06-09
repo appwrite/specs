@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/databases"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/databases"
 )
 
 client := client.New(
@@ -26,7 +26,7 @@ response, error := service.UpdateDocument(
         "age": 33,
         "isAdmin": false
     }),
-    databases.WithUpdateDocumentPermissions(interface{}{"read("any")"}),
+    databases.WithUpdateDocumentPermissions([]string{"read("any")"}),
     databases.WithUpdateDocumentTransactionId("<TRANSACTION_ID>"),
 )
 ```

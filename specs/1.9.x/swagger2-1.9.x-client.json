@@ -38,6 +38,15 @@
                 "demo": "<YOUR_PROJECT_ID>"
             }
         },
+        "ProjectQuery": {
+            "type": "apiKey",
+            "name": "project",
+            "description": "Your project ID",
+            "in": "query",
+            "x-appwrite": {
+                "demo": "<YOUR_PROJECT_ID>"
+            }
+        },
         "JWT": {
             "type": "apiKey",
             "name": "X-Appwrite-JWT",
@@ -206,7 +215,10 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "x-example": "<USER_ID>"
+                                    "x-example": "<USER_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "email": {
                                     "type": "string",
@@ -217,7 +229,8 @@
                                 "password": {
                                     "type": "string",
                                     "description": "New user password. Must be between 8 and 256 chars.",
-                                    "x-example": null
+                                    "x-example": "password",
+                                    "format": "password"
                                 },
                                 "name": {
                                     "type": "string",
@@ -1876,11 +1889,12 @@
                                 "password": {
                                     "type": "string",
                                     "description": "New user password. Must be at least 8 chars.",
-                                    "x-example": null
+                                    "x-example": "password",
+                                    "format": "password"
                                 },
                                 "oldPassword": {
                                     "type": "string",
-                                    "description": "Current user password. Must be at least 8 chars.",
+                                    "description": "Current user password. Max length: 256 chars.",
                                     "default": "",
                                     "x-example": "password",
                                     "format": "password"
@@ -2253,7 +2267,8 @@
                                 "password": {
                                     "type": "string",
                                     "description": "New user password. Must be between 8 and 256 chars.",
-                                    "x-example": null
+                                    "x-example": "password",
+                                    "format": "password"
                                 }
                             },
                             "required": [
@@ -2566,7 +2581,10 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "x-example": "<USER_ID>"
+                                    "x-example": "<USER_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "secret": {
                                     "type": "string",
@@ -2831,7 +2849,10 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "x-example": "<USER_ID>"
+                                    "x-example": "<USER_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "secret": {
                                     "type": "string",
@@ -2910,7 +2931,10 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "x-example": "<USER_ID>"
+                                    "x-example": "<USER_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "secret": {
                                     "type": "string",
@@ -3222,7 +3246,10 @@
                                 "targetId": {
                                     "type": "string",
                                     "description": "Target ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "x-example": "<TARGET_ID>"
+                                    "x-example": "<TARGET_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "identifier": {
                                     "type": "string",
@@ -3444,7 +3471,10 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "User ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars. If the email address has never been used, a new account is created using the provided userId. Otherwise, if the email address is already attached to an account, the user ID is ignored.",
-                                    "x-example": "<USER_ID>"
+                                    "x-example": "<USER_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "email": {
                                     "type": "string",
@@ -3533,7 +3563,10 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "Unique Id. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars. If the email address has never been used, a new account is created using the provided userId. Otherwise, if the email address is already attached to an account, the user ID is ignored.",
-                                    "x-example": "<USER_ID>"
+                                    "x-example": "<USER_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "email": {
                                     "type": "string",
@@ -3811,7 +3844,10 @@
                                 "userId": {
                                     "type": "string",
                                     "description": "Unique Id. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars. If the phone number has never been used, a new account is created using the provided userId. Otherwise, if the phone number is already attached to an account, the user ID is ignored.",
-                                    "x-example": "<USER_ID>"
+                                    "x-example": "<USER_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "phone": {
                                     "type": "string",
@@ -4222,6 +4258,834 @@
                 ]
             }
         },
+        "\/apps": {
+            "get": {
+                "summary": "List Applications",
+                "operationId": "appsList",
+                "consumes": [],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "apps"
+                ],
+                "description": "List applications.",
+                "responses": {
+                    "200": {
+                        "description": "Apps list",
+                        "schema": {
+                            "$ref": "#\/definitions\/appsList"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "list",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/list.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "apps.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "type": "array",
+                        "collectionFormat": "multi",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [],
+                        "in": "query"
+                    },
+                    {
+                        "name": "total",
+                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "required": false,
+                        "type": "boolean",
+                        "x-example": false,
+                        "default": true,
+                        "in": "query"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create Application",
+                "operationId": "appsCreate",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "apps"
+                ],
+                "description": "Create a new application.",
+                "responses": {
+                    "201": {
+                        "description": "App",
+                        "schema": {
+                            "$ref": "#\/definitions\/app"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "create",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/create.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "apps.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "appId": {
+                                    "type": "string",
+                                    "description": "Application ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
+                                    "x-example": "<APP_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "Application name.",
+                                    "x-example": "<NAME>"
+                                },
+                                "redirectUris": {
+                                    "type": "array",
+                                    "description": "Redirect URIs (array of valid URLs).",
+                                    "x-example": null,
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "enabled": {
+                                    "type": "boolean",
+                                    "description": "Is application enabled?",
+                                    "default": true,
+                                    "x-example": false
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "OAuth2 client type. Use `public` for SPAs, mobile, and native apps that cannot keep a `client_secret` \u2014 PKCE is then required at the token endpoint. Use `confidential` for server-side clients that present a `client_secret`. Defaults to `confidential`.",
+                                    "default": "confidential",
+                                    "x-example": "public"
+                                },
+                                "deviceFlow": {
+                                    "type": "boolean",
+                                    "description": "Allow this client to use the OAuth2 Device Authorization Grant (RFC 8628) for input-constrained devices such as TVs and CLIs. Defaults to false.",
+                                    "default": false,
+                                    "x-example": false
+                                },
+                                "teamId": {
+                                    "type": "string",
+                                    "description": "Team unique ID.",
+                                    "default": "",
+                                    "x-example": "<TEAM_ID>"
+                                }
+                            },
+                            "required": [
+                                "appId",
+                                "name",
+                                "redirectUris"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "\/apps\/{appId}": {
+            "get": {
+                "summary": "Get Application",
+                "operationId": "appsGet",
+                "consumes": [],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "apps"
+                ],
+                "description": "Get an application by its unique ID.",
+                "responses": {
+                    "200": {
+                        "description": "App",
+                        "schema": {
+                            "$ref": "#\/definitions\/app"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "get",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/get.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "apps.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<APP_ID>",
+                        "in": "path"
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Update Application",
+                "operationId": "appsUpdate",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "apps"
+                ],
+                "description": "Update an application by its unique ID.",
+                "responses": {
+                    "200": {
+                        "description": "App",
+                        "schema": {
+                            "$ref": "#\/definitions\/app"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "update",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/update.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "apps.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<APP_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "Application name.",
+                                    "x-example": "<NAME>"
+                                },
+                                "enabled": {
+                                    "type": "boolean",
+                                    "description": "Is application enabled?",
+                                    "default": true,
+                                    "x-example": false
+                                },
+                                "redirectUris": {
+                                    "type": "array",
+                                    "description": "Redirect URIs (array of valid URLs).",
+                                    "default": [],
+                                    "x-example": null,
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "OAuth2 client type. Use `public` for SPAs, mobile, and native apps that cannot keep a `client_secret` \u2014 PKCE is then required at the token endpoint. Use `confidential` for server-side clients that present a `client_secret`. Defaults to `confidential`.",
+                                    "default": "confidential",
+                                    "x-example": "public"
+                                },
+                                "deviceFlow": {
+                                    "type": "boolean",
+                                    "description": "Allow this client to use the OAuth2 Device Authorization Grant (RFC 8628) for input-constrained devices such as TVs and CLIs. Defaults to false.",
+                                    "default": false,
+                                    "x-example": false
+                                }
+                            },
+                            "required": [
+                                "name"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete Application",
+                "operationId": "appsDelete",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "apps"
+                ],
+                "description": "Delete an application by its unique ID.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "delete",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/delete.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "apps.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<APP_ID>",
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/apps\/{appId}\/secrets": {
+            "get": {
+                "summary": "List Secrets",
+                "operationId": "appsListSecrets",
+                "consumes": [],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "apps"
+                ],
+                "description": "List client secrets for an application.",
+                "responses": {
+                    "200": {
+                        "description": "App secrets list",
+                        "schema": {
+                            "$ref": "#\/definitions\/appSecretList"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listSecrets",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/list-secrets.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "apps.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<APP_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "type": "array",
+                        "collectionFormat": "multi",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [],
+                        "in": "query"
+                    },
+                    {
+                        "name": "total",
+                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "required": false,
+                        "type": "boolean",
+                        "x-example": false,
+                        "default": true,
+                        "in": "query"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create Secret",
+                "operationId": "appsCreateSecret",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "apps"
+                ],
+                "description": "Create a new client secret for an application.",
+                "responses": {
+                    "201": {
+                        "description": "AppSecretPlaintext",
+                        "schema": {
+                            "$ref": "#\/definitions\/appSecretPlaintext"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createSecret",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/create-secret.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "apps.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<APP_ID>",
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/apps\/{appId}\/secrets\/{secretId}": {
+            "get": {
+                "summary": "Get Secret",
+                "operationId": "appsGetSecret",
+                "consumes": [],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "apps"
+                ],
+                "description": "Get an application client secret by its unique ID.",
+                "responses": {
+                    "200": {
+                        "description": "AppSecret",
+                        "schema": {
+                            "$ref": "#\/definitions\/appSecret"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getSecret",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/get-secret.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "apps.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<APP_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "secretId",
+                        "description": "Secret unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<SECRET_ID>",
+                        "in": "path"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete Secret",
+                "operationId": "appsDeleteSecret",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "apps"
+                ],
+                "description": "Delete an application client secret by its unique ID.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "deleteSecret",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/delete-secret.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "apps.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<APP_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "secretId",
+                        "description": "Secret unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<SECRET_ID>",
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/apps\/{appId}\/team": {
+            "patch": {
+                "summary": "Update Team",
+                "operationId": "appsUpdateTeam",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "apps"
+                ],
+                "description": "Transfer an application to another team by its unique ID.",
+                "responses": {
+                    "200": {
+                        "description": "App",
+                        "schema": {
+                            "$ref": "#\/definitions\/app"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "updateTeam",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/update-team.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "apps.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<APP_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "teamId": {
+                                    "type": "string",
+                                    "description": "Team ID of the team to transfer application to.",
+                                    "x-example": "<TEAM_ID>"
+                                }
+                            },
+                            "required": [
+                                "teamId"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "\/apps\/{appId}\/tokens": {
+            "delete": {
+                "summary": "Delete Tokens",
+                "operationId": "appsDeleteTokens",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "apps"
+                ],
+                "description": "Revoke all tokens for an application by its unique ID.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "deleteTokens",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/delete-tokens.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "apps.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<APP_ID>",
+                        "in": "path"
+                    }
+                ]
+            }
+        },
         "\/avatars\/browsers\/{code}": {
             "get": {
                 "summary": "Get browser icon",
@@ -4262,14 +5126,16 @@
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-browser.md",
                     "auth": {
-                        "Project": []
+                        "Project": [],
+                        "ImpersonateUserId": []
                     }
                 },
                 "security": [
                     {
                         "Project": [],
                         "Session": [],
-                        "JWT": []
+                        "JWT": [],
+                        "ImpersonateUserId": []
                     }
                 ],
                 "parameters": [
@@ -4387,14 +5253,16 @@
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-credit-card.md",
                     "auth": {
-                        "Project": []
+                        "Project": [],
+                        "ImpersonateUserId": []
                     }
                 },
                 "security": [
                     {
                         "Project": [],
                         "Session": [],
-                        "JWT": []
+                        "JWT": [],
+                        "ImpersonateUserId": []
                     }
                 ],
                 "parameters": [
@@ -4518,14 +5386,16 @@
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-favicon.md",
                     "auth": {
-                        "Project": []
+                        "Project": [],
+                        "ImpersonateUserId": []
                     }
                 },
                 "security": [
                     {
                         "Project": [],
                         "Session": [],
-                        "JWT": []
+                        "JWT": [],
+                        "ImpersonateUserId": []
                     }
                 ],
                 "parameters": [
@@ -4581,14 +5451,16 @@
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-flag.md",
                     "auth": {
-                        "Project": []
+                        "Project": [],
+                        "ImpersonateUserId": []
                     }
                 },
                 "security": [
                     {
                         "Project": [],
                         "Session": [],
-                        "JWT": []
+                        "JWT": [],
+                        "ImpersonateUserId": []
                     }
                 ],
                 "parameters": [
@@ -5068,14 +5940,16 @@
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-image.md",
                     "auth": {
-                        "Project": []
+                        "Project": [],
+                        "ImpersonateUserId": []
                     }
                 },
                 "security": [
                     {
                         "Project": [],
                         "Session": [],
-                        "JWT": []
+                        "JWT": [],
+                        "ImpersonateUserId": []
                     }
                 ],
                 "parameters": [
@@ -5151,14 +6025,16 @@
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-initials.md",
                     "auth": {
-                        "Project": []
+                        "Project": [],
+                        "ImpersonateUserId": []
                     }
                 },
                 "security": [
                     {
                         "Project": [],
                         "Session": [],
-                        "JWT": []
+                        "JWT": [],
+                        "ImpersonateUserId": []
                     }
                 ],
                 "parameters": [
@@ -5242,14 +6118,16 @@
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-qr.md",
                     "auth": {
-                        "Project": []
+                        "Project": [],
+                        "ImpersonateUserId": []
                     }
                 },
                 "security": [
                     {
                         "Project": [],
                         "Session": [],
-                        "JWT": []
+                        "JWT": [],
+                        "ImpersonateUserId": []
                     }
                 ],
                 "parameters": [
@@ -5333,14 +6211,16 @@
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-screenshot.md",
                     "auth": {
-                        "Project": []
+                        "Project": [],
+                        "ImpersonateUserId": []
                     }
                 },
                 "security": [
                     {
                         "Project": [],
                         "Session": [],
-                        "JWT": []
+                        "JWT": [],
+                        "ImpersonateUserId": []
                     }
                 ],
                 "parameters": [
@@ -7106,7 +7986,10 @@
                                     "type": "string",
                                     "description": "Document ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
                                     "default": "",
-                                    "x-example": "<DOCUMENT_ID>"
+                                    "x-example": "<DOCUMENT_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "data": {
                                     "type": "object",
@@ -7358,6 +8241,9 @@
                         "description": "Document ID.",
                         "required": true,
                         "type": "string",
+                        "x-appwrite": {
+                            "idGenerator": "ID.unique"
+                        },
                         "x-example": "<DOCUMENT_ID>",
                         "in": "path"
                     },
@@ -8502,7 +9388,10 @@
                                     "type": "string",
                                     "description": "Document ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
                                     "default": "",
-                                    "x-example": "<DOCUMENT_ID>"
+                                    "x-example": "<DOCUMENT_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "data": {
                                     "type": "object",
@@ -9286,7 +10175,7 @@
                     "application\/json"
                 ],
                 "produces": [
-                    "multipart\/form-data"
+                    "application\/json"
                 ],
                 "tags": [
                     "functions"
@@ -10114,7 +11003,10 @@
                                 "subscriberId": {
                                     "type": "string",
                                     "description": "Subscriber ID. Choose a custom Subscriber ID or a new Subscriber ID.",
-                                    "x-example": "<SUBSCRIBER_ID>"
+                                    "x-example": "<SUBSCRIBER_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "targetId": {
                                     "type": "string",
@@ -10194,6 +11086,473 @@
                         "type": "string",
                         "x-example": "<SUBSCRIBER_ID>",
                         "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/oauth2\/{project_id}\/approve": {
+            "post": {
+                "summary": "Approve OAuth2",
+                "operationId": "oauth2Approve",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Approve an OAuth2 grant after the user gives consent. Returns the `redirectUrl` the end user should be sent to. The consent screen may optionally pass enriched `authorization_details` to record the concrete resources the user selected. You can pass Accept header of `application\/json` to receive a JSON response instead of a redirect.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 Approve",
+                        "schema": {
+                            "$ref": "#\/definitions\/oauth2Approve"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "approve",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/approve.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "oauth2.write",
+                    "platforms": [
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectQuery": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectQuery": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client that created grant during authorization exists.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<PROJECT_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "grant_id": {
+                                    "type": "string",
+                                    "description": "Grant ID made during authorization, provided to consent screen in URL search params.",
+                                    "x-example": "<GRANT_ID>"
+                                },
+                                "authorization_details": {
+                                    "type": "string",
+                                    "description": "Enriched `authorization_details` the user consented to, replacing what the client requested. Each entry must use a `type` the project accepts. Optional; omit to keep the originally requested details.",
+                                    "default": "",
+                                    "x-example": "<AUTHORIZATION_DETAILS>"
+                                }
+                            },
+                            "required": [
+                                "grant_id"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "\/oauth2\/{project_id}\/authorize": {
+            "get": {
+                "summary": "OAuth2 Authorize",
+                "operationId": "oauth2Authorize",
+                "consumes": [],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Begin the OAuth2 authorization flow. When called without a session, the user is redirected to the consent screen without grant ID. When called with a session, the redirect URL includes param for grant ID. You can pass Accept header of `application\/json` to receive a JSON response instead of a redirect.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 Authorize",
+                        "schema": {
+                            "$ref": "#\/definitions\/oauth2Authorize"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "authorize",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/authorize.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectQuery": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectQuery": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<PROJECT_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "client_id",
+                        "description": "OAuth2 client ID.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<CLIENT_ID>",
+                        "in": "query"
+                    },
+                    {
+                        "name": "redirect_uri",
+                        "description": "Redirect URI where visitor will be redirected after authorization, whether successful or not.",
+                        "required": true,
+                        "type": "string",
+                        "format": "url",
+                        "x-example": "https:\/\/example.com",
+                        "in": "query"
+                    },
+                    {
+                        "name": "response_type",
+                        "description": "OAuth2 \/ OIDC response type. One of `code` (Authorization Code Flow), `id_token` (Implicit Flow, OIDC login only), or `code id_token` (Hybrid Flow).",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "code",
+                        "in": "query"
+                    },
+                    {
+                        "name": "scope",
+                        "description": "Space-separated OAuth2 scopes. Can include project scopes, and built-in scopes: `openid`, `email`, `profile`.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<SCOPE>",
+                        "in": "query"
+                    },
+                    {
+                        "name": "state",
+                        "description": "OAuth2 state. You receive this back in the redirect URI.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<STATE>",
+                        "default": "",
+                        "in": "query"
+                    },
+                    {
+                        "name": "nonce",
+                        "description": "OIDC nonce parameter to prevent replay attacks. Required when response_type includes `id_token`.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<NONCE>",
+                        "default": "",
+                        "in": "query"
+                    },
+                    {
+                        "name": "code_challenge",
+                        "description": "PKCE code challenge. Required when OAuth2 app is public.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<CODE_CHALLENGE>",
+                        "default": "",
+                        "in": "query"
+                    },
+                    {
+                        "name": "code_challenge_method",
+                        "description": "PKCE code challenge method. Required when OAuth2 app is public.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "s256",
+                        "default": "",
+                        "in": "query"
+                    },
+                    {
+                        "name": "prompt",
+                        "description": "OIDC prompt parameter for customization of consent screen. Space-separated list of: none, login, consent, select_account.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<PROMPT>",
+                        "default": "",
+                        "in": "query"
+                    },
+                    {
+                        "name": "max_age",
+                        "description": "OIDC max_age paraleter for customization of consent screen. Maximum allowable elapsed time in seconds since the user last authenticated. If exceeded, re-authentication is required.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32",
+                        "x-example": 0,
+                        "in": "query"
+                    },
+                    {
+                        "name": "authorization_details",
+                        "description": "Rich authorization request. JSON array of objects, each with a `type` and project-defined fields",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<AUTHORIZATION_DETAILS>",
+                        "default": "",
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/oauth2\/{project_id}\/grants": {
+            "post": {
+                "summary": "Create OAuth2 Grant",
+                "operationId": "oauth2CreateGrant",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Exchange a device flow user code for an OAuth2 grant. The authenticated user is bound to the pending grant. Pass the returned grant ID to the get grant endpoint to render the consent screen, then to the approve or reject endpoint to complete the flow.",
+                "responses": {
+                    "201": {
+                        "description": "OAuth2 Grant",
+                        "schema": {
+                            "$ref": "#\/definitions\/oauth2Grant"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createGrant",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/create-grant.md",
+                    "rate-limit": 10,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "oauth2.write",
+                    "platforms": [
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<PROJECT_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "user_code": {
+                                    "type": "string",
+                                    "description": "User code displayed on the device.",
+                                    "x-example": "<USER_CODE>"
+                                }
+                            },
+                            "required": [
+                                "user_code"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "\/oauth2\/{project_id}\/grants\/{grant_id}": {
+            "get": {
+                "summary": "Get OAuth2 Grant",
+                "operationId": "oauth2GetGrant",
+                "consumes": [],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Get an OAuth2 grant by its ID. Used by the consent screen to display the details of the authorization the user is being asked to approve. A grant can only be read by the user it belongs to, or by server SDK.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 Grant",
+                        "schema": {
+                            "$ref": "#\/definitions\/oauth2Grant"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getGrant",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/get-grant.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "oauth2.read",
+                    "platforms": [
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client that created grant during authorization exists.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<PROJECT_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "grant_id",
+                        "description": "Grant ID made during authorization, provided to consent screen in URL search params.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<GRANT_ID>",
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/oauth2\/{project_id}\/reject": {
+            "post": {
+                "summary": "Reject OAuth2",
+                "operationId": "oauth2Reject",
+                "consumes": [
+                    "application\/json"
+                ],
+                "produces": [
+                    "application\/json"
+                ],
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Reject an OAuth2 grant when the user denies consent. Returns the `redirectUrl` the end user should be sent to with an `access_denied` error. You can pass Accept header of `application\/json` to receive a JSON response instead of a redirect.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 Reject",
+                        "schema": {
+                            "$ref": "#\/definitions\/oauth2Reject"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "reject",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/reject.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "oauth2.write",
+                    "platforms": [
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectQuery": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectQuery": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client that created grant during authorization exists.",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<PROJECT_ID>",
+                        "in": "path"
+                    },
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "grant_id": {
+                                    "type": "string",
+                                    "description": "Grant ID made during authorization, provided to consent screen in URL search params.",
+                                    "x-example": "<GRANT_ID>"
+                                }
+                            },
+                            "required": [
+                                "grant_id"
+                            ]
+                        }
                     }
                 ]
             }
@@ -10826,6 +12185,9 @@
                         "required": true,
                         "x-upload-id": true,
                         "type": "string",
+                        "x-appwrite": {
+                            "idGenerator": "ID.unique"
+                        },
                         "x-example": "<FILE_ID>",
                         "in": "formData"
                     },
@@ -11119,14 +12481,16 @@
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/storage\/get-file-download.md",
                     "auth": {
-                        "Project": []
+                        "Project": [],
+                        "ImpersonateUserId": []
                     }
                 },
                 "security": [
                     {
                         "Project": [],
                         "Session": [],
-                        "JWT": []
+                        "JWT": [],
+                        "ImpersonateUserId": []
                     }
                 ],
                 "parameters": [
@@ -11198,14 +12562,16 @@
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/storage\/get-file-preview.md",
                     "auth": {
-                        "Project": []
+                        "Project": [],
+                        "ImpersonateUserId": []
                     }
                 },
                 "security": [
                     {
                         "Project": [],
                         "Session": [],
-                        "JWT": []
+                        "JWT": [],
+                        "ImpersonateUserId": []
                     }
                 ],
                 "parameters": [
@@ -11422,14 +12788,16 @@
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/storage\/get-file-view.md",
                     "auth": {
-                        "Project": []
+                        "Project": [],
+                        "ImpersonateUserId": []
                     }
                 },
                 "security": [
                     {
                         "Project": [],
                         "Session": [],
-                        "JWT": []
+                        "JWT": [],
+                        "ImpersonateUserId": []
                     }
                 ],
                 "parameters": [
@@ -12124,7 +13492,10 @@
                                     "type": "string",
                                     "description": "Row ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
                                     "default": "",
-                                    "x-example": "<ROW_ID>"
+                                    "x-example": "<ROW_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "data": {
                                     "type": "object",
@@ -12990,7 +14361,10 @@
                                 "teamId": {
                                     "type": "string",
                                     "description": "Team ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                    "x-example": "<TEAM_ID>"
+                                    "x-example": "<TEAM_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "name": {
                                     "type": "string",
@@ -14523,7 +15897,10 @@
                                     "type": "string",
                                     "description": "Document ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
                                     "default": "",
-                                    "x-example": "<DOCUMENT_ID>"
+                                    "x-example": "<DOCUMENT_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 },
                                 "data": {
                                     "type": "object",
@@ -14761,6 +16138,9 @@
                         "description": "Document ID.",
                         "required": true,
                         "type": "string",
+                        "x-appwrite": {
+                            "idGenerator": "ID.unique"
+                        },
                         "x-example": "<DOCUMENT_ID>",
                         "in": "path"
                     },
@@ -15033,6 +16413,10 @@
         {
             "name": "users",
             "description": "The Users service allows you to manage your project users."
+        },
+        {
+            "name": "presences",
+            "description": "The Presences service allows you to create, query, and manage realtime presence state."
         },
         {
             "name": "sites",
@@ -16075,6 +17459,36 @@
                     "description": "Email verification status.",
                     "x-example": true
                 },
+                "emailCanonical": {
+                    "type": "string",
+                    "description": "Canonical form of the user email address.",
+                    "x-example": "john@appwrite.io",
+                    "x-nullable": true
+                },
+                "emailIsFree": {
+                    "type": "boolean",
+                    "description": "Whether the user email is from a free email provider.",
+                    "x-example": true,
+                    "x-nullable": true
+                },
+                "emailIsDisposable": {
+                    "type": "boolean",
+                    "description": "Whether the user email is from a disposable email provider.",
+                    "x-example": false,
+                    "x-nullable": true
+                },
+                "emailIsCorporate": {
+                    "type": "boolean",
+                    "description": "Whether the user email is from a corporate domain.",
+                    "x-example": true,
+                    "x-nullable": true
+                },
+                "emailIsCanonical": {
+                    "type": "boolean",
+                    "description": "Whether the user email is in its canonical form.",
+                    "x-example": true,
+                    "x-nullable": true
+                },
                 "phoneVerification": {
                     "type": "boolean",
                     "description": "Phone verification status.",
@@ -16159,6 +17573,11 @@
                 "email": "john@appwrite.io",
                 "phone": "+4930901820",
                 "emailVerification": true,
+                "emailCanonical": "john@appwrite.io",
+                "emailIsFree": true,
+                "emailIsDisposable": false,
+                "emailIsCorporate": true,
+                "emailIsCanonical": true,
                 "phoneVerification": true,
                 "mfa": true,
                 "prefs": {
@@ -17080,6 +18499,11 @@
                     "description": "Multi factor authentication status, true if the user has MFA enabled or false otherwise. Hide this attribute by toggling membership privacy in the Console.",
                     "x-example": false
                 },
+                "userAccessedAt": {
+                    "type": "string",
+                    "description": "Most recent access date in ISO 8601 format. Show this attribute by toggling membership privacy in the Console.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
                 "roles": {
                     "type": "array",
                     "description": "User list of roles",
@@ -17105,6 +18529,7 @@
                 "joined",
                 "confirm",
                 "mfa",
+                "userAccessedAt",
                 "roles"
             ],
             "example": {
@@ -17121,6 +18546,7 @@
                 "joined": "2020-10-15T06:38:00.000+00:00",
                 "confirm": false,
                 "mfa": false,
+                "userAccessedAt": "2020-10-15T06:38:00.000+00:00",
                 "roles": [
                     "owner"
                 ]
@@ -17847,6 +19273,465 @@
                 "providerType": "email",
                 "identifier": "token",
                 "expired": false
+            }
+        },
+        "app": {
+            "description": "App",
+            "type": "object",
+            "properties": {
+                "$id": {
+                    "type": "string",
+                    "description": "App ID.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "$createdAt": {
+                    "type": "string",
+                    "description": "App creation time in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "$updatedAt": {
+                    "type": "string",
+                    "description": "App update date in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Application name.",
+                    "x-example": "My Application"
+                },
+                "redirectUris": {
+                    "type": "array",
+                    "description": "List of authorized redirect URIs. These URIs can be used to redirect users after they authenticate.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "x-example": [
+                        "https:\/\/example.com\/callback"
+                    ]
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the app is enabled or not.",
+                    "x-example": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "OAuth2 client type. `public` for SPAs, mobile, and native apps that cannot keep a client secret (PKCE required); `confidential` for server-side clients that authenticate with a client secret.",
+                    "x-example": "confidential"
+                },
+                "deviceFlow": {
+                    "type": "boolean",
+                    "description": "Whether this client may use the OAuth2 Device Authorization Grant (RFC 8628).",
+                    "x-example": false
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "ID of team that owns the application, if owned by team. Otherwise, user ID will be used.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "ID of user who owns the application, if owned by user. Otherwise, team ID will be used.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "secrets": {
+                    "type": "array",
+                    "description": "List of application secrets.",
+                    "items": {
+                        "type": "object",
+                        "$ref": "#\/definitions\/appSecret"
+                    },
+                    "x-example": []
+                }
+            },
+            "required": [
+                "$id",
+                "$createdAt",
+                "$updatedAt",
+                "name",
+                "redirectUris",
+                "enabled",
+                "type",
+                "deviceFlow",
+                "teamId",
+                "userId",
+                "secrets"
+            ],
+            "example": {
+                "$id": "5e5ea5c16897e",
+                "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                "name": "My Application",
+                "redirectUris": [
+                    "https:\/\/example.com\/callback"
+                ],
+                "enabled": true,
+                "type": "confidential",
+                "deviceFlow": false,
+                "teamId": "5e5ea5c16897e",
+                "userId": "5e5ea5c16897e",
+                "secrets": []
+            }
+        },
+        "appSecret": {
+            "description": "AppSecret",
+            "type": "object",
+            "properties": {
+                "$id": {
+                    "type": "string",
+                    "description": "Secret ID.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "$createdAt": {
+                    "type": "string",
+                    "description": "Secret creation time in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "$updatedAt": {
+                    "type": "string",
+                    "description": "Secret update time in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "appId": {
+                    "type": "string",
+                    "description": "Application ID this secret belongs to.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "Hashed application client secret.",
+                    "x-example": "$argon2i$v=19$m=16,t=2,p=1$MTIzMTIzMTIzMTIzMQ$3\/ZUl3IWERBO2RIm5rHltg"
+                },
+                "hint": {
+                    "type": "string",
+                    "description": "Last few characters of the client secret, used to help identify it.",
+                    "x-example": "f5c6c7"
+                },
+                "createdById": {
+                    "type": "string",
+                    "description": "ID of the user who created the secret.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "createdByName": {
+                    "type": "string",
+                    "description": "Name of the user who created the secret.",
+                    "x-example": "Walter White"
+                },
+                "lastAccessedAt": {
+                    "type": "string",
+                    "description": "Time the secret was last used for authentication in ISO 8601 format. Null if never used.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00",
+                    "x-nullable": true
+                }
+            },
+            "required": [
+                "$id",
+                "$createdAt",
+                "$updatedAt",
+                "appId",
+                "secret",
+                "hint",
+                "createdById",
+                "createdByName"
+            ],
+            "example": {
+                "$id": "5e5ea5c16897e",
+                "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                "appId": "5e5ea5c16897e",
+                "secret": "$argon2i$v=19$m=16,t=2,p=1$MTIzMTIzMTIzMTIzMQ$3\/ZUl3IWERBO2RIm5rHltg",
+                "hint": "f5c6c7",
+                "createdById": "5e5ea5c16897e",
+                "createdByName": "Walter White",
+                "lastAccessedAt": "2020-10-15T06:38:00.000+00:00"
+            }
+        },
+        "appSecretPlaintext": {
+            "description": "AppSecretPlaintext",
+            "type": "object",
+            "properties": {
+                "$id": {
+                    "type": "string",
+                    "description": "Secret ID.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "$createdAt": {
+                    "type": "string",
+                    "description": "Secret creation time in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "$updatedAt": {
+                    "type": "string",
+                    "description": "Secret update time in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "appId": {
+                    "type": "string",
+                    "description": "Application ID this secret belongs to.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "Application client secret. Returned in full only when the secret is created; subsequent reads return a masked value.",
+                    "x-example": "5f3c8d2a1b9e4f7a6c8b2d1e9f4a7b3c5d8e1f2a9b4c7d6e3f5a8b1c4d7e2f9a"
+                },
+                "hint": {
+                    "type": "string",
+                    "description": "Last few characters of the client secret, used to help identify it.",
+                    "x-example": "f5c6c7"
+                },
+                "createdById": {
+                    "type": "string",
+                    "description": "ID of the user who created the secret.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "createdByName": {
+                    "type": "string",
+                    "description": "Name of the user who created the secret.",
+                    "x-example": "Walter White"
+                },
+                "lastAccessedAt": {
+                    "type": "string",
+                    "description": "Time the secret was last used for authentication in ISO 8601 format. Null if never used.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00",
+                    "x-nullable": true
+                }
+            },
+            "required": [
+                "$id",
+                "$createdAt",
+                "$updatedAt",
+                "appId",
+                "secret",
+                "hint",
+                "createdById",
+                "createdByName"
+            ],
+            "example": {
+                "$id": "5e5ea5c16897e",
+                "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                "appId": "5e5ea5c16897e",
+                "secret": "5f3c8d2a1b9e4f7a6c8b2d1e9f4a7b3c5d8e1f2a9b4c7d6e3f5a8b1c4d7e2f9a",
+                "hint": "f5c6c7",
+                "createdById": "5e5ea5c16897e",
+                "createdByName": "Walter White",
+                "lastAccessedAt": "2020-10-15T06:38:00.000+00:00"
+            }
+        },
+        "oauth2Authorize": {
+            "description": "OAuth2 Authorize",
+            "type": "object",
+            "properties": {
+                "grantId": {
+                    "type": "string",
+                    "description": "OAuth2 grant ID. Set when the user must give explicit consent; pass it to the approve or reject endpoint. Empty when a redirect URL is returned instead.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "URL the end user should be redirected to when the flow can complete without consent. Empty when consent is still required.",
+                    "x-example": "https:\/\/example.com\/callback?code=abcde&state=fghij"
+                }
+            },
+            "required": [
+                "grantId",
+                "redirectUrl"
+            ],
+            "example": {
+                "grantId": "5e5ea5c16897e",
+                "redirectUrl": "https:\/\/example.com\/callback?code=abcde&state=fghij"
+            }
+        },
+        "oauth2Approve": {
+            "description": "OAuth2 Approve",
+            "type": "object",
+            "properties": {
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "URL the end user should be redirected to after the grant is approved, carrying the authorization `code` and\/or `id_token` along with the original `state`.",
+                    "x-example": "https:\/\/example.com\/callback?code=abcde&state=fghij"
+                }
+            },
+            "required": [
+                "redirectUrl"
+            ],
+            "example": {
+                "redirectUrl": "https:\/\/example.com\/callback?code=abcde&state=fghij"
+            }
+        },
+        "oauth2Reject": {
+            "description": "OAuth2 Reject",
+            "type": "object",
+            "properties": {
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "URL the end user should be redirected to after the grant is rejected, carrying an `access_denied` error.",
+                    "x-example": "https:\/\/example.com\/callback?error=access_denied&state=fghij"
+                }
+            },
+            "required": [
+                "redirectUrl"
+            ],
+            "example": {
+                "redirectUrl": "https:\/\/example.com\/callback?error=access_denied&state=fghij"
+            }
+        },
+        "oauth2Grant": {
+            "description": "OAuth2 Grant",
+            "type": "object",
+            "properties": {
+                "$id": {
+                    "type": "string",
+                    "description": "Grant ID.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "$createdAt": {
+                    "type": "string",
+                    "description": "Grant creation time in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "$updatedAt": {
+                    "type": "string",
+                    "description": "Grant update date in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "ID of the user the grant belongs to.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "appId": {
+                    "type": "string",
+                    "description": "ID of the OAuth2 client (app) the grant was requested for.",
+                    "x-example": "5e5ea5c16897e"
+                },
+                "scopes": {
+                    "type": "array",
+                    "description": "Requested OAuth2 scopes the user is being asked to consent to.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "x-example": [
+                        "openid",
+                        "email",
+                        "profile"
+                    ]
+                },
+                "authorizationDetails": {
+                    "type": "string",
+                    "description": "Requested authorization_details the user is being asked to consent to, as a JSON string. Each entry has a `type` plus project-defined fields.",
+                    "x-example": "[{\"type\":\"calendar\",\"identifier\":\"primary\",\"actions\":[\"read_events\",\"create_event\"]}]"
+                },
+                "prompt": {
+                    "type": "string",
+                    "description": "OIDC prompt directive the consent screen should honor. Space-separated list of: login, consent, select_account.",
+                    "x-example": "login"
+                },
+                "redirectUri": {
+                    "type": "string",
+                    "description": "Redirect URI the user will be sent to after the flow completes.",
+                    "x-example": "https:\/\/example.com\/callback"
+                },
+                "authTime": {
+                    "type": "integer",
+                    "description": "Unix timestamp of when the user last authenticated.",
+                    "x-example": 1592981250,
+                    "format": "int32"
+                },
+                "expire": {
+                    "type": "string",
+                    "description": "Grant expiration time in ISO 8601 format.",
+                    "x-example": "2020-10-15T06:38:00.000+00:00"
+                }
+            },
+            "required": [
+                "$id",
+                "$createdAt",
+                "$updatedAt",
+                "userId",
+                "appId",
+                "scopes",
+                "authorizationDetails",
+                "prompt",
+                "redirectUri",
+                "authTime",
+                "expire"
+            ],
+            "example": {
+                "$id": "5e5ea5c16897e",
+                "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                "userId": "5e5ea5c16897e",
+                "appId": "5e5ea5c16897e",
+                "scopes": [
+                    "openid",
+                    "email",
+                    "profile"
+                ],
+                "authorizationDetails": "[{\"type\":\"calendar\",\"identifier\":\"primary\",\"actions\":[\"read_events\",\"create_event\"]}]",
+                "prompt": "login",
+                "redirectUri": "https:\/\/example.com\/callback",
+                "authTime": 1592981250,
+                "expire": "2020-10-15T06:38:00.000+00:00"
+            }
+        },
+        "appsList": {
+            "description": "Apps list",
+            "type": "object",
+            "properties": {
+                "total": {
+                    "type": "integer",
+                    "description": "Total number of apps that matched your query.",
+                    "x-example": 5,
+                    "format": "int32"
+                },
+                "apps": {
+                    "type": "array",
+                    "description": "List of apps.",
+                    "items": {
+                        "type": "object",
+                        "$ref": "#\/definitions\/app"
+                    },
+                    "x-example": ""
+                }
+            },
+            "required": [
+                "total",
+                "apps"
+            ],
+            "example": {
+                "total": 5,
+                "apps": ""
+            }
+        },
+        "appSecretList": {
+            "description": "App secrets list",
+            "type": "object",
+            "properties": {
+                "total": {
+                    "type": "integer",
+                    "description": "Total number of secrets that matched your query.",
+                    "x-example": 5,
+                    "format": "int32"
+                },
+                "secrets": {
+                    "type": "array",
+                    "description": "List of secrets.",
+                    "items": {
+                        "type": "object",
+                        "$ref": "#\/definitions\/appSecret"
+                    },
+                    "x-example": ""
+                }
+            },
+            "required": [
+                "total",
+                "secrets"
+            ],
+            "example": {
+                "total": 5,
+                "secrets": ""
             }
         }
     },

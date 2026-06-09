@@ -2,9 +2,9 @@
 from appwrite.client import Client
 from appwrite.services.sites import Sites
 from appwrite.models import Site
-from appwrite.enums import SiteFramework
-from appwrite.enums import SiteBuildRuntime
-from appwrite.enums import SiteAdapter
+from appwrite.enums import Framework
+from appwrite.enums import BuildRuntime
+from appwrite.enums import Adapter
 
 client = Client()
 client.set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
@@ -16,8 +16,8 @@ sites = Sites(client)
 result: Site = sites.create(
     site_id = '<SITE_ID>',
     name = '<NAME>',
-    framework = SiteFramework.ANALOG,
-    build_runtime = SiteBuildRuntime.NODE_14_5,
+    framework = Framework.ANALOG,
+    build_runtime = BuildRuntime.NODE_14_5,
     enabled = False, # optional
     logging = False, # optional
     timeout = 1, # optional
@@ -25,7 +25,7 @@ result: Site = sites.create(
     build_command = '<BUILD_COMMAND>', # optional
     start_command = '<START_COMMAND>', # optional
     output_directory = '<OUTPUT_DIRECTORY>', # optional
-    adapter = SiteAdapter.STATIC, # optional
+    adapter = Adapter.STATIC, # optional
     installation_id = '<INSTALLATION_ID>', # optional
     fallback_file = '<FALLBACK_FILE>', # optional
     provider_repository_id = '<PROVIDER_REPOSITORY_ID>', # optional

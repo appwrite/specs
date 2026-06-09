@@ -12,8 +12,8 @@ Sites sites = Sites(client);
 Site result = await sites.create(
     siteId: '<SITE_ID>',
     name: '<NAME>',
-    framework: enums.SiteFramework.analog,
-    buildRuntime: enums.SiteBuildRuntime.node145,
+    framework: enums.Framework.analog,
+    buildRuntime: enums.BuildRuntime.node145,
     enabled: false, // (optional)
     logging: false, // (optional)
     timeout: 1, // (optional)
@@ -21,7 +21,7 @@ Site result = await sites.create(
     buildCommand: '<BUILD_COMMAND>', // (optional)
     startCommand: '<START_COMMAND>', // (optional)
     outputDirectory: '<OUTPUT_DIRECTORY>', // (optional)
-    adapter: enums.SiteAdapter.static, // (optional)
+    adapter: enums.Adapter.static, // (optional)
     installationId: '<INSTALLATION_ID>', // (optional)
     fallbackFile: '<FALLBACK_FILE>', // (optional)
     providerRepositoryId: '<PROVIDER_REPOSITORY_ID>', // (optional)

@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/webhooks"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/webhooks"
 )
 
 client := client.New(
@@ -16,7 +16,7 @@ client := client.New(
 service := webhooks.New(client)
 
 response, error := service.List(
-    webhooks.WithListQueries([]interface{}{}),
+    webhooks.WithListQueries([]string{}),
     webhooks.WithListTotal(false),
 )
 ```

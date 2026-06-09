@@ -2,7 +2,7 @@
 from appwrite.client import Client
 from appwrite.services.functions import Functions
 from appwrite.models import Function
-from appwrite.enums import FunctionRuntime
+from appwrite.enums import Runtime
 from appwrite.enums import ProjectKeyScopes
 
 client = Client()
@@ -15,7 +15,7 @@ functions = Functions(client)
 result: Function = functions.update(
     function_id = '<FUNCTION_ID>',
     name = '<NAME>',
-    runtime = FunctionRuntime.NODE_14_5, # optional
+    runtime = Runtime.NODE_14_5, # optional
     execute = ["any"], # optional
     events = [], # optional
     schedule = '', # optional

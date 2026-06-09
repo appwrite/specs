@@ -2,9 +2,19 @@
 PATCH /v1/messaging/providers/apns/{providerId} HTTP/1.1
 Host: cloud.appwrite.io
 Content-Type: application/json
+Accept: application/json
 X-Appwrite-Response-Format: 1.9.5
 X-Appwrite-Project: <YOUR_PROJECT_ID>
-X-Appwrite-Key: <YOUR_API_KEY>
+
+{
+  "name": "<NAME>",
+  "enabled": false,
+  "authKey": "<AUTH_KEY>",
+  "authKeyId": "<AUTH_KEY_ID>",
+  "teamId": "<TEAM_ID>",
+  "bundleId": "<BUNDLE_ID>",
+  "sandbox": false
+}
 
 {
   "name": "<NAME>",

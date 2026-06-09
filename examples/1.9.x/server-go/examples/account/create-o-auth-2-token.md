@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/account"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/account"
 )
 
 client := client.New(
@@ -19,6 +19,6 @@ response, error := service.CreateOAuth2Token(
     "amazon",
     account.WithCreateOAuth2TokenSuccess("https://example.com"),
     account.WithCreateOAuth2TokenFailure("https://example.com"),
-    account.WithCreateOAuth2TokenScopes([]interface{}{}),
+    account.WithCreateOAuth2TokenScopes([]string{}),
 )
 ```
