@@ -5654,6 +5654,49 @@
                                         "description": "Application name.",
                                         "x-example": "<NAME>"
                                     },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "Application description shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "<DESCRIPTION>"
+                                    },
+                                    "clientUri": {
+                                        "type": "string",
+                                        "description": "Application homepage URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "logoUri": {
+                                        "type": "string",
+                                        "description": "Application logo URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "privacyPolicyUrl": {
+                                        "type": "string",
+                                        "description": "Application privacy policy URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "termsUrl": {
+                                        "type": "string",
+                                        "description": "Application terms of service URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "contacts": {
+                                        "type": "array",
+                                        "description": "Application support or security contact emails. Maximum of 100 contacts are allowed.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
                                     "redirectUris": {
                                         "type": "array",
                                         "description": "Redirect URIs (array of valid URLs).",
@@ -5834,6 +5877,49 @@
                                         "type": "string",
                                         "description": "Application name.",
                                         "x-example": "<NAME>"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "Application description shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "<DESCRIPTION>"
+                                    },
+                                    "clientUri": {
+                                        "type": "string",
+                                        "description": "Application homepage URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "logoUri": {
+                                        "type": "string",
+                                        "description": "Application logo URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "privacyPolicyUrl": {
+                                        "type": "string",
+                                        "description": "Application privacy policy URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "termsUrl": {
+                                        "type": "string",
+                                        "description": "Application terms of service URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "contacts": {
+                                        "type": "array",
+                                        "description": "Application support or security contact emails. Maximum of 100 contacts are allowed.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
                                     },
                                     "enabled": {
                                         "type": "boolean",
@@ -9257,12 +9343,6 @@
                                         "x-example": "17",
                                         "x-nullable": true
                                     },
-                                    "region": {
-                                        "type": "string",
-                                        "description": "Region identifier. Use one of the enabled region codes (e.g., fra, nyc, syd).",
-                                        "default": "fra",
-                                        "x-example": "fra"
-                                    },
                                     "type": {
                                         "type": "string",
                                         "description": "Database type: shared (serverless) or dedicated (always-on).",
@@ -9315,15 +9395,9 @@
                                         "x-example": 0,
                                         "format": "int32"
                                     },
-                                    "highAvailability": {
-                                        "type": "boolean",
-                                        "description": "Enable high availability.",
-                                        "default": false,
-                                        "x-example": false
-                                    },
-                                    "highAvailabilityReplicaCount": {
+                                    "replicas": {
                                         "type": "integer",
-                                        "description": "Number of high availability replicas (0-5).",
+                                        "description": "Number of high availability replicas (0-5). High availability is enabled when greater than 0.",
                                         "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
@@ -9427,6 +9501,12 @@
                                         "description": "Enable connection pooler on provision.",
                                         "default": true,
                                         "x-example": false
+                                    },
+                                    "api": {
+                                        "type": "string",
+                                        "description": "Product API that owns this database: compute (raw, direct-access), tablesdb, documentsdb, or vectorsdb. tablesdb\/documentsdb\/vectorsdb computes are reached only through their product APIs.",
+                                        "default": "compute",
+                                        "x-example": "compute"
                                     }
                                 },
                                 "required": [
@@ -9651,15 +9731,9 @@
                                         "x-example": "ssd",
                                         "x-nullable": true
                                     },
-                                    "highAvailability": {
-                                        "type": "boolean",
-                                        "description": "Enable high availability.",
-                                        "x-example": false,
-                                        "x-nullable": true
-                                    },
-                                    "highAvailabilityReplicaCount": {
+                                    "replicas": {
                                         "type": "integer",
-                                        "description": "Number of high availability replicas (0-5).",
+                                        "description": "Number of high availability replicas (0-5). High availability is enabled when greater than 0.",
                                         "x-example": 0,
                                         "format": "int32",
                                         "x-nullable": true
@@ -9786,7 +9860,7 @@
                                     },
                                     "sqlApiAllowedStatements": {
                                         "type": "array",
-                                        "description": "Statement types the SQL API accepts. Allowed values: SELECT, INSERT, UPDATE, DELETE.",
+                                        "description": "Statement types the SQL API accepts. Allowed values: SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP, TRUNCATE, GRANT, REVOKE.",
                                         "x-example": null,
                                         "items": {
                                             "type": "string"
@@ -9826,7 +9900,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "Delete a dedicated database. This action is irreversible. The database status will be set to 'deleting' and all resources will be cleaned up.",
+                "description": "Delete a dedicated database. This action is irreversible. The database status will be set to 'deleting' and all resources will be cleaned up. Deletion is allowed from any state, and repeating the call re-dispatches the cleanup.",
                 "responses": {
                     "204": {
                         "description": "No content"
@@ -12149,143 +12223,6 @@
                         "in": "path"
                     }
                 ]
-            }
-        },
-        "\/compute\/databases\/{databaseId}\/schema": {
-            "get": {
-                "summary": "Get database schema.",
-                "operationId": "computeGetDatabaseSchema",
-                "tags": [
-                    "compute"
-                ],
-                "description": "Get the current schema for a dedicated database. Returns collections, fields, data types, constraints, and indexes.",
-                "responses": {
-                    "200": {
-                        "description": "Schema",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/dedicatedDatabaseSchema"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "getDatabaseSchema",
-                    "group": "databases",
-                    "cookies": false,
-                    "type": "",
-                    "demo": "compute\/get-database-schema.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "databases.read",
-                    "platforms": [
-                        "console"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "auth": {
-                        "Project": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "databaseId",
-                        "description": "Database ID.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "<DATABASE_ID>"
-                        },
-                        "in": "path"
-                    }
-                ]
-            }
-        },
-        "\/compute\/databases\/{databaseId}\/schema\/preview": {
-            "post": {
-                "summary": "Preview a schema change.",
-                "operationId": "computeCreateDatabaseSchemaPreview",
-                "tags": [
-                    "compute"
-                ],
-                "description": "Preview a schema change against a dedicated database. Returns the expected impact including affected collections, records, and a dry-run diff of the schema before and after the change.",
-                "responses": {
-                    "200": {
-                        "description": "SchemaPreview",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/dedicatedDatabaseSchemaPreview"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "createDatabaseSchemaPreview",
-                    "group": "databases",
-                    "cookies": false,
-                    "type": "",
-                    "demo": "compute\/create-database-schema-preview.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "databases.write",
-                    "platforms": [
-                        "console"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "auth": {
-                        "Project": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "databaseId",
-                        "description": "Database ID.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "<DATABASE_ID>"
-                        },
-                        "in": "path"
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application\/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "sql": {
-                                        "type": "string",
-                                        "description": "Schema statement to preview.",
-                                        "x-example": "<SQL>"
-                                    }
-                                },
-                                "required": [
-                                    "sql"
-                                ]
-                            }
-                        }
-                    }
-                }
             }
         },
         "\/compute\/databases\/{databaseId}\/slow-queries": {
@@ -22701,11 +22638,14 @@
                                         "default": true,
                                         "x-example": false
                                     },
-                                    "specification": {
+                                    "dedicatedDatabaseId": {
                                         "type": "string",
-                                        "description": "Database specification defining compute resources (CPU, memory). Defaults to the free tier. Must be enabled on the organization plan.",
-                                        "default": "free",
-                                        "x-example": "<SPECIFICATION>"
+                                        "description": "Optional dedicated database (compute) ID to attach this database to. Leave empty to create a database on the shared pool.",
+                                        "default": "",
+                                        "x-example": "<DEDICATED_DATABASE_ID>",
+                                        "x-appwrite": {
+                                            "idGenerator": "ID.unique"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -55714,7 +55654,7 @@
                 "parameters": [
                     {
                         "name": "serviceId",
-                        "description": "Service name. Can be one of: account, avatars, databases, tablesdb, documentsDB, tablesDB, vectorsDB, locale, health, project, storage, teams, users, vcs, webhooks, tokens, presences, sites, functions, proxy, graphql, migrations, messaging, advisor",
+                        "description": "Service name. Can be one of: account, avatars, databases, tablesdb, locale, health, project, storage, teams, users, vcs, sites, functions, proxy, graphql, migrations, messaging, advisor",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -55724,9 +55664,6 @@
                                 "avatars",
                                 "databases",
                                 "tablesdb",
-                                "documentsDB",
-                                "tablesDB",
-                                "vectorsDB",
                                 "locale",
                                 "health",
                                 "project",
@@ -55734,9 +55671,6 @@
                                 "teams",
                                 "users",
                                 "vcs",
-                                "webhooks",
-                                "tokens",
-                                "presences",
                                 "sites",
                                 "functions",
                                 "proxy",
@@ -63179,6 +63113,15 @@
                                         "description": "Is the database enabled? When set to 'disabled', users cannot access the database but Server SDKs with an API key can still read and write to the database. No data is lost when this is toggled.",
                                         "default": true,
                                         "x-example": false
+                                    },
+                                    "dedicatedDatabaseId": {
+                                        "type": "string",
+                                        "description": "Optional dedicated database (compute) ID to attach this database to. Leave empty to create a database on the shared pool.",
+                                        "default": "",
+                                        "x-example": "<DEDICATED_DATABASE_ID>",
+                                        "x-appwrite": {
+                                            "idGenerator": "ID.unique"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -77916,11 +77859,14 @@
                                         "default": true,
                                         "x-example": false
                                     },
-                                    "specification": {
+                                    "dedicatedDatabaseId": {
                                         "type": "string",
-                                        "description": "Database specification defining compute resources (CPU, memory). Defaults to the free tier. Must be enabled on the organization plan.",
-                                        "default": "free",
-                                        "x-example": "<SPECIFICATION>"
+                                        "description": "Optional dedicated database (compute) ID to attach this database to. Leave empty to create a database on the shared pool.",
+                                        "default": "",
+                                        "x-example": "<DEDICATED_DATABASE_ID>",
+                                        "x-appwrite": {
+                                            "idGenerator": "ID.unique"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -81438,18 +81384,6 @@
             "description": "The TablesDB service allows you to create structured tables of columns, query and filter lists of rows"
         },
         {
-            "name": "documentsDB",
-            "description": "The DocumentsDB service allows you to create structured collections of documents, query and filter lists of documents."
-        },
-        {
-            "name": "tablesDB",
-            "description": "The TablesDB service allows you to create structured tables of columns, query and filter lists of rows."
-        },
-        {
-            "name": "vectorsDB",
-            "description": "The VectorsDB service allows you to create vector collections, embeddings, indexes, and documents."
-        },
-        {
             "name": "locale",
             "description": "The Locale service allows you to customize your app based on your users' location."
         },
@@ -81478,18 +81412,6 @@
             "description": "The Users service allows you to manage your project users."
         },
         {
-            "name": "webhooks",
-            "description": "The Webhooks service allows you to configure event-driven HTTP callbacks for your project."
-        },
-        {
-            "name": "tokens",
-            "description": "The Tokens service allows you to create and manage resource tokens for project resources."
-        },
-        {
-            "name": "presences",
-            "description": "The Presences service allows you to create, query, and manage realtime presence state."
-        },
-        {
             "name": "sites",
             "description": "The Sites Service allows you view, create and manage your web applications."
         },
@@ -81508,10 +81430,6 @@
         {
             "name": "console",
             "description": "The Console service allows you to interact with console relevant information."
-        },
-        {
-            "name": "assistant",
-            "description": "The Assistant service allows Console users to ask assistant queries."
         },
         {
             "name": "organization",
@@ -92718,9 +92636,6 @@
                             "avatars",
                             "databases",
                             "tablesdb",
-                            "documentsDB",
-                            "tablesDB",
-                            "vectorsDB",
                             "locale",
                             "health",
                             "project",
@@ -92728,9 +92643,6 @@
                             "teams",
                             "users",
                             "vcs",
-                            "webhooks",
-                            "tokens",
-                            "presences",
                             "sites",
                             "functions",
                             "proxy",
@@ -102891,11 +102803,6 @@
                         "description": "Product API that owns this database: compute, documentsdb, or vectorsdb.",
                         "x-example": "compute"
                     },
-                    "region": {
-                        "type": "string",
-                        "description": "Region identifier (e.g., fra, nyc, syd).",
-                        "x-example": "fra"
-                    },
                     "engine": {
                         "type": "string",
                         "description": "Database engine: postgres, mysql, mariadb, or mongodb.",
@@ -103002,14 +102909,9 @@
                         "description": "Kubernetes node pool where the database is scheduled.",
                         "x-example": "db-pool-4vcpu-8gb"
                     },
-                    "highAvailability": {
-                        "type": "boolean",
-                        "description": "Whether high availability is enabled.",
-                        "x-example": true
-                    },
-                    "highAvailabilityReplicaCount": {
+                    "replicas": {
                         "type": "integer",
-                        "description": "Number of high availability replicas.",
+                        "description": "Number of high availability replicas. High availability is enabled when greater than 0.",
                         "x-example": 2,
                         "format": "int32"
                     },
@@ -103108,7 +103010,7 @@
                     },
                     "sqlApiAllowedStatements": {
                         "type": "array",
-                        "description": "Statement types accepted by the SQL API. Allowed values: SELECT, INSERT, UPDATE, DELETE.",
+                        "description": "Statement types accepted by the SQL API. Defaults to DML only; DDL\/DCL types (CREATE, ALTER, DROP, TRUNCATE, GRANT, REVOKE) are opt-in per database. Allowed values: SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP, TRUNCATE, GRANT, REVOKE.",
                         "items": {
                             "type": "string"
                         },
@@ -103146,7 +103048,6 @@
                     "name",
                     "type",
                     "api",
-                    "region",
                     "engine",
                     "version",
                     "specification",
@@ -103167,8 +103068,7 @@
                     "storageClass",
                     "storageMaxGb",
                     "nodePool",
-                    "highAvailability",
-                    "highAvailabilityReplicaCount",
+                    "replicas",
                     "highAvailabilitySyncMode",
                     "networkMaxConnections",
                     "networkIdleTimeoutSeconds",
@@ -103199,7 +103099,6 @@
                     "name": "My Production Database",
                     "type": "dedicated",
                     "api": "compute",
-                    "region": "fra",
                     "engine": "postgres",
                     "version": "16",
                     "specification": "s-2vcpu-2gb",
@@ -103220,8 +103119,7 @@
                     "storageClass": "ssd",
                     "storageMaxGb": 100,
                     "nodePool": "db-pool-4vcpu-8gb",
-                    "highAvailability": true,
-                    "highAvailabilityReplicaCount": 2,
+                    "replicas": 2,
                     "highAvailabilitySyncMode": "async",
                     "networkMaxConnections": 500,
                     "networkIdleTimeoutSeconds": 900,
@@ -106031,76 +105929,6 @@
                     "roles": "developer"
                 }
             },
-            "dedicatedDatabaseSchema": {
-                "description": "Schema",
-                "type": "object",
-                "properties": {
-                    "tables": {
-                        "type": "array",
-                        "description": "List of tables with columns, types, and constraints.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/any"
-                        },
-                        "x-example": []
-                    },
-                    "indexes": {
-                        "type": "array",
-                        "description": "List of indexes across all tables.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/any"
-                        },
-                        "x-example": []
-                    }
-                },
-                "required": [
-                    "tables",
-                    "indexes"
-                ],
-                "example": {
-                    "tables": [],
-                    "indexes": []
-                }
-            },
-            "dedicatedDatabaseSchemaPreview": {
-                "description": "SchemaPreview",
-                "type": "object",
-                "properties": {
-                    "supportsTransactionalDDL": {
-                        "type": "boolean",
-                        "description": "Whether the engine supports transactional DDL for safe preview.",
-                        "x-example": true
-                    },
-                    "preview": {
-                        "type": "string",
-                        "description": "Schema change preview output.",
-                        "x-example": "ALTER TABLE users ADD COLUMN age INTEGER"
-                    },
-                    "tables": {
-                        "type": "array",
-                        "description": "List of tables in the database after the change.",
-                        "items": {
-                            "type": "string"
-                        },
-                        "x-example": [
-                            "users",
-                            "orders"
-                        ]
-                    }
-                },
-                "required": [
-                    "supportsTransactionalDDL",
-                    "preview",
-                    "tables"
-                ],
-                "example": {
-                    "supportsTransactionalDDL": true,
-                    "preview": "ALTER TABLE users ADD COLUMN age INTEGER",
-                    "tables": [
-                        "users",
-                        "orders"
-                    ]
-                }
-            },
             "dedicatedDatabaseSlowQuery": {
                 "description": "SlowQuery",
                 "type": "object",
@@ -107232,6 +107060,41 @@
                         "description": "Application name.",
                         "x-example": "My Application"
                     },
+                    "description": {
+                        "type": "string",
+                        "description": "Application description shown to users during OAuth2 consent.",
+                        "x-example": "Connect your workspace to My Application."
+                    },
+                    "clientUri": {
+                        "type": "string",
+                        "description": "Application homepage URL shown to users during OAuth2 consent.",
+                        "x-example": "https:\/\/example.com"
+                    },
+                    "logoUri": {
+                        "type": "string",
+                        "description": "Application logo URL shown to users during OAuth2 consent.",
+                        "x-example": "https:\/\/example.com\/logo.png"
+                    },
+                    "privacyPolicyUrl": {
+                        "type": "string",
+                        "description": "Application privacy policy URL shown to users during OAuth2 consent.",
+                        "x-example": "https:\/\/example.com\/privacy"
+                    },
+                    "termsUrl": {
+                        "type": "string",
+                        "description": "Application terms of service URL shown to users during OAuth2 consent.",
+                        "x-example": "https:\/\/example.com\/terms"
+                    },
+                    "contacts": {
+                        "type": "array",
+                        "description": "Application support or security contact emails.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "support@example.com"
+                        ]
+                    },
                     "redirectUris": {
                         "type": "array",
                         "description": "List of authorized redirect URIs. These URIs can be used to redirect users after they authenticate.",
@@ -107281,6 +107144,12 @@
                     "$createdAt",
                     "$updatedAt",
                     "name",
+                    "description",
+                    "clientUri",
+                    "logoUri",
+                    "privacyPolicyUrl",
+                    "termsUrl",
+                    "contacts",
                     "redirectUris",
                     "enabled",
                     "type",
@@ -107294,6 +107163,14 @@
                     "$createdAt": "2020-10-15T06:38:00.000+00:00",
                     "$updatedAt": "2020-10-15T06:38:00.000+00:00",
                     "name": "My Application",
+                    "description": "Connect your workspace to My Application.",
+                    "clientUri": "https:\/\/example.com",
+                    "logoUri": "https:\/\/example.com\/logo.png",
+                    "privacyPolicyUrl": "https:\/\/example.com\/privacy",
+                    "termsUrl": "https:\/\/example.com\/terms",
+                    "contacts": [
+                        "support@example.com"
+                    ],
                     "redirectUris": [
                         "https:\/\/example.com\/callback"
                     ],
@@ -108106,12 +107983,14 @@
                     "demo": "<YOUR_PROJECT_ID>"
                 }
             },
-            "ProjectQuery": {
+            "ProjectPath": {
                 "type": "apiKey",
                 "name": "project",
                 "description": "Your project ID",
                 "in": "query",
                 "x-appwrite": {
+                    "location": "path",
+                    "param": "project_id",
                     "demo": "<YOUR_PROJECT_ID>"
                 }
             },

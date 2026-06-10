@@ -4176,6 +4176,49 @@
                                         "description": "Application name.",
                                         "x-example": "<NAME>"
                                     },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "Application description shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "<DESCRIPTION>"
+                                    },
+                                    "clientUri": {
+                                        "type": "string",
+                                        "description": "Application homepage URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "logoUri": {
+                                        "type": "string",
+                                        "description": "Application logo URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "privacyPolicyUrl": {
+                                        "type": "string",
+                                        "description": "Application privacy policy URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "termsUrl": {
+                                        "type": "string",
+                                        "description": "Application terms of service URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "contacts": {
+                                        "type": "array",
+                                        "description": "Application support or security contact emails. Maximum of 100 contacts are allowed.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
                                     "redirectUris": {
                                         "type": "array",
                                         "description": "Redirect URIs (array of valid URLs).",
@@ -4354,6 +4397,49 @@
                                         "type": "string",
                                         "description": "Application name.",
                                         "x-example": "<NAME>"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "Application description shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "<DESCRIPTION>"
+                                    },
+                                    "clientUri": {
+                                        "type": "string",
+                                        "description": "Application homepage URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "logoUri": {
+                                        "type": "string",
+                                        "description": "Application logo URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "privacyPolicyUrl": {
+                                        "type": "string",
+                                        "description": "Application privacy policy URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "termsUrl": {
+                                        "type": "string",
+                                        "description": "Application terms of service URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "contacts": {
+                                        "type": "array",
+                                        "description": "Application support or security contact emails. Maximum of 100 contacts are allowed.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
                                     },
                                     "enabled": {
                                         "type": "boolean",
@@ -10622,12 +10708,12 @@
                     "packaging": false,
                     "public": true,
                     "auth": {
-                        "ProjectQuery": []
+                        "ProjectPath": []
                     }
                 },
                 "security": [
                     {
-                        "ProjectQuery": [],
+                        "ProjectPath": [],
                         "Session": [],
                         "JWT": []
                     }
@@ -10635,7 +10721,7 @@
                 "parameters": [
                     {
                         "name": "project_id",
-                        "description": "Project ID in which OAuth2 client that created grant during authorization exists.",
+                        "description": "Project ID in which OAuth2 client exists.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -10709,12 +10795,12 @@
                     "packaging": false,
                     "public": true,
                     "auth": {
-                        "ProjectQuery": []
+                        "ProjectPath": []
                     }
                 },
                 "security": [
                     {
-                        "ProjectQuery": [],
+                        "ProjectPath": [],
                         "Session": [],
                         "JWT": []
                     }
@@ -11043,12 +11129,12 @@
                     "packaging": false,
                     "public": true,
                     "auth": {
-                        "ProjectQuery": []
+                        "ProjectPath": []
                     }
                 },
                 "security": [
                     {
-                        "ProjectQuery": [],
+                        "ProjectPath": [],
                         "Session": [],
                         "JWT": []
                     }
@@ -11056,7 +11142,7 @@
                 "parameters": [
                     {
                         "name": "project_id",
-                        "description": "Project ID in which OAuth2 client that created grant during authorization exists.",
+                        "description": "Project ID in which OAuth2 client exists.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -16152,10 +16238,6 @@
             "description": "The Users service allows you to manage your project users."
         },
         {
-            "name": "presences",
-            "description": "The Presences service allows you to create, query, and manage realtime presence state."
-        },
-        {
             "name": "sites",
             "description": "The Sites Service allows you view, create and manage your web applications."
         },
@@ -19052,6 +19134,41 @@
                         "description": "Application name.",
                         "x-example": "My Application"
                     },
+                    "description": {
+                        "type": "string",
+                        "description": "Application description shown to users during OAuth2 consent.",
+                        "x-example": "Connect your workspace to My Application."
+                    },
+                    "clientUri": {
+                        "type": "string",
+                        "description": "Application homepage URL shown to users during OAuth2 consent.",
+                        "x-example": "https:\/\/example.com"
+                    },
+                    "logoUri": {
+                        "type": "string",
+                        "description": "Application logo URL shown to users during OAuth2 consent.",
+                        "x-example": "https:\/\/example.com\/logo.png"
+                    },
+                    "privacyPolicyUrl": {
+                        "type": "string",
+                        "description": "Application privacy policy URL shown to users during OAuth2 consent.",
+                        "x-example": "https:\/\/example.com\/privacy"
+                    },
+                    "termsUrl": {
+                        "type": "string",
+                        "description": "Application terms of service URL shown to users during OAuth2 consent.",
+                        "x-example": "https:\/\/example.com\/terms"
+                    },
+                    "contacts": {
+                        "type": "array",
+                        "description": "Application support or security contact emails.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "support@example.com"
+                        ]
+                    },
                     "redirectUris": {
                         "type": "array",
                         "description": "List of authorized redirect URIs. These URIs can be used to redirect users after they authenticate.",
@@ -19101,6 +19218,12 @@
                     "$createdAt",
                     "$updatedAt",
                     "name",
+                    "description",
+                    "clientUri",
+                    "logoUri",
+                    "privacyPolicyUrl",
+                    "termsUrl",
+                    "contacts",
                     "redirectUris",
                     "enabled",
                     "type",
@@ -19114,6 +19237,14 @@
                     "$createdAt": "2020-10-15T06:38:00.000+00:00",
                     "$updatedAt": "2020-10-15T06:38:00.000+00:00",
                     "name": "My Application",
+                    "description": "Connect your workspace to My Application.",
+                    "clientUri": "https:\/\/example.com",
+                    "logoUri": "https:\/\/example.com\/logo.png",
+                    "privacyPolicyUrl": "https:\/\/example.com\/privacy",
+                    "termsUrl": "https:\/\/example.com\/terms",
+                    "contacts": [
+                        "support@example.com"
+                    ],
                     "redirectUris": [
                         "https:\/\/example.com\/callback"
                     ],
@@ -19495,12 +19626,14 @@
                     "demo": "<YOUR_PROJECT_ID>"
                 }
             },
-            "ProjectQuery": {
+            "ProjectPath": {
                 "type": "apiKey",
                 "name": "project",
                 "description": "Your project ID",
                 "in": "query",
                 "x-appwrite": {
+                    "location": "path",
+                    "param": "project_id",
                     "demo": "<YOUR_PROJECT_ID>"
                 }
             },
