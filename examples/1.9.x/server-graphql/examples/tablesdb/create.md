@@ -3,7 +3,8 @@ mutation {
     tablesDBCreate(
         databaseId: "<DATABASE_ID>",
         name: "<NAME>",
-        enabled: false
+        enabled: false,
+        dedicatedDatabaseId: "<DEDICATED_DATABASE_ID>"
     ) {
         _id
         name
@@ -44,7 +45,8 @@ mutation {
     tablesDBCreate(
         databaseId: "<DATABASE_ID>",
         name: "<NAME>",
-        enabled: false
+        enabled: false,
+        dedicatedDatabaseId: "<DEDICATED_DATABASE_ID>"
     ) {
         _id
         name

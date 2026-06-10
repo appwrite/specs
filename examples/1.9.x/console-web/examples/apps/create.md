@@ -11,6 +11,12 @@ const result = await apps.create({
     appId: '<APP_ID>',
     name: '<NAME>',
     redirectUris: [],
+    description: '<DESCRIPTION>', // optional
+    clientUri: 'https://example.com', // optional
+    logoUri: 'https://example.com', // optional
+    privacyPolicyUrl: 'https://example.com', // optional
+    termsUrl: 'https://example.com', // optional
+    contacts: [], // optional
     enabled: false, // optional
     type: 'public', // optional
     deviceFlow: false, // optional

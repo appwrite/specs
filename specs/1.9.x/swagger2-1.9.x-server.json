@@ -38,12 +38,14 @@
                 "demo": "<YOUR_PROJECT_ID>"
             }
         },
-        "ProjectQuery": {
+        "ProjectPath": {
             "type": "apiKey",
             "name": "project",
             "description": "Your project ID",
             "in": "query",
             "x-appwrite": {
+                "location": "path",
+                "param": "project_id",
                 "demo": "<YOUR_PROJECT_ID>"
             }
         },
@@ -4205,6 +4207,49 @@
                                     "description": "Application name.",
                                     "x-example": "<NAME>"
                                 },
+                                "description": {
+                                    "type": "string",
+                                    "description": "Application description shown to users during OAuth2 consent.",
+                                    "default": "",
+                                    "x-example": "<DESCRIPTION>"
+                                },
+                                "clientUri": {
+                                    "type": "string",
+                                    "description": "Application homepage URL shown to users during OAuth2 consent.",
+                                    "default": "",
+                                    "x-example": "https:\/\/example.com",
+                                    "format": "url"
+                                },
+                                "logoUri": {
+                                    "type": "string",
+                                    "description": "Application logo URL shown to users during OAuth2 consent.",
+                                    "default": "",
+                                    "x-example": "https:\/\/example.com",
+                                    "format": "url"
+                                },
+                                "privacyPolicyUrl": {
+                                    "type": "string",
+                                    "description": "Application privacy policy URL shown to users during OAuth2 consent.",
+                                    "default": "",
+                                    "x-example": "https:\/\/example.com",
+                                    "format": "url"
+                                },
+                                "termsUrl": {
+                                    "type": "string",
+                                    "description": "Application terms of service URL shown to users during OAuth2 consent.",
+                                    "default": "",
+                                    "x-example": "https:\/\/example.com",
+                                    "format": "url"
+                                },
+                                "contacts": {
+                                    "type": "array",
+                                    "description": "Application support or security contact emails. Maximum of 100 contacts are allowed.",
+                                    "default": [],
+                                    "x-example": null,
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
                                 "redirectUris": {
                                     "type": "array",
                                     "description": "Redirect URIs (array of valid URLs).",
@@ -4381,6 +4426,49 @@
                                     "type": "string",
                                     "description": "Application name.",
                                     "x-example": "<NAME>"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "Application description shown to users during OAuth2 consent.",
+                                    "default": "",
+                                    "x-example": "<DESCRIPTION>"
+                                },
+                                "clientUri": {
+                                    "type": "string",
+                                    "description": "Application homepage URL shown to users during OAuth2 consent.",
+                                    "default": "",
+                                    "x-example": "https:\/\/example.com",
+                                    "format": "url"
+                                },
+                                "logoUri": {
+                                    "type": "string",
+                                    "description": "Application logo URL shown to users during OAuth2 consent.",
+                                    "default": "",
+                                    "x-example": "https:\/\/example.com",
+                                    "format": "url"
+                                },
+                                "privacyPolicyUrl": {
+                                    "type": "string",
+                                    "description": "Application privacy policy URL shown to users during OAuth2 consent.",
+                                    "default": "",
+                                    "x-example": "https:\/\/example.com",
+                                    "format": "url"
+                                },
+                                "termsUrl": {
+                                    "type": "string",
+                                    "description": "Application terms of service URL shown to users during OAuth2 consent.",
+                                    "default": "",
+                                    "x-example": "https:\/\/example.com",
+                                    "format": "url"
+                                },
+                                "contacts": {
+                                    "type": "array",
+                                    "description": "Application support or security contact emails. Maximum of 100 contacts are allowed.",
+                                    "default": [],
+                                    "x-example": null,
+                                    "items": {
+                                        "type": "string"
+                                    }
                                 },
                                 "enabled": {
                                     "type": "boolean",
@@ -15959,11 +16047,14 @@
                                     "default": true,
                                     "x-example": false
                                 },
-                                "specification": {
+                                "dedicatedDatabaseId": {
                                     "type": "string",
-                                    "description": "Database specification defining compute resources (CPU, memory). Defaults to the free tier. Must be enabled on the organization plan.",
-                                    "default": "free",
-                                    "x-example": "<SPECIFICATION>"
+                                    "description": "Optional dedicated database (compute) ID to attach this database to. Leave empty to create a database on the shared pool.",
+                                    "default": "",
+                                    "x-example": "<DEDICATED_DATABASE_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 }
                             },
                             "required": [
@@ -30108,13 +30199,13 @@
                     "packaging": false,
                     "public": true,
                     "auth": {
-                        "ProjectQuery": [],
+                        "ProjectPath": [],
                         "Session": []
                     }
                 },
                 "security": [
                     {
-                        "ProjectQuery": [],
+                        "ProjectPath": [],
                         "Session": [],
                         "JWT": []
                     }
@@ -30122,7 +30213,7 @@
                 "parameters": [
                     {
                         "name": "project_id",
-                        "description": "Project ID in which OAuth2 client that created grant during authorization exists.",
+                        "description": "Project ID in which OAuth2 client exists.",
                         "required": true,
                         "type": "string",
                         "x-example": "<PROJECT_ID>",
@@ -30192,13 +30283,13 @@
                     "packaging": false,
                     "public": true,
                     "auth": {
-                        "ProjectQuery": [],
+                        "ProjectPath": [],
                         "Session": []
                     }
                 },
                 "security": [
                     {
-                        "ProjectQuery": [],
+                        "ProjectPath": [],
                         "Session": [],
                         "JWT": []
                     }
@@ -30501,13 +30592,13 @@
                     "packaging": false,
                     "public": true,
                     "auth": {
-                        "ProjectQuery": [],
+                        "ProjectPath": [],
                         "Session": []
                     }
                 },
                 "security": [
                     {
-                        "ProjectQuery": [],
+                        "ProjectPath": [],
                         "Session": [],
                         "JWT": []
                     }
@@ -30515,7 +30606,7 @@
                 "parameters": [
                     {
                         "name": "project_id",
-                        "description": "Project ID in which OAuth2 client that created grant during authorization exists.",
+                        "description": "Project ID in which OAuth2 client exists.",
                         "required": true,
                         "type": "string",
                         "x-example": "<PROJECT_ID>",
@@ -39997,7 +40088,7 @@
                 "parameters": [
                     {
                         "name": "serviceId",
-                        "description": "Service name. Can be one of: account, avatars, databases, tablesdb, documentsDB, tablesDB, vectorsDB, locale, health, project, storage, teams, users, vcs, webhooks, tokens, presences, sites, functions, proxy, graphql, migrations, messaging, advisor",
+                        "description": "Service name. Can be one of: account, avatars, databases, tablesdb, locale, health, project, storage, teams, users, vcs, sites, functions, proxy, graphql, migrations, messaging, advisor",
                         "required": true,
                         "type": "string",
                         "x-example": "account",
@@ -40006,9 +40097,6 @@
                             "avatars",
                             "databases",
                             "tablesdb",
-                            "documentsDB",
-                            "tablesDB",
-                            "vectorsDB",
                             "locale",
                             "health",
                             "project",
@@ -40016,9 +40104,6 @@
                             "teams",
                             "users",
                             "vcs",
-                            "webhooks",
-                            "tokens",
-                            "presences",
                             "sites",
                             "functions",
                             "proxy",
@@ -40033,9 +40118,6 @@
                             "avatars",
                             "databases",
                             "tablesdb",
-                            "documentsDB",
-                            "tablesDB",
-                            "vectorsDB",
                             "locale",
                             "health",
                             "project",
@@ -40043,9 +40125,6 @@
                             "teams",
                             "users",
                             "vcs",
-                            "webhooks",
-                            "tokens",
-                            "presences",
                             "sites",
                             "functions",
                             "proxy",
@@ -46563,6 +46642,15 @@
                                     "description": "Is the database enabled? When set to 'disabled', users cannot access the database but Server SDKs with an API key can still read and write to the database. No data is lost when this is toggled.",
                                     "default": true,
                                     "x-example": false
+                                },
+                                "dedicatedDatabaseId": {
+                                    "type": "string",
+                                    "description": "Optional dedicated database (compute) ID to attach this database to. Leave empty to create a database on the shared pool.",
+                                    "default": "",
+                                    "x-example": "<DEDICATED_DATABASE_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 }
                             },
                             "required": [
@@ -59548,11 +59636,14 @@
                                     "default": true,
                                     "x-example": false
                                 },
-                                "specification": {
+                                "dedicatedDatabaseId": {
                                     "type": "string",
-                                    "description": "Database specification defining compute resources (CPU, memory). Defaults to the free tier. Must be enabled on the organization plan.",
-                                    "default": "free",
-                                    "x-example": "<SPECIFICATION>"
+                                    "description": "Optional dedicated database (compute) ID to attach this database to. Leave empty to create a database on the shared pool.",
+                                    "default": "",
+                                    "x-example": "<DEDICATED_DATABASE_ID>",
+                                    "x-appwrite": {
+                                        "idGenerator": "ID.unique"
+                                    }
                                 }
                             },
                             "required": [
@@ -62722,18 +62813,6 @@
             "description": "The TablesDB service allows you to create structured tables of columns, query and filter lists of rows"
         },
         {
-            "name": "documentsDB",
-            "description": "The DocumentsDB service allows you to create structured collections of documents, query and filter lists of documents."
-        },
-        {
-            "name": "tablesDB",
-            "description": "The TablesDB service allows you to create structured tables of columns, query and filter lists of rows."
-        },
-        {
-            "name": "vectorsDB",
-            "description": "The VectorsDB service allows you to create vector collections, embeddings, indexes, and documents."
-        },
-        {
             "name": "locale",
             "description": "The Locale service allows you to customize your app based on your users' location."
         },
@@ -62760,18 +62839,6 @@
         {
             "name": "users",
             "description": "The Users service allows you to manage your project users."
-        },
-        {
-            "name": "webhooks",
-            "description": "The Webhooks service allows you to configure event-driven HTTP callbacks for your project."
-        },
-        {
-            "name": "tokens",
-            "description": "The Tokens service allows you to create and manage resource tokens for project resources."
-        },
-        {
-            "name": "presences",
-            "description": "The Presences service allows you to create, query, and manage realtime presence state."
         },
         {
             "name": "sites",
@@ -72450,9 +72517,6 @@
                         "avatars",
                         "databases",
                         "tablesdb",
-                        "documentsDB",
-                        "tablesDB",
-                        "vectorsDB",
                         "locale",
                         "health",
                         "project",
@@ -72460,9 +72524,6 @@
                         "teams",
                         "users",
                         "vcs",
-                        "webhooks",
-                        "tokens",
-                        "presences",
                         "sites",
                         "functions",
                         "proxy",
@@ -77813,6 +77874,41 @@
                     "description": "Application name.",
                     "x-example": "My Application"
                 },
+                "description": {
+                    "type": "string",
+                    "description": "Application description shown to users during OAuth2 consent.",
+                    "x-example": "Connect your workspace to My Application."
+                },
+                "clientUri": {
+                    "type": "string",
+                    "description": "Application homepage URL shown to users during OAuth2 consent.",
+                    "x-example": "https:\/\/example.com"
+                },
+                "logoUri": {
+                    "type": "string",
+                    "description": "Application logo URL shown to users during OAuth2 consent.",
+                    "x-example": "https:\/\/example.com\/logo.png"
+                },
+                "privacyPolicyUrl": {
+                    "type": "string",
+                    "description": "Application privacy policy URL shown to users during OAuth2 consent.",
+                    "x-example": "https:\/\/example.com\/privacy"
+                },
+                "termsUrl": {
+                    "type": "string",
+                    "description": "Application terms of service URL shown to users during OAuth2 consent.",
+                    "x-example": "https:\/\/example.com\/terms"
+                },
+                "contacts": {
+                    "type": "array",
+                    "description": "Application support or security contact emails.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "x-example": [
+                        "support@example.com"
+                    ]
+                },
                 "redirectUris": {
                     "type": "array",
                     "description": "List of authorized redirect URIs. These URIs can be used to redirect users after they authenticate.",
@@ -77863,6 +77959,12 @@
                 "$createdAt",
                 "$updatedAt",
                 "name",
+                "description",
+                "clientUri",
+                "logoUri",
+                "privacyPolicyUrl",
+                "termsUrl",
+                "contacts",
                 "redirectUris",
                 "enabled",
                 "type",
@@ -77876,6 +77978,14 @@
                 "$createdAt": "2020-10-15T06:38:00.000+00:00",
                 "$updatedAt": "2020-10-15T06:38:00.000+00:00",
                 "name": "My Application",
+                "description": "Connect your workspace to My Application.",
+                "clientUri": "https:\/\/example.com",
+                "logoUri": "https:\/\/example.com\/logo.png",
+                "privacyPolicyUrl": "https:\/\/example.com\/privacy",
+                "termsUrl": "https:\/\/example.com\/terms",
+                "contacts": [
+                    "support@example.com"
+                ],
                 "redirectUris": [
                     "https:\/\/example.com\/callback"
                 ],

@@ -19,5 +19,6 @@ response, error := service.Create(
     "<DATABASE_ID>",
     "<NAME>",
     tablesdb.WithCreateEnabled(false),
+    tablesdb.WithCreateDedicatedDatabaseId("<DEDICATED_DATABASE_ID>"),
 )
 ```

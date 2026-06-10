@@ -12,5 +12,6 @@ Database result = await tablesDB.create(
     databaseId: '<DATABASE_ID>',
     name: '<NAME>',
     enabled: false, // (optional)
+    dedicatedDatabaseId: '<DEDICATED_DATABASE_ID>', // (optional)
 );
 ```
