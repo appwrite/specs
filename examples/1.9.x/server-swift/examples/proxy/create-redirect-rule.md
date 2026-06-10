@@ -12,7 +12,7 @@ let proxy = Proxy(client)
 let proxyRule = try await proxy.createRedirectRule(
     domain: "",
     url: "https://example.com",
-    statusCode: .movedPermanently301,
+    statusCode: .movedPermanently,
     resourceId: "<RESOURCE_ID>",
     resourceType: .site
 )

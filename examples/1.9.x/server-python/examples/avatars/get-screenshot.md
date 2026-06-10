@@ -1,7 +1,7 @@
 ```python
 from appwrite.client import Client
 from appwrite.services.avatars import Avatars
-from appwrite.enums import Theme
+from appwrite.enums import BrowserTheme
 from appwrite.enums import Timezone
 from appwrite.enums import BrowserPermission
 from appwrite.enums import ImageFormat
@@ -10,6 +10,7 @@ client = Client()
 client.set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
 client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 client.set_session('') # The user session to authenticate with
+client.set_impersonate_user_id('') # Impersonate a user by ID on an already user-authenticated request. Requires the current request to be authenticated as a user with impersonator capability; X-Appwrite-Key alone is not sufficient. Impersonator users are intentionally granted users.read so they can discover a target before impersonation begins. Internal audit logs still attribute actions to the original impersonator and record the impersonated target only in internal audit payload data.
 
 avatars = Avatars(client)
 
@@ -22,7 +23,7 @@ result: bytes = avatars.get_screenshot(
     viewport_width = 1920, # optional
     viewport_height = 1080, # optional
     scale = 2, # optional
-    theme = Theme.DARK, # optional
+    theme = BrowserTheme.DARK, # optional
     user_agent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15', # optional
     fullpage = True, # optional
     locale = 'en-US', # optional

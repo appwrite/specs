@@ -1,5 +1,5 @@
 ```javascript
-import { Client, Compute, Type } from "@appwrite.io/console";
+import { Client, Compute } from "@appwrite.io/console";
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -9,7 +9,7 @@ const compute = new Compute(client);
 
 const result = await compute.createDatabaseRestoration({
     databaseId: '<DATABASE_ID>',
-    type: Type.Backup, // optional
+    type: 'backup', // optional
     backupId: '<BACKUP_ID>', // optional
     targetTime: null // optional
 });

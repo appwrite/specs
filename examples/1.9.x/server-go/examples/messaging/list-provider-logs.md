@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/messaging"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/messaging"
 )
 
 client := client.New(
@@ -17,7 +17,7 @@ service := messaging.New(client)
 
 response, error := service.ListProviderLogs(
     "<PROVIDER_ID>",
-    messaging.WithListProviderLogsQueries([]interface{}{}),
+    messaging.WithListProviderLogsQueries([]string{}),
     messaging.WithListProviderLogsTotal(false),
 )
 ```

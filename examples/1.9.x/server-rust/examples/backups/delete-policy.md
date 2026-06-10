@@ -11,9 +11,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let backups = Backups::new(&client);
 
-    backups.delete_policy(
+    let result = backups.delete_policy(
         "<POLICY_ID>"
     ).await?;
+
+    let _ = result;
 
     Ok(())
 }

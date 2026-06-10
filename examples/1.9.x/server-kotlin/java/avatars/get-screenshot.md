@@ -2,7 +2,7 @@
 import io.appwrite.Client;
 import io.appwrite.coroutines.CoroutineCallback;
 import io.appwrite.services.Avatars;
-import io.appwrite.enums.Theme;
+import io.appwrite.enums.BrowserTheme;
 import io.appwrite.enums.Timezone;
 import io.appwrite.enums.BrowserPermission;
 import io.appwrite.enums.ImageFormat;
@@ -10,7 +10,8 @@ import io.appwrite.enums.ImageFormat;
 Client client = new Client()
     .setEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
     .setProject("<YOUR_PROJECT_ID>") // Your project ID
-    .setSession(""); // The user session to authenticate with
+    .setSession("") // The user session to authenticate with
+    .setImpersonateUserId(""); // Impersonate a user by ID on an already user-authenticated request. Requires the current request to be authenticated as a user with impersonator capability; X-Appwrite-Key alone is not sufficient. Impersonator users are intentionally granted users.read so they can discover a target before impersonation begins. Internal audit logs still attribute actions to the original impersonator and record the impersonated target only in internal audit payload data.
 
 Avatars avatars = new Avatars(client);
 
@@ -23,7 +24,7 @@ avatars.getScreenshot(
     1920, // viewportWidth (optional)
     1080, // viewportHeight (optional)
     2, // scale (optional)
-    Theme.DARK, // theme (optional)
+    BrowserTheme.DARK, // theme (optional)
     "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15", // userAgent (optional)
     true, // fullpage (optional)
     "en-US", // locale (optional)

@@ -1,5 +1,5 @@
 ```javascript
-import { Client, Compute, Provider } from "@appwrite.io/console";
+import { Client, Compute } from "@appwrite.io/console";
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -9,7 +9,7 @@ const compute = new Compute(client);
 
 const result = await compute.updateDatabaseBackupStorage({
     databaseId: '<DATABASE_ID>',
-    provider: Provider.S3,
+    provider: 's3',
     bucket: '<BUCKET>',
     accessKey: '<ACCESS_KEY>',
     secretKey: '<SECRET_KEY>',

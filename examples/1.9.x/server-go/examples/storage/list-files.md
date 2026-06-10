@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/storage"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/storage"
 )
 
 client := client.New(
@@ -17,7 +17,7 @@ service := storage.New(client)
 
 response, error := service.ListFiles(
     "<BUCKET_ID>",
-    storage.WithListFilesQueries([]interface{}{}),
+    storage.WithListFilesQueries([]string{}),
     storage.WithListFilesSearch("<SEARCH>"),
     storage.WithListFilesTotal(false),
 )

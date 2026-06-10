@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/messaging"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/messaging"
 )
 
 client := client.New(
@@ -19,9 +19,9 @@ response, error := service.CreatePush(
     "<MESSAGE_ID>",
     messaging.WithCreatePushTitle("<TITLE>"),
     messaging.WithCreatePushBody("<BODY>"),
-    messaging.WithCreatePushTopics([]interface{}{}),
-    messaging.WithCreatePushUsers([]interface{}{}),
-    messaging.WithCreatePushTargets([]interface{}{}),
+    messaging.WithCreatePushTopics([]string{}),
+    messaging.WithCreatePushUsers([]string{}),
+    messaging.WithCreatePushTargets([]string{}),
     messaging.WithCreatePushData(map[string]interface{}{}),
     messaging.WithCreatePushAction("<ACTION>"),
     messaging.WithCreatePushImage("<ID1:ID2>"),

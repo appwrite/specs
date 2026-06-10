@@ -1,5 +1,5 @@
 ```javascript
-import { Client, Compute, Day } from "@appwrite.io/console";
+import { Client, Compute } from "@appwrite.io/console";
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -9,7 +9,7 @@ const compute = new Compute(client);
 
 const result = await compute.updateDatabaseMaintenanceWindow({
     databaseId: '<DATABASE_ID>',
-    day: Day.Sun,
+    day: 'sun',
     hourUtc: 0
 });
 

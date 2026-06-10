@@ -1,5 +1,5 @@
 ```javascript
-import { Client, Compute, Status, StorageClass, SqlApiAllowedStatements } from "@appwrite.io/console";
+import { Client, Compute } from "@appwrite.io/console";
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -10,14 +10,15 @@ const compute = new Compute(client);
 const result = await compute.updateDatabase({
     databaseId: '<DATABASE_ID>',
     name: '<NAME>', // optional
-    status: Status.Ready, // optional
+    status: 'ready', // optional
     specification: '<SPECIFICATION>', // optional
     cpu: 125, // optional
     memory: 128, // optional
     storage: 1, // optional
-    storageClass: StorageClass.Ssd, // optional
+    storageClass: 'ssd', // optional
     highAvailability: false, // optional
     highAvailabilityReplicaCount: 0, // optional
+    highAvailabilitySyncMode: 'async', // optional
     networkMaxConnections: 10, // optional
     networkIdleTimeoutSeconds: 60, // optional
     networkIPAllowlist: [], // optional
@@ -35,7 +36,7 @@ const result = await compute.updateDatabase({
     metricsTraceSampleRate: null, // optional
     metricsSlowQueryLogThresholdMs: 0, // optional
     sqlApiEnabled: false, // optional
-    sqlApiAllowedStatements: [SqlApiAllowedStatements.Select], // optional
+    sqlApiAllowedStatements: [], // optional
     sqlApiMaxRows: 1, // optional
     sqlApiMaxBytes: 1024, // optional
     sqlApiTimeoutSeconds: 1 // optional

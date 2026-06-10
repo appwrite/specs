@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/storage"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/storage"
 )
 
 client := client.New(
@@ -19,6 +19,6 @@ response, error := service.CreateFile(
     "<BUCKET_ID>",
     "<FILE_ID>",
     file.NewInputFile("/path/to/file.png", "file.png"),
-    storage.WithCreateFilePermissions(interface{}{"read("any")"}),
+    storage.WithCreateFilePermissions([]string{"read("any")"}),
 )
 ```

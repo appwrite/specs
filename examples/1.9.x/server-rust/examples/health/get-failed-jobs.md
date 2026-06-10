@@ -12,7 +12,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let health = Health::new(&client);
 
     let result = health.get_failed_jobs(
-        appwrite::enums::Name::V1Database,
+        appwrite::enums::HealthQueueName::V1Database,
         Some(0) // optional
     ).await?;
 

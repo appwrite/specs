@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/backups"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/backups"
 )
 
 client := client.New(
@@ -16,7 +16,7 @@ client := client.New(
 service := backups.New(client)
 
 response, error := service.CreateArchive(
-    []interface{}{},
+    []string{},
     backups.WithCreateArchiveResourceId("<RESOURCE_ID>"),
 )
 ```

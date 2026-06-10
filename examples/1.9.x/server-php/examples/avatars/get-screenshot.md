@@ -3,7 +3,7 @@
 
 use Appwrite\Client;
 use Appwrite\Services\Avatars;
-use Appwrite\Enums\Theme;
+use Appwrite\Enums\BrowserTheme;
 use Appwrite\Enums\Timezone;
 use Appwrite\Enums\BrowserPermission;
 use Appwrite\Enums\ImageFormat;
@@ -11,7 +11,8 @@ use Appwrite\Enums\ImageFormat;
 $client = (new Client())
     ->setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
     ->setProject('<YOUR_PROJECT_ID>') // Your project ID
-    ->setSession(''); // The user session to authenticate with
+    ->setSession('') // The user session to authenticate with
+    ->setImpersonateUserId(''); // Impersonate a user by ID on an already user-authenticated request. Requires the current request to be authenticated as a user with impersonator capability; X-Appwrite-Key alone is not sufficient. Impersonator users are intentionally granted users.read so they can discover a target before impersonation begins. Internal audit logs still attribute actions to the original impersonator and record the impersonated target only in internal audit payload data.
 
 $avatars = new Avatars($client);
 
@@ -24,7 +25,7 @@ $result = $avatars->getScreenshot(
     viewportWidth: 1920, // optional
     viewportHeight: 1080, // optional
     scale: 2, // optional
-    theme: Theme::DARK(), // optional
+    theme: BrowserTheme::DARK(), // optional
     userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15', // optional
     fullpage: true, // optional
     locale: 'en-US', // optional

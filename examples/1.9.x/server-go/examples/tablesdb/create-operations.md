@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/tablesdb"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/tablesdb"
 )
 
 client := client.New(
@@ -17,7 +17,7 @@ service := tablesdb.New(client)
 
 response, error := service.CreateOperations(
     "<TRANSACTION_ID>",
-    tablesdb.WithCreateOperationsOperations(interface{}{
+    tablesdb.WithCreateOperationsOperations([]interface{}{
 	    {
 	        "action": "create",
 	        "databaseId": "<DATABASE_ID>",

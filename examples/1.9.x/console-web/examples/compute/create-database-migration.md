@@ -1,5 +1,5 @@
 ```javascript
-import { Client, Compute, TargetType } from "@appwrite.io/console";
+import { Client, Compute } from "@appwrite.io/console";
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -9,7 +9,8 @@ const compute = new Compute(client);
 
 const result = await compute.createDatabaseMigration({
     databaseId: '<DATABASE_ID>',
-    targetType: TargetType.Shared
+    targetType: 'shared',
+    specification: '<SPECIFICATION>' // optional
 });
 
 console.log(result);

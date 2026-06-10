@@ -11,7 +11,7 @@ client = Client.new
 account = Account.new(client)
 
 result = account.update_password(
-    password: '',
+    password: 'password',
     old_password: 'password' # optional
 )
 ```

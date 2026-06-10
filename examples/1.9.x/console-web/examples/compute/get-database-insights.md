@@ -1,5 +1,5 @@
 ```javascript
-import { Client, Compute, Period } from "@appwrite.io/console";
+import { Client, Compute } from "@appwrite.io/console";
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -9,7 +9,7 @@ const compute = new Compute(client);
 
 const result = await compute.getDatabaseInsights({
     databaseId: '<DATABASE_ID>',
-    period: Period.OneHour, // optional
+    period: '1h', // optional
     limit: null // optional
 });
 

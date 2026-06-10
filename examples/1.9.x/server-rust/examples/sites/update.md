@@ -30,6 +30,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Some("<PROVIDER_BRANCH>"), // optional
         Some(false), // optional
         Some("<PROVIDER_ROOT_DIRECTORY>"), // optional
+        Some(vec![]), // optional
+        Some(vec![]), // optional
         Some(""), // optional
         Some(""), // optional
         Some(0) // optional

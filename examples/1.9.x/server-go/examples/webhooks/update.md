@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/webhooks"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/webhooks"
 )
 
 client := client.New(
@@ -19,10 +19,10 @@ response, error := service.Update(
     "<WEBHOOK_ID>",
     "<NAME>",
     "",
-    []interface{}{},
+    []string{},
     webhooks.WithUpdateEnabled(false),
     webhooks.WithUpdateTls(false),
     webhooks.WithUpdateAuthUsername("<AUTH_USERNAME>"),
-    webhooks.WithUpdateAuthPassword("<AUTH_PASSWORD>"),
+    webhooks.WithUpdateAuthPassword("password"),
 )
 ```

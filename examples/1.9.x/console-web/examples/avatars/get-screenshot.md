@@ -1,9 +1,10 @@
 ```javascript
-import { Client, Avatars, Theme, Timezone, BrowserPermission, ImageFormat } from "@appwrite.io/console";
+import { Client, Avatars, BrowserTheme, Timezone, BrowserPermission, ImageFormat } from "@appwrite.io/console";
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
-    .setProject('<YOUR_PROJECT_ID>'); // Your project ID
+    .setProject('<YOUR_PROJECT_ID>') // Your project ID
+    .setImpersonateUserId(''); // Impersonate a user by ID on an already user-authenticated request. Requires the current request to be authenticated as a user with impersonator capability; X-Appwrite-Key alone is not sufficient. Impersonator users are intentionally granted users.read so they can discover a target before impersonation begins. Internal audit logs still attribute actions to the original impersonator and record the impersonated target only in internal audit payload data.
 
 const avatars = new Avatars(client);
 
@@ -16,7 +17,7 @@ const result = avatars.getScreenshot({
     viewportWidth: 1920, // optional
     viewportHeight: 1080, // optional
     scale: 2, // optional
-    theme: Theme.Dark, // optional
+    theme: BrowserTheme.Dark, // optional
     userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15', // optional
     fullpage: true, // optional
     locale: 'en-US', // optional

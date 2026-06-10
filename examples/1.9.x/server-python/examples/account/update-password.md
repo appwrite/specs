@@ -11,7 +11,7 @@ client.set_session('') # The user session to authenticate with
 account = Account(client)
 
 result: User = account.update_password(
-    password = '',
+    password = 'password',
     old_password = 'password' # optional
 )
 

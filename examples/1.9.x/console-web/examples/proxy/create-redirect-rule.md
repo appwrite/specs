@@ -10,7 +10,7 @@ const proxy = new Proxy(client);
 const result = await proxy.createRedirectRule({
     domain: '',
     url: 'https://example.com',
-    statusCode: StatusCode.MovedPermanently301,
+    statusCode: StatusCode.MovedPermanently,
     resourceId: '<RESOURCE_ID>',
     resourceType: ProxyResourceType.Site
 });

@@ -10,7 +10,8 @@ const vectorsDB = new VectorsDB(client);
 const result = await vectorsDB.create({
     databaseId: '<DATABASE_ID>',
     name: '<NAME>',
-    enabled: false // optional
+    enabled: false, // optional
+    specification: '<SPECIFICATION>' // optional
 });
 
 console.log(result);

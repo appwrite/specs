@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/project"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/project"
 )
 
 client := client.New(
@@ -18,7 +18,7 @@ service := project.New(client)
 response, error := service.UpdateOAuth2Google(
     project.WithUpdateOAuth2GoogleClientId("<CLIENT_ID>"),
     project.WithUpdateOAuth2GoogleClientSecret("<CLIENT_SECRET>"),
-    project.WithUpdateOAuth2GooglePrompt([]interface{}{}),
+    project.WithUpdateOAuth2GooglePrompt([]string{}),
     project.WithUpdateOAuth2GoogleEnabled(false),
 )
 ```

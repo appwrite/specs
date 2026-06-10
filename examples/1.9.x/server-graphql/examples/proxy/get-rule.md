@@ -1,2 +1,23 @@
 ```graphql
+query {
+    proxyGetRule(
+        ruleId: "<RULE_ID>"
+    ) {
+        _id
+        _createdAt
+        _updatedAt
+        domain
+        type
+        trigger
+        redirectUrl
+        redirectStatusCode
+        deploymentId
+        deploymentResourceType
+        deploymentResourceId
+        deploymentVcsProviderBranch
+        status
+        logs
+        renewAt
+    }
+}
 ```

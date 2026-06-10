@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v4/client"
-    "github.com/appwrite/sdk-for-go/v4/tokens"
+    "github.com/appwrite/sdk-for-go/v5/client"
+    "github.com/appwrite/sdk-for-go/v5/tokens"
 )
 
 client := client.New(
@@ -18,7 +18,7 @@ service := tokens.New(client)
 response, error := service.List(
     "<BUCKET_ID>",
     "<FILE_ID>",
-    tokens.WithListQueries([]interface{}{}),
+    tokens.WithListQueries([]string{}),
     tokens.WithListTotal(false),
 )
 ```
