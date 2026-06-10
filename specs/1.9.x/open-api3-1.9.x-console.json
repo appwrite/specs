@@ -10024,7 +10024,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    List scheduled backup policies for a dedicated database.",
+                "description": "List scheduled backup policies for a dedicated database.",
                 "responses": {
                     "200": {
                         "description": "Backup policy list",
@@ -10094,7 +10094,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Create a scheduled backup policy for a dedicated database.",
+                "description": "Create a scheduled backup policy for a dedicated database.",
                 "responses": {
                     "201": {
                         "description": "backup",
@@ -106246,12 +106246,13 @@
                         "format": "int32"
                     },
                     "pricing": {
-                        "type": "object",
+                        "allOf": [
+                            {
+                                "$ref": "#\/components\/schemas\/dedicatedDatabaseSpecificationPricing"
+                            }
+                        ],
                         "description": "Overage and add-on pricing shared across all specifications.",
-                        "x-example": null,
-                        "items": {
-                            "$ref": "#\/components\/schemas\/dedicatedDatabaseSpecificationPricing"
-                        }
+                        "x-example": null
                     }
                 },
                 "required": [
