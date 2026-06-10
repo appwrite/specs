@@ -9,12 +9,14 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 {
   "databaseId": "<DATABASE_ID>",
   "name": "<NAME>",
-  "enabled": false
+  "enabled": false,
+  "dedicatedDatabaseId": "<DEDICATED_DATABASE_ID>"
 }
 
 {
   "databaseId": "<DATABASE_ID>",
   "name": "<NAME>",
-  "enabled": false
+  "enabled": false,
+  "dedicatedDatabaseId": "<DEDICATED_DATABASE_ID>"
 }
 ```

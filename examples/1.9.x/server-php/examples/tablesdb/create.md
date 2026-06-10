@@ -14,5 +14,6 @@ $tablesDB = new TablesDB($client);
 $result = $tablesDB->create(
     databaseId: '<DATABASE_ID>',
     name: '<NAME>',
-    enabled: false // optional
+    enabled: false, // optional
+    dedicatedDatabaseId: '<DEDICATED_DATABASE_ID>' // optional
 );```

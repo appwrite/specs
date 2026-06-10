@@ -10,6 +10,12 @@ const apps = new Apps(client);
 const result = await apps.update({
     appId: '<APP_ID>',
     name: '<NAME>',
+    description: '<DESCRIPTION>', // optional
+    clientUri: 'https://example.com', // optional
+    logoUri: 'https://example.com', // optional
+    privacyPolicyUrl: 'https://example.com', // optional
+    termsUrl: 'https://example.com', // optional
+    contacts: [], // optional
     enabled: false, // optional
     redirectUris: [], // optional
     type: 'public', // optional
