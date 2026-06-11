@@ -22,6 +22,7 @@ mutation {
             resourceType
             retention
             schedule
+            type
             enabled
         }
         archives {
@@ -63,6 +64,7 @@ mutation {
             resourceType
             retention
             schedule
+            type
             enabled
         }
         archives {
