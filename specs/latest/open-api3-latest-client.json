@@ -4339,6 +4339,44 @@
                                             "type": "string"
                                         }
                                     },
+                                    "tagline": {
+                                        "type": "string",
+                                        "description": "Application tagline shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "<TAGLINE>"
+                                    },
+                                    "tags": {
+                                        "type": "array",
+                                        "description": "Application tags shown to users during OAuth2 consent. Maximum of 100 tags are allowed, each up to 64 characters long.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "images": {
+                                        "type": "array",
+                                        "description": "Application image URLs shown to users during OAuth2 consent. Maximum of 100 images are allowed.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "supportUrl": {
+                                        "type": "string",
+                                        "description": "Application support URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "dataDeletionUrl": {
+                                        "type": "string",
+                                        "description": "Application data deletion URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
                                     "redirectUris": {
                                         "type": "array",
                                         "description": "Redirect URIs (array of valid URLs).",
@@ -4558,6 +4596,44 @@
                                         "items": {
                                             "type": "string"
                                         }
+                                    },
+                                    "tagline": {
+                                        "type": "string",
+                                        "description": "Application tagline shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "<TAGLINE>"
+                                    },
+                                    "tags": {
+                                        "type": "array",
+                                        "description": "Application tags shown to users during OAuth2 consent. Maximum of 100 tags are allowed, each up to 64 characters long.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "images": {
+                                        "type": "array",
+                                        "description": "Application image URLs shown to users during OAuth2 consent. Maximum of 100 images are allowed.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "supportUrl": {
+                                        "type": "string",
+                                        "description": "Application support URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "dataDeletionUrl": {
+                                        "type": "string",
+                                        "description": "Application data deletion URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
                                     },
                                     "enabled": {
                                         "type": "boolean",
@@ -19749,6 +19825,42 @@
                             "support@example.com"
                         ]
                     },
+                    "tagline": {
+                        "type": "string",
+                        "description": "Application tagline shown to users during OAuth2 consent.",
+                        "x-example": "Automate your workspace."
+                    },
+                    "tags": {
+                        "type": "array",
+                        "description": "Application tags shown to users during OAuth2 consent.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "productivity",
+                            "automation"
+                        ]
+                    },
+                    "images": {
+                        "type": "array",
+                        "description": "Application image URLs shown to users during OAuth2 consent.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "https:\/\/example.com\/screenshot.png"
+                        ]
+                    },
+                    "supportUrl": {
+                        "type": "string",
+                        "description": "Application support URL shown to users during OAuth2 consent.",
+                        "x-example": "https:\/\/example.com\/support"
+                    },
+                    "dataDeletionUrl": {
+                        "type": "string",
+                        "description": "Application data deletion URL shown to users during OAuth2 consent.",
+                        "x-example": "https:\/\/example.com\/data-deletion"
+                    },
                     "redirectUris": {
                         "type": "array",
                         "description": "List of authorized redirect URIs. These URIs can be used to redirect users after they authenticate.",
@@ -19804,6 +19916,11 @@
                     "privacyPolicyUrl",
                     "termsUrl",
                     "contacts",
+                    "tagline",
+                    "tags",
+                    "images",
+                    "supportUrl",
+                    "dataDeletionUrl",
                     "redirectUris",
                     "enabled",
                     "type",
@@ -19825,6 +19942,16 @@
                     "contacts": [
                         "support@example.com"
                     ],
+                    "tagline": "Automate your workspace.",
+                    "tags": [
+                        "productivity",
+                        "automation"
+                    ],
+                    "images": [
+                        "https:\/\/example.com\/screenshot.png"
+                    ],
+                    "supportUrl": "https:\/\/example.com\/support",
+                    "dataDeletionUrl": "https:\/\/example.com\/data-deletion",
                     "redirectUris": [
                         "https:\/\/example.com\/callback"
                     ],

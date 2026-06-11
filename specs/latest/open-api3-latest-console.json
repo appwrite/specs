@@ -5836,6 +5836,44 @@
                                             "type": "string"
                                         }
                                     },
+                                    "tagline": {
+                                        "type": "string",
+                                        "description": "Application tagline shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "<TAGLINE>"
+                                    },
+                                    "tags": {
+                                        "type": "array",
+                                        "description": "Application tags shown to users during OAuth2 consent. Maximum of 100 tags are allowed, each up to 64 characters long.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "images": {
+                                        "type": "array",
+                                        "description": "Application image URLs shown to users during OAuth2 consent. Maximum of 100 images are allowed.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "supportUrl": {
+                                        "type": "string",
+                                        "description": "Application support URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "dataDeletionUrl": {
+                                        "type": "string",
+                                        "description": "Application data deletion URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
                                     "redirectUris": {
                                         "type": "array",
                                         "description": "Redirect URIs (array of valid URLs).",
@@ -6057,6 +6095,44 @@
                                         "items": {
                                             "type": "string"
                                         }
+                                    },
+                                    "tagline": {
+                                        "type": "string",
+                                        "description": "Application tagline shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "<TAGLINE>"
+                                    },
+                                    "tags": {
+                                        "type": "array",
+                                        "description": "Application tags shown to users during OAuth2 consent. Maximum of 100 tags are allowed, each up to 64 characters long.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "images": {
+                                        "type": "array",
+                                        "description": "Application image URLs shown to users during OAuth2 consent. Maximum of 100 images are allowed.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "supportUrl": {
+                                        "type": "string",
+                                        "description": "Application support URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "dataDeletionUrl": {
+                                        "type": "string",
+                                        "description": "Application data deletion URL shown to users during OAuth2 consent.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
                                     },
                                     "enabled": {
                                         "type": "boolean",
@@ -10027,16 +10103,10 @@
                                         "x-example": "17",
                                         "x-nullable": true
                                     },
-                                    "type": {
-                                        "type": "string",
-                                        "description": "Database type: shared (serverless) or dedicated (always-on).",
-                                        "default": "dedicated",
-                                        "x-example": "shared"
-                                    },
                                     "specification": {
                                         "type": "string",
                                         "description": "Specification identifier.",
-                                        "default": "s-2vcpu-2gb",
+                                        "default": "s-1vcpu-1gb",
                                         "x-example": "<SPECIFICATION>"
                                     },
                                     "backend": {
@@ -10048,21 +10118,21 @@
                                     "cpu": {
                                         "type": "integer",
                                         "description": "CPU in millicores (125-16000).",
-                                        "default": 2000,
+                                        "default": 1000,
                                         "x-example": 125,
                                         "format": "int32"
                                     },
                                     "memory": {
                                         "type": "integer",
                                         "description": "Memory in MB to allocate (128-65536).",
-                                        "default": 2048,
+                                        "default": 1024,
                                         "x-example": 128,
                                         "format": "int32"
                                     },
                                     "storage": {
                                         "type": "integer",
                                         "description": "Storage in GB to allocate (1-16384).",
-                                        "default": 25,
+                                        "default": 10,
                                         "x-example": 1,
                                         "format": "int32"
                                     },
@@ -10378,13 +10448,13 @@
                                     },
                                     "status": {
                                         "type": "string",
-                                        "description": "Database status. Allowed values: ready, paused, inactive. Set to \"paused\" to pause, \"ready\" to resume, or \"inactive\" to spin down a shared database.",
+                                        "description": "Database status. Allowed values: ready, paused, inactive. Set to \"paused\" to pause, \"ready\" to resume, or \"inactive\" to spin down a shared-pool database.",
                                         "x-example": "ready",
                                         "x-nullable": true
                                     },
                                     "specification": {
                                         "type": "string",
-                                        "description": "Specification. Changes cpu, memory, and type based on specification config.",
+                                        "description": "Specification. Changes cpu, memory, and node pool based on specification config.",
                                         "x-example": "<SPECIFICATION>",
                                         "x-nullable": true
                                     },
@@ -105642,11 +105712,6 @@
                         "description": "Database display name.",
                         "x-example": "My Production Database"
                     },
-                    "type": {
-                        "type": "string",
-                        "description": "Database type: shared (serverless) or dedicated (always-on).",
-                        "x-example": "dedicated"
-                    },
                     "api": {
                         "type": "string",
                         "description": "Product API that owns this database: compute, documentsdb, or vectorsdb.",
@@ -105705,7 +105770,7 @@
                     },
                     "containerStatus": {
                         "type": "string",
-                        "description": "Container status for shared databases: active or inactive.",
+                        "description": "Container status for lifecycle-managed database runtimes: active or inactive.",
                         "x-example": "active"
                     },
                     "lastAccessedAt": {
@@ -105895,7 +105960,6 @@
                     "$updatedAt",
                     "projectId",
                     "name",
-                    "type",
                     "api",
                     "engine",
                     "version",
@@ -105946,7 +106010,6 @@
                     "$updatedAt": "2020-10-15T06:38:00.000+00:00",
                     "projectId": "5e5ea5c16897e",
                     "name": "My Production Database",
-                    "type": "dedicated",
                     "api": "compute",
                     "engine": "postgres",
                     "version": "16",
@@ -108855,7 +108918,7 @@
                     "price": {
                         "type": "number",
                         "description": "Monthly price of the specification in USD.",
-                        "x-example": 23,
+                        "x-example": 20,
                         "format": "double"
                     },
                     "cpu": {
@@ -108908,7 +108971,7 @@
                 "example": {
                     "slug": "s-2vcpu-2gb",
                     "name": "Standard",
-                    "price": 23,
+                    "price": 20,
                     "cpu": 2000,
                     "memory": 2048,
                     "maxConnections": 200,
@@ -109981,6 +110044,42 @@
                             "support@example.com"
                         ]
                     },
+                    "tagline": {
+                        "type": "string",
+                        "description": "Application tagline shown to users during OAuth2 consent.",
+                        "x-example": "Automate your workspace."
+                    },
+                    "tags": {
+                        "type": "array",
+                        "description": "Application tags shown to users during OAuth2 consent.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "productivity",
+                            "automation"
+                        ]
+                    },
+                    "images": {
+                        "type": "array",
+                        "description": "Application image URLs shown to users during OAuth2 consent.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "https:\/\/example.com\/screenshot.png"
+                        ]
+                    },
+                    "supportUrl": {
+                        "type": "string",
+                        "description": "Application support URL shown to users during OAuth2 consent.",
+                        "x-example": "https:\/\/example.com\/support"
+                    },
+                    "dataDeletionUrl": {
+                        "type": "string",
+                        "description": "Application data deletion URL shown to users during OAuth2 consent.",
+                        "x-example": "https:\/\/example.com\/data-deletion"
+                    },
                     "redirectUris": {
                         "type": "array",
                         "description": "List of authorized redirect URIs. These URIs can be used to redirect users after they authenticate.",
@@ -110036,6 +110135,11 @@
                     "privacyPolicyUrl",
                     "termsUrl",
                     "contacts",
+                    "tagline",
+                    "tags",
+                    "images",
+                    "supportUrl",
+                    "dataDeletionUrl",
                     "redirectUris",
                     "enabled",
                     "type",
@@ -110057,6 +110161,16 @@
                     "contacts": [
                         "support@example.com"
                     ],
+                    "tagline": "Automate your workspace.",
+                    "tags": [
+                        "productivity",
+                        "automation"
+                    ],
+                    "images": [
+                        "https:\/\/example.com\/screenshot.png"
+                    ],
+                    "supportUrl": "https:\/\/example.com\/support",
+                    "dataDeletionUrl": "https:\/\/example.com\/data-deletion",
                     "redirectUris": [
                         "https:\/\/example.com\/callback"
                     ],
