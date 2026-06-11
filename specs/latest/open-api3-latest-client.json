@@ -726,7 +726,10 @@
                             "enum": [
                                 "totp"
                             ],
-                            "x-enum-name": "AuthenticatorType"
+                            "x-enum-name": "AuthenticatorType",
+                            "x-enum-keys": [
+                                "totp"
+                            ]
                         },
                         "in": "path"
                     }
@@ -852,7 +855,10 @@
                             "enum": [
                                 "totp"
                             ],
-                            "x-enum-name": "AuthenticatorType"
+                            "x-enum-name": "AuthenticatorType",
+                            "x-enum-keys": [
+                                "totp"
+                            ]
                         },
                         "in": "path"
                     }
@@ -984,7 +990,10 @@
                             "enum": [
                                 "totp"
                             ],
-                            "x-enum-name": "AuthenticatorType"
+                            "x-enum-name": "AuthenticatorType",
+                            "x-enum-keys": [
+                                "totp"
+                            ]
                         },
                         "in": "path"
                     }
@@ -1113,7 +1122,13 @@
                                             "totp",
                                             "recoverycode"
                                         ],
-                                        "x-enum-name": "AuthenticationFactor"
+                                        "x-enum-name": "AuthenticationFactor",
+                                        "x-enum-keys": [
+                                            "email",
+                                            "phone",
+                                            "totp",
+                                            "recoverycode"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -1994,6 +2009,7 @@
                                     "prefs": {
                                         "type": "object",
                                         "description": "Prefs key-value JSON object.",
+                                        "default": {},
                                         "x-example": "{\"language\":\"en\",\"timezone\":\"UTC\",\"darkTheme\":true}"
                                     }
                                 },
@@ -2490,7 +2506,15 @@
                 "description": "Allow the user to login to their account using the OAuth2 provider of their choice. Each OAuth2 provider should be enabled from the Appwrite console first. Use the success and failure arguments to provide a redirect URL's back to your app when login is completed.\n\nIf there is already an active session, the new session will be attached to the logged-in account. If there are no active sessions, the server will attempt to look for a user with the same email address as the email received from the OAuth2 provider and attach the new session to the existing user. If no matching user is found - the server will create a new user.\n\nA user is limited to 10 active sessions at a time by default. [Learn more about session limits](https:\/\/appwrite.io\/docs\/authentication-security#limits).\n",
                 "responses": {
                     "301": {
-                        "description": "File"
+                        "description": "No content",
+                        "content": {
+                            "text\/html": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false,
@@ -2576,7 +2600,52 @@
                                 "zoho",
                                 "zoom"
                             ],
-                            "x-enum-name": "OAuthProvider"
+                            "x-enum-name": "OAuthProvider",
+                            "x-enum-keys": [
+                                "amazon",
+                                "apple",
+                                "auth0",
+                                "authentik",
+                                "autodesk",
+                                "bitbucket",
+                                "bitly",
+                                "box",
+                                "dailymotion",
+                                "discord",
+                                "disqus",
+                                "dropbox",
+                                "etsy",
+                                "facebook",
+                                "figma",
+                                "fusionauth",
+                                "github",
+                                "gitlab",
+                                "google",
+                                "keycloak",
+                                "kick",
+                                "linkedin",
+                                "microsoft",
+                                "notion",
+                                "oidc",
+                                "okta",
+                                "paypal",
+                                "paypalSandbox",
+                                "podio",
+                                "salesforce",
+                                "slack",
+                                "spotify",
+                                "stripe",
+                                "tradeshift",
+                                "tradeshiftBox",
+                                "twitch",
+                                "wordpress",
+                                "x",
+                                "yahoo",
+                                "yammer",
+                                "yandex",
+                                "zoho",
+                                "zoom"
+                            ]
                         },
                         "in": "path"
                     },
@@ -3432,7 +3501,15 @@
                 "description": "Allow the user to login to their account using the OAuth2 provider of their choice. Each OAuth2 provider should be enabled from the Appwrite console first. Use the success and failure arguments to provide a redirect URL's back to your app when login is completed. \n\nIf authentication succeeds, `userId` and `secret` of a token will be appended to the success URL as query parameters. These can be used to create a new session using the [Create session](https:\/\/appwrite.io\/docs\/references\/cloud\/client-web\/account#createSession) endpoint.\n\nA user is limited to 10 active sessions at a time by default. [Learn more about session limits](https:\/\/appwrite.io\/docs\/authentication-security#limits).",
                 "responses": {
                     "301": {
-                        "description": "File"
+                        "description": "No content",
+                        "content": {
+                            "text\/html": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false,
@@ -3518,7 +3595,52 @@
                                 "zoho",
                                 "zoom"
                             ],
-                            "x-enum-name": "OAuthProvider"
+                            "x-enum-name": "OAuthProvider",
+                            "x-enum-keys": [
+                                "amazon",
+                                "apple",
+                                "auth0",
+                                "authentik",
+                                "autodesk",
+                                "bitbucket",
+                                "bitly",
+                                "box",
+                                "dailymotion",
+                                "discord",
+                                "disqus",
+                                "dropbox",
+                                "etsy",
+                                "facebook",
+                                "figma",
+                                "fusionauth",
+                                "github",
+                                "gitlab",
+                                "google",
+                                "keycloak",
+                                "kick",
+                                "linkedin",
+                                "microsoft",
+                                "notion",
+                                "oidc",
+                                "okta",
+                                "paypal",
+                                "paypalSandbox",
+                                "podio",
+                                "salesforce",
+                                "slack",
+                                "spotify",
+                                "stripe",
+                                "tradeshift",
+                                "tradeshiftBox",
+                                "twitch",
+                                "wordpress",
+                                "x",
+                                "yahoo",
+                                "yammer",
+                                "yandex",
+                                "zoho",
+                                "zoom"
+                            ]
                         },
                         "in": "path"
                     },
@@ -4065,7 +4187,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -4141,7 +4262,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -4297,7 +4417,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -4359,7 +4478,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -4503,11 +4621,13 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
                     "public": true,
+                    "produces": [
+                        "application\/json"
+                    ],
                     "auth": {
                         "Project": []
                     }
@@ -4567,7 +4687,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -4653,7 +4772,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -4717,7 +4835,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -4782,11 +4899,13 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
                     "public": true,
+                    "produces": [
+                        "application\/json"
+                    ],
                     "auth": {
                         "Project": []
                     }
@@ -4856,7 +4975,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -4932,11 +5050,13 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
                     "public": true,
+                    "produces": [
+                        "application\/json"
+                    ],
                     "auth": {
                         "Project": []
                     }
@@ -4972,7 +5092,15 @@
                 "description": "You can use this endpoint to show different browser icons to your users. The code argument receives the browser code as it appears in your user [GET \/account\/sessions](https:\/\/appwrite.io\/docs\/references\/cloud\/client-web\/account#getSessions) endpoint. Use width, height and quality arguments to change the output settings.\n\nWhen one dimension is specified and the other is 0, the image is scaled with preserved aspect ratio. If both dimensions are 0, the API provides an image at source quality. If dimensions are not specified, the default size of image returned is 100x100px.",
                 "responses": {
                     "200": {
-                        "description": "Image"
+                        "description": "Image",
+                        "content": {
+                            "image\/png": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false,
@@ -4989,7 +5117,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -5101,7 +5228,15 @@
                 "description": "The credit card endpoint will return you the icon of the credit card provider you need. Use width, height and quality arguments to change the output settings.\n\nWhen one dimension is specified and the other is 0, the image is scaled with preserved aspect ratio. If both dimensions are 0, the API provides an image at source quality. If dimensions are not specified, the default size of image returned is 100x100px.\n",
                 "responses": {
                     "200": {
-                        "description": "Image"
+                        "description": "Image",
+                        "content": {
+                            "image\/png": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false,
@@ -5118,7 +5253,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -5236,7 +5370,15 @@
                 "description": "Use this endpoint to fetch the favorite icon (AKA favicon) of any remote website URL.\n\nThis endpoint does not follow HTTP redirects.",
                 "responses": {
                     "200": {
-                        "description": "Image"
+                        "description": "Image",
+                        "content": {
+                            "image\/*": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false,
@@ -5253,7 +5395,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -5297,7 +5438,15 @@
                 "description": "You can use this endpoint to show different country flags icons to your users. The code argument receives the 2 letter country code. Use width, height and quality arguments to change the output settings. Country codes follow the [ISO 3166-1](https:\/\/en.wikipedia.org\/wiki\/ISO_3166-1) standard.\n\nWhen one dimension is specified and the other is 0, the image is scaled with preserved aspect ratio. If both dimensions are 0, the API provides an image at source quality. If dimensions are not specified, the default size of image returned is 100x100px.\n",
                 "responses": {
                     "200": {
-                        "description": "Image"
+                        "description": "Image",
+                        "content": {
+                            "image\/png": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false,
@@ -5314,7 +5463,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -5788,7 +5936,15 @@
                 "description": "Use this endpoint to fetch a remote image URL and crop it to any image size you want. This endpoint is very useful if you need to crop and display remote images in your app or in case you want to make sure a 3rd party image is properly served using a TLS protocol.\n\nWhen one dimension is specified and the other is 0, the image is scaled with preserved aspect ratio. If both dimensions are 0, the API provides an image at source quality. If dimensions are not specified, the default size of image returned is 400x400px.\n\nThis endpoint does not follow HTTP redirects.",
                 "responses": {
                     "200": {
-                        "description": "Image"
+                        "description": "Image",
+                        "content": {
+                            "image\/*": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false,
@@ -5805,7 +5961,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -5873,7 +6028,15 @@
                 "description": "Use this endpoint to show your user initials avatar icon on your website or app. By default, this route will try to print your logged-in user name or email initials. You can also overwrite the user name if you pass the 'name' parameter. If no name is given and no user is logged, an empty avatar will be returned.\n\nYou can use the color and background params to change the avatar colors. By default, a random theme will be selected. The random theme will persist for the user's initials when reloading the same theme will always return for the same initials.\n\nWhen one dimension is specified and the other is 0, the image is scaled with preserved aspect ratio. If both dimensions are 0, the API provides an image at source quality. If dimensions are not specified, the default size of image returned is 100x100px.\n",
                 "responses": {
                     "200": {
-                        "description": "Image"
+                        "description": "Image",
+                        "content": {
+                            "image\/png": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false,
@@ -5890,7 +6053,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -5968,7 +6130,15 @@
                 "description": "Converts a given plain text to a QR code image. You can use the query parameters to change the size and style of the resulting image.\n",
                 "responses": {
                     "200": {
-                        "description": "Image"
+                        "description": "Image",
+                        "content": {
+                            "image\/png": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false,
@@ -5985,7 +6155,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -6063,7 +6232,15 @@
                 "description": "Use this endpoint to capture a screenshot of any website URL. This endpoint uses a headless browser to render the webpage and capture it as an image.\n\nYou can configure the browser viewport size, theme, user agent, geolocation, permissions, and more. Capture either just the viewport or the full page scroll.\n\nWhen width and height are specified, the image is resized accordingly. If both dimensions are 0, the API provides an image at original size. If dimensions are not specified, the default viewport size is 1280x720px.",
                 "responses": {
                     "200": {
-                        "description": "Image"
+                        "description": "Image",
+                        "content": {
+                            "image\/png": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false,
@@ -6080,7 +6257,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -6117,8 +6293,8 @@
                         "required": false,
                         "schema": {
                             "type": "object",
-                            "x-example": "{\"Authorization\":\"Bearer token123\",\"X-Custom-Header\":\"value\"}",
-                            "default": {}
+                            "default": [],
+                            "x-example": "{\"Authorization\":\"Bearer token123\",\"X-Custom-Header\":\"value\"}"
                         },
                         "in": "query"
                     },
@@ -6170,6 +6346,10 @@
                                 "dark"
                             ],
                             "x-enum-name": "BrowserTheme",
+                            "x-enum-keys": [
+                                "light",
+                                "dark"
+                            ],
                             "default": "light"
                         },
                         "in": "query"
@@ -6635,7 +6815,428 @@
                                 "pacific\/wallis",
                                 "utc"
                             ],
-                            "x-enum-name": "Timezone"
+                            "x-enum-name": "Timezone",
+                            "x-enum-keys": [
+                                "africa\/abidjan",
+                                "africa\/accra",
+                                "africa\/addis_ababa",
+                                "africa\/algiers",
+                                "africa\/asmara",
+                                "africa\/bamako",
+                                "africa\/bangui",
+                                "africa\/banjul",
+                                "africa\/bissau",
+                                "africa\/blantyre",
+                                "africa\/brazzaville",
+                                "africa\/bujumbura",
+                                "africa\/cairo",
+                                "africa\/casablanca",
+                                "africa\/ceuta",
+                                "africa\/conakry",
+                                "africa\/dakar",
+                                "africa\/dar_es_salaam",
+                                "africa\/djibouti",
+                                "africa\/douala",
+                                "africa\/el_aaiun",
+                                "africa\/freetown",
+                                "africa\/gaborone",
+                                "africa\/harare",
+                                "africa\/johannesburg",
+                                "africa\/juba",
+                                "africa\/kampala",
+                                "africa\/khartoum",
+                                "africa\/kigali",
+                                "africa\/kinshasa",
+                                "africa\/lagos",
+                                "africa\/libreville",
+                                "africa\/lome",
+                                "africa\/luanda",
+                                "africa\/lubumbashi",
+                                "africa\/lusaka",
+                                "africa\/malabo",
+                                "africa\/maputo",
+                                "africa\/maseru",
+                                "africa\/mbabane",
+                                "africa\/mogadishu",
+                                "africa\/monrovia",
+                                "africa\/nairobi",
+                                "africa\/ndjamena",
+                                "africa\/niamey",
+                                "africa\/nouakchott",
+                                "africa\/ouagadougou",
+                                "africa\/porto-novo",
+                                "africa\/sao_tome",
+                                "africa\/tripoli",
+                                "africa\/tunis",
+                                "africa\/windhoek",
+                                "america\/adak",
+                                "america\/anchorage",
+                                "america\/anguilla",
+                                "america\/antigua",
+                                "america\/araguaina",
+                                "america\/argentina\/buenos_aires",
+                                "america\/argentina\/catamarca",
+                                "america\/argentina\/cordoba",
+                                "america\/argentina\/jujuy",
+                                "america\/argentina\/la_rioja",
+                                "america\/argentina\/mendoza",
+                                "america\/argentina\/rio_gallegos",
+                                "america\/argentina\/salta",
+                                "america\/argentina\/san_juan",
+                                "america\/argentina\/san_luis",
+                                "america\/argentina\/tucuman",
+                                "america\/argentina\/ushuaia",
+                                "america\/aruba",
+                                "america\/asuncion",
+                                "america\/atikokan",
+                                "america\/bahia",
+                                "america\/bahia_banderas",
+                                "america\/barbados",
+                                "america\/belem",
+                                "america\/belize",
+                                "america\/blanc-sablon",
+                                "america\/boa_vista",
+                                "america\/bogota",
+                                "america\/boise",
+                                "america\/cambridge_bay",
+                                "america\/campo_grande",
+                                "america\/cancun",
+                                "america\/caracas",
+                                "america\/cayenne",
+                                "america\/cayman",
+                                "america\/chicago",
+                                "america\/chihuahua",
+                                "america\/ciudad_juarez",
+                                "america\/costa_rica",
+                                "america\/coyhaique",
+                                "america\/creston",
+                                "america\/cuiaba",
+                                "america\/curacao",
+                                "america\/danmarkshavn",
+                                "america\/dawson",
+                                "america\/dawson_creek",
+                                "america\/denver",
+                                "america\/detroit",
+                                "america\/dominica",
+                                "america\/edmonton",
+                                "america\/eirunepe",
+                                "america\/el_salvador",
+                                "america\/fort_nelson",
+                                "america\/fortaleza",
+                                "america\/glace_bay",
+                                "america\/goose_bay",
+                                "america\/grand_turk",
+                                "america\/grenada",
+                                "america\/guadeloupe",
+                                "america\/guatemala",
+                                "america\/guayaquil",
+                                "america\/guyana",
+                                "america\/halifax",
+                                "america\/havana",
+                                "america\/hermosillo",
+                                "america\/indiana\/indianapolis",
+                                "america\/indiana\/knox",
+                                "america\/indiana\/marengo",
+                                "america\/indiana\/petersburg",
+                                "america\/indiana\/tell_city",
+                                "america\/indiana\/vevay",
+                                "america\/indiana\/vincennes",
+                                "america\/indiana\/winamac",
+                                "america\/inuvik",
+                                "america\/iqaluit",
+                                "america\/jamaica",
+                                "america\/juneau",
+                                "america\/kentucky\/louisville",
+                                "america\/kentucky\/monticello",
+                                "america\/kralendijk",
+                                "america\/la_paz",
+                                "america\/lima",
+                                "america\/los_angeles",
+                                "america\/lower_princes",
+                                "america\/maceio",
+                                "america\/managua",
+                                "america\/manaus",
+                                "america\/marigot",
+                                "america\/martinique",
+                                "america\/matamoros",
+                                "america\/mazatlan",
+                                "america\/menominee",
+                                "america\/merida",
+                                "america\/metlakatla",
+                                "america\/mexico_city",
+                                "america\/miquelon",
+                                "america\/moncton",
+                                "america\/monterrey",
+                                "america\/montevideo",
+                                "america\/montserrat",
+                                "america\/nassau",
+                                "america\/new_york",
+                                "america\/nome",
+                                "america\/noronha",
+                                "america\/north_dakota\/beulah",
+                                "america\/north_dakota\/center",
+                                "america\/north_dakota\/new_salem",
+                                "america\/nuuk",
+                                "america\/ojinaga",
+                                "america\/panama",
+                                "america\/paramaribo",
+                                "america\/phoenix",
+                                "america\/port-au-prince",
+                                "america\/port_of_spain",
+                                "america\/porto_velho",
+                                "america\/puerto_rico",
+                                "america\/punta_arenas",
+                                "america\/rankin_inlet",
+                                "america\/recife",
+                                "america\/regina",
+                                "america\/resolute",
+                                "america\/rio_branco",
+                                "america\/santarem",
+                                "america\/santiago",
+                                "america\/santo_domingo",
+                                "america\/sao_paulo",
+                                "america\/scoresbysund",
+                                "america\/sitka",
+                                "america\/st_barthelemy",
+                                "america\/st_johns",
+                                "america\/st_kitts",
+                                "america\/st_lucia",
+                                "america\/st_thomas",
+                                "america\/st_vincent",
+                                "america\/swift_current",
+                                "america\/tegucigalpa",
+                                "america\/thule",
+                                "america\/tijuana",
+                                "america\/toronto",
+                                "america\/tortola",
+                                "america\/vancouver",
+                                "america\/whitehorse",
+                                "america\/winnipeg",
+                                "america\/yakutat",
+                                "antarctica\/casey",
+                                "antarctica\/davis",
+                                "antarctica\/dumontdurville",
+                                "antarctica\/macquarie",
+                                "antarctica\/mawson",
+                                "antarctica\/mcmurdo",
+                                "antarctica\/palmer",
+                                "antarctica\/rothera",
+                                "antarctica\/syowa",
+                                "antarctica\/troll",
+                                "antarctica\/vostok",
+                                "arctic\/longyearbyen",
+                                "asia\/aden",
+                                "asia\/almaty",
+                                "asia\/amman",
+                                "asia\/anadyr",
+                                "asia\/aqtau",
+                                "asia\/aqtobe",
+                                "asia\/ashgabat",
+                                "asia\/atyrau",
+                                "asia\/baghdad",
+                                "asia\/bahrain",
+                                "asia\/baku",
+                                "asia\/bangkok",
+                                "asia\/barnaul",
+                                "asia\/beirut",
+                                "asia\/bishkek",
+                                "asia\/brunei",
+                                "asia\/chita",
+                                "asia\/colombo",
+                                "asia\/damascus",
+                                "asia\/dhaka",
+                                "asia\/dili",
+                                "asia\/dubai",
+                                "asia\/dushanbe",
+                                "asia\/famagusta",
+                                "asia\/gaza",
+                                "asia\/hebron",
+                                "asia\/ho_chi_minh",
+                                "asia\/hong_kong",
+                                "asia\/hovd",
+                                "asia\/irkutsk",
+                                "asia\/jakarta",
+                                "asia\/jayapura",
+                                "asia\/jerusalem",
+                                "asia\/kabul",
+                                "asia\/kamchatka",
+                                "asia\/karachi",
+                                "asia\/kathmandu",
+                                "asia\/khandyga",
+                                "asia\/kolkata",
+                                "asia\/krasnoyarsk",
+                                "asia\/kuala_lumpur",
+                                "asia\/kuching",
+                                "asia\/kuwait",
+                                "asia\/macau",
+                                "asia\/magadan",
+                                "asia\/makassar",
+                                "asia\/manila",
+                                "asia\/muscat",
+                                "asia\/nicosia",
+                                "asia\/novokuznetsk",
+                                "asia\/novosibirsk",
+                                "asia\/omsk",
+                                "asia\/oral",
+                                "asia\/phnom_penh",
+                                "asia\/pontianak",
+                                "asia\/pyongyang",
+                                "asia\/qatar",
+                                "asia\/qostanay",
+                                "asia\/qyzylorda",
+                                "asia\/riyadh",
+                                "asia\/sakhalin",
+                                "asia\/samarkand",
+                                "asia\/seoul",
+                                "asia\/shanghai",
+                                "asia\/singapore",
+                                "asia\/srednekolymsk",
+                                "asia\/taipei",
+                                "asia\/tashkent",
+                                "asia\/tbilisi",
+                                "asia\/tehran",
+                                "asia\/thimphu",
+                                "asia\/tokyo",
+                                "asia\/tomsk",
+                                "asia\/ulaanbaatar",
+                                "asia\/urumqi",
+                                "asia\/ust-nera",
+                                "asia\/vientiane",
+                                "asia\/vladivostok",
+                                "asia\/yakutsk",
+                                "asia\/yangon",
+                                "asia\/yekaterinburg",
+                                "asia\/yerevan",
+                                "atlantic\/azores",
+                                "atlantic\/bermuda",
+                                "atlantic\/canary",
+                                "atlantic\/cape_verde",
+                                "atlantic\/faroe",
+                                "atlantic\/madeira",
+                                "atlantic\/reykjavik",
+                                "atlantic\/south_georgia",
+                                "atlantic\/st_helena",
+                                "atlantic\/stanley",
+                                "australia\/adelaide",
+                                "australia\/brisbane",
+                                "australia\/broken_hill",
+                                "australia\/darwin",
+                                "australia\/eucla",
+                                "australia\/hobart",
+                                "australia\/lindeman",
+                                "australia\/lord_howe",
+                                "australia\/melbourne",
+                                "australia\/perth",
+                                "australia\/sydney",
+                                "europe\/amsterdam",
+                                "europe\/andorra",
+                                "europe\/astrakhan",
+                                "europe\/athens",
+                                "europe\/belgrade",
+                                "europe\/berlin",
+                                "europe\/bratislava",
+                                "europe\/brussels",
+                                "europe\/bucharest",
+                                "europe\/budapest",
+                                "europe\/busingen",
+                                "europe\/chisinau",
+                                "europe\/copenhagen",
+                                "europe\/dublin",
+                                "europe\/gibraltar",
+                                "europe\/guernsey",
+                                "europe\/helsinki",
+                                "europe\/isle_of_man",
+                                "europe\/istanbul",
+                                "europe\/jersey",
+                                "europe\/kaliningrad",
+                                "europe\/kirov",
+                                "europe\/kyiv",
+                                "europe\/lisbon",
+                                "europe\/ljubljana",
+                                "europe\/london",
+                                "europe\/luxembourg",
+                                "europe\/madrid",
+                                "europe\/malta",
+                                "europe\/mariehamn",
+                                "europe\/minsk",
+                                "europe\/monaco",
+                                "europe\/moscow",
+                                "europe\/oslo",
+                                "europe\/paris",
+                                "europe\/podgorica",
+                                "europe\/prague",
+                                "europe\/riga",
+                                "europe\/rome",
+                                "europe\/samara",
+                                "europe\/san_marino",
+                                "europe\/sarajevo",
+                                "europe\/saratov",
+                                "europe\/simferopol",
+                                "europe\/skopje",
+                                "europe\/sofia",
+                                "europe\/stockholm",
+                                "europe\/tallinn",
+                                "europe\/tirane",
+                                "europe\/ulyanovsk",
+                                "europe\/vaduz",
+                                "europe\/vatican",
+                                "europe\/vienna",
+                                "europe\/vilnius",
+                                "europe\/volgograd",
+                                "europe\/warsaw",
+                                "europe\/zagreb",
+                                "europe\/zurich",
+                                "indian\/antananarivo",
+                                "indian\/chagos",
+                                "indian\/christmas",
+                                "indian\/cocos",
+                                "indian\/comoro",
+                                "indian\/kerguelen",
+                                "indian\/mahe",
+                                "indian\/maldives",
+                                "indian\/mauritius",
+                                "indian\/mayotte",
+                                "indian\/reunion",
+                                "pacific\/apia",
+                                "pacific\/auckland",
+                                "pacific\/bougainville",
+                                "pacific\/chatham",
+                                "pacific\/chuuk",
+                                "pacific\/easter",
+                                "pacific\/efate",
+                                "pacific\/fakaofo",
+                                "pacific\/fiji",
+                                "pacific\/funafuti",
+                                "pacific\/galapagos",
+                                "pacific\/gambier",
+                                "pacific\/guadalcanal",
+                                "pacific\/guam",
+                                "pacific\/honolulu",
+                                "pacific\/kanton",
+                                "pacific\/kiritimati",
+                                "pacific\/kosrae",
+                                "pacific\/kwajalein",
+                                "pacific\/majuro",
+                                "pacific\/marquesas",
+                                "pacific\/midway",
+                                "pacific\/nauru",
+                                "pacific\/niue",
+                                "pacific\/norfolk",
+                                "pacific\/noumea",
+                                "pacific\/pago_pago",
+                                "pacific\/palau",
+                                "pacific\/pitcairn",
+                                "pacific\/pohnpei",
+                                "pacific\/port_moresby",
+                                "pacific\/rarotonga",
+                                "pacific\/saipan",
+                                "pacific\/tahiti",
+                                "pacific\/tarawa",
+                                "pacific\/tongatapu",
+                                "pacific\/wake",
+                                "pacific\/wallis",
+                                "utc"
+                            ]
                         },
                         "in": "query"
                     },
@@ -6716,7 +7317,29 @@
                                     "web-share",
                                     "xr-spatial-tracking"
                                 ],
-                                "x-enum-name": "BrowserPermission"
+                                "x-enum-name": "BrowserPermission",
+                                "x-enum-keys": [
+                                    "geolocation",
+                                    "camera",
+                                    "microphone",
+                                    "notifications",
+                                    "midi",
+                                    "push",
+                                    "clipboard-read",
+                                    "clipboard-write",
+                                    "payment-handler",
+                                    "usb",
+                                    "bluetooth",
+                                    "accelerometer",
+                                    "gyroscope",
+                                    "magnetometer",
+                                    "ambient-light-sensor",
+                                    "background-sync",
+                                    "persistent-storage",
+                                    "screen-wake-lock",
+                                    "web-share",
+                                    "xr-spatial-tracking"
+                                ]
                             },
                             "x-example": "[\"geolocation\",\"notifications\"]",
                             "default": []
@@ -6787,7 +7410,16 @@
                                 "avif",
                                 "gif"
                             ],
-                            "x-enum-name": "ImageFormat"
+                            "x-enum-name": "ImageFormat",
+                            "x-enum-keys": [
+                                "jpg",
+                                "jpeg",
+                                "png",
+                                "webp",
+                                "heic",
+                                "avif",
+                                "gif"
+                            ]
                         },
                         "in": "query"
                     }
@@ -6828,8 +7460,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -6894,8 +7525,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -6965,8 +7595,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -7028,8 +7657,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -7107,8 +7735,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -7172,8 +7799,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -7257,7 +7883,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -7380,7 +8005,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -7478,7 +8102,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -7546,7 +8170,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -7656,7 +8279,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -7757,7 +8379,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object. Include all required attributes of the document to be created or updated.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -7814,7 +8436,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -7876,7 +8497,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object. Include only attribute and value pairs to be updated.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":33,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -7926,7 +8547,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -7977,25 +8597,18 @@
                             "x-example": "<DOCUMENT_ID>"
                         },
                         "in": "path"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<TRANSACTION_ID>"
+                        },
+                        "in": "query"
                     }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application\/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "transactionId": {
-                                        "type": "string",
-                                        "description": "Transaction ID for staging the operation.",
-                                        "x-example": "<TRANSACTION_ID>",
-                                        "x-nullable": true
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                ]
             }
         },
         "\/databases\/{databaseId}\/collections\/{collectionId}\/documents\/{documentId}\/{attribute}\/decrement": {
@@ -8032,8 +8645,7 @@
                     "platforms": [
                         "client",
                         "server",
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -8161,8 +8773,7 @@
                     "platforms": [
                         "client",
                         "server",
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -8290,8 +8901,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -8356,8 +8966,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -8427,8 +9036,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -8490,8 +9098,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -8569,8 +9176,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -8633,8 +9239,7 @@
                     "scope": "documents.write",
                     "platforms": [
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -8718,7 +9323,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -8837,7 +9441,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -8953,7 +9556,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -9019,7 +9622,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -9125,7 +9727,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -9215,7 +9816,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object. Include all required fields of the document to be created or updated.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{}"
                                     },
                                     "permissions": {
@@ -9270,7 +9871,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -9328,7 +9928,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object. Include only fields and value pairs to be updated.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{}"
                                     },
                                     "permissions": {
@@ -9376,7 +9976,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -9423,24 +10022,18 @@
                             "x-example": "<DOCUMENT_ID>"
                         },
                         "in": "path"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<TRANSACTION_ID>"
+                        },
+                        "in": "query"
                     }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application\/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "transactionId": {
-                                        "type": "string",
-                                        "description": "Transaction ID for staging the operation.",
-                                        "x-example": "<TRANSACTION_ID>"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                ]
             }
         },
         "\/documentsdb\/{databaseId}\/collections\/{collectionId}\/documents\/{documentId}\/{attribute}\/decrement": {
@@ -9477,8 +10070,7 @@
                     "platforms": [
                         "client",
                         "server",
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -9600,8 +10192,7 @@
                     "platforms": [
                         "client",
                         "server",
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -9726,7 +10317,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -9815,7 +10405,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -9881,12 +10470,21 @@
                                             "OPTIONS",
                                             "HEAD"
                                         ],
-                                        "x-enum-name": "ExecutionMethod"
+                                        "x-enum-name": "ExecutionMethod",
+                                        "x-enum-keys": [
+                                            "GET",
+                                            "POST",
+                                            "PUT",
+                                            "PATCH",
+                                            "DELETE",
+                                            "OPTIONS",
+                                            "HEAD"
+                                        ]
                                     },
                                     "headers": {
                                         "type": "object",
                                         "description": "HTTP headers of execution. Defaults to empty.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{}"
                                     },
                                     "scheduledAt": {
@@ -9939,7 +10537,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -10013,8 +10610,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -10029,7 +10625,27 @@
                         "Session": [],
                         "JWT": []
                     }
-                ]
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "query": {
+                                        "type": "object",
+                                        "description": "The query or queries to execute.",
+                                        "default": {},
+                                        "x-example": "{}"
+                                    }
+                                },
+                                "required": [
+                                    "query"
+                                ]
+                            }
+                        }
+                    }
+                }
             }
         },
         "\/graphql\/mutation": {
@@ -10066,8 +10682,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -10082,7 +10697,27 @@
                         "Session": [],
                         "JWT": []
                     }
-                ]
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "query": {
+                                        "type": "object",
+                                        "description": "The query or queries to execute.",
+                                        "default": {},
+                                        "x-example": "{}"
+                                    }
+                                },
+                                "required": [
+                                    "query"
+                                ]
+                            }
+                        }
+                    }
+                }
             }
         },
         "\/locale": {
@@ -10119,7 +10754,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -10172,7 +10806,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -10225,7 +10858,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -10278,7 +10910,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -10331,7 +10962,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -10384,7 +11014,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -10437,7 +11066,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -10490,7 +11118,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -10543,8 +11170,7 @@
                     "platforms": [
                         "server",
                         "client",
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -10629,8 +11255,7 @@
                     "platforms": [
                         "server",
                         "client",
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -11051,7 +11676,6 @@
                     "scope": "oauth2.read",
                     "platforms": [
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -11206,8 +11830,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -11297,8 +11920,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -11449,7 +12071,7 @@
                                     "metadata": {
                                         "type": "object",
                                         "description": "Presence metadata object.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{}"
                                     }
                                 },
@@ -11575,6 +12197,7 @@
                                     "metadata": {
                                         "type": "object",
                                         "description": "Presence metadata object.",
+                                        "default": {},
                                         "x-example": "{}"
                                     },
                                     "permissions": {
@@ -11623,8 +12246,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -11688,7 +12310,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -11786,7 +12407,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -11890,7 +12510,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -11963,7 +12582,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -12054,7 +12672,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -12105,7 +12722,15 @@
                 "description": "Get a file content by its unique ID. The endpoint response return with a 'Content-Disposition: attachment' header that tells the browser to start downloading the file to user downloads directory.",
                 "responses": {
                     "200": {
-                        "description": "File"
+                        "description": "File",
+                        "content": {
+                            "*\/*": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false,
@@ -12122,7 +12747,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -12186,7 +12810,15 @@
                 "description": "Get a file preview image. Currently, this method supports preview for image files (jpg, png, and gif), other supported formats, like pdf, docs, slides, and spreadsheets, will return the file icon image. You can also pass query string arguments for cutting and resizing your preview image. Preview is supported only for image files smaller than 10MB.",
                 "responses": {
                     "200": {
-                        "description": "Image"
+                        "description": "Image",
+                        "content": {
+                            "image\/*": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false,
@@ -12203,7 +12835,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -12286,6 +12917,17 @@
                                 "bottom-right"
                             ],
                             "x-enum-name": "ImageGravity",
+                            "x-enum-keys": [
+                                "center",
+                                "top-left",
+                                "top",
+                                "top-right",
+                                "left",
+                                "right",
+                                "bottom-left",
+                                "bottom",
+                                "bottom-right"
+                            ],
                             "default": "center"
                         },
                         "in": "query"
@@ -12386,7 +13028,16 @@
                                 "avif",
                                 "gif"
                             ],
-                            "x-enum-name": "ImageFormat"
+                            "x-enum-name": "ImageFormat",
+                            "x-enum-keys": [
+                                "jpg",
+                                "jpeg",
+                                "png",
+                                "webp",
+                                "heic",
+                                "avif",
+                                "gif"
+                            ]
                         },
                         "in": "query"
                     },
@@ -12414,7 +13065,15 @@
                 "description": "Get a file content by its unique ID. This endpoint is similar to the download method but returns with no  'Content-Disposition: attachment' header.",
                 "responses": {
                     "200": {
-                        "description": "File"
+                        "description": "File",
+                        "content": {
+                            "*\/*": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false,
@@ -12431,7 +13090,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -12522,8 +13180,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -12591,8 +13248,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -12665,8 +13321,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -12731,8 +13386,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -12813,8 +13467,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -12881,8 +13534,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -12969,7 +13621,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -13091,7 +13742,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -13181,7 +13831,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Row data as JSON object.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":30,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -13252,7 +13902,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -13361,7 +14010,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -13451,7 +14099,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Row data as JSON object. Include all required columns of the row to be created or updated.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":33,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -13511,7 +14159,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -13569,7 +14216,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Row data as JSON object. Include only columns and value pairs to be updated.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{\"username\":\"walter.obrien\",\"email\":\"walter.obrien@example.com\",\"fullName\":\"Walter O'Brien\",\"age\":33,\"isAdmin\":false}"
                                     },
                                     "permissions": {
@@ -13622,7 +14269,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -13669,25 +14315,18 @@
                             "x-example": "<ROW_ID>"
                         },
                         "in": "path"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<TRANSACTION_ID>"
+                        },
+                        "in": "query"
                     }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application\/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "transactionId": {
-                                        "type": "string",
-                                        "description": "Transaction ID for staging the operation.",
-                                        "x-example": "<TRANSACTION_ID>",
-                                        "x-nullable": true
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                ]
             }
         },
         "\/tablesdb\/{databaseId}\/tables\/{tableId}\/rows\/{rowId}\/{column}\/decrement": {
@@ -13727,8 +14366,7 @@
                     "platforms": [
                         "client",
                         "server",
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -13855,8 +14493,7 @@
                     "platforms": [
                         "client",
                         "server",
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -13980,7 +14617,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -14068,7 +14704,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -14160,7 +14795,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -14223,7 +14857,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -14298,7 +14931,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -14363,7 +14995,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -14461,7 +15092,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -14581,7 +15211,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -14654,7 +15283,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -14742,7 +15370,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -15015,6 +15642,7 @@
                                     "prefs": {
                                         "type": "object",
                                         "description": "Prefs key-value JSON object.",
+                                        "default": {},
                                         "x-example": "{}"
                                     }
                                 },
@@ -15061,8 +15689,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -15127,8 +15754,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -15198,8 +15824,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -15261,8 +15886,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -15340,8 +15964,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -15405,8 +16028,7 @@
                     "platforms": [
                         "console",
                         "server",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -15490,7 +16112,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -15609,7 +16230,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -15698,7 +16318,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{\"embeddings\": [0.12, -0.55, 0.88, 1.02], \"metadata\": {\"key\":\"value\"} }"
                                     },
                                     "permissions": {
@@ -15764,7 +16384,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -15870,7 +16489,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -15963,7 +16581,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object. Include all required fields of the document to be created or updated.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{}"
                                     },
                                     "permissions": {
@@ -16018,7 +16636,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -16076,7 +16693,7 @@
                                     "data": {
                                         "type": "object",
                                         "description": "Document data as JSON object. Include only fields and value pairs to be updated.",
-                                        "default": {},
+                                        "default": [],
                                         "x-example": "{}"
                                     },
                                     "permissions": {
@@ -16124,7 +16741,6 @@
                     "platforms": [
                         "console",
                         "client",
-                        "server",
                         "server"
                     ],
                     "packaging": false,
@@ -16171,24 +16787,18 @@
                             "x-example": "<DOCUMENT_ID>"
                         },
                         "in": "path"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<TRANSACTION_ID>"
+                        },
+                        "in": "query"
                     }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application\/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "transactionId": {
-                                        "type": "string",
-                                        "description": "Transaction ID for staging the operation.",
-                                        "x-example": "<TRANSACTION_ID>"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                ]
             }
         }
     },
@@ -16273,44 +16883,6 @@
                 "type": "object",
                 "additionalProperties": true,
                 "example": []
-            },
-            "error": {
-                "description": "Error",
-                "type": "object",
-                "properties": {
-                    "message": {
-                        "type": "string",
-                        "description": "Error message.",
-                        "x-example": "Not found"
-                    },
-                    "code": {
-                        "type": "string",
-                        "description": "Error code.",
-                        "x-example": "404"
-                    },
-                    "type": {
-                        "type": "string",
-                        "description": "Error type. You can learn more about all the error types at https:\/\/appwrite.io\/docs\/error-codes#errorTypes",
-                        "x-example": "not_found"
-                    },
-                    "version": {
-                        "type": "string",
-                        "description": "Server version number.",
-                        "x-example": "1.0"
-                    }
-                },
-                "required": [
-                    "message",
-                    "code",
-                    "type",
-                    "version"
-                ],
-                "example": {
-                    "message": "Not found",
-                    "code": "404",
-                    "type": "not_found",
-                    "version": "1.0"
-                }
             },
             "rowList": {
                 "description": "Rows List",
@@ -16986,11 +17558,11 @@
                     },
                     "metadata": {
                         "type": "object",
+                        "additionalProperties": true,
                         "description": "Presence metadata.",
                         "x-example": {
                             "key": "value"
-                        },
-                        "nullable": true
+                        }
                     }
                 },
                 "required": [
@@ -17221,43 +17793,45 @@
                         "type": "object",
                         "description": "Password hashing algorithm configuration.",
                         "x-example": {},
-                        "items": {
-                            "oneOf": [
-                                {
-                                    "$ref": "#\/components\/schemas\/algoArgon2"
-                                },
-                                {
-                                    "$ref": "#\/components\/schemas\/algoScrypt"
-                                },
-                                {
-                                    "$ref": "#\/components\/schemas\/algoScryptModified"
-                                },
-                                {
-                                    "$ref": "#\/components\/schemas\/algoBcrypt"
-                                },
-                                {
-                                    "$ref": "#\/components\/schemas\/algoPhpass"
-                                },
-                                {
-                                    "$ref": "#\/components\/schemas\/algoSha"
-                                },
-                                {
-                                    "$ref": "#\/components\/schemas\/algoMd5"
-                                }
-                            ],
-                            "discriminator": {
-                                "propertyName": "type",
-                                "mapping": {
-                                    "argon2": "#\/components\/schemas\/algoArgon2",
-                                    "scrypt": "#\/components\/schemas\/algoScrypt",
-                                    "scryptMod": "#\/components\/schemas\/algoScryptModified",
-                                    "bcrypt": "#\/components\/schemas\/algoBcrypt",
-                                    "phpass": "#\/components\/schemas\/algoPhpass",
-                                    "sha": "#\/components\/schemas\/algoSha",
-                                    "md5": "#\/components\/schemas\/algoMd5"
+                        "allOf": [
+                            {
+                                "oneOf": [
+                                    {
+                                        "$ref": "#\/components\/schemas\/algoArgon2"
+                                    },
+                                    {
+                                        "$ref": "#\/components\/schemas\/algoScrypt"
+                                    },
+                                    {
+                                        "$ref": "#\/components\/schemas\/algoScryptModified"
+                                    },
+                                    {
+                                        "$ref": "#\/components\/schemas\/algoBcrypt"
+                                    },
+                                    {
+                                        "$ref": "#\/components\/schemas\/algoPhpass"
+                                    },
+                                    {
+                                        "$ref": "#\/components\/schemas\/algoSha"
+                                    },
+                                    {
+                                        "$ref": "#\/components\/schemas\/algoMd5"
+                                    }
+                                ],
+                                "discriminator": {
+                                    "propertyName": "type",
+                                    "mapping": {
+                                        "argon2": "#\/components\/schemas\/algoArgon2",
+                                        "scrypt": "#\/components\/schemas\/algoScrypt",
+                                        "scryptMod": "#\/components\/schemas\/algoScryptModified",
+                                        "bcrypt": "#\/components\/schemas\/algoBcrypt",
+                                        "phpass": "#\/components\/schemas\/algoPhpass",
+                                        "sha": "#\/components\/schemas\/algoSha",
+                                        "md5": "#\/components\/schemas\/algoMd5"
+                                    }
                                 }
                             }
-                        },
+                        ],
                         "nullable": true
                     },
                     "registration": {
@@ -17347,9 +17921,11 @@
                             "theme": "pink",
                             "timezone": "UTC"
                         },
-                        "items": {
-                            "$ref": "#\/components\/schemas\/preferences"
-                        }
+                        "allOf": [
+                            {
+                                "$ref": "#\/components\/schemas\/preferences"
+                            }
+                        ]
                     },
                     "targets": {
                         "type": "array",
@@ -18243,9 +18819,11 @@
                             "theme": "pink",
                             "timezone": "UTC"
                         },
-                        "items": {
-                            "$ref": "#\/components\/schemas\/preferences"
-                        }
+                        "allOf": [
+                            {
+                                "$ref": "#\/components\/schemas\/preferences"
+                            }
+                        ]
                     }
                 },
                 "required": [
@@ -18980,9 +19558,11 @@
                             "identifier": "random-mail@email.org",
                             "userId": "5e5ea5c16897e"
                         },
-                        "items": {
-                            "$ref": "#\/components\/schemas\/target"
-                        }
+                        "allOf": [
+                            {
+                                "$ref": "#\/components\/schemas\/target"
+                            }
+                        ]
                     },
                     "userId": {
                         "type": "string",
