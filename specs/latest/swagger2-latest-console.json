@@ -10788,7 +10788,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    List scheduled backup policies for a dedicated database.",
+                "description": "List scheduled backup policies for a dedicated database.",
                 "responses": {
                     "200": {
                         "description": "Backup policy list",
@@ -10857,7 +10857,7 @@
                 "tags": [
                     "compute"
                 ],
-                "description": "    Create a scheduled backup policy for a dedicated database.",
+                "description": "Create a scheduled backup policy for a dedicated database.",
                 "responses": {
                     "201": {
                         "description": "backup",
@@ -18261,7 +18261,14 @@
                                     "type": "array",
                                     "description": "Default value for attribute when not provided, two-dimensional array of coordinate pairs, [[longitude, latitude], [longitude, latitude], \u2026], listing the vertices of the line in order. Cannot be set when attribute is required.",
                                     "x-example": "[[1, 2], [3, 4], [5, 6]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number",
+                                            "format": "double"
+                                        }
+                                    }
                                 }
                             },
                             "required": [
@@ -18366,7 +18373,14 @@
                                     "type": "array",
                                     "description": "Default value for attribute when not provided, two-dimensional array of coordinate pairs, [[longitude, latitude], [longitude, latitude], \u2026], listing the vertices of the line in order. Cannot be set when attribute is required.",
                                     "x-example": "[[1, 2], [3, 4], [5, 6]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number",
+                                            "format": "double"
+                                        }
+                                    }
                                 },
                                 "newKey": {
                                     "type": "string",
@@ -18910,7 +18924,11 @@
                                     "type": "array",
                                     "description": "Default value for attribute when not provided, array of two numbers [longitude, latitude], representing a single coordinate. Cannot be set when attribute is required.",
                                     "x-example": "[1, 2]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "number",
+                                        "format": "double"
+                                    }
                                 }
                             },
                             "required": [
@@ -19015,7 +19033,11 @@
                                     "type": "array",
                                     "description": "Default value for attribute when not provided, array of two numbers [longitude, latitude], representing a single coordinate. Cannot be set when attribute is required.",
                                     "x-example": "[1, 2]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "number",
+                                        "format": "double"
+                                    }
                                 },
                                 "newKey": {
                                     "type": "string",
@@ -19123,7 +19145,17 @@
                                     "type": "array",
                                     "description": "Default value for attribute when not provided, three-dimensional array where the outer array holds one or more linear rings, [[[longitude, latitude], \u2026], \u2026], the first ring is the exterior boundary, any additional rings are interior holes, and each ring must start and end with the same coordinate pair. Cannot be set when attribute is required.",
                                     "x-example": "[[[1, 2], [3, 4], [5, 6], [1, 2]]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "number",
+                                                "format": "double"
+                                            }
+                                        }
+                                    }
                                 }
                             },
                             "required": [
@@ -19228,7 +19260,17 @@
                                     "type": "array",
                                     "description": "Default value for attribute when not provided, three-dimensional array where the outer array holds one or more linear rings, [[[longitude, latitude], \u2026], \u2026], the first ring is the exterior boundary, any additional rings are interior holes, and each ring must start and end with the same coordinate pair. Cannot be set when attribute is required.",
                                     "x-example": "[[[1, 2], [3, 4], [5, 6], [1, 2]]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "number",
+                                                "format": "double"
+                                            }
+                                        }
+                                    }
                                 },
                                 "newKey": {
                                     "type": "string",
@@ -21259,28 +21301,24 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "queries": {
-                                    "type": "array",
-                                    "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
-                                    "default": [],
-                                    "x-example": null,
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>",
-                                    "x-nullable": true
-                                }
-                            }
-                        }
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "type": "array",
+                        "collectionFormat": "multi",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [],
+                        "in": "query"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -21729,19 +21767,12 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>",
-                                    "x-nullable": true
-                                }
-                            }
-                        }
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -24685,27 +24716,24 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "queries": {
-                                    "type": "array",
-                                    "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
-                                    "default": [],
-                                    "x-example": null,
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>"
-                                }
-                            }
-                        }
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "type": "array",
+                        "collectionFormat": "multi",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [],
+                        "in": "query"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -25127,18 +25155,12 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>"
-                                }
-                            }
-                        }
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -36279,56 +36301,52 @@
                 },
                 "parameters": [
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "projectId": {
-                                    "type": "string",
-                                    "description": "Project ID",
-                                    "x-example": "<PROJECT_ID>"
-                                },
-                                "resourceType": {
-                                    "type": "string",
-                                    "description": "Resource type to unblock",
-                                    "x-example": "projects",
-                                    "enum": [
-                                        "projects",
-                                        "functions",
-                                        "sites",
-                                        "databases",
-                                        "buckets",
-                                        "providers",
-                                        "topics",
-                                        "subscribers",
-                                        "messages"
-                                    ],
-                                    "x-enum-name": "BlockResourceType",
-                                    "x-enum-keys": [
-                                        "projects",
-                                        "functions",
-                                        "sites",
-                                        "databases",
-                                        "buckets",
-                                        "providers",
-                                        "topics",
-                                        "subscribers",
-                                        "messages"
-                                    ]
-                                },
-                                "resourceId": {
-                                    "type": "string",
-                                    "description": "Optional resource ID (if omitted, all blocks of this type will be removed)",
-                                    "default": "",
-                                    "x-example": "<RESOURCE_ID>"
-                                }
-                            },
-                            "required": [
-                                "projectId",
-                                "resourceType"
-                            ]
-                        }
+                        "name": "projectId",
+                        "description": "Project ID",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "<PROJECT_ID>",
+                        "in": "query"
+                    },
+                    {
+                        "name": "resourceType",
+                        "description": "Resource type to unblock",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "projects",
+                        "enum": [
+                            "projects",
+                            "functions",
+                            "sites",
+                            "databases",
+                            "buckets",
+                            "providers",
+                            "topics",
+                            "subscribers",
+                            "messages"
+                        ],
+                        "x-enum-name": "BlockResourceType",
+                        "x-enum-keys": [
+                            "projects",
+                            "functions",
+                            "sites",
+                            "databases",
+                            "buckets",
+                            "providers",
+                            "topics",
+                            "subscribers",
+                            "messages"
+                        ],
+                        "in": "query"
+                    },
+                    {
+                        "name": "resourceId",
+                        "description": "Optional resource ID (if omitted, all blocks of this type will be removed)",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<RESOURCE_ID>",
+                        "default": "",
+                        "in": "query"
                     }
                 ]
             }
@@ -36423,99 +36441,111 @@
                 },
                 "parameters": [
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "region": {
-                                    "type": "string",
-                                    "description": "Target region.",
-                                    "x-example": "fra",
-                                    "enum": [
-                                        "fra",
-                                        "nyc",
-                                        "syd",
-                                        "sfo",
-                                        "sgp",
-                                        "tor"
-                                    ],
-                                    "x-enum-name": "Region",
-                                    "x-enum-keys": [
-                                        "fra",
-                                        "nyc",
-                                        "syd",
-                                        "sfo",
-                                        "sgp",
-                                        "tor"
-                                    ]
-                                },
-                                "cache": {
-                                    "type": "string",
-                                    "description": "Cache target.",
-                                    "default": "cache",
-                                    "x-example": "cache",
-                                    "enum": [
-                                        "cache",
-                                        "timelimit",
-                                        "locks",
-                                        "pubsub",
-                                        "queue",
-                                        "all"
-                                    ],
-                                    "x-enum-name": "CacheTarget",
-                                    "x-enum-keys": [
-                                        "cache",
-                                        "timelimit",
-                                        "locks",
-                                        "pubsub",
-                                        "queue",
-                                        "all"
-                                    ]
-                                },
-                                "all": {
-                                    "type": "boolean",
-                                    "description": "Clear the entire selected cache target.",
-                                    "default": false,
-                                    "x-example": false
-                                },
-                                "database": {
-                                    "type": "string",
-                                    "description": "Database cache scope.",
-                                    "default": "console",
-                                    "x-example": "console",
-                                    "enum": [
-                                        "console",
-                                        "project",
-                                        "logs"
-                                    ],
-                                    "x-enum-name": "CacheDatabase",
-                                    "x-enum-keys": [
-                                        "console",
-                                        "project",
-                                        "logs"
-                                    ]
-                                },
-                                "projectId": {
-                                    "type": "string",
-                                    "description": "Project ID for project or logs database cache.",
-                                    "default": "",
-                                    "x-example": "<PROJECT_ID>"
-                                },
-                                "collectionId": {
-                                    "type": "string",
-                                    "description": "Collection ID.",
-                                    "default": "",
-                                    "x-example": "<COLLECTION_ID>"
-                                },
-                                "documentId": {
-                                    "type": "string",
-                                    "description": "Document ID.",
-                                    "default": "",
-                                    "x-example": "<DOCUMENT_ID>"
-                                }
-                            }
-                        }
+                        "name": "region",
+                        "description": "Target region.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "fra",
+                        "enum": [
+                            "fra",
+                            "nyc",
+                            "syd",
+                            "sfo",
+                            "sgp",
+                            "tor"
+                        ],
+                        "x-enum-name": "Region",
+                        "x-enum-keys": [
+                            "fra",
+                            "nyc",
+                            "syd",
+                            "sfo",
+                            "sgp",
+                            "tor"
+                        ],
+                        "in": "query"
+                    },
+                    {
+                        "name": "cache",
+                        "description": "Cache target.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "cache",
+                        "enum": [
+                            "cache",
+                            "timelimit",
+                            "locks",
+                            "pubsub",
+                            "queue",
+                            "all"
+                        ],
+                        "x-enum-name": "CacheTarget",
+                        "x-enum-keys": [
+                            "cache",
+                            "timelimit",
+                            "locks",
+                            "pubsub",
+                            "queue",
+                            "all"
+                        ],
+                        "default": "cache",
+                        "in": "query"
+                    },
+                    {
+                        "name": "all",
+                        "description": "Clear the entire selected cache target.",
+                        "required": false,
+                        "type": "boolean",
+                        "x-example": false,
+                        "default": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "database",
+                        "description": "Database cache scope.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "console",
+                        "enum": [
+                            "console",
+                            "project",
+                            "logs"
+                        ],
+                        "x-enum-name": "CacheDatabase",
+                        "x-enum-keys": [
+                            "console",
+                            "project",
+                            "logs"
+                        ],
+                        "default": "console",
+                        "in": "query"
+                    },
+                    {
+                        "name": "projectId",
+                        "description": "Project ID for project or logs database cache.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<PROJECT_ID>",
+                        "default": "",
+                        "in": "query"
+                    },
+                    {
+                        "name": "collectionId",
+                        "description": "Collection ID.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<COLLECTION_ID>",
+                        "default": "",
+                        "in": "query"
+                    },
+                    {
+                        "name": "documentId",
+                        "description": "Document ID.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<DOCUMENT_ID>",
+                        "default": "",
+                        "in": "query"
                     }
                 ]
             }
@@ -68033,7 +68063,14 @@
                                     "type": "array",
                                     "description": "Default value for column when not provided, two-dimensional array of coordinate pairs, [[longitude, latitude], [longitude, latitude], \u2026], listing the vertices of the line in order. Cannot be set when column is required.",
                                     "x-example": "[[1, 2], [3, 4], [5, 6]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number",
+                                            "format": "double"
+                                        }
+                                    }
                                 }
                             },
                             "required": [
@@ -68139,7 +68176,14 @@
                                     "type": "array",
                                     "description": "Default value for column when not provided, two-dimensional array of coordinate pairs, [[longitude, latitude], [longitude, latitude], \u2026], listing the vertices of the line in order. Cannot be set when column is required.",
                                     "x-example": "[[1, 2], [3, 4], [5, 6]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number",
+                                            "format": "double"
+                                        }
+                                    }
                                 },
                                 "newKey": {
                                     "type": "string",
@@ -68704,7 +68748,11 @@
                                     "type": "array",
                                     "description": "Default value for column when not provided, array of two numbers [longitude, latitude], representing a single coordinate. Cannot be set when column is required.",
                                     "x-example": "[1, 2]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "number",
+                                        "format": "double"
+                                    }
                                 }
                             },
                             "required": [
@@ -68810,7 +68858,11 @@
                                     "type": "array",
                                     "description": "Default value for column when not provided, array of two numbers [longitude, latitude], representing a single coordinate. Cannot be set when column is required.",
                                     "x-example": "[1, 2]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "number",
+                                        "format": "double"
+                                    }
                                 },
                                 "newKey": {
                                     "type": "string",
@@ -68919,7 +68971,17 @@
                                     "type": "array",
                                     "description": "Default value for column when not provided, three-dimensional array where the outer array holds one or more linear rings, [[[longitude, latitude], \u2026], \u2026], the first ring is the exterior boundary, any additional rings are interior holes, and each ring must start and end with the same coordinate pair. Cannot be set when column is required.",
                                     "x-example": "[[[1, 2], [3, 4], [5, 6], [1, 2]]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "number",
+                                                "format": "double"
+                                            }
+                                        }
+                                    }
                                 }
                             },
                             "required": [
@@ -69025,7 +69087,17 @@
                                     "type": "array",
                                     "description": "Default value for column when not provided, three-dimensional array where the outer array holds one or more linear rings, [[[longitude, latitude], \u2026], \u2026], the first ring is the exterior boundary, any additional rings are interior holes, and each ring must start and end with the same coordinate pair. Cannot be set when column is required.",
                                     "x-example": "[[[1, 2], [3, 4], [5, 6], [1, 2]]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "number",
+                                                "format": "double"
+                                            }
+                                        }
+                                    }
                                 },
                                 "newKey": {
                                     "type": "string",
@@ -71547,28 +71619,24 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "queries": {
-                                    "type": "array",
-                                    "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
-                                    "default": [],
-                                    "x-example": null,
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>",
-                                    "x-nullable": true
-                                }
-                            }
-                        }
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "type": "array",
+                        "collectionFormat": "multi",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [],
+                        "in": "query"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -72006,19 +72074,12 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>",
-                                    "x-nullable": true
-                                }
-                            }
-                        }
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -80876,27 +80937,24 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "queries": {
-                                    "type": "array",
-                                    "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
-                                    "default": [],
-                                    "x-example": null,
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>"
-                                }
-                            }
-                        }
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "type": "array",
+                        "collectionFormat": "multi",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [],
+                        "in": "query"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -81321,18 +81379,12 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>"
-                                }
-                            }
-                        }
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -82509,7 +82561,6 @@
                     "type": "array",
                     "description": "List of rows.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/row"
                     },
                     "x-example": ""
@@ -82538,7 +82589,6 @@
                     "type": "array",
                     "description": "List of documents.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/document"
                     },
                     "x-example": ""
@@ -82567,7 +82617,6 @@
                     "type": "array",
                     "description": "List of presences.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/presence"
                     },
                     "x-example": ""
@@ -82596,7 +82645,6 @@
                     "type": "array",
                     "description": "List of tables.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/table"
                     },
                     "x-example": ""
@@ -82625,7 +82673,6 @@
                     "type": "array",
                     "description": "List of collections.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/collection"
                     },
                     "x-example": ""
@@ -82654,7 +82701,6 @@
                     "type": "array",
                     "description": "List of databases.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/database"
                     },
                     "x-example": ""
@@ -82683,7 +82729,6 @@
                     "type": "array",
                     "description": "List of indexes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/index"
                     },
                     "x-example": ""
@@ -82712,7 +82757,6 @@
                     "type": "array",
                     "description": "List of indexes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/columnIndex"
                     },
                     "x-example": ""
@@ -82741,7 +82785,6 @@
                     "type": "array",
                     "description": "List of users.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/user"
                     },
                     "x-example": ""
@@ -82770,7 +82813,6 @@
                     "type": "array",
                     "description": "List of sessions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/session"
                     },
                     "x-example": ""
@@ -82799,7 +82841,6 @@
                     "type": "array",
                     "description": "List of identities.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/identity"
                     },
                     "x-example": ""
@@ -82828,7 +82869,6 @@
                     "type": "array",
                     "description": "List of logs.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/log"
                     },
                     "x-example": ""
@@ -82857,7 +82897,6 @@
                     "type": "array",
                     "description": "List of files.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/file"
                     },
                     "x-example": ""
@@ -82886,7 +82925,6 @@
                     "type": "array",
                     "description": "List of buckets.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/bucket"
                     },
                     "x-example": ""
@@ -82915,7 +82953,6 @@
                     "type": "array",
                     "description": "List of tokens.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/resourceToken"
                     },
                     "x-example": ""
@@ -82944,7 +82981,6 @@
                     "type": "array",
                     "description": "List of teams.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/team"
                     },
                     "x-example": ""
@@ -82973,7 +83009,6 @@
                     "type": "array",
                     "description": "List of memberships.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/membership"
                     },
                     "x-example": ""
@@ -83002,7 +83037,6 @@
                     "type": "array",
                     "description": "List of sites.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/site"
                     },
                     "x-example": ""
@@ -83031,7 +83065,6 @@
                     "type": "array",
                     "description": "List of templates.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/templateSite"
                     },
                     "x-example": ""
@@ -83060,7 +83093,6 @@
                     "type": "array",
                     "description": "List of functions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/function"
                     },
                     "x-example": ""
@@ -83089,7 +83121,6 @@
                     "type": "array",
                     "description": "List of templates.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/templateFunction"
                     },
                     "x-example": ""
@@ -83118,7 +83149,6 @@
                     "type": "array",
                     "description": "List of installations.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/installation"
                     },
                     "x-example": ""
@@ -83147,7 +83177,6 @@
                     "type": "array",
                     "description": "List of frameworkProviderRepositories.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/providerRepositoryFramework"
                     },
                     "x-example": ""
@@ -83183,7 +83212,6 @@
                     "type": "array",
                     "description": "List of runtimeProviderRepositories.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/providerRepositoryRuntime"
                     },
                     "x-example": ""
@@ -83219,7 +83247,6 @@
                     "type": "array",
                     "description": "List of branches.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/branch"
                     },
                     "x-example": ""
@@ -83248,7 +83275,6 @@
                     "type": "array",
                     "description": "List of frameworks.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/framework"
                     },
                     "x-example": ""
@@ -83277,7 +83303,6 @@
                     "type": "array",
                     "description": "List of runtimes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/runtime"
                     },
                     "x-example": ""
@@ -83306,7 +83331,6 @@
                     "type": "array",
                     "description": "List of deployments.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/deployment"
                     },
                     "x-example": ""
@@ -83335,7 +83359,6 @@
                     "type": "array",
                     "description": "List of executions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/execution"
                     },
                     "x-example": ""
@@ -83364,7 +83387,6 @@
                     "type": "array",
                     "description": "List of projects.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/project"
                     },
                     "x-example": ""
@@ -83393,7 +83415,6 @@
                     "type": "array",
                     "description": "List of webhooks.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/webhook"
                     },
                     "x-example": ""
@@ -83422,7 +83443,6 @@
                     "type": "array",
                     "description": "List of keys.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/key"
                     },
                     "x-example": ""
@@ -83451,7 +83471,6 @@
                     "type": "array",
                     "description": "List of devKeys.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/devKey"
                     },
                     "x-example": ""
@@ -83480,7 +83499,6 @@
                     "type": "array",
                     "description": "List of countries.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/country"
                     },
                     "x-example": ""
@@ -83509,7 +83527,6 @@
                     "type": "array",
                     "description": "List of continents.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/continent"
                     },
                     "x-example": ""
@@ -83538,7 +83555,6 @@
                     "type": "array",
                     "description": "List of languages.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/language"
                     },
                     "x-example": ""
@@ -83567,7 +83583,6 @@
                     "type": "array",
                     "description": "List of currencies.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/currency"
                     },
                     "x-example": ""
@@ -83596,7 +83611,6 @@
                     "type": "array",
                     "description": "List of phones.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/phone"
                     },
                     "x-example": ""
@@ -83625,7 +83639,6 @@
                     "type": "array",
                     "description": "List of variables.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/variable"
                     },
                     "x-example": ""
@@ -83654,7 +83667,6 @@
                     "type": "array",
                     "description": "List of mockNumbers.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/mockNumber"
                     },
                     "x-example": ""
@@ -83769,7 +83781,6 @@
                     "type": "array",
                     "description": "List of templates.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/emailTemplate"
                     },
                     "x-example": ""
@@ -83798,7 +83809,6 @@
                     "type": "array",
                     "description": "List of statuses.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/healthStatus"
                     },
                     "x-example": ""
@@ -83827,7 +83837,6 @@
                     "type": "array",
                     "description": "List of rules.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/proxyRule"
                     },
                     "x-example": ""
@@ -83856,7 +83865,6 @@
                     "type": "array",
                     "description": "List of schedules.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/schedule"
                     },
                     "x-example": ""
@@ -83885,7 +83893,6 @@
                     "type": "array",
                     "description": "List of localeCodes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/localeCode"
                     },
                     "x-example": ""
@@ -83914,7 +83921,6 @@
                     "type": "array",
                     "description": "List of providers.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/provider"
                     },
                     "x-example": ""
@@ -83943,7 +83949,6 @@
                     "type": "array",
                     "description": "List of messages.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/message"
                     },
                     "x-example": ""
@@ -83972,7 +83977,6 @@
                     "type": "array",
                     "description": "List of topics.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/topic"
                     },
                     "x-example": ""
@@ -84001,7 +84005,6 @@
                     "type": "array",
                     "description": "List of subscribers.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/subscriber"
                     },
                     "x-example": ""
@@ -84030,7 +84033,6 @@
                     "type": "array",
                     "description": "List of targets.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/target"
                     },
                     "x-example": ""
@@ -84059,7 +84061,6 @@
                     "type": "array",
                     "description": "List of transactions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/transaction"
                     },
                     "x-example": ""
@@ -84088,7 +84089,6 @@
                     "type": "array",
                     "description": "List of migrations.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/migration"
                     },
                     "x-example": ""
@@ -84117,7 +84117,6 @@
                     "type": "array",
                     "description": "List of specifications.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/specification"
                     },
                     "x-example": ""
@@ -84146,7 +84145,6 @@
                     "type": "array",
                     "description": "List of contents.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/vcsContent"
                     },
                     "x-example": ""
@@ -84175,7 +84173,6 @@
                     "type": "array",
                     "description": "List of collections.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/vectorsdbCollection"
                     },
                     "x-example": ""
@@ -84204,7 +84201,6 @@
                     "type": "array",
                     "description": "List of embeddings.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/embedding"
                     },
                     "x-example": ""
@@ -84233,7 +84229,6 @@
                     "type": "array",
                     "description": "List of insights.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/insight"
                     },
                     "x-example": ""
@@ -84262,7 +84257,6 @@
                     "type": "array",
                     "description": "List of reports.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/report"
                     },
                     "x-example": ""
@@ -84321,7 +84315,6 @@
                     "type": "array",
                     "description": "Database backup policies.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/backupPolicy"
                     },
                     "x-example": {}
@@ -84330,7 +84323,6 @@
                     "type": "array",
                     "description": "Database backup archives.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/backupArchive"
                     },
                     "x-example": {}
@@ -84607,7 +84599,6 @@
                     "type": "array",
                     "description": "Collection indexes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/index"
                     },
                     "x-example": {}
@@ -85919,6 +85910,10 @@
                         0,
                         0
                     ],
+                    "items": {
+                        "type": "number",
+                        "format": "double"
+                    },
                     "x-nullable": true
                 }
             },
@@ -86012,6 +86007,13 @@
                             1
                         ]
                     ],
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    },
                     "x-nullable": true
                 }
             },
@@ -86123,6 +86125,16 @@
                             ]
                         ]
                     ],
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "number",
+                                "format": "double"
+                            }
+                        }
+                    },
                     "x-nullable": true
                 }
             },
@@ -86571,7 +86583,6 @@
                     "type": "array",
                     "description": "Aggregated number of collections per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -86580,7 +86591,6 @@
                     "type": "array",
                     "description": "Aggregated number of documents per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -86589,7 +86599,6 @@
                     "type": "array",
                     "description": "Aggregated storage used in bytes per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -86598,7 +86607,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of database reads.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -86607,7 +86615,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of database writes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -86715,7 +86722,6 @@
                     "type": "array",
                     "description": "Collection indexes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/index"
                     },
                     "x-example": {}
@@ -86977,7 +86983,6 @@
                     "type": "array",
                     "description": "Aggregated number of databases per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -86986,7 +86991,6 @@
                     "type": "array",
                     "description": "Aggregated number of collections per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -86995,7 +86999,6 @@
                     "type": "array",
                     "description": "Aggregated number of documents per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -87004,7 +87007,6 @@
                     "type": "array",
                     "description": "Aggregated storage in bytes per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -87013,7 +87015,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of database reads.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -87022,7 +87023,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of database writes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -87102,7 +87102,6 @@
                     "type": "array",
                     "description": "Aggregated number of collections per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -87111,7 +87110,6 @@
                     "type": "array",
                     "description": "Aggregated number of documents per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -87120,7 +87118,6 @@
                     "type": "array",
                     "description": "Aggregated storage used in bytes per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -87129,7 +87126,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of database reads.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -87138,7 +87134,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of database writes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -87370,7 +87365,6 @@
                     "type": "array",
                     "description": "Table indexes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/columnIndex"
                     },
                     "x-example": {}
@@ -88682,6 +88676,10 @@
                         0,
                         0
                     ],
+                    "items": {
+                        "type": "number",
+                        "format": "double"
+                    },
                     "x-nullable": true
                 }
             },
@@ -88775,6 +88773,13 @@
                             1
                         ]
                     ],
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    },
                     "x-nullable": true
                 }
             },
@@ -88886,6 +88891,16 @@
                             ]
                         ]
                     ],
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "number",
+                                "format": "double"
+                            }
+                        }
+                    },
                     "x-nullable": true
                 }
             },
@@ -89911,41 +89926,39 @@
                     "type": "object",
                     "description": "Password hashing algorithm configuration.",
                     "x-example": {},
-                    "items": {
-                        "x-oneOf": [
-                            {
-                                "$ref": "#\/definitions\/algoArgon2"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoScrypt"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoScryptModified"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoBcrypt"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoPhpass"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoSha"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoMd5"
-                            }
-                        ],
-                        "x-discriminator": {
-                            "propertyName": "type",
-                            "mapping": {
-                                "argon2": "#\/definitions\/algoArgon2",
-                                "scrypt": "#\/definitions\/algoScrypt",
-                                "scryptMod": "#\/definitions\/algoScryptModified",
-                                "bcrypt": "#\/definitions\/algoBcrypt",
-                                "phpass": "#\/definitions\/algoPhpass",
-                                "sha": "#\/definitions\/algoSha",
-                                "md5": "#\/definitions\/algoMd5"
-                            }
+                    "x-oneOf": [
+                        {
+                            "$ref": "#\/definitions\/algoArgon2"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoScrypt"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoScryptModified"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoBcrypt"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoPhpass"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoSha"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoMd5"
+                        }
+                    ],
+                    "x-discriminator": {
+                        "propertyName": "type",
+                        "mapping": {
+                            "argon2": "#\/definitions\/algoArgon2",
+                            "scrypt": "#\/definitions\/algoScrypt",
+                            "scryptMod": "#\/definitions\/algoScryptModified",
+                            "bcrypt": "#\/definitions\/algoBcrypt",
+                            "phpass": "#\/definitions\/algoPhpass",
+                            "sha": "#\/definitions\/algoSha",
+                            "md5": "#\/definitions\/algoMd5"
                         }
                     },
                     "x-nullable": true
@@ -90037,16 +90050,16 @@
                         "theme": "pink",
                         "timezone": "UTC"
                     },
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/preferences"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/preferences"
+                        }
+                    ]
                 },
                 "targets": {
                     "type": "array",
                     "description": "A user-owned message receiver. A single user may have multiple e.g. emails, phones, and a browser. Each target is registered with a single provider.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/target"
                     },
                     "x-example": []
@@ -91120,10 +91133,11 @@
                         "theme": "pink",
                         "timezone": "UTC"
                     },
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/preferences"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/preferences"
+                        }
+                    ]
                 }
             },
             "required": [
@@ -91357,7 +91371,6 @@
                     "type": "array",
                     "description": "Site variables.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/variable"
                     },
                     "x-example": []
@@ -91586,7 +91599,6 @@
                     "type": "array",
                     "description": "List of frameworks that can be used with this template.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/templateFramework"
                     },
                     "x-example": []
@@ -91615,7 +91627,6 @@
                     "type": "array",
                     "description": "Site variables.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/templateVariable"
                     },
                     "x-example": []
@@ -91820,7 +91831,6 @@
                     "type": "array",
                     "description": "Function variables.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/variable"
                     },
                     "x-example": []
@@ -92055,7 +92065,6 @@
                     "type": "array",
                     "description": "List of runtimes that can be used with this template.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/templateRuntime"
                     },
                     "x-example": []
@@ -92089,7 +92098,6 @@
                     "type": "array",
                     "description": "Function variables.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/templateVariable"
                     },
                     "x-example": []
@@ -92588,7 +92596,6 @@
                     "type": "array",
                     "description": "Environment variables found in .env files",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/detectionVariable"
                     },
                     "x-example": {},
@@ -92647,7 +92654,6 @@
                     "type": "array",
                     "description": "Environment variables found in .env files",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/detectionVariable"
                     },
                     "x-example": {},
@@ -92859,7 +92865,6 @@
                     "type": "array",
                     "description": "List of supported adapters.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/frameworkAdapter"
                     },
                     "x-example": [
@@ -93230,7 +93235,6 @@
                     "type": "array",
                     "description": "HTTP request headers as a key-value object. This will return only whitelisted headers. All headers are returned if execution is created as synchronous.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/headers"
                     },
                     "x-example": [
@@ -93254,7 +93258,6 @@
                     "type": "array",
                     "description": "HTTP response headers as a key-value object. This will return only whitelisted headers. All headers are returned if execution is created as synchronous.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/headers"
                     },
                     "x-example": [
@@ -93374,7 +93377,6 @@
                     "type": "array",
                     "description": "Deprecated since 1.9.5: List of dev keys.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/devKey"
                     },
                     "x-example": {}
@@ -93461,7 +93463,6 @@
                     "type": "array",
                     "description": "List of auth methods.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/projectAuthMethod"
                     },
                     "x-example": {}
@@ -93470,7 +93471,6 @@
                     "type": "array",
                     "description": "List of services.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/projectService"
                     },
                     "x-example": {}
@@ -93479,7 +93479,6 @@
                     "type": "array",
                     "description": "List of protocols.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/projectProtocol"
                     },
                     "x-example": {}
@@ -93488,7 +93487,6 @@
                     "type": "array",
                     "description": "Project blocks information",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/block"
                     },
                     "x-example": ""
@@ -93502,10 +93500,11 @@
                     "type": "object",
                     "description": "Billing limits reached",
                     "x-example": "",
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/billingLimits"
-                    },
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/billingLimits"
+                        }
+                    ],
                     "x-nullable": true
                 },
                 "oAuth2ServerEnabled": {
@@ -97211,7 +97210,6 @@
                     "type": "array",
                     "description": "Aggregated number of databases per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97220,7 +97218,6 @@
                     "type": "array",
                     "description": "Aggregated number of collections per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97229,7 +97226,6 @@
                     "type": "array",
                     "description": "Aggregated number of tables per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97238,7 +97234,6 @@
                     "type": "array",
                     "description": "Aggregated number of documents per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97247,7 +97242,6 @@
                     "type": "array",
                     "description": "Aggregated number of rows per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97256,7 +97250,6 @@
                     "type": "array",
                     "description": "An array of the aggregated number of databases storage in bytes per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97265,7 +97258,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of database reads.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97274,7 +97266,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of database writes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97374,7 +97365,6 @@
                     "type": "array",
                     "description": "Aggregated  number of collections per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97383,7 +97373,6 @@
                     "type": "array",
                     "description": "Aggregated  number of tables per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97392,7 +97381,6 @@
                     "type": "array",
                     "description": "Aggregated  number of documents per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97401,7 +97389,6 @@
                     "type": "array",
                     "description": "Aggregated  number of rows per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97410,7 +97397,6 @@
                     "type": "array",
                     "description": "Aggregated storage used in bytes per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97419,7 +97405,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of database reads.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97428,7 +97413,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of database writes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97488,7 +97472,6 @@
                     "type": "array",
                     "description": "Aggregated  number of rows per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97524,7 +97507,6 @@
                     "type": "array",
                     "description": "Aggregated  number of documents per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97566,7 +97548,6 @@
                     "type": "array",
                     "description": "Aggregated number of users per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97575,7 +97556,6 @@
                     "type": "array",
                     "description": "Aggregated number of active sessions  per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97615,7 +97595,6 @@
                     "type": "array",
                     "description": "Aggregated number of online users per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97663,7 +97642,6 @@
                     "type": "array",
                     "description": "Aggregated number of buckets per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97672,7 +97650,6 @@
                     "type": "array",
                     "description": "Aggregated number of files per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97681,7 +97658,6 @@
                     "type": "array",
                     "description": "Aggregated number of files storage (in bytes) per period .",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97731,7 +97707,6 @@
                     "type": "array",
                     "description": "Aggregated  number of bucket files per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97740,7 +97715,6 @@
                     "type": "array",
                     "description": "Aggregated  number of bucket storage files (in bytes) per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97749,7 +97723,6 @@
                     "type": "array",
                     "description": "Aggregated number of files transformations per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97853,7 +97826,6 @@
                     "type": "array",
                     "description": "Aggregated number of functions per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": 0
@@ -97862,7 +97834,6 @@
                     "type": "array",
                     "description": "Aggregated number of functions deployment per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97871,7 +97842,6 @@
                     "type": "array",
                     "description": "Aggregated number of  functions deployment storage per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97892,7 +97862,6 @@
                     "type": "array",
                     "description": "Aggregated number of functions build per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97901,7 +97870,6 @@
                     "type": "array",
                     "description": "Aggregated sum of functions build storage per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97910,7 +97878,6 @@
                     "type": "array",
                     "description": "Aggregated sum of  functions build compute time per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97919,7 +97886,6 @@
                     "type": "array",
                     "description": "Aggregated sum of functions build mbSeconds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97928,7 +97894,6 @@
                     "type": "array",
                     "description": "Aggregated number of  functions execution per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97937,7 +97902,6 @@
                     "type": "array",
                     "description": "Aggregated number of functions execution compute time per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97946,7 +97910,6 @@
                     "type": "array",
                     "description": "Aggregated number of functions mbSeconds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97955,7 +97918,6 @@
                     "type": "array",
                     "description": "Aggregated number of successful function builds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -97964,7 +97926,6 @@
                     "type": "array",
                     "description": "Aggregated number of failed function builds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98110,7 +98071,6 @@
                     "type": "array",
                     "description": "Aggregated number of function deployments per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98119,7 +98079,6 @@
                     "type": "array",
                     "description": "Aggregated number of  function deployments storage per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98128,7 +98087,6 @@
                     "type": "array",
                     "description": "Aggregated number of function builds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98137,7 +98095,6 @@
                     "type": "array",
                     "description": "Aggregated sum of function builds storage per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98146,7 +98103,6 @@
                     "type": "array",
                     "description": "Aggregated sum of function builds compute time per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98155,7 +98111,6 @@
                     "type": "array",
                     "description": "Aggregated number of function builds mbSeconds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98164,7 +98119,6 @@
                     "type": "array",
                     "description": "Aggregated number of function executions per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98173,7 +98127,6 @@
                     "type": "array",
                     "description": "Aggregated number of function executions compute time per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98182,7 +98135,6 @@
                     "type": "array",
                     "description": "Aggregated number of function mbSeconds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98191,7 +98143,6 @@
                     "type": "array",
                     "description": "Aggregated number of successful builds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98200,7 +98151,6 @@
                     "type": "array",
                     "description": "Aggregated number of failed builds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98278,7 +98228,6 @@
                     "type": "array",
                     "description": "Aggregated number of sites per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98347,7 +98296,6 @@
                     "type": "array",
                     "description": "Aggregated number of requests per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98362,7 +98310,6 @@
                     "type": "array",
                     "description": "Aggregated number of inbound bandwidth per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98377,7 +98324,6 @@
                     "type": "array",
                     "description": "Aggregated number of outbound bandwidth per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98386,7 +98332,6 @@
                     "type": "array",
                     "description": "Aggregated number of sites deployment per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98395,7 +98340,6 @@
                     "type": "array",
                     "description": "Aggregated number of  sites deployment storage per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98416,7 +98360,6 @@
                     "type": "array",
                     "description": "Aggregated number of sites build per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98425,7 +98368,6 @@
                     "type": "array",
                     "description": "Aggregated sum of sites build storage per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98434,7 +98376,6 @@
                     "type": "array",
                     "description": "Aggregated sum of  sites build compute time per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98443,7 +98384,6 @@
                     "type": "array",
                     "description": "Aggregated sum of sites build mbSeconds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98452,7 +98392,6 @@
                     "type": "array",
                     "description": "Aggregated number of  sites execution per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98461,7 +98400,6 @@
                     "type": "array",
                     "description": "Aggregated number of sites execution compute time per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98470,7 +98408,6 @@
                     "type": "array",
                     "description": "Aggregated number of sites mbSeconds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98479,7 +98416,6 @@
                     "type": "array",
                     "description": "Aggregated number of successful site builds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98488,7 +98424,6 @@
                     "type": "array",
                     "description": "Aggregated number of failed site builds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98646,7 +98581,6 @@
                     "type": "array",
                     "description": "Aggregated number of function deployments per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98655,7 +98589,6 @@
                     "type": "array",
                     "description": "Aggregated number of  function deployments storage per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98664,7 +98597,6 @@
                     "type": "array",
                     "description": "Aggregated number of function builds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98673,7 +98605,6 @@
                     "type": "array",
                     "description": "Aggregated sum of function builds storage per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98682,7 +98613,6 @@
                     "type": "array",
                     "description": "Aggregated sum of function builds compute time per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98691,7 +98621,6 @@
                     "type": "array",
                     "description": "Aggregated number of function builds mbSeconds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98700,7 +98629,6 @@
                     "type": "array",
                     "description": "Aggregated number of function executions per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98709,7 +98637,6 @@
                     "type": "array",
                     "description": "Aggregated number of function executions compute time per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98718,7 +98645,6 @@
                     "type": "array",
                     "description": "Aggregated number of function mbSeconds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98727,7 +98653,6 @@
                     "type": "array",
                     "description": "Aggregated number of successful builds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98736,7 +98661,6 @@
                     "type": "array",
                     "description": "Aggregated number of failed builds per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98751,7 +98675,6 @@
                     "type": "array",
                     "description": "Aggregated number of requests per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98766,7 +98689,6 @@
                     "type": "array",
                     "description": "Aggregated number of inbound bandwidth per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98781,7 +98703,6 @@
                     "type": "array",
                     "description": "Aggregated number of outbound bandwidth per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98980,7 +98901,6 @@
                     "type": "array",
                     "description": "Aggregated  number of requests per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98989,7 +98909,6 @@
                     "type": "array",
                     "description": "Aggregated number of consumed bandwidth per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -98998,7 +98917,6 @@
                     "type": "array",
                     "description": "Aggregated number of users per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99007,7 +98925,6 @@
                     "type": "array",
                     "description": "Aggregated number of executions per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99016,7 +98933,6 @@
                     "type": "array",
                     "description": "Aggregated breakdown in totals of executions by functions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metricBreakdown"
                     },
                     "x-example": []
@@ -99025,7 +98941,6 @@
                     "type": "array",
                     "description": "Aggregated breakdown in totals of usage by buckets.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metricBreakdown"
                     },
                     "x-example": []
@@ -99034,7 +98949,6 @@
                     "type": "array",
                     "description": "An array of the aggregated breakdown of storage usage by databases.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metricBreakdown"
                     },
                     "x-example": []
@@ -99043,7 +98957,6 @@
                     "type": "array",
                     "description": "Aggregated breakdown in totals of execution mbSeconds by functions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metricBreakdown"
                     },
                     "x-example": []
@@ -99052,7 +98965,6 @@
                     "type": "array",
                     "description": "Aggregated breakdown in totals of build mbSeconds by functions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metricBreakdown"
                     },
                     "x-example": []
@@ -99061,7 +98973,6 @@
                     "type": "array",
                     "description": "Aggregated breakdown in totals of functions storage size (in bytes).",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metricBreakdown"
                     },
                     "x-example": []
@@ -99082,7 +98993,6 @@
                     "type": "array",
                     "description": "Aggregated breakdown in totals of phone auth by country.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metricBreakdown"
                     },
                     "x-example": []
@@ -99091,7 +99001,6 @@
                     "type": "array",
                     "description": "Aggregated stats for database reads.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99100,7 +99009,6 @@
                     "type": "array",
                     "description": "Aggregated stats for database writes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99109,7 +99017,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of documentsdb database reads.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99118,7 +99025,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of documentsdb database writes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99127,7 +99033,6 @@
                     "type": "array",
                     "description": "An array of aggregated sum of documentsdb databases storage size (in bytes) per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99136,7 +99041,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of image transformations.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99187,7 +99091,6 @@
                     "type": "array",
                     "description": "Aggregated VectorsDB databases per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99196,7 +99099,6 @@
                     "type": "array",
                     "description": "Aggregated VectorsDB collections per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99205,7 +99107,6 @@
                     "type": "array",
                     "description": "Aggregated VectorsDB documents per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99214,7 +99115,6 @@
                     "type": "array",
                     "description": "Aggregated VectorsDB storage per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99223,7 +99123,6 @@
                     "type": "array",
                     "description": "Aggregated VectorsDB reads per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99232,7 +99131,6 @@
                     "type": "array",
                     "description": "Aggregated VectorsDB writes per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99241,79 +99139,86 @@
                     "type": "object",
                     "description": "Aggregated number of text embedding calls per period.",
                     "x-example": [],
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/metric"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/metric"
+                        }
+                    ]
                 },
                 "embeddingsTextTokens": {
                     "type": "object",
                     "description": "Aggregated number of tokens processed by text embeddings per period.",
                     "x-example": [],
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/metric"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/metric"
+                        }
+                    ]
                 },
                 "embeddingsTextDuration": {
                     "type": "object",
                     "description": "Aggregated duration spent generating text embeddings per period.",
                     "x-example": [],
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/metric"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/metric"
+                        }
+                    ]
                 },
                 "embeddingsTextErrors": {
                     "type": "object",
                     "description": "Aggregated number of errors while generating text embeddings per period.",
                     "x-example": [],
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/metric"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/metric"
+                        }
+                    ]
                 },
                 "embeddingsTextTotal": {
                     "type": "object",
                     "description": "Total aggregated number of text embedding calls.",
                     "x-example": 0,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/metric"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/metric"
+                        }
+                    ]
                 },
                 "embeddingsTextTokensTotal": {
                     "type": "object",
                     "description": "Total aggregated number of tokens processed by text.",
                     "x-example": 0,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/metric"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/metric"
+                        }
+                    ]
                 },
                 "embeddingsTextDurationTotal": {
                     "type": "object",
                     "description": "Total aggregated duration spent generating text embeddings.",
                     "x-example": 0,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/metric"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/metric"
+                        }
+                    ]
                 },
                 "embeddingsTextErrorsTotal": {
                     "type": "object",
                     "description": "Total aggregated number of errors while generating text embeddings.",
                     "x-example": 0,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/metric"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/metric"
+                        }
+                    ]
                 },
                 "functionsExecutions": {
                     "type": "array",
                     "description": "Aggregated number of function executions per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99328,7 +99233,6 @@
                     "type": "array",
                     "description": "Aggregated number of site executions per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99355,7 +99259,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of screenshots generated.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99370,7 +99273,6 @@
                     "type": "array",
                     "description": "An array of aggregated number of Imagine credits in the given period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99403,7 +99305,6 @@
                     "type": "array",
                     "description": "Aggregated number of open Realtime connections per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99412,7 +99313,6 @@
                     "type": "array",
                     "description": "Aggregated number of Realtime messages sent to clients per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -99421,7 +99321,6 @@
                     "type": "array",
                     "description": "Aggregated consumed Realtime bandwidth (in bytes) per period.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -100181,7 +100080,6 @@
                     "type": "array",
                     "description": "List of parameters required to configure this OAuth2 provider.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/consoleOAuth2ProviderParameter"
                     },
                     "x-example": ""
@@ -100210,7 +100108,6 @@
                     "type": "array",
                     "description": "List of OAuth2 providers, each with the parameters required to configure it.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/consoleOAuth2Provider"
                     },
                     "x-example": ""
@@ -100277,7 +100174,6 @@
                     "type": "array",
                     "description": "List of key scopes, each with its ID and description.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/consoleKeyScope"
                     },
                     "x-example": ""
@@ -100806,10 +100702,11 @@
                         "identifier": "random-mail@email.org",
                         "userId": "5e5ea5c16897e"
                     },
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/target"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/target"
+                        }
+                    ]
                 },
                 "userId": {
                     "type": "string",
@@ -101357,7 +101254,6 @@
                     "type": "array",
                     "description": "List of call-to-action buttons attached to this insight.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/insightCTA"
                     },
                     "x-example": []
@@ -101536,7 +101432,6 @@
                     "type": "array",
                     "description": "Insights nested under this report.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/insight"
                     },
                     "x-example": []
@@ -101971,7 +101866,6 @@
                     "type": "array",
                     "description": "",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/usageResources"
                     },
                     "x-example": ""
@@ -102160,7 +102054,6 @@
                     "type": "array",
                     "description": "Aggregation project breakdown",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/aggregationBreakdown"
                     },
                     "x-example": []
@@ -102169,7 +102062,6 @@
                     "type": "array",
                     "description": "Usage resources",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/usageResources"
                     },
                     "x-example": []
@@ -102464,7 +102356,6 @@
                     "type": "array",
                     "description": "List of backups.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/dedicatedDatabaseBackup"
                     },
                     "x-example": []
@@ -102883,19 +102774,21 @@
                     "type": "object",
                     "description": "Additional resources",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/usageBillingPlan"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/usageBillingPlan"
+                        }
+                    ]
                 },
                 "addons": {
                     "type": "object",
                     "description": "Addons",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/billingPlanAddon"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/billingPlanAddon"
+                        }
+                    ]
                 },
                 "budgetCapEnabled": {
                     "type": "boolean",
@@ -102991,10 +102884,11 @@
                     "type": "object",
                     "description": "Supported addons for this plan",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/billingPlanSupportedAddons"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/billingPlanSupportedAddons"
+                        }
+                    ]
                 },
                 "backupPolicies": {
                     "type": "integer",
@@ -103023,10 +102917,11 @@
                     "type": "object",
                     "description": "Plan specific limits",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/billingPlanLimits"
-                    },
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/billingPlanLimits"
+                        }
+                    ],
                     "x-nullable": true
                 },
                 "group": {
@@ -103043,10 +102938,11 @@
                     "type": "object",
                     "description": "Details of the program this plan is a part of.",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/program"
-                    },
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/program"
+                        }
+                    ],
                     "x-nullable": true
                 }
             },
@@ -103189,19 +103085,21 @@
                     "type": "object",
                     "description": "Addon seats",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/billingPlanAddonDetails"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/billingPlanAddonDetails"
+                        }
+                    ]
                 },
                 "projects": {
                     "type": "object",
                     "description": "Addon projects",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/billingPlanAddonDetails"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/billingPlanAddonDetails"
+                        }
+                    ]
                 }
             },
             "required": [
@@ -103418,7 +103316,6 @@
                     "type": "array",
                     "description": "List of deleted blocks",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/block"
                     },
                     "x-example": []
@@ -103537,7 +103434,6 @@
                     "type": "array",
                     "description": "List of branches.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/dedicatedDatabaseBranch"
                     },
                     "x-example": []
@@ -103608,7 +103504,6 @@
                     "type": "array",
                     "description": "Campaign reviews",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/review"
                     },
                     "x-example": "",
@@ -103979,7 +103874,6 @@
                     "type": "array",
                     "description": "Credits",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/credit"
                     },
                     "x-example": 5
@@ -104415,7 +104309,6 @@
                     "type": "array",
                     "description": "Column metadata in result-set order.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/dedicatedDatabaseExecutionColumn"
                     },
                     "x-example": []
@@ -104608,16 +104501,16 @@
                         "current": 12,
                         "max": 100
                     },
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/databaseStatusConnections"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/databaseStatusConnections"
+                        }
+                    ]
                 },
                 "replicas": {
                     "type": "array",
                     "description": "List of database replicas and their status.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/databaseStatusReplica"
                     },
                     "x-example": [
@@ -104639,7 +104532,6 @@
                     "type": "array",
                     "description": "Storage volume information.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/databaseStatusVolume"
                     },
                     "x-example": {
@@ -104874,7 +104766,6 @@
                     "type": "array",
                     "description": "Dns records",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/dnsRecord"
                     },
                     "x-example": []
@@ -105263,7 +105154,6 @@
                     "type": "array",
                     "description": "Estimation items",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/estimation_item"
                     },
                     "x-example": []
@@ -105272,7 +105162,6 @@
                     "type": "array",
                     "description": "Estimation discount items",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/estimation_item"
                     },
                     "x-example": []
@@ -105318,7 +105207,6 @@
                     "type": "array",
                     "description": "List of unpaid invoices",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/invoice"
                     },
                     "x-example": []
@@ -105379,19 +105267,21 @@
                     "type": "object",
                     "description": "Cost estimation details",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/planChangeEstimationDetails"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/planChangeEstimationDetails"
+                        }
+                    ]
                 },
                 "limits": {
                     "type": "object",
                     "description": "Plan limits and compliance information",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/planChangeLimits"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/planChangeLimits"
+                        }
+                    ]
                 }
             },
             "required": [
@@ -105441,7 +105331,6 @@
                     "type": "array",
                     "description": "Estimation items",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/estimation_item"
                     },
                     "x-example": []
@@ -105450,7 +105339,6 @@
                     "type": "array",
                     "description": "Estimation discount items",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/estimation_item"
                     },
                     "x-example": []
@@ -105601,7 +105489,6 @@
                     "type": "array",
                     "description": "List of replica statuses.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/dedicatedDatabaseHAReplica"
                     },
                     "x-example": []
@@ -105668,7 +105555,6 @@
                     "type": "array",
                     "description": "Usage breakdown per resource",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/usageResources"
                     },
                     "x-example": []
@@ -105846,10 +105732,11 @@
                         "theme": "pink",
                         "timezone": "UTC"
                     },
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/preferences"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/preferences"
+                        }
+                    ]
                 },
                 "billingBudget": {
                     "type": "integer",
@@ -105883,10 +105770,11 @@
                     "type": "object",
                     "description": "Organization's billing plan.",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/billingPlan"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/billingPlan"
+                        }
+                    ]
                 },
                 "billingEmail": {
                     "type": "string",
@@ -105983,10 +105871,11 @@
                     "type": "object",
                     "description": "Billing limits reached",
                     "x-example": "",
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/billingLimits"
-                    },
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/billingLimits"
+                        }
+                    ],
                     "x-nullable": true
                 },
                 "billingPlanDowngrade": {
@@ -106459,7 +106348,6 @@
                     "type": "array",
                     "description": "Project compliance details",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/planChangeProjectCompliance"
                     },
                     "x-example": []
@@ -106515,7 +106403,6 @@
                     "type": "array",
                     "description": "Resource compliance details",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/planChangeResourceCompliance"
                     },
                     "x-example": []
@@ -106659,6 +106546,11 @@
                     "description": "Policy backup schedule in CRON format.",
                     "x-example": "0 * * * *"
                 },
+                "type": {
+                    "type": "string",
+                    "description": "Backup type. Possible values: full (complete database snapshot), incremental (changes since last backup).",
+                    "x-example": "full"
+                },
                 "enabled": {
                     "type": "boolean",
                     "description": "Is this policy enabled.",
@@ -106674,6 +106566,7 @@
                 "resources",
                 "retention",
                 "schedule",
+                "type",
                 "enabled"
             ],
             "example": {
@@ -106687,6 +106580,7 @@
                 "resourceType": "database",
                 "retention": 7,
                 "schedule": "0 * * * *",
+                "type": "full",
                 "enabled": true
             }
         },
@@ -106926,7 +106820,6 @@
                     "type": "array",
                     "description": "Structured query execution plan. Contents are engine-specific.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/any"
                     },
                     "x-example": []
@@ -107105,7 +106998,6 @@
                     "type": "array",
                     "description": "List of restorations.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/dedicatedDatabaseRestoration"
                     },
                     "x-example": ""
@@ -107322,7 +107214,6 @@
                     "type": "array",
                     "description": "List of dedicated database specifications.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/dedicatedDatabaseSpecification"
                     },
                     "x-example": []
@@ -107337,10 +107228,11 @@
                     "type": "object",
                     "description": "Overage and add-on pricing shared across all specifications.",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/dedicatedDatabaseSpecificationPricing"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/dedicatedDatabaseSpecificationPricing"
+                        }
+                    ]
                 }
             },
             "required": [
@@ -107524,100 +107416,111 @@
                     "type": "object",
                     "description": "Bandwidth additional resources",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/additionalResource"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/additionalResource"
+                        }
+                    ]
                 },
                 "executions": {
                     "type": "object",
                     "description": "Executions additional resources",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/additionalResource"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/additionalResource"
+                        }
+                    ]
                 },
                 "member": {
                     "type": "object",
                     "description": "Member additional resources",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/additionalResource"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/additionalResource"
+                        }
+                    ]
                 },
                 "realtime": {
                     "type": "object",
                     "description": "Realtime additional resources",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/additionalResource"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/additionalResource"
+                        }
+                    ]
                 },
                 "realtimeMessages": {
                     "type": "object",
                     "description": "Realtime messages additional resources",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/additionalResource"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/additionalResource"
+                        }
+                    ]
                 },
                 "realtimeBandwidth": {
                     "type": "object",
                     "description": "Realtime bandwidth additional resources",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/additionalResource"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/additionalResource"
+                        }
+                    ]
                 },
                 "storage": {
                     "type": "object",
                     "description": "Storage additional resources",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/additionalResource"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/additionalResource"
+                        }
+                    ]
                 },
                 "users": {
                     "type": "object",
                     "description": "User additional resources",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/additionalResource"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/additionalResource"
+                        }
+                    ]
                 },
                 "GBHours": {
                     "type": "object",
                     "description": "GBHour additional resources",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/additionalResource"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/additionalResource"
+                        }
+                    ]
                 },
                 "imageTransformations": {
                     "type": "object",
                     "description": "Image transformation additional resources",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/additionalResource"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/additionalResource"
+                        }
+                    ]
                 },
                 "credits": {
                     "type": "object",
                     "description": "Credits additional resources",
                     "x-example": null,
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/additionalResource"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/additionalResource"
+                        }
+                    ]
                 }
             },
             "required": [
@@ -107782,7 +107685,6 @@
                     "type": "array",
                     "description": "Aggregated stats for number of requests.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -107791,7 +107693,6 @@
                     "type": "array",
                     "description": "Aggregated stats for consumed bandwidth.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -107800,7 +107701,6 @@
                     "type": "array",
                     "description": "Aggregated stats for function executions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -107809,7 +107709,6 @@
                     "type": "array",
                     "description": "Aggregated stats for database reads.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -107818,7 +107717,6 @@
                     "type": "array",
                     "description": "Aggregated stats for database writes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -107827,7 +107725,6 @@
                     "type": "array",
                     "description": "Aggregated stats for file transformations.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -107842,7 +107739,6 @@
                     "type": "array",
                     "description": "Aggregated stats for file transformations.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -107857,7 +107753,6 @@
                     "type": "array",
                     "description": "Aggregated stats for imagine credits.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -107956,7 +107851,6 @@
                     "type": "array",
                     "description": "Aggregated stats for each projects.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/usageOrganizationProject"
                     },
                     "x-example": []
@@ -107965,7 +107859,6 @@
                     "type": "array",
                     "description": "Aggregated stats for realtime connections.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -107980,7 +107873,6 @@
                     "type": "array",
                     "description": "Aggregated stats for realtime messages.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -107995,7 +107887,6 @@
                     "type": "array",
                     "description": "Aggregated stats for realtime bandwidth.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -108089,7 +107980,6 @@
                     "type": "array",
                     "description": "Aggregated stats for number of requests.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -108098,7 +107988,6 @@
                     "type": "array",
                     "description": "Aggregated stats for consumed bandwidth.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -108113,7 +108002,6 @@
                     "type": "array",
                     "description": "Aggregated stats for database reads.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -108122,7 +108010,6 @@
                     "type": "array",
                     "description": "Aggregated stats for database writes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -108173,7 +108060,6 @@
                     "type": "array",
                     "description": "Aggregated stats for file transformations.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -108188,7 +108074,6 @@
                     "type": "array",
                     "description": "Aggregated stats for file transformations.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/metric"
                     },
                     "x-example": []
@@ -108424,7 +108309,6 @@
                     "type": "array",
                     "description": "List of application secrets.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/appSecret"
                     },
                     "x-example": []
@@ -108633,7 +108517,6 @@
                     "type": "array",
                     "description": "List of events.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/activityEvent"
                     },
                     "x-example": ""
@@ -108662,7 +108545,6 @@
                     "type": "array",
                     "description": "List of addons.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/addon"
                     },
                     "x-example": ""
@@ -108691,7 +108573,6 @@
                     "type": "array",
                     "description": "List of aggregations.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/aggregationTeam"
                     },
                     "x-example": ""
@@ -108720,7 +108601,6 @@
                     "type": "array",
                     "description": "List of archives.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/backupArchive"
                     },
                     "x-example": ""
@@ -108749,7 +108629,6 @@
                     "type": "array",
                     "description": "List of policies.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/backupPolicy"
                     },
                     "x-example": ""
@@ -108778,7 +108657,6 @@
                     "type": "array",
                     "description": "List of restorations.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/backupRestoration"
                     },
                     "x-example": ""
@@ -108807,7 +108685,6 @@
                     "type": "array",
                     "description": "List of billingAddresses.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/billingAddress"
                     },
                     "x-example": ""
@@ -108836,7 +108713,6 @@
                     "type": "array",
                     "description": "List of invoices.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/invoice"
                     },
                     "x-example": ""
@@ -108865,7 +108741,6 @@
                     "type": "array",
                     "description": "List of plans.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/billingPlan"
                     },
                     "x-example": ""
@@ -108894,7 +108769,6 @@
                     "type": "array",
                     "description": "List of blocks.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/block"
                     },
                     "x-example": ""
@@ -108923,7 +108797,6 @@
                     "type": "array",
                     "description": "List of connections.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/dedicatedDatabaseConnection"
                     },
                     "x-example": ""
@@ -108952,7 +108825,6 @@
                     "type": "array",
                     "description": "List of slowQueries.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/dedicatedDatabaseSlowQuery"
                     },
                     "x-example": ""
@@ -108981,7 +108853,6 @@
                     "type": "array",
                     "description": "List of databases.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/dedicatedDatabase"
                     },
                     "x-example": ""
@@ -109010,7 +108881,6 @@
                     "type": "array",
                     "description": "List of dnsRecords.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/dnsRecord"
                     },
                     "x-example": ""
@@ -109039,7 +108909,6 @@
                     "type": "array",
                     "description": "List of suggestions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/domainSuggestion"
                     },
                     "x-example": ""
@@ -109068,7 +108937,6 @@
                     "type": "array",
                     "description": "List of domains.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/domain"
                     },
                     "x-example": ""
@@ -109097,7 +108965,6 @@
                     "type": "array",
                     "description": "List of teams.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/organization"
                     },
                     "x-example": ""
@@ -109126,7 +108993,6 @@
                     "type": "array",
                     "description": "List of paymentMethods.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/paymentMethod"
                     },
                     "x-example": ""
@@ -109155,7 +109021,6 @@
                     "type": "array",
                     "description": "List of regions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/consoleRegion"
                     },
                     "x-example": ""
@@ -109184,7 +109049,6 @@
                     "type": "array",
                     "description": "List of events.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/usageEvent"
                     },
                     "x-example": ""
@@ -109213,7 +109077,6 @@
                     "type": "array",
                     "description": "List of gauges.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/usageGauge"
                     },
                     "x-example": ""
@@ -109242,7 +109105,6 @@
                     "type": "array",
                     "description": "List of apps.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/app"
                     },
                     "x-example": ""
@@ -109271,7 +109133,6 @@
                     "type": "array",
                     "description": "List of secrets.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/appSecret"
                     },
                     "x-example": ""

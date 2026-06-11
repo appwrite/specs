@@ -11741,7 +11741,14 @@
                                     "type": "array",
                                     "description": "Default value for attribute when not provided, two-dimensional array of coordinate pairs, [[longitude, latitude], [longitude, latitude], \u2026], listing the vertices of the line in order. Cannot be set when attribute is required.",
                                     "x-example": "[[1, 2], [3, 4], [5, 6]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number",
+                                            "format": "double"
+                                        }
+                                    }
                                 }
                             },
                             "required": [
@@ -11847,7 +11854,14 @@
                                     "type": "array",
                                     "description": "Default value for attribute when not provided, two-dimensional array of coordinate pairs, [[longitude, latitude], [longitude, latitude], \u2026], listing the vertices of the line in order. Cannot be set when attribute is required.",
                                     "x-example": "[[1, 2], [3, 4], [5, 6]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number",
+                                            "format": "double"
+                                        }
+                                    }
                                 },
                                 "newKey": {
                                     "type": "string",
@@ -12396,7 +12410,11 @@
                                     "type": "array",
                                     "description": "Default value for attribute when not provided, array of two numbers [longitude, latitude], representing a single coordinate. Cannot be set when attribute is required.",
                                     "x-example": "[1, 2]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "number",
+                                        "format": "double"
+                                    }
                                 }
                             },
                             "required": [
@@ -12502,7 +12520,11 @@
                                     "type": "array",
                                     "description": "Default value for attribute when not provided, array of two numbers [longitude, latitude], representing a single coordinate. Cannot be set when attribute is required.",
                                     "x-example": "[1, 2]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "number",
+                                        "format": "double"
+                                    }
                                 },
                                 "newKey": {
                                     "type": "string",
@@ -12611,7 +12633,17 @@
                                     "type": "array",
                                     "description": "Default value for attribute when not provided, three-dimensional array where the outer array holds one or more linear rings, [[[longitude, latitude], \u2026], \u2026], the first ring is the exterior boundary, any additional rings are interior holes, and each ring must start and end with the same coordinate pair. Cannot be set when attribute is required.",
                                     "x-example": "[[[1, 2], [3, 4], [5, 6], [1, 2]]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "number",
+                                                "format": "double"
+                                            }
+                                        }
+                                    }
                                 }
                             },
                             "required": [
@@ -12717,7 +12749,17 @@
                                     "type": "array",
                                     "description": "Default value for attribute when not provided, three-dimensional array where the outer array holds one or more linear rings, [[[longitude, latitude], \u2026], \u2026], the first ring is the exterior boundary, any additional rings are interior holes, and each ring must start and end with the same coordinate pair. Cannot be set when attribute is required.",
                                     "x-example": "[[[1, 2], [3, 4], [5, 6], [1, 2]]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "number",
+                                                "format": "double"
+                                            }
+                                        }
+                                    }
                                 },
                                 "newKey": {
                                     "type": "string",
@@ -14768,28 +14810,24 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "queries": {
-                                    "type": "array",
-                                    "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
-                                    "default": [],
-                                    "x-example": null,
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>",
-                                    "x-nullable": true
-                                }
-                            }
-                        }
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "type": "array",
+                        "collectionFormat": "multi",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [],
+                        "in": "query"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -15243,19 +15281,12 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>",
-                                    "x-nullable": true
-                                }
-                            }
-                        }
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -17740,27 +17771,24 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "queries": {
-                                    "type": "array",
-                                    "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
-                                    "default": [],
-                                    "x-example": null,
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>"
-                                }
-                            }
-                        }
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "type": "array",
+                        "collectionFormat": "multi",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [],
+                        "in": "query"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -18187,18 +18215,12 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>"
-                                }
-                            }
-                        }
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -49877,7 +49899,14 @@
                                     "type": "array",
                                     "description": "Default value for column when not provided, two-dimensional array of coordinate pairs, [[longitude, latitude], [longitude, latitude], \u2026], listing the vertices of the line in order. Cannot be set when column is required.",
                                     "x-example": "[[1, 2], [3, 4], [5, 6]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number",
+                                            "format": "double"
+                                        }
+                                    }
                                 }
                             },
                             "required": [
@@ -49984,7 +50013,14 @@
                                     "type": "array",
                                     "description": "Default value for column when not provided, two-dimensional array of coordinate pairs, [[longitude, latitude], [longitude, latitude], \u2026], listing the vertices of the line in order. Cannot be set when column is required.",
                                     "x-example": "[[1, 2], [3, 4], [5, 6]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number",
+                                            "format": "double"
+                                        }
+                                    }
                                 },
                                 "newKey": {
                                     "type": "string",
@@ -50554,7 +50590,11 @@
                                     "type": "array",
                                     "description": "Default value for column when not provided, array of two numbers [longitude, latitude], representing a single coordinate. Cannot be set when column is required.",
                                     "x-example": "[1, 2]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "number",
+                                        "format": "double"
+                                    }
                                 }
                             },
                             "required": [
@@ -50661,7 +50701,11 @@
                                     "type": "array",
                                     "description": "Default value for column when not provided, array of two numbers [longitude, latitude], representing a single coordinate. Cannot be set when column is required.",
                                     "x-example": "[1, 2]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "number",
+                                        "format": "double"
+                                    }
                                 },
                                 "newKey": {
                                     "type": "string",
@@ -50771,7 +50815,17 @@
                                     "type": "array",
                                     "description": "Default value for column when not provided, three-dimensional array where the outer array holds one or more linear rings, [[[longitude, latitude], \u2026], \u2026], the first ring is the exterior boundary, any additional rings are interior holes, and each ring must start and end with the same coordinate pair. Cannot be set when column is required.",
                                     "x-example": "[[[1, 2], [3, 4], [5, 6], [1, 2]]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "number",
+                                                "format": "double"
+                                            }
+                                        }
+                                    }
                                 }
                             },
                             "required": [
@@ -50878,7 +50932,17 @@
                                     "type": "array",
                                     "description": "Default value for column when not provided, three-dimensional array where the outer array holds one or more linear rings, [[[longitude, latitude], \u2026], \u2026], the first ring is the exterior boundary, any additional rings are interior holes, and each ring must start and end with the same coordinate pair. Cannot be set when column is required.",
                                     "x-example": "[[[1, 2], [3, 4], [5, 6], [1, 2]]]",
-                                    "x-nullable": true
+                                    "x-nullable": true,
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "number",
+                                                "format": "double"
+                                            }
+                                        }
+                                    }
                                 },
                                 "newKey": {
                                     "type": "string",
@@ -53343,28 +53407,24 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "queries": {
-                                    "type": "array",
-                                    "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
-                                    "default": [],
-                                    "x-example": null,
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>",
-                                    "x-nullable": true
-                                }
-                            }
-                        }
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "type": "array",
+                        "collectionFormat": "multi",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [],
+                        "in": "query"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -53807,19 +53867,12 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>",
-                                    "x-nullable": true
-                                }
-                            }
-                        }
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -61440,27 +61493,24 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "queries": {
-                                    "type": "array",
-                                    "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
-                                    "default": [],
-                                    "x-example": null,
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>"
-                                }
-                            }
-                        }
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "type": "array",
+                        "collectionFormat": "multi",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [],
+                        "in": "query"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -61890,18 +61940,12 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>"
-                                }
-                            }
-                        }
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -62898,7 +62942,6 @@
                     "type": "array",
                     "description": "List of rows.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/row"
                     },
                     "x-example": ""
@@ -62927,7 +62970,6 @@
                     "type": "array",
                     "description": "List of documents.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/document"
                     },
                     "x-example": ""
@@ -62956,7 +62998,6 @@
                     "type": "array",
                     "description": "List of presences.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/presence"
                     },
                     "x-example": ""
@@ -62985,7 +63026,6 @@
                     "type": "array",
                     "description": "List of tables.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/table"
                     },
                     "x-example": ""
@@ -63014,7 +63054,6 @@
                     "type": "array",
                     "description": "List of collections.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/collection"
                     },
                     "x-example": ""
@@ -63043,7 +63082,6 @@
                     "type": "array",
                     "description": "List of databases.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/database"
                     },
                     "x-example": ""
@@ -63072,7 +63110,6 @@
                     "type": "array",
                     "description": "List of indexes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/index"
                     },
                     "x-example": ""
@@ -63101,7 +63138,6 @@
                     "type": "array",
                     "description": "List of indexes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/columnIndex"
                     },
                     "x-example": ""
@@ -63130,7 +63166,6 @@
                     "type": "array",
                     "description": "List of users.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/user"
                     },
                     "x-example": ""
@@ -63159,7 +63194,6 @@
                     "type": "array",
                     "description": "List of sessions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/session"
                     },
                     "x-example": ""
@@ -63188,7 +63222,6 @@
                     "type": "array",
                     "description": "List of identities.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/identity"
                     },
                     "x-example": ""
@@ -63217,7 +63250,6 @@
                     "type": "array",
                     "description": "List of logs.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/log"
                     },
                     "x-example": ""
@@ -63246,7 +63278,6 @@
                     "type": "array",
                     "description": "List of files.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/file"
                     },
                     "x-example": ""
@@ -63275,7 +63306,6 @@
                     "type": "array",
                     "description": "List of buckets.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/bucket"
                     },
                     "x-example": ""
@@ -63304,7 +63334,6 @@
                     "type": "array",
                     "description": "List of tokens.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/resourceToken"
                     },
                     "x-example": ""
@@ -63333,7 +63362,6 @@
                     "type": "array",
                     "description": "List of teams.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/team"
                     },
                     "x-example": ""
@@ -63362,7 +63390,6 @@
                     "type": "array",
                     "description": "List of memberships.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/membership"
                     },
                     "x-example": ""
@@ -63391,7 +63418,6 @@
                     "type": "array",
                     "description": "List of sites.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/site"
                     },
                     "x-example": ""
@@ -63420,7 +63446,6 @@
                     "type": "array",
                     "description": "List of functions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/function"
                     },
                     "x-example": ""
@@ -63449,7 +63474,6 @@
                     "type": "array",
                     "description": "List of frameworks.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/framework"
                     },
                     "x-example": ""
@@ -63478,7 +63502,6 @@
                     "type": "array",
                     "description": "List of runtimes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/runtime"
                     },
                     "x-example": ""
@@ -63507,7 +63530,6 @@
                     "type": "array",
                     "description": "List of deployments.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/deployment"
                     },
                     "x-example": ""
@@ -63536,7 +63558,6 @@
                     "type": "array",
                     "description": "List of executions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/execution"
                     },
                     "x-example": ""
@@ -63565,7 +63586,6 @@
                     "type": "array",
                     "description": "List of projects.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/project"
                     },
                     "x-example": ""
@@ -63594,7 +63614,6 @@
                     "type": "array",
                     "description": "List of webhooks.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/webhook"
                     },
                     "x-example": ""
@@ -63623,7 +63642,6 @@
                     "type": "array",
                     "description": "List of keys.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/key"
                     },
                     "x-example": ""
@@ -63652,7 +63670,6 @@
                     "type": "array",
                     "description": "List of countries.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/country"
                     },
                     "x-example": ""
@@ -63681,7 +63698,6 @@
                     "type": "array",
                     "description": "List of continents.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/continent"
                     },
                     "x-example": ""
@@ -63710,7 +63726,6 @@
                     "type": "array",
                     "description": "List of languages.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/language"
                     },
                     "x-example": ""
@@ -63739,7 +63754,6 @@
                     "type": "array",
                     "description": "List of currencies.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/currency"
                     },
                     "x-example": ""
@@ -63768,7 +63782,6 @@
                     "type": "array",
                     "description": "List of phones.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/phone"
                     },
                     "x-example": ""
@@ -63797,7 +63810,6 @@
                     "type": "array",
                     "description": "List of variables.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/variable"
                     },
                     "x-example": ""
@@ -63826,7 +63838,6 @@
                     "type": "array",
                     "description": "List of mockNumbers.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/mockNumber"
                     },
                     "x-example": ""
@@ -63941,7 +63952,6 @@
                     "type": "array",
                     "description": "List of templates.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/emailTemplate"
                     },
                     "x-example": ""
@@ -63970,7 +63980,6 @@
                     "type": "array",
                     "description": "List of statuses.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/healthStatus"
                     },
                     "x-example": ""
@@ -63999,7 +64008,6 @@
                     "type": "array",
                     "description": "List of rules.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/proxyRule"
                     },
                     "x-example": ""
@@ -64028,7 +64036,6 @@
                     "type": "array",
                     "description": "List of localeCodes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/localeCode"
                     },
                     "x-example": ""
@@ -64057,7 +64064,6 @@
                     "type": "array",
                     "description": "List of providers.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/provider"
                     },
                     "x-example": ""
@@ -64086,7 +64092,6 @@
                     "type": "array",
                     "description": "List of messages.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/message"
                     },
                     "x-example": ""
@@ -64115,7 +64120,6 @@
                     "type": "array",
                     "description": "List of topics.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/topic"
                     },
                     "x-example": ""
@@ -64144,7 +64148,6 @@
                     "type": "array",
                     "description": "List of subscribers.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/subscriber"
                     },
                     "x-example": ""
@@ -64173,7 +64176,6 @@
                     "type": "array",
                     "description": "List of targets.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/target"
                     },
                     "x-example": ""
@@ -64202,7 +64204,6 @@
                     "type": "array",
                     "description": "List of transactions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/transaction"
                     },
                     "x-example": ""
@@ -64231,7 +64232,6 @@
                     "type": "array",
                     "description": "List of specifications.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/specification"
                     },
                     "x-example": ""
@@ -64260,7 +64260,6 @@
                     "type": "array",
                     "description": "List of collections.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/vectorsdbCollection"
                     },
                     "x-example": ""
@@ -64289,7 +64288,6 @@
                     "type": "array",
                     "description": "List of embeddings.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/embedding"
                     },
                     "x-example": ""
@@ -64318,7 +64316,6 @@
                     "type": "array",
                     "description": "List of insights.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/insight"
                     },
                     "x-example": ""
@@ -64347,7 +64344,6 @@
                     "type": "array",
                     "description": "List of reports.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/report"
                     },
                     "x-example": ""
@@ -64406,7 +64402,6 @@
                     "type": "array",
                     "description": "Database backup policies.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/backupPolicy"
                     },
                     "x-example": {}
@@ -64415,7 +64410,6 @@
                     "type": "array",
                     "description": "Database backup archives.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/backupArchive"
                     },
                     "x-example": {}
@@ -64692,7 +64686,6 @@
                     "type": "array",
                     "description": "Collection indexes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/index"
                     },
                     "x-example": {}
@@ -66004,6 +65997,10 @@
                         0,
                         0
                     ],
+                    "items": {
+                        "type": "number",
+                        "format": "double"
+                    },
                     "x-nullable": true
                 }
             },
@@ -66097,6 +66094,13 @@
                             1
                         ]
                     ],
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    },
                     "x-nullable": true
                 }
             },
@@ -66208,6 +66212,16 @@
                             ]
                         ]
                     ],
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "number",
+                                "format": "double"
+                            }
+                        }
+                    },
                     "x-nullable": true
                 }
             },
@@ -66688,7 +66702,6 @@
                     "type": "array",
                     "description": "Collection indexes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/index"
                     },
                     "x-example": {}
@@ -67100,7 +67113,6 @@
                     "type": "array",
                     "description": "Table indexes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/columnIndex"
                     },
                     "x-example": {}
@@ -68412,6 +68424,10 @@
                         0,
                         0
                     ],
+                    "items": {
+                        "type": "number",
+                        "format": "double"
+                    },
                     "x-nullable": true
                 }
             },
@@ -68505,6 +68521,13 @@
                             1
                         ]
                     ],
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    },
                     "x-nullable": true
                 }
             },
@@ -68616,6 +68639,16 @@
                             ]
                         ]
                     ],
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "number",
+                                "format": "double"
+                            }
+                        }
+                    },
                     "x-nullable": true
                 }
             },
@@ -69641,41 +69674,39 @@
                     "type": "object",
                     "description": "Password hashing algorithm configuration.",
                     "x-example": {},
-                    "items": {
-                        "x-oneOf": [
-                            {
-                                "$ref": "#\/definitions\/algoArgon2"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoScrypt"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoScryptModified"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoBcrypt"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoPhpass"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoSha"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoMd5"
-                            }
-                        ],
-                        "x-discriminator": {
-                            "propertyName": "type",
-                            "mapping": {
-                                "argon2": "#\/definitions\/algoArgon2",
-                                "scrypt": "#\/definitions\/algoScrypt",
-                                "scryptMod": "#\/definitions\/algoScryptModified",
-                                "bcrypt": "#\/definitions\/algoBcrypt",
-                                "phpass": "#\/definitions\/algoPhpass",
-                                "sha": "#\/definitions\/algoSha",
-                                "md5": "#\/definitions\/algoMd5"
-                            }
+                    "x-oneOf": [
+                        {
+                            "$ref": "#\/definitions\/algoArgon2"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoScrypt"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoScryptModified"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoBcrypt"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoPhpass"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoSha"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoMd5"
+                        }
+                    ],
+                    "x-discriminator": {
+                        "propertyName": "type",
+                        "mapping": {
+                            "argon2": "#\/definitions\/algoArgon2",
+                            "scrypt": "#\/definitions\/algoScrypt",
+                            "scryptMod": "#\/definitions\/algoScryptModified",
+                            "bcrypt": "#\/definitions\/algoBcrypt",
+                            "phpass": "#\/definitions\/algoPhpass",
+                            "sha": "#\/definitions\/algoSha",
+                            "md5": "#\/definitions\/algoMd5"
                         }
                     },
                     "x-nullable": true
@@ -69767,16 +69798,16 @@
                         "theme": "pink",
                         "timezone": "UTC"
                     },
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/preferences"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/preferences"
+                        }
+                    ]
                 },
                 "targets": {
                     "type": "array",
                     "description": "A user-owned message receiver. A single user may have multiple e.g. emails, phones, and a browser. Each target is registered with a single provider.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/target"
                     },
                     "x-example": []
@@ -70850,10 +70881,11 @@
                         "theme": "pink",
                         "timezone": "UTC"
                     },
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/preferences"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/preferences"
+                        }
+                    ]
                 }
             },
             "required": [
@@ -71087,7 +71119,6 @@
                     "type": "array",
                     "description": "Site variables.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/variable"
                     },
                     "x-example": []
@@ -71365,7 +71396,6 @@
                     "type": "array",
                     "description": "Function variables.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/variable"
                     },
                     "x-example": []
@@ -71640,7 +71670,6 @@
                     "type": "array",
                     "description": "List of supported adapters.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/frameworkAdapter"
                     },
                     "x-example": [
@@ -72011,7 +72040,6 @@
                     "type": "array",
                     "description": "HTTP request headers as a key-value object. This will return only whitelisted headers. All headers are returned if execution is created as synchronous.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/headers"
                     },
                     "x-example": [
@@ -72035,7 +72063,6 @@
                     "type": "array",
                     "description": "HTTP response headers as a key-value object. This will return only whitelisted headers. All headers are returned if execution is created as synchronous.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/headers"
                     },
                     "x-example": [
@@ -72155,7 +72182,6 @@
                     "type": "array",
                     "description": "Deprecated since 1.9.5: List of dev keys.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/devKey"
                     },
                     "x-example": {}
@@ -72242,7 +72268,6 @@
                     "type": "array",
                     "description": "List of auth methods.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/projectAuthMethod"
                     },
                     "x-example": {}
@@ -72251,7 +72276,6 @@
                     "type": "array",
                     "description": "List of services.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/projectService"
                     },
                     "x-example": {}
@@ -72260,7 +72284,6 @@
                     "type": "array",
                     "description": "List of protocols.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/projectProtocol"
                     },
                     "x-example": {}
@@ -72269,7 +72292,6 @@
                     "type": "array",
                     "description": "Project blocks information",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/block"
                     },
                     "x-example": ""
@@ -72283,10 +72305,11 @@
                     "type": "object",
                     "description": "Billing limits reached",
                     "x-example": "",
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/billingLimits"
-                    },
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/billingLimits"
+                        }
+                    ],
                     "x-nullable": true
                 },
                 "oAuth2ServerEnabled": {
@@ -76635,10 +76658,11 @@
                         "identifier": "random-mail@email.org",
                         "userId": "5e5ea5c16897e"
                     },
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/target"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/target"
+                        }
+                    ]
                 },
                 "userId": {
                     "type": "string",
@@ -76839,7 +76863,6 @@
                     "type": "array",
                     "description": "List of call-to-action buttons attached to this insight.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/insightCTA"
                     },
                     "x-example": []
@@ -77018,7 +77041,6 @@
                     "type": "array",
                     "description": "Insights nested under this report.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/insight"
                     },
                     "x-example": []
@@ -77527,6 +77549,11 @@
                     "description": "Policy backup schedule in CRON format.",
                     "x-example": "0 * * * *"
                 },
+                "type": {
+                    "type": "string",
+                    "description": "Backup type. Possible values: full (complete database snapshot), incremental (changes since last backup).",
+                    "x-example": "full"
+                },
                 "enabled": {
                     "type": "boolean",
                     "description": "Is this policy enabled.",
@@ -77542,6 +77569,7 @@
                 "resources",
                 "retention",
                 "schedule",
+                "type",
                 "enabled"
             ],
             "example": {
@@ -77555,6 +77583,7 @@
                 "resourceType": "database",
                 "retention": 7,
                 "schedule": "0 * * * *",
+                "type": "full",
                 "enabled": true
             }
         },
@@ -77948,7 +77977,6 @@
                     "type": "array",
                     "description": "List of application secrets.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/appSecret"
                     },
                     "x-example": []
@@ -78314,7 +78342,6 @@
                     "type": "array",
                     "description": "List of events.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/activityEvent"
                     },
                     "x-example": ""
@@ -78343,7 +78370,6 @@
                     "type": "array",
                     "description": "List of archives.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/backupArchive"
                     },
                     "x-example": ""
@@ -78372,7 +78398,6 @@
                     "type": "array",
                     "description": "List of policies.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/backupPolicy"
                     },
                     "x-example": ""
@@ -78401,7 +78426,6 @@
                     "type": "array",
                     "description": "List of restorations.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/backupRestoration"
                     },
                     "x-example": ""
@@ -78430,7 +78454,6 @@
                     "type": "array",
                     "description": "List of events.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/usageEvent"
                     },
                     "x-example": ""
@@ -78459,7 +78482,6 @@
                     "type": "array",
                     "description": "List of gauges.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/usageGauge"
                     },
                     "x-example": ""
@@ -78488,7 +78510,6 @@
                     "type": "array",
                     "description": "List of apps.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/app"
                     },
                     "x-example": ""
@@ -78517,7 +78538,6 @@
                     "type": "array",
                     "description": "List of secrets.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/appSecret"
                     },
                     "x-example": ""
