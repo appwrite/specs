@@ -24,6 +24,7 @@ query {
                 resourceType
                 retention
                 schedule
+                type
                 enabled
             }
             archives {

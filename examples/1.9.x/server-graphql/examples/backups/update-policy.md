@@ -17,6 +17,7 @@ mutation {
         resourceType
         retention
         schedule
+        type
         enabled
     }
 }
@@ -38,6 +39,7 @@ mutation {
         resourceType
         retention
         schedule
+        type
         enabled
     }
 }

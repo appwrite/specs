@@ -8555,19 +8555,12 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>",
-                                    "x-nullable": true
-                                }
-                            }
-                        }
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -9928,18 +9921,12 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>"
-                                }
-                            }
-                        }
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -14050,19 +14037,12 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>",
-                                    "x-nullable": true
-                                }
-                            }
-                        }
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -16440,18 +16420,12 @@
                         "in": "path"
                     },
                     {
-                        "name": "payload",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "transactionId": {
-                                    "type": "string",
-                                    "description": "Transaction ID for staging the operation.",
-                                    "x-example": "<TRANSACTION_ID>"
-                                }
-                            }
-                        }
+                        "name": "transactionId",
+                        "description": "Transaction ID for staging the operation.",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "<TRANSACTION_ID>",
+                        "in": "query"
                     }
                 ]
             }
@@ -16552,7 +16526,6 @@
                     "type": "array",
                     "description": "List of rows.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/row"
                     },
                     "x-example": ""
@@ -16581,7 +16554,6 @@
                     "type": "array",
                     "description": "List of documents.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/document"
                     },
                     "x-example": ""
@@ -16610,7 +16582,6 @@
                     "type": "array",
                     "description": "List of presences.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/presence"
                     },
                     "x-example": ""
@@ -16639,7 +16610,6 @@
                     "type": "array",
                     "description": "List of sessions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/session"
                     },
                     "x-example": ""
@@ -16668,7 +16638,6 @@
                     "type": "array",
                     "description": "List of identities.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/identity"
                     },
                     "x-example": ""
@@ -16697,7 +16666,6 @@
                     "type": "array",
                     "description": "List of logs.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/log"
                     },
                     "x-example": ""
@@ -16726,7 +16694,6 @@
                     "type": "array",
                     "description": "List of files.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/file"
                     },
                     "x-example": ""
@@ -16755,7 +16722,6 @@
                     "type": "array",
                     "description": "List of teams.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/team"
                     },
                     "x-example": ""
@@ -16784,7 +16750,6 @@
                     "type": "array",
                     "description": "List of memberships.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/membership"
                     },
                     "x-example": ""
@@ -16813,7 +16778,6 @@
                     "type": "array",
                     "description": "List of executions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/execution"
                     },
                     "x-example": ""
@@ -16842,7 +16806,6 @@
                     "type": "array",
                     "description": "List of countries.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/country"
                     },
                     "x-example": ""
@@ -16871,7 +16834,6 @@
                     "type": "array",
                     "description": "List of continents.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/continent"
                     },
                     "x-example": ""
@@ -16900,7 +16862,6 @@
                     "type": "array",
                     "description": "List of languages.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/language"
                     },
                     "x-example": ""
@@ -16929,7 +16890,6 @@
                     "type": "array",
                     "description": "List of currencies.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/currency"
                     },
                     "x-example": ""
@@ -16958,7 +16918,6 @@
                     "type": "array",
                     "description": "List of phones.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/phone"
                     },
                     "x-example": ""
@@ -16987,7 +16946,6 @@
                     "type": "array",
                     "description": "List of localeCodes.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/localeCode"
                     },
                     "x-example": ""
@@ -17016,7 +16974,6 @@
                     "type": "array",
                     "description": "List of transactions.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/transaction"
                     },
                     "x-example": ""
@@ -17464,41 +17421,39 @@
                     "type": "object",
                     "description": "Password hashing algorithm configuration.",
                     "x-example": {},
-                    "items": {
-                        "x-oneOf": [
-                            {
-                                "$ref": "#\/definitions\/algoArgon2"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoScrypt"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoScryptModified"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoBcrypt"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoPhpass"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoSha"
-                            },
-                            {
-                                "$ref": "#\/definitions\/algoMd5"
-                            }
-                        ],
-                        "x-discriminator": {
-                            "propertyName": "type",
-                            "mapping": {
-                                "argon2": "#\/definitions\/algoArgon2",
-                                "scrypt": "#\/definitions\/algoScrypt",
-                                "scryptMod": "#\/definitions\/algoScryptModified",
-                                "bcrypt": "#\/definitions\/algoBcrypt",
-                                "phpass": "#\/definitions\/algoPhpass",
-                                "sha": "#\/definitions\/algoSha",
-                                "md5": "#\/definitions\/algoMd5"
-                            }
+                    "x-oneOf": [
+                        {
+                            "$ref": "#\/definitions\/algoArgon2"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoScrypt"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoScryptModified"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoBcrypt"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoPhpass"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoSha"
+                        },
+                        {
+                            "$ref": "#\/definitions\/algoMd5"
+                        }
+                    ],
+                    "x-discriminator": {
+                        "propertyName": "type",
+                        "mapping": {
+                            "argon2": "#\/definitions\/algoArgon2",
+                            "scrypt": "#\/definitions\/algoScrypt",
+                            "scryptMod": "#\/definitions\/algoScryptModified",
+                            "bcrypt": "#\/definitions\/algoBcrypt",
+                            "phpass": "#\/definitions\/algoPhpass",
+                            "sha": "#\/definitions\/algoSha",
+                            "md5": "#\/definitions\/algoMd5"
                         }
                     },
                     "x-nullable": true
@@ -17590,16 +17545,16 @@
                         "theme": "pink",
                         "timezone": "UTC"
                     },
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/preferences"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/preferences"
+                        }
+                    ]
                 },
                 "targets": {
                     "type": "array",
                     "description": "A user-owned message receiver. A single user may have multiple e.g. emails, phones, and a browser. Each target is registered with a single provider.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/target"
                     },
                     "x-example": []
@@ -18488,10 +18443,11 @@
                         "theme": "pink",
                         "timezone": "UTC"
                     },
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/preferences"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/preferences"
+                        }
+                    ]
                 }
             },
             "required": [
@@ -18711,7 +18667,6 @@
                     "type": "array",
                     "description": "HTTP request headers as a key-value object. This will return only whitelisted headers. All headers are returned if execution is created as synchronous.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/headers"
                     },
                     "x-example": [
@@ -18735,7 +18690,6 @@
                     "type": "array",
                     "description": "HTTP response headers as a key-value object. This will return only whitelisted headers. All headers are returned if execution is created as synchronous.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/headers"
                     },
                     "x-example": [
@@ -19228,10 +19182,11 @@
                         "identifier": "random-mail@email.org",
                         "userId": "5e5ea5c16897e"
                     },
-                    "items": {
-                        "type": "object",
-                        "$ref": "#\/definitions\/target"
-                    }
+                    "allOf": [
+                        {
+                            "$ref": "#\/definitions\/target"
+                        }
+                    ]
                 },
                 "userId": {
                     "type": "string",
@@ -19457,7 +19412,6 @@
                     "type": "array",
                     "description": "List of application secrets.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/appSecret"
                     },
                     "x-example": []
@@ -19823,7 +19777,6 @@
                     "type": "array",
                     "description": "List of apps.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/app"
                     },
                     "x-example": ""
@@ -19852,7 +19805,6 @@
                     "type": "array",
                     "description": "List of secrets.",
                     "items": {
-                        "type": "object",
                         "$ref": "#\/definitions\/appSecret"
                     },
                     "x-example": ""
