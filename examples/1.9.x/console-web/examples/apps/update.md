@@ -16,6 +16,11 @@ const result = await apps.update({
     privacyPolicyUrl: 'https://example.com', // optional
     termsUrl: 'https://example.com', // optional
     contacts: [], // optional
+    tagline: '<TAGLINE>', // optional
+    tags: [], // optional
+    images: [], // optional
+    supportUrl: 'https://example.com', // optional
+    dataDeletionUrl: 'https://example.com', // optional
     enabled: false, // optional
     redirectUris: [], // optional
     type: 'public', // optional

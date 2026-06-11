@@ -13,7 +13,6 @@ const result = await compute.createDatabase({
     database: '<DATABASE>', // optional
     engine: 'postgres', // optional
     version: '17', // optional
-    type: 'shared', // optional
     specification: '<SPECIFICATION>', // optional
     backend: 'prisma', // optional
     cpu: 125, // optional
