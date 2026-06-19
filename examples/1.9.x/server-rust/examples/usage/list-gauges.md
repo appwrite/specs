@@ -12,8 +12,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let usage = Usage::new(&client);
 
     let result = usage.list_gauges(
+        "<METRIC>",
+        Some("<RESOURCE_ID>"), // optional
+        Some("<TEAM_ID>"), // optional
+        Some("1m"), // optional
         Some(vec![]), // optional
-        Some(false) // optional
+        Some("2020-10-15T06:38:00.000+00:00"), // optional
+        Some("2020-10-15T06:38:00.000+00:00"), // optional
+        Some("time"), // optional
+        Some("asc"), // optional
+        Some(1), // optional
+        Some(0) // optional
     ).await?;
 
     let _ = result;

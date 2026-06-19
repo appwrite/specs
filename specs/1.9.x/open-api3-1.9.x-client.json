@@ -4385,6 +4385,15 @@
                                             "type": "string"
                                         }
                                     },
+                                    "postLogoutRedirectUris": {
+                                        "type": "array",
+                                        "description": "Post-logout redirect URIs for OpenID Connect RP-Initiated Logout (array of valid URLs). After ending the user session, the logout endpoint only redirects to URIs in this list.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
                                     "enabled": {
                                         "type": "boolean",
                                         "description": "Is application enabled?",
@@ -4644,6 +4653,15 @@
                                     "redirectUris": {
                                         "type": "array",
                                         "description": "Redirect URIs (array of valid URLs).",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "postLogoutRedirectUris": {
+                                        "type": "array",
+                                        "description": "Post-logout redirect URIs for OpenID Connect RP-Initiated Logout (array of valid URLs). After ending the user session, the logout endpoint only redirects to URIs in this list.",
                                         "default": [],
                                         "x-example": null,
                                         "items": {
@@ -11403,6 +11421,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "oauth2.write",
                     "platforms": [
+                        "console",
                         "client",
                         "server"
                     ],
@@ -11490,6 +11509,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "public",
                     "platforms": [
+                        "console",
                         "client",
                         "server"
                     ],
@@ -11638,6 +11658,98 @@
                 ]
             }
         },
+        "\/oauth2\/{project_id}\/device_authorization": {
+            "post": {
+                "summary": "OAuth2 Device Authorization",
+                "operationId": "oauth2CreateDeviceAuthorization",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Start the OAuth2 Device Authorization Grant. Returns the device code, user code, verification URL, expiration, and polling interval.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 Device Authorization",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2DeviceAuthorization"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createDeviceAuthorization",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/create-device-authorization.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "client_id": {
+                                        "type": "string",
+                                        "description": "OAuth2 client ID.",
+                                        "default": "",
+                                        "x-example": "<CLIENT_ID>"
+                                    },
+                                    "scope": {
+                                        "type": "string",
+                                        "description": "Space-separated OAuth2 scopes. Can include project scopes, and built-in scopes: `openid`, `email`, `profile`.",
+                                        "default": "",
+                                        "x-example": "<SCOPE>"
+                                    },
+                                    "authorization_details": {
+                                        "type": "string",
+                                        "description": "Rich authorization request. JSON array of objects, each with a `type` and project-defined fields",
+                                        "default": "",
+                                        "x-example": "<AUTHORIZATION_DETAILS>"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/oauth2\/{project_id}\/grants": {
             "post": {
                 "summary": "Create OAuth2 Grant",
@@ -11670,18 +11782,19 @@
                     "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "oauth2.write",
                     "platforms": [
+                        "console",
                         "client",
                         "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
-                        "Project": []
+                        "ProjectPath": []
                     }
                 },
                 "security": [
                     {
-                        "Project": [],
+                        "ProjectPath": [],
                         "Session": [],
                         "JWT": []
                     }
@@ -11751,18 +11864,19 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "oauth2.read",
                     "platforms": [
+                        "console",
                         "client",
                         "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
-                        "Project": []
+                        "ProjectPath": []
                     }
                 },
                 "security": [
                     {
-                        "Project": [],
+                        "ProjectPath": [],
                         "Session": [],
                         "JWT": []
                     }
@@ -11787,6 +11901,130 @@
                             "x-example": "<GRANT_ID>"
                         },
                         "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/oauth2\/{project_id}\/logout": {
+            "get": {
+                "summary": "OAuth2 Logout",
+                "operationId": "oauth2Logout",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "OpenID Connect RP-Initiated Logout. Ends the user session and revokes the tokens issued to the app identified by the `id_token_hint`, then redirects the user to `post_logout_redirect_uri` when it matches a URI registered on the app.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "logout",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/logout.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [
+                        "console",
+                        "client"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "produces": [
+                        "application\/json"
+                    ],
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "id_token_hint",
+                        "description": "ID Token previously issued to the app, used as proof of the logout request. Required to end the session; signature and issuer are validated while expiry is ignored.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<ID_TOKEN_HINT>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "logout_hint",
+                        "description": "Hint about the user that is logging out. Accepted for OIDC compatibility.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<LOGOUT_HINT>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "client_id",
+                        "description": "OAuth2 client ID. When both `client_id` and `id_token_hint` are provided, they must identify the same app.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<CLIENT_ID>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "post_logout_redirect_uri",
+                        "description": "URI to redirect the user to after logout. Must exactly match a URI registered in the app's `postLogoutRedirectUris`.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "url",
+                            "x-example": "https:\/\/example.com",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "state",
+                        "description": "Opaque value passed back unchanged in the `state` query param of the post-logout redirect.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<STATE>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "ui_locales",
+                        "description": "Preferred languages for any logout UI, as space-separated BCP47 tags. Accepted for OIDC compatibility.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<UI_LOCALES>",
+                            "default": ""
+                        },
+                        "in": "query"
                     }
                 ]
             }
@@ -11823,6 +12061,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "oauth2.write",
                     "platforms": [
+                        "console",
                         "client",
                         "server"
                     ],
@@ -11870,6 +12109,283 @@
                         }
                     }
                 }
+            }
+        },
+        "\/oauth2\/{project_id}\/revoke": {
+            "post": {
+                "summary": "OAuth2 Revoke",
+                "operationId": "oauth2Revoke",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Revoke an OAuth2 access token or refresh token.",
+                "responses": {
+                    "200": {
+                        "description": "File",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "revoke",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/revoke.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "token": {
+                                        "type": "string",
+                                        "description": "The access or refresh token to revoke.",
+                                        "x-example": "<TOKEN>"
+                                    },
+                                    "token_type_hint": {
+                                        "type": "string",
+                                        "description": "Type of token to revoke (access_token or refresh_token).",
+                                        "default": "",
+                                        "x-example": "access_token"
+                                    },
+                                    "client_id": {
+                                        "type": "string",
+                                        "description": "OAuth2 client ID.",
+                                        "default": "",
+                                        "x-example": "<CLIENT_ID>"
+                                    },
+                                    "client_secret": {
+                                        "type": "string",
+                                        "description": "OAuth2 client secret. Required for confidential apps; omitted for public apps.",
+                                        "default": "",
+                                        "x-example": "<CLIENT_SECRET>"
+                                    }
+                                },
+                                "required": [
+                                    "token"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/oauth2\/{project_id}\/token": {
+            "post": {
+                "summary": "OAuth2 Token",
+                "operationId": "oauth2CreateToken",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Exchange an OAuth2 authorization code, refresh token, or device code for access and refresh tokens.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 Token",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2Token"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createToken",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/create-token.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "grant_type": {
+                                        "type": "string",
+                                        "description": "OAuth2 grant type. Can be one of: `authorization_code`, `refresh_token`, `urn:ietf:params:oauth:grant-type:device_code`.",
+                                        "x-example": "<GRANT_TYPE>"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "description": "Authorization code to be exchanged for access and refresh tokens. Required for `authorization_code` grant type.",
+                                        "default": "",
+                                        "x-example": "<CODE>"
+                                    },
+                                    "refresh_token": {
+                                        "type": "string",
+                                        "description": "Refresh token to be exchanged for a new access and refresh tokens. Required for `refresh_token` grant type.",
+                                        "default": "",
+                                        "x-example": "<REFRESH_TOKEN>"
+                                    },
+                                    "device_code": {
+                                        "type": "string",
+                                        "description": "Device code obtained from the device authorization endpoint. Required for `urn:ietf:params:oauth:grant-type:device_code` grant type.",
+                                        "default": "",
+                                        "x-example": "<DEVICE_CODE>"
+                                    },
+                                    "client_id": {
+                                        "type": "string",
+                                        "description": "OAuth2 client ID.",
+                                        "default": "",
+                                        "x-example": "<CLIENT_ID>"
+                                    },
+                                    "client_secret": {
+                                        "type": "string",
+                                        "description": "OAuth2 client secret. Required for confidential apps.",
+                                        "default": "",
+                                        "x-example": "<CLIENT_SECRET>"
+                                    },
+                                    "code_verifier": {
+                                        "type": "string",
+                                        "description": "PKCE code verifier. Required for public apps.",
+                                        "default": "",
+                                        "x-example": "<CODE_VERIFIER>"
+                                    },
+                                    "redirect_uri": {
+                                        "type": "string",
+                                        "description": "Redirect URI. Required for `authorization_code` grant type.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    }
+                                },
+                                "required": [
+                                    "grant_type"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/ping": {
+            "get": {
+                "summary": "Test the connection between the Appwrite and the SDK.",
+                "operationId": "pingGet",
+                "tags": [
+                    "ping"
+                ],
+                "description": "Send a ping to project as part of onboarding.",
+                "responses": {
+                    "200": {
+                        "description": "Any",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/any"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "get",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "ping\/get.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "global",
+                    "platforms": [
+                        "console",
+                        "server",
+                        "client"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "JWT": [],
+                        "Session": []
+                    }
+                ]
             }
         },
         "\/presences": {
@@ -16950,6 +17466,10 @@
         {
             "name": "messaging",
             "description": "The Messaging service allows you to send messages to any provider type (SMTP, push notification, SMS, etc.)."
+        },
+        {
+            "name": "oauth2",
+            "description": "The OAuth2 service allows you to authorize apps and issue standards-based OAuth2 and OpenID Connect tokens."
         }
     ],
     "components": {
@@ -19871,6 +20391,16 @@
                             "https:\/\/example.com\/callback"
                         ]
                     },
+                    "postLogoutRedirectUris": {
+                        "type": "array",
+                        "description": "List of authorized post-logout redirect URIs for OpenID Connect RP-Initiated Logout. The logout endpoint only redirects users to URIs in this list after ending their session.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "https:\/\/example.com\/logged-out"
+                        ]
+                    },
                     "enabled": {
                         "type": "boolean",
                         "description": "Whether the app is enabled or not.",
@@ -19922,6 +20452,7 @@
                     "supportUrl",
                     "dataDeletionUrl",
                     "redirectUris",
+                    "postLogoutRedirectUris",
                     "enabled",
                     "type",
                     "deviceFlow",
@@ -19954,6 +20485,9 @@
                     "dataDeletionUrl": "https:\/\/example.com\/data-deletion",
                     "redirectUris": [
                         "https:\/\/example.com\/callback"
+                    ],
+                    "postLogoutRedirectUris": [
+                        "https:\/\/example.com\/logged-out"
                     ],
                     "enabled": true,
                     "type": "confidential",
@@ -20266,6 +20800,120 @@
                     "expire": "2020-10-15T06:38:00.000+00:00"
                 }
             },
+            "oauth2DeviceAuthorization": {
+                "description": "OAuth2 Device Authorization",
+                "type": "object",
+                "properties": {
+                    "device_code": {
+                        "type": "string",
+                        "description": "Device verification code used by the client to poll the token endpoint.",
+                        "x-example": "5f3c8d2a1b9e4f7a6c8b2d1e9f4a7b3c5d8e1f2a9b4c7d6e3f5a8b1c4d7e2f9a"
+                    },
+                    "user_code": {
+                        "type": "string",
+                        "description": "Short code the end user enters on the verification page.",
+                        "x-example": "ABCD-EFGH"
+                    },
+                    "verification_uri": {
+                        "type": "string",
+                        "description": "URL where the end user enters the user code.",
+                        "x-example": "https:\/\/cloud.appwrite.io\/oauth2\/device"
+                    },
+                    "verification_uri_complete": {
+                        "type": "string",
+                        "description": "Verification URL with the user code prefilled as a query parameter.",
+                        "x-example": "https:\/\/cloud.appwrite.io\/oauth2\/device?user_code=ABCD-EFGH"
+                    },
+                    "expires_in": {
+                        "type": "integer",
+                        "description": "Lifetime of the device code and user code in seconds.",
+                        "x-example": 900,
+                        "format": "int32"
+                    },
+                    "interval": {
+                        "type": "integer",
+                        "description": "Minimum polling interval for the token endpoint in seconds.",
+                        "x-example": 5,
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "device_code",
+                    "user_code",
+                    "verification_uri",
+                    "verification_uri_complete",
+                    "expires_in",
+                    "interval"
+                ],
+                "example": {
+                    "device_code": "5f3c8d2a1b9e4f7a6c8b2d1e9f4a7b3c5d8e1f2a9b4c7d6e3f5a8b1c4d7e2f9a",
+                    "user_code": "ABCD-EFGH",
+                    "verification_uri": "https:\/\/cloud.appwrite.io\/oauth2\/device",
+                    "verification_uri_complete": "https:\/\/cloud.appwrite.io\/oauth2\/device?user_code=ABCD-EFGH",
+                    "expires_in": 900,
+                    "interval": 5
+                }
+            },
+            "oauth2Token": {
+                "description": "OAuth2 Token",
+                "type": "object",
+                "properties": {
+                    "access_token": {
+                        "type": "string",
+                        "description": "OAuth2 access token.",
+                        "x-example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9..."
+                    },
+                    "token_type": {
+                        "type": "string",
+                        "description": "OAuth2 token type.",
+                        "x-example": "Bearer"
+                    },
+                    "expires_in": {
+                        "type": "integer",
+                        "description": "Access token lifetime in seconds.",
+                        "x-example": 3600,
+                        "format": "int32"
+                    },
+                    "refresh_token": {
+                        "type": "string",
+                        "description": "OAuth2 refresh token.",
+                        "x-example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                    },
+                    "scope": {
+                        "type": "string",
+                        "description": "Space-separated scopes granted to the access token.",
+                        "x-example": "openid email profile"
+                    },
+                    "authorization_details": {
+                        "type": "string",
+                        "description": "Granted RFC 9396 authorization details as a JSON string.",
+                        "x-example": "[{\"type\":\"calendar\",\"identifier\":\"primary\",\"actions\":[\"read_events\"]}]",
+                        "nullable": true
+                    },
+                    "id_token": {
+                        "type": "string",
+                        "description": "OpenID Connect ID token. Returned when the `openid` scope is granted.",
+                        "x-example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9...",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "access_token",
+                    "token_type",
+                    "expires_in",
+                    "refresh_token",
+                    "scope"
+                ],
+                "example": {
+                    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9...",
+                    "token_type": "Bearer",
+                    "expires_in": 3600,
+                    "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
+                    "scope": "openid email profile",
+                    "authorization_details": "[{\"type\":\"calendar\",\"identifier\":\"primary\",\"actions\":[\"read_events\"]}]",
+                    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9..."
+                }
+            },
             "appsList": {
                 "description": "Apps list",
                 "type": "object",
@@ -20383,20 +21031,29 @@
             "ImpersonateUserId": {
                 "type": "apiKey",
                 "name": "X-Appwrite-Impersonate-User-Id",
-                "description": "Impersonate a user by ID on an already user-authenticated request. Requires the current request to be authenticated as a user with impersonator capability; X-Appwrite-Key alone is not sufficient. Impersonator users are intentionally granted users.read so they can discover a target before impersonation begins. Internal audit logs still attribute actions to the original impersonator and record the impersonated target only in internal audit payload data.",
-                "in": "header"
+                "description": "Impersonate a user by ID",
+                "in": "header",
+                "x-appwrite": {
+                    "optional": true
+                }
             },
             "ImpersonateUserEmail": {
                 "type": "apiKey",
                 "name": "X-Appwrite-Impersonate-User-Email",
-                "description": "Impersonate a user by email on an already user-authenticated request. Requires the current request to be authenticated as a user with impersonator capability; X-Appwrite-Key alone is not sufficient. Impersonator users are intentionally granted users.read so they can discover a target before impersonation begins. Internal audit logs still attribute actions to the original impersonator and record the impersonated target only in internal audit payload data.",
-                "in": "header"
+                "description": "Impersonate a user by email",
+                "in": "header",
+                "x-appwrite": {
+                    "optional": true
+                }
             },
             "ImpersonateUserPhone": {
                 "type": "apiKey",
                 "name": "X-Appwrite-Impersonate-User-Phone",
-                "description": "Impersonate a user by phone on an already user-authenticated request. Requires the current request to be authenticated as a user with impersonator capability; X-Appwrite-Key alone is not sufficient. Impersonator users are intentionally granted users.read so they can discover a target before impersonation begins. Internal audit logs still attribute actions to the original impersonator and record the impersonated target only in internal audit payload data.",
-                "in": "header"
+                "description": "Impersonate a user by phone",
+                "in": "header",
+                "x-appwrite": {
+                    "optional": true
+                }
             }
         }
     },

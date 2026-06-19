@@ -23,6 +23,7 @@ const result = await apps.update({
     dataDeletionUrl: 'https://example.com', // optional
     enabled: false, // optional
     redirectUris: [], // optional
+    postLogoutRedirectUris: [], // optional
     type: 'public', // optional
     deviceFlow: false // optional
 });

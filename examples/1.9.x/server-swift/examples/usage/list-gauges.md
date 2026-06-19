@@ -9,8 +9,17 @@ let client = Client()
 let usage = Usage(client)
 
 let usageGaugeList = try await usage.listGauges(
-    queries: [], // optional
-    total: false // optional
+    metric: "<METRIC>",
+    resourceId: "<RESOURCE_ID>", // optional
+    teamId: "<TEAM_ID>", // optional
+    interval: "1m", // optional
+    dimensions: [], // optional
+    startAt: "2020-10-15T06:38:00.000+00:00", // optional
+    endAt: "2020-10-15T06:38:00.000+00:00", // optional
+    orderBy: "time", // optional
+    orderDir: "asc", // optional
+    limit: 1, // optional
+    offset: 0 // optional
 )
 
 ```
