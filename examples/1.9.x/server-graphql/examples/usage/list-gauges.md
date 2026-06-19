@@ -1,15 +1,35 @@
 ```graphql
 query {
     usageListGauges(
-        queries: [],
-        total: false
+        metric: "<METRIC>",
+        resourceId: "<RESOURCE_ID>",
+        teamId: "<TEAM_ID>",
+        interval: "1m",
+        dimensions: [],
+        startAt: "2020-10-15T06:38:00.000+00:00",
+        endAt: "2020-10-15T06:38:00.000+00:00",
+        orderBy: "time",
+        orderDir: "asc",
+        limit: 1,
+        offset: 0
     ) {
-        total
-        gauges {
-            metric
-            value
+        metric
+        interval
+        groups {
             time
-            resourceType
+            value
+            path
+            method
+            status
+            service
+            country
+            region
+            hostname
+            osName
+            clientType
+            clientName
+            deviceName
+            teamId
             resourceId
         }
     }

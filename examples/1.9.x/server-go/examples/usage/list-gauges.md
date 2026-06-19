@@ -16,7 +16,16 @@ client := client.New(
 service := usage.New(client)
 
 response, error := service.ListGauges(
-    usage.WithListGaugesQueries([]string{}),
-    usage.WithListGaugesTotal(false),
+    "<METRIC>",
+    usage.WithListGaugesResourceId("<RESOURCE_ID>"),
+    usage.WithListGaugesTeamId("<TEAM_ID>"),
+    usage.WithListGaugesInterval("1m"),
+    usage.WithListGaugesDimensions([]string{}),
+    usage.WithListGaugesStartAt("2020-10-15T06:38:00.000+00:00"),
+    usage.WithListGaugesEndAt("2020-10-15T06:38:00.000+00:00"),
+    usage.WithListGaugesOrderBy("time"),
+    usage.WithListGaugesOrderDir("asc"),
+    usage.WithListGaugesLimit(1),
+    usage.WithListGaugesOffset(0),
 )
 ```

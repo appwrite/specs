@@ -5882,6 +5882,15 @@
                                             "type": "string"
                                         }
                                     },
+                                    "postLogoutRedirectUris": {
+                                        "type": "array",
+                                        "description": "Post-logout redirect URIs for OpenID Connect RP-Initiated Logout (array of valid URLs). After ending the user session, the logout endpoint only redirects to URIs in this list.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
                                     "enabled": {
                                         "type": "boolean",
                                         "description": "Is application enabled?",
@@ -6143,6 +6152,15 @@
                                     "redirectUris": {
                                         "type": "array",
                                         "description": "Redirect URIs (array of valid URLs).",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "postLogoutRedirectUris": {
+                                        "type": "array",
+                                        "description": "Post-logout redirect URIs for OpenID Connect RP-Initiated Logout (array of valid URLs). After ending the user session, the logout endpoint only redirects to URIs in this list.",
                                         "default": [],
                                         "x-example": null,
                                         "items": {
@@ -10138,7 +10156,7 @@
                                     },
                                     "storageClass": {
                                         "type": "string",
-                                        "description": "Storage class: ssd, nvme, or hdd.",
+                                        "description": "Storage class. Allowed values: ssd. DigitalOcean exposes a single block-storage class, so only 'ssd' is offered today.",
                                         "default": "ssd",
                                         "x-example": "ssd"
                                     },
@@ -10246,8 +10264,8 @@
                                     },
                                     "metricsEnabled": {
                                         "type": "boolean",
-                                        "description": "Enable metrics collection.",
-                                        "default": false,
+                                        "description": "Enable metrics collection. Enabled by default; pass false to opt out.",
+                                        "default": true,
                                         "x-example": false
                                     },
                                     "poolerEnabled": {
@@ -10448,7 +10466,7 @@
                                     },
                                     "status": {
                                         "type": "string",
-                                        "description": "Database status. Allowed values: ready, paused, inactive. Set to \"paused\" to pause, \"ready\" to resume, or \"inactive\" to spin down a shared-pool database.",
+                                        "description": "Database status. Allowed values: ready, paused, inactive. Set to \"paused\" to pause, \"ready\" to resume (also recovers a failed database whose infrastructure is healthy), or \"inactive\" to spin down a shared-pool database.",
                                         "x-example": "ready",
                                         "x-nullable": true
                                     },
@@ -10481,7 +10499,7 @@
                                     },
                                     "storageClass": {
                                         "type": "string",
-                                        "description": "Storage class. Allowed values: ssd, nvme, hdd.",
+                                        "description": "Storage class. Allowed values: ssd.",
                                         "x-example": "ssd",
                                         "x-nullable": true
                                     },
@@ -14309,6 +14327,7 @@
                                 "blocks",
                                 "threats",
                                 "feedbacks",
+                                "disputes",
                                 "sh_installations",
                                 "apps",
                                 "appsecrets",
@@ -14396,6 +14415,7 @@
                                 "blocks",
                                 "threats",
                                 "feedbacks",
+                                "disputes",
                                 "sh_installations",
                                 "apps",
                                 "app_secrets",
@@ -27076,7 +27096,7 @@
                     "rate-limit": 50,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "domains.read",
+                    "scope": "public",
                     "platforms": [
                         "console"
                     ],
@@ -28490,7 +28510,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -28597,7 +28617,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -28694,7 +28714,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -28801,7 +28821,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -28898,7 +28918,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name.",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -29005,7 +29025,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name.",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -29306,7 +29326,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -29413,7 +29433,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -29510,7 +29530,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -29617,7 +29637,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -29714,7 +29734,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -29828,7 +29848,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -29932,7 +29952,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -30039,7 +30059,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -30136,7 +30156,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (service name).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -30264,7 +30284,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (service name).",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -30382,7 +30402,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain) for the TXT record.",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -30489,7 +30509,7 @@
                                     "name": {
                                         "type": "string",
                                         "description": "Record name (subdomain) for the TXT record.",
-                                        "x-example": "<NAME>"
+                                        "x-example": null
                                     },
                                     "value": {
                                         "type": "string",
@@ -45154,6 +45174,958 @@
                 ]
             }
         },
+        "\/oauth2\/{project_id}\/approve": {
+            "post": {
+                "summary": "Approve OAuth2",
+                "operationId": "oauth2Approve",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Approve an OAuth2 grant after the user gives consent. Returns the `redirectUrl` the end user should be sent to. The consent screen may optionally pass enriched `authorization_details` to record the concrete resources the user selected. You can pass Accept header of `application\/json` to receive a JSON response instead of a redirect.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 Approve",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2Approve"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "approve",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/approve.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "oauth2.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "grant_id": {
+                                        "type": "string",
+                                        "description": "Grant ID made during authorization, provided to consent screen in URL search params.",
+                                        "x-example": "<GRANT_ID>"
+                                    },
+                                    "authorization_details": {
+                                        "type": "string",
+                                        "description": "Enriched `authorization_details` the user consented to, replacing what the client requested. Each entry must use a `type` the project accepts. Optional; omit to keep the originally requested details.",
+                                        "default": "",
+                                        "x-example": "<AUTHORIZATION_DETAILS>"
+                                    }
+                                },
+                                "required": [
+                                    "grant_id"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/oauth2\/{project_id}\/authorize": {
+            "get": {
+                "summary": "OAuth2 Authorize",
+                "operationId": "oauth2Authorize",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Begin the OAuth2 authorization flow. When called without a session, the user is redirected to the consent screen without grant ID. When called with a session, the redirect URL includes param for grant ID. You can pass Accept header of `application\/json` to receive a JSON response instead of a redirect.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 Authorize",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2Authorize"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "authorize",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/authorize.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "client_id",
+                        "description": "OAuth2 client ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<CLIENT_ID>"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "redirect_uri",
+                        "description": "Redirect URI where visitor will be redirected after authorization, whether successful or not.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "url",
+                            "x-example": "https:\/\/example.com"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "response_type",
+                        "description": "OAuth2 \/ OIDC response type. One of `code` (Authorization Code Flow), `id_token` (Implicit Flow, OIDC login only), or `code id_token` (Hybrid Flow).",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "code"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "scope",
+                        "description": "Space-separated OAuth2 scopes. Can include project scopes, and built-in scopes: `openid`, `email`, `profile`.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<SCOPE>"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "state",
+                        "description": "OAuth2 state. You receive this back in the redirect URI.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<STATE>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "nonce",
+                        "description": "OIDC nonce parameter to prevent replay attacks. Required when response_type includes `id_token`.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<NONCE>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "code_challenge",
+                        "description": "PKCE code challenge. Required when OAuth2 app is public.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<CODE_CHALLENGE>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "code_challenge_method",
+                        "description": "PKCE code challenge method. Required when OAuth2 app is public.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "s256",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "prompt",
+                        "description": "OIDC prompt parameter for customization of consent screen. Space-separated list of: none, login, consent, select_account.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROMPT>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "max_age",
+                        "description": "OIDC max_age paraleter for customization of consent screen. Maximum allowable elapsed time in seconds since the user last authenticated. If exceeded, re-authentication is required.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 0
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "authorization_details",
+                        "description": "Rich authorization request. JSON array of objects, each with a `type` and project-defined fields",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<AUTHORIZATION_DETAILS>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/oauth2\/{project_id}\/device_authorization": {
+            "post": {
+                "summary": "OAuth2 Device Authorization",
+                "operationId": "oauth2CreateDeviceAuthorization",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Start the OAuth2 Device Authorization Grant. Returns the device code, user code, verification URL, expiration, and polling interval.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 Device Authorization",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2DeviceAuthorization"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createDeviceAuthorization",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/create-device-authorization.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "client_id": {
+                                        "type": "string",
+                                        "description": "OAuth2 client ID.",
+                                        "default": "",
+                                        "x-example": "<CLIENT_ID>"
+                                    },
+                                    "scope": {
+                                        "type": "string",
+                                        "description": "Space-separated OAuth2 scopes. Can include project scopes, and built-in scopes: `openid`, `email`, `profile`.",
+                                        "default": "",
+                                        "x-example": "<SCOPE>"
+                                    },
+                                    "authorization_details": {
+                                        "type": "string",
+                                        "description": "Rich authorization request. JSON array of objects, each with a `type` and project-defined fields",
+                                        "default": "",
+                                        "x-example": "<AUTHORIZATION_DETAILS>"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/oauth2\/{project_id}\/grants": {
+            "post": {
+                "summary": "Create OAuth2 Grant",
+                "operationId": "oauth2CreateGrant",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Exchange a device flow user code for an OAuth2 grant. The authenticated user is bound to the pending grant. Pass the returned grant ID to the get grant endpoint to render the consent screen, then to the approve or reject endpoint to complete the flow.",
+                "responses": {
+                    "201": {
+                        "description": "OAuth2 Grant",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2Grant"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createGrant",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/create-grant.md",
+                    "rate-limit": 10,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "oauth2.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "user_code": {
+                                        "type": "string",
+                                        "description": "User code displayed on the device.",
+                                        "x-example": "<USER_CODE>"
+                                    }
+                                },
+                                "required": [
+                                    "user_code"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/oauth2\/{project_id}\/grants\/{grant_id}": {
+            "get": {
+                "summary": "Get OAuth2 Grant",
+                "operationId": "oauth2GetGrant",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Get an OAuth2 grant by its ID. Used by the consent screen to display the details of the authorization the user is being asked to approve. A grant can only be read by the user it belongs to, or by server SDK.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 Grant",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2Grant"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getGrant",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/get-grant.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "oauth2.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client that created grant during authorization exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "grant_id",
+                        "description": "Grant ID made during authorization, provided to consent screen in URL search params.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<GRANT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/oauth2\/{project_id}\/logout": {
+            "get": {
+                "summary": "OAuth2 Logout",
+                "operationId": "oauth2Logout",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "OpenID Connect RP-Initiated Logout. Ends the user session and revokes the tokens issued to the app identified by the `id_token_hint`, then redirects the user to `post_logout_redirect_uri` when it matches a URI registered on the app.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "logout",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/logout.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [
+                        "console",
+                        "client"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "produces": [
+                        "application\/json"
+                    ],
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "id_token_hint",
+                        "description": "ID Token previously issued to the app, used as proof of the logout request. Required to end the session; signature and issuer are validated while expiry is ignored.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<ID_TOKEN_HINT>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "logout_hint",
+                        "description": "Hint about the user that is logging out. Accepted for OIDC compatibility.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<LOGOUT_HINT>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "client_id",
+                        "description": "OAuth2 client ID. When both `client_id` and `id_token_hint` are provided, they must identify the same app.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<CLIENT_ID>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "post_logout_redirect_uri",
+                        "description": "URI to redirect the user to after logout. Must exactly match a URI registered in the app's `postLogoutRedirectUris`.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "url",
+                            "x-example": "https:\/\/example.com",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "state",
+                        "description": "Opaque value passed back unchanged in the `state` query param of the post-logout redirect.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<STATE>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "ui_locales",
+                        "description": "Preferred languages for any logout UI, as space-separated BCP47 tags. Accepted for OIDC compatibility.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<UI_LOCALES>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/oauth2\/{project_id}\/reject": {
+            "post": {
+                "summary": "Reject OAuth2",
+                "operationId": "oauth2Reject",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Reject an OAuth2 grant when the user denies consent. Returns the `redirectUrl` the end user should be sent to with an `access_denied` error. You can pass Accept header of `application\/json` to receive a JSON response instead of a redirect.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 Reject",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2Reject"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "reject",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/reject.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "oauth2.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "grant_id": {
+                                        "type": "string",
+                                        "description": "Grant ID made during authorization, provided to consent screen in URL search params.",
+                                        "x-example": "<GRANT_ID>"
+                                    }
+                                },
+                                "required": [
+                                    "grant_id"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/oauth2\/{project_id}\/revoke": {
+            "post": {
+                "summary": "OAuth2 Revoke",
+                "operationId": "oauth2Revoke",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Revoke an OAuth2 access token or refresh token.",
+                "responses": {
+                    "200": {
+                        "description": "File",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "revoke",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/revoke.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "token": {
+                                        "type": "string",
+                                        "description": "The access or refresh token to revoke.",
+                                        "x-example": "<TOKEN>"
+                                    },
+                                    "token_type_hint": {
+                                        "type": "string",
+                                        "description": "Type of token to revoke (access_token or refresh_token).",
+                                        "default": "",
+                                        "x-example": "access_token"
+                                    },
+                                    "client_id": {
+                                        "type": "string",
+                                        "description": "OAuth2 client ID.",
+                                        "default": "",
+                                        "x-example": "<CLIENT_ID>"
+                                    },
+                                    "client_secret": {
+                                        "type": "string",
+                                        "description": "OAuth2 client secret. Required for confidential apps; omitted for public apps.",
+                                        "default": "",
+                                        "x-example": "<CLIENT_SECRET>"
+                                    }
+                                },
+                                "required": [
+                                    "token"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/oauth2\/{project_id}\/token": {
+            "post": {
+                "summary": "OAuth2 Token",
+                "operationId": "oauth2CreateToken",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Exchange an OAuth2 authorization code, refresh token, or device code for access and refresh tokens.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 Token",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2Token"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createToken",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/create-token.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "grant_type": {
+                                        "type": "string",
+                                        "description": "OAuth2 grant type. Can be one of: `authorization_code`, `refresh_token`, `urn:ietf:params:oauth:grant-type:device_code`.",
+                                        "x-example": "<GRANT_TYPE>"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "description": "Authorization code to be exchanged for access and refresh tokens. Required for `authorization_code` grant type.",
+                                        "default": "",
+                                        "x-example": "<CODE>"
+                                    },
+                                    "refresh_token": {
+                                        "type": "string",
+                                        "description": "Refresh token to be exchanged for a new access and refresh tokens. Required for `refresh_token` grant type.",
+                                        "default": "",
+                                        "x-example": "<REFRESH_TOKEN>"
+                                    },
+                                    "device_code": {
+                                        "type": "string",
+                                        "description": "Device code obtained from the device authorization endpoint. Required for `urn:ietf:params:oauth:grant-type:device_code` grant type.",
+                                        "default": "",
+                                        "x-example": "<DEVICE_CODE>"
+                                    },
+                                    "client_id": {
+                                        "type": "string",
+                                        "description": "OAuth2 client ID.",
+                                        "default": "",
+                                        "x-example": "<CLIENT_ID>"
+                                    },
+                                    "client_secret": {
+                                        "type": "string",
+                                        "description": "OAuth2 client secret. Required for confidential apps.",
+                                        "default": "",
+                                        "x-example": "<CLIENT_SECRET>"
+                                    },
+                                    "code_verifier": {
+                                        "type": "string",
+                                        "description": "PKCE code verifier. Required for public apps.",
+                                        "default": "",
+                                        "x-example": "<CODE_VERIFIER>"
+                                    },
+                                    "redirect_uri": {
+                                        "type": "string",
+                                        "description": "Redirect URI. Required for `authorization_code` grant type.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    }
+                                },
+                                "required": [
+                                    "grant_type"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/organization\/keys": {
             "get": {
                 "summary": "List organization keys",
@@ -49291,6 +50263,58 @@
                         }
                     }
                 }
+            }
+        },
+        "\/ping": {
+            "get": {
+                "summary": "Test the connection between the Appwrite and the SDK.",
+                "operationId": "pingGet",
+                "tags": [
+                    "ping"
+                ],
+                "description": "Send a ping to project as part of onboarding.",
+                "responses": {
+                    "200": {
+                        "description": "Any",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/any"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "get",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "ping\/get.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "global",
+                    "platforms": [
+                        "console",
+                        "server",
+                        "client"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": [],
+                        "JWT": [],
+                        "Session": []
+                    }
+                ]
             }
         },
         "\/presences": {
@@ -56645,6 +57669,77 @@
                 }
             }
         },
+        "\/project\/policies\/deny-corporate-email": {
+            "patch": {
+                "summary": "Update deny non-corporate email policy",
+                "operationId": "projectUpdateDenyCorporateEmailPolicy",
+                "tags": [
+                    "project"
+                ],
+                "description": "Configures if only corporate email addresses (non-free and non-disposable domains) are allowed during new user sign-ups and email updates.",
+                "responses": {
+                    "200": {
+                        "description": "Project",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/project"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "updateDenyCorporateEmailPolicy",
+                    "group": "policies",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "project\/update-deny-corporate-email-policy.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": [
+                        "policies.write",
+                        "project.policies.write"
+                    ],
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "enabled": {
+                                        "type": "boolean",
+                                        "description": "Set whether or not to restrict sign-ups and email updates to corporate email addresses only.",
+                                        "x-example": false
+                                    }
+                                },
+                                "required": [
+                                    "enabled"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/project\/policies\/deny-disposable-email": {
             "patch": {
                 "summary": "Update deny disposable email policy",
@@ -57554,7 +58649,7 @@
                 "description": "Get a policy by its unique ID. This endpoint returns the current configuration for the requested project policy.",
                 "responses": {
                     "200": {
-                        "description": "Policy Password Dictionary, or Policy Password History, or Policy Password Strength, or Policy Password Personal Data, or Policy Session Alert, or Policy Session Duration, or Policy Session Invalidation, or Policy Session Limit, or Policy User Limit, or Policy Membership Privacy, or Policy Deny Aliased Email, or Policy Deny Disposable Email, or Policy Deny Free Email",
+                        "description": "Policy Password Dictionary, or Policy Password History, or Policy Password Strength, or Policy Password Personal Data, or Policy Session Alert, or Policy Session Duration, or Policy Session Invalidation, or Policy Session Limit, or Policy User Limit, or Policy Membership Privacy, or Policy Deny Aliased Email, or Policy Deny Disposable Email, or Policy Deny Free Email, or Policy Deny Corporate Email",
                         "content": {
                             "application\/json": {
                                 "schema": {
@@ -57597,6 +58692,9 @@
                                         },
                                         {
                                             "$ref": "#\/components\/schemas\/policyDenyFreeEmail"
+                                        },
+                                        {
+                                            "$ref": "#\/components\/schemas\/policyDenyCorporateEmail"
                                         }
                                     ],
                                     "discriminator": {
@@ -57614,7 +58712,8 @@
                                             "membership-privacy": "#\/components\/schemas\/policyMembershipPrivacy",
                                             "deny-aliased-email": "#\/components\/schemas\/policyDenyAliasedEmail",
                                             "deny-disposable-email": "#\/components\/schemas\/policyDenyDisposableEmail",
-                                            "deny-free-email": "#\/components\/schemas\/policyDenyFreeEmail"
+                                            "deny-free-email": "#\/components\/schemas\/policyDenyFreeEmail",
+                                            "deny-corporate-email": "#\/components\/schemas\/policyDenyCorporateEmail"
                                         }
                                     }
                                 }
@@ -57655,7 +58754,7 @@
                 "parameters": [
                     {
                         "name": "policyId",
-                        "description": "Policy ID. Can be one of: password-dictionary, password-history, password-strength, password-personal-data, session-alert, session-duration, session-invalidation, session-limit, user-limit, membership-privacy, deny-aliased-email, deny-disposable-email, deny-free-email.",
+                        "description": "Policy ID. Can be one of: password-dictionary, password-history, password-strength, password-personal-data, session-alert, session-duration, session-invalidation, session-limit, user-limit, membership-privacy, deny-aliased-email, deny-disposable-email, deny-free-email, deny-corporate-email.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -57673,7 +58772,8 @@
                                 "membership-privacy",
                                 "deny-aliased-email",
                                 "deny-disposable-email",
-                                "deny-free-email"
+                                "deny-free-email",
+                                "deny-corporate-email"
                             ],
                             "x-enum-name": "ProjectPolicyId",
                             "x-enum-keys": [
@@ -57689,7 +58789,8 @@
                                 "membership-privacy",
                                 "deny-aliased-email",
                                 "deny-disposable-email",
-                                "deny-free-email"
+                                "deny-free-email",
+                                "deny-corporate-email"
                             ]
                         },
                         "in": "path"
@@ -57838,7 +58939,7 @@
                 "parameters": [
                     {
                         "name": "serviceId",
-                        "description": "Service name. Can be one of: account, avatars, databases, tablesdb, locale, health, project, storage, teams, users, vcs, sites, functions, proxy, graphql, migrations, messaging, advisor",
+                        "description": "Service name. Can be one of: account, avatars, databases, tablesdb, locale, health, project, storage, teams, users, vcs, sites, functions, proxy, graphql, migrations, messaging, advisor, oauth2",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -57861,7 +58962,8 @@
                                 "graphql",
                                 "migrations",
                                 "messaging",
-                                "advisor"
+                                "advisor",
+                                "oauth2"
                             ],
                             "x-enum-name": "ProjectServiceId",
                             "x-enum-keys": [
@@ -57882,7 +58984,8 @@
                                 "graphql",
                                 "migrations",
                                 "messaging",
-                                "advisor"
+                                "advisor",
+                                "oauth2"
                             ]
                         },
                         "in": "path"
@@ -75673,10 +76776,10 @@
                 "tags": [
                     "usage"
                 ],
-                "description": "Query usage event metrics from the usage database. Returns individual event rows with full metadata. Pass Query objects as JSON strings to filter, paginate, and order results. Supported query methods: equal, greaterThanEqual, lessThanEqual, orderAsc, orderDesc, limit, offset. Supported filter attributes: metric, path, method, status, resource, resourceId, country, userAgent, time (these match the underlying column names \u2014 note that the response surfaces `resource` as `resourceType` and `country` as `countryCode`). When no time filter is supplied the endpoint defaults to the last 7 days. Default `limit(100)` is applied if none is given; user-supplied limits are capped at 500. The `total` field is capped at 5000 to keep counts predictable \u2014 pass `total=false` to skip the count entirely.",
+                "description": "Aggregate usage event metrics. `metric` is required.\n\n**Two response shapes**:\n- Omit `interval` for a flat top-N table \u2014 one row per dimension combination, no time axis. Useful for \"top 10 paths by bandwidth in the last 7 days\".\n- Pass `interval` (`1m`, `15m`, `30m`, `1h`, `1d`) for a time series \u2014 one row per (time bucket \u00d7 dimension combination).\n\n`dimensions[]` breaks each row down by one or more attributes (service, path, status, country, \u2026). `resource` and `resourceId` filter the underlying events. `orderBy=value`+`orderDir=desc`+`limit=N` returns the top-N by aggregated value. When `startAt` is omitted, the default window adapts to `interval` (or 7d when interval is omitted).",
                 "responses": {
                     "200": {
-                        "description": "Usage events list",
+                        "description": "usageEventList",
                         "content": {
                             "application\/json": {
                                 "schema": {
@@ -75715,8 +76818,50 @@
                 ],
                 "parameters": [
                     {
-                        "name": "queries",
-                        "description": "Array of query strings as JSON. Supported: equal(\"metric\", [...]), equal(\"path\", [...]), equal(\"method\", [...]), equal(\"status\", [...]), equal(\"resource\", [...]), equal(\"resourceId\", [...]), equal(\"country\", [...]), equal(\"userAgent\", [...]), greaterThanEqual(\"time\", \"...\"), lessThanEqual(\"time\", \"...\"), orderAsc(\"time\"), orderDesc(\"time\"), limit(N), offset(N).",
+                        "name": "metric",
+                        "description": "Metric name (required). Example: executions, network.requests.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<METRIC>"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "resource",
+                        "description": "Resource type filter (singular form). Common values: function, site, database, bucket, file, webhook, team, user, project.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<RESOURCE>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "resourceId",
+                        "description": "Resource id filter.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<RESOURCE_ID>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "interval",
+                        "description": "Time interval size. Omit (null) for a flat aggregate over the whole window. Allowed: 1m, 15m, 30m, 1h, 1d.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "1m"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "dimensions",
+                        "description": "Break-down dimensions (max 10). Allowed: path, method, status, service, country, region, hostname, osName, clientType, clientName, deviceName, teamId, resourceId.",
                         "required": false,
                         "schema": {
                             "type": "array",
@@ -75728,13 +76873,72 @@
                         "in": "query"
                     },
                     {
-                        "name": "total",
-                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "name": "startAt",
+                        "description": "Range start in ISO 8601. Defaults adapt to interval (7d for the no-interval aggregate).",
                         "required": false,
                         "schema": {
-                            "type": "boolean",
-                            "x-example": false,
-                            "default": true
+                            "type": "string",
+                            "format": "datetime",
+                            "x-example": "2020-10-15T06:38:00.000+00:00",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "endAt",
+                        "description": "Range end in ISO 8601. Defaults to the current time.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "datetime",
+                            "x-example": "2020-10-15T06:38:00.000+00:00",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "orderBy",
+                        "description": "Column to order by. Allowed: time, value. Default time when an interval is set; otherwise value.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "time",
+                            "default": "time"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "orderDir",
+                        "description": "Sort direction: asc or desc. Default desc \u2014 paired with the default limit, returns the most recent \/ highest-value groups first.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "asc",
+                            "default": "desc"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Maximum rows to return (1-5000).",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 1,
+                            "default": 500
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "offset",
+                        "description": "Pagination offset (0-100000).",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 0,
+                            "default": 0
                         },
                         "in": "query"
                     }
@@ -75748,10 +76952,10 @@
                 "tags": [
                     "usage"
                 ],
-                "description": "Query usage gauge metrics (point-in-time resource snapshots) from the usage database. Returns individual gauge snapshots with metric, value, timestamp, resourceType, and resourceId. Pass Query objects as JSON strings to filter, paginate, and order results. Supported query methods: equal, greaterThanEqual, lessThanEqual, orderAsc, orderDesc, limit, offset. Supported filter attributes: metric, time. Use `orderDesc(\"time\"), limit(1)` to fetch the most recent snapshot. When no time filter is supplied the endpoint defaults to the last 7 days. Default `limit(100)` is applied if none is given; user-supplied limits are capped at 500. The `total` field is capped at 5000 to keep counts predictable \u2014 pass `total=false` to skip the count entirely.",
+                "description": "Aggregate usage gauge snapshots. Gauges are point-in-time values (storage totals, resource counts, \u2026); each group carries the latest snapshot in its interval via `argMax(value, time)`. `metric` is required.\n\n**Two response shapes**:\n- Omit `interval` for a flat top-N table \u2014 `argMax(value, time)` per dimension combination over the whole window, no time axis. Useful for \"top 10 resources by current storage\".\n- Pass `interval` (`1m`, `15m`, `30m`, `1h`, `1d`) for a time series \u2014 one snapshot per (time bucket \u00d7 dimension combination).\n\n`dimensions[]` breaks each row down further \u2014 only `resourceId` and `teamId` are supported on gauges. `resourceId` and `teamId` parameters filter the underlying rows. `orderBy=value`+`orderDir=desc`+`limit=N` returns the top-N. When `startAt` is omitted, the default window adapts to interval (or 7d when interval is omitted).",
                 "responses": {
                     "200": {
-                        "description": "Usage gauges list",
+                        "description": "usageGaugeList",
                         "content": {
                             "application\/json": {
                                 "schema": {
@@ -75790,8 +76994,50 @@
                 ],
                 "parameters": [
                     {
-                        "name": "queries",
-                        "description": "Array of query strings as JSON. Supported: equal(\"metric\", [...]), greaterThanEqual(\"time\", \"...\"), lessThanEqual(\"time\", \"...\"), orderAsc(\"time\"), orderDesc(\"time\"), limit(N), offset(N).",
+                        "name": "metric",
+                        "description": "Metric name (required). Example: files.storage, deployments.storage.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<METRIC>"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "resourceId",
+                        "description": "Resource id filter.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<RESOURCE_ID>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "teamId",
+                        "description": "Team id filter.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<TEAM_ID>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "interval",
+                        "description": "Time interval size. Omit (null) for a flat aggregate over the whole window. Allowed: 1m, 15m, 30m, 1h, 1d.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "1m"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "dimensions",
+                        "description": "Break-down dimensions. Allowed: resourceId, teamId.",
                         "required": false,
                         "schema": {
                             "type": "array",
@@ -75803,13 +77049,72 @@
                         "in": "query"
                     },
                     {
-                        "name": "total",
-                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "name": "startAt",
+                        "description": "Range start in ISO 8601. Defaults to endAt - 7d.",
                         "required": false,
                         "schema": {
-                            "type": "boolean",
-                            "x-example": false,
-                            "default": true
+                            "type": "string",
+                            "format": "datetime",
+                            "x-example": "2020-10-15T06:38:00.000+00:00",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "endAt",
+                        "description": "Range end in ISO 8601. Defaults to the current time.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "datetime",
+                            "x-example": "2020-10-15T06:38:00.000+00:00",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "orderBy",
+                        "description": "Column to order by. Allowed: time, value. Default time.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "time",
+                            "default": "time"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "orderDir",
+                        "description": "Sort direction: asc or desc. Default desc \u2014 paired with the default limit, this returns the most recent groups first. Pass asc for chronological charting.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "asc",
+                            "default": "desc"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Maximum rows to return (1-5000).",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 1,
+                            "default": 500
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "offset",
+                        "description": "Pagination offset (0-100000).",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 0,
+                            "default": 0
                         },
                         "in": "query"
                     }
@@ -84314,6 +85619,10 @@
         {
             "name": "advisor",
             "description": "The Advisor service surfaces actionable reports about your project resources, with CTA descriptors for one-click remediation in the console."
+        },
+        {
+            "name": "oauth2",
+            "description": "The OAuth2 service allows you to authorize apps and issue standards-based OAuth2 and OpenID Connect tokens."
         }
     ],
     "components": {
@@ -85511,6 +86820,9 @@
                                 },
                                 {
                                     "$ref": "#\/components\/schemas\/policyDenyFreeEmail"
+                                },
+                                {
+                                    "$ref": "#\/components\/schemas\/policyDenyCorporateEmail"
                                 }
                             ],
                             "discriminator": {
@@ -85528,7 +86840,8 @@
                                     "membership-privacy": "#\/components\/schemas\/policyMembershipPrivacy",
                                     "deny-aliased-email": "#\/components\/schemas\/policyDenyAliasedEmail",
                                     "deny-disposable-email": "#\/components\/schemas\/policyDenyDisposableEmail",
-                                    "deny-free-email": "#\/components\/schemas\/policyDenyFreeEmail"
+                                    "deny-free-email": "#\/components\/schemas\/policyDenyFreeEmail",
+                                    "deny-corporate-email": "#\/components\/schemas\/policyDenyCorporateEmail"
                                 }
                             }
                         },
@@ -104646,6 +105959,11 @@
                         "description": "Does plan support blocking free email addresses.",
                         "x-example": true
                     },
+                    "supportsCorporateEmailValidation": {
+                        "type": "boolean",
+                        "description": "Does plan support restricting sign-ups to corporate email addresses only.",
+                        "x-example": true
+                    },
                     "supportsProjectSpecificRoles": {
                         "type": "boolean",
                         "description": "Does plan support project-specific member roles.",
@@ -104781,6 +106099,7 @@
                     "supportsDisposableEmailValidation",
                     "supportsCanonicalEmailValidation",
                     "supportsFreeEmailValidation",
+                    "supportsCorporateEmailValidation",
                     "supportsProjectSpecificRoles",
                     "backupsEnabled",
                     "usagePerProject",
@@ -104845,6 +106164,7 @@
                     "supportsDisposableEmailValidation": true,
                     "supportsCanonicalEmailValidation": true,
                     "supportsFreeEmailValidation": true,
+                    "supportsCorporateEmailValidation": true,
                     "supportsProjectSpecificRoles": true,
                     "backupsEnabled": true,
                     "usagePerProject": true,
@@ -105809,7 +107129,7 @@
                     },
                     "storageClass": {
                         "type": "string",
-                        "description": "Storage class: ssd, nvme, or hdd.",
+                        "description": "Storage class. Currently always 'ssd'; DigitalOcean exposes a single block-storage class.",
                         "x-example": "ssd"
                     },
                     "storageMaxGb": {
@@ -105924,7 +107244,7 @@
                     },
                     "sqlApiAllowedStatements": {
                         "type": "array",
-                        "description": "Statement types accepted by the SQL API. Defaults to DML only; DDL\/DCL types (CREATE, ALTER, DROP, TRUNCATE, GRANT, REVOKE) are opt-in per database. Allowed values: SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP, TRUNCATE, GRANT, REVOKE.",
+                        "description": "Statement types accepted by the SQL API. Defaults to read\/write DML only; DDL\/DCL types (CREATE, ALTER, DROP, TRUNCATE, GRANT, REVOKE) are opt-in per database. Allowed values: SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP, TRUNCATE, GRANT, REVOKE.",
                         "items": {
                             "type": "string"
                         },
@@ -108430,6 +109750,30 @@
                     "enabled": true
                 }
             },
+            "policyDenyCorporateEmail": {
+                "description": "Policy Deny Corporate Email",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Policy ID.",
+                        "x-example": "password-dictionary"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the deny non-corporate email policy is enabled.",
+                        "x-example": true
+                    }
+                },
+                "required": [
+                    "$id",
+                    "enabled"
+                ],
+                "example": {
+                    "$id": "password-dictionary",
+                    "enabled": true
+                }
+            },
             "dedicatedDatabasePooler": {
                 "description": "PoolerConfig",
                 "type": "object",
@@ -109324,131 +110668,188 @@
                     "credits": null
                 }
             },
-            "usageEvent": {
-                "description": "usageEvent",
+            "usageGroup": {
+                "description": "usageGroup",
                 "type": "object",
                 "properties": {
-                    "metric": {
+                    "time": {
                         "type": "string",
-                        "description": "The metric key.",
-                        "x-example": "bandwidth"
+                        "description": "Group start timestamp (ISO 8601).",
+                        "x-example": "2026-04-09T12:00:00.000+00:00"
                     },
                     "value": {
                         "type": "integer",
-                        "description": "The metric value.",
+                        "description": "Aggregated value for the group.",
                         "x-example": 5000,
                         "format": "int32"
                     },
-                    "time": {
-                        "type": "string",
-                        "description": "The event timestamp.",
-                        "x-example": "2026-04-09T12:00:00.000+00:00"
-                    },
                     "path": {
                         "type": "string",
-                        "description": "The API endpoint path.",
-                        "x-example": "\/v1\/storage\/files"
+                        "description": "API endpoint path when broken down by `path`.",
+                        "x-example": "\/v1\/storage\/files",
+                        "nullable": true
                     },
                     "method": {
                         "type": "string",
-                        "description": "The HTTP method.",
-                        "x-example": "POST"
+                        "description": "HTTP method when broken down by `method`.",
+                        "x-example": "POST",
+                        "nullable": true
                     },
                     "status": {
                         "type": "string",
-                        "description": "HTTP status code. Stored as string to preserve unset state (empty string = not available).",
-                        "x-example": "201"
+                        "description": "HTTP status code when broken down by `status`.",
+                        "x-example": "201",
+                        "nullable": true
                     },
-                    "resourceType": {
+                    "service": {
                         "type": "string",
-                        "description": "The resource type.",
-                        "x-example": "bucket"
+                        "description": "API service segment when broken down by `service`.",
+                        "x-example": "storage",
+                        "nullable": true
+                    },
+                    "country": {
+                        "type": "string",
+                        "description": "Country code when broken down by `country`.",
+                        "x-example": "us",
+                        "nullable": true
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Appwrite region when broken down by `region`.",
+                        "x-example": "fra",
+                        "nullable": true
+                    },
+                    "hostname": {
+                        "type": "string",
+                        "description": "Caller origin hostname when broken down by `hostname`.",
+                        "x-example": "app.example.com",
+                        "nullable": true
+                    },
+                    "osName": {
+                        "type": "string",
+                        "description": "Operating system name when broken down by `osName`.",
+                        "x-example": "iOS",
+                        "nullable": true
+                    },
+                    "clientType": {
+                        "type": "string",
+                        "description": "Client type when broken down by `clientType`.",
+                        "x-example": "browser",
+                        "nullable": true
+                    },
+                    "clientName": {
+                        "type": "string",
+                        "description": "Client name when broken down by `clientName`.",
+                        "x-example": "Chrome",
+                        "nullable": true
+                    },
+                    "deviceName": {
+                        "type": "string",
+                        "description": "Device classification when broken down by `deviceName`.",
+                        "x-example": "smartphone",
+                        "nullable": true
+                    },
+                    "teamId": {
+                        "type": "string",
+                        "description": "Owning team ID when broken down by `teamId`.",
+                        "x-example": "team_abc",
+                        "nullable": true
                     },
                     "resourceId": {
                         "type": "string",
-                        "description": "The resource ID.",
-                        "x-example": "abc123"
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "Country code in [ISO 3166-1](http:\/\/en.wikipedia.org\/wiki\/ISO_3166-1) two-character format.",
-                        "x-example": "US"
-                    },
-                    "userAgent": {
-                        "type": "string",
-                        "description": "The user agent string.",
-                        "x-example": "AppwriteSDK\/1.0"
+                        "description": "External resource ID when broken down by `resourceId`.",
+                        "x-example": "abc123",
+                        "nullable": true
                     }
                 },
                 "required": [
-                    "metric",
-                    "value",
                     "time",
-                    "path",
-                    "method",
-                    "status",
-                    "resourceType",
-                    "resourceId",
-                    "countryCode",
-                    "userAgent"
+                    "value"
                 ],
                 "example": {
-                    "metric": "bandwidth",
-                    "value": 5000,
                     "time": "2026-04-09T12:00:00.000+00:00",
+                    "value": 5000,
                     "path": "\/v1\/storage\/files",
                     "method": "POST",
                     "status": "201",
-                    "resourceType": "bucket",
-                    "resourceId": "abc123",
-                    "countryCode": "US",
-                    "userAgent": "AppwriteSDK\/1.0"
+                    "service": "storage",
+                    "country": "us",
+                    "region": "fra",
+                    "hostname": "app.example.com",
+                    "osName": "iOS",
+                    "clientType": "browser",
+                    "clientName": "Chrome",
+                    "deviceName": "smartphone",
+                    "teamId": "team_abc",
+                    "resourceId": "abc123"
                 }
             },
-            "usageGauge": {
-                "description": "usageGauge",
+            "usageEventList": {
+                "description": "usageEventList",
                 "type": "object",
                 "properties": {
                     "metric": {
                         "type": "string",
-                        "description": "The metric key.",
-                        "x-example": "users"
+                        "description": "Metric key the groups describe.",
+                        "x-example": "executions"
                     },
-                    "value": {
-                        "type": "integer",
-                        "description": "The current snapshot value.",
-                        "x-example": 1500,
-                        "format": "int32"
-                    },
-                    "time": {
+                    "interval": {
                         "type": "string",
-                        "description": "The snapshot timestamp.",
-                        "x-example": "2026-04-09T12:00:00.000+00:00"
+                        "description": "Time interval size (1h or 1d).",
+                        "x-example": "1d"
                     },
-                    "resourceType": {
-                        "type": "string",
-                        "description": "The resource type.",
-                        "x-example": "dedicatedDatabases"
-                    },
-                    "resourceId": {
-                        "type": "string",
-                        "description": "The resource ID.",
-                        "x-example": "production"
+                    "groups": {
+                        "type": "array",
+                        "description": "Aggregated groups ordered by time ascending.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/usageGroup"
+                        },
+                        "x-example": ""
                     }
                 },
                 "required": [
                     "metric",
-                    "value",
-                    "time",
-                    "resourceType",
-                    "resourceId"
+                    "interval",
+                    "groups"
                 ],
                 "example": {
-                    "metric": "users",
-                    "value": 1500,
-                    "time": "2026-04-09T12:00:00.000+00:00",
-                    "resourceType": "dedicatedDatabases",
-                    "resourceId": "production"
+                    "metric": "executions",
+                    "interval": "1d",
+                    "groups": ""
+                }
+            },
+            "usageGaugeList": {
+                "description": "usageGaugeList",
+                "type": "object",
+                "properties": {
+                    "metric": {
+                        "type": "string",
+                        "description": "Metric key the groups describe.",
+                        "x-example": "files.storage"
+                    },
+                    "interval": {
+                        "type": "string",
+                        "description": "Time interval size (1h or 1d).",
+                        "x-example": "1d"
+                    },
+                    "groups": {
+                        "type": "array",
+                        "description": "Aggregated groups ordered by time ascending. Each group carries the latest snapshot in its interval (argMax over time).",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/usageGroup"
+                        },
+                        "x-example": ""
+                    }
+                },
+                "required": [
+                    "metric",
+                    "interval",
+                    "groups"
+                ],
+                "example": {
+                    "metric": "files.storage",
+                    "interval": "1d",
+                    "groups": ""
                 }
             },
             "usageOrganization": {
@@ -110090,6 +111491,16 @@
                             "https:\/\/example.com\/callback"
                         ]
                     },
+                    "postLogoutRedirectUris": {
+                        "type": "array",
+                        "description": "List of authorized post-logout redirect URIs for OpenID Connect RP-Initiated Logout. The logout endpoint only redirects users to URIs in this list after ending their session.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "https:\/\/example.com\/logged-out"
+                        ]
+                    },
                     "enabled": {
                         "type": "boolean",
                         "description": "Whether the app is enabled or not.",
@@ -110141,6 +111552,7 @@
                     "supportUrl",
                     "dataDeletionUrl",
                     "redirectUris",
+                    "postLogoutRedirectUris",
                     "enabled",
                     "type",
                     "deviceFlow",
@@ -110173,6 +111585,9 @@
                     "dataDeletionUrl": "https:\/\/example.com\/data-deletion",
                     "redirectUris": [
                         "https:\/\/example.com\/callback"
+                    ],
+                    "postLogoutRedirectUris": [
+                        "https:\/\/example.com\/logged-out"
                     ],
                     "enabled": true,
                     "type": "confidential",
@@ -110326,6 +111741,277 @@
                     "createdById": "5e5ea5c16897e",
                     "createdByName": "Walter White",
                     "lastAccessedAt": "2020-10-15T06:38:00.000+00:00"
+                }
+            },
+            "oauth2Authorize": {
+                "description": "OAuth2 Authorize",
+                "type": "object",
+                "properties": {
+                    "grantId": {
+                        "type": "string",
+                        "description": "OAuth2 grant ID. Set when the user must give explicit consent; pass it to the approve or reject endpoint. Empty when a redirect URL is returned instead.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "redirectUrl": {
+                        "type": "string",
+                        "description": "URL the end user should be redirected to when the flow can complete without consent. Empty when consent is still required.",
+                        "x-example": "https:\/\/example.com\/callback?code=abcde&state=fghij"
+                    }
+                },
+                "required": [
+                    "grantId",
+                    "redirectUrl"
+                ],
+                "example": {
+                    "grantId": "5e5ea5c16897e",
+                    "redirectUrl": "https:\/\/example.com\/callback?code=abcde&state=fghij"
+                }
+            },
+            "oauth2Approve": {
+                "description": "OAuth2 Approve",
+                "type": "object",
+                "properties": {
+                    "redirectUrl": {
+                        "type": "string",
+                        "description": "URL the end user should be redirected to after the grant is approved, carrying the authorization `code` and\/or `id_token` along with the original `state`.",
+                        "x-example": "https:\/\/example.com\/callback?code=abcde&state=fghij"
+                    }
+                },
+                "required": [
+                    "redirectUrl"
+                ],
+                "example": {
+                    "redirectUrl": "https:\/\/example.com\/callback?code=abcde&state=fghij"
+                }
+            },
+            "oauth2Reject": {
+                "description": "OAuth2 Reject",
+                "type": "object",
+                "properties": {
+                    "redirectUrl": {
+                        "type": "string",
+                        "description": "URL the end user should be redirected to after the grant is rejected, carrying an `access_denied` error.",
+                        "x-example": "https:\/\/example.com\/callback?error=access_denied&state=fghij"
+                    }
+                },
+                "required": [
+                    "redirectUrl"
+                ],
+                "example": {
+                    "redirectUrl": "https:\/\/example.com\/callback?error=access_denied&state=fghij"
+                }
+            },
+            "oauth2Grant": {
+                "description": "OAuth2 Grant",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Grant ID.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "Grant creation time in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "$updatedAt": {
+                        "type": "string",
+                        "description": "Grant update date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "description": "ID of the user the grant belongs to.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "appId": {
+                        "type": "string",
+                        "description": "ID of the OAuth2 client (app) the grant was requested for.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "scopes": {
+                        "type": "array",
+                        "description": "Requested OAuth2 scopes the user is being asked to consent to.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "openid",
+                            "email",
+                            "profile"
+                        ]
+                    },
+                    "authorizationDetails": {
+                        "type": "string",
+                        "description": "Requested authorization_details the user is being asked to consent to, as a JSON string. Each entry has a `type` plus project-defined fields.",
+                        "x-example": "[{\"type\":\"calendar\",\"identifier\":\"primary\",\"actions\":[\"read_events\",\"create_event\"]}]"
+                    },
+                    "prompt": {
+                        "type": "string",
+                        "description": "OIDC prompt directive the consent screen should honor. Space-separated list of: login, consent, select_account.",
+                        "x-example": "login"
+                    },
+                    "redirectUri": {
+                        "type": "string",
+                        "description": "Redirect URI the user will be sent to after the flow completes.",
+                        "x-example": "https:\/\/example.com\/callback"
+                    },
+                    "authTime": {
+                        "type": "integer",
+                        "description": "Unix timestamp of when the user last authenticated.",
+                        "x-example": 1592981250,
+                        "format": "int32"
+                    },
+                    "expire": {
+                        "type": "string",
+                        "description": "Grant expiration time in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    }
+                },
+                "required": [
+                    "$id",
+                    "$createdAt",
+                    "$updatedAt",
+                    "userId",
+                    "appId",
+                    "scopes",
+                    "authorizationDetails",
+                    "prompt",
+                    "redirectUri",
+                    "authTime",
+                    "expire"
+                ],
+                "example": {
+                    "$id": "5e5ea5c16897e",
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                    "userId": "5e5ea5c16897e",
+                    "appId": "5e5ea5c16897e",
+                    "scopes": [
+                        "openid",
+                        "email",
+                        "profile"
+                    ],
+                    "authorizationDetails": "[{\"type\":\"calendar\",\"identifier\":\"primary\",\"actions\":[\"read_events\",\"create_event\"]}]",
+                    "prompt": "login",
+                    "redirectUri": "https:\/\/example.com\/callback",
+                    "authTime": 1592981250,
+                    "expire": "2020-10-15T06:38:00.000+00:00"
+                }
+            },
+            "oauth2DeviceAuthorization": {
+                "description": "OAuth2 Device Authorization",
+                "type": "object",
+                "properties": {
+                    "device_code": {
+                        "type": "string",
+                        "description": "Device verification code used by the client to poll the token endpoint.",
+                        "x-example": "5f3c8d2a1b9e4f7a6c8b2d1e9f4a7b3c5d8e1f2a9b4c7d6e3f5a8b1c4d7e2f9a"
+                    },
+                    "user_code": {
+                        "type": "string",
+                        "description": "Short code the end user enters on the verification page.",
+                        "x-example": "ABCD-EFGH"
+                    },
+                    "verification_uri": {
+                        "type": "string",
+                        "description": "URL where the end user enters the user code.",
+                        "x-example": "https:\/\/cloud.appwrite.io\/oauth2\/device"
+                    },
+                    "verification_uri_complete": {
+                        "type": "string",
+                        "description": "Verification URL with the user code prefilled as a query parameter.",
+                        "x-example": "https:\/\/cloud.appwrite.io\/oauth2\/device?user_code=ABCD-EFGH"
+                    },
+                    "expires_in": {
+                        "type": "integer",
+                        "description": "Lifetime of the device code and user code in seconds.",
+                        "x-example": 900,
+                        "format": "int32"
+                    },
+                    "interval": {
+                        "type": "integer",
+                        "description": "Minimum polling interval for the token endpoint in seconds.",
+                        "x-example": 5,
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "device_code",
+                    "user_code",
+                    "verification_uri",
+                    "verification_uri_complete",
+                    "expires_in",
+                    "interval"
+                ],
+                "example": {
+                    "device_code": "5f3c8d2a1b9e4f7a6c8b2d1e9f4a7b3c5d8e1f2a9b4c7d6e3f5a8b1c4d7e2f9a",
+                    "user_code": "ABCD-EFGH",
+                    "verification_uri": "https:\/\/cloud.appwrite.io\/oauth2\/device",
+                    "verification_uri_complete": "https:\/\/cloud.appwrite.io\/oauth2\/device?user_code=ABCD-EFGH",
+                    "expires_in": 900,
+                    "interval": 5
+                }
+            },
+            "oauth2Token": {
+                "description": "OAuth2 Token",
+                "type": "object",
+                "properties": {
+                    "access_token": {
+                        "type": "string",
+                        "description": "OAuth2 access token.",
+                        "x-example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9..."
+                    },
+                    "token_type": {
+                        "type": "string",
+                        "description": "OAuth2 token type.",
+                        "x-example": "Bearer"
+                    },
+                    "expires_in": {
+                        "type": "integer",
+                        "description": "Access token lifetime in seconds.",
+                        "x-example": 3600,
+                        "format": "int32"
+                    },
+                    "refresh_token": {
+                        "type": "string",
+                        "description": "OAuth2 refresh token.",
+                        "x-example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                    },
+                    "scope": {
+                        "type": "string",
+                        "description": "Space-separated scopes granted to the access token.",
+                        "x-example": "openid email profile"
+                    },
+                    "authorization_details": {
+                        "type": "string",
+                        "description": "Granted RFC 9396 authorization details as a JSON string.",
+                        "x-example": "[{\"type\":\"calendar\",\"identifier\":\"primary\",\"actions\":[\"read_events\"]}]",
+                        "nullable": true
+                    },
+                    "id_token": {
+                        "type": "string",
+                        "description": "OpenID Connect ID token. Returned when the `openid` scope is granted.",
+                        "x-example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9...",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "access_token",
+                    "token_type",
+                    "expires_in",
+                    "refresh_token",
+                    "scope"
+                ],
+                "example": {
+                    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9...",
+                    "token_type": "Bearer",
+                    "expires_in": 3600,
+                    "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
+                    "scope": "openid email profile",
+                    "authorization_details": "[{\"type\":\"calendar\",\"identifier\":\"primary\",\"actions\":[\"read_events\"]}]",
+                    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9..."
                 }
             },
             "activityEventList": {
@@ -110860,62 +112546,6 @@
                     "regions": ""
                 }
             },
-            "usageEventList": {
-                "description": "Usage events list",
-                "type": "object",
-                "properties": {
-                    "total": {
-                        "type": "integer",
-                        "description": "Total number of events that matched your query.",
-                        "x-example": 5,
-                        "format": "int32"
-                    },
-                    "events": {
-                        "type": "array",
-                        "description": "List of events.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/usageEvent"
-                        },
-                        "x-example": ""
-                    }
-                },
-                "required": [
-                    "total",
-                    "events"
-                ],
-                "example": {
-                    "total": 5,
-                    "events": ""
-                }
-            },
-            "usageGaugeList": {
-                "description": "Usage gauges list",
-                "type": "object",
-                "properties": {
-                    "total": {
-                        "type": "integer",
-                        "description": "Total number of gauges that matched your query.",
-                        "x-example": 5,
-                        "format": "int32"
-                    },
-                    "gauges": {
-                        "type": "array",
-                        "description": "List of gauges.",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/usageGauge"
-                        },
-                        "x-example": ""
-                    }
-                },
-                "required": [
-                    "total",
-                    "gauges"
-                ],
-                "example": {
-                    "total": 5,
-                    "gauges": ""
-                }
-            },
             "appsList": {
                 "description": "Apps list",
                 "type": "object",
@@ -111051,20 +112681,29 @@
             "ImpersonateUserId": {
                 "type": "apiKey",
                 "name": "X-Appwrite-Impersonate-User-Id",
-                "description": "Impersonate a user by ID on an already user-authenticated request. Requires the current request to be authenticated as a user with impersonator capability; X-Appwrite-Key alone is not sufficient. Impersonator users are intentionally granted users.read so they can discover a target before impersonation begins. Internal audit logs still attribute actions to the original impersonator and record the impersonated target only in internal audit payload data.",
-                "in": "header"
+                "description": "Impersonate a user by ID",
+                "in": "header",
+                "x-appwrite": {
+                    "optional": true
+                }
             },
             "ImpersonateUserEmail": {
                 "type": "apiKey",
                 "name": "X-Appwrite-Impersonate-User-Email",
-                "description": "Impersonate a user by email on an already user-authenticated request. Requires the current request to be authenticated as a user with impersonator capability; X-Appwrite-Key alone is not sufficient. Impersonator users are intentionally granted users.read so they can discover a target before impersonation begins. Internal audit logs still attribute actions to the original impersonator and record the impersonated target only in internal audit payload data.",
-                "in": "header"
+                "description": "Impersonate a user by email",
+                "in": "header",
+                "x-appwrite": {
+                    "optional": true
+                }
             },
             "ImpersonateUserPhone": {
                 "type": "apiKey",
                 "name": "X-Appwrite-Impersonate-User-Phone",
-                "description": "Impersonate a user by phone on an already user-authenticated request. Requires the current request to be authenticated as a user with impersonator capability; X-Appwrite-Key alone is not sufficient. Impersonator users are intentionally granted users.read so they can discover a target before impersonation begins. Internal audit logs still attribute actions to the original impersonator and record the impersonated target only in internal audit payload data.",
-                "in": "header"
+                "description": "Impersonate a user by phone",
+                "in": "header",
+                "x-appwrite": {
+                    "optional": true
+                }
             },
             "Platform": {
                 "type": "apiKey",

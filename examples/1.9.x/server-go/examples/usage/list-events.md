@@ -16,7 +16,16 @@ client := client.New(
 service := usage.New(client)
 
 response, error := service.ListEvents(
-    usage.WithListEventsQueries([]string{}),
-    usage.WithListEventsTotal(false),
+    "<METRIC>",
+    usage.WithListEventsResource("<RESOURCE>"),
+    usage.WithListEventsResourceId("<RESOURCE_ID>"),
+    usage.WithListEventsInterval("1m"),
+    usage.WithListEventsDimensions([]string{}),
+    usage.WithListEventsStartAt("2020-10-15T06:38:00.000+00:00"),
+    usage.WithListEventsEndAt("2020-10-15T06:38:00.000+00:00"),
+    usage.WithListEventsOrderBy("time"),
+    usage.WithListEventsOrderDir("asc"),
+    usage.WithListEventsLimit(1),
+    usage.WithListEventsOffset(0),
 )
 ```

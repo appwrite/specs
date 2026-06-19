@@ -1,21 +1,36 @@
 ```graphql
 query {
     usageListEvents(
-        queries: [],
-        total: false
+        metric: "<METRIC>",
+        resource: "<RESOURCE>",
+        resourceId: "<RESOURCE_ID>",
+        interval: "1m",
+        dimensions: [],
+        startAt: "2020-10-15T06:38:00.000+00:00",
+        endAt: "2020-10-15T06:38:00.000+00:00",
+        orderBy: "time",
+        orderDir: "asc",
+        limit: 1,
+        offset: 0
     ) {
-        total
-        events {
-            metric
-            value
+        metric
+        interval
+        groups {
             time
+            value
             path
             method
             status
-            resourceType
+            service
+            country
+            region
+            hostname
+            osName
+            clientType
+            clientName
+            deviceName
+            teamId
             resourceId
-            countryCode
-            userAgent
         }
     }
 }

@@ -11,7 +11,16 @@ client = Client.new
 usage = Usage.new(client)
 
 result = usage.list_gauges(
-    queries: [], # optional
-    total: false # optional
+    metric: '<METRIC>',
+    resource_id: '<RESOURCE_ID>', # optional
+    team_id: '<TEAM_ID>', # optional
+    interval: '1m', # optional
+    dimensions: [], # optional
+    start_at: '2020-10-15T06:38:00.000+00:00', # optional
+    end_at: '2020-10-15T06:38:00.000+00:00', # optional
+    order_by: 'time', # optional
+    order_dir: 'asc', # optional
+    limit: 1, # optional
+    offset: 0 # optional
 )
 ```
