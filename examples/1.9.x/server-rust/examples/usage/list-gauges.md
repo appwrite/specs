@@ -12,7 +12,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let usage = Usage::new(&client);
 
     let result = usage.list_gauges(
-        "<METRIC>",
+        vec![],
         Some("<RESOURCE_ID>"), // optional
         Some("<TEAM_ID>"), // optional
         Some("1m"), // optional

@@ -11,7 +11,7 @@ Client client = new Client()
 Usage usage = new Usage(client);
 
 UsageEventList result = await usage.ListEvents(
-    metric: "<METRIC>",
+    metrics: new List<string>(),
     resource: "<RESOURCE>", // optional
     resourceId: "<RESOURCE_ID>", // optional
     interval: "1m", // optional

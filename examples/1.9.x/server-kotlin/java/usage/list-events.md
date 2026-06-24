@@ -11,7 +11,7 @@ Client client = new Client()
 Usage usage = new Usage(client);
 
 usage.listEvents(
-    "<METRIC>", // metric
+    List.of(), // metrics
     "<RESOURCE>", // resource (optional)
     "<RESOURCE_ID>", // resourceId (optional)
     "1m", // interval (optional)

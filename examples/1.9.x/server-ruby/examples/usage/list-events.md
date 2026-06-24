@@ -11,7 +11,7 @@ client = Client.new
 usage = Usage.new(client)
 
 result = usage.list_events(
-    metric: '<METRIC>',
+    metrics: [],
     resource: '<RESOURCE>', # optional
     resource_id: '<RESOURCE_ID>', # optional
     interval: '1m', # optional

@@ -9,7 +9,7 @@ const client = new sdk.Client()
 const usage = new sdk.Usage(client);
 
 const result = await usage.listGauges({
-    metric: '<METRIC>',
+    metrics: [],
     resourceId: '<RESOURCE_ID>', // optional
     teamId: '<TEAM_ID>', // optional
     interval: '1m', // optional

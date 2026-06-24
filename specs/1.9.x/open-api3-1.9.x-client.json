@@ -7540,7 +7540,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
@@ -7559,6 +7559,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/list-transactions.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.listTransactions"
+                    },
                     "auth": {
                         "Project": []
                     }
@@ -7605,7 +7609,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
@@ -7624,6 +7628,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/create-transaction.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.createTransaction"
+                    },
                     "auth": {
                         "Project": []
                     }
@@ -7675,7 +7683,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
@@ -7694,6 +7702,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/get-transaction.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.getTransaction"
+                    },
                     "auth": {
                         "Project": []
                     }
@@ -7737,7 +7749,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
@@ -7756,6 +7768,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/update-transaction.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.updateTransaction"
+                    },
                     "auth": {
                         "Project": []
                     }
@@ -7815,7 +7831,7 @@
                         "description": "No content"
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
@@ -7834,6 +7850,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/delete-transaction.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.deleteTransaction"
+                    },
                     "auth": {
                         "Project": []
                     }
@@ -7879,7 +7899,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
@@ -7898,6 +7918,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/create-operations.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.createOperations"
+                    },
                     "auth": {
                         "Project": []
                     }
@@ -11654,6 +11678,16 @@
                             "default": ""
                         },
                         "in": "query"
+                    },
+                    {
+                        "name": "resource",
+                        "description": "RFC 8707 resource indicator URI or URI list. Each value must be an absolute URI without a fragment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": []
+                        },
+                        "in": "query"
                     }
                 ]
             }
@@ -11742,6 +11776,12 @@
                                         "description": "Rich authorization request. JSON array of objects, each with a `type` and project-defined fields",
                                         "default": "",
                                         "x-example": "<AUTHORIZATION_DETAILS>"
+                                    },
+                                    "resource": {
+                                        "type": "string",
+                                        "description": "RFC 8707 resource indicator URI or URI list. Each value must be an absolute URI without a fragment.",
+                                        "default": [],
+                                        "x-example": null
                                     }
                                 }
                             }
@@ -12326,6 +12366,12 @@
                                         "default": "",
                                         "x-example": "https:\/\/example.com",
                                         "format": "url"
+                                    },
+                                    "resource": {
+                                        "type": "string",
+                                        "description": "RFC 8707 resource indicator URI or URI list. Each value must be an absolute URI without a fragment.",
+                                        "default": [],
+                                        "x-example": null
                                     }
                                 },
                                 "required": [
@@ -20742,6 +20788,16 @@
                             "profile"
                         ]
                     },
+                    "resources": {
+                        "type": "array",
+                        "description": "Requested RFC 8707 resource indicators the user is being asked to consent to.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "https:\/\/api.example.com\/"
+                        ]
+                    },
                     "authorizationDetails": {
                         "type": "string",
                         "description": "Requested authorization_details the user is being asked to consent to, as a JSON string. Each entry has a `type` plus project-defined fields.",
@@ -20776,6 +20832,7 @@
                     "userId",
                     "appId",
                     "scopes",
+                    "resources",
                     "authorizationDetails",
                     "prompt",
                     "redirectUri",
@@ -20792,6 +20849,9 @@
                         "openid",
                         "email",
                         "profile"
+                    ],
+                    "resources": [
+                        "https:\/\/api.example.com\/"
                     ],
                     "authorizationDetails": "[{\"type\":\"calendar\",\"identifier\":\"primary\",\"actions\":[\"read_events\",\"create_event\"]}]",
                     "prompt": "login",
@@ -20817,12 +20877,12 @@
                     "verification_uri": {
                         "type": "string",
                         "description": "URL where the end user enters the user code.",
-                        "x-example": "https:\/\/cloud.appwrite.io\/oauth2\/device"
+                        "x-example": "https:\/\/cloud.appwrite.io\/console\/oauth2\/device"
                     },
                     "verification_uri_complete": {
                         "type": "string",
                         "description": "Verification URL with the user code prefilled as a query parameter.",
-                        "x-example": "https:\/\/cloud.appwrite.io\/oauth2\/device?user_code=ABCD-EFGH"
+                        "x-example": "https:\/\/cloud.appwrite.io\/console\/oauth2\/device?user_code=ABCD-EFGH"
                     },
                     "expires_in": {
                         "type": "integer",
@@ -20848,8 +20908,8 @@
                 "example": {
                     "device_code": "5f3c8d2a1b9e4f7a6c8b2d1e9f4a7b3c5d8e1f2a9b4c7d6e3f5a8b1c4d7e2f9a",
                     "user_code": "ABCD-EFGH",
-                    "verification_uri": "https:\/\/cloud.appwrite.io\/oauth2\/device",
-                    "verification_uri_complete": "https:\/\/cloud.appwrite.io\/oauth2\/device?user_code=ABCD-EFGH",
+                    "verification_uri": "https:\/\/cloud.appwrite.io\/console\/oauth2\/device",
+                    "verification_uri_complete": "https:\/\/cloud.appwrite.io\/console\/oauth2\/device?user_code=ABCD-EFGH",
                     "expires_in": 900,
                     "interval": 5
                 }

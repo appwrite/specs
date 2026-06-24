@@ -12,7 +12,7 @@ $client = (new Client())
 $usage = new Usage($client);
 
 $result = $usage->listEvents(
-    metric: '<METRIC>',
+    metrics: [],
     resource: '<RESOURCE>', // optional
     resourceId: '<RESOURCE_ID>', // optional
     interval: '1m', // optional

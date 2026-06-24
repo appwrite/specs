@@ -15,5 +15,7 @@ client := client.New(
 
 service := functions.New(client)
 
-response, error := service.ListSpecifications())
+response, error := service.ListSpecifications(
+    functions.WithListSpecificationsType("runtimes"),
+)
 ```

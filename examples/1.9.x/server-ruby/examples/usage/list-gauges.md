@@ -11,7 +11,7 @@ client = Client.new
 usage = Usage.new(client)
 
 result = usage.list_gauges(
-    metric: '<METRIC>',
+    metrics: [],
     resource_id: '<RESOURCE_ID>', # optional
     team_id: '<TEAM_ID>', # optional
     interval: '1m', # optional

@@ -16,7 +16,7 @@ client := client.New(
 service := usage.New(client)
 
 response, error := service.ListGauges(
-    "<METRIC>",
+    []string{},
     usage.WithListGaugesResourceId("<RESOURCE_ID>"),
     usage.WithListGaugesTeamId("<TEAM_ID>"),
     usage.WithListGaugesInterval("1m"),

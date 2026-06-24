@@ -9,7 +9,7 @@ Client client = Client()
 Usage usage = Usage(client);
 
 UsageEventList result = await usage.listEvents(
-    metric: '<METRIC>',
+    metrics: [],
     resource: '<RESOURCE>', // (optional)
     resourceId: '<RESOURCE_ID>', // (optional)
     interval: '1m', // (optional)

@@ -16,7 +16,7 @@ client := client.New(
 service := usage.New(client)
 
 response, error := service.ListEvents(
-    "<METRIC>",
+    []string{},
     usage.WithListEventsResource("<RESOURCE>"),
     usage.WithListEventsResourceId("<RESOURCE_ID>"),
     usage.WithListEventsInterval("1m"),

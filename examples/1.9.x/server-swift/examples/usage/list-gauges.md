@@ -9,7 +9,7 @@ let client = Client()
 let usage = Usage(client)
 
 let usageGaugeList = try await usage.listGauges(
-    metric: "<METRIC>",
+    metrics: [],
     resourceId: "<RESOURCE_ID>", // optional
     teamId: "<TEAM_ID>", // optional
     interval: "1m", // optional
