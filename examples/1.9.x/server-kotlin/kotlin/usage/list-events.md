@@ -11,7 +11,7 @@ val client = Client()
 val usage = Usage(client)
 
 val response = usage.listEvents(
-    metric = "<METRIC>",
+    metrics = listOf(),
     resource = "<RESOURCE>", // optional
     resourceId = "<RESOURCE_ID>", // optional
     interval = "1m", // optional

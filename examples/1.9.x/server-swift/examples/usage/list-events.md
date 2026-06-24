@@ -9,7 +9,7 @@ let client = Client()
 let usage = Usage(client)
 
 let usageEventList = try await usage.listEvents(
-    metric: "<METRIC>",
+    metrics: [],
     resource: "<RESOURCE>", // optional
     resourceId: "<RESOURCE_ID>", // optional
     interval: "1m", // optional

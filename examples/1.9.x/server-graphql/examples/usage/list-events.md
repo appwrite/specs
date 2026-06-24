@@ -1,7 +1,7 @@
 ```graphql
 query {
     usageListEvents(
-        metric: "<METRIC>",
+        metrics: [],
         resource: "<RESOURCE>",
         resourceId: "<RESOURCE_ID>",
         interval: "1m",
@@ -13,24 +13,27 @@ query {
         limit: 1,
         offset: 0
     ) {
-        metric
         interval
-        groups {
-            time
-            value
-            path
-            method
-            status
-            service
-            country
-            region
-            hostname
-            osName
-            clientType
-            clientName
-            deviceName
-            teamId
-            resourceId
+        metrics {
+            metric
+            points {
+                time
+                value
+                path
+                method
+                status
+                service
+                country
+                region
+                hostname
+                osName
+                clientType
+                clientName
+                deviceName
+                teamId
+                resourceId
+                resource
+            }
         }
     }
 }

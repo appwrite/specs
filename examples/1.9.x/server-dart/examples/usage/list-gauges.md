@@ -9,7 +9,7 @@ Client client = Client()
 Usage usage = Usage(client);
 
 UsageGaugeList result = await usage.listGauges(
-    metric: '<METRIC>',
+    metrics: [],
     resourceId: '<RESOURCE_ID>', // (optional)
     teamId: '<TEAM_ID>', // (optional)
     interval: '1m', // (optional)

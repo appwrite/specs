@@ -11,7 +11,7 @@ Client client = new Client()
 Usage usage = new Usage(client);
 
 UsageGaugeList result = await usage.ListGauges(
-    metric: "<METRIC>",
+    metrics: new List<string>(),
     resourceId: "<RESOURCE_ID>", // optional
     teamId: "<TEAM_ID>", // optional
     interval: "1m", // optional

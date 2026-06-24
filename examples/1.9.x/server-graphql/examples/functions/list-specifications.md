@@ -1,6 +1,8 @@
 ```graphql
 query {
-    functionsListSpecifications {
+    functionsListSpecifications(
+        type: "runtimes"
+    ) {
         total
         specifications {
             memory

@@ -12,7 +12,7 @@ $client = (new Client())
 $usage = new Usage($client);
 
 $result = $usage->listGauges(
-    metric: '<METRIC>',
+    metrics: [],
     resourceId: '<RESOURCE_ID>', // optional
     teamId: '<TEAM_ID>', // optional
     interval: '1m', // optional

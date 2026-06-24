@@ -1,6 +1,8 @@
 ```graphql
 query {
-    sitesListSpecifications {
+    sitesListSpecifications(
+        type: "runtimes"
+    ) {
         total
         specifications {
             memory

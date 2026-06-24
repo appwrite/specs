@@ -11,7 +11,7 @@ Client client = new Client()
 Usage usage = new Usage(client);
 
 usage.listGauges(
-    "<METRIC>", // metric
+    List.of(), // metrics
     "<RESOURCE_ID>", // resourceId (optional)
     "<TEAM_ID>", // teamId (optional)
     "1m", // interval (optional)

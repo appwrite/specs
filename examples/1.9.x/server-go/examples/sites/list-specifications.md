@@ -15,5 +15,7 @@ client := client.New(
 
 service := sites.New(client)
 
-response, error := service.ListSpecifications())
+response, error := service.ListSpecifications(
+    sites.WithListSpecificationsType("runtimes"),
+)
 ```
