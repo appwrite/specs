@@ -8557,7 +8557,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "listTransactions",
                     "group": "transactions",
@@ -8576,6 +8576,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/list-transactions.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.listTransactions"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -8624,7 +8628,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "createTransaction",
                     "group": "transactions",
@@ -8643,6 +8647,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/create-transaction.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.createTransaction"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -8696,7 +8704,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "getTransaction",
                     "group": "transactions",
@@ -8715,6 +8723,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/get-transaction.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.getTransaction"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -8760,7 +8772,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "updateTransaction",
                     "group": "transactions",
@@ -8779,6 +8791,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/update-transaction.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.updateTransaction"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -8840,7 +8856,7 @@
                         "description": "No content"
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "deleteTransaction",
                     "group": "transactions",
@@ -8859,6 +8875,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/delete-transaction.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.deleteTransaction"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -8906,7 +8926,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "createOperations",
                     "group": "transactions",
@@ -8925,6 +8945,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/create-operations.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.createOperations"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -12100,7 +12124,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "createLongtextAttribute",
                     "group": "attributes",
@@ -12118,6 +12142,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/create-longtext-attribute.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.createLongtextColumn"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -12216,7 +12244,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "updateLongtextAttribute",
                     "group": "attributes",
@@ -12234,6 +12262,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/update-longtext-attribute.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.updateLongtextColumn"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -12330,7 +12362,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "createMediumtextAttribute",
                     "group": "attributes",
@@ -12348,6 +12380,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/create-mediumtext-attribute.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.createMediumtextColumn"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -12446,7 +12482,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "updateMediumtextAttribute",
                     "group": "attributes",
@@ -12464,6 +12500,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/update-mediumtext-attribute.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.updateMediumtextColumn"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -13559,7 +13599,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "createTextAttribute",
                     "group": "attributes",
@@ -13577,6 +13617,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/create-text-attribute.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.createTextColumn"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -13675,7 +13719,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "updateTextAttribute",
                     "group": "attributes",
@@ -13693,6 +13737,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/update-text-attribute.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.updateTextColumn"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -14023,7 +14071,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "createVarcharAttribute",
                     "group": "attributes",
@@ -14041,6 +14089,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/create-varchar-attribute.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.createVarcharColumn"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -14146,7 +14198,7 @@
                         }
                     }
                 },
-                "deprecated": false,
+                "deprecated": true,
                 "x-appwrite": {
                     "method": "updateVarcharAttribute",
                     "group": "attributes",
@@ -14164,6 +14216,10 @@
                     "packaging": false,
                     "public": true,
                     "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/update-varchar-attribute.md",
+                    "deprecated": {
+                        "since": "1.8.0",
+                        "replaceWith": "tablesDB.updateVarcharColumn"
+                    },
                     "auth": {
                         "Project": [],
                         "Key": []
@@ -20121,6 +20177,19 @@
                         "Project": [],
                         "Key": []
                     }
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "description": "Specification type to list. Can be one of: runtimes, builds.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "runtimes",
+                            "default": "runtimes"
+                        },
+                        "in": "query"
+                    }
                 ]
             }
         },
@@ -20767,8 +20836,8 @@
                                     "buildSpecification": {
                                         "type": "string",
                                         "description": "Build specification for the function deployments.",
-                                        "default": {},
-                                        "x-example": null
+                                        "x-example": null,
+                                        "x-nullable": true
                                     },
                                     "runtimeSpecification": {
                                         "type": "string",
@@ -23365,70 +23434,6 @@
                             "type": "integer",
                             "format": "int32",
                             "default": 5000
-                        },
-                        "in": "query"
-                    }
-                ]
-            }
-        },
-        "\/health\/queue\/builds-priority": {
-            "get": {
-                "summary": "Get billing aggregation queue",
-                "operationId": "healthGetQueuePriorityBuilds",
-                "tags": [
-                    "health"
-                ],
-                "description": "Get the priority builds queue size.",
-                "responses": {
-                    "200": {
-                        "description": "Health Queue",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/healthQueue"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "getQueuePriorityBuilds",
-                    "group": null,
-                    "cookies": false,
-                    "type": "",
-                    "demo": "health\/get-queue-priority-builds.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "health.read",
-                    "platforms": [
-                        "console",
-                        "server"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/health\/get-queue-priority-builds.md",
-                    "auth": {
-                        "Project": [],
-                        "Key": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": [],
-                        "Key": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "threshold",
-                        "description": "Queue size threshold. When hit (equal or higher), endpoint returns server error. Default value is 500.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32",
-                            "default": 500
                         },
                         "in": "query"
                     }
@@ -31110,6 +31115,16 @@
                             "default": ""
                         },
                         "in": "query"
+                    },
+                    {
+                        "name": "resource",
+                        "description": "RFC 8707 resource indicator URI or URI list. Each value must be an absolute URI without a fragment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": []
+                        },
+                        "in": "query"
                     }
                 ]
             }
@@ -31200,6 +31215,12 @@
                                         "description": "Rich authorization request. JSON array of objects, each with a `type` and project-defined fields",
                                         "default": "",
                                         "x-example": "<AUTHORIZATION_DETAILS>"
+                                    },
+                                    "resource": {
+                                        "type": "string",
+                                        "description": "RFC 8707 resource indicator URI or URI list. Each value must be an absolute URI without a fragment.",
+                                        "default": [],
+                                        "x-example": null
                                     }
                                 }
                             }
@@ -31668,6 +31689,12 @@
                                         "default": "",
                                         "x-example": "https:\/\/example.com",
                                         "format": "url"
+                                    },
+                                    "resource": {
+                                        "type": "string",
+                                        "description": "RFC 8707 resource indicator URI or URI list. Each value must be an absolute URI without a fragment.",
+                                        "default": [],
+                                        "x-example": null
                                     }
                                 },
                                 "required": [
@@ -44242,6 +44269,19 @@
                         "Project": [],
                         "Key": []
                     }
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "description": "Specification type to list. Can be one of: runtimes, builds.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "runtimes",
+                            "default": "runtimes"
+                        },
+                        "in": "query"
+                    }
                 ]
             }
         },
@@ -44728,8 +44768,8 @@
                                     "buildSpecification": {
                                         "type": "string",
                                         "description": "Build specification for the site deployments.",
-                                        "default": {},
-                                        "x-example": null
+                                        "x-example": null,
+                                        "x-nullable": true
                                     },
                                     "runtimeSpecification": {
                                         "type": "string",
@@ -57132,7 +57172,7 @@
                 "tags": [
                     "usage"
                 ],
-                "description": "Aggregate usage event metrics. `metric` is required.\n\n**Two response shapes**:\n- Omit `interval` for a flat top-N table \u2014 one row per dimension combination, no time axis. Useful for \"top 10 paths by bandwidth in the last 7 days\".\n- Pass `interval` (`1m`, `15m`, `30m`, `1h`, `1d`) for a time series \u2014 one row per (time bucket \u00d7 dimension combination).\n\n`dimensions[]` breaks each row down by one or more attributes (service, path, status, country, \u2026). `resource` and `resourceId` filter the underlying events. `orderBy=value`+`orderDir=desc`+`limit=N` returns the top-N by aggregated value. When `startAt` is omitted, the default window adapts to `interval` (or 7d when interval is omitted).",
+                "description": "Aggregate usage event metrics. `metrics[]` (1-10) is required; the response always contains one entry per requested metric, each with its own `points[]` time series.\n\n**Two response shapes**:\n- Omit `interval` for a flat top-N table \u2014 one point per dimension combination, no time axis. Useful for \"top 10 paths by bandwidth in the last 7 days\".\n- Pass `interval` (`1m`, `15m`, `30m`, `1h`, `1d`) for a time series \u2014 one point per (time bucket \u00d7 dimension combination).\n\n`dimensions[]` breaks each point down by one or more attributes (service, path, status, country, \u2026). Pass multiple metrics to render stacked charts in one round-trip. `resource` and `resourceId` filter the underlying events. `orderBy=value`+`orderDir=desc`+`limit=N` returns the top-N by aggregated value. When `startAt` is omitted, the default window adapts to `interval` (or 7d when interval is omitted).",
                 "responses": {
                     "200": {
                         "description": "usageEventList",
@@ -57175,12 +57215,14 @@
                 ],
                 "parameters": [
                     {
-                        "name": "metric",
-                        "description": "Metric name (required). Example: executions, network.requests.",
+                        "name": "metrics",
+                        "description": "One to ten metric names. Single-metric callers pass a one-element array. Example: `metrics[]=executions` or `metrics[]=executions&metrics[]=executions.compute` for stacked charts.",
                         "required": true,
                         "schema": {
-                            "type": "string",
-                            "x-example": "<METRIC>"
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
                         },
                         "in": "query"
                     },
@@ -57218,7 +57260,7 @@
                     },
                     {
                         "name": "dimensions",
-                        "description": "Break-down dimensions (max 10). Allowed: path, method, status, service, country, region, hostname, osName, clientType, clientName, deviceName, teamId, resourceId.",
+                        "description": "Break-down dimensions (max 10). Allowed: path, method, status, service, resource, country, region, hostname, osName, clientType, clientName, deviceName, teamId, resourceId.",
                         "required": false,
                         "schema": {
                             "type": "array",
@@ -57309,7 +57351,7 @@
                 "tags": [
                     "usage"
                 ],
-                "description": "Aggregate usage gauge snapshots. Gauges are point-in-time values (storage totals, resource counts, \u2026); each group carries the latest snapshot in its interval via `argMax(value, time)`. `metric` is required.\n\n**Two response shapes**:\n- Omit `interval` for a flat top-N table \u2014 `argMax(value, time)` per dimension combination over the whole window, no time axis. Useful for \"top 10 resources by current storage\".\n- Pass `interval` (`1m`, `15m`, `30m`, `1h`, `1d`) for a time series \u2014 one snapshot per (time bucket \u00d7 dimension combination).\n\n`dimensions[]` breaks each row down further \u2014 only `resourceId` and `teamId` are supported on gauges. `resourceId` and `teamId` parameters filter the underlying rows. `orderBy=value`+`orderDir=desc`+`limit=N` returns the top-N. When `startAt` is omitted, the default window adapts to interval (or 7d when interval is omitted).",
+                "description": "Aggregate usage gauge snapshots. Gauges are point-in-time values (storage totals, resource counts, \u2026); each point carries the latest snapshot in its interval via `argMax(value, time)`. `metrics[]` (1-10) is required; the response always contains one entry per requested metric, each with its own `points[]` time series.\n\n**Two response shapes**:\n- Omit `interval` for a flat top-N table \u2014 `argMax(value, time)` per dimension combination over the whole window, no time axis. Useful for \"top 10 resources by current storage\".\n- Pass `interval` (`1m`, `15m`, `30m`, `1h`, `1d`) for a time series \u2014 one snapshot per (time bucket \u00d7 dimension combination).\n\n`dimensions[]` breaks each point down further. Supported on gauges: `resourceId`, `teamId`, `service`, `resource`. `service` and `resource` enable per-service \/ per-resource-type panels (e.g. storage-by-service: group `files.storage`, `deployments.storage`, `builds.storage`, `databases.storage` by `service`). Pass multiple metrics to render stacked charts in one round-trip. `resourceId` and `teamId` parameters filter the underlying rows. `orderBy=value`+`orderDir=desc`+`limit=N` returns the top-N. When `startAt` is omitted, the default window adapts to interval (or 7d when interval is omitted).",
                 "responses": {
                     "200": {
                         "description": "usageGaugeList",
@@ -57352,12 +57394,14 @@
                 ],
                 "parameters": [
                     {
-                        "name": "metric",
-                        "description": "Metric name (required). Example: files.storage, deployments.storage.",
+                        "name": "metrics",
+                        "description": "One to ten metric names. Single-metric callers pass a one-element array. Example: `metrics[]=files.storage` or `metrics[]=files.storage&metrics[]=deployments.storage` for stacked charts.",
                         "required": true,
                         "schema": {
-                            "type": "string",
-                            "x-example": "<METRIC>"
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
                         },
                         "in": "query"
                     },
@@ -57395,7 +57439,7 @@
                     },
                     {
                         "name": "dimensions",
-                        "description": "Break-down dimensions. Allowed: resourceId, teamId.",
+                        "description": "Break-down dimensions. Allowed: resourceId, teamId, service, resource.",
                         "required": false,
                         "schema": {
                             "type": "array",
@@ -74264,12 +74308,14 @@
                     "oAuth2ServerEnabled": {
                         "type": "boolean",
                         "description": "OAuth2 server status",
-                        "x-example": false
+                        "x-example": false,
+                        "nullable": true
                     },
                     "oAuth2ServerAuthorizationUrl": {
                         "type": "string",
                         "description": "OAuth2 server authorization URL",
-                        "x-example": "https:\/\/cloud.appwrite.io\/oauth2\/.well-known\/openid-configuration"
+                        "x-example": "https:\/\/cloud.appwrite.io\/oauth2\/.well-known\/openid-configuration",
+                        "nullable": true
                     },
                     "oAuth2ServerScopes": {
                         "type": "array",
@@ -74280,7 +74326,8 @@
                         "x-example": [
                             "read",
                             "write"
-                        ]
+                        ],
+                        "nullable": true
                     },
                     "oAuth2ServerAuthorizationDetailsTypes": {
                         "type": "array",
@@ -74290,63 +74337,74 @@
                         },
                         "x-example": [
                             "calendar"
-                        ]
+                        ],
+                        "nullable": true
                     },
                     "oAuth2ServerAccessTokenDuration": {
                         "type": "integer",
                         "description": "OAuth2 server access token duration in seconds for confidential clients",
                         "x-example": 3600,
-                        "format": "int32"
+                        "format": "int32",
+                        "nullable": true
                     },
                     "oAuth2ServerRefreshTokenDuration": {
                         "type": "integer",
                         "description": "OAuth2 server refresh token duration in seconds for confidential clients",
                         "x-example": 86400,
-                        "format": "int32"
+                        "format": "int32",
+                        "nullable": true
                     },
                     "oAuth2ServerPublicAccessTokenDuration": {
                         "type": "integer",
                         "description": "OAuth2 server access token duration in seconds for public clients (SPAs, mobile, native)",
                         "x-example": 3600,
-                        "format": "int32"
+                        "format": "int32",
+                        "nullable": true
                     },
                     "oAuth2ServerPublicRefreshTokenDuration": {
                         "type": "integer",
                         "description": "OAuth2 server refresh token duration in seconds for public clients (SPAs, mobile, native)",
                         "x-example": 2592000,
-                        "format": "int32"
+                        "format": "int32",
+                        "nullable": true
                     },
                     "oAuth2ServerConfidentialPkce": {
                         "type": "boolean",
                         "description": "When enabled, PKCE is required for confidential clients (server-side flows using client_secret). PKCE is always required for public clients regardless of this setting.",
-                        "x-example": false
+                        "x-example": false,
+                        "nullable": true
                     },
                     "oAuth2ServerVerificationUrl": {
                         "type": "string",
                         "description": "URL to your application page where users enter the device flow user code. Empty when the Device Authorization Grant is not configured.",
-                        "x-example": "https:\/\/cloud.appwrite.io\/device"
+                        "x-example": "https:\/\/cloud.appwrite.io\/device",
+                        "nullable": true
                     },
                     "oAuth2ServerUserCodeLength": {
                         "type": "integer",
                         "description": "Number of characters in the device flow user code, excluding the formatting separator.",
                         "x-example": 8,
-                        "format": "int32"
+                        "format": "int32",
+                        "nullable": true
                     },
                     "oAuth2ServerUserCodeFormat": {
                         "type": "string",
                         "description": "Character set for device flow user codes: `numeric`, `alphabetic`, or `alphanumeric`.",
-                        "x-example": "alphanumeric"
+                        "x-example": "alphanumeric",
+                        "nullable": true
                     },
                     "oAuth2ServerDeviceCodeDuration": {
                         "type": "integer",
                         "description": "Lifetime in seconds of device flow device codes and user codes.",
                         "x-example": 600,
-                        "format": "int32"
+                        "format": "int32",
+                        "nullable": true
                     },
                     "oAuth2ServerDiscoveryUrl": {
                         "type": "string",
                         "description": "OAuth2 server discovery URL",
-                        "x-example": "https:\/\/auth.example.com\/.well-known\/openid-configuration"
+                        "x-example": "https:\/\/auth.example.com\/.well-known\/openid-configuration",
+                        "nullable": true
                     }
                 },
                 "required": [
@@ -74375,21 +74433,7 @@
                     "services",
                     "protocols",
                     "blocks",
-                    "consoleAccessedAt",
-                    "oAuth2ServerEnabled",
-                    "oAuth2ServerAuthorizationUrl",
-                    "oAuth2ServerScopes",
-                    "oAuth2ServerAuthorizationDetailsTypes",
-                    "oAuth2ServerAccessTokenDuration",
-                    "oAuth2ServerRefreshTokenDuration",
-                    "oAuth2ServerPublicAccessTokenDuration",
-                    "oAuth2ServerPublicRefreshTokenDuration",
-                    "oAuth2ServerConfidentialPkce",
-                    "oAuth2ServerVerificationUrl",
-                    "oAuth2ServerUserCodeLength",
-                    "oAuth2ServerUserCodeFormat",
-                    "oAuth2ServerDeviceCodeDuration",
-                    "oAuth2ServerDiscoveryUrl"
+                    "consoleAccessedAt"
                 ],
                 "example": {
                     "$id": "5e5ea5c16897e",
@@ -79725,18 +79769,18 @@
                     "options": "{databases.database[{oldId, newId, newName}]}"
                 }
             },
-            "usageGroup": {
-                "description": "usageGroup",
+            "usageDataPoint": {
+                "description": "usageDataPoint",
                 "type": "object",
                 "properties": {
                     "time": {
                         "type": "string",
-                        "description": "Group start timestamp (ISO 8601).",
+                        "description": "Bucket start timestamp (ISO 8601). When `interval` is omitted this is the request end time, marking the aggregate as-of moment.",
                         "x-example": "2026-04-09T12:00:00.000+00:00"
                     },
                     "value": {
                         "type": "integer",
-                        "description": "Aggregated value for the group.",
+                        "description": "Aggregated value for the bucket.",
                         "x-example": 5000,
                         "format": "int32"
                     },
@@ -79817,6 +79861,12 @@
                         "description": "External resource ID when broken down by `resourceId`.",
                         "x-example": "abc123",
                         "nullable": true
+                    },
+                    "resource": {
+                        "type": "string",
+                        "description": "Resource type when broken down by `resource` (gauges only).",
+                        "x-example": "file",
+                        "nullable": true
                     }
                 },
                 "required": [
@@ -79838,75 +79888,89 @@
                     "clientName": "Chrome",
                     "deviceName": "smartphone",
                     "teamId": "team_abc",
-                    "resourceId": "abc123"
+                    "resourceId": "abc123",
+                    "resource": "file"
                 }
             },
             "usageEventList": {
                 "description": "usageEventList",
                 "type": "object",
                 "properties": {
-                    "metric": {
-                        "type": "string",
-                        "description": "Metric key the groups describe.",
-                        "x-example": "executions"
-                    },
                     "interval": {
                         "type": "string",
-                        "description": "Time interval size (1h or 1d).",
+                        "description": "Time interval size (1h or 1d). Empty when the request omits `interval` \u2014 points then carry the request end time as their as-of marker.",
                         "x-example": "1d"
                     },
-                    "groups": {
+                    "metrics": {
                         "type": "array",
-                        "description": "Aggregated groups ordered by time ascending.",
+                        "description": "One entry per requested metric, each carrying its own points[] time series (sums per bucket \/ dimension over time).",
                         "items": {
-                            "$ref": "#\/components\/schemas\/usageGroup"
+                            "$ref": "#\/components\/schemas\/usageMetric"
                         },
                         "x-example": ""
                     }
                 },
                 "required": [
-                    "metric",
                     "interval",
-                    "groups"
+                    "metrics"
                 ],
                 "example": {
-                    "metric": "executions",
                     "interval": "1d",
-                    "groups": ""
+                    "metrics": ""
                 }
             },
             "usageGaugeList": {
                 "description": "usageGaugeList",
                 "type": "object",
                 "properties": {
-                    "metric": {
-                        "type": "string",
-                        "description": "Metric key the groups describe.",
-                        "x-example": "files.storage"
-                    },
                     "interval": {
                         "type": "string",
-                        "description": "Time interval size (1h or 1d).",
+                        "description": "Time interval size (1h or 1d). Empty when the request omits `interval` \u2014 points then carry the request end time as their as-of marker.",
                         "x-example": "1d"
                     },
-                    "groups": {
+                    "metrics": {
                         "type": "array",
-                        "description": "Aggregated groups ordered by time ascending. Each group carries the latest snapshot in its interval (argMax over time).",
+                        "description": "One entry per requested metric, each carrying its own points[] time series (latest-snapshot per bucket \/ dimension via argMax over time).",
                         "items": {
-                            "$ref": "#\/components\/schemas\/usageGroup"
+                            "$ref": "#\/components\/schemas\/usageMetric"
+                        },
+                        "x-example": ""
+                    }
+                },
+                "required": [
+                    "interval",
+                    "metrics"
+                ],
+                "example": {
+                    "interval": "1d",
+                    "metrics": ""
+                }
+            },
+            "usageMetric": {
+                "description": "usageMetric",
+                "type": "object",
+                "properties": {
+                    "metric": {
+                        "type": "string",
+                        "description": "Metric key this series describes.",
+                        "x-example": "files.storage"
+                    },
+                    "points": {
+                        "type": "array",
+                        "description": "Data points for this metric, ordered by time ascending. With `interval`, each entry is one bucket; without, each entry is one row of the dimensional or aggregate breakdown.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/usageDataPoint"
                         },
                         "x-example": ""
                     }
                 },
                 "required": [
                     "metric",
-                    "interval",
-                    "groups"
+                    "points"
                 ],
                 "example": {
                     "metric": "files.storage",
-                    "interval": "1d",
-                    "groups": ""
+                    "points": ""
                 }
             },
             "app": {
@@ -80365,6 +80429,16 @@
                             "profile"
                         ]
                     },
+                    "resources": {
+                        "type": "array",
+                        "description": "Requested RFC 8707 resource indicators the user is being asked to consent to.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "https:\/\/api.example.com\/"
+                        ]
+                    },
                     "authorizationDetails": {
                         "type": "string",
                         "description": "Requested authorization_details the user is being asked to consent to, as a JSON string. Each entry has a `type` plus project-defined fields.",
@@ -80399,6 +80473,7 @@
                     "userId",
                     "appId",
                     "scopes",
+                    "resources",
                     "authorizationDetails",
                     "prompt",
                     "redirectUri",
@@ -80415,6 +80490,9 @@
                         "openid",
                         "email",
                         "profile"
+                    ],
+                    "resources": [
+                        "https:\/\/api.example.com\/"
                     ],
                     "authorizationDetails": "[{\"type\":\"calendar\",\"identifier\":\"primary\",\"actions\":[\"read_events\",\"create_event\"]}]",
                     "prompt": "login",
@@ -80440,12 +80518,12 @@
                     "verification_uri": {
                         "type": "string",
                         "description": "URL where the end user enters the user code.",
-                        "x-example": "https:\/\/cloud.appwrite.io\/oauth2\/device"
+                        "x-example": "https:\/\/cloud.appwrite.io\/console\/oauth2\/device"
                     },
                     "verification_uri_complete": {
                         "type": "string",
                         "description": "Verification URL with the user code prefilled as a query parameter.",
-                        "x-example": "https:\/\/cloud.appwrite.io\/oauth2\/device?user_code=ABCD-EFGH"
+                        "x-example": "https:\/\/cloud.appwrite.io\/console\/oauth2\/device?user_code=ABCD-EFGH"
                     },
                     "expires_in": {
                         "type": "integer",
@@ -80471,8 +80549,8 @@
                 "example": {
                     "device_code": "5f3c8d2a1b9e4f7a6c8b2d1e9f4a7b3c5d8e1f2a9b4c7d6e3f5a8b1c4d7e2f9a",
                     "user_code": "ABCD-EFGH",
-                    "verification_uri": "https:\/\/cloud.appwrite.io\/oauth2\/device",
-                    "verification_uri_complete": "https:\/\/cloud.appwrite.io\/oauth2\/device?user_code=ABCD-EFGH",
+                    "verification_uri": "https:\/\/cloud.appwrite.io\/console\/oauth2\/device",
+                    "verification_uri_complete": "https:\/\/cloud.appwrite.io\/console\/oauth2\/device?user_code=ABCD-EFGH",
                     "expires_in": 900,
                     "interval": 5
                 }
