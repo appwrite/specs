@@ -4180,9 +4180,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "apps\/list.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "apps.read",
                     "platforms": [
                         "console",
@@ -4255,9 +4255,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "apps\/create.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 10,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "apps.write",
                     "platforms": [
                         "console",
@@ -4457,9 +4457,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "apps\/get.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "apps.read",
                     "platforms": [
                         "console",
@@ -4518,9 +4518,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "apps\/update.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "apps.write",
                     "platforms": [
                         "console",
@@ -4708,9 +4708,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "apps\/delete.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "apps.write",
                     "platforms": [
                         "console",
@@ -4774,9 +4774,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "apps\/list-secrets.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "apps.read",
                     "platforms": [
                         "console",
@@ -4859,9 +4859,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "apps\/create-secret.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "apps.write",
                     "platforms": [
                         "console",
@@ -4922,9 +4922,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "apps\/get-secret.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "apps.read",
                     "platforms": [
                         "console",
@@ -4986,9 +4986,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "apps\/delete-secret.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "apps.write",
                     "platforms": [
                         "console",
@@ -5062,9 +5062,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "apps\/update-team.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "apps.write",
                     "platforms": [
                         "console",
@@ -5137,9 +5137,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "apps\/delete-tokens.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "apps.write",
                     "platforms": [
                         "console",
@@ -10852,7 +10852,7 @@
                         "content": {
                             "application\/json": {
                                 "schema": {
-                                    "$ref": "#\/components\/schemas\/locale"
+                                    "$ref": "#\/components\/schemas\/cloudLocale"
                                 }
                             }
                         }
@@ -11440,9 +11440,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "oauth2\/approve.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 10,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "oauth2.write",
                     "platforms": [
                         "console",
@@ -11490,6 +11490,12 @@
                                         "description": "Enriched `authorization_details` the user consented to, replacing what the client requested. Each entry must use a `type` the project accepts. Optional; omit to keep the originally requested details.",
                                         "default": "",
                                         "x-example": "<AUTHORIZATION_DETAILS>"
+                                    },
+                                    "scope": {
+                                        "type": "string",
+                                        "description": "Space-separated scopes the user consented to. Must be a subset of the scopes originally requested; identity scopes such as `openid` are always retained. Optional; omit to keep the originally requested scopes.",
+                                        "default": "",
+                                        "x-example": "<SCOPE>"
                                     }
                                 },
                                 "required": [
@@ -11528,8 +11534,8 @@
                     "cookies": false,
                     "type": "",
                     "demo": "oauth2\/authorize.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
+                    "rate-limit": 60,
+                    "rate-time": 60,
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "public",
                     "platforms": [
@@ -11564,41 +11570,45 @@
                     {
                         "name": "client_id",
                         "description": "OAuth2 client ID.",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "string",
-                            "x-example": "<CLIENT_ID>"
+                            "x-example": "<CLIENT_ID>",
+                            "default": ""
                         },
                         "in": "query"
                     },
                     {
                         "name": "redirect_uri",
                         "description": "Redirect URI where visitor will be redirected after authorization, whether successful or not.",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "string",
                             "format": "url",
-                            "x-example": "https:\/\/example.com"
+                            "x-example": "https:\/\/example.com",
+                            "default": ""
                         },
                         "in": "query"
                     },
                     {
                         "name": "response_type",
                         "description": "OAuth2 \/ OIDC response type. One of `code` (Authorization Code Flow), `id_token` (Implicit Flow, OIDC login only), or `code id_token` (Hybrid Flow).",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "string",
-                            "x-example": "code"
+                            "x-example": "",
+                            "default": ""
                         },
                         "in": "query"
                     },
                     {
                         "name": "scope",
-                        "description": "Space-separated OAuth2 scopes. Can include project scopes, and built-in scopes: `openid`, `email`, `profile`.",
-                        "required": true,
+                        "description": "Space-separated OAuth2 scopes. Can include project scopes, and built-in scopes: `openid`, `email`, `profile`, `phone`.",
+                        "required": false,
                         "schema": {
                             "type": "string",
-                            "x-example": "<SCOPE>"
+                            "x-example": "<SCOPE>",
+                            "default": ""
                         },
                         "in": "query"
                     },
@@ -11688,6 +11698,17 @@
                             "default": []
                         },
                         "in": "query"
+                    },
+                    {
+                        "name": "request_uri",
+                        "description": "OAuth2 authorization request handle returned by the pushed authorization request endpoint.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<REQUEST_URI>",
+                            "default": ""
+                        },
+                        "in": "query"
                     }
                 ]
             }
@@ -11719,8 +11740,8 @@
                     "cookies": false,
                     "type": "",
                     "demo": "oauth2\/create-device-authorization.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
+                    "rate-limit": 60,
+                    "rate-time": 60,
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "public",
                     "platforms": [
@@ -11899,9 +11920,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "oauth2\/get-grant.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "oauth2.read",
                     "platforms": [
                         "console",
@@ -11965,8 +11986,8 @@
                     "cookies": false,
                     "type": "",
                     "demo": "oauth2\/logout.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
+                    "rate-limit": 10,
+                    "rate-time": 60,
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "public",
                     "platforms": [
@@ -12069,6 +12090,352 @@
                 ]
             }
         },
+        "\/oauth2\/{project_id}\/organizations": {
+            "get": {
+                "summary": "OAuth2 List Accessible Organizations",
+                "operationId": "oauth2ListOrganizations",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "List the organizations the OAuth2 access token can access. Resolves the token's `organization` authorization details, expanding the `*` wildcard into the concrete set of organizations the user can see.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 accessible organizations list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2OrganizationList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listOrganizations",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/list-organizations.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "oauth2.organizations.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID of the console project the OAuth2 access token was issued for.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Maximum number of organizations to return. Between 1 and 5000.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 1,
+                            "default": 25
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "offset",
+                        "description": "Number of organizations to skip before returning results. Used for pagination.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 0,
+                            "default": 0
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "search",
+                        "description": "Search term to filter your list results. Max length: 256 chars.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<SEARCH>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/oauth2\/{project_id}\/par": {
+            "post": {
+                "summary": "OAuth2 PAR",
+                "operationId": "oauth2CreatePAR",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "Store an OAuth2 authorization request server-side and receive a short-lived request_uri handle for the authorize endpoint.",
+                "responses": {
+                    "201": {
+                        "description": "OAuth2 PAR",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2PAR"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createPAR",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/create-par.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "public",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID in which OAuth2 client exists.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "client_id": {
+                                        "type": "string",
+                                        "description": "OAuth2 client ID.",
+                                        "x-example": "<CLIENT_ID>"
+                                    },
+                                    "redirect_uri": {
+                                        "type": "string",
+                                        "description": "Redirect URI where visitor will be redirected after authorization, whether successful or not.",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
+                                    },
+                                    "response_type": {
+                                        "type": "string",
+                                        "description": "OAuth2 \/ OIDC response type.",
+                                        "x-example": "code"
+                                    },
+                                    "scope": {
+                                        "type": "string",
+                                        "description": "Space-separated OAuth2 scopes. Can include project scopes, and built-in scopes: `openid`, `email`, `profile`, `phone`.",
+                                        "x-example": "<SCOPE>"
+                                    },
+                                    "state": {
+                                        "type": "string",
+                                        "description": "OAuth2 state. You receive this back in the redirect URI.",
+                                        "default": "",
+                                        "x-example": "<STATE>"
+                                    },
+                                    "nonce": {
+                                        "type": "string",
+                                        "description": "OIDC nonce parameter to prevent replay attacks. Required when response_type includes `id_token`.",
+                                        "default": "",
+                                        "x-example": "<NONCE>"
+                                    },
+                                    "code_challenge": {
+                                        "type": "string",
+                                        "description": "PKCE code challenge. Required when OAuth2 app is public.",
+                                        "default": "",
+                                        "x-example": "<CODE_CHALLENGE>"
+                                    },
+                                    "code_challenge_method": {
+                                        "type": "string",
+                                        "description": "PKCE code challenge method. Required when OAuth2 app is public.",
+                                        "default": "",
+                                        "x-example": "s256"
+                                    },
+                                    "prompt": {
+                                        "type": "string",
+                                        "description": "OIDC prompt parameter for customization of consent screen. Space-separated list of: none, login, consent, select_account.",
+                                        "default": "",
+                                        "x-example": "<PROMPT>"
+                                    },
+                                    "max_age": {
+                                        "type": "integer",
+                                        "description": "OIDC max_age parameter for customization of consent screen.",
+                                        "x-example": 0,
+                                        "format": "int32",
+                                        "x-nullable": true
+                                    },
+                                    "authorization_details": {
+                                        "type": "string",
+                                        "description": "Rich authorization request. JSON array of objects, each with a `type` and project-defined fields",
+                                        "default": "",
+                                        "x-example": "<AUTHORIZATION_DETAILS>"
+                                    },
+                                    "resource": {
+                                        "type": "string",
+                                        "description": "RFC 8707 resource indicator URI or URI list. Each value must be an absolute URI without a fragment.",
+                                        "default": [],
+                                        "x-example": null
+                                    }
+                                },
+                                "required": [
+                                    "client_id",
+                                    "redirect_uri",
+                                    "response_type",
+                                    "scope"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/oauth2\/{project_id}\/projects": {
+            "get": {
+                "summary": "OAuth2 List Accessible Projects",
+                "operationId": "oauth2ListProjects",
+                "tags": [
+                    "oauth2"
+                ],
+                "description": "List the projects the OAuth2 access token can access. Resolves the token's `project` authorization details, expanding the `*` wildcard into the concrete set of projects the user can see.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2 accessible projects list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2ProjectList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listProjects",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "oauth2\/list-projects.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "oauth2.projects.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "ProjectPath": []
+                    }
+                },
+                "security": [
+                    {
+                        "ProjectPath": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "description": "Project ID of the console project the OAuth2 access token was issued for.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<PROJECT_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Maximum number of projects to return. Between 1 and 5000.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 1,
+                            "default": 25
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "offset",
+                        "description": "Number of projects to skip before returning results. Used for pagination.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 0,
+                            "default": 0
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "search",
+                        "description": "Search term to filter your list results. Max length: 256 chars.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<SEARCH>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
         "\/oauth2\/{project_id}\/reject": {
             "post": {
                 "summary": "Reject OAuth2",
@@ -12096,9 +12463,9 @@
                     "cookies": false,
                     "type": "",
                     "demo": "oauth2\/reject.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 10,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
                     "scope": "oauth2.write",
                     "platforms": [
                         "console",
@@ -12179,8 +12546,8 @@
                     "cookies": false,
                     "type": "",
                     "demo": "oauth2\/revoke.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
+                    "rate-limit": 60,
+                    "rate-time": 60,
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "public",
                     "platforms": [
@@ -12279,8 +12646,8 @@
                     "cookies": false,
                     "type": "",
                     "demo": "oauth2\/create-token.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
+                    "rate-limit": 60,
+                    "rate-time": 60,
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "public",
                     "platforms": [
@@ -18262,7 +18629,7 @@
                     },
                     "userType": {
                         "type": "string",
-                        "description": "User type who triggered the audit log. Possible values: user, admin, guest, keyProject, keyAccount, keyOrganization.",
+                        "description": "User type who triggered the audit log. Possible values: user, admin, guest, hidden, keyProject, keyAccount, keyOrganization.",
                         "x-example": "user"
                     },
                     "ip": {
@@ -19220,65 +19587,6 @@
                 ],
                 "example": {
                     "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-                }
-            },
-            "locale": {
-                "description": "Locale",
-                "type": "object",
-                "properties": {
-                    "ip": {
-                        "type": "string",
-                        "description": "User IP address.",
-                        "x-example": "127.0.0.1"
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "Country code in [ISO 3166-1](http:\/\/en.wikipedia.org\/wiki\/ISO_3166-1) two-character format",
-                        "x-example": "US"
-                    },
-                    "country": {
-                        "type": "string",
-                        "description": "Country name. This field support localization.",
-                        "x-example": "United States"
-                    },
-                    "continentCode": {
-                        "type": "string",
-                        "description": "Continent code. A two character continent code \"AF\" for Africa, \"AN\" for Antarctica, \"AS\" for Asia, \"EU\" for Europe, \"NA\" for North America, \"OC\" for Oceania, and \"SA\" for South America.",
-                        "x-example": "NA"
-                    },
-                    "continent": {
-                        "type": "string",
-                        "description": "Continent name. This field support localization.",
-                        "x-example": "North America"
-                    },
-                    "eu": {
-                        "type": "boolean",
-                        "description": "True if country is part of the European Union.",
-                        "x-example": false
-                    },
-                    "currency": {
-                        "type": "string",
-                        "description": "Currency code in [ISO 4217-1](http:\/\/en.wikipedia.org\/wiki\/ISO_4217) three-character format",
-                        "x-example": "USD"
-                    }
-                },
-                "required": [
-                    "ip",
-                    "countryCode",
-                    "country",
-                    "continentCode",
-                    "continent",
-                    "eu",
-                    "currency"
-                ],
-                "example": {
-                    "ip": "127.0.0.1",
-                    "countryCode": "US",
-                    "country": "United States",
-                    "continentCode": "NA",
-                    "continent": "North America",
-                    "eu": false,
-                    "currency": "USD"
                 }
             },
             "localeCode": {
@@ -20332,6 +20640,144 @@
                     "expired": false
                 }
             },
+            "cloudLocale": {
+                "description": "Locale",
+                "type": "object",
+                "properties": {
+                    "ip": {
+                        "type": "string",
+                        "description": "User IP address.",
+                        "x-example": "127.0.0.1"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "Country code in [ISO 3166-1](http:\/\/en.wikipedia.org\/wiki\/ISO_3166-1) two-character format",
+                        "x-example": "US"
+                    },
+                    "country": {
+                        "type": "string",
+                        "description": "Country name. This field support localization.",
+                        "x-example": "United States"
+                    },
+                    "continentCode": {
+                        "type": "string",
+                        "description": "Continent code. A two character continent code \"AF\" for Africa, \"AN\" for Antarctica, \"AS\" for Asia, \"EU\" for Europe, \"NA\" for North America, \"OC\" for Oceania, and \"SA\" for South America.",
+                        "x-example": "NA"
+                    },
+                    "continent": {
+                        "type": "string",
+                        "description": "Continent name. This field support localization.",
+                        "x-example": "North America"
+                    },
+                    "eu": {
+                        "type": "boolean",
+                        "description": "True if country is part of the European Union.",
+                        "x-example": false
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "Currency code in [ISO 4217-1](http:\/\/en.wikipedia.org\/wiki\/ISO_4217) three-character format",
+                        "x-example": "USD"
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "City",
+                        "x-example": "Kathmandu",
+                        "nullable": true
+                    },
+                    "timeZone": {
+                        "type": "string",
+                        "description": "Name of timezone",
+                        "x-example": "Asia\/Kathmandu",
+                        "nullable": true
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "Postal code",
+                        "x-example": "44600",
+                        "nullable": true
+                    },
+                    "latitude": {
+                        "type": "number",
+                        "description": "Latitude",
+                        "x-example": "82.345",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "longitude": {
+                        "type": "number",
+                        "description": "Longitude",
+                        "x-example": "82.345",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "autonomousSystemNumber": {
+                        "type": "string",
+                        "description": "Autonomous System Number (ASN) of the IP",
+                        "x-example": "15169",
+                        "nullable": true
+                    },
+                    "autonomousSystemOrganization": {
+                        "type": "string",
+                        "description": "Organization that owns the ASN",
+                        "x-example": "GOOGLE",
+                        "nullable": true
+                    },
+                    "isp": {
+                        "type": "string",
+                        "description": "Internet service provider of the IP",
+                        "x-example": "Google",
+                        "nullable": true
+                    },
+                    "connectionType": {
+                        "type": "string",
+                        "description": "Connection type of the IP (e.g. cable, cellular, corporate)",
+                        "x-example": "cable",
+                        "nullable": true
+                    },
+                    "connectionUsageType": {
+                        "type": "string",
+                        "description": "User type classification of the IP (e.g. residential, business, hosting)",
+                        "x-example": "residential",
+                        "nullable": true
+                    },
+                    "connectionOrganization": {
+                        "type": "string",
+                        "description": "Registered organization of the IP",
+                        "x-example": "Google LLC",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "ip",
+                    "countryCode",
+                    "country",
+                    "continentCode",
+                    "continent",
+                    "eu",
+                    "currency"
+                ],
+                "example": {
+                    "ip": "127.0.0.1",
+                    "countryCode": "US",
+                    "country": "United States",
+                    "continentCode": "NA",
+                    "continent": "North America",
+                    "eu": false,
+                    "currency": "USD",
+                    "city": "Kathmandu",
+                    "timeZone": "Asia\/Kathmandu",
+                    "postalCode": "44600",
+                    "latitude": "82.345",
+                    "longitude": "82.345",
+                    "autonomousSystemNumber": "15169",
+                    "autonomousSystemOrganization": "GOOGLE",
+                    "isp": "Google",
+                    "connectionType": "cable",
+                    "connectionUsageType": "residential",
+                    "connectionOrganization": "Google LLC"
+                }
+            },
             "app": {
                 "description": "App",
                 "type": "object",
@@ -20914,6 +21360,31 @@
                     "interval": 5
                 }
             },
+            "oauth2PAR": {
+                "description": "OAuth2 PAR",
+                "type": "object",
+                "properties": {
+                    "request_uri": {
+                        "type": "string",
+                        "description": "Authorization request handle to pass to the authorize endpoint.",
+                        "x-example": "urn:appwrite:oauth2:request:5e5ea5c16897e"
+                    },
+                    "expires_in": {
+                        "type": "integer",
+                        "description": "Lifetime of the authorization request handle in seconds.",
+                        "x-example": 600,
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "request_uri",
+                    "expires_in"
+                ],
+                "example": {
+                    "request_uri": "urn:appwrite:oauth2:request:5e5ea5c16897e",
+                    "expires_in": 600
+                }
+            },
             "oauth2Token": {
                 "description": "OAuth2 Token",
                 "type": "object",
@@ -20972,6 +21443,110 @@
                     "scope": "openid email profile",
                     "authorization_details": "[{\"type\":\"calendar\",\"identifier\":\"primary\",\"actions\":[\"read_events\"]}]",
                     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9..."
+                }
+            },
+            "oauth2Project": {
+                "description": "OAuth2 Project",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Project ID.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Region ID the project is deployed in.",
+                        "x-example": "fra"
+                    },
+                    "endpoint": {
+                        "type": "string",
+                        "description": "API endpoint of the region the project is deployed in. Empty when the region has no public hostname configured.",
+                        "x-example": "https:\/\/fra.cloud.appwrite.io\/v1"
+                    }
+                },
+                "required": [
+                    "$id",
+                    "region",
+                    "endpoint"
+                ],
+                "example": {
+                    "$id": "5e5ea5c16897e",
+                    "region": "fra",
+                    "endpoint": "https:\/\/fra.cloud.appwrite.io\/v1"
+                }
+            },
+            "oauth2Organization": {
+                "description": "OAuth2 Organization",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Organization ID.",
+                        "x-example": "5e5ea5c16897e"
+                    }
+                },
+                "required": [
+                    "$id"
+                ],
+                "example": {
+                    "$id": "5e5ea5c16897e"
+                }
+            },
+            "oauth2ProjectList": {
+                "description": "OAuth2 accessible projects list",
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of projects that matched your query.",
+                        "x-example": 5,
+                        "format": "int32"
+                    },
+                    "projects": {
+                        "type": "array",
+                        "description": "List of projects.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/oauth2Project"
+                        },
+                        "x-example": ""
+                    }
+                },
+                "required": [
+                    "total",
+                    "projects"
+                ],
+                "example": {
+                    "total": 5,
+                    "projects": ""
+                }
+            },
+            "oauth2OrganizationList": {
+                "description": "OAuth2 accessible organizations list",
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of organizations that matched your query.",
+                        "x-example": 5,
+                        "format": "int32"
+                    },
+                    "organizations": {
+                        "type": "array",
+                        "description": "List of organizations.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/oauth2Organization"
+                        },
+                        "x-example": ""
+                    }
+                },
+                "required": [
+                    "total",
+                    "organizations"
+                ],
+                "example": {
+                    "total": 5,
+                    "organizations": ""
                 }
             },
             "appsList": {
@@ -21060,6 +21635,12 @@
                 "x-appwrite": {
                     "demo": "<YOUR_JWT>"
                 }
+            },
+            "Bearer": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT",
+                "description": "The OAuth access token to authenticate with"
             },
             "Locale": {
                 "type": "apiKey",
