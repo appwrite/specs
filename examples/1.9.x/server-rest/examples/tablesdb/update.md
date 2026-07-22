@@ -8,11 +8,13 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
   "name": "<NAME>",
-  "enabled": false
+  "enabled": false,
+  "replicas": 0
 }
 
 {
   "name": "<NAME>",
-  "enabled": false
+  "enabled": false,
+  "replicas": 0
 }
 ```

@@ -10,13 +10,15 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "databaseId": "<DATABASE_ID>",
   "name": "<NAME>",
   "enabled": false,
-  "dedicatedDatabaseId": "<DEDICATED_DATABASE_ID>"
+  "specification": "serverless",
+  "replicas": 0
 }
 
 {
   "databaseId": "<DATABASE_ID>",
   "name": "<NAME>",
   "enabled": false,
-  "dedicatedDatabaseId": "<DEDICATED_DATABASE_ID>"
+  "specification": "serverless",
+  "replicas": 0
 }
 ```

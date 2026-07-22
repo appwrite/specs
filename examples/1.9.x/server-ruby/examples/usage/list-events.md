@@ -12,8 +12,7 @@ usage = Usage.new(client)
 
 result = usage.list_events(
     metrics: [],
-    resource: '<RESOURCE>', # optional
-    resource_id: '<RESOURCE_ID>', # optional
+    queries: [], # optional
     interval: '1m', # optional
     dimensions: [], # optional
     start_at: '2020-10-15T06:38:00.000+00:00', # optional

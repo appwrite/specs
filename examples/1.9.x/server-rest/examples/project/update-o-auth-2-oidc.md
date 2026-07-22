@@ -13,6 +13,8 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "authorizationURL": "https://example.com",
   "tokenURL": "https://example.com",
   "userInfoURL": "https://example.com",
+  "prompt": [],
+  "maxAge": 0,
   "enabled": false
 }
 
@@ -23,6 +25,8 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "authorizationURL": "https://example.com",
   "tokenURL": "https://example.com",
   "userInfoURL": "https://example.com",
+  "prompt": [],
+  "maxAge": 0,
   "enabled": false
 }
 ```

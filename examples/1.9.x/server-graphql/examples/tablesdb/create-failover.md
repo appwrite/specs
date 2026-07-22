@@ -1,0 +1,114 @@
+```graphql
+mutation {
+    tablesDBCreateFailover(
+        databaseId: "<DATABASE_ID>",
+        targetReplicaId: "<TARGET_REPLICA_ID>"
+    ) {
+        _id
+        _createdAt
+        _updatedAt
+        projectId
+        name
+        api
+        engine
+        version
+        specification
+        backend
+        hostname
+        connectionPort
+        connectionUser
+        connectionPassword
+        connectionString
+        ssl
+        status
+        containerStatus
+        lastAccessedAt
+        idleUntil
+        lifecycleState
+        idleTimeoutMinutes
+        cpu
+        memory
+        storage
+        storageClass
+        storageMaxGb
+        nodePool
+        replicas
+        syncMode
+        crossRegionReplicas
+        networkMaxConnections
+        networkIdleTimeoutSeconds
+        networkIPAllowlist
+        backupEnabled
+        pitr
+        pitrRetentionDays
+        storageAutoscaling
+        storageAutoscalingThresholdPercent
+        storageAutoscalingMaxGb
+        maintenanceWindowDay
+        maintenanceWindowHourUtc
+        metricsEnabled
+        sqlApiEnabled
+        sqlApiAllowedStatements
+        sqlApiMaxRows
+        sqlApiMaxBytes
+        sqlApiTimeoutSeconds
+        error
+    }
+}
+mutation {
+    tablesDBCreateFailover(
+        databaseId: "<DATABASE_ID>",
+        targetReplicaId: "<TARGET_REPLICA_ID>"
+    ) {
+        _id
+        _createdAt
+        _updatedAt
+        projectId
+        name
+        api
+        engine
+        version
+        specification
+        backend
+        hostname
+        connectionPort
+        connectionUser
+        connectionPassword
+        connectionString
+        ssl
+        status
+        containerStatus
+        lastAccessedAt
+        idleUntil
+        lifecycleState
+        idleTimeoutMinutes
+        cpu
+        memory
+        storage
+        storageClass
+        storageMaxGb
+        nodePool
+        replicas
+        syncMode
+        crossRegionReplicas
+        networkMaxConnections
+        networkIdleTimeoutSeconds
+        networkIPAllowlist
+        backupEnabled
+        pitr
+        pitrRetentionDays
+        storageAutoscaling
+        storageAutoscalingThresholdPercent
+        storageAutoscalingMaxGb
+        maintenanceWindowDay
+        maintenanceWindowHourUtc
+        metricsEnabled
+        sqlApiEnabled
+        sqlApiAllowedStatements
+        sqlApiMaxRows
+        sqlApiMaxBytes
+        sqlApiTimeoutSeconds
+        error
+    }
+}
+```

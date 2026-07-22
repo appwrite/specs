@@ -12,8 +12,7 @@ val usage = Usage(client)
 
 val response = usage.listGauges(
     metrics = listOf(),
-    resourceId = "<RESOURCE_ID>", // optional
-    teamId = "<TEAM_ID>", // optional
+    queries = listOf(), // optional
     interval = "1m", // optional
     dimensions = listOf(), // optional
     startAt = "2020-10-15T06:38:00.000+00:00", // optional

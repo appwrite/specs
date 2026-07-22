@@ -4,7 +4,8 @@ mutation {
         databaseId: "<DATABASE_ID>",
         name: "<NAME>",
         enabled: false,
-        dedicatedDatabaseId: "<DEDICATED_DATABASE_ID>"
+        specification: "serverless",
+        replicas: 0
     ) {
         _id
         name
@@ -12,6 +13,10 @@ mutation {
         _updatedAt
         enabled
         type
+        status
+        engine
+        specification
+        replicas
         policies {
             _id
             name
@@ -47,7 +52,8 @@ mutation {
         databaseId: "<DATABASE_ID>",
         name: "<NAME>",
         enabled: false,
-        dedicatedDatabaseId: "<DEDICATED_DATABASE_ID>"
+        specification: "serverless",
+        replicas: 0
     ) {
         _id
         name
@@ -55,6 +61,10 @@ mutation {
         _updatedAt
         enabled
         type
+        status
+        engine
+        specification
+        replicas
         policies {
             _id
             name

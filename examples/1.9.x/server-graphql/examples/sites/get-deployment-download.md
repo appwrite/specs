@@ -3,7 +3,8 @@ query {
     sitesGetDeploymentDownload(
         siteId: "<SITE_ID>",
         deploymentId: "<DEPLOYMENT_ID>",
-        type: "source"
+        type: "source",
+        token: "<TOKEN>"
     ) {
         status
     }

@@ -19,7 +19,8 @@ result: Oauth2Token = oauth2.create_token(
     client_secret = '<CLIENT_SECRET>', # optional
     code_verifier = '<CODE_VERIFIER>', # optional
     redirect_uri = 'https://example.com', # optional
-    resource = '' # optional
+    resource = '', # optional
+    audience = '<AUDIENCE>' # optional
 )
 
 print(result.model_dump())

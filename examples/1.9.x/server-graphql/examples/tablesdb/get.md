@@ -9,6 +9,10 @@ query {
         _updatedAt
         enabled
         type
+        status
+        engine
+        specification
+        replicas
         policies {
             _id
             name

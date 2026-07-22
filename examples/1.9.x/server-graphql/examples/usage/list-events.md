@@ -2,8 +2,7 @@
 query {
     usageListEvents(
         metrics: [],
-        resource: "<RESOURCE>",
-        resourceId: "<RESOURCE_ID>",
+        queries: [],
         interval: "1m",
         dimensions: [],
         startAt: "2020-10-15T06:38:00.000+00:00",
@@ -26,13 +25,14 @@ query {
                 country
                 region
                 hostname
+                ip
                 osName
                 clientType
                 clientName
                 deviceName
                 teamId
                 resourceId
-                resource
+                resourceType
             }
         }
     }

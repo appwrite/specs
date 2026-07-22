@@ -42,6 +42,7 @@ mutation {
         pingedAt
         labels
         status
+        onboarding
         authMethods {
             _id
             enabled
@@ -58,6 +59,7 @@ mutation {
             _createdAt
             resourceType
             resourceId
+            mode
             reason
             expiredAt
             projectName
@@ -67,6 +69,7 @@ mutation {
             billingPlan
         }
         consoleAccessedAt
+        wafEnabled
         billingLimits {
             bandwidth
             storage
@@ -80,6 +83,7 @@ mutation {
         oAuth2ServerEnabled
         oAuth2ServerAuthorizationUrl
         oAuth2ServerScopes
+        oAuth2ServerDefaultScopes
         oAuth2ServerAuthorizationDetailsTypes
         oAuth2ServerAccessTokenDuration
         oAuth2ServerRefreshTokenDuration
@@ -136,6 +140,7 @@ mutation {
         pingedAt
         labels
         status
+        onboarding
         authMethods {
             _id
             enabled
@@ -152,6 +157,7 @@ mutation {
             _createdAt
             resourceType
             resourceId
+            mode
             reason
             expiredAt
             projectName
@@ -161,6 +167,7 @@ mutation {
             billingPlan
         }
         consoleAccessedAt
+        wafEnabled
         billingLimits {
             bandwidth
             storage
@@ -174,6 +181,7 @@ mutation {
         oAuth2ServerEnabled
         oAuth2ServerAuthorizationUrl
         oAuth2ServerScopes
+        oAuth2ServerDefaultScopes
         oAuth2ServerAuthorizationDetailsTypes
         oAuth2ServerAccessTokenDuration
         oAuth2ServerRefreshTokenDuration

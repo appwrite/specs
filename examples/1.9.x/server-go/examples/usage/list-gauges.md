@@ -17,8 +17,7 @@ service := usage.New(client)
 
 response, error := service.ListGauges(
     []string{},
-    usage.WithListGaugesResourceId("<RESOURCE_ID>"),
-    usage.WithListGaugesTeamId("<TEAM_ID>"),
+    usage.WithListGaugesQueries([]string{}),
     usage.WithListGaugesInterval("1m"),
     usage.WithListGaugesDimensions([]string{}),
     usage.WithListGaugesStartAt("2020-10-15T06:38:00.000+00:00"),

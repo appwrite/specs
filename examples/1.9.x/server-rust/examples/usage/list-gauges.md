@@ -13,8 +13,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let result = usage.list_gauges(
         vec![],
-        Some("<RESOURCE_ID>"), // optional
-        Some("<TEAM_ID>"), // optional
+        Some(vec![]), // optional
         Some("1m"), // optional
         Some(vec![]), // optional
         Some("2020-10-15T06:38:00.000+00:00"), // optional
