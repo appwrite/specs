@@ -12,8 +12,7 @@ Usage usage = new Usage(client);
 
 UsageGaugeList result = await usage.ListGauges(
     metrics: new List<string>(),
-    resourceId: "<RESOURCE_ID>", // optional
-    teamId: "<TEAM_ID>", // optional
+    queries: new List<string>(), // optional
     interval: "1m", // optional
     dimensions: new List<string>(), // optional
     startAt: "2020-10-15T06:38:00.000+00:00", // optional

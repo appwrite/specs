@@ -12,8 +12,7 @@ val usage = Usage(client)
 
 val response = usage.listEvents(
     metrics = listOf(),
-    resource = "<RESOURCE>", // optional
-    resourceId = "<RESOURCE_ID>", // optional
+    queries = listOf(), // optional
     interval = "1m", // optional
     dimensions = listOf(), // optional
     startAt = "2020-10-15T06:38:00.000+00:00", // optional

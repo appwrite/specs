@@ -19,7 +19,8 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "verificationUrl": "https://example.com",
   "userCodeLength": 6,
   "userCodeFormat": "numeric",
-  "deviceCodeDuration": 60
+  "deviceCodeDuration": 60,
+  "defaultScopes": []
 }
 
 {
@@ -35,6 +36,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "verificationUrl": "https://example.com",
   "userCodeLength": 6,
   "userCodeFormat": "numeric",
-  "deviceCodeDuration": 60
+  "deviceCodeDuration": 60,
+  "defaultScopes": []
 }
 ```

@@ -14,7 +14,8 @@ tablesDB.create(
     "<DATABASE_ID>", // databaseId
     "<NAME>", // name
     false, // enabled (optional)
-    "<DEDICATED_DATABASE_ID>", // dedicatedDatabaseId (optional)
+    "serverless", // specification (optional)
+    0, // replicas (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {
             error.printStackTrace();

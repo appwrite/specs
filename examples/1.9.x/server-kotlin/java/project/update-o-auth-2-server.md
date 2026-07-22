@@ -24,6 +24,7 @@ project.updateOAuth2Server(
     6, // userCodeLength (optional)
     "numeric", // userCodeFormat (optional)
     60, // deviceCodeDuration (optional)
+    List.of(), // defaultScopes (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {
             error.printStackTrace();

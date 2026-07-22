@@ -14,7 +14,8 @@ result: Database = tables_db.create(
     database_id = '<DATABASE_ID>',
     name = '<NAME>',
     enabled = False, # optional
-    dedicated_database_id = '<DEDICATED_DATABASE_ID>' # optional
+    specification = 'serverless', # optional
+    replicas = 0 # optional
 )
 
 print(result.model_dump())

@@ -23,5 +23,6 @@ Project result = await project.UpdateOAuth2Server(
     verificationUrl: "https://example.com", // optional
     userCodeLength: 6, // optional
     userCodeFormat: "numeric", // optional
-    deviceCodeDuration: 60 // optional
+    deviceCodeDuration: 60, // optional
+    defaultScopes: new List<string>() // optional
 );```

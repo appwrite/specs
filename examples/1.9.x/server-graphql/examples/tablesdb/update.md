@@ -3,7 +3,8 @@ mutation {
     tablesDBUpdate(
         databaseId: "<DATABASE_ID>",
         name: "<NAME>",
-        enabled: false
+        enabled: false,
+        replicas: 0
     ) {
         _id
         name
@@ -11,6 +12,10 @@ mutation {
         _updatedAt
         enabled
         type
+        status
+        engine
+        specification
+        replicas
         policies {
             _id
             name
@@ -45,7 +50,8 @@ mutation {
     tablesDBUpdate(
         databaseId: "<DATABASE_ID>",
         name: "<NAME>",
-        enabled: false
+        enabled: false,
+        replicas: 0
     ) {
         _id
         name
@@ -53,6 +59,10 @@ mutation {
         _updatedAt
         enabled
         type
+        status
+        engine
+        specification
+        replicas
         policies {
             _id
             name

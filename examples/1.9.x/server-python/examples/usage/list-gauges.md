@@ -12,8 +12,7 @@ usage = Usage(client)
 
 result: UsageGaugeList = usage.list_gauges(
     metrics = [],
-    resource_id = '<RESOURCE_ID>', # optional
-    team_id = '<TEAM_ID>', # optional
+    queries = [], # optional
     interval = '1m', # optional
     dimensions = [], # optional
     start_at = '2020-10-15T06:38:00.000+00:00', # optional

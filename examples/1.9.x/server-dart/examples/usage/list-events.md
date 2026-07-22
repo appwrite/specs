@@ -10,8 +10,7 @@ Usage usage = Usage(client);
 
 UsageEventList result = await usage.listEvents(
     metrics: [],
-    resource: '<RESOURCE>', // (optional)
-    resourceId: '<RESOURCE_ID>', // (optional)
+    queries: [], // (optional)
     interval: '1m', // (optional)
     dimensions: [], // (optional)
     startAt: '2020-10-15T06:38:00.000+00:00', // (optional)

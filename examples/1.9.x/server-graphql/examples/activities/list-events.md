@@ -19,12 +19,21 @@ query {
             ip
             mode
             country
+            continentCode
+            city
+            subdivisions
+            isp
+            autonomousSystemNumber
+            autonomousSystemOrganization
+            connectionType
+            connectionUsageType
+            connectionOrganization
             time
             projectId
             teamId
             hostname
-            countryCode
-            countryName
+            sdk
+            sdkVersion
         }
     }
 }

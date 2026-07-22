@@ -37,6 +37,7 @@ query {
             pingedAt
             labels
             status
+            onboarding
             authMethods {
                 _id
                 enabled
@@ -53,6 +54,7 @@ query {
                 _createdAt
                 resourceType
                 resourceId
+                mode
                 reason
                 expiredAt
                 projectName
@@ -62,6 +64,7 @@ query {
                 billingPlan
             }
             consoleAccessedAt
+            wafEnabled
             billingLimits {
                 bandwidth
                 storage
@@ -75,6 +78,7 @@ query {
             oAuth2ServerEnabled
             oAuth2ServerAuthorizationUrl
             oAuth2ServerScopes
+            oAuth2ServerDefaultScopes
             oAuth2ServerAuthorizationDetailsTypes
             oAuth2ServerAccessTokenDuration
             oAuth2ServerRefreshTokenDuration

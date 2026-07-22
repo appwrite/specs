@@ -17,8 +17,7 @@ service := usage.New(client)
 
 response, error := service.ListEvents(
     []string{},
-    usage.WithListEventsResource("<RESOURCE>"),
-    usage.WithListEventsResourceId("<RESOURCE_ID>"),
+    usage.WithListEventsQueries([]string{}),
     usage.WithListEventsInterval("1m"),
     usage.WithListEventsDimensions([]string{}),
     usage.WithListEventsStartAt("2020-10-15T06:38:00.000+00:00"),

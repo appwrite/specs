@@ -12,8 +12,7 @@ Usage usage = new Usage(client);
 
 usage.listEvents(
     List.of(), // metrics
-    "<RESOURCE>", // resource (optional)
-    "<RESOURCE_ID>", // resourceId (optional)
+    List.of(), // queries (optional)
     "1m", // interval (optional)
     List.of(), // dimensions (optional)
     "2020-10-15T06:38:00.000+00:00", // startAt (optional)

@@ -7,6 +7,8 @@ mutation {
         authorizationURL: "https://example.com",
         tokenURL: "https://example.com",
         userInfoURL: "https://example.com",
+        prompt: [],
+        maxAge: 0,
         enabled: false
     ) {
         _id
@@ -17,6 +19,8 @@ mutation {
         authorizationURL
         tokenURL
         userInfoURL
+        prompt
+        maxAge
     }
 }
 mutation {
@@ -27,6 +31,8 @@ mutation {
         authorizationURL: "https://example.com",
         tokenURL: "https://example.com",
         userInfoURL: "https://example.com",
+        prompt: [],
+        maxAge: 0,
         enabled: false
     ) {
         _id
@@ -37,6 +43,8 @@ mutation {
         authorizationURL
         tokenURL
         userInfoURL
+        prompt
+        maxAge
     }
 }
 ```
