@@ -89,6 +89,7 @@ mutation {
         oAuth2ServerRefreshTokenDuration
         oAuth2ServerPublicAccessTokenDuration
         oAuth2ServerPublicRefreshTokenDuration
+        oAuth2ServerInstallationAccessTokenDuration
         oAuth2ServerConfidentialPkce
         oAuth2ServerVerificationUrl
         oAuth2ServerUserCodeLength
@@ -187,6 +188,7 @@ mutation {
         oAuth2ServerRefreshTokenDuration
         oAuth2ServerPublicAccessTokenDuration
         oAuth2ServerPublicRefreshTokenDuration
+        oAuth2ServerInstallationAccessTokenDuration
         oAuth2ServerConfidentialPkce
         oAuth2ServerVerificationUrl
         oAuth2ServerUserCodeLength

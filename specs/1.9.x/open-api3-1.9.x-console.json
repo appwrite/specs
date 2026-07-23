@@ -6355,6 +6355,58 @@
                 }
             }
         },
+        "\/apps\/scopes\/installations": {
+            "get": {
+                "summary": "List Installation Scopes",
+                "operationId": "appsListInstallationScopes",
+                "tags": [
+                    "apps"
+                ],
+                "description": "List scopes an application can request when installed on a team.",
+                "responses": {
+                    "200": {
+                        "description": "App scopes list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appScopeList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listInstallationScopes",
+                    "group": "scopes",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/list-installation-scopes.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "apps.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ]
+            }
+        },
         "\/apps\/scopes\/oauth2": {
             "get": {
                 "summary": "List OAuth2 Scopes",
@@ -6658,6 +6710,22 @@
                                         "description": "Allow this client to use the OAuth2 Device Authorization Grant (RFC 8628) for input-constrained devices such as TVs and CLIs. Defaults to false.",
                                         "default": false,
                                         "x-example": false
+                                    },
+                                    "installationScopes": {
+                                        "type": "array",
+                                        "description": "Scopes the application requests when installed on a team. Organization-level and project-level scopes only; use the list scopes endpoint with `type=installation` to discover available values. Maximum of 100 scopes are allowed.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "installationRedirectUrl": {
+                                        "type": "string",
+                                        "description": "URL users are redirected to after creating or updating an installation of this application. Must be an https URL, an http loopback URL (localhost, 127.0.0.1, [::1]), or a private-use scheme URI, and must not contain a fragment. Leave empty for no redirect.",
+                                        "default": "",
+                                        "x-example": "https:\/\/example.com",
+                                        "format": "url"
                                     }
                                 },
                                 "required": [
@@ -6721,6 +6789,298 @@
                         "schema": {
                             "type": "string",
                             "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/apps\/{appId}\/keys": {
+            "get": {
+                "summary": "List App Keys",
+                "operationId": "appsListKeys",
+                "tags": [
+                    "apps"
+                ],
+                "description": "List app keys for an application.",
+                "responses": {
+                    "200": {
+                        "description": "App keys list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appKeyList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listKeys",
+                    "group": "keys",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/list-keys.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "apps.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "total",
+                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "x-example": false,
+                            "default": true
+                        },
+                        "in": "query"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create App Key",
+                "operationId": "appsCreateKey",
+                "tags": [
+                    "apps"
+                ],
+                "description": "Create a new app key for an application. App keys carry no scopes; send one in the `X-Appwrite-Key` header alongside the `X-Appwrite-App` header to list the application's installations and create installation access tokens.",
+                "responses": {
+                    "201": {
+                        "description": "AppKey",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appKey"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createKey",
+                    "group": "keys",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/create-key.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "apps.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/apps\/{appId}\/keys\/{keyId}": {
+            "get": {
+                "summary": "Get App Key",
+                "operationId": "appsGetKey",
+                "tags": [
+                    "apps"
+                ],
+                "description": "Get an app key by its unique ID.",
+                "responses": {
+                    "200": {
+                        "description": "AppKey",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appKey"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getKey",
+                    "group": "keys",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/get-key.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "apps.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "keyId",
+                        "description": "App key unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<KEY_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete App Key",
+                "operationId": "appsDeleteKey",
+                "tags": [
+                    "apps"
+                ],
+                "description": "Delete an app key by its unique ID.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "deleteKey",
+                    "group": "keys",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/delete-key.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "apps.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "produces": [
+                        "application\/json"
+                    ],
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "keyId",
+                        "description": "App key unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<KEY_ID>"
                         },
                         "in": "path"
                     }
@@ -11805,7 +12165,8 @@
                                 "dedicateddatabaseruntimes",
                                 "dedicateddatabaseoperations",
                                 "dedicateddatabasebackups",
-                                "dedicateddatabaserestorations"
+                                "dedicateddatabaserestorations",
+                                "dedicateddatabasebranches"
                             ],
                             "x-enum-name": "QuerySuggestionResource",
                             "x-enum-keys": [
@@ -11901,7 +12262,8 @@
                                 "dedicated_database_runtimes",
                                 "dedicated_database_operations",
                                 "dedicated_database_backups",
-                                "dedicated_database_restorations"
+                                "dedicated_database_restorations",
+                                "dedicated_database_branches"
                             ]
                         },
                         "in": "query"
@@ -20516,7 +20878,7 @@
         },
         "\/documentsdb\/specifications": {
             "get": {
-                "summary": "List dedicated database specifications.",
+                "summary": "List specifications",
                 "operationId": "documentsDBListSpecifications",
                 "tags": [
                     "documentsDB"
@@ -20537,7 +20899,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listSpecifications",
-                    "group": "databases",
+                    "group": "documentsdb",
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/list-specifications.md",
@@ -23304,7 +23666,7 @@
         },
         "\/documentsdb\/{databaseId}\/failovers": {
             "post": {
-                "summary": "Trigger manual failover.",
+                "summary": "Create failover",
                 "operationId": "documentsDBCreateFailover",
                 "tags": [
                     "documentsDB"
@@ -23325,7 +23687,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createFailover",
-                    "group": "databases",
+                    "group": "failovers",
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/create-failover.md",
@@ -23382,7 +23744,7 @@
         },
         "\/documentsdb\/{databaseId}\/replicas": {
             "get": {
-                "summary": "Get replica status.",
+                "summary": "Get replicas",
                 "operationId": "documentsDBGetReplicas",
                 "tags": [
                     "documentsDB"
@@ -23403,7 +23765,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getReplicas",
-                    "group": "databases",
+                    "group": "replicas",
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/get-replicas.md",
@@ -23443,7 +23805,7 @@
         },
         "\/documentsdb\/{databaseId}\/status": {
             "get": {
-                "summary": "Get database status.",
+                "summary": "Get status",
                 "operationId": "documentsDBGetStatus",
                 "tags": [
                     "documentsDB"
@@ -23464,7 +23826,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getStatus",
-                    "group": "databases",
+                    "group": "documentsdb",
                     "cookies": false,
                     "type": "",
                     "demo": "documentsdb\/get-status.md",
@@ -39886,7 +40248,7 @@
         },
         "\/mongo": {
             "get": {
-                "summary": "List dedicated databases.",
+                "summary": "List databases",
                 "operationId": "mongoList",
                 "tags": [
                     "mongo"
@@ -39907,7 +40269,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "list",
-                    "group": "databases",
+                    "group": "mongo",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/list.md",
@@ -39948,7 +40310,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a dedicated database.",
+                "summary": "Create database",
                 "operationId": "mongoCreate",
                 "tags": [
                     "mongo"
@@ -39969,7 +40331,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "create",
-                    "group": "databases",
+                    "group": "mongo",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/create.md",
@@ -40117,7 +40479,7 @@
         },
         "\/mongo\/specifications": {
             "get": {
-                "summary": "List dedicated database specifications.",
+                "summary": "List specifications",
                 "operationId": "mongoListSpecifications",
                 "tags": [
                     "mongo"
@@ -40138,7 +40500,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listSpecifications",
-                    "group": "databases",
+                    "group": "mongo",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/list-specifications.md",
@@ -40166,7 +40528,7 @@
         },
         "\/mongo\/{databaseId}": {
             "get": {
-                "summary": "Get dedicated database.",
+                "summary": "Get database",
                 "operationId": "mongoGet",
                 "tags": [
                     "mongo"
@@ -40187,7 +40549,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "get",
-                    "group": "databases",
+                    "group": "mongo",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/get.md",
@@ -40225,7 +40587,7 @@
                 ]
             },
             "patch": {
-                "summary": "Update dedicated database.",
+                "summary": "Update database",
                 "operationId": "mongoUpdate",
                 "tags": [
                     "mongo"
@@ -40246,7 +40608,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "update",
-                    "group": "databases",
+                    "group": "mongo",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/update.md",
@@ -40445,7 +40807,7 @@
                 }
             },
             "delete": {
-                "summary": "Delete dedicated database.",
+                "summary": "Delete database",
                 "operationId": "mongoDelete",
                 "tags": [
                     "mongo"
@@ -40459,7 +40821,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "delete",
-                    "group": "databases",
+                    "group": "mongo",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/delete.md",
@@ -40502,7 +40864,7 @@
         },
         "\/mongo\/{databaseId}\/backups": {
             "get": {
-                "summary": "List database backups.",
+                "summary": "List backups",
                 "operationId": "mongoListBackups",
                 "tags": [
                     "mongo"
@@ -40523,7 +40885,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listBackups",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/list-backups.md",
@@ -40574,7 +40936,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a database backup.",
+                "summary": "Create backup",
                 "operationId": "mongoCreateBackup",
                 "tags": [
                     "mongo"
@@ -40595,7 +40957,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createBackup",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/create-backup.md",
@@ -40652,7 +41014,7 @@
         },
         "\/mongo\/{databaseId}\/backups\/policies": {
             "get": {
-                "summary": "List database backup policies.",
+                "summary": "List backup policies",
                 "operationId": "mongoListBackupPolicies",
                 "tags": [
                     "mongo"
@@ -40673,7 +41035,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listBackupPolicies",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/list-backup-policies.md",
@@ -40724,7 +41086,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a database backup policy.",
+                "summary": "Create backup policy",
                 "operationId": "mongoCreateBackupPolicy",
                 "tags": [
                     "mongo"
@@ -40745,7 +41107,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createBackupPolicy",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/create-backup-policy.md",
@@ -40838,7 +41200,7 @@
         },
         "\/mongo\/{databaseId}\/backups\/policies\/{policyId}": {
             "get": {
-                "summary": "Get a database backup policy.",
+                "summary": "Get backup policy",
                 "operationId": "mongoGetBackupPolicy",
                 "tags": [
                     "mongo"
@@ -40859,7 +41221,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getBackupPolicy",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/get-backup-policy.md",
@@ -40907,7 +41269,7 @@
                 ]
             },
             "patch": {
-                "summary": "Update a database backup policy.",
+                "summary": "Update backup policy",
                 "operationId": "mongoUpdateBackupPolicy",
                 "tags": [
                     "mongo"
@@ -40928,7 +41290,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updateBackupPolicy",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/update-backup-policy.md",
@@ -41011,7 +41373,7 @@
                 }
             },
             "delete": {
-                "summary": "Delete a database backup policy.",
+                "summary": "Delete backup policy",
                 "operationId": "mongoDeleteBackupPolicy",
                 "tags": [
                     "mongo"
@@ -41025,7 +41387,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "deleteBackupPolicy",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/delete-backup-policy.md",
@@ -41078,7 +41440,7 @@
         },
         "\/mongo\/{databaseId}\/backups\/storage": {
             "put": {
-                "summary": "Update database backup storage.",
+                "summary": "Update backup storage",
                 "operationId": "mongoUpdateBackupStorage",
                 "tags": [
                     "mongo"
@@ -41099,7 +41461,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updateBackupStorage",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/update-backup-storage.md",
@@ -41194,7 +41556,7 @@
         },
         "\/mongo\/{databaseId}\/backups\/{backupId}": {
             "get": {
-                "summary": "Get a database backup.",
+                "summary": "Get backup",
                 "operationId": "mongoGetBackup",
                 "tags": [
                     "mongo"
@@ -41215,7 +41577,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getBackup",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/get-backup.md",
@@ -41263,7 +41625,7 @@
                 ]
             },
             "delete": {
-                "summary": "Delete a database backup.",
+                "summary": "Delete backup",
                 "operationId": "mongoDeleteBackup",
                 "tags": [
                     "mongo"
@@ -41277,7 +41639,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "deleteBackup",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/delete-backup.md",
@@ -41330,7 +41692,7 @@
         },
         "\/mongo\/{databaseId}\/branches": {
             "get": {
-                "summary": "List database branches.",
+                "summary": "List branches",
                 "operationId": "mongoListBranches",
                 "tags": [
                     "mongo"
@@ -41351,7 +41713,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listBranches",
-                    "group": "databases",
+                    "group": "branches",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/list-branches.md",
@@ -41389,7 +41751,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a database branch.",
+                "summary": "Create branch",
                 "operationId": "mongoCreateBranch",
                 "tags": [
                     "mongo"
@@ -41410,7 +41772,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createBranch",
-                    "group": "databases",
+                    "group": "branches",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/create-branch.md",
@@ -41477,7 +41839,7 @@
         },
         "\/mongo\/{databaseId}\/branches\/{branchId}": {
             "delete": {
-                "summary": "Delete a database branch.",
+                "summary": "Delete branch",
                 "operationId": "mongoDeleteBranch",
                 "tags": [
                     "mongo"
@@ -41498,7 +41860,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "deleteBranch",
-                    "group": "databases",
+                    "group": "branches",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/delete-branch.md",
@@ -41548,7 +41910,7 @@
         },
         "\/mongo\/{databaseId}\/credentials": {
             "patch": {
-                "summary": "Rotate database credentials.",
+                "summary": "Update credentials",
                 "operationId": "mongoUpdateCredentials",
                 "tags": [
                     "mongo"
@@ -41569,7 +41931,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updateCredentials",
-                    "group": "databases",
+                    "group": "mongo",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/update-credentials.md",
@@ -41609,7 +41971,7 @@
         },
         "\/mongo\/{databaseId}\/failovers": {
             "post": {
-                "summary": "Trigger manual failover.",
+                "summary": "Create failover",
                 "operationId": "mongoCreateFailover",
                 "tags": [
                     "mongo"
@@ -41630,7 +41992,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createFailover",
-                    "group": "databases",
+                    "group": "failovers",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/create-failover.md",
@@ -41687,7 +42049,7 @@
         },
         "\/mongo\/{databaseId}\/maintenance": {
             "patch": {
-                "summary": "Update database maintenance window.",
+                "summary": "Update maintenance",
                 "operationId": "mongoUpdateMaintenance",
                 "tags": [
                     "mongo"
@@ -41708,7 +42070,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updateMaintenance",
-                    "group": "databases",
+                    "group": "mongo",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/update-maintenance.md",
@@ -41774,7 +42136,7 @@
         },
         "\/mongo\/{databaseId}\/migrations": {
             "post": {
-                "summary": "Migrate database between shared and dedicated.",
+                "summary": "Create migration",
                 "operationId": "mongoCreateMigration",
                 "tags": [
                     "mongo"
@@ -41795,7 +42157,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createMigration",
-                    "group": "databases",
+                    "group": "migrations",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/create-migration.md",
@@ -41860,7 +42222,7 @@
         },
         "\/mongo\/{databaseId}\/pitr": {
             "get": {
-                "summary": "Get PITR recovery windows.",
+                "summary": "Get PITR",
                 "operationId": "mongoGetPitr",
                 "tags": [
                     "mongo"
@@ -41881,7 +42243,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getPitr",
-                    "group": "databases",
+                    "group": "pitr",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/get-pitr.md",
@@ -41921,7 +42283,7 @@
         },
         "\/mongo\/{databaseId}\/replicas": {
             "get": {
-                "summary": "Get replica status.",
+                "summary": "Get replicas",
                 "operationId": "mongoGetReplicas",
                 "tags": [
                     "mongo"
@@ -41942,7 +42304,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getReplicas",
-                    "group": "databases",
+                    "group": "replicas",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/get-replicas.md",
@@ -41982,7 +42344,7 @@
         },
         "\/mongo\/{databaseId}\/restorations": {
             "get": {
-                "summary": "List database restorations.",
+                "summary": "List restorations",
                 "operationId": "mongoListRestorations",
                 "tags": [
                     "mongo"
@@ -42003,7 +42365,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listRestorations",
-                    "group": "databases",
+                    "group": "restorations",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/list-restorations.md",
@@ -42085,7 +42447,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a database restoration.",
+                "summary": "Create restoration",
                 "operationId": "mongoCreateRestoration",
                 "tags": [
                     "mongo"
@@ -42106,7 +42468,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createRestoration",
-                    "group": "databases",
+                    "group": "restorations",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/create-restoration.md",
@@ -42176,7 +42538,7 @@
         },
         "\/mongo\/{databaseId}\/restorations\/{restorationId}": {
             "get": {
-                "summary": "Get a database restoration.",
+                "summary": "Get restoration",
                 "operationId": "mongoGetRestoration",
                 "tags": [
                     "mongo"
@@ -42197,7 +42559,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getRestoration",
-                    "group": "databases",
+                    "group": "restorations",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/get-restoration.md",
@@ -42247,7 +42609,7 @@
         },
         "\/mongo\/{databaseId}\/status": {
             "get": {
-                "summary": "Get database status.",
+                "summary": "Get status",
                 "operationId": "mongoGetStatus",
                 "tags": [
                     "mongo"
@@ -42268,7 +42630,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getStatus",
-                    "group": "databases",
+                    "group": "mongo",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/get-status.md",
@@ -42308,7 +42670,7 @@
         },
         "\/mongo\/{databaseId}\/upgrades": {
             "post": {
-                "summary": "Upgrade database version.",
+                "summary": "Create upgrade",
                 "operationId": "mongoCreateUpgrade",
                 "tags": [
                     "mongo"
@@ -42329,7 +42691,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createUpgrade",
-                    "group": "databases",
+                    "group": "mongo",
                     "cookies": false,
                     "type": "",
                     "demo": "mongo\/create-upgrade.md",
@@ -42388,7 +42750,7 @@
         },
         "\/mysql": {
             "get": {
-                "summary": "List dedicated databases.",
+                "summary": "List databases",
                 "operationId": "mysqlList",
                 "tags": [
                     "mysql"
@@ -42409,7 +42771,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "list",
-                    "group": "databases",
+                    "group": "mysql",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/list.md",
@@ -42450,7 +42812,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a dedicated database.",
+                "summary": "Create database",
                 "operationId": "mysqlCreate",
                 "tags": [
                     "mysql"
@@ -42471,7 +42833,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "create",
-                    "group": "databases",
+                    "group": "mysql",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/create.md",
@@ -42619,7 +42981,7 @@
         },
         "\/mysql\/specifications": {
             "get": {
-                "summary": "List dedicated database specifications.",
+                "summary": "List specifications",
                 "operationId": "mysqlListSpecifications",
                 "tags": [
                     "mysql"
@@ -42640,7 +43002,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listSpecifications",
-                    "group": "databases",
+                    "group": "mysql",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/list-specifications.md",
@@ -42668,7 +43030,7 @@
         },
         "\/mysql\/{databaseId}": {
             "get": {
-                "summary": "Get dedicated database.",
+                "summary": "Get database",
                 "operationId": "mysqlGet",
                 "tags": [
                     "mysql"
@@ -42689,7 +43051,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "get",
-                    "group": "databases",
+                    "group": "mysql",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/get.md",
@@ -42727,7 +43089,7 @@
                 ]
             },
             "patch": {
-                "summary": "Update dedicated database.",
+                "summary": "Update database",
                 "operationId": "mysqlUpdate",
                 "tags": [
                     "mysql"
@@ -42748,7 +43110,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "update",
-                    "group": "databases",
+                    "group": "mysql",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/update.md",
@@ -42947,7 +43309,7 @@
                 }
             },
             "delete": {
-                "summary": "Delete dedicated database.",
+                "summary": "Delete database",
                 "operationId": "mysqlDelete",
                 "tags": [
                     "mysql"
@@ -42961,7 +43323,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "delete",
-                    "group": "databases",
+                    "group": "mysql",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/delete.md",
@@ -43004,7 +43366,7 @@
         },
         "\/mysql\/{databaseId}\/backups": {
             "get": {
-                "summary": "List database backups.",
+                "summary": "List backups",
                 "operationId": "mysqlListBackups",
                 "tags": [
                     "mysql"
@@ -43025,7 +43387,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listBackups",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/list-backups.md",
@@ -43076,7 +43438,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a database backup.",
+                "summary": "Create backup",
                 "operationId": "mysqlCreateBackup",
                 "tags": [
                     "mysql"
@@ -43097,7 +43459,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createBackup",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/create-backup.md",
@@ -43154,7 +43516,7 @@
         },
         "\/mysql\/{databaseId}\/backups\/policies": {
             "get": {
-                "summary": "List database backup policies.",
+                "summary": "List backup policies",
                 "operationId": "mysqlListBackupPolicies",
                 "tags": [
                     "mysql"
@@ -43175,7 +43537,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listBackupPolicies",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/list-backup-policies.md",
@@ -43226,7 +43588,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a database backup policy.",
+                "summary": "Create backup policy",
                 "operationId": "mysqlCreateBackupPolicy",
                 "tags": [
                     "mysql"
@@ -43247,7 +43609,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createBackupPolicy",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/create-backup-policy.md",
@@ -43340,7 +43702,7 @@
         },
         "\/mysql\/{databaseId}\/backups\/policies\/{policyId}": {
             "get": {
-                "summary": "Get a database backup policy.",
+                "summary": "Get backup policy",
                 "operationId": "mysqlGetBackupPolicy",
                 "tags": [
                     "mysql"
@@ -43361,7 +43723,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getBackupPolicy",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/get-backup-policy.md",
@@ -43409,7 +43771,7 @@
                 ]
             },
             "patch": {
-                "summary": "Update a database backup policy.",
+                "summary": "Update backup policy",
                 "operationId": "mysqlUpdateBackupPolicy",
                 "tags": [
                     "mysql"
@@ -43430,7 +43792,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updateBackupPolicy",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/update-backup-policy.md",
@@ -43513,7 +43875,7 @@
                 }
             },
             "delete": {
-                "summary": "Delete a database backup policy.",
+                "summary": "Delete backup policy",
                 "operationId": "mysqlDeleteBackupPolicy",
                 "tags": [
                     "mysql"
@@ -43527,7 +43889,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "deleteBackupPolicy",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/delete-backup-policy.md",
@@ -43580,7 +43942,7 @@
         },
         "\/mysql\/{databaseId}\/backups\/storage": {
             "put": {
-                "summary": "Update database backup storage.",
+                "summary": "Update backup storage",
                 "operationId": "mysqlUpdateBackupStorage",
                 "tags": [
                     "mysql"
@@ -43601,7 +43963,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updateBackupStorage",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/update-backup-storage.md",
@@ -43696,7 +44058,7 @@
         },
         "\/mysql\/{databaseId}\/backups\/{backupId}": {
             "get": {
-                "summary": "Get a database backup.",
+                "summary": "Get backup",
                 "operationId": "mysqlGetBackup",
                 "tags": [
                     "mysql"
@@ -43717,7 +44079,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getBackup",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/get-backup.md",
@@ -43765,7 +44127,7 @@
                 ]
             },
             "delete": {
-                "summary": "Delete a database backup.",
+                "summary": "Delete backup",
                 "operationId": "mysqlDeleteBackup",
                 "tags": [
                     "mysql"
@@ -43779,7 +44141,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "deleteBackup",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/delete-backup.md",
@@ -43832,7 +44194,7 @@
         },
         "\/mysql\/{databaseId}\/branches": {
             "get": {
-                "summary": "List database branches.",
+                "summary": "List branches",
                 "operationId": "mysqlListBranches",
                 "tags": [
                     "mysql"
@@ -43853,7 +44215,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listBranches",
-                    "group": "databases",
+                    "group": "branches",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/list-branches.md",
@@ -43891,7 +44253,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a database branch.",
+                "summary": "Create branch",
                 "operationId": "mysqlCreateBranch",
                 "tags": [
                     "mysql"
@@ -43912,7 +44274,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createBranch",
-                    "group": "databases",
+                    "group": "branches",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/create-branch.md",
@@ -43979,7 +44341,7 @@
         },
         "\/mysql\/{databaseId}\/branches\/{branchId}": {
             "delete": {
-                "summary": "Delete a database branch.",
+                "summary": "Delete branch",
                 "operationId": "mysqlDeleteBranch",
                 "tags": [
                     "mysql"
@@ -44000,7 +44362,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "deleteBranch",
-                    "group": "databases",
+                    "group": "branches",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/delete-branch.md",
@@ -44050,7 +44412,7 @@
         },
         "\/mysql\/{databaseId}\/credentials": {
             "patch": {
-                "summary": "Rotate database credentials.",
+                "summary": "Update credentials",
                 "operationId": "mysqlUpdateCredentials",
                 "tags": [
                     "mysql"
@@ -44071,7 +44433,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updateCredentials",
-                    "group": "databases",
+                    "group": "mysql",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/update-credentials.md",
@@ -44111,7 +44473,7 @@
         },
         "\/mysql\/{databaseId}\/executions": {
             "post": {
-                "summary": "Execute a SQL statement against a dedicated database.",
+                "summary": "Create execution",
                 "operationId": "mysqlCreateExecution",
                 "tags": [
                     "mysql"
@@ -44132,7 +44494,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createExecution",
-                    "group": "databases",
+                    "group": "executions",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/create-execution.md",
@@ -44205,7 +44567,7 @@
         },
         "\/mysql\/{databaseId}\/failovers": {
             "post": {
-                "summary": "Trigger manual failover.",
+                "summary": "Create failover",
                 "operationId": "mysqlCreateFailover",
                 "tags": [
                     "mysql"
@@ -44226,7 +44588,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createFailover",
-                    "group": "databases",
+                    "group": "failovers",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/create-failover.md",
@@ -44283,7 +44645,7 @@
         },
         "\/mysql\/{databaseId}\/maintenance": {
             "patch": {
-                "summary": "Update database maintenance window.",
+                "summary": "Update maintenance",
                 "operationId": "mysqlUpdateMaintenance",
                 "tags": [
                     "mysql"
@@ -44304,7 +44666,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updateMaintenance",
-                    "group": "databases",
+                    "group": "mysql",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/update-maintenance.md",
@@ -44370,7 +44732,7 @@
         },
         "\/mysql\/{databaseId}\/migrations": {
             "post": {
-                "summary": "Migrate database between shared and dedicated.",
+                "summary": "Create migration",
                 "operationId": "mysqlCreateMigration",
                 "tags": [
                     "mysql"
@@ -44391,7 +44753,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createMigration",
-                    "group": "databases",
+                    "group": "migrations",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/create-migration.md",
@@ -44456,7 +44818,7 @@
         },
         "\/mysql\/{databaseId}\/pitr": {
             "get": {
-                "summary": "Get PITR recovery windows.",
+                "summary": "Get PITR",
                 "operationId": "mysqlGetPitr",
                 "tags": [
                     "mysql"
@@ -44477,7 +44839,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getPitr",
-                    "group": "databases",
+                    "group": "pitr",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/get-pitr.md",
@@ -44517,7 +44879,7 @@
         },
         "\/mysql\/{databaseId}\/pooler": {
             "get": {
-                "summary": "Get connection pooler configuration.",
+                "summary": "Get pooler",
                 "operationId": "mysqlGetPooler",
                 "tags": [
                     "mysql"
@@ -44538,7 +44900,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getPooler",
-                    "group": "databases",
+                    "group": "pooler",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/get-pooler.md",
@@ -44576,7 +44938,7 @@
                 ]
             },
             "patch": {
-                "summary": "Update connection pooler configuration.",
+                "summary": "Update pooler",
                 "operationId": "mysqlUpdatePooler",
                 "tags": [
                     "mysql"
@@ -44597,7 +44959,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updatePooler",
-                    "group": "databases",
+                    "group": "pooler",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/update-pooler.md",
@@ -44698,7 +45060,7 @@
         },
         "\/mysql\/{databaseId}\/replicas": {
             "get": {
-                "summary": "Get replica status.",
+                "summary": "Get replicas",
                 "operationId": "mysqlGetReplicas",
                 "tags": [
                     "mysql"
@@ -44719,7 +45081,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getReplicas",
-                    "group": "databases",
+                    "group": "replicas",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/get-replicas.md",
@@ -44759,7 +45121,7 @@
         },
         "\/mysql\/{databaseId}\/restorations": {
             "get": {
-                "summary": "List database restorations.",
+                "summary": "List restorations",
                 "operationId": "mysqlListRestorations",
                 "tags": [
                     "mysql"
@@ -44780,7 +45142,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listRestorations",
-                    "group": "databases",
+                    "group": "restorations",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/list-restorations.md",
@@ -44862,7 +45224,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a database restoration.",
+                "summary": "Create restoration",
                 "operationId": "mysqlCreateRestoration",
                 "tags": [
                     "mysql"
@@ -44883,7 +45245,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createRestoration",
-                    "group": "databases",
+                    "group": "restorations",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/create-restoration.md",
@@ -44953,7 +45315,7 @@
         },
         "\/mysql\/{databaseId}\/restorations\/{restorationId}": {
             "get": {
-                "summary": "Get a database restoration.",
+                "summary": "Get restoration",
                 "operationId": "mysqlGetRestoration",
                 "tags": [
                     "mysql"
@@ -44974,7 +45336,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getRestoration",
-                    "group": "databases",
+                    "group": "restorations",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/get-restoration.md",
@@ -45024,7 +45386,7 @@
         },
         "\/mysql\/{databaseId}\/status": {
             "get": {
-                "summary": "Get database status.",
+                "summary": "Get status",
                 "operationId": "mysqlGetStatus",
                 "tags": [
                     "mysql"
@@ -45045,7 +45407,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getStatus",
-                    "group": "databases",
+                    "group": "mysql",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/get-status.md",
@@ -45085,7 +45447,7 @@
         },
         "\/mysql\/{databaseId}\/upgrades": {
             "post": {
-                "summary": "Upgrade database version.",
+                "summary": "Create upgrade",
                 "operationId": "mysqlCreateUpgrade",
                 "tags": [
                     "mysql"
@@ -45106,7 +45468,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createUpgrade",
-                    "group": "databases",
+                    "group": "mysql",
                     "cookies": false,
                     "type": "",
                     "demo": "mysql\/create-upgrade.md",
@@ -47094,6 +47456,360 @@
                 ]
             }
         },
+        "\/organization\/installations": {
+            "get": {
+                "summary": "List Installations",
+                "operationId": "organizationListInstallations",
+                "tags": [
+                    "organization"
+                ],
+                "description": "List app installations on the organization. Any organization member can read installations.",
+                "responses": {
+                    "200": {
+                        "description": "App installations list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appInstallationList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listInstallations",
+                    "group": "installations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "organization\/list-installations.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "organization.installations.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "total",
+                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "x-example": false,
+                            "default": true
+                        },
+                        "in": "query"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create Installation",
+                "operationId": "organizationCreateInstallation",
+                "tags": [
+                    "organization"
+                ],
+                "description": "Install an app on the organization. Only organization members with the owner role can install apps. The installation is granted the scopes the app currently requests.",
+                "responses": {
+                    "201": {
+                        "description": "AppInstallation",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appInstallation"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createInstallation",
+                    "group": "installations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "organization\/create-installation.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "organization.installations.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "appId": {
+                                        "type": "string",
+                                        "description": "Application unique ID.",
+                                        "x-example": "<APP_ID>"
+                                    },
+                                    "authorizationDetails": {
+                                        "type": "string",
+                                        "description": "Authorization details granted to the installation as a JSON array of objects, each with a `type` and app-defined fields. The Appwrite Console stores authorized project IDs here.",
+                                        "default": "",
+                                        "x-example": "<AUTHORIZATION_DETAILS>"
+                                    }
+                                },
+                                "required": [
+                                    "appId"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/organization\/installations\/{installationId}": {
+            "get": {
+                "summary": "Get Installation",
+                "operationId": "organizationGetInstallation",
+                "tags": [
+                    "organization"
+                ],
+                "description": "Get an app installation on the organization by its unique ID. Any organization member can read installations.",
+                "responses": {
+                    "200": {
+                        "description": "AppInstallation",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appInstallation"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getInstallation",
+                    "group": "installations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "organization\/get-installation.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "organization.installations.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "installationId",
+                        "description": "Installation unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INSTALLATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Update Installation",
+                "operationId": "organizationUpdateInstallation",
+                "tags": [
+                    "organization"
+                ],
+                "description": "Update an app installation on the organization. Only organization members with the owner role can update installations. The installation's granted scopes are refreshed to the scopes the app currently requests; previously issued installation access tokens are revoked.",
+                "responses": {
+                    "200": {
+                        "description": "AppInstallation",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appInstallation"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "updateInstallation",
+                    "group": "installations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "organization\/update-installation.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "organization.installations.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "installationId",
+                        "description": "Installation unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INSTALLATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "authorizationDetails": {
+                                        "type": "string",
+                                        "description": "Authorization details granted to the installation as a JSON array of objects, each with a `type` and app-defined fields. Omit to keep the current value.",
+                                        "x-example": "<AUTHORIZATION_DETAILS>",
+                                        "x-nullable": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Installation",
+                "operationId": "organizationDeleteInstallation",
+                "tags": [
+                    "organization"
+                ],
+                "description": "Uninstall an app from the organization by its installation ID. Only organization members with the owner role can remove installations. Previously issued installation access tokens are revoked.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "deleteInstallation",
+                    "group": "installations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "organization\/delete-installation.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "organization.installations.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "produces": [
+                        "application\/json"
+                    ],
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "installationId",
+                        "description": "Installation unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INSTALLATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
         "\/organization\/keys": {
             "get": {
                 "summary": "List organization keys",
@@ -47246,6 +47962,8 @@
                                                 "devKeys.write",
                                                 "organization.keys.read",
                                                 "organization.keys.write",
+                                                "organization.installations.read",
+                                                "organization.installations.write",
                                                 "organization.memberships.read",
                                                 "organization.memberships.write",
                                                 "organization.read",
@@ -47263,6 +47981,8 @@
                                                 "devKeys.write",
                                                 "organization.keys.read",
                                                 "organization.keys.write",
+                                                "organization.installations.read",
+                                                "organization.installations.write",
                                                 "organization.memberships.read",
                                                 "organization.memberships.write",
                                                 "organization.read",
@@ -47435,6 +48155,8 @@
                                                 "devKeys.write",
                                                 "organization.keys.read",
                                                 "organization.keys.write",
+                                                "organization.installations.read",
+                                                "organization.installations.write",
                                                 "organization.memberships.read",
                                                 "organization.memberships.write",
                                                 "organization.read",
@@ -47452,6 +48174,8 @@
                                                 "devKeys.write",
                                                 "organization.keys.read",
                                                 "organization.keys.write",
+                                                "organization.installations.read",
+                                                "organization.installations.write",
                                                 "organization.memberships.read",
                                                 "organization.memberships.write",
                                                 "organization.read",
@@ -51749,7 +52473,7 @@
         },
         "\/postgresql": {
             "get": {
-                "summary": "List dedicated databases.",
+                "summary": "List databases",
                 "operationId": "postgresqlList",
                 "tags": [
                     "postgresql"
@@ -51770,7 +52494,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "list",
-                    "group": "databases",
+                    "group": "postgresql",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/list.md",
@@ -51811,7 +52535,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a dedicated database.",
+                "summary": "Create database",
                 "operationId": "postgresqlCreate",
                 "tags": [
                     "postgresql"
@@ -51832,7 +52556,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "create",
-                    "group": "databases",
+                    "group": "postgresql",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/create.md",
@@ -51980,7 +52704,7 @@
         },
         "\/postgresql\/specifications": {
             "get": {
-                "summary": "List dedicated database specifications.",
+                "summary": "List specifications",
                 "operationId": "postgresqlListSpecifications",
                 "tags": [
                     "postgresql"
@@ -52001,7 +52725,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listSpecifications",
-                    "group": "databases",
+                    "group": "postgresql",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/list-specifications.md",
@@ -52029,7 +52753,7 @@
         },
         "\/postgresql\/{databaseId}": {
             "get": {
-                "summary": "Get dedicated database.",
+                "summary": "Get database",
                 "operationId": "postgresqlGet",
                 "tags": [
                     "postgresql"
@@ -52050,7 +52774,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "get",
-                    "group": "databases",
+                    "group": "postgresql",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/get.md",
@@ -52088,7 +52812,7 @@
                 ]
             },
             "patch": {
-                "summary": "Update dedicated database.",
+                "summary": "Update database",
                 "operationId": "postgresqlUpdate",
                 "tags": [
                     "postgresql"
@@ -52109,7 +52833,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "update",
-                    "group": "databases",
+                    "group": "postgresql",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/update.md",
@@ -52308,7 +53032,7 @@
                 }
             },
             "delete": {
-                "summary": "Delete dedicated database.",
+                "summary": "Delete database",
                 "operationId": "postgresqlDelete",
                 "tags": [
                     "postgresql"
@@ -52322,7 +53046,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "delete",
-                    "group": "databases",
+                    "group": "postgresql",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/delete.md",
@@ -52365,7 +53089,7 @@
         },
         "\/postgresql\/{databaseId}\/backups": {
             "get": {
-                "summary": "List database backups.",
+                "summary": "List backups",
                 "operationId": "postgresqlListBackups",
                 "tags": [
                     "postgresql"
@@ -52386,7 +53110,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listBackups",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/list-backups.md",
@@ -52437,7 +53161,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a database backup.",
+                "summary": "Create backup",
                 "operationId": "postgresqlCreateBackup",
                 "tags": [
                     "postgresql"
@@ -52458,7 +53182,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createBackup",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/create-backup.md",
@@ -52515,7 +53239,7 @@
         },
         "\/postgresql\/{databaseId}\/backups\/policies": {
             "get": {
-                "summary": "List database backup policies.",
+                "summary": "List backup policies",
                 "operationId": "postgresqlListBackupPolicies",
                 "tags": [
                     "postgresql"
@@ -52536,7 +53260,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listBackupPolicies",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/list-backup-policies.md",
@@ -52587,7 +53311,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a database backup policy.",
+                "summary": "Create backup policy",
                 "operationId": "postgresqlCreateBackupPolicy",
                 "tags": [
                     "postgresql"
@@ -52608,7 +53332,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createBackupPolicy",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/create-backup-policy.md",
@@ -52701,7 +53425,7 @@
         },
         "\/postgresql\/{databaseId}\/backups\/policies\/{policyId}": {
             "get": {
-                "summary": "Get a database backup policy.",
+                "summary": "Get backup policy",
                 "operationId": "postgresqlGetBackupPolicy",
                 "tags": [
                     "postgresql"
@@ -52722,7 +53446,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getBackupPolicy",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/get-backup-policy.md",
@@ -52770,7 +53494,7 @@
                 ]
             },
             "patch": {
-                "summary": "Update a database backup policy.",
+                "summary": "Update backup policy",
                 "operationId": "postgresqlUpdateBackupPolicy",
                 "tags": [
                     "postgresql"
@@ -52791,7 +53515,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updateBackupPolicy",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/update-backup-policy.md",
@@ -52874,7 +53598,7 @@
                 }
             },
             "delete": {
-                "summary": "Delete a database backup policy.",
+                "summary": "Delete backup policy",
                 "operationId": "postgresqlDeleteBackupPolicy",
                 "tags": [
                     "postgresql"
@@ -52888,7 +53612,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "deleteBackupPolicy",
-                    "group": "databases",
+                    "group": "policies",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/delete-backup-policy.md",
@@ -52941,7 +53665,7 @@
         },
         "\/postgresql\/{databaseId}\/backups\/storage": {
             "put": {
-                "summary": "Update database backup storage.",
+                "summary": "Update backup storage",
                 "operationId": "postgresqlUpdateBackupStorage",
                 "tags": [
                     "postgresql"
@@ -52962,7 +53686,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updateBackupStorage",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/update-backup-storage.md",
@@ -53057,7 +53781,7 @@
         },
         "\/postgresql\/{databaseId}\/backups\/{backupId}": {
             "get": {
-                "summary": "Get a database backup.",
+                "summary": "Get backup",
                 "operationId": "postgresqlGetBackup",
                 "tags": [
                     "postgresql"
@@ -53078,7 +53802,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getBackup",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/get-backup.md",
@@ -53126,7 +53850,7 @@
                 ]
             },
             "delete": {
-                "summary": "Delete a database backup.",
+                "summary": "Delete backup",
                 "operationId": "postgresqlDeleteBackup",
                 "tags": [
                     "postgresql"
@@ -53140,7 +53864,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "deleteBackup",
-                    "group": "databases",
+                    "group": "backups",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/delete-backup.md",
@@ -53193,7 +53917,7 @@
         },
         "\/postgresql\/{databaseId}\/branches": {
             "get": {
-                "summary": "List database branches.",
+                "summary": "List branches",
                 "operationId": "postgresqlListBranches",
                 "tags": [
                     "postgresql"
@@ -53214,7 +53938,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listBranches",
-                    "group": "databases",
+                    "group": "branches",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/list-branches.md",
@@ -53252,7 +53976,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a database branch.",
+                "summary": "Create branch",
                 "operationId": "postgresqlCreateBranch",
                 "tags": [
                     "postgresql"
@@ -53273,7 +53997,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createBranch",
-                    "group": "databases",
+                    "group": "branches",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/create-branch.md",
@@ -53340,7 +54064,7 @@
         },
         "\/postgresql\/{databaseId}\/branches\/{branchId}": {
             "delete": {
-                "summary": "Delete a database branch.",
+                "summary": "Delete branch",
                 "operationId": "postgresqlDeleteBranch",
                 "tags": [
                     "postgresql"
@@ -53361,7 +54085,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "deleteBranch",
-                    "group": "databases",
+                    "group": "branches",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/delete-branch.md",
@@ -53411,7 +54135,7 @@
         },
         "\/postgresql\/{databaseId}\/credentials": {
             "patch": {
-                "summary": "Rotate database credentials.",
+                "summary": "Update credentials",
                 "operationId": "postgresqlUpdateCredentials",
                 "tags": [
                     "postgresql"
@@ -53432,7 +54156,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updateCredentials",
-                    "group": "databases",
+                    "group": "postgresql",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/update-credentials.md",
@@ -53472,7 +54196,7 @@
         },
         "\/postgresql\/{databaseId}\/executions": {
             "post": {
-                "summary": "Execute a SQL statement against a dedicated database.",
+                "summary": "Create execution",
                 "operationId": "postgresqlCreateExecution",
                 "tags": [
                     "postgresql"
@@ -53493,7 +54217,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createExecution",
-                    "group": "databases",
+                    "group": "executions",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/create-execution.md",
@@ -53566,7 +54290,7 @@
         },
         "\/postgresql\/{databaseId}\/extensions": {
             "get": {
-                "summary": "List database extensions.",
+                "summary": "List extensions",
                 "operationId": "postgresqlListExtensions",
                 "tags": [
                     "postgresql"
@@ -53587,7 +54311,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listExtensions",
-                    "group": "databases",
+                    "group": "extensions",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/list-extensions.md",
@@ -53625,7 +54349,7 @@
                 ]
             },
             "post": {
-                "summary": "Install a database extension.",
+                "summary": "Create extension",
                 "operationId": "postgresqlCreateExtension",
                 "tags": [
                     "postgresql"
@@ -53646,7 +54370,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createExtension",
-                    "group": "databases",
+                    "group": "extensions",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/create-extension.md",
@@ -53705,7 +54429,7 @@
         },
         "\/postgresql\/{databaseId}\/extensions\/{extensionName}": {
             "delete": {
-                "summary": "Uninstall a database extension.",
+                "summary": "Delete extension",
                 "operationId": "postgresqlDeleteExtension",
                 "tags": [
                     "postgresql"
@@ -53726,7 +54450,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "deleteExtension",
-                    "group": "databases",
+                    "group": "extensions",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/delete-extension.md",
@@ -53776,7 +54500,7 @@
         },
         "\/postgresql\/{databaseId}\/failovers": {
             "post": {
-                "summary": "Trigger manual failover.",
+                "summary": "Create failover",
                 "operationId": "postgresqlCreateFailover",
                 "tags": [
                     "postgresql"
@@ -53797,7 +54521,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createFailover",
-                    "group": "databases",
+                    "group": "failovers",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/create-failover.md",
@@ -53854,7 +54578,7 @@
         },
         "\/postgresql\/{databaseId}\/maintenance": {
             "patch": {
-                "summary": "Update database maintenance window.",
+                "summary": "Update maintenance",
                 "operationId": "postgresqlUpdateMaintenance",
                 "tags": [
                     "postgresql"
@@ -53875,7 +54599,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updateMaintenance",
-                    "group": "databases",
+                    "group": "postgresql",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/update-maintenance.md",
@@ -53941,7 +54665,7 @@
         },
         "\/postgresql\/{databaseId}\/migrations": {
             "post": {
-                "summary": "Migrate database between shared and dedicated.",
+                "summary": "Create migration",
                 "operationId": "postgresqlCreateMigration",
                 "tags": [
                     "postgresql"
@@ -53962,7 +54686,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createMigration",
-                    "group": "databases",
+                    "group": "migrations",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/create-migration.md",
@@ -54027,7 +54751,7 @@
         },
         "\/postgresql\/{databaseId}\/pitr": {
             "get": {
-                "summary": "Get PITR recovery windows.",
+                "summary": "Get PITR",
                 "operationId": "postgresqlGetPitr",
                 "tags": [
                     "postgresql"
@@ -54048,7 +54772,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getPitr",
-                    "group": "databases",
+                    "group": "pitr",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/get-pitr.md",
@@ -54088,7 +54812,7 @@
         },
         "\/postgresql\/{databaseId}\/pooler": {
             "get": {
-                "summary": "Get connection pooler configuration.",
+                "summary": "Get pooler",
                 "operationId": "postgresqlGetPooler",
                 "tags": [
                     "postgresql"
@@ -54109,7 +54833,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getPooler",
-                    "group": "databases",
+                    "group": "pooler",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/get-pooler.md",
@@ -54147,7 +54871,7 @@
                 ]
             },
             "patch": {
-                "summary": "Update connection pooler configuration.",
+                "summary": "Update pooler",
                 "operationId": "postgresqlUpdatePooler",
                 "tags": [
                     "postgresql"
@@ -54168,7 +54892,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "updatePooler",
-                    "group": "databases",
+                    "group": "pooler",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/update-pooler.md",
@@ -54269,7 +54993,7 @@
         },
         "\/postgresql\/{databaseId}\/replicas": {
             "get": {
-                "summary": "Get replica status.",
+                "summary": "Get replicas",
                 "operationId": "postgresqlGetReplicas",
                 "tags": [
                     "postgresql"
@@ -54290,7 +55014,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getReplicas",
-                    "group": "databases",
+                    "group": "replicas",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/get-replicas.md",
@@ -54330,7 +55054,7 @@
         },
         "\/postgresql\/{databaseId}\/restorations": {
             "get": {
-                "summary": "List database restorations.",
+                "summary": "List restorations",
                 "operationId": "postgresqlListRestorations",
                 "tags": [
                     "postgresql"
@@ -54351,7 +55075,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listRestorations",
-                    "group": "databases",
+                    "group": "restorations",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/list-restorations.md",
@@ -54433,7 +55157,7 @@
                 ]
             },
             "post": {
-                "summary": "Create a database restoration.",
+                "summary": "Create restoration",
                 "operationId": "postgresqlCreateRestoration",
                 "tags": [
                     "postgresql"
@@ -54454,7 +55178,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createRestoration",
-                    "group": "databases",
+                    "group": "restorations",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/create-restoration.md",
@@ -54524,7 +55248,7 @@
         },
         "\/postgresql\/{databaseId}\/restorations\/{restorationId}": {
             "get": {
-                "summary": "Get a database restoration.",
+                "summary": "Get restoration",
                 "operationId": "postgresqlGetRestoration",
                 "tags": [
                     "postgresql"
@@ -54545,7 +55269,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getRestoration",
-                    "group": "databases",
+                    "group": "restorations",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/get-restoration.md",
@@ -54595,7 +55319,7 @@
         },
         "\/postgresql\/{databaseId}\/status": {
             "get": {
-                "summary": "Get database status.",
+                "summary": "Get status",
                 "operationId": "postgresqlGetStatus",
                 "tags": [
                     "postgresql"
@@ -54616,7 +55340,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getStatus",
-                    "group": "databases",
+                    "group": "postgresql",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/get-status.md",
@@ -54656,7 +55380,7 @@
         },
         "\/postgresql\/{databaseId}\/upgrades": {
             "post": {
-                "summary": "Upgrade database version.",
+                "summary": "Create upgrade",
                 "operationId": "postgresqlCreateUpgrade",
                 "tags": [
                     "postgresql"
@@ -54677,7 +55401,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createUpgrade",
-                    "group": "databases",
+                    "group": "postgresql",
                     "cookies": false,
                     "type": "",
                     "demo": "postgresql\/create-upgrade.md",
@@ -57161,6 +57885,13 @@
                                     "publicRefreshTokenDuration": {
                                         "type": "integer",
                                         "description": "Refresh token duration in seconds for public clients (SPAs, mobile, and native apps that cannot keep a client secret). Leave empty to use default 30 days.",
+                                        "x-example": 60,
+                                        "format": "int32",
+                                        "x-nullable": true
+                                    },
+                                    "installationAccessTokenDuration": {
+                                        "type": "integer",
+                                        "description": "Access token duration in seconds for app installation access tokens. Leave empty to use default 1 hour.",
                                         "x-example": 60,
                                         "format": "int32",
                                         "x-nullable": true
@@ -65588,89 +66319,6 @@
                         "in": "query"
                     }
                 ]
-            },
-            "post": {
-                "summary": "Create dev key",
-                "operationId": "projectsCreateDevKey",
-                "tags": [
-                    "projects"
-                ],
-                "description": "Create a new project dev key. Dev keys are project specific and allow you to bypass rate limits and get better error logging during development. Strictly meant for development purposes only.",
-                "responses": {
-                    "201": {
-                        "description": "DevKey",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/devKey"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "createDevKey",
-                    "group": "devKeys",
-                    "cookies": false,
-                    "type": "",
-                    "demo": "projects\/create-dev-key.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "devKeys.write",
-                    "platforms": [
-                        "console"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "auth": {
-                        "Project": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "projectId",
-                        "description": "Project unique ID.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "x-example": "<PROJECT_ID>"
-                        },
-                        "in": "path"
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application\/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string",
-                                        "description": "Key name. Max length: 128 chars.",
-                                        "x-example": "<NAME>"
-                                    },
-                                    "expire": {
-                                        "type": "string",
-                                        "description": "Expiration time in [ISO 8601](https:\/\/www.iso.org\/iso-8601-date-and-time-format.html) format.",
-                                        "x-example": "2020-10-15T06:38:00.000+00:00",
-                                        "format": "datetime"
-                                    }
-                                },
-                                "required": [
-                                    "name",
-                                    "expire"
-                                ]
-                            }
-                        }
-                    }
-                }
             }
         },
         "\/projects\/{projectId}\/dev-keys\/{keyId}": {
@@ -71910,7 +72558,7 @@
         },
         "\/tablesdb\/specifications": {
             "get": {
-                "summary": "List dedicated database specifications.",
+                "summary": "List specifications",
                 "operationId": "tablesDBListSpecifications",
                 "tags": [
                     "tablesDB"
@@ -71931,7 +72579,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listSpecifications",
-                    "group": "databases",
+                    "group": "tablesdb",
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/list-specifications.md",
@@ -72610,7 +73258,7 @@
         },
         "\/tablesdb\/{databaseId}\/failovers": {
             "post": {
-                "summary": "Trigger manual failover.",
+                "summary": "Create failover",
                 "operationId": "tablesDBCreateFailover",
                 "tags": [
                     "tablesDB"
@@ -72631,7 +73279,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createFailover",
-                    "group": "databases",
+                    "group": "failovers",
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/create-failover.md",
@@ -72688,7 +73336,7 @@
         },
         "\/tablesdb\/{databaseId}\/migrations": {
             "get": {
-                "summary": "List TablesDB dedicated migrations.",
+                "summary": "List migrations",
                 "operationId": "tablesDBListMigrations",
                 "tags": [
                     "tablesDB"
@@ -72709,7 +73357,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listMigrations",
-                    "group": "databases",
+                    "group": "migrations",
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/list-migrations.md",
@@ -72745,7 +73393,7 @@
                 ]
             },
             "post": {
-                "summary": "Start a TablesDB dedicated migration.",
+                "summary": "Create migration",
                 "operationId": "tablesDBCreateMigration",
                 "tags": [
                     "tablesDB"
@@ -72766,7 +73414,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createMigration",
-                    "group": "databases",
+                    "group": "migrations",
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/create-migration.md",
@@ -72823,7 +73471,7 @@
         },
         "\/tablesdb\/{databaseId}\/migrations\/{migrationId}": {
             "get": {
-                "summary": "Get a TablesDB dedicated migration.",
+                "summary": "Get migration",
                 "operationId": "tablesDBGetMigration",
                 "tags": [
                     "tablesDB"
@@ -72844,7 +73492,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getMigration",
-                    "group": "databases",
+                    "group": "migrations",
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/get-migration.md",
@@ -72890,7 +73538,7 @@
                 ]
             },
             "delete": {
-                "summary": "Abort a TablesDB dedicated migration.",
+                "summary": "Delete migration",
                 "operationId": "tablesDBDeleteMigration",
                 "tags": [
                     "tablesDB"
@@ -72904,7 +73552,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "deleteMigration",
-                    "group": "databases",
+                    "group": "migrations",
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/delete-migration.md",
@@ -72955,7 +73603,7 @@
         },
         "\/tablesdb\/{databaseId}\/replicas": {
             "get": {
-                "summary": "Get replica status.",
+                "summary": "Get replicas",
                 "operationId": "tablesDBGetReplicas",
                 "tags": [
                     "tablesDB"
@@ -72976,7 +73624,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getReplicas",
-                    "group": "databases",
+                    "group": "replicas",
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/get-replicas.md",
@@ -73016,7 +73664,7 @@
         },
         "\/tablesdb\/{databaseId}\/status": {
             "get": {
-                "summary": "Get database status.",
+                "summary": "Get status",
                 "operationId": "tablesDBGetStatus",
                 "tags": [
                     "tablesDB"
@@ -73037,7 +73685,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getStatus",
-                    "group": "databases",
+                    "group": "tablesdb",
                     "cookies": false,
                     "type": "",
                     "demo": "tablesdb\/get-status.md",
@@ -80485,6 +81133,412 @@
                 ]
             }
         },
+        "\/teams\/{teamId}\/installations": {
+            "get": {
+                "summary": "List Installations",
+                "operationId": "teamsListInstallations",
+                "tags": [
+                    "teams"
+                ],
+                "description": "List app installations on a team. Any team member can read installations.",
+                "responses": {
+                    "200": {
+                        "description": "App installations list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appInstallationList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listInstallations",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "teams\/list-installations.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "teams.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "teamId",
+                        "description": "Team ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<TEAM_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "total",
+                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "x-example": false,
+                            "default": true
+                        },
+                        "in": "query"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create Installation",
+                "operationId": "teamsCreateInstallation",
+                "tags": [
+                    "teams"
+                ],
+                "description": "Install an app on a team. When authenticated as a user, only team members with the owner role can install apps. Requests using an API key or in admin mode can install apps on any team. The installation is granted the scopes the app currently requests.",
+                "responses": {
+                    "201": {
+                        "description": "AppInstallation",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appInstallation"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createInstallation",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "teams\/create-installation.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "teams.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "teamId",
+                        "description": "Team ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<TEAM_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "appId": {
+                                        "type": "string",
+                                        "description": "Application unique ID.",
+                                        "x-example": "<APP_ID>"
+                                    },
+                                    "authorizationDetails": {
+                                        "type": "string",
+                                        "description": "Authorization details granted to the installation as a JSON array of objects, each with a `type` and app-defined fields. The Appwrite Console stores authorized project IDs here.",
+                                        "default": "",
+                                        "x-example": "<AUTHORIZATION_DETAILS>"
+                                    }
+                                },
+                                "required": [
+                                    "appId"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/teams\/{teamId}\/installations\/{installationId}": {
+            "get": {
+                "summary": "Get Installation",
+                "operationId": "teamsGetInstallation",
+                "tags": [
+                    "teams"
+                ],
+                "description": "Get an app installation on a team by its unique ID. Any team member can read installations.",
+                "responses": {
+                    "200": {
+                        "description": "AppInstallation",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appInstallation"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getInstallation",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "teams\/get-installation.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "teams.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "teamId",
+                        "description": "Team ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<TEAM_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "installationId",
+                        "description": "Installation unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INSTALLATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Update Installation",
+                "operationId": "teamsUpdateInstallation",
+                "tags": [
+                    "teams"
+                ],
+                "description": "Update an app installation on a team. Only team members with the owner role can update installations. The installation's granted scopes are refreshed to the scopes the app currently requests; previously issued installation access tokens are revoked.",
+                "responses": {
+                    "200": {
+                        "description": "AppInstallation",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appInstallation"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "updateInstallation",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "teams\/update-installation.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "teams.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "teamId",
+                        "description": "Team ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<TEAM_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "installationId",
+                        "description": "Installation unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INSTALLATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "authorizationDetails": {
+                                        "type": "string",
+                                        "description": "Authorization details granted to the installation as a JSON array of objects, each with a `type` and app-defined fields. Omit to keep the current value.",
+                                        "x-example": "<AUTHORIZATION_DETAILS>",
+                                        "x-nullable": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Installation",
+                "operationId": "teamsDeleteInstallation",
+                "tags": [
+                    "teams"
+                ],
+                "description": "Uninstall an app from a team by its installation ID. Only team members with the owner role can remove installations. Previously issued installation access tokens are revoked.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "deleteInstallation",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "teams\/delete-installation.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "teams.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "produces": [
+                        "application\/json"
+                    ],
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "teamId",
+                        "description": "Team ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<TEAM_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "installationId",
+                        "description": "Installation unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INSTALLATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
         "\/teams\/{teamId}\/logs": {
             "get": {
                 "summary": "List team logs",
@@ -87036,7 +88090,7 @@
         },
         "\/vectorsdb\/specifications": {
             "get": {
-                "summary": "List dedicated database specifications.",
+                "summary": "List specifications",
                 "operationId": "vectorsDBListSpecifications",
                 "tags": [
                     "vectorsDB"
@@ -87057,7 +88111,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "listSpecifications",
-                    "group": "databases",
+                    "group": "vectorsdb",
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/list-specifications.md",
@@ -88806,6 +89860,119 @@
                 ]
             }
         },
+        "\/vectorsdb\/{databaseId}\/collections\/{collectionId}\/documents\/query": {
+            "post": {
+                "summary": "Create query",
+                "operationId": "vectorsDBCreateQuery",
+                "tags": [
+                    "vectorsDB"
+                ],
+                "description": "Get a list of all the user's documents in a given collection using a POST request. This behaves identically to the list documents endpoint but accepts the queries in the request body, allowing much larger `queries` arrays than can fit in a URL query string.\n",
+                "responses": {
+                    "200": {
+                        "description": "Documents List",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/documentList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createQuery",
+                    "group": "documents",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "vectorsdb\/create-query.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "documents.read",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/create-query.md",
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "collectionId",
+                        "description": "Collection ID. You can create a new collection using the Database service [server integration](https:\/\/appwrite.io\/docs\/server\/databases#databasesCreateCollection).",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<COLLECTION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "queries": {
+                                        "type": "array",
+                                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "transactionId": {
+                                        "type": "string",
+                                        "description": "Transaction ID to read uncommitted changes within the transaction.",
+                                        "x-example": "<TRANSACTION_ID>"
+                                    },
+                                    "total": {
+                                        "type": "boolean",
+                                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                                        "default": true,
+                                        "x-example": false
+                                    },
+                                    "ttl": {
+                                        "type": "integer",
+                                        "description": "TTL (seconds) for cached responses when caching is enabled for select queries. Must be between 0 and 86400 (24 hours).",
+                                        "default": 0,
+                                        "x-example": 0,
+                                        "format": "int32"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/vectorsdb\/{databaseId}\/collections\/{collectionId}\/documents\/{documentId}": {
             "get": {
                 "summary": "Get document",
@@ -89660,7 +90827,7 @@
         },
         "\/vectorsdb\/{databaseId}\/failovers": {
             "post": {
-                "summary": "Trigger manual failover.",
+                "summary": "Create failover",
                 "operationId": "vectorsDBCreateFailover",
                 "tags": [
                     "vectorsDB"
@@ -89681,7 +90848,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "createFailover",
-                    "group": "databases",
+                    "group": "failovers",
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/create-failover.md",
@@ -89738,7 +90905,7 @@
         },
         "\/vectorsdb\/{databaseId}\/replicas": {
             "get": {
-                "summary": "Get replica status.",
+                "summary": "Get replicas",
                 "operationId": "vectorsDBGetReplicas",
                 "tags": [
                     "vectorsDB"
@@ -89759,7 +90926,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getReplicas",
-                    "group": "databases",
+                    "group": "replicas",
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/get-replicas.md",
@@ -89799,7 +90966,7 @@
         },
         "\/vectorsdb\/{databaseId}\/status": {
             "get": {
-                "summary": "Get database status.",
+                "summary": "Get status",
                 "operationId": "vectorsDBGetStatus",
                 "tags": [
                     "vectorsDB"
@@ -89820,7 +90987,7 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "method": "getStatus",
-                    "group": "databases",
+                    "group": "vectorsdb",
                     "cookies": false,
                     "type": "",
                     "demo": "vectorsdb\/get-status.md",
@@ -91549,8 +92716,24 @@
     },
     "tags": [
         {
+            "name": "ping",
+            "description": ""
+        },
+        {
             "name": "account",
             "description": "The Account service allows you to authenticate and manage a user account."
+        },
+        {
+            "name": "locale",
+            "description": "The Locale service allows you to customize your app based on your users' location."
+        },
+        {
+            "name": "users",
+            "description": "The Users service allows you to manage your project users."
+        },
+        {
+            "name": "messaging",
+            "description": "The Messaging service allows you to send messages to any provider type (SMTP, push notification, SMS, etc.)."
         },
         {
             "name": "avatars",
@@ -91561,76 +92744,136 @@
             "description": "The Databases service allows you to create structured collections of documents, query and filter lists of documents"
         },
         {
-            "name": "tablesdb",
+            "name": "tablesDB",
             "description": "The TablesDB service allows you to create structured tables of columns, query and filter lists of rows"
         },
         {
-            "name": "locale",
-            "description": "The Locale service allows you to customize your app based on your users' location."
+            "name": "documentsDB",
+            "description": ""
+        },
+        {
+            "name": "vectorsDB",
+            "description": ""
         },
         {
             "name": "projects",
             "description": "The Project service allows you to manage all the projects in your Appwrite server."
         },
         {
-            "name": "project",
-            "description": "The Project service allows you to manage all the projects in your Appwrite server."
-        },
-        {
-            "name": "storage",
-            "description": "The Storage service allows you to manage your project files."
-        },
-        {
-            "name": "teams",
-            "description": "The Teams service allows you to group users of your project and to enable them to share read and write access to your project resources"
-        },
-        {
-            "name": "users",
-            "description": "The Users service allows you to manage your project users."
-        },
-        {
-            "name": "sites",
-            "description": "The Sites Service allows you view, create and manage your web applications."
+            "name": "presences",
+            "description": "The Presences service allows you to track and manage real-time user presence in your project."
         },
         {
             "name": "functions",
             "description": "The Functions Service allows you view, create and manage your Cloud Functions."
         },
         {
-            "name": "proxy",
-            "description": "The Proxy Service allows you to configure actions for your domains beyond DNS configuration."
+            "name": "notifications",
+            "description": "The Notifications service allows you to read and manage your Appwrite Console notifications."
         },
         {
-            "name": "graphql",
-            "description": "The GraphQL API allows you to query and mutate your Appwrite server using GraphQL."
+            "name": "sites",
+            "description": "The Sites Service allows you view, create and manage your web applications."
         },
         {
             "name": "console",
             "description": "The Console service allows you to interact with console relevant information."
         },
         {
-            "name": "organization",
-            "description": "The Organization service allows you to manage organization-level projects."
+            "name": "proxy",
+            "description": "The Proxy Service allows you to configure actions for your domains beyond DNS configuration."
+        },
+        {
+            "name": "teams",
+            "description": "The Teams service allows you to group users of your project and to enable them to share read and write access to your project resources"
+        },
+        {
+            "name": "tokens",
+            "description": "The Tokens service allows you to create and manage resource tokens for secure file access."
+        },
+        {
+            "name": "storage",
+            "description": "The Storage service allows you to manage your project files."
+        },
+        {
+            "name": "vcs",
+            "description": "The VCS service allows you to interact with providers like GitHub, GitLab etc."
+        },
+        {
+            "name": "webhooks",
+            "description": "The Webhooks service allows you to manage your project webhooks."
         },
         {
             "name": "migrations",
             "description": "The Migrations service allows you to migrate third-party data to your Appwrite project."
         },
         {
-            "name": "messaging",
-            "description": "The Messaging service allows you to send messages to any provider type (SMTP, push notification, SMS, etc.)."
+            "name": "organization",
+            "description": "The Organization service allows you to manage organization-level projects."
         },
         {
-            "name": "notifications",
-            "description": "The Notifications service allows you to read and manage your Appwrite Console notifications."
+            "name": "project",
+            "description": "The Project service allows you to manage all the projects in your Appwrite server."
         },
         {
             "name": "advisor",
             "description": "The Advisor service surfaces actionable reports about your project resources, with CTA descriptors for one-click remediation in the console."
         },
         {
+            "name": "mysql",
+            "description": ""
+        },
+        {
+            "name": "postgresql",
+            "description": ""
+        },
+        {
+            "name": "mongo",
+            "description": ""
+        },
+        {
+            "name": "apps",
+            "description": ""
+        },
+        {
             "name": "oauth2",
             "description": "The OAuth2 service allows you to authorize apps and issue standards-based OAuth2 and OpenID Connect tokens."
+        },
+        {
+            "name": "domains",
+            "description": ""
+        },
+        {
+            "name": "manager",
+            "description": ""
+        },
+        {
+            "name": "organizations",
+            "description": "The Organizations service allows you to manage organization billing, plans, invoices, and add-ons."
+        },
+        {
+            "name": "backups",
+            "description": "The Backups service allows you to manage backup policies, archives, and restorations for your project."
+        },
+        {
+            "name": "activities",
+            "description": "The Activities service allows you to list and inspect project activity events."
+        },
+        {
+            "name": "usage",
+            "description": ""
+        },
+        {
+            "name": "waf",
+            "description": ""
+        },
+        {
+            "name": "graphql",
+            "description": "The GraphQL API allows you to query and mutate your Appwrite server using GraphQL."
+        },
+        {
+            "name": "assistant",
+            "description": ""
         }
     ],
     "components": {
@@ -102630,6 +103873,13 @@
                         "format": "int32",
                         "nullable": true
                     },
+                    "oAuth2ServerInstallationAccessTokenDuration": {
+                        "type": "integer",
+                        "description": "OAuth2 server access token duration in seconds for app installation access tokens",
+                        "x-example": 3600,
+                        "format": "int32",
+                        "nullable": true
+                    },
                     "oAuth2ServerConfidentialPkce": {
                         "type": "boolean",
                         "description": "When enabled, PKCE is required for confidential clients (server-side flows using client_secret). PKCE is always required for public clients regardless of this setting.",
@@ -102747,6 +103997,7 @@
                     "oAuth2ServerRefreshTokenDuration": 86400,
                     "oAuth2ServerPublicAccessTokenDuration": 3600,
                     "oAuth2ServerPublicRefreshTokenDuration": 2592000,
+                    "oAuth2ServerInstallationAccessTokenDuration": 3600,
                     "oAuth2ServerConfidentialPkce": false,
                     "oAuth2ServerVerificationUrl": "https:\/\/cloud.appwrite.io\/device",
                     "oAuth2ServerUserCodeLength": 8,
@@ -116263,6 +117514,21 @@
                         "description": "ID of user who owns the application, if owned by user. Otherwise, team ID will be used.",
                         "x-example": "5e5ea5c16897e"
                     },
+                    "installationScopes": {
+                        "type": "array",
+                        "description": "Scopes the application requests when installed on a team. Organization-level and project-level scopes only.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "organization:organization.read"
+                        ]
+                    },
+                    "installationRedirectUrl": {
+                        "type": "string",
+                        "description": "URL users are redirected to after creating or updating an installation of this application. Empty for no redirect.",
+                        "x-example": "https:\/\/example.com\/setup"
+                    },
                     "secrets": {
                         "type": "array",
                         "description": "List of application secrets.",
@@ -116296,6 +117562,8 @@
                     "deviceFlow",
                     "teamId",
                     "userId",
+                    "installationScopes",
+                    "installationRedirectUrl",
                     "secrets"
                 ],
                 "example": {
@@ -116335,6 +117603,10 @@
                     "deviceFlow": false,
                     "teamId": "5e5ea5c16897e",
                     "userId": "5e5ea5c16897e",
+                    "installationScopes": [
+                        "organization:organization.read"
+                    ],
+                    "installationRedirectUrl": "https:\/\/example.com\/setup",
                     "secrets": []
                 }
             },
@@ -116527,6 +117799,181 @@
                     "type": "organization",
                     "category": "Organization",
                     "deprecated": false
+                }
+            },
+            "appInstallation": {
+                "description": "AppInstallation",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Installation ID.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "Installation creation time in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "$updatedAt": {
+                        "type": "string",
+                        "description": "Installation update time in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "appId": {
+                        "type": "string",
+                        "description": "ID of the installed application.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "teamId": {
+                        "type": "string",
+                        "description": "ID of the team the application is installed on.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "scopes": {
+                        "type": "array",
+                        "description": "Scopes granted to the application. Snapshot of the application's installation scopes taken when the installation was created or last updated.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "organization:organization.read"
+                        ]
+                    },
+                    "authorizationDetails": {
+                        "type": "object",
+                        "additionalProperties": true,
+                        "description": "Authorization details granted to the application. Rich authorization request (RFC 9396) style entries; the Appwrite Console stores authorized project IDs here.",
+                        "x-example": [
+                            {
+                                "type": "project",
+                                "identifiers": [
+                                    "*"
+                                ]
+                            }
+                        ]
+                    },
+                    "createdById": {
+                        "type": "string",
+                        "description": "ID of the user who created the installation.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "createdByName": {
+                        "type": "string",
+                        "description": "Name of the user who created the installation.",
+                        "x-example": "Walter White"
+                    },
+                    "lastAccessedAt": {
+                        "type": "string",
+                        "description": "Time an access token was last issued for the installation in ISO 8601 format. Null if never used.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "$id",
+                    "$createdAt",
+                    "$updatedAt",
+                    "appId",
+                    "teamId",
+                    "scopes",
+                    "authorizationDetails",
+                    "createdById",
+                    "createdByName"
+                ],
+                "example": {
+                    "$id": "5e5ea5c16897e",
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                    "appId": "5e5ea5c16897e",
+                    "teamId": "5e5ea5c16897e",
+                    "scopes": [
+                        "organization:organization.read"
+                    ],
+                    "authorizationDetails": [
+                        {
+                            "type": "project",
+                            "identifiers": [
+                                "*"
+                            ]
+                        }
+                    ],
+                    "createdById": "5e5ea5c16897e",
+                    "createdByName": "Walter White",
+                    "lastAccessedAt": "2020-10-15T06:38:00.000+00:00"
+                }
+            },
+            "appKey": {
+                "description": "AppKey",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "App key ID.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "App key creation time in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "$updatedAt": {
+                        "type": "string",
+                        "description": "App key update time in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "appId": {
+                        "type": "string",
+                        "description": "Application ID this app key belongs to.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "secret": {
+                        "type": "string",
+                        "description": "App key secret.",
+                        "x-example": "5f3c8d2a1b9e4f7a6c8b2d1e9f4a7b3c5d8e1f2a9b4c7d6e3f5a8b1c4d7e2f9a"
+                    },
+                    "hint": {
+                        "type": "string",
+                        "description": "Last few characters of the app key secret, used to help identify it.",
+                        "x-example": "f5c6c7"
+                    },
+                    "createdById": {
+                        "type": "string",
+                        "description": "ID of the user who created the app key.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "createdByName": {
+                        "type": "string",
+                        "description": "Name of the user who created the app key.",
+                        "x-example": "Walter White"
+                    },
+                    "lastAccessedAt": {
+                        "type": "string",
+                        "description": "Time the app key was last used for authentication in ISO 8601 format. Null if never used.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "$id",
+                    "$createdAt",
+                    "$updatedAt",
+                    "appId",
+                    "secret",
+                    "hint",
+                    "createdById",
+                    "createdByName"
+                ],
+                "example": {
+                    "$id": "5e5ea5c16897e",
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                    "appId": "5e5ea5c16897e",
+                    "secret": "5f3c8d2a1b9e4f7a6c8b2d1e9f4a7b3c5d8e1f2a9b4c7d6e3f5a8b1c4d7e2f9a",
+                    "hint": "f5c6c7",
+                    "createdById": "5e5ea5c16897e",
+                    "createdByName": "Walter White",
+                    "lastAccessedAt": "2020-10-15T06:38:00.000+00:00"
                 }
             },
             "oauth2Authorize": {
@@ -118550,6 +119997,62 @@
                 "example": {
                     "total": 5,
                     "scopes": ""
+                }
+            },
+            "appInstallationList": {
+                "description": "App installations list",
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of installations that matched your query.",
+                        "x-example": 5,
+                        "format": "int32"
+                    },
+                    "installations": {
+                        "type": "array",
+                        "description": "List of installations.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/appInstallation"
+                        },
+                        "x-example": ""
+                    }
+                },
+                "required": [
+                    "total",
+                    "installations"
+                ],
+                "example": {
+                    "total": 5,
+                    "installations": ""
+                }
+            },
+            "appKeyList": {
+                "description": "App keys list",
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of keys that matched your query.",
+                        "x-example": 5,
+                        "format": "int32"
+                    },
+                    "keys": {
+                        "type": "array",
+                        "description": "List of keys.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/appKey"
+                        },
+                        "x-example": ""
+                    }
+                },
+                "required": [
+                    "total",
+                    "keys"
+                ],
+                "example": {
+                    "total": 5,
+                    "keys": ""
                 }
             }
         },
