@@ -9,6 +9,7 @@ mutation {
         refreshTokenDuration: 60,
         publicAccessTokenDuration: 60,
         publicRefreshTokenDuration: 60,
+        installationAccessTokenDuration: 60,
         confidentialPkce: false,
         verificationUrl: "https://example.com",
         userCodeLength: 6,
@@ -93,6 +94,7 @@ mutation {
         oAuth2ServerRefreshTokenDuration
         oAuth2ServerPublicAccessTokenDuration
         oAuth2ServerPublicRefreshTokenDuration
+        oAuth2ServerInstallationAccessTokenDuration
         oAuth2ServerConfidentialPkce
         oAuth2ServerVerificationUrl
         oAuth2ServerUserCodeLength
@@ -111,6 +113,7 @@ mutation {
         refreshTokenDuration: 60,
         publicAccessTokenDuration: 60,
         publicRefreshTokenDuration: 60,
+        installationAccessTokenDuration: 60,
         confidentialPkce: false,
         verificationUrl: "https://example.com",
         userCodeLength: 6,
@@ -195,6 +198,7 @@ mutation {
         oAuth2ServerRefreshTokenDuration
         oAuth2ServerPublicAccessTokenDuration
         oAuth2ServerPublicRefreshTokenDuration
+        oAuth2ServerInstallationAccessTokenDuration
         oAuth2ServerConfidentialPkce
         oAuth2ServerVerificationUrl
         oAuth2ServerUserCodeLength
