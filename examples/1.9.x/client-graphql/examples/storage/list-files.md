@@ -14,6 +14,8 @@ query {
             _updatedAt
             _permissions
             name
+            folder
+            key
             signature
             mimeType
             sizeOriginal

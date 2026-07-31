@@ -11,6 +11,6 @@ client = Client.new
 project = Project.new(client)
 
 result = project.update_user_limit_policy(
-    total: 1
+    total: 0
 )
 ```

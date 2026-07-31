@@ -5293,6 +5293,315 @@
                 ]
             }
         },
+        "\/apps\/{appId}\/installations": {
+            "get": {
+                "summary": "List Installations",
+                "operationId": "appsListInstallations",
+                "tags": [
+                    "apps"
+                ],
+                "description": "List installations of an application. Requires an app key sent in the `X-Appwrite-Key` header alongside the `X-Appwrite-App` header, or a caller with update access to the app.",
+                "responses": {
+                    "200": {
+                        "description": "App installations list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appInstallationList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listInstallations",
+                    "group": "installations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/list-installations.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip}",
+                    "scope": [
+                        "apps.read",
+                        "apps.installations.read"
+                    ],
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "total",
+                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "x-example": false,
+                            "default": true
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/apps\/{appId}\/installations\/{installationId}": {
+            "get": {
+                "summary": "Get Installation",
+                "operationId": "appsGetInstallation",
+                "tags": [
+                    "apps"
+                ],
+                "description": "Get an installation of an application by its unique ID. Requires an app key sent in the `X-Appwrite-Key` header alongside the `X-Appwrite-App` header, or a caller with update access to the app.",
+                "responses": {
+                    "200": {
+                        "description": "AppInstallation",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appInstallation"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getInstallation",
+                    "group": "installations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/get-installation.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip}",
+                    "scope": [
+                        "apps.read",
+                        "apps.installations.read"
+                    ],
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "installationId",
+                        "description": "Installation unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INSTALLATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete Installation",
+                "operationId": "appsDeleteInstallation",
+                "tags": [
+                    "apps"
+                ],
+                "description": "Delete an installation of an application by its unique ID. Requires a caller with update access to the app. Previously issued installation access tokens are revoked.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "deleteInstallation",
+                    "group": "installations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/delete-installation.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "apps.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "produces": [
+                        "application\/json"
+                    ],
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "installationId",
+                        "description": "Installation unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INSTALLATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/apps\/{appId}\/installations\/{installationId}\/tokens": {
+            "post": {
+                "summary": "Create Installation Token",
+                "operationId": "appsCreateInstallationToken",
+                "tags": [
+                    "apps"
+                ],
+                "description": "Create a token for an installation of an application. Requires an app key sent in the `X-Appwrite-Key` header alongside the `X-Appwrite-App` header, or a caller with update access to the app. The returned token carries the scopes and authorization details granted to the installation, and can be used as an `Authorization: Bearer` header everywhere OAuth2 access tokens are accepted. Multiple tokens can be active for the same installation at once; each token stays valid until it expires or the installation is updated or deleted.",
+                "responses": {
+                    "201": {
+                        "description": "OAuth2 Token",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2Token"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createInstallationToken",
+                    "group": "installations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/create-installation-token.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip}",
+                    "scope": [
+                        "apps.write",
+                        "apps.tokens.write"
+                    ],
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "installationId",
+                        "description": "Installation unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INSTALLATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
         "\/apps\/{appId}\/keys": {
             "get": {
                 "summary": "List App Keys",
@@ -14823,7 +15132,7 @@
                     },
                     {
                         "name": "queries",
-                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long. You may filter on the following attributes: name, signature, mimeType, sizeOriginal, chunksTotal, chunksUploaded",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long. You may filter on the following attributes: name, folder, signature, mimeType, sizeOriginal, chunksTotal, chunksUploaded",
                         "required": false,
                         "schema": {
                             "type": "array",
@@ -14948,6 +15257,12 @@
                                             "type": "string"
                                         },
                                         "x-nullable": true
+                                    },
+                                    "folder": {
+                                        "type": "string",
+                                        "description": "Virtual folder to place the file in, for example \"photos\/2026\". Nest folders with `\/`. Defaults to the bucket root.",
+                                        "default": "",
+                                        "x-example": null
                                     }
                                 },
                                 "required": [
@@ -19856,7 +20171,7 @@
         },
         {
             "name": "apps",
-            "description": ""
+            "description": "The Apps service allows you to manage OAuth2 applications, their keys, secrets, scopes, and installations."
         },
         {
             "name": "oauth2",
@@ -21808,6 +22123,16 @@
                         "description": "File name.",
                         "x-example": "Pink.png"
                     },
+                    "folder": {
+                        "type": "string",
+                        "description": "Virtual folder containing the file, with a trailing slash. Empty for the bucket root.",
+                        "x-example": "photos\/2026\/"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Full virtual path of the file: the folder followed by the file name.",
+                        "x-example": "photos\/2026\/Pink.png"
+                    },
                     "signature": {
                         "type": "string",
                         "description": "File MD5 signature.",
@@ -21860,6 +22185,8 @@
                     "$updatedAt",
                     "$permissions",
                     "name",
+                    "folder",
+                    "key",
                     "signature",
                     "mimeType",
                     "sizeOriginal",
@@ -21878,6 +22205,8 @@
                         "read(\"any\")"
                     ],
                     "name": "Pink.png",
+                    "folder": "photos\/2026\/",
+                    "key": "photos\/2026\/Pink.png",
                     "signature": "5d529fd02b544198ae075bd57c1762bb",
                     "mimeType": "image\/png",
                     "sizeOriginal": 17890,

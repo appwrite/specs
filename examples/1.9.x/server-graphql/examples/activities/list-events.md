@@ -1,7 +1,7 @@
 ```graphql
 query {
     activitiesListEvents(
-        queries: ""
+        queries: []
     ) {
         total
         events {

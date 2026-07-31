@@ -5,6 +5,11 @@ query {
     ) {
         replicas
         syncMode
+        effectiveSyncMode
+        syncDegraded
+        syncAcknowledgements
+        syncStandbyCount
+        syncStateConfirmed
         members {
             _id
             role

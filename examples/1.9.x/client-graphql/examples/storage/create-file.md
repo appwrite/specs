@@ -10,7 +10,7 @@ Content-Length: *Length of your entity body in bytes*
 --cec8e8123c05ba25
 Content-Disposition: form-data; name="operations"
 
-{ "query": "mutation { storageCreateFile(bucketId: $bucketId, fileId: $fileId, file: $file, permissions: $permissions) { id }" }, "variables": { "bucketId": "<BUCKET_ID>", "fileId": "<FILE_ID>", "file": null, "permissions": ["read("any")"] } }
+{ "query": "mutation { storageCreateFile(bucketId: $bucketId, fileId: $fileId, file: $file, permissions: $permissions, folder: $folder) { id }" }, "variables": { "bucketId": "<BUCKET_ID>", "fileId": "<FILE_ID>", "file": null, "permissions": ["read("any")"], "folder": "" } }
 
 --cec8e8123c05ba25
 Content-Disposition: form-data; name="map"
@@ -28,7 +28,8 @@ mutation {
         bucketId: "<BUCKET_ID>",
         fileId: "<FILE_ID>",
         file: null,
-        permissions: ["read("any")"]
+        permissions: ["read("any")"],
+        folder: ""
     ) {
         _id
         bucketId
@@ -36,6 +37,8 @@ mutation {
         _updatedAt
         _permissions
         name
+        folder
+        key
         signature
         mimeType
         sizeOriginal

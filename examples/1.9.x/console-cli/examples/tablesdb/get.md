@@ -1,4 +1,4 @@
 ```bash
-appwrite tables-db get \
+appwrite tablesdb get \
     --database-id <DATABASE_ID>
 ```

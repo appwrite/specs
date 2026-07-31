@@ -8,7 +8,7 @@ const client = new Client()
 const activities = new Activities(client);
 
 const result = await activities.listEvents({
-    queries: '' // optional
+    queries: [] // optional
 });
 
 console.log(result);

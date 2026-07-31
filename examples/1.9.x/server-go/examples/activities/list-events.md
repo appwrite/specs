@@ -16,6 +16,6 @@ client := client.New(
 service := activities.New(client)
 
 response, error := service.ListEvents(
-    activities.WithListEventsQueries(""),
+    activities.WithListEventsQueries([]string{}),
 )
 ```

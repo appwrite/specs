@@ -1,7 +1,7 @@
 ```graphql
 mutation {
     projectUpdateUserLimitPolicy(
-        total: 1
+        total: 0
     ) {
         _id
         _createdAt
@@ -91,7 +91,7 @@ mutation {
 }
 mutation {
     projectUpdateUserLimitPolicy(
-        total: 1
+        total: 0
     ) {
         _id
         _createdAt

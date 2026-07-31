@@ -1,7 +1,7 @@
 ```graphql
 mutation {
     projectUpdateSessionDurationPolicy(
-        duration: 5
+        duration: 60
     ) {
         _id
         _createdAt
@@ -91,7 +91,7 @@ mutation {
 }
 mutation {
     projectUpdateSessionDurationPolicy(
-        duration: 5
+        duration: 60
     ) {
         _id
         _createdAt

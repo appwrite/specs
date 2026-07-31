@@ -19,6 +19,8 @@ response, error := service.Update(
     "<DATABASE_ID>",
     tablesdb.WithUpdateName("<NAME>"),
     tablesdb.WithUpdateEnabled(false),
+    tablesdb.WithUpdateSpecification("serverless"),
     tablesdb.WithUpdateReplicas(0),
+    tablesdb.WithUpdateSyncMode("async"),
 )
 ```

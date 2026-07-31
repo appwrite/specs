@@ -6006,7 +6006,10 @@
                         "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/databases#querying-documents). Maximum of 100 queries are allowed, each 4096 characters long. You may filter on attributes such as userId, teamId, etc.",
                         "required": false,
                         "schema": {
-                            "type": "string",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
                             "default": []
                         },
                         "in": "query"
@@ -6789,6 +6792,319 @@
                         "schema": {
                             "type": "string",
                             "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/apps\/{appId}\/installations": {
+            "get": {
+                "summary": "List Installations",
+                "operationId": "appsListInstallations",
+                "tags": [
+                    "apps"
+                ],
+                "description": "List installations of an application. Requires an app key sent in the `X-Appwrite-Key` header alongside the `X-Appwrite-App` header, or a caller with update access to the app.",
+                "responses": {
+                    "200": {
+                        "description": "App installations list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appInstallationList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listInstallations",
+                    "group": "installations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/list-installations.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip}",
+                    "scope": [
+                        "apps.read",
+                        "apps.installations.read"
+                    ],
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "total",
+                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "x-example": false,
+                            "default": true
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/apps\/{appId}\/installations\/{installationId}": {
+            "get": {
+                "summary": "Get Installation",
+                "operationId": "appsGetInstallation",
+                "tags": [
+                    "apps"
+                ],
+                "description": "Get an installation of an application by its unique ID. Requires an app key sent in the `X-Appwrite-Key` header alongside the `X-Appwrite-App` header, or a caller with update access to the app.",
+                "responses": {
+                    "200": {
+                        "description": "AppInstallation",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/appInstallation"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getInstallation",
+                    "group": "installations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/get-installation.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip}",
+                    "scope": [
+                        "apps.read",
+                        "apps.installations.read"
+                    ],
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "installationId",
+                        "description": "Installation unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INSTALLATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete Installation",
+                "operationId": "appsDeleteInstallation",
+                "tags": [
+                    "apps"
+                ],
+                "description": "Delete an installation of an application by its unique ID. Requires a caller with update access to the app. Previously issued installation access tokens are revoked.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "deleteInstallation",
+                    "group": "installations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/delete-installation.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},userId:{userId}",
+                    "scope": "apps.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "produces": [
+                        "application\/json"
+                    ],
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "installationId",
+                        "description": "Installation unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INSTALLATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/apps\/{appId}\/installations\/{installationId}\/tokens": {
+            "post": {
+                "summary": "Create Installation Token",
+                "operationId": "appsCreateInstallationToken",
+                "tags": [
+                    "apps"
+                ],
+                "description": "Create a token for an installation of an application. Requires an app key sent in the `X-Appwrite-Key` header alongside the `X-Appwrite-App` header, or a caller with update access to the app. The returned token carries the scopes and authorization details granted to the installation, and can be used as an `Authorization: Bearer` header everywhere OAuth2 access tokens are accepted. Multiple tokens can be active for the same installation at once; each token stays valid until it expires or the installation is updated or deleted.",
+                "responses": {
+                    "201": {
+                        "description": "OAuth2 Token",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oauth2Token"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createInstallationToken",
+                    "group": "installations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "apps\/create-installation-token.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip}",
+                    "scope": [
+                        "apps.write",
+                        "apps.tokens.write"
+                    ],
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "description": "Application unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<APP_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "installationId",
+                        "description": "Installation unique ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INSTALLATION_ID>"
                         },
                         "in": "path"
                     }
@@ -10670,7 +10986,7 @@
                 "tags": [
                     "backups"
                 ],
-                "description": "Create and trigger a new restoration for a backup on a project.\n\nFor a backup of one database, the restoration resolves its destination before it is queued. Pass `newResourceId` to restore into that database ID, including the archived database ID to overwrite it. When `newResourceId` is omitted, a new database ID is generated and returned in `options`.\n\nThe restoration migration records the archived database in `resourceId` and `resourceType`, and the resolved database in `destinationResourceId` and `destinationResourceType`. Database types are stored canonically as `database`, `documentsdb`, or `vectorsdb`. Project-wide restorations leave these fields empty because they do not have a single source or destination database.\n\nTo list every migration related to one database, use its canonical type in a nested `OR(AND(...), AND(...), AND(...))` across the root, parent, and destination relation pairs: `(resourceType, resourceId)`, `(parentResourceType, parentResourceId)`, and `(destinationResourceType, destinationResourceId)`. Legacy and TablesDB databases use `database`; the operational `resourceType` of a table migration is not rewritten to `tablesdb`.\n\nWhen restoring a DocumentsDB or VectorsDB database to a new resource from a dedicated source, the restore provisions a fresh dedicated backing database at the source database's own specification.\n",
+                "description": "Create and trigger a new restoration for a backup on a project.\n\nFor a backup of one database, the restoration resolves its destination before it is queued. When `newResourceId` is omitted, the archived database is restored in place and its own ID is returned in `options`. Pass a different `newResourceId` to restore alongside it as a new database instead.\n\nThe restoration migration records the archived database in `resourceId` and `resourceType`, and the resolved database in `destinationResourceId` and `destinationResourceType`. Database types are stored canonically as `database`, `documentsdb`, or `vectorsdb`. Project-wide restorations leave these fields empty because they do not have a single source or destination database.\n\nTo list every migration related to one database, use its canonical type in a nested `OR(AND(...), AND(...), AND(...))` across the root, parent, and destination relation pairs: `(resourceType, resourceId)`, `(parentResourceType, parentResourceId)`, and `(destinationResourceType, destinationResourceId)`. Legacy and TablesDB databases use `database`; the operational `resourceType` of a table migration is not rewritten to `tablesdb`.\n\nWhen restoring a DocumentsDB or VectorsDB database from a dedicated source, the restore provisions a fresh dedicated backing database at the source database's own specification and lands the data there. An in-place restore swaps the database onto that backing only once the restore has succeeded, and retires the backing it displaced only once that swap is confirmed, so the source keeps serving its own data until the restored data is in place and any failure leaves it untouched. A serverless source has no dedicated backing to clone and restores onto the archived database instead.\n",
                 "responses": {
                     "201": {
                         "description": "Restoration",
@@ -10751,7 +11067,7 @@
                                     },
                                     "newResourceId": {
                                         "type": "string",
-                                        "description": "Destination resource ID. Omit to generate a new ID, or pass the archived resource ID to overwrite it. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
+                                        "description": "Destination resource ID. Omit to restore the archived resource in place, or pass a different ID to restore alongside it as a new resource. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
                                         "default": "",
                                         "x-example": "<NEW_RESOURCE_ID>",
                                         "x-appwrite": {
@@ -20864,6 +21180,12 @@
                                         "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
+                                    },
+                                    "syncMode": {
+                                        "type": "string",
+                                        "description": "Replication sync mode for the dedicated database backing this database. Requires a dedicated `specification`; the mode is only in force once there is at least one replica. Allowed values: async, sync, quorum.",
+                                        "x-example": "async",
+                                        "x-nullable": true
                                     }
                                 },
                                 "required": [
@@ -21406,11 +21728,23 @@
                                         "default": true,
                                         "x-example": false
                                     },
+                                    "specification": {
+                                        "type": "string",
+                                        "description": "Database specification. Resizing between dedicated specifications changes cpu, memory, storage and the connection ceiling via a rolling cutover with zero downtime. Moving a `serverless` database onto a dedicated specification is a data migration, not a resize.",
+                                        "x-example": "serverless",
+                                        "x-nullable": true
+                                    },
                                     "replicas": {
                                         "type": "integer",
                                         "description": "Number of high availability replicas (0-5) for the dedicated database backing this database. Only valid when the database is backed by a dedicated specification. High availability is enabled when greater than 0.",
                                         "x-example": 0,
                                         "format": "int32",
+                                        "x-nullable": true
+                                    },
+                                    "syncMode": {
+                                        "type": "string",
+                                        "description": "Replication sync mode for the dedicated database backing this database. Only valid when the database is backed by a dedicated specification; the mode is only in force once there is at least one replica. Allowed values: async, sync, quorum.",
+                                        "x-example": "async",
                                         "x-nullable": true
                                     }
                                 },
@@ -23671,7 +24005,7 @@
                 "tags": [
                     "documentsDB"
                 ],
-                "description": "Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates.",
+                "description": "Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates. A database left mid-operation by a failover that did not finish also accepts this call as a repair, provided `targetReplicaId` names the member to promote.",
                 "responses": {
                     "202": {
                         "description": "DedicatedDatabase",
@@ -23740,6 +24074,101 @@
                         }
                     }
                 }
+            }
+        },
+        "\/documentsdb\/{databaseId}\/operations": {
+            "get": {
+                "summary": "List operations",
+                "operationId": "documentsDBListOperations",
+                "tags": [
+                    "documentsDB"
+                ],
+                "description": "List the lifecycle operations recorded for a dedicated database, newest first. Every provision, update, restore, backup and replication action is recorded here with its outcome, including an attempt that was abandoned because another worker took over the database.",
+                "responses": {
+                    "200": {
+                        "description": "OperationList",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/dedicatedDatabaseOperationList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listOperations",
+                    "group": "operations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "documentsdb\/list-operations.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "databases.read",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "status",
+                        "description": "Filter by operation status.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "running"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Maximum number of operations to return.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 1,
+                            "default": 25
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "offset",
+                        "description": "Number of operations to skip.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 0,
+                            "default": 0
+                        },
+                        "in": "query"
+                    }
+                ]
             }
         },
         "\/documentsdb\/{databaseId}\/replicas": {
@@ -28435,6 +28864,7 @@
                                             "node-23",
                                             "node-24",
                                             "node-25",
+                                            "node-26",
                                             "php-8.0",
                                             "php-8.1",
                                             "php-8.2",
@@ -28456,6 +28886,9 @@
                                             "python-ml-3.11",
                                             "python-ml-3.12",
                                             "python-ml-3.13",
+                                            "deno-1.21",
+                                            "deno-1.24",
+                                            "deno-1.35",
                                             "deno-1.40",
                                             "deno-1.46",
                                             "deno-2.0",
@@ -28529,6 +28962,7 @@
                                             "node-23",
                                             "node-24",
                                             "node-25",
+                                            "node-26",
                                             "php-8.0",
                                             "php-8.1",
                                             "php-8.2",
@@ -28550,6 +28984,9 @@
                                             "python-ml-3.11",
                                             "python-ml-3.12",
                                             "python-ml-3.13",
+                                            "deno-1.21",
+                                            "deno-1.24",
+                                            "deno-1.35",
                                             "deno-1.40",
                                             "deno-1.46",
                                             "deno-2.0",
@@ -29144,6 +29581,7 @@
                                     "node-23",
                                     "node-24",
                                     "node-25",
+                                    "node-26",
                                     "php-8.0",
                                     "php-8.1",
                                     "php-8.2",
@@ -29165,6 +29603,9 @@
                                     "python-ml-3.11",
                                     "python-ml-3.12",
                                     "python-ml-3.13",
+                                    "deno-1.21",
+                                    "deno-1.24",
+                                    "deno-1.35",
                                     "deno-1.40",
                                     "deno-1.46",
                                     "deno-2.0",
@@ -29238,6 +29679,7 @@
                                     "node-23",
                                     "node-24",
                                     "node-25",
+                                    "node-26",
                                     "php-8.0",
                                     "php-8.1",
                                     "php-8.2",
@@ -29259,6 +29701,9 @@
                                     "python-ml-3.11",
                                     "python-ml-3.12",
                                     "python-ml-3.13",
+                                    "deno-1.21",
+                                    "deno-1.24",
+                                    "deno-1.35",
                                     "deno-1.40",
                                     "deno-1.46",
                                     "deno-2.0",
@@ -29598,6 +30043,7 @@
                                             "node-23",
                                             "node-24",
                                             "node-25",
+                                            "node-26",
                                             "php-8.0",
                                             "php-8.1",
                                             "php-8.2",
@@ -29619,6 +30065,9 @@
                                             "python-ml-3.11",
                                             "python-ml-3.12",
                                             "python-ml-3.13",
+                                            "deno-1.21",
+                                            "deno-1.24",
+                                            "deno-1.35",
                                             "deno-1.40",
                                             "deno-1.46",
                                             "deno-2.0",
@@ -29692,6 +30141,7 @@
                                             "node-23",
                                             "node-24",
                                             "node-25",
+                                            "node-26",
                                             "php-8.0",
                                             "php-8.1",
                                             "php-8.2",
@@ -29713,6 +30163,9 @@
                                             "python-ml-3.11",
                                             "python-ml-3.12",
                                             "python-ml-3.13",
+                                            "deno-1.21",
+                                            "deno-1.24",
+                                            "deno-1.35",
                                             "deno-1.40",
                                             "deno-1.46",
                                             "deno-2.0",
@@ -40460,11 +40913,6 @@
                                         "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
-                                    },
-                                    "api": {
-                                        "type": "string",
-                                        "description": "Product API that owns this database: tablesdb, documentsdb, or vectorsdb. Omit for a raw database reached directly; its api is its engine. tablesdb\/documentsdb\/vectorsdb databases are reached only through their product APIs.",
-                                        "x-example": "tablesdb"
                                     }
                                 },
                                 "required": [
@@ -41976,7 +42424,7 @@
                 "tags": [
                     "mongo"
                 ],
-                "description": "Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates.",
+                "description": "Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates. A database left mid-operation by a failover that did not finish also accepts this call as a repair, provided `targetReplicaId` names the member to promote.",
                 "responses": {
                     "202": {
                         "description": "DedicatedDatabase",
@@ -42218,6 +42666,101 @@
                         }
                     }
                 }
+            }
+        },
+        "\/mongo\/{databaseId}\/operations": {
+            "get": {
+                "summary": "List operations",
+                "operationId": "mongoListOperations",
+                "tags": [
+                    "mongo"
+                ],
+                "description": "List the lifecycle operations recorded for a dedicated database, newest first. Every provision, update, restore, backup and replication action is recorded here with its outcome, including an attempt that was abandoned because another worker took over the database.",
+                "responses": {
+                    "200": {
+                        "description": "OperationList",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/dedicatedDatabaseOperationList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listOperations",
+                    "group": "operations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "mongo\/list-operations.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "databases.read",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "status",
+                        "description": "Filter by operation status.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "running"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Maximum number of operations to return.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 1,
+                            "default": 25
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "offset",
+                        "description": "Number of operations to skip.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 0,
+                            "default": 0
+                        },
+                        "in": "query"
+                    }
+                ]
             }
         },
         "\/mongo\/{databaseId}\/pitr": {
@@ -42962,11 +43505,6 @@
                                         "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
-                                    },
-                                    "api": {
-                                        "type": "string",
-                                        "description": "Product API that owns this database: tablesdb, documentsdb, or vectorsdb. Omit for a raw database reached directly; its api is its engine. tablesdb\/documentsdb\/vectorsdb databases are reached only through their product APIs.",
-                                        "x-example": "tablesdb"
                                     }
                                 },
                                 "required": [
@@ -44572,7 +45110,7 @@
                 "tags": [
                     "mysql"
                 ],
-                "description": "Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates.",
+                "description": "Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates. A database left mid-operation by a failover that did not finish also accepts this call as a repair, provided `targetReplicaId` names the member to promote.",
                 "responses": {
                     "202": {
                         "description": "DedicatedDatabase",
@@ -44816,6 +45354,101 @@
                 }
             }
         },
+        "\/mysql\/{databaseId}\/operations": {
+            "get": {
+                "summary": "List operations",
+                "operationId": "mysqlListOperations",
+                "tags": [
+                    "mysql"
+                ],
+                "description": "List the lifecycle operations recorded for a dedicated database, newest first. Every provision, update, restore, backup and replication action is recorded here with its outcome, including an attempt that was abandoned because another worker took over the database.",
+                "responses": {
+                    "200": {
+                        "description": "OperationList",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/dedicatedDatabaseOperationList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listOperations",
+                    "group": "operations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "mysql\/list-operations.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "databases.read",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "status",
+                        "description": "Filter by operation status.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "running"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Maximum number of operations to return.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 1,
+                            "default": 25
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "offset",
+                        "description": "Number of operations to skip.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 0,
+                            "default": 0
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
         "\/mysql\/{databaseId}\/pitr": {
             "get": {
                 "summary": "Get PITR",
@@ -45009,7 +45642,7 @@
                                     },
                                     "maxConnections": {
                                         "type": "integer",
-                                        "description": "Maximum pooled connections.",
+                                        "description": "Client-connection ceiling the pooler accepts. Supported on MySQL and MariaDB only; the PostgreSQL pooler has no client cap, so set networkMaxConnections on the database instead.",
                                         "x-example": 10,
                                         "format": "int32",
                                         "x-nullable": true
@@ -47345,7 +47978,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ]
             },
@@ -47392,7 +48026,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "requestBody": {
@@ -47451,7 +48086,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ]
             }
@@ -47503,7 +48139,8 @@
                         "Project": [],
                         "Session": [],
                         "Key": [],
-                        "JWT": []
+                        "JWT": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -47579,7 +48216,8 @@
                         "Project": [],
                         "Session": [],
                         "Key": [],
-                        "JWT": []
+                        "JWT": [],
+                        "Organization": []
                     }
                 ],
                 "requestBody": {
@@ -47656,7 +48294,8 @@
                         "Project": [],
                         "Session": [],
                         "Key": [],
-                        "JWT": []
+                        "JWT": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -47718,7 +48357,8 @@
                         "Project": [],
                         "Session": [],
                         "Key": [],
-                        "JWT": []
+                        "JWT": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -47793,7 +48433,8 @@
                         "Project": [],
                         "Session": [],
                         "Key": [],
-                        "JWT": []
+                        "JWT": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -47854,7 +48495,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -47927,7 +48569,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "requestBody": {
@@ -48057,7 +48700,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -48116,7 +48760,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -48240,7 +48885,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -48301,7 +48947,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -48385,7 +49032,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "requestBody": {
@@ -48489,7 +49137,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -48548,7 +49197,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -48622,7 +49272,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -48683,7 +49334,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -48767,7 +49419,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "requestBody": {
@@ -48863,7 +49516,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -48922,7 +49576,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -48993,7 +49648,8 @@
                 "security": [
                     {
                         "Project": [],
-                        "Key": []
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -52685,11 +53341,6 @@
                                         "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
-                                    },
-                                    "api": {
-                                        "type": "string",
-                                        "description": "Product API that owns this database: tablesdb, documentsdb, or vectorsdb. Omit for a raw database reached directly; its api is its engine. tablesdb\/documentsdb\/vectorsdb databases are reached only through their product APIs.",
-                                        "x-example": "tablesdb"
                                     }
                                 },
                                 "required": [
@@ -54505,7 +55156,7 @@
                 "tags": [
                     "postgresql"
                 ],
-                "description": "Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates.",
+                "description": "Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates. A database left mid-operation by a failover that did not finish also accepts this call as a repair, provided `targetReplicaId` names the member to promote.",
                 "responses": {
                     "202": {
                         "description": "DedicatedDatabase",
@@ -54749,6 +55400,101 @@
                 }
             }
         },
+        "\/postgresql\/{databaseId}\/operations": {
+            "get": {
+                "summary": "List operations",
+                "operationId": "postgresqlListOperations",
+                "tags": [
+                    "postgresql"
+                ],
+                "description": "List the lifecycle operations recorded for a dedicated database, newest first. Every provision, update, restore, backup and replication action is recorded here with its outcome, including an attempt that was abandoned because another worker took over the database.",
+                "responses": {
+                    "200": {
+                        "description": "OperationList",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/dedicatedDatabaseOperationList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listOperations",
+                    "group": "operations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "postgresql\/list-operations.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "databases.read",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "status",
+                        "description": "Filter by operation status.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "running"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Maximum number of operations to return.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 1,
+                            "default": 25
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "offset",
+                        "description": "Number of operations to skip.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 0,
+                            "default": 0
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
         "\/postgresql\/{databaseId}\/pitr": {
             "get": {
                 "summary": "Get PITR",
@@ -54942,7 +55688,7 @@
                                     },
                                     "maxConnections": {
                                         "type": "integer",
-                                        "description": "Maximum pooled connections.",
+                                        "description": "Client-connection ceiling the pooler accepts. Supported on MySQL and MariaDB only; the PostgreSQL pooler has no client cap, so set networkMaxConnections on the database instead.",
                                         "x-example": 10,
                                         "format": "int32",
                                         "x-nullable": true
@@ -63412,7 +64158,7 @@
                                 "properties": {
                                     "total": {
                                         "type": "integer",
-                                        "description": "Set the password history length per user. Value can be between 1 and 5000, or null to disable the limit.",
+                                        "description": "Set the password history length per user. Value can be between 1 and 20, or null to disable the limit.",
                                         "x-example": 1,
                                         "format": "int32",
                                         "x-nullable": true
@@ -63716,8 +64462,8 @@
                                 "properties": {
                                     "duration": {
                                         "type": "integer",
-                                        "description": "Maximum session length in seconds. Minium allowed value is 5 second, and maximum is 1 year, which is 31536000 seconds.",
-                                        "x-example": 5,
+                                        "description": "Maximum session length in seconds. Minium allowed value is 60 seconds, and maximum is 1 year, which is 31536000 seconds.",
+                                        "x-example": 60,
                                         "format": "int32"
                                     }
                                 },
@@ -63859,10 +64605,9 @@
                                 "properties": {
                                     "total": {
                                         "type": "integer",
-                                        "description": "Set the maximum number of sessions allowed per user. Value can be between 1 and 5000, or null to disable the limit.",
+                                        "description": "Set the maximum number of sessions allowed per user. Value can be between 1 and 100.",
                                         "x-example": 1,
-                                        "format": "int32",
-                                        "x-nullable": true
+                                        "format": "int32"
                                     }
                                 },
                                 "required": [
@@ -63932,8 +64677,8 @@
                                 "properties": {
                                     "total": {
                                         "type": "integer",
-                                        "description": "Set the maximum number of users allowed in the project. Value can be between 1 and 5000, or null to disable the limit.",
-                                        "x-example": 1,
+                                        "description": "Set the maximum number of users allowed in the project. Value can be between 0 and 10000. Use 0 or null to disable the limit.",
+                                        "x-example": 0,
                                         "format": "int32",
                                         "x-nullable": true
                                     }
@@ -68308,6 +69053,7 @@
                                             "node-23",
                                             "node-24",
                                             "node-25",
+                                            "node-26",
                                             "php-8.0",
                                             "php-8.1",
                                             "php-8.2",
@@ -68329,6 +69075,9 @@
                                             "python-ml-3.11",
                                             "python-ml-3.12",
                                             "python-ml-3.13",
+                                            "deno-1.21",
+                                            "deno-1.24",
+                                            "deno-1.35",
                                             "deno-1.40",
                                             "deno-1.46",
                                             "deno-2.0",
@@ -68402,6 +69151,7 @@
                                             "node-23",
                                             "node-24",
                                             "node-25",
+                                            "node-26",
                                             "php-8.0",
                                             "php-8.1",
                                             "php-8.2",
@@ -68423,6 +69173,9 @@
                                             "python-ml-3.11",
                                             "python-ml-3.12",
                                             "python-ml-3.13",
+                                            "deno-1.21",
+                                            "deno-1.24",
+                                            "deno-1.35",
                                             "deno-1.40",
                                             "deno-1.46",
                                             "deno-2.0",
@@ -69139,6 +69892,7 @@
                                             "node-23",
                                             "node-24",
                                             "node-25",
+                                            "node-26",
                                             "php-8.0",
                                             "php-8.1",
                                             "php-8.2",
@@ -69160,6 +69914,9 @@
                                             "python-ml-3.11",
                                             "python-ml-3.12",
                                             "python-ml-3.13",
+                                            "deno-1.21",
+                                            "deno-1.24",
+                                            "deno-1.35",
                                             "deno-1.40",
                                             "deno-1.46",
                                             "deno-2.0",
@@ -69233,6 +69990,7 @@
                                             "node-23",
                                             "node-24",
                                             "node-25",
+                                            "node-26",
                                             "php-8.0",
                                             "php-8.1",
                                             "php-8.2",
@@ -69254,6 +70012,9 @@
                                             "python-ml-3.11",
                                             "python-ml-3.12",
                                             "python-ml-3.13",
+                                            "deno-1.21",
+                                            "deno-1.24",
+                                            "deno-1.35",
                                             "deno-1.40",
                                             "deno-1.46",
                                             "deno-2.0",
@@ -71173,7 +71934,7 @@
                                     },
                                     "maximumFileSize": {
                                         "type": "integer",
-                                        "description": "Maximum file size allowed in bytes. Maximum allowed value is 5GB.",
+                                        "description": "Maximum file size allowed in bytes. Maximum allowed value is 0B.",
                                         "default": {},
                                         "x-example": 1,
                                         "format": "int32"
@@ -71387,7 +72148,7 @@
                                     },
                                     "maximumFileSize": {
                                         "type": "integer",
-                                        "description": "Maximum file size allowed in bytes. Maximum allowed value is 5GB.",
+                                        "description": "Maximum file size allowed in bytes. Maximum allowed value is 0B.",
                                         "default": {},
                                         "x-example": 1,
                                         "format": "int32"
@@ -71563,7 +72324,7 @@
                     },
                     {
                         "name": "queries",
-                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long. You may filter on the following attributes: name, signature, mimeType, sizeOriginal, chunksTotal, chunksUploaded",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long. You may filter on the following attributes: name, folder, signature, mimeType, sizeOriginal, chunksTotal, chunksUploaded",
                         "required": false,
                         "schema": {
                             "type": "array",
@@ -71689,6 +72450,12 @@
                                             "type": "string"
                                         },
                                         "x-nullable": true
+                                    },
+                                    "folder": {
+                                        "type": "string",
+                                        "description": "Virtual folder to place the file in, for example \"photos\/2026\". Nest folders with `\/`. Defaults to the bucket root.",
+                                        "default": "",
+                                        "x-example": null
                                     }
                                 },
                                 "required": [
@@ -72544,6 +73311,12 @@
                                         "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
+                                    },
+                                    "syncMode": {
+                                        "type": "string",
+                                        "description": "Replication sync mode for the dedicated database backing this database. Requires a dedicated `specification`; the mode is only in force once there is at least one replica. Allowed values: async, sync, quorum.",
+                                        "x-example": "async",
+                                        "x-nullable": true
                                     }
                                 },
                                 "required": [
@@ -73189,11 +73962,23 @@
                                         "default": true,
                                         "x-example": false
                                     },
+                                    "specification": {
+                                        "type": "string",
+                                        "description": "Database specification. Resizing between dedicated specifications changes cpu, memory, storage and the connection ceiling via a rolling cutover with zero downtime. Moving a `serverless` database onto a dedicated specification is a data migration, not a resize.",
+                                        "x-example": "serverless",
+                                        "x-nullable": true
+                                    },
                                     "replicas": {
                                         "type": "integer",
                                         "description": "Number of high availability replicas (0-5) for the dedicated database backing this database. Only valid when the database is backed by a dedicated specification. High availability is enabled when greater than 0.",
                                         "x-example": 0,
                                         "format": "int32",
+                                        "x-nullable": true
+                                    },
+                                    "syncMode": {
+                                        "type": "string",
+                                        "description": "Replication sync mode for the dedicated database backing this database. Only valid when the database is backed by a dedicated specification; the mode is only in force once there is at least one replica. Allowed values: async, sync, quorum.",
+                                        "x-example": "async",
                                         "x-nullable": true
                                     }
                                 }
@@ -73263,7 +74048,7 @@
                 "tags": [
                     "tablesDB"
                 ],
-                "description": "Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates.",
+                "description": "Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates. A database left mid-operation by a failover that did not finish also accepts this call as a repair, provided `targetReplicaId` names the member to promote.",
                 "responses": {
                     "202": {
                         "description": "DedicatedDatabase",
@@ -73597,6 +74382,101 @@
                             "x-example": "<MIGRATION_ID>"
                         },
                         "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/tablesdb\/{databaseId}\/operations": {
+            "get": {
+                "summary": "List operations",
+                "operationId": "tablesDBListOperations",
+                "tags": [
+                    "tablesDB"
+                ],
+                "description": "List the lifecycle operations recorded for a dedicated database, newest first. Every provision, update, restore, backup and replication action is recorded here with its outcome, including an attempt that was abandoned because another worker took over the database.",
+                "responses": {
+                    "200": {
+                        "description": "OperationList",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/dedicatedDatabaseOperationList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listOperations",
+                    "group": "operations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "tablesdb\/list-operations.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "databases.read",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "status",
+                        "description": "Filter by operation status.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "running"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Maximum number of operations to return.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 1,
+                            "default": 25
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "offset",
+                        "description": "Number of operations to skip.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 0,
+                            "default": 0
+                        },
+                        "in": "query"
                     }
                 ]
             }
@@ -82870,7 +83750,7 @@
                 "tags": [
                     "usage"
                 ],
-                "description": "Aggregate usage gauge snapshots. Gauges are point-in-time values (storage totals, resource counts, \u2026); each point carries the latest snapshot in its interval via `argMax(value, time)`. `metrics[]` (1-10) is required; the response always contains one entry per requested metric, each with its own `points[]` time series.\n\n**Two response shapes**:\n- Omit `interval` for a flat top-N table \u2014 `argMax(value, time)` per dimension combination over the whole window, no time axis. Useful for \"top 10 resources by current storage\".\n- Pass `interval` (`1m`, `15m`, `30m`, `1h`, `1d`) for a time series \u2014 one snapshot per (time bucket \u00d7 dimension combination).\n\n`dimensions[]` breaks each point down further. Supported on gauges: `resourceId`, `teamId`, `service`, `resourceType`, `ordinal`. `service` and `resourceType` enable per-service \/ per-resource-type panels (e.g. storage-by-service: group `files.storage`, `deployments.storage`, `builds.storage`, `databases.storage` by `service`). `ordinal` separates per-node series for multi-node resources such as dedicated databases (0 is the primary; 1+ are replicas). `queries[]` filters the underlying rows using the standard Utopia query syntax \u2014 `equal(\"resourceType\", [\"bucket\"])`, `equal(\"resourceId\", [\"abc123\"])`, `equal(\"teamId\", [\"team_x\"])`, `equal(\"ordinal\", [\"0\"])`, `isNotNull(\"teamId\")`. Supported attributes: see `queries[]` param. Supported methods: `equal`, `notEqual`, `isNull`, `isNotNull`. Pass multiple metrics to render stacked charts in one round-trip. `orderBy=value`+`orderDir=desc`+`limit=N` returns the top-N. When `startAt` is omitted, the default window adapts to interval (or 7d when interval is omitted).",
+                "description": "Aggregate usage gauge snapshots. Gauges are point-in-time values (storage totals, resource counts, \u2026); each point carries the latest snapshot in its interval via `argMax(value, time)`. `metrics[]` (1-10) is required; the response always contains one entry per requested metric, each with its own `points[]` time series.\n\nA metric with no stored samples in the window returns an empty `points[]`. A metric that really did read zero returns a point whose `value` is `0`, so \"no such series\" and \"a genuine zero\" are different answers.\n\n**Two response shapes**:\n- Omit `interval` for a flat top-N table \u2014 `argMax(value, time)` per dimension combination over the whole window, no time axis. Useful for \"top 10 resources by current storage\".\n- Pass `interval` (`1m`, `15m`, `30m`, `1h`, `1d`) for a time series \u2014 one snapshot per (time bucket \u00d7 dimension combination).\n\n`dimensions[]` breaks each point down further. Supported on gauges: `resourceId`, `teamId`, `service`, `resourceType`, `ordinal`. `service` and `resourceType` enable per-service \/ per-resource-type panels (e.g. storage-by-service: group `files.storage`, `deployments.storage`, `builds.storage`, `databases.storage` by `service`). `ordinal` separates per-node series for multi-node resources such as dedicated databases (0 is the primary; 1+ are replicas). `queries[]` filters the underlying rows using the standard Utopia query syntax \u2014 `equal(\"resourceType\", [\"bucket\"])`, `equal(\"resourceId\", [\"abc123\"])`, `equal(\"teamId\", [\"team_x\"])`, `equal(\"ordinal\", [\"0\"])`, `isNotNull(\"teamId\")`. Supported attributes: see `queries[]` param. Supported methods: `equal`, `notEqual`, `isNull`, `isNotNull`. Pass multiple metrics to render stacked charts in one round-trip. `orderBy=value`+`orderDir=desc`+`limit=N` returns the top-N. When `startAt` is omitted, the default window adapts to interval (or 7d when interval is omitted).",
                 "responses": {
                     "200": {
                         "description": "usageGaugeList",
@@ -87165,7 +88045,7 @@
                     },
                     {
                         "name": "queries",
-                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Only supported methods are limit and offset",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Only supported methods are limit, offset, and equal on namespace.",
                         "required": false,
                         "schema": {
                             "type": "array",
@@ -87250,6 +88130,12 @@
                                         "type": "boolean",
                                         "description": "Mark repository public or private",
                                         "x-example": false
+                                    },
+                                    "providerNamespace": {
+                                        "type": "string",
+                                        "description": "Namespace of the git repository. Defaults to the installation's own namespace.",
+                                        "default": "",
+                                        "x-example": "<PROVIDER_NAMESPACE>"
                                     }
                                 },
                                 "required": [
@@ -87799,6 +88685,89 @@
                 ]
             }
         },
+        "\/vcs\/installations\/{installationId}\/namespaces": {
+            "get": {
+                "summary": "List namespaces",
+                "operationId": "vcsListNamespaces",
+                "tags": [
+                    "vcs"
+                ],
+                "description": "List provider namespaces available to a VCS installation. This can include the user personal namespace and any groups or organizations the installation can browse.",
+                "responses": {
+                    "200": {
+                        "description": "VCS Namespaces List",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/vcsNamespaceList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listNamespaces",
+                    "group": "namespaces",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "vcs\/list-namespaces.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "vcs.read",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "installationId",
+                        "description": "Installation Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<INSTALLATION_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "search",
+                        "description": "Search term to filter your list results. Max length: 256 chars.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<SEARCH>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Only supported methods are limit and offset",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
         "\/vectorsdb": {
             "get": {
                 "summary": "List databases",
@@ -87958,6 +88927,12 @@
                                         "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
+                                    },
+                                    "syncMode": {
+                                        "type": "string",
+                                        "description": "Replication sync mode for the dedicated database backing this database. Requires a dedicated `specification`; the mode is only in force once there is at least one replica. Allowed values: async, sync, quorum.",
+                                        "x-example": "async",
+                                        "x-nullable": true
                                     }
                                 },
                                 "required": [
@@ -88703,11 +89678,23 @@
                                         "default": true,
                                         "x-example": false
                                     },
+                                    "specification": {
+                                        "type": "string",
+                                        "description": "Database specification. Resizing between dedicated specifications changes cpu, memory, storage and the connection ceiling via a rolling cutover with zero downtime. Moving a `serverless` database onto a dedicated specification is a data migration, not a resize.",
+                                        "x-example": "serverless",
+                                        "x-nullable": true
+                                    },
                                     "replicas": {
                                         "type": "integer",
                                         "description": "Number of high availability replicas (0-5) for the dedicated database backing this database. Only valid when the database is backed by a dedicated specification. High availability is enabled when greater than 0.",
                                         "x-example": 0,
                                         "format": "int32",
+                                        "x-nullable": true
+                                    },
+                                    "syncMode": {
+                                        "type": "string",
+                                        "description": "Replication sync mode for the dedicated database backing this database. Only valid when the database is backed by a dedicated specification; the mode is only in force once there is at least one replica. Allowed values: async, sync, quorum.",
+                                        "x-example": "async",
                                         "x-nullable": true
                                     }
                                 },
@@ -90832,7 +91819,7 @@
                 "tags": [
                     "vectorsDB"
                 ],
-                "description": "Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates.",
+                "description": "Trigger a manual failover for a dedicated database with high availability enabled. Promotes a replica to primary. The failover runs asynchronously; poll the database document for status updates. A database left mid-operation by a failover that did not finish also accepts this call as a repair, provided `targetReplicaId` names the member to promote.",
                 "responses": {
                     "202": {
                         "description": "DedicatedDatabase",
@@ -90901,6 +91888,101 @@
                         }
                     }
                 }
+            }
+        },
+        "\/vectorsdb\/{databaseId}\/operations": {
+            "get": {
+                "summary": "List operations",
+                "operationId": "vectorsDBListOperations",
+                "tags": [
+                    "vectorsDB"
+                ],
+                "description": "List the lifecycle operations recorded for a dedicated database, newest first. Every provision, update, restore, backup and replication action is recorded here with its outcome, including an attempt that was abandoned because another worker took over the database.",
+                "responses": {
+                    "200": {
+                        "description": "OperationList",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/dedicatedDatabaseOperationList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listOperations",
+                    "group": "operations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "vectorsdb\/list-operations.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "databases.read",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "status",
+                        "description": "Filter by operation status.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "running"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Maximum number of operations to return.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 1,
+                            "default": 25
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "offset",
+                        "description": "Number of operations to skip.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "x-example": 0,
+                            "default": 0
+                        },
+                        "in": "query"
+                    }
+                ]
             }
         },
         "\/vectorsdb\/{databaseId}\/replicas": {
@@ -91119,7 +92201,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Create a bypass WAF rule.\n",
+                "description": "Create a bypass WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "201": {
                         "description": "WafRuleBypass",
@@ -91234,7 +92316,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Update a bypass WAF rule.\n",
+                "description": "Update a bypass WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "200": {
                         "description": "WafRuleBypass",
@@ -91343,6 +92425,277 @@
                 }
             }
         },
+        "\/waf\/rules\/challenge": {
+            "post": {
+                "summary": "Create a challenge WAF rule.",
+                "operationId": "wafCreateChallengeRule",
+                "tags": [
+                    "waf"
+                ],
+                "description": "Create a challenge WAF rule. Use `difficulty` (1 easiest to 5 hardest) to tune the client-side proof-of-work cost, and `ttl` to control how long, in seconds, a visitor stays cleared after passing the challenge before being challenged again. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
+                "responses": {
+                    "201": {
+                        "description": "WafRuleChallenge",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/wafRuleChallenge"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createChallengeRule",
+                    "group": "rules",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "waf\/create-challenge-rule.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "wafRules.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/waf\/create-challenge-rule.md",
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "ruleId": {
+                                        "type": "string",
+                                        "description": "Rule ID. Choose a custom ID or pass `ID.unique()` to generate a unique one.",
+                                        "x-example": "<RULE_ID>",
+                                        "x-appwrite": {
+                                            "idGenerator": "ID.unique"
+                                        }
+                                    },
+                                    "resourceType": {
+                                        "type": "string",
+                                        "description": "Resource type the rule applies to.",
+                                        "x-example": "api"
+                                    },
+                                    "resourceId": {
+                                        "type": "string",
+                                        "description": "Resource identifier. Required for functions and sites.",
+                                        "x-example": "<RESOURCE_ID>",
+                                        "x-nullable": true
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Rule name.",
+                                        "x-example": "<NAME>"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "Optional description for the rule.",
+                                        "default": "",
+                                        "x-example": "<DESCRIPTION>"
+                                    },
+                                    "challengeType": {
+                                        "type": "string",
+                                        "description": "Challenge type enforced by the rule.",
+                                        "default": "compute",
+                                        "x-example": "compute"
+                                    },
+                                    "priority": {
+                                        "type": "integer",
+                                        "description": "Evaluation priority. Lower numbers run earlier.",
+                                        "default": 0,
+                                        "x-example": -100000,
+                                        "format": "int32"
+                                    },
+                                    "enabled": {
+                                        "type": "boolean",
+                                        "description": "Set to false to create the rule in a disabled state.",
+                                        "default": true,
+                                        "x-example": false
+                                    },
+                                    "conditions": {
+                                        "type": "string",
+                                        "description": "Array of condition strings generated using the WAF Condition builder. Maximum of 100 conditions are allowed, each 4096 characters long.",
+                                        "default": [],
+                                        "x-example": null
+                                    },
+                                    "difficulty": {
+                                        "type": "integer",
+                                        "description": "Challenge difficulty from 1 (easiest) to 5 (hardest). Higher values demand more client-side proof-of-work.",
+                                        "default": 3,
+                                        "x-example": 1,
+                                        "format": "int32"
+                                    },
+                                    "ttl": {
+                                        "type": "integer",
+                                        "description": "How long, in seconds, a visitor stays cleared after passing the challenge before being challenged again.",
+                                        "default": 1800,
+                                        "x-example": 900,
+                                        "format": "int32"
+                                    }
+                                },
+                                "required": [
+                                    "ruleId",
+                                    "resourceType",
+                                    "name"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/waf\/rules\/challenge\/{ruleId}": {
+            "patch": {
+                "summary": "Update a challenge WAF rule.",
+                "operationId": "wafUpdateChallengeRule",
+                "tags": [
+                    "waf"
+                ],
+                "description": "Update a challenge WAF rule. Use `difficulty` (1 easiest to 5 hardest) to tune the client-side proof-of-work cost, and `ttl` to control how long, in seconds, a visitor stays cleared after passing the challenge before being challenged again. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
+                "responses": {
+                    "200": {
+                        "description": "WafRuleChallenge",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/wafRuleChallenge"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "updateChallengeRule",
+                    "group": "rules",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "waf\/update-challenge-rule.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "wafRules.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/waf\/update-challenge-rule.md",
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "ruleId",
+                        "description": "Rule ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<RULE_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "resourceType": {
+                                        "type": "string",
+                                        "description": "Resource type the rule applies to.",
+                                        "x-example": "api",
+                                        "x-nullable": true
+                                    },
+                                    "resourceId": {
+                                        "type": "string",
+                                        "description": "Resource identifier. Required for functions and sites.",
+                                        "x-example": "<RESOURCE_ID>",
+                                        "x-nullable": true
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Rule name.",
+                                        "x-example": "<NAME>",
+                                        "x-nullable": true
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "Optional description for the rule.",
+                                        "x-example": "<DESCRIPTION>",
+                                        "x-nullable": true
+                                    },
+                                    "challengeType": {
+                                        "type": "string",
+                                        "description": "Challenge type enforced by the rule.",
+                                        "x-example": "compute",
+                                        "x-nullable": true
+                                    },
+                                    "priority": {
+                                        "type": "integer",
+                                        "description": "Evaluation priority. Lower numbers run earlier.",
+                                        "x-example": -100000,
+                                        "format": "int32",
+                                        "x-nullable": true
+                                    },
+                                    "enabled": {
+                                        "type": "boolean",
+                                        "description": "Set to false to disable the rule.",
+                                        "x-example": false,
+                                        "x-nullable": true
+                                    },
+                                    "conditions": {
+                                        "type": "string",
+                                        "description": "Array of condition strings generated using the WAF Condition builder. Maximum of 100 conditions are allowed, each 4096 characters long.",
+                                        "x-example": null,
+                                        "x-nullable": true
+                                    },
+                                    "difficulty": {
+                                        "type": "integer",
+                                        "description": "Challenge difficulty from 1 (easiest) to 5 (hardest). Higher values demand more client-side proof-of-work.",
+                                        "x-example": 1,
+                                        "format": "int32",
+                                        "x-nullable": true
+                                    },
+                                    "ttl": {
+                                        "type": "integer",
+                                        "description": "How long, in seconds, a visitor stays cleared after passing the challenge before being challenged again.",
+                                        "x-example": 900,
+                                        "format": "int32",
+                                        "x-nullable": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/waf\/rules\/deny": {
             "post": {
                 "summary": "Create a deny WAF rule.",
@@ -91350,7 +92703,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Create a deny WAF rule.\n",
+                "description": "Create a deny WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "201": {
                         "description": "WafRuleDeny",
@@ -91465,7 +92818,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Update a deny WAF rule.\n",
+                "description": "Update a deny WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "200": {
                         "description": "WafRuleDeny",
@@ -91581,7 +92934,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Create a rate limit WAF rule.\n",
+                "description": "Create a rate limit WAF rule. Use `key` to choose the counter: `ip` limits per client IP, while `userId` limits per authenticated user (requests without an authenticated user skip `userId` rules). Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "201": {
                         "description": "WafRuleRateLimit",
@@ -91670,6 +93023,12 @@
                                         "x-example": 1,
                                         "format": "int32"
                                     },
+                                    "key": {
+                                        "type": "string",
+                                        "description": "Rate limit key. Use `ip` to limit per client IP or `userId` to limit per authenticated user. Requests without an authenticated user skip `userId` rules.",
+                                        "default": "ip",
+                                        "x-example": "ip"
+                                    },
                                     "priority": {
                                         "type": "integer",
                                         "description": "Evaluation priority. Lower numbers run earlier.",
@@ -91710,7 +93069,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Update a rate limit WAF rule.\n",
+                "description": "Update a rate limit WAF rule. Use `key` to choose the counter: `ip` limits per client IP, while `userId` limits per authenticated user (requests without an authenticated user skip `userId` rules). Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "200": {
                         "description": "WafRuleRateLimit",
@@ -91807,6 +93166,12 @@
                                         "format": "int32",
                                         "x-nullable": true
                                     },
+                                    "key": {
+                                        "type": "string",
+                                        "description": "Rate limit key. Use `ip` to limit per client IP or `userId` to limit per authenticated user. Requests without an authenticated user skip `userId` rules.",
+                                        "x-example": "ip",
+                                        "x-nullable": true
+                                    },
                                     "priority": {
                                         "type": "integer",
                                         "description": "Evaluation priority. Lower numbers run earlier.",
@@ -91840,7 +93205,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Create a redirect WAF rule.\n",
+                "description": "Create a redirect WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "201": {
                         "description": "WafRuleRedirect",
@@ -91968,7 +93333,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Update a redirect WAF rule.\n",
+                "description": "Update a redirect WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "200": {
                         "description": "WafRuleRedirect",
@@ -92833,7 +94198,7 @@
         },
         {
             "name": "apps",
-            "description": ""
+            "description": "The Apps service allows you to manage OAuth2 applications, their keys, secrets, scopes, and installations."
         },
         {
             "name": "oauth2",
@@ -93596,6 +94961,79 @@
                     "total": 5,
                     "runtimeProviderRepositories": "",
                     "type": "runtime"
+                }
+            },
+            "vcsNamespace": {
+                "description": "VcsNamespace",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "VCS (Version Control System) namespace ID.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "VCS (Version Control System) namespace display name.",
+                        "x-example": "Appwrite"
+                    },
+                    "path": {
+                        "type": "string",
+                        "description": "VCS (Version Control System) namespace path, used to filter repositories by namespace.",
+                        "x-example": "appwrite"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Namespace type. Either the user's personal namespace or a group\/organization.",
+                        "x-example": "user"
+                    },
+                    "avatarUrl": {
+                        "type": "string",
+                        "description": "Namespace avatar URL.",
+                        "x-example": "https:\/\/example.com\/avatar.png"
+                    }
+                },
+                "required": [
+                    "$id",
+                    "name",
+                    "path",
+                    "type",
+                    "avatarUrl"
+                ],
+                "example": {
+                    "$id": "5e5ea5c16897e",
+                    "name": "Appwrite",
+                    "path": "appwrite",
+                    "type": "user",
+                    "avatarUrl": "https:\/\/example.com\/avatar.png"
+                }
+            },
+            "vcsNamespaceList": {
+                "description": "VCS Namespaces List",
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of namespaces that matched your query.",
+                        "x-example": 5,
+                        "format": "int32"
+                    },
+                    "namespaces": {
+                        "type": "array",
+                        "description": "List of namespaces.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/vcsNamespace"
+                        },
+                        "x-example": ""
+                    }
+                },
+                "required": [
+                    "total",
+                    "namespaces"
+                ],
+                "example": {
+                    "total": 5,
+                    "namespaces": ""
                 }
             },
             "branchList": {
@@ -94702,7 +96140,7 @@
                     },
                     "engine": {
                         "type": "string",
-                        "description": "Underlying engine of the dedicated backing: postgresql, mysql, mariadb, or mongodb. A managed product (tablesdb, documentsdb, vectorsdb) reports the engine it runs on, so its type and engine can differ. Null when the database has no dedicated backing.",
+                        "description": "Underlying engine of the dedicated backing: postgresql, mysql, or mongodb. A managed product (tablesdb, documentsdb, vectorsdb) reports the engine it runs on, so its type and engine can differ. Null when the database has no dedicated backing.",
                         "x-example": "postgresql",
                         "readOnly": true,
                         "nullable": true
@@ -101112,6 +102550,16 @@
                         "description": "File name.",
                         "x-example": "Pink.png"
                     },
+                    "folder": {
+                        "type": "string",
+                        "description": "Virtual folder containing the file, with a trailing slash. Empty for the bucket root.",
+                        "x-example": "photos\/2026\/"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Full virtual path of the file: the folder followed by the file name.",
+                        "x-example": "photos\/2026\/Pink.png"
+                    },
                     "signature": {
                         "type": "string",
                         "description": "File MD5 signature.",
@@ -101164,6 +102612,8 @@
                     "$updatedAt",
                     "$permissions",
                     "name",
+                    "folder",
+                    "key",
                     "signature",
                     "mimeType",
                     "sizeOriginal",
@@ -101182,6 +102632,8 @@
                         "read(\"any\")"
                     ],
                     "name": "Pink.png",
+                    "folder": "photos\/2026\/",
+                    "key": "photos\/2026\/Pink.png",
                     "signature": "5d529fd02b544198ae075bd57c1762bb",
                     "mimeType": "image\/png",
                     "sizeOriginal": 17890,
@@ -111054,6 +112506,16 @@
                         "description": "Backup type. Possible values: full (complete database snapshot), incremental (changes since last backup), wal (write-ahead log continuous archival).",
                         "x-example": "full"
                     },
+                    "requestedType": {
+                        "type": "string",
+                        "description": "Backup type that was requested. Differs from `type` when the backend could not run the requested type and took a different one instead, in which case `fallbackReason` explains why. Empty for backups taken before the requested type was recorded.",
+                        "x-example": "incremental"
+                    },
+                    "fallbackReason": {
+                        "type": "string",
+                        "description": "Why the backend ran a different backup type than the one requested. Empty when the backup ran as requested.",
+                        "x-example": "PostgreSQL incremental backups are not offered because they cannot be restored: archived WAL is physical and cannot replay onto a logically-restored base. A full backup was taken instead; use a point-in-time restore (targetTime) to recover to a moment between fulls."
+                    },
                     "status": {
                         "type": "string",
                         "description": "Backup status. Possible values: pending (queued for processing), running (currently in progress), completed (successfully finished), failed (encountered an error), verified (integrity check passed).",
@@ -111089,6 +112551,12 @@
                         "x-example": "2020-10-15T06:38:00.000+00:00",
                         "nullable": true
                     },
+                    "logPosition": {
+                        "type": "string",
+                        "description": "Transaction-log position the backup anchors at, in the engine's own notation: PostgreSQL `{walSegment}|{lsn}`, MySQL and MariaDB `{binlogFile}|{offset}`, MongoDB `{seconds}|{increment}`. Empty when the backup recorded no position, which is the case for backup types that carry none.",
+                        "x-example": "000000010000000000000003|0\/3000148",
+                        "nullable": true
+                    },
                     "error": {
                         "type": "string",
                         "description": "Error message if backup failed.",
@@ -111103,6 +112571,8 @@
                     "policyId",
                     "trigger",
                     "type",
+                    "requestedType",
+                    "fallbackReason",
                     "status",
                     "sizeBytes",
                     "error"
@@ -111115,12 +112585,15 @@
                     "policyId": "5e5ea5c16897e",
                     "trigger": "schedule",
                     "type": "full",
+                    "requestedType": "incremental",
+                    "fallbackReason": "PostgreSQL incremental backups are not offered because they cannot be restored: archived WAL is physical and cannot replay onto a logically-restored base. A full backup was taken instead; use a point-in-time restore (targetTime) to recover to a moment between fulls.",
                     "status": "completed",
                     "sizeBytes": 1073741824,
                     "startedAt": "2020-10-15T06:38:00.000+00:00",
                     "completedAt": "2020-10-15T06:38:00.000+00:00",
                     "verifiedAt": "2020-10-15T06:38:00.000+00:00",
                     "expiresAt": "2020-10-15T06:38:00.000+00:00",
+                    "logPosition": "000000010000000000000003|0\/3000148",
                     "error": ""
                 }
             },
@@ -112408,7 +113881,7 @@
                     },
                     "port": {
                         "type": "integer",
-                        "description": "Branch port.",
+                        "description": "Branch port. Null until the backing reports one.",
                         "x-example": 5432,
                         "format": "int32"
                     },
@@ -112434,7 +113907,7 @@
                     },
                     "engine": {
                         "type": "string",
-                        "description": "Database engine. Possible values: postgresql, mysql, mariadb, mongodb.",
+                        "description": "Database engine. Possible values: postgresql, mysql, mongodb.",
                         "x-example": "postgresql"
                     },
                     "connectionString": {
@@ -112846,6 +114319,17 @@
                         "description": "Migration phase. Possible values: pending, provisioned, capturing, backfilling, catching_up, verifying, ready_to_cutover, cutover, soaking, done, failed, rolled_back.",
                         "x-example": "pending"
                     },
+                    "attempt": {
+                        "type": "integer",
+                        "description": "Number of times a migration step has failed and been recorded.",
+                        "x-example": 0,
+                        "format": "int32"
+                    },
+                    "lastError": {
+                        "type": "string",
+                        "description": "Reason the most recent migration step failed, empty while none has.",
+                        "x-example": ""
+                    },
                     "lagDocuments": {
                         "type": "integer",
                         "description": "Number of documents still pending replication to the target.",
@@ -112886,6 +114370,8 @@
                     "databaseId",
                     "specification",
                     "phase",
+                    "attempt",
+                    "lastError",
                     "lagDocuments",
                     "verifiedAt",
                     "cutoverAt",
@@ -112901,6 +114387,8 @@
                     "databaseId": "5e5ea5c16897e",
                     "specification": "s-2vcpu-4gb",
                     "phase": "pending",
+                    "attempt": 0,
+                    "lastError": "",
                     "lagDocuments": 0,
                     "verifiedAt": "2020-10-15T06:38:00.000+00:00",
                     "cutoverAt": "2020-10-15T06:38:00.000+00:00",
@@ -112945,7 +114433,7 @@
                     },
                     "engine": {
                         "type": "string",
-                        "description": "Database engine: postgresql, mysql, mariadb, or mongodb.",
+                        "description": "Database engine: postgresql, mysql, or mongodb.",
                         "x-example": "postgresql"
                     },
                     "version": {
@@ -112970,7 +114458,7 @@
                     },
                     "connectionPort": {
                         "type": "integer",
-                        "description": "Database port for connections.",
+                        "description": "Database port for connections. Derived from the engine when the backing has not reported one yet.",
                         "x-example": 5432,
                         "format": "int32"
                     },
@@ -113080,7 +114568,7 @@
                     },
                     "networkMaxConnections": {
                         "type": "integer",
-                        "description": "Maximum concurrent connections.",
+                        "description": "Maximum concurrent client connections. This is the limit a client pool may reach; the engine's own max_connections reported by the status endpoint is a smaller backend limit the pooler multiplexes onto and does not constrain a client pool.",
                         "x-example": 500,
                         "format": "int32"
                     },
@@ -113487,7 +114975,7 @@
                     },
                     "engine": {
                         "type": "string",
-                        "description": "Database engine: postgresql, mysql, mariadb, or mongodb.",
+                        "description": "Database engine: postgresql, mysql, or mongodb.",
                         "x-example": "postgresql"
                     },
                     "version": {
@@ -113514,9 +115002,42 @@
                             }
                         ]
                     },
+                    "syncMode": {
+                        "type": "string",
+                        "description": "Requested replication sync mode. Possible values: async, sync, quorum. Compare with effectiveSyncMode for what the primary is enforcing.",
+                        "x-example": "async"
+                    },
+                    "effectiveSyncMode": {
+                        "type": "string",
+                        "description": "Replication sync mode the primary is actually enforcing. Null when high availability is disabled or the state could not be read.",
+                        "x-example": "async",
+                        "nullable": true
+                    },
+                    "syncDegraded": {
+                        "type": "boolean",
+                        "description": "Whether the enforced replication is weaker than the requested syncMode.",
+                        "x-example": false
+                    },
+                    "syncAcknowledgements": {
+                        "type": "integer",
+                        "description": "Number of standby acknowledgements the primary waits for before a write is committed.",
+                        "x-example": 1,
+                        "format": "int32"
+                    },
+                    "syncStandbyCount": {
+                        "type": "integer",
+                        "description": "Number of standbys registered with the primary for synchronous replication.",
+                        "x-example": 2,
+                        "format": "int32"
+                    },
+                    "syncStateConfirmed": {
+                        "type": "boolean",
+                        "description": "Whether the reported sync state was read from the engine. When false the state could not be confirmed and the other sync fields carry no reading.",
+                        "x-example": true
+                    },
                     "replicas": {
                         "type": "array",
-                        "description": "List of database replicas and their status.",
+                        "description": "List of database replicas and their status. Every configured member appears, including one the backend has not brought up, which is reported as not healthy.",
                         "items": {
                             "$ref": "#\/components\/schemas\/databaseStatusReplica"
                         },
@@ -113558,6 +115079,11 @@
                     "version",
                     "uptime",
                     "connections",
+                    "syncMode",
+                    "syncDegraded",
+                    "syncAcknowledgements",
+                    "syncStandbyCount",
+                    "syncStateConfirmed",
                     "replicas",
                     "volumes"
                 ],
@@ -113571,6 +115097,12 @@
                         "current": 12,
                         "max": 100
                     },
+                    "syncMode": "async",
+                    "effectiveSyncMode": "async",
+                    "syncDegraded": false,
+                    "syncAcknowledgements": 1,
+                    "syncStandbyCount": 2,
+                    "syncStateConfirmed": true,
                     "replicas": [
                         {
                             "index": 0,
@@ -114454,12 +115986,12 @@
                     },
                     "role": {
                         "type": "string",
-                        "description": "Member role. Possible values: primary (accepts reads and writes), replica (read-only follower).",
+                        "description": "Member role. Possible values: primary (accepts reads and writes), replica (read-only follower), unknown (placement not established; reported while a transition is moving or restarting the topology and this member has not been probed, so no member can be named the write target).",
                         "x-example": "replica"
                     },
                     "status": {
                         "type": "string",
-                        "description": "Member pod status. Possible values: provisioning (pod missing or Pending), starting (Running but not Ready), active (Running and Ready), failed (Failed phase or CrashLoopBackOff container), or the lowercased pod phase reported by the cluster.",
+                        "description": "Member pod status. Possible values: pending (configured but absent from the backend topology, so nothing is bringing it up), provisioning (pod missing or Pending), starting (Running but not Ready), active (Running and Ready), failed (Failed phase or CrashLoopBackOff container), or the lowercased pod phase reported by the cluster.",
                         "x-example": "active"
                     },
                     "lagSeconds": {
@@ -114482,6 +116014,122 @@
                     "lagSeconds": 0.5
                 }
             },
+            "dedicatedDatabaseOperation": {
+                "description": "Operation",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Operation ID.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "Operation creation time in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "databaseId": {
+                        "type": "string",
+                        "description": "Database ID the operation ran against.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Operation type, such as provision, update, restore, pausing, resuming, failover, backup-create or cross-region-enable.",
+                        "x-example": "update"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Operation status. Possible values: running (in progress), completed (finished successfully), failed (ended in an error).",
+                        "x-example": "completed"
+                    },
+                    "attempts": {
+                        "type": "integer",
+                        "description": "Number of times this operation has been attempted.",
+                        "x-example": 1,
+                        "format": "int32"
+                    },
+                    "requestedAt": {
+                        "type": "string",
+                        "description": "Time the operation was requested, in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00",
+                        "nullable": true
+                    },
+                    "startedAt": {
+                        "type": "string",
+                        "description": "Time the operation started, in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00",
+                        "nullable": true
+                    },
+                    "completedAt": {
+                        "type": "string",
+                        "description": "Time the operation reached a terminal state, in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00",
+                        "nullable": true
+                    },
+                    "errorCode": {
+                        "type": "string",
+                        "description": "Machine-readable failure code. `LockLost` marks an attempt that was fenced and abandoned because another worker took over the database.",
+                        "x-example": "LockLost"
+                    },
+                    "errorMessage": {
+                        "type": "string",
+                        "description": "Failure message if the operation failed.",
+                        "x-example": ""
+                    }
+                },
+                "required": [
+                    "$id",
+                    "$createdAt",
+                    "databaseId",
+                    "type",
+                    "status",
+                    "attempts",
+                    "errorCode",
+                    "errorMessage"
+                ],
+                "example": {
+                    "$id": "5e5ea5c16897e",
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "databaseId": "5e5ea5c16897e",
+                    "type": "update",
+                    "status": "completed",
+                    "attempts": 1,
+                    "requestedAt": "2020-10-15T06:38:00.000+00:00",
+                    "startedAt": "2020-10-15T06:38:00.000+00:00",
+                    "completedAt": "2020-10-15T06:38:00.000+00:00",
+                    "errorCode": "LockLost",
+                    "errorMessage": ""
+                }
+            },
+            "dedicatedDatabaseOperationList": {
+                "description": "OperationList",
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of operations.",
+                        "x-example": 5,
+                        "format": "int32"
+                    },
+                    "operations": {
+                        "type": "array",
+                        "description": "List of operations.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/dedicatedDatabaseOperation"
+                        },
+                        "x-example": ""
+                    }
+                },
+                "required": [
+                    "total",
+                    "operations"
+                ],
+                "example": {
+                    "total": 5,
+                    "operations": ""
+                }
+            },
             "dedicatedDatabaseReplicas": {
                 "description": "Replicas",
                 "type": "object",
@@ -114494,8 +116142,36 @@
                     },
                     "syncMode": {
                         "type": "string",
-                        "description": "Replication sync mode. Possible values: async (asynchronous, fastest), sync (synchronous, strong consistency), quorum (quorum-based, majority of replicas must confirm).",
+                        "description": "Requested replication sync mode. Possible values: async (asynchronous, fastest), sync (synchronous, strong consistency), quorum (quorum-based, majority of replicas must confirm). This is what was asked for; compare it with effectiveSyncMode for what the primary is enforcing.",
                         "x-example": "async"
+                    },
+                    "effectiveSyncMode": {
+                        "type": "string",
+                        "description": "Replication sync mode the primary is actually enforcing. Null when high availability is disabled or the state could not be read. A value below the requested syncMode means writes are being acknowledged with weaker durability than configured.",
+                        "x-example": "async",
+                        "nullable": true
+                    },
+                    "syncDegraded": {
+                        "type": "boolean",
+                        "description": "Whether the enforced replication is weaker than the requested syncMode.",
+                        "x-example": false
+                    },
+                    "syncAcknowledgements": {
+                        "type": "integer",
+                        "description": "Number of standby acknowledgements the primary waits for before a write is committed. Zero means writes are acknowledged locally.",
+                        "x-example": 1,
+                        "format": "int32"
+                    },
+                    "syncStandbyCount": {
+                        "type": "integer",
+                        "description": "Number of standbys registered with the primary for synchronous replication.",
+                        "x-example": 2,
+                        "format": "int32"
+                    },
+                    "syncStateConfirmed": {
+                        "type": "boolean",
+                        "description": "Whether the reported sync state was read from the engine. When false the state could not be confirmed and the other sync fields carry no reading.",
+                        "x-example": true
                     },
                     "members": {
                         "type": "array",
@@ -114509,11 +116185,20 @@
                 "required": [
                     "replicas",
                     "syncMode",
+                    "syncDegraded",
+                    "syncAcknowledgements",
+                    "syncStandbyCount",
+                    "syncStateConfirmed",
                     "members"
                 ],
                 "example": {
                     "replicas": 2,
                     "syncMode": "async",
+                    "effectiveSyncMode": "async",
+                    "syncDegraded": false,
+                    "syncAcknowledgements": 1,
+                    "syncStandbyCount": 2,
+                    "syncStateConfirmed": true,
                     "members": []
                 }
             },
@@ -115713,7 +117398,7 @@
                     },
                     "maxConnections": {
                         "type": "integer",
-                        "description": "Maximum number of pooled connections.",
+                        "description": "Client-connection ceiling the pooler accepts. Enforced on MySQL and MariaDB; on PostgreSQL the pooler has no client cap, so this reports the database's advertised networkMaxConnections and cannot be set here.",
                         "x-example": 200,
                         "format": "int32"
                     },
@@ -116313,7 +117998,7 @@
                     },
                     "max": {
                         "type": "integer",
-                        "description": "Maximum allowed connections.",
+                        "description": "The engine's own max_connections. On a pooled database this is the backend limit the pooler multiplexes onto, not the ceiling a client pool may reach \u2014 that is networkMaxConnections on the database resource.",
                         "x-example": 100,
                         "format": "int32"
                     }
@@ -116333,13 +118018,13 @@
                 "properties": {
                     "index": {
                         "type": "integer",
-                        "description": "StatefulSet pod index (0 = primary, 1+ = replicas).",
+                        "description": "Member index within the database. Read `role` for which member accepts writes: a failover moves the primary without renumbering the indexes.",
                         "x-example": 0,
                         "format": "int32"
                     },
                     "role": {
                         "type": "string",
-                        "description": "Replica role: primary or replica.",
+                        "description": "Member role. Possible values: primary (accepts reads and writes), replica (read-only follower), unknown (placement not established; reported while a transition is moving or restarting the topology, so no member can be named the write target).",
                         "x-example": "primary"
                     },
                     "healthy": {
@@ -118894,6 +120579,164 @@
                     "config": []
                 }
             },
+            "wafRuleChallenge": {
+                "description": "WafRuleChallenge",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Rule ID.",
+                        "x-example": "wafRule1"
+                    },
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "WAF rule creation time in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "$updatedAt": {
+                        "type": "string",
+                        "description": "WAF rule last update time in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Human friendly rule name.",
+                        "x-example": "Block anonymous POST traffic"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Optional description for the rule.",
+                        "x-example": "Blocks anonymous POST calls to \/v1\/graphql"
+                    },
+                    "teamId": {
+                        "type": "string",
+                        "description": "Team ID.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "Project ID.",
+                        "x-example": "cloudConsole"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Resource type the rule is scoped to.",
+                        "x-example": "functions"
+                    },
+                    "resourceId": {
+                        "type": "string",
+                        "description": "Resource identifier. Empty for API-wide rules.",
+                        "x-example": "functionId"
+                    },
+                    "action": {
+                        "type": "string",
+                        "description": "Action performed when the rule matches.",
+                        "x-example": "deny",
+                        "enum": [
+                            "bypass",
+                            "deny",
+                            "challenge",
+                            "rateLimit",
+                            "redirect"
+                        ],
+                        "x-enum-name": "WafRuleAction"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "description": "Evaluation priority. Lower values execute earlier.",
+                        "x-example": 100,
+                        "format": "int32"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the rule is active.",
+                        "x-example": true
+                    },
+                    "conditions": {
+                        "type": "object",
+                        "additionalProperties": true,
+                        "description": "List of conditions evaluated for this rule.",
+                        "x-example": [
+                            {
+                                "method": "equal",
+                                "attribute": "ip",
+                                "values": [
+                                    "127.0.0.1"
+                                ]
+                            }
+                        ]
+                    },
+                    "config": {
+                        "type": "object",
+                        "additionalProperties": true,
+                        "description": "Action specific configuration.",
+                        "x-example": []
+                    },
+                    "challengeType": {
+                        "type": "string",
+                        "description": "Challenge type enforced when the rule matches.",
+                        "x-example": "compute"
+                    },
+                    "difficulty": {
+                        "type": "integer",
+                        "description": "Challenge difficulty from 1 (easiest) to 5 (hardest) enforced when the rule matches.",
+                        "x-example": 3,
+                        "format": "int32"
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "Seconds a visitor stays cleared after passing the challenge before being challenged again.",
+                        "x-example": 1800,
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "$id",
+                    "$createdAt",
+                    "$updatedAt",
+                    "name",
+                    "description",
+                    "teamId",
+                    "projectId",
+                    "resourceType",
+                    "resourceId",
+                    "action",
+                    "priority",
+                    "enabled",
+                    "conditions",
+                    "config",
+                    "challengeType",
+                    "difficulty",
+                    "ttl"
+                ],
+                "example": {
+                    "$id": "wafRule1",
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                    "name": "Block anonymous POST traffic",
+                    "description": "Blocks anonymous POST calls to \/v1\/graphql",
+                    "teamId": "5e5ea5c16897e",
+                    "projectId": "cloudConsole",
+                    "resourceType": "functions",
+                    "resourceId": "functionId",
+                    "action": "deny",
+                    "priority": 100,
+                    "enabled": true,
+                    "conditions": [
+                        {
+                            "method": "equal",
+                            "attribute": "ip",
+                            "values": [
+                                "127.0.0.1"
+                            ]
+                        }
+                    ],
+                    "config": [],
+                    "challengeType": "compute",
+                    "difficulty": 3,
+                    "ttl": 1800
+                }
+            },
             "wafRuleRateLimit": {
                 "description": "WafRuleRateLimit",
                 "type": "object",
@@ -118998,6 +120841,11 @@
                         "description": "Interval in seconds for the rate limit window.",
                         "x-example": 60,
                         "format": "int32"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Rate limit key: `ip` limits per client IP, `userId` limits per authenticated user.",
+                        "x-example": "userId"
                     }
                 },
                 "required": [
@@ -119016,7 +120864,8 @@
                     "conditions",
                     "config",
                     "limit",
-                    "interval"
+                    "interval",
+                    "key"
                 ],
                 "example": {
                     "$id": "wafRule1",
@@ -119042,7 +120891,8 @@
                     ],
                     "config": [],
                     "limit": 1000,
-                    "interval": 60
+                    "interval": 60,
+                    "key": "userId"
                 }
             },
             "wafRuleRedirect": {
@@ -120084,6 +121934,15 @@
                 "in": "header",
                 "x-appwrite": {
                     "demo": "<YOUR_API_KEY>"
+                }
+            },
+            "Organization": {
+                "type": "apiKey",
+                "name": "X-Appwrite-Organization",
+                "description": "Your organization ID",
+                "in": "header",
+                "x-appwrite": {
+                    "demo": "<YOUR_ORGANIZATION_ID>"
                 }
             },
             "JWT": {

@@ -12,6 +12,12 @@ query {
             current
             max
         }
+        syncMode
+        effectiveSyncMode
+        syncDegraded
+        syncAcknowledgements
+        syncStandbyCount
+        syncStateConfirmed
         replicas {
             index
             role
