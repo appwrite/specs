@@ -4,7 +4,9 @@ mutation {
         databaseId: "<DATABASE_ID>",
         name: "<NAME>",
         enabled: false,
-        replicas: 0
+        specification: "serverless",
+        replicas: 0,
+        syncMode: "async"
     ) {
         _id
         name
@@ -51,7 +53,9 @@ mutation {
         databaseId: "<DATABASE_ID>",
         name: "<NAME>",
         enabled: false,
-        replicas: 0
+        specification: "serverless",
+        replicas: 0,
+        syncMode: "async"
     ) {
         _id
         name

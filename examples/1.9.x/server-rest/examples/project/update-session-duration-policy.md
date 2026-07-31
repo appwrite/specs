@@ -7,10 +7,10 @@ X-Appwrite-Response-Format: 1.9.5
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
-  "duration": 5
+  "duration": 60
 }
 
 {
-  "duration": 5
+  "duration": 60
 }
 ```

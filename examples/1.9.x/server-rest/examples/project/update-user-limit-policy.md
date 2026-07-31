@@ -7,10 +7,10 @@ X-Appwrite-Response-Format: 1.9.5
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
-  "total": 1
+  "total": 0
 }
 
 {
-  "total": 1
+  "total": 0
 }
 ```

@@ -11,7 +11,8 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "name": "<NAME>",
   "enabled": false,
   "specification": "serverless",
-  "replicas": 0
+  "replicas": 0,
+  "syncMode": "async"
 }
 
 {
@@ -19,6 +20,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "name": "<NAME>",
   "enabled": false,
   "specification": "serverless",
-  "replicas": 0
+  "replicas": 0,
+  "syncMode": "async"
 }
 ```

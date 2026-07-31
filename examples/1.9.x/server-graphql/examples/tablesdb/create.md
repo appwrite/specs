@@ -5,7 +5,8 @@ mutation {
         name: "<NAME>",
         enabled: false,
         specification: "serverless",
-        replicas: 0
+        replicas: 0,
+        syncMode: "async"
     ) {
         _id
         name
@@ -53,7 +54,8 @@ mutation {
         name: "<NAME>",
         enabled: false,
         specification: "serverless",
-        replicas: 0
+        replicas: 0,
+        syncMode: "async"
     ) {
         _id
         name
