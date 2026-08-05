@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "version": "1.9.5",
+        "version": "1.9.6",
         "title": "Appwrite",
         "description": "Appwrite backend as a service cuts up to 70% of the time and costs required for building a modern application. We abstract and simplify common development tasks behind a REST APIs, to help you develop your app in a fast and secure way. For full API documentation and tutorials go to [https:\/\/appwrite.io\/docs](https:\/\/appwrite.io\/docs)",
         "termsOfService": "https:\/\/appwrite.io\/policy\/terms",
@@ -3332,11 +3332,12 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to get the current device session.",
+                        "description": "Session ID. Use the string 'current' to get the current device session. Defaults to 'current'.",
                         "required": true,
                         "schema": {
                             "type": "string",
-                            "x-example": "<SESSION_ID>"
+                            "x-example": "<SESSION_ID>",
+                            "default": "current"
                         },
                         "in": "path"
                     }
@@ -3394,11 +3395,12 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to update the current device session.",
+                        "description": "Session ID. Use the string 'current' to update the current device session. Defaults to 'current'.",
                         "required": true,
                         "schema": {
                             "type": "string",
-                            "x-example": "<SESSION_ID>"
+                            "x-example": "<SESSION_ID>",
+                            "default": "current"
                         },
                         "in": "path"
                     }
@@ -3449,11 +3451,12 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to delete the current device session.",
+                        "description": "Session ID. Use the string 'current' to delete the current device session. Defaults to 'current'.",
                         "required": true,
                         "schema": {
                             "type": "string",
-                            "x-example": "<SESSION_ID>"
+                            "x-example": "<SESSION_ID>",
+                            "default": "current"
                         },
                         "in": "path"
                     }
