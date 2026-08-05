@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "version": "1.9.5",
+        "version": "1.9.6",
         "title": "Appwrite",
         "description": "Appwrite backend as a service cuts up to 70% of the time and costs required for building a modern application. We abstract and simplify common development tasks behind a REST APIs, to help you develop your app in a fast and secure way. For full API documentation and tutorials go to [https:\/\/appwrite.io\/docs](https:\/\/appwrite.io\/docs)",
         "termsOfService": "https:\/\/appwrite.io\/policy\/terms",
@@ -3193,11 +3193,12 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to get the current device session.",
+                        "description": "Session ID. Use the string 'current' to get the current device session. Defaults to 'current'.",
                         "required": true,
                         "schema": {
                             "type": "string",
-                            "x-example": "<SESSION_ID>"
+                            "x-example": "<SESSION_ID>",
+                            "default": "current"
                         },
                         "in": "path"
                     }
@@ -3256,11 +3257,12 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to update the current device session.",
+                        "description": "Session ID. Use the string 'current' to update the current device session. Defaults to 'current'.",
                         "required": true,
                         "schema": {
                             "type": "string",
-                            "x-example": "<SESSION_ID>"
+                            "x-example": "<SESSION_ID>",
+                            "default": "current"
                         },
                         "in": "path"
                     }
@@ -3312,11 +3314,12 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to delete the current device session.",
+                        "description": "Session ID. Use the string 'current' to delete the current device session. Defaults to 'current'.",
                         "required": true,
                         "schema": {
                             "type": "string",
-                            "x-example": "<SESSION_ID>"
+                            "x-example": "<SESSION_ID>",
+                            "default": "current"
                         },
                         "in": "path"
                     }
@@ -21026,6 +21029,126 @@
                 ]
             }
         },
+        "\/embeddings\/text": {
+            "post": {
+                "summary": "Create text embeddings",
+                "operationId": "embeddingsCreateTextEmbeddings",
+                "tags": [
+                    "embeddings"
+                ],
+                "description": "Generate vector embeddings for an array of text using the selected embedding model. Use the returned vectors to power semantic search and similarity queries against your vector collections.\n",
+                "responses": {
+                    "200": {
+                        "description": "Embedding list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/embeddingList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createTextEmbeddings",
+                    "group": "embeddings",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "embeddings\/create-text-embeddings.md",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
+                    "scope": "documents.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/embeddings\/create-text-embeddings.md",
+                    "methods": [
+                        {
+                            "name": "createTextEmbeddings",
+                            "namespace": "embeddings",
+                            "desc": "Create Text Embedding",
+                            "auth": {
+                                "Project": [],
+                                "Key": []
+                            },
+                            "parameters": [
+                                "texts",
+                                "model"
+                            ],
+                            "required": [
+                                "texts"
+                            ],
+                            "responses": [
+                                {
+                                    "code": 200,
+                                    "model": "#\/components\/schemas\/embeddingList"
+                                }
+                            ],
+                            "description": "Generate vector embeddings for an array of text using the selected embedding model. Use the returned vectors to power semantic search and similarity queries against your vector collections.\n",
+                            "demo": "embeddings\/create-text-embeddings.md",
+                            "public": true
+                        }
+                    ],
+                    "auth": {
+                        "Project": [],
+                        "Key": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": [],
+                        "JWT": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "texts": {
+                                        "type": "array",
+                                        "description": "Array of text to generate embeddings.",
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "model": {
+                                        "type": "string",
+                                        "description": "The embedding model to use for generating vector embeddings.",
+                                        "default": "nomic-embed-text",
+                                        "x-example": "nomic-embed-text",
+                                        "enum": [
+                                            "nomic-embed-text",
+                                            "embedding-gemma",
+                                            "all-minilm",
+                                            "bge-small"
+                                        ],
+                                        "x-enum-name": "EmbeddingModel",
+                                        "x-enum-keys": [
+                                            "nomic-embed-text",
+                                            "embedding-gemma",
+                                            "all-minilm",
+                                            "bge-small"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "texts"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/functions": {
             "get": {
                 "summary": "List functions",
@@ -21539,6 +21662,7 @@
                                                 "wafRules.read",
                                                 "wafRules.write",
                                                 "events.read",
+                                                "proxy.invalidations.write",
                                                 "apps.read",
                                                 "apps.write",
                                                 "oauth2.read",
@@ -21646,6 +21770,7 @@
                                                 "wafRules.read",
                                                 "wafRules.write",
                                                 "events.read",
+                                                "proxy.invalidations.write",
                                                 "apps.read",
                                                 "apps.write",
                                                 "oauth2.read",
@@ -22339,6 +22464,7 @@
                                                 "wafRules.read",
                                                 "wafRules.write",
                                                 "events.read",
+                                                "proxy.invalidations.write",
                                                 "apps.read",
                                                 "apps.write",
                                                 "oauth2.read",
@@ -22446,6 +22572,7 @@
                                                 "wafRules.read",
                                                 "wafRules.write",
                                                 "events.read",
+                                                "proxy.invalidations.write",
                                                 "apps.read",
                                                 "apps.write",
                                                 "oauth2.read",
@@ -43180,6 +43307,7 @@
                                                 "wafRules.read",
                                                 "wafRules.write",
                                                 "events.read",
+                                                "proxy.invalidations.write",
                                                 "apps.read",
                                                 "apps.write",
                                                 "oauth2.read",
@@ -43287,6 +43415,7 @@
                                                 "wafRules.read",
                                                 "wafRules.write",
                                                 "events.read",
+                                                "proxy.invalidations.write",
                                                 "apps.read",
                                                 "apps.write",
                                                 "oauth2.read",
@@ -43474,6 +43603,7 @@
                                                 "wafRules.read",
                                                 "wafRules.write",
                                                 "events.read",
+                                                "proxy.invalidations.write",
                                                 "apps.read",
                                                 "apps.write",
                                                 "oauth2.read",
@@ -43581,6 +43711,7 @@
                                                 "wafRules.read",
                                                 "wafRules.write",
                                                 "events.read",
+                                                "proxy.invalidations.write",
                                                 "apps.read",
                                                 "apps.write",
                                                 "oauth2.read",
@@ -43843,6 +43974,7 @@
                                                 "wafRules.read",
                                                 "wafRules.write",
                                                 "events.read",
+                                                "proxy.invalidations.write",
                                                 "apps.read",
                                                 "apps.write",
                                                 "oauth2.read",
@@ -43950,6 +44082,7 @@
                                                 "wafRules.read",
                                                 "wafRules.write",
                                                 "events.read",
+                                                "proxy.invalidations.write",
                                                 "apps.read",
                                                 "apps.write",
                                                 "oauth2.read",
@@ -52536,6 +52669,98 @@
                         "in": "path"
                     }
                 ]
+            }
+        },
+        "\/proxy\/invalidations": {
+            "post": {
+                "summary": "Create invalidation",
+                "operationId": "proxyCreateInvalidation",
+                "tags": [
+                    "proxy"
+                ],
+                "description": "Create a new CDN cache invalidation for a domain. Executes a hard purge of cached content.\n\nDepending on type, the invalidation purges a single cache tag, a single URL path, or all cached content for the domain.",
+                "responses": {
+                    "201": {
+                        "description": "Invalidation",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/proxyInvalidation"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createInvalidation",
+                    "group": null,
+                    "cookies": false,
+                    "type": "",
+                    "demo": "proxy\/create-invalidation.md",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "userId:{userId}, url:{url}",
+                    "scope": "proxy.invalidations.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": [],
+                        "Key": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "domain": {
+                                        "type": "string",
+                                        "description": "Domain name.",
+                                        "x-example": null
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "Type of reference passed. Allowed values are: tag, path, all",
+                                        "x-example": "tag",
+                                        "enum": [
+                                            "tag",
+                                            "path",
+                                            "all"
+                                        ],
+                                        "x-enum-name": "InvalidationType",
+                                        "x-enum-keys": [
+                                            "tag",
+                                            "path",
+                                            "all"
+                                        ]
+                                    },
+                                    "reference": {
+                                        "type": "string",
+                                        "description": "Reference to invalidate. Depending on type this can be: cache tag name (up to 128 characters), URL path (up to 2048 characters). Not required when type is all.",
+                                        "default": "",
+                                        "x-example": "<REFERENCE>"
+                                    }
+                                },
+                                "required": [
+                                    "domain",
+                                    "type"
+                                ]
+                            }
+                        }
+                    }
+                }
             }
         },
         "\/proxy\/rules": {
@@ -69251,7 +69476,7 @@
                                     "sessionId": {
                                         "type": "string",
                                         "description": "Session ID. Use the string 'recent' to use the most recent session. Defaults to the most recent session.",
-                                        "default": "",
+                                        "default": "recent",
                                         "x-example": "<SESSION_ID>"
                                     },
                                     "duration": {
@@ -71905,126 +72130,6 @@
                                 "required": [
                                     "databaseId",
                                     "name"
-                                ]
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "\/vectorsdb\/embeddings\/text": {
-            "post": {
-                "summary": "Create text embeddings",
-                "operationId": "vectorsDBCreateTextEmbeddings",
-                "tags": [
-                    "vectorsDB"
-                ],
-                "description": "Generate vector embeddings for an array of text using the selected embedding model. Use the returned vectors to power semantic search and similarity queries against your vector collections.\n",
-                "responses": {
-                    "200": {
-                        "description": "Embedding list",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/embeddingList"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "createTextEmbeddings",
-                    "group": "embeddings",
-                    "cookies": false,
-                    "type": "",
-                    "demo": "vectorsdb\/create-text-embeddings.md",
-                    "rate-limit": 120,
-                    "rate-time": 60,
-                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
-                    "scope": "documents.write",
-                    "platforms": [
-                        "console",
-                        "server"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/create-text-embeddings.md",
-                    "methods": [
-                        {
-                            "name": "createTextEmbeddings",
-                            "namespace": "vectorsDB",
-                            "desc": "Create Text Embedding",
-                            "auth": {
-                                "Project": [],
-                                "Key": []
-                            },
-                            "parameters": [
-                                "texts",
-                                "model"
-                            ],
-                            "required": [
-                                "texts"
-                            ],
-                            "responses": [
-                                {
-                                    "code": 200,
-                                    "model": "#\/components\/schemas\/embeddingList"
-                                }
-                            ],
-                            "description": "Generate vector embeddings for an array of text using the selected embedding model. Use the returned vectors to power semantic search and similarity queries against your vector collections.\n",
-                            "demo": "vectorsdb\/create-text-embeddings.md",
-                            "public": true
-                        }
-                    ],
-                    "auth": {
-                        "Project": [],
-                        "Key": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": [],
-                        "Key": [],
-                        "JWT": []
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application\/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "texts": {
-                                        "type": "array",
-                                        "description": "Array of text to generate embeddings.",
-                                        "x-example": null,
-                                        "items": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "model": {
-                                        "type": "string",
-                                        "description": "The embedding model to use for generating vector embeddings.",
-                                        "default": "nomic-embed-text",
-                                        "x-example": "nomic-embed-text",
-                                        "enum": [
-                                            "nomic-embed-text",
-                                            "embedding-gemma",
-                                            "all-minilm",
-                                            "bge-small"
-                                        ],
-                                        "x-enum-name": "EmbeddingModel",
-                                        "x-enum-keys": [
-                                            "nomic-embed-text",
-                                            "embedding-gemma",
-                                            "all-minilm",
-                                            "bge-small"
-                                        ]
-                                    }
-                                },
-                                "required": [
-                                    "texts"
                                 ]
                             }
                         }
@@ -77224,6 +77329,10 @@
         {
             "name": "graphql",
             "description": "The GraphQL API allows you to query and mutate your Appwrite server using GraphQL."
+        },
+        {
+            "name": "embeddings",
+            "description": ""
         },
         {
             "name": "projects",
@@ -92173,7 +92282,8 @@
                         "type": "integer",
                         "description": "Members",
                         "x-example": 25,
-                        "format": "int32"
+                        "format": "int32",
+                        "nullable": true
                     },
                     "webhooks": {
                         "type": "integer",
@@ -92317,7 +92427,8 @@
                         "type": "integer",
                         "description": "Activity log days",
                         "x-example": 7,
-                        "format": "int32"
+                        "format": "int32",
+                        "nullable": true
                     },
                     "usageLogs": {
                         "type": "integer",
@@ -92458,7 +92569,8 @@
                     "backupsEnabled": {
                         "type": "boolean",
                         "description": "Does plan support backup policies.",
-                        "x-example": true
+                        "x-example": true,
+                        "nullable": true
                     },
                     "usagePerProject": {
                         "type": "boolean",
@@ -92478,8 +92590,9 @@
                     "backupPolicies": {
                         "type": "integer",
                         "description": "How many policies does plan support",
-                        "x-example": true,
-                        "format": "int32"
+                        "x-example": 1,
+                        "format": "int32",
+                        "nullable": true
                     },
                     "deploymentSize": {
                         "type": "integer",
@@ -92553,7 +92666,6 @@
                     "storage",
                     "imageTransformations",
                     "screenshotsGenerated",
-                    "members",
                     "webhooks",
                     "wafRules",
                     "projects",
@@ -92577,7 +92689,6 @@
                     "topics",
                     "authPhone",
                     "domains",
-                    "activityLogs",
                     "usageLogs",
                     "projectInactivityDays",
                     "alertLimit",
@@ -92600,10 +92711,8 @@
                     "supportsFreeEmailValidation",
                     "supportsCorporateEmailValidation",
                     "supportsProjectSpecificRoles",
-                    "backupsEnabled",
                     "usagePerProject",
                     "supportedAddons",
-                    "backupPolicies",
                     "deploymentSize",
                     "buildSize",
                     "databasesAllowEncrypt",
@@ -92675,7 +92784,7 @@
                     "backupsEnabled": true,
                     "usagePerProject": true,
                     "supportedAddons": null,
-                    "backupPolicies": true,
+                    "backupPolicies": 1,
                     "deploymentSize": 30,
                     "buildSize": 2000,
                     "databasesAllowEncrypt": false,
@@ -92697,7 +92806,8 @@
                             {
                                 "$ref": "#\/components\/schemas\/billingPlanAddonDetails"
                             }
-                        ]
+                        ],
+                        "nullable": true
                     },
                     "projects": {
                         "type": "object",
@@ -92707,13 +92817,10 @@
                             {
                                 "$ref": "#\/components\/schemas\/billingPlanAddonDetails"
                             }
-                        ]
+                        ],
+                        "nullable": true
                     }
                 },
-                "required": [
-                    "seats",
-                    "projects"
-                ],
                 "example": {
                     "seats": null,
                     "projects": null
@@ -92748,7 +92855,8 @@
                     "currency": {
                         "type": "string",
                         "description": "Price currency",
-                        "x-example": "USD"
+                        "x-example": "USD",
+                        "nullable": true
                     },
                     "price": {
                         "type": "number",
@@ -92773,7 +92881,6 @@
                     "planIncluded",
                     "limit",
                     "type",
-                    "currency",
                     "price",
                     "value",
                     "invoiceDesc"
@@ -93273,7 +93380,7 @@
                     },
                     "engine": {
                         "type": "string",
-                        "description": "Database engine: postgresql, mysql, or mongodb.",
+                        "description": "Database engine: postgresql, mysql, or mongodb. Null until the backing reports one.",
                         "x-example": "postgresql"
                     },
                     "version": {
@@ -94040,16 +94147,16 @@
                     },
                     "lagSeconds": {
                         "type": "number",
-                        "description": "Replication lag in seconds.",
+                        "description": "Replication lag in seconds. Null when the lag is not known: a primary has none to report, and a member the backend has not probed has none yet.",
                         "x-example": 0.5,
-                        "format": "double"
+                        "format": "double",
+                        "nullable": true
                     }
                 },
                 "required": [
                     "$id",
                     "role",
-                    "status",
-                    "lagSeconds"
+                    "status"
                 ],
                 "example": {
                     "$id": "1",
@@ -94246,6 +94353,44 @@
                     "members": []
                 }
             },
+            "proxyInvalidation": {
+                "description": "Invalidation",
+                "type": "object",
+                "properties": {
+                    "domain": {
+                        "type": "string",
+                        "description": "Domain name.",
+                        "x-example": "appwrite.company.com"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Invalidation type. Possible values are \"tag\", \"path\", or \"all\".",
+                        "x-example": "tag"
+                    },
+                    "reference": {
+                        "type": "string",
+                        "description": "Invalidated reference. Depending on type this is a cache tag name, a URL path, or empty when type is all.",
+                        "x-example": "products"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Invalidation status.",
+                        "x-example": "success"
+                    }
+                },
+                "required": [
+                    "domain",
+                    "type",
+                    "reference",
+                    "status"
+                ],
+                "example": {
+                    "domain": "appwrite.company.com",
+                    "type": "tag",
+                    "reference": "products",
+                    "status": "success"
+                }
+            },
             "organization": {
                 "description": "Organization",
                 "type": "object",
@@ -94291,9 +94436,10 @@
                     },
                     "billingBudget": {
                         "type": "integer",
-                        "description": "Project budget limit",
+                        "description": "Project budget limit. Null when no budget is set.",
                         "x-example": 50,
-                        "format": "int32"
+                        "format": "int32",
+                        "nullable": true
                     },
                     "budgetAlerts": {
                         "type": "array",
@@ -94350,7 +94496,8 @@
                     "billingTrialStartDate": {
                         "type": "string",
                         "description": "Start date of trial.",
-                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                        "x-example": "2020-10-15T06:38:00.000+00:00",
+                        "nullable": true
                     },
                     "billingTrialDays": {
                         "type": "integer",
@@ -94376,12 +94523,14 @@
                     "billingAddressId": {
                         "type": "string",
                         "description": "Default payment method.",
-                        "x-example": "adbc3de4rddfsd"
+                        "x-example": "adbc3de4rddfsd",
+                        "nullable": true
                     },
                     "backupPaymentMethodId": {
                         "type": "string",
                         "description": "Backup payment method.",
-                        "x-example": "adbc3de4rddfsd"
+                        "x-example": "adbc3de4rddfsd",
+                        "nullable": true
                     },
                     "status": {
                         "type": "string",
@@ -94391,32 +94540,38 @@
                     "remarks": {
                         "type": "string",
                         "description": "Remarks on team status.",
-                        "x-example": "Pending initial payment"
+                        "x-example": "Pending initial payment",
+                        "nullable": true
                     },
                     "agreementBAA": {
                         "type": "string",
                         "description": "Organization agreements",
-                        "x-example": ""
+                        "x-example": "",
+                        "nullable": true
                     },
                     "programManagerName": {
                         "type": "string",
                         "description": "Program manager's name.",
-                        "x-example": ""
+                        "x-example": "",
+                        "nullable": true
                     },
                     "programManagerCalendar": {
                         "type": "string",
                         "description": "Program manager's calendar link.",
-                        "x-example": ""
+                        "x-example": "",
+                        "nullable": true
                     },
                     "programDiscordChannelName": {
                         "type": "string",
                         "description": "Program's discord channel name.",
-                        "x-example": ""
+                        "x-example": "",
+                        "nullable": true
                     },
                     "programDiscordChannelUrl": {
                         "type": "string",
                         "description": "Program's discord channel URL.",
-                        "x-example": ""
+                        "x-example": "",
+                        "nullable": true
                     },
                     "billingLimits": {
                         "type": "object",
@@ -94432,12 +94587,14 @@
                     "billingPlanDowngrade": {
                         "type": "string",
                         "description": "Billing plan selected for downgrade.",
-                        "x-example": "tier-1"
+                        "x-example": "tier-1",
+                        "nullable": true
                     },
                     "billingTaxId": {
                         "type": "string",
                         "description": "Tax Id",
-                        "x-example": ""
+                        "x-example": "",
+                        "nullable": true
                     },
                     "markedForDeletion": {
                         "type": "boolean",
@@ -94465,7 +94622,6 @@
                     "name",
                     "total",
                     "prefs",
-                    "billingBudget",
                     "budgetAlerts",
                     "billingPlan",
                     "billingPlanId",
@@ -94474,22 +94630,11 @@
                     "billingStartDate",
                     "billingCurrentInvoiceDate",
                     "billingNextInvoiceDate",
-                    "billingTrialStartDate",
                     "billingTrialDays",
                     "billingAggregationId",
                     "billingInvoiceId",
                     "paymentMethodId",
-                    "billingAddressId",
-                    "backupPaymentMethodId",
                     "status",
-                    "remarks",
-                    "agreementBAA",
-                    "programManagerName",
-                    "programManagerCalendar",
-                    "programDiscordChannelName",
-                    "programDiscordChannelUrl",
-                    "billingPlanDowngrade",
-                    "billingTaxId",
                     "markedForDeletion",
                     "platform",
                     "projects"
@@ -95379,7 +95524,8 @@
                             {
                                 "$ref": "#\/components\/schemas\/additionalResource"
                             }
-                        ]
+                        ],
+                        "nullable": true
                     },
                     "realtime": {
                         "type": "object",
@@ -95409,7 +95555,8 @@
                             {
                                 "$ref": "#\/components\/schemas\/additionalResource"
                             }
-                        ]
+                        ],
+                        "nullable": true
                     },
                     "storage": {
                         "type": "object",
@@ -95459,21 +95606,19 @@
                             {
                                 "$ref": "#\/components\/schemas\/additionalResource"
                             }
-                        ]
+                        ],
+                        "nullable": true
                     }
                 },
                 "required": [
                     "bandwidth",
                     "executions",
-                    "member",
                     "realtime",
                     "realtimeMessages",
-                    "realtimeBandwidth",
                     "storage",
                     "users",
                     "GBHours",
-                    "imageTransformations",
-                    "credits"
+                    "imageTransformations"
                 ],
                 "example": {
                     "bandwidth": null,

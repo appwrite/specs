@@ -3,7 +3,7 @@ POST /v1/storage/buckets/{bucketId}/files HTTP/1.1
 Host: cloud.appwrite.io
 Content-Type: multipart/form-data; boundary="cec8e8123c05ba25"
 Accept: application/json
-X-Appwrite-Response-Format: 1.9.5
+X-Appwrite-Response-Format: 1.9.6
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 Content-Length: *Length of your entity body in bytes*
 

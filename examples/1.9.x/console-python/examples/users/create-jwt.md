@@ -1,0 +1,19 @@
+```python
+from appwrite_console.client import Client
+from appwrite_console.services.users import Users
+from appwrite_console.models import Jwt
+
+client = Client()
+client.set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
+client.set_project('<YOUR_PROJECT_ID>') # Your project ID
+
+users = Users(client)
+
+result: Jwt = users.create_jwt(
+    user_id = '<USER_ID>',
+    session_id = '<SESSION_ID>', # optional
+    duration = 0 # optional
+)
+
+print(result.model_dump())
+```
