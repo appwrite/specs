@@ -76,6 +76,7 @@ mutation {
         oAuth2ServerAuthorizationUrl
         oAuth2ServerScopes
         oAuth2ServerDefaultScopes
+        oAuth2ServerInstallationScopes
         oAuth2ServerAuthorizationDetailsTypes
         oAuth2ServerAccessTokenDuration
         oAuth2ServerRefreshTokenDuration
@@ -167,6 +168,7 @@ mutation {
         oAuth2ServerAuthorizationUrl
         oAuth2ServerScopes
         oAuth2ServerDefaultScopes
+        oAuth2ServerInstallationScopes
         oAuth2ServerAuthorizationDetailsTypes
         oAuth2ServerAccessTokenDuration
         oAuth2ServerRefreshTokenDuration

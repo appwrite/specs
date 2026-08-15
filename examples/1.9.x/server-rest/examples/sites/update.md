@@ -28,7 +28,8 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "providerPaths": [],
   "buildSpecification": "",
   "runtimeSpecification": "",
-  "deploymentRetention": 0
+  "deploymentRetention": 0,
+  "scopes": []
 }
 
 {
@@ -53,6 +54,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "providerPaths": [],
   "buildSpecification": "",
   "runtimeSpecification": "",
-  "deploymentRetention": 0
+  "deploymentRetention": 0,
+  "scopes": []
 }
 ```

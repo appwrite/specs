@@ -5,6 +5,7 @@ from appwrite.models import Site
 from appwrite.enums import Framework
 from appwrite.enums import BuildRuntime
 from appwrite.enums import Adapter
+from appwrite.enums import ProjectKeyScopes
 
 client = Client()
 client.set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
@@ -36,7 +37,8 @@ result: Site = sites.create(
     provider_paths = [], # optional
     build_specification = '', # optional
     runtime_specification = '', # optional
-    deployment_retention = 0 # optional
+    deployment_retention = 0, # optional
+    scopes = [ProjectKeyScopes.PROJECT_READ] # optional
 )
 
 print(result.model_dump())

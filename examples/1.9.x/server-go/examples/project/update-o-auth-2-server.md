@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v6/client"
-    "github.com/appwrite/sdk-for-go/v6/project"
+    "github.com/appwrite/sdk-for-go/v7/client"
+    "github.com/appwrite/sdk-for-go/v7/project"
 )
 
 client := client.New(
@@ -31,5 +31,6 @@ response, error := service.UpdateOAuth2Server(
     project.WithUpdateOAuth2ServerUserCodeFormat("numeric"),
     project.WithUpdateOAuth2ServerDeviceCodeDuration(60),
     project.WithUpdateOAuth2ServerDefaultScopes([]string{}),
+    project.WithUpdateOAuth2ServerInstallationScopes([]string{}),
 )
 ```

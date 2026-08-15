@@ -17,7 +17,6 @@ query {
             storageOverageRate
             bandwidthOverageRate
             replicaRate
-            crossRegionReplicaRate
             pitrRate
         }
     }

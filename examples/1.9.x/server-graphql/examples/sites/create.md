@@ -23,7 +23,8 @@ mutation {
         providerPaths: [],
         buildSpecification: "",
         runtimeSpecification: "",
-        deploymentRetention: 0
+        deploymentRetention: 0,
+        scopes: []
     ) {
         _id
         _createdAt
@@ -41,6 +42,7 @@ mutation {
         latestDeploymentId
         latestDeploymentCreatedAt
         latestDeploymentStatus
+        scopes
         vars {
             _id
             _createdAt
@@ -94,7 +96,8 @@ mutation {
         providerPaths: [],
         buildSpecification: "",
         runtimeSpecification: "",
-        deploymentRetention: 0
+        deploymentRetention: 0,
+        scopes: []
     ) {
         _id
         _createdAt
@@ -112,6 +115,7 @@ mutation {
         latestDeploymentId
         latestDeploymentCreatedAt
         latestDeploymentStatus
+        scopes
         vars {
             _id
             _createdAt

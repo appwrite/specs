@@ -20,6 +20,7 @@ mutation {
         latestDeploymentId
         latestDeploymentCreatedAt
         latestDeploymentStatus
+        scopes
         vars {
             _id
             _createdAt
@@ -70,6 +71,7 @@ mutation {
         latestDeploymentId
         latestDeploymentCreatedAt
         latestDeploymentStatus
+        scopes
         vars {
             _id
             _createdAt

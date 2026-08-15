@@ -11,7 +11,8 @@ tables_db = TablesDB(client)
 
 result: DatabaseMigration = tables_db.create_migration(
     database_id = '<DATABASE_ID>',
-    specification = 's-1vcpu-1gb'
+    specification = 's-1vcpu-1gb',
+    auto_cutover = False # optional
 )
 
 print(result.model_dump())

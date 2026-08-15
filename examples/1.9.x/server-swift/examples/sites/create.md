@@ -32,7 +32,8 @@ let site = try await sites.create(
     providerPaths: [], // optional
     buildSpecification: "", // optional
     runtimeSpecification: "", // optional
-    deploymentRetention: 0 // optional
+    deploymentRetention: 0, // optional
+    scopes: [.projectRead] // optional
 )
 
 ```

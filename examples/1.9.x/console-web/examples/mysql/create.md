@@ -14,7 +14,6 @@ const result = await mysql.create({
     specification: '<SPECIFICATION>', // optional
     replicas: 0, // optional
     syncMode: 'async', // optional
-    standbyRegion: '<STANDBY_REGION>', // optional
     networkIdleTimeoutSeconds: 60, // optional
     networkIPAllowlist: [], // optional
     idleTimeoutMinutes: 5, // optional

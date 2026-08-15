@@ -1,5 +1,5 @@
 ```javascript
-import { Client, Usage, UsageInterval, UsageEventDimension, UsageOrderBy, UsageOrderDirection } from "@appwrite.io/console";
+import { Client, Usage, UsageEventMetric, UsageInterval, UsageEventDimension, UsageOrderBy, UsageOrderDirection } from "@appwrite.io/console";
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -8,7 +8,7 @@ const client = new Client()
 const usage = new Usage(client);
 
 const result = await usage.listEvents({
-    metrics: [],
+    metrics: [UsageEventMetric.NetworkRequests],
     queries: [], // optional
     interval: UsageInterval.OneMinute, // optional
     dimensions: [UsageEventDimension.Path], // optional

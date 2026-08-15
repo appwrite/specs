@@ -11,6 +11,7 @@ from appwrite_console.models import PolicySessionInvalidation
 from appwrite_console.models import PolicySessionLimit
 from appwrite_console.models import PolicyUserLimit
 from appwrite_console.models import PolicyMembershipPrivacy
+from appwrite_console.models import PolicyMfaFactors
 from appwrite_console.models import PolicyDenyAliasedEmail
 from appwrite_console.models import PolicyDenyDisposableEmail
 from appwrite_console.models import PolicyDenyFreeEmail
@@ -24,7 +25,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 project = Project(client)
 
-result: Union[PolicyPasswordDictionary, PolicyPasswordHistory, PolicyPasswordStrength, PolicyPasswordPersonalData, PolicySessionAlert, PolicySessionDuration, PolicySessionInvalidation, PolicySessionLimit, PolicyUserLimit, PolicyMembershipPrivacy, PolicyDenyAliasedEmail, PolicyDenyDisposableEmail, PolicyDenyFreeEmail, PolicyDenyCorporateEmail] = project.get_policy(
+result: Union[PolicyPasswordDictionary, PolicyPasswordHistory, PolicyPasswordStrength, PolicyPasswordPersonalData, PolicySessionAlert, PolicySessionDuration, PolicySessionInvalidation, PolicySessionLimit, PolicyUserLimit, PolicyMembershipPrivacy, PolicyMfaFactors, PolicyDenyAliasedEmail, PolicyDenyDisposableEmail, PolicyDenyFreeEmail, PolicyDenyCorporateEmail] = project.get_policy(
     policy_id = ProjectPolicyId.PASSWORD_DICTIONARY
 )
 

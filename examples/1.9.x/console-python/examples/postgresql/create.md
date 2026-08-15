@@ -16,7 +16,6 @@ result: DedicatedDatabase = postgresql.create(
     specification = '<SPECIFICATION>', # optional
     replicas = 0, # optional
     sync_mode = 'async', # optional
-    standby_region = '<STANDBY_REGION>', # optional
     network_idle_timeout_seconds = 60, # optional
     network_ip_allowlist = [], # optional
     idle_timeout_minutes = 5, # optional

@@ -1,5 +1,5 @@
 ```javascript
-import { Client, Sites, Framework, BuildRuntime, Adapter } from "@appwrite.io/console";
+import { Client, Sites, Framework, BuildRuntime, Adapter, ProjectKeyScopes } from "@appwrite.io/console";
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -30,7 +30,8 @@ const result = await sites.update({
     providerPaths: [], // optional
     buildSpecification: '', // optional
     runtimeSpecification: '', // optional
-    deploymentRetention: 0 // optional
+    deploymentRetention: 0, // optional
+    scopes: [ProjectKeyScopes.ProjectRead] // optional
 });
 
 console.log(result);

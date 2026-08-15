@@ -825,77 +825,6 @@
                 ]
             }
         },
-        "\/account\/jwts": {
-            "post": {
-                "summary": "Create JWT",
-                "operationId": "accountCreateJWT",
-                "tags": [
-                    "account"
-                ],
-                "description": "Use this endpoint to create a JSON Web Token. You can use the resulting JWT to authenticate on behalf of the current user when working with the Appwrite server-side API and SDKs. The JWT secret is valid for 15 minutes from its creation and will be invalid if the user will logout in that time frame.",
-                "responses": {
-                    "201": {
-                        "description": "JWT",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/jwt"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "createJWT",
-                    "group": "tokens",
-                    "cookies": false,
-                    "type": "",
-                    "demo": "account\/create-jwt.md",
-                    "rate-limit": 120,
-                    "rate-time": 60,
-                    "rate-key": "url:{url},userId:{userId}",
-                    "scope": "account",
-                    "platforms": [
-                        "console",
-                        "client",
-                        "server"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-jwt.md",
-                    "auth": {
-                        "Project": [],
-                        "Session": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": [],
-                        "Session": [],
-                        "JWT": []
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application\/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "duration": {
-                                        "type": "integer",
-                                        "description": "Time in seconds before JWT expires. Default duration is 900 seconds, and maximum is 3600 seconds.",
-                                        "default": 900,
-                                        "x-example": 0,
-                                        "format": "int32"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "\/account\/logs": {
             "get": {
                 "summary": "List logs",
@@ -1564,20 +1493,22 @@
                                 "properties": {
                                     "factor": {
                                         "type": "string",
-                                        "description": "Factor used for verification. Must be one of following: `email`, `phone`, `totp`, `recoveryCode`.",
+                                        "description": "Factor used for verification. Must be one of following: `email`, `phone`, `totp`, `recoveryCode`, `custom`.",
                                         "x-example": "email",
                                         "enum": [
                                             "email",
                                             "phone",
                                             "totp",
-                                            "recoverycode"
+                                            "recoverycode",
+                                            "custom"
                                         ],
                                         "x-enum-name": "AuthenticationFactor",
                                         "x-enum-keys": [
                                             "email",
                                             "phone",
                                             "totp",
-                                            "recoverycode"
+                                            "recoverycode",
+                                            "custom"
                                         ]
                                     }
                                 },
@@ -3193,7 +3124,7 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to get the current device session. Defaults to 'current'.",
+                        "description": "Session ID. Use the string 'current' to get the current device session.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -3257,7 +3188,7 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to update the current device session. Defaults to 'current'.",
+                        "description": "Session ID. Use the string 'current' to update the current device session.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -3314,7 +3245,7 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to delete the current device session. Defaults to 'current'.",
+                        "description": "Session ID. Use the string 'current' to delete the current device session.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -4812,7 +4743,7 @@
                 "parameters": [
                     {
                         "name": "appId",
-                        "description": "Application unique ID or HTTPS client ID metadata document URL.",
+                        "description": "Application unique ID.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -5014,7 +4945,7 @@
                                     },
                                     "installationScopes": {
                                         "type": "array",
-                                        "description": "Scopes the application requests when installed on a team. Organization-level and project-level scopes only; use the list scopes endpoint with `type=installation` to discover available values. Maximum of 100 scopes are allowed.",
+                                        "description": "Scopes the application requests when installed on a team. Only scopes allowed by the project's OAuth2 server installation scopes configuration are accepted; use the list installation scopes endpoint to discover available values. Maximum of 100 scopes are allowed.",
                                         "default": [],
                                         "x-example": null,
                                         "items": {
@@ -10763,7 +10694,7 @@
                                     },
                                     "attributes": {
                                         "type": "array",
-                                        "description": "Array of attribute definitions to create. Each attribute should contain: key (string), type (string: string, integer, float, boolean, datetime), size (integer, required for string type), required (boolean, optional), default (mixed, optional), array (boolean, optional), and type-specific options.",
+                                        "description": "Array of attribute definitions to create. Each attribute should contain: key (string), type (string: string, varchar, text, mediumtext, longtext, integer, bigint, double, boolean, datetime, point, linestring, polygon, email, url, ip, enum), size (integer, required for string and varchar types), required (boolean, optional), default (mixed, optional), array (boolean, optional), and type-specific options.",
                                         "default": [],
                                         "x-example": null,
                                         "items": {
@@ -14403,7 +14334,7 @@
                                     },
                                     "type": {
                                         "type": "string",
-                                        "description": "Relation type",
+                                        "description": "Relationship type. Possible values are: oneToOne, oneToMany, manyToOne, manyToMany.",
                                         "x-example": "oneToOne",
                                         "enum": [
                                             "oneToOne",
@@ -14439,7 +14370,7 @@
                                     },
                                     "onDelete": {
                                         "type": "string",
-                                        "description": "Constraints option",
+                                        "description": "Delete constraint. Possible values are: cascade, restrict, setNull.",
                                         "default": "restrict",
                                         "x-example": "cascade",
                                         "enum": [
@@ -14557,7 +14488,7 @@
                                 "properties": {
                                     "onDelete": {
                                         "type": "string",
-                                        "description": "Constraints option",
+                                        "description": "Delete constraint. Possible values are: cascade, restrict, setNull.",
                                         "x-example": "cascade",
                                         "enum": [
                                             "cascade",
@@ -18717,7 +18648,7 @@
                                     },
                                     "attributes": {
                                         "type": "array",
-                                        "description": "Array of attribute definitions to create. Each attribute should contain: key (string), type (string: string, integer, float, boolean, datetime, relationship), size (integer, required for string type), required (boolean, optional), default (mixed, optional), array (boolean, optional), and type-specific options.",
+                                        "description": "Array of attribute definitions to create. Each attribute should contain: key (string), type (string: string, varchar, text, mediumtext, longtext, integer, bigint, double, boolean, datetime, point, linestring, polygon, email, url, ip, enum), size (integer, required for string and varchar types), required (boolean, optional), default (mixed, optional), array (boolean, optional), and type-specific options.",
                                         "default": [],
                                         "x-example": null,
                                         "items": {
@@ -21059,7 +20990,7 @@
                     "rate-limit": 120,
                     "rate-time": 60,
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
-                    "scope": "documents.write",
+                    "scope": "embeddings.write",
                     "platforms": [
                         "console",
                         "server"
@@ -21598,6 +21529,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -21656,7 +21588,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -21706,6 +21637,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -21764,7 +21696,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -21960,7 +21891,7 @@
                 "parameters": [
                     {
                         "name": "type",
-                        "description": "Specification type to list. Can be one of: runtimes, builds.",
+                        "description": "Specification type to list. Can be one of: runtimes, builds. Defaults to runtimes.",
                         "required": false,
                         "schema": {
                             "type": "string",
@@ -22400,6 +22331,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -22458,7 +22390,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -22508,6 +22439,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -22566,7 +22498,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -30666,12 +30597,6 @@
                                         "x-example": "async",
                                         "x-nullable": true
                                     },
-                                    "standbyRegion": {
-                                        "type": "string",
-                                        "description": "Standby region for a cross-region replica. When set, a replica is provisioned in this region for cross-region high availability. Must differ from the database region.",
-                                        "x-example": "<STANDBY_REGION>",
-                                        "x-nullable": true
-                                    },
                                     "networkIdleTimeoutSeconds": {
                                         "type": "integer",
                                         "description": "Connection idle timeout in seconds.",
@@ -30944,19 +30869,6 @@
                                         "type": "string",
                                         "description": "Replication sync mode preference. Allowed values: async, sync, quorum.",
                                         "x-example": "async",
-                                        "x-nullable": true
-                                    },
-                                    "crossRegionReplicas": {
-                                        "type": "integer",
-                                        "description": "Number of cross-region standby replicas (0-1). Cross-region replication is enabled when greater than 0.",
-                                        "x-example": 0,
-                                        "format": "int32",
-                                        "x-nullable": true
-                                    },
-                                    "standbyRegion": {
-                                        "type": "string",
-                                        "description": "Standby region for the cross-region replica. Required when enabling cross-region replication and no standby region is already configured. Must differ from the database region.",
-                                        "x-example": "<STANDBY_REGION>",
                                         "x-nullable": true
                                     },
                                     "networkIdleTimeoutSeconds": {
@@ -32905,6 +32817,12 @@
                                         "x-example": "<BACKUP_ID>",
                                         "x-nullable": true
                                     },
+                                    "targetDatabaseId": {
+                                        "type": "string",
+                                        "description": "Existing database ID to restore into. The target must be distinct, ready, and use the same engine and version.",
+                                        "x-example": "<TARGET_DATABASE_ID>",
+                                        "x-nullable": true
+                                    },
                                     "targetTime": {
                                         "type": "string",
                                         "description": "Target time for PITR (required for pitr type) as an [ISO 8601](https:\/\/www.iso.org\/iso-8601-date-and-time-format.html) datetime.",
@@ -33289,12 +33207,6 @@
                                         "x-example": "async",
                                         "x-nullable": true
                                     },
-                                    "standbyRegion": {
-                                        "type": "string",
-                                        "description": "Standby region for a cross-region replica. When set, a replica is provisioned in this region for cross-region high availability. Must differ from the database region.",
-                                        "x-example": "<STANDBY_REGION>",
-                                        "x-nullable": true
-                                    },
                                     "networkIdleTimeoutSeconds": {
                                         "type": "integer",
                                         "description": "Connection idle timeout in seconds.",
@@ -33567,19 +33479,6 @@
                                         "type": "string",
                                         "description": "Replication sync mode preference. Allowed values: async, sync, quorum.",
                                         "x-example": "async",
-                                        "x-nullable": true
-                                    },
-                                    "crossRegionReplicas": {
-                                        "type": "integer",
-                                        "description": "Number of cross-region standby replicas (0-1). Cross-region replication is enabled when greater than 0.",
-                                        "x-example": 0,
-                                        "format": "int32",
-                                        "x-nullable": true
-                                    },
-                                    "standbyRegion": {
-                                        "type": "string",
-                                        "description": "Standby region for the cross-region replica. Required when enabling cross-region replication and no standby region is already configured. Must differ from the database region.",
-                                        "x-example": "<STANDBY_REGION>",
                                         "x-nullable": true
                                     },
                                     "networkIdleTimeoutSeconds": {
@@ -35806,6 +35705,12 @@
                                         "x-example": "<BACKUP_ID>",
                                         "x-nullable": true
                                     },
+                                    "targetDatabaseId": {
+                                        "type": "string",
+                                        "description": "Existing database ID to restore into. The target must be distinct, ready, and use the same engine and version.",
+                                        "x-example": "<TARGET_DATABASE_ID>",
+                                        "x-nullable": true
+                                    },
                                     "targetTime": {
                                         "type": "string",
                                         "description": "Target time for PITR (required for pitr type) as an [ISO 8601](https:\/\/www.iso.org\/iso-8601-date-and-time-format.html) datetime.",
@@ -36133,7 +36038,7 @@
         "\/oauth2\/{project_id}\/authorize": {
             "get": {
                 "summary": "OAuth2 Authorize",
-                "operationId": "oauth2AuthorizeGet",
+                "operationId": "oauth2Authorize",
                 "tags": [
                     "oauth2"
                 ],
@@ -39417,12 +39322,6 @@
                                         "x-example": "async",
                                         "x-nullable": true
                                     },
-                                    "standbyRegion": {
-                                        "type": "string",
-                                        "description": "Standby region for a cross-region replica. When set, a replica is provisioned in this region for cross-region high availability. Must differ from the database region.",
-                                        "x-example": "<STANDBY_REGION>",
-                                        "x-nullable": true
-                                    },
                                     "networkIdleTimeoutSeconds": {
                                         "type": "integer",
                                         "description": "Connection idle timeout in seconds.",
@@ -39695,19 +39594,6 @@
                                         "type": "string",
                                         "description": "Replication sync mode preference. Allowed values: async, sync, quorum.",
                                         "x-example": "async",
-                                        "x-nullable": true
-                                    },
-                                    "crossRegionReplicas": {
-                                        "type": "integer",
-                                        "description": "Number of cross-region standby replicas (0-1). Cross-region replication is enabled when greater than 0.",
-                                        "x-example": 0,
-                                        "format": "int32",
-                                        "x-nullable": true
-                                    },
-                                    "standbyRegion": {
-                                        "type": "string",
-                                        "description": "Standby region for the cross-region replica. Required when enabling cross-region replication and no standby region is already configured. Must differ from the database region.",
-                                        "x-example": "<STANDBY_REGION>",
                                         "x-nullable": true
                                     },
                                     "networkIdleTimeoutSeconds": {
@@ -42147,6 +42033,12 @@
                                         "x-example": "<BACKUP_ID>",
                                         "x-nullable": true
                                     },
+                                    "targetDatabaseId": {
+                                        "type": "string",
+                                        "description": "Existing database ID to restore into. The target must be distinct, ready, and use the same engine and version.",
+                                        "x-example": "<TARGET_DATABASE_ID>",
+                                        "x-nullable": true
+                                    },
                                     "targetTime": {
                                         "type": "string",
                                         "description": "Target time for PITR (required for pitr type) as an [ISO 8601](https:\/\/www.iso.org\/iso-8601-date-and-time-format.html) datetime.",
@@ -43135,313 +43027,6 @@
                         "in": "query"
                     }
                 ]
-            },
-            "post": {
-                "summary": "Create project key",
-                "operationId": "projectCreateKey",
-                "tags": [
-                    "project"
-                ],
-                "description": "Create a new API key. It's recommended to have multiple API keys with strict scopes for separate functions within your project.\n\nYou can also create an ephemeral API key if you need a short-lived key instead.",
-                "responses": {
-                    "201": {
-                        "description": "Key",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/key"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "method": "createKey",
-                    "group": "keys",
-                    "cookies": false,
-                    "type": "",
-                    "demo": "project\/create-key.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "keys.write",
-                    "platforms": [
-                        "console",
-                        "server"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "auth": {
-                        "Project": [],
-                        "Key": []
-                    }
-                },
-                "security": [
-                    {
-                        "Project": [],
-                        "Key": []
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application\/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "keyId": {
-                                        "type": "string",
-                                        "description": "Key ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                        "x-example": "<KEY_ID>",
-                                        "x-appwrite": {
-                                            "idGenerator": "ID.unique"
-                                        }
-                                    },
-                                    "name": {
-                                        "type": "string",
-                                        "description": "Key name. Max length: 128 chars.",
-                                        "x-example": "<NAME>"
-                                    },
-                                    "scopes": {
-                                        "type": "array",
-                                        "description": "Key scopes list. Maximum of 200 scopes are allowed.",
-                                        "x-example": null,
-                                        "items": {
-                                            "type": "string",
-                                            "enum": [
-                                                "project.read",
-                                                "project.write",
-                                                "keys.read",
-                                                "keys.write",
-                                                "platforms.read",
-                                                "platforms.write",
-                                                "mocks.read",
-                                                "mocks.write",
-                                                "policies.read",
-                                                "policies.write",
-                                                "project.policies.read",
-                                                "project.policies.write",
-                                                "project.oauth2.read",
-                                                "project.oauth2.write",
-                                                "templates.read",
-                                                "templates.write",
-                                                "stages.read",
-                                                "stages.write",
-                                                "users.read",
-                                                "users.write",
-                                                "sessions.read",
-                                                "sessions.write",
-                                                "teams.read",
-                                                "teams.write",
-                                                "databases.read",
-                                                "databases.write",
-                                                "tables.read",
-                                                "tables.write",
-                                                "columns.read",
-                                                "columns.write",
-                                                "indexes.read",
-                                                "indexes.write",
-                                                "rows.read",
-                                                "rows.write",
-                                                "collections.read",
-                                                "collections.write",
-                                                "attributes.read",
-                                                "attributes.write",
-                                                "documents.read",
-                                                "documents.write",
-                                                "buckets.read",
-                                                "buckets.write",
-                                                "files.read",
-                                                "files.write",
-                                                "tokens.read",
-                                                "tokens.write",
-                                                "functions.read",
-                                                "functions.write",
-                                                "executions.read",
-                                                "executions.write",
-                                                "execution.read",
-                                                "execution.write",
-                                                "sites.read",
-                                                "sites.write",
-                                                "log.read",
-                                                "log.write",
-                                                "providers.read",
-                                                "providers.write",
-                                                "topics.read",
-                                                "topics.write",
-                                                "subscribers.read",
-                                                "subscribers.write",
-                                                "targets.read",
-                                                "targets.write",
-                                                "messages.read",
-                                                "messages.write",
-                                                "rules.read",
-                                                "rules.write",
-                                                "webhooks.read",
-                                                "webhooks.write",
-                                                "locale.read",
-                                                "avatars.read",
-                                                "health.read",
-                                                "assistant.read",
-                                                "migrations.read",
-                                                "migrations.write",
-                                                "schedules.read",
-                                                "schedules.write",
-                                                "vcs.read",
-                                                "vcs.write",
-                                                "insights.read",
-                                                "insights.write",
-                                                "reports.read",
-                                                "reports.write",
-                                                "presences.read",
-                                                "presences.write",
-                                                "backups.policies.read",
-                                                "backups.policies.write",
-                                                "archives.read",
-                                                "archives.write",
-                                                "restorations.read",
-                                                "restorations.write",
-                                                "dedicatedDatabases.execute",
-                                                "domains.read",
-                                                "domains.write",
-                                                "wafRules.read",
-                                                "wafRules.write",
-                                                "events.read",
-                                                "proxy.invalidations.write",
-                                                "apps.read",
-                                                "apps.write",
-                                                "oauth2.read",
-                                                "oauth2.write",
-                                                "oauth2.introspect",
-                                                "usage.read"
-                                            ],
-                                            "x-enum-name": "ProjectKeyScopes",
-                                            "x-enum-keys": [
-                                                "project.read",
-                                                "project.write",
-                                                "keys.read",
-                                                "keys.write",
-                                                "platforms.read",
-                                                "platforms.write",
-                                                "mocks.read",
-                                                "mocks.write",
-                                                "policies.read",
-                                                "policies.write",
-                                                "project.policies.read",
-                                                "project.policies.write",
-                                                "project.oauth2.read",
-                                                "project.oauth2.write",
-                                                "templates.read",
-                                                "templates.write",
-                                                "stages.read",
-                                                "stages.write",
-                                                "users.read",
-                                                "users.write",
-                                                "sessions.read",
-                                                "sessions.write",
-                                                "teams.read",
-                                                "teams.write",
-                                                "databases.read",
-                                                "databases.write",
-                                                "tables.read",
-                                                "tables.write",
-                                                "columns.read",
-                                                "columns.write",
-                                                "indexes.read",
-                                                "indexes.write",
-                                                "rows.read",
-                                                "rows.write",
-                                                "collections.read",
-                                                "collections.write",
-                                                "attributes.read",
-                                                "attributes.write",
-                                                "documents.read",
-                                                "documents.write",
-                                                "buckets.read",
-                                                "buckets.write",
-                                                "files.read",
-                                                "files.write",
-                                                "tokens.read",
-                                                "tokens.write",
-                                                "functions.read",
-                                                "functions.write",
-                                                "executions.read",
-                                                "executions.write",
-                                                "execution.read",
-                                                "execution.write",
-                                                "sites.read",
-                                                "sites.write",
-                                                "log.read",
-                                                "log.write",
-                                                "providers.read",
-                                                "providers.write",
-                                                "topics.read",
-                                                "topics.write",
-                                                "subscribers.read",
-                                                "subscribers.write",
-                                                "targets.read",
-                                                "targets.write",
-                                                "messages.read",
-                                                "messages.write",
-                                                "rules.read",
-                                                "rules.write",
-                                                "webhooks.read",
-                                                "webhooks.write",
-                                                "locale.read",
-                                                "avatars.read",
-                                                "health.read",
-                                                "assistant.read",
-                                                "migrations.read",
-                                                "migrations.write",
-                                                "schedules.read",
-                                                "schedules.write",
-                                                "vcs.read",
-                                                "vcs.write",
-                                                "insights.read",
-                                                "insights.write",
-                                                "reports.read",
-                                                "reports.write",
-                                                "presences.read",
-                                                "presences.write",
-                                                "backups.policies.read",
-                                                "backups.policies.write",
-                                                "archives.read",
-                                                "archives.write",
-                                                "restorations.read",
-                                                "restorations.write",
-                                                "dedicatedDatabases.execute",
-                                                "domains.read",
-                                                "domains.write",
-                                                "wafRules.read",
-                                                "wafRules.write",
-                                                "events.read",
-                                                "proxy.invalidations.write",
-                                                "apps.read",
-                                                "apps.write",
-                                                "oauth2.read",
-                                                "oauth2.write",
-                                                "oauth2.introspect",
-                                                "usage.read"
-                                            ]
-                                        }
-                                    },
-                                    "expire": {
-                                        "type": "string",
-                                        "description": "Expiration time in [ISO 8601](https:\/\/www.iso.org\/iso-8601-date-and-time-format.html) format. Use null for unlimited expiration.",
-                                        "x-example": "2020-10-15T06:38:00.000+00:00",
-                                        "format": "datetime",
-                                        "x-nullable": true
-                                    }
-                                },
-                                "required": [
-                                    "keyId",
-                                    "name",
-                                    "scopes"
-                                ]
-                            }
-                        }
-                    }
-                }
             }
         },
         "\/project\/keys\/ephemeral": {
@@ -43539,6 +43124,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -43597,7 +43183,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -43647,6 +43232,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -43705,7 +43291,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -43910,6 +43495,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -43968,7 +43554,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -44018,6 +43603,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -44076,7 +43662,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -44812,6 +44397,15 @@
                                     "defaultScopes": {
                                         "type": "array",
                                         "description": "List of OAuth2 scopes used when an authorization request omits the scope parameter. Every default scope must also be allowed by the OAuth2 server. Maximum of 100 scopes are allowed, each up to 128 characters long.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "installationScopes": {
+                                        "type": "array",
+                                        "description": "List of scopes an application may request when installed on a team. Omitting the parameter clears the list, so no installation scopes can be granted. Maximum of 100 scopes are allowed, each up to 128 characters long.",
                                         "default": [],
                                         "x-example": null,
                                         "items": {
@@ -50226,6 +49820,90 @@
                 }
             }
         },
+        "\/project\/policies\/mfa-factors": {
+            "patch": {
+                "summary": "Update MFA factors policy",
+                "operationId": "projectUpdateMFAFactorsPolicy",
+                "tags": [
+                    "project"
+                ],
+                "description": "Updating this policy allows you to control which factors users can use to complete an MFA challenge. Disabled factors cannot be used to create a challenge and are reported as unavailable when listing factors. The custom factor is disabled by default; enable it to deliver challenge codes through your own channel. Recovery codes always remain available as a fallback.",
+                "responses": {
+                    "200": {
+                        "description": "Project",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/project"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "updateMFAFactorsPolicy",
+                    "group": "policies",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "project\/update-mfa-factors-policy.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": [
+                        "policies.write",
+                        "project.policies.write"
+                    ],
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": [],
+                        "Key": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "totp": {
+                                        "type": "boolean",
+                                        "description": "Set to true to allow TOTP to complete an MFA challenge, or false to disable it.",
+                                        "x-example": false
+                                    },
+                                    "email": {
+                                        "type": "boolean",
+                                        "description": "Set to true to allow email to complete an MFA challenge, or false to disable it.",
+                                        "x-example": false
+                                    },
+                                    "phone": {
+                                        "type": "boolean",
+                                        "description": "Set to true to allow phone (SMS) to complete an MFA challenge, or false to disable it.",
+                                        "x-example": false
+                                    },
+                                    "custom": {
+                                        "type": "boolean",
+                                        "description": "Set to true to allow the custom factor to complete an MFA challenge, or false to disable it.",
+                                        "x-example": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/project\/policies\/password-dictionary": {
             "patch": {
                 "summary": "Update password dictionary policy",
@@ -50908,7 +50586,7 @@
                 "description": "Get a policy by its unique ID. This endpoint returns the current configuration for the requested project policy.",
                 "responses": {
                     "200": {
-                        "description": "Policy Password Dictionary, or Policy Password History, or Policy Password Strength, or Policy Password Personal Data, or Policy Session Alert, or Policy Session Duration, or Policy Session Invalidation, or Policy Session Limit, or Policy User Limit, or Policy Membership Privacy, or Policy Deny Aliased Email, or Policy Deny Disposable Email, or Policy Deny Free Email, or Policy Deny Corporate Email",
+                        "description": "Policy Password Dictionary, or Policy Password History, or Policy Password Strength, or Policy Password Personal Data, or Policy Session Alert, or Policy Session Duration, or Policy Session Invalidation, or Policy Session Limit, or Policy User Limit, or Policy Membership Privacy, or Policy MFA Factors, or Policy Deny Aliased Email, or Policy Deny Disposable Email, or Policy Deny Free Email, or Policy Deny Corporate Email",
                         "content": {
                             "application\/json": {
                                 "schema": {
@@ -50944,6 +50622,9 @@
                                             "$ref": "#\/components\/schemas\/policyMembershipPrivacy"
                                         },
                                         {
+                                            "$ref": "#\/components\/schemas\/policyMfaFactors"
+                                        },
+                                        {
                                             "$ref": "#\/components\/schemas\/policyDenyAliasedEmail"
                                         },
                                         {
@@ -50969,6 +50650,7 @@
                                             "session-limit": "#\/components\/schemas\/policySessionLimit",
                                             "user-limit": "#\/components\/schemas\/policyUserLimit",
                                             "membership-privacy": "#\/components\/schemas\/policyMembershipPrivacy",
+                                            "mfa-factors": "#\/components\/schemas\/policyMfaFactors",
                                             "deny-aliased-email": "#\/components\/schemas\/policyDenyAliasedEmail",
                                             "deny-disposable-email": "#\/components\/schemas\/policyDenyDisposableEmail",
                                             "deny-free-email": "#\/components\/schemas\/policyDenyFreeEmail",
@@ -51014,7 +50696,7 @@
                 "parameters": [
                     {
                         "name": "policyId",
-                        "description": "Policy ID. Can be one of: password-dictionary, password-history, password-strength, password-personal-data, session-alert, session-duration, session-invalidation, session-limit, user-limit, membership-privacy, deny-aliased-email, deny-disposable-email, deny-free-email, deny-corporate-email.",
+                        "description": "Policy ID. Can be one of: password-dictionary, password-history, password-strength, password-personal-data, session-alert, session-duration, session-invalidation, session-limit, user-limit, membership-privacy, mfa-factors, deny-aliased-email, deny-disposable-email, deny-free-email, deny-corporate-email.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -51030,6 +50712,7 @@
                                 "session-limit",
                                 "user-limit",
                                 "membership-privacy",
+                                "mfa-factors",
                                 "deny-aliased-email",
                                 "deny-disposable-email",
                                 "deny-free-email",
@@ -51047,6 +50730,7 @@
                                 "session-limit",
                                 "user-limit",
                                 "membership-privacy",
+                                "mfa-factors",
                                 "deny-aliased-email",
                                 "deny-disposable-email",
                                 "deny-free-email",
@@ -54238,6 +53922,230 @@
                                         "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
+                                    },
+                                    "scopes": {
+                                        "type": "array",
+                                        "description": "List of scopes allowed for API key auto-generated for every site build and SSR execution. Maximum of 200 scopes are allowed.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string",
+                                            "enum": [
+                                                "project.read",
+                                                "project.write",
+                                                "keys.read",
+                                                "keys.write",
+                                                "platforms.read",
+                                                "platforms.write",
+                                                "mocks.read",
+                                                "mocks.write",
+                                                "policies.read",
+                                                "policies.write",
+                                                "project.policies.read",
+                                                "project.policies.write",
+                                                "project.oauth2.read",
+                                                "project.oauth2.write",
+                                                "templates.read",
+                                                "templates.write",
+                                                "stages.read",
+                                                "stages.write",
+                                                "users.read",
+                                                "users.write",
+                                                "sessions.read",
+                                                "sessions.write",
+                                                "teams.read",
+                                                "teams.write",
+                                                "databases.read",
+                                                "databases.write",
+                                                "tables.read",
+                                                "tables.write",
+                                                "columns.read",
+                                                "columns.write",
+                                                "indexes.read",
+                                                "indexes.write",
+                                                "rows.read",
+                                                "rows.write",
+                                                "embeddings.write",
+                                                "collections.read",
+                                                "collections.write",
+                                                "attributes.read",
+                                                "attributes.write",
+                                                "documents.read",
+                                                "documents.write",
+                                                "buckets.read",
+                                                "buckets.write",
+                                                "files.read",
+                                                "files.write",
+                                                "tokens.read",
+                                                "tokens.write",
+                                                "functions.read",
+                                                "functions.write",
+                                                "executions.read",
+                                                "executions.write",
+                                                "execution.read",
+                                                "execution.write",
+                                                "sites.read",
+                                                "sites.write",
+                                                "log.read",
+                                                "log.write",
+                                                "providers.read",
+                                                "providers.write",
+                                                "topics.read",
+                                                "topics.write",
+                                                "subscribers.read",
+                                                "subscribers.write",
+                                                "targets.read",
+                                                "targets.write",
+                                                "messages.read",
+                                                "messages.write",
+                                                "rules.read",
+                                                "rules.write",
+                                                "webhooks.read",
+                                                "webhooks.write",
+                                                "locale.read",
+                                                "avatars.read",
+                                                "health.read",
+                                                "assistant.read",
+                                                "migrations.read",
+                                                "migrations.write",
+                                                "schedules.read",
+                                                "schedules.write",
+                                                "vcs.read",
+                                                "vcs.write",
+                                                "insights.read",
+                                                "insights.write",
+                                                "reports.read",
+                                                "reports.write",
+                                                "presences.read",
+                                                "presences.write",
+                                                "backups.policies.read",
+                                                "backups.policies.write",
+                                                "archives.read",
+                                                "archives.write",
+                                                "restorations.read",
+                                                "restorations.write",
+                                                "domains.read",
+                                                "domains.write",
+                                                "wafRules.read",
+                                                "wafRules.write",
+                                                "events.read",
+                                                "proxy.invalidations.write",
+                                                "apps.read",
+                                                "apps.write",
+                                                "oauth2.read",
+                                                "oauth2.write",
+                                                "oauth2.introspect",
+                                                "usage.read"
+                                            ],
+                                            "x-enum-name": "ProjectKeyScopes",
+                                            "x-enum-keys": [
+                                                "project.read",
+                                                "project.write",
+                                                "keys.read",
+                                                "keys.write",
+                                                "platforms.read",
+                                                "platforms.write",
+                                                "mocks.read",
+                                                "mocks.write",
+                                                "policies.read",
+                                                "policies.write",
+                                                "project.policies.read",
+                                                "project.policies.write",
+                                                "project.oauth2.read",
+                                                "project.oauth2.write",
+                                                "templates.read",
+                                                "templates.write",
+                                                "stages.read",
+                                                "stages.write",
+                                                "users.read",
+                                                "users.write",
+                                                "sessions.read",
+                                                "sessions.write",
+                                                "teams.read",
+                                                "teams.write",
+                                                "databases.read",
+                                                "databases.write",
+                                                "tables.read",
+                                                "tables.write",
+                                                "columns.read",
+                                                "columns.write",
+                                                "indexes.read",
+                                                "indexes.write",
+                                                "rows.read",
+                                                "rows.write",
+                                                "embeddings.write",
+                                                "collections.read",
+                                                "collections.write",
+                                                "attributes.read",
+                                                "attributes.write",
+                                                "documents.read",
+                                                "documents.write",
+                                                "buckets.read",
+                                                "buckets.write",
+                                                "files.read",
+                                                "files.write",
+                                                "tokens.read",
+                                                "tokens.write",
+                                                "functions.read",
+                                                "functions.write",
+                                                "executions.read",
+                                                "executions.write",
+                                                "execution.read",
+                                                "execution.write",
+                                                "sites.read",
+                                                "sites.write",
+                                                "log.read",
+                                                "log.write",
+                                                "providers.read",
+                                                "providers.write",
+                                                "topics.read",
+                                                "topics.write",
+                                                "subscribers.read",
+                                                "subscribers.write",
+                                                "targets.read",
+                                                "targets.write",
+                                                "messages.read",
+                                                "messages.write",
+                                                "rules.read",
+                                                "rules.write",
+                                                "webhooks.read",
+                                                "webhooks.write",
+                                                "locale.read",
+                                                "avatars.read",
+                                                "health.read",
+                                                "assistant.read",
+                                                "migrations.read",
+                                                "migrations.write",
+                                                "schedules.read",
+                                                "schedules.write",
+                                                "vcs.read",
+                                                "vcs.write",
+                                                "insights.read",
+                                                "insights.write",
+                                                "reports.read",
+                                                "reports.write",
+                                                "presences.read",
+                                                "presences.write",
+                                                "backups.policies.read",
+                                                "backups.policies.write",
+                                                "archives.read",
+                                                "archives.write",
+                                                "restorations.read",
+                                                "restorations.write",
+                                                "domains.read",
+                                                "domains.write",
+                                                "wafRules.read",
+                                                "wafRules.write",
+                                                "events.read",
+                                                "proxy.invalidations.write",
+                                                "apps.read",
+                                                "apps.write",
+                                                "oauth2.read",
+                                                "oauth2.write",
+                                                "oauth2.introspect",
+                                                "usage.read"
+                                            ]
+                                        }
                                     }
                                 },
                                 "required": [
@@ -54353,7 +54261,7 @@
                 "parameters": [
                     {
                         "name": "type",
-                        "description": "Specification type to list. Can be one of: runtimes, builds.",
+                        "description": "Specification type to list. Can be one of: runtimes, builds. Defaults to runtimes.",
                         "required": false,
                         "schema": {
                             "type": "string",
@@ -54865,6 +54773,230 @@
                                         "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
+                                    },
+                                    "scopes": {
+                                        "type": "array",
+                                        "description": "List of scopes allowed for API key auto-generated for every site build and SSR execution. Maximum of 200 scopes are allowed.",
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string",
+                                            "enum": [
+                                                "project.read",
+                                                "project.write",
+                                                "keys.read",
+                                                "keys.write",
+                                                "platforms.read",
+                                                "platforms.write",
+                                                "mocks.read",
+                                                "mocks.write",
+                                                "policies.read",
+                                                "policies.write",
+                                                "project.policies.read",
+                                                "project.policies.write",
+                                                "project.oauth2.read",
+                                                "project.oauth2.write",
+                                                "templates.read",
+                                                "templates.write",
+                                                "stages.read",
+                                                "stages.write",
+                                                "users.read",
+                                                "users.write",
+                                                "sessions.read",
+                                                "sessions.write",
+                                                "teams.read",
+                                                "teams.write",
+                                                "databases.read",
+                                                "databases.write",
+                                                "tables.read",
+                                                "tables.write",
+                                                "columns.read",
+                                                "columns.write",
+                                                "indexes.read",
+                                                "indexes.write",
+                                                "rows.read",
+                                                "rows.write",
+                                                "embeddings.write",
+                                                "collections.read",
+                                                "collections.write",
+                                                "attributes.read",
+                                                "attributes.write",
+                                                "documents.read",
+                                                "documents.write",
+                                                "buckets.read",
+                                                "buckets.write",
+                                                "files.read",
+                                                "files.write",
+                                                "tokens.read",
+                                                "tokens.write",
+                                                "functions.read",
+                                                "functions.write",
+                                                "executions.read",
+                                                "executions.write",
+                                                "execution.read",
+                                                "execution.write",
+                                                "sites.read",
+                                                "sites.write",
+                                                "log.read",
+                                                "log.write",
+                                                "providers.read",
+                                                "providers.write",
+                                                "topics.read",
+                                                "topics.write",
+                                                "subscribers.read",
+                                                "subscribers.write",
+                                                "targets.read",
+                                                "targets.write",
+                                                "messages.read",
+                                                "messages.write",
+                                                "rules.read",
+                                                "rules.write",
+                                                "webhooks.read",
+                                                "webhooks.write",
+                                                "locale.read",
+                                                "avatars.read",
+                                                "health.read",
+                                                "assistant.read",
+                                                "migrations.read",
+                                                "migrations.write",
+                                                "schedules.read",
+                                                "schedules.write",
+                                                "vcs.read",
+                                                "vcs.write",
+                                                "insights.read",
+                                                "insights.write",
+                                                "reports.read",
+                                                "reports.write",
+                                                "presences.read",
+                                                "presences.write",
+                                                "backups.policies.read",
+                                                "backups.policies.write",
+                                                "archives.read",
+                                                "archives.write",
+                                                "restorations.read",
+                                                "restorations.write",
+                                                "domains.read",
+                                                "domains.write",
+                                                "wafRules.read",
+                                                "wafRules.write",
+                                                "events.read",
+                                                "proxy.invalidations.write",
+                                                "apps.read",
+                                                "apps.write",
+                                                "oauth2.read",
+                                                "oauth2.write",
+                                                "oauth2.introspect",
+                                                "usage.read"
+                                            ],
+                                            "x-enum-name": "ProjectKeyScopes",
+                                            "x-enum-keys": [
+                                                "project.read",
+                                                "project.write",
+                                                "keys.read",
+                                                "keys.write",
+                                                "platforms.read",
+                                                "platforms.write",
+                                                "mocks.read",
+                                                "mocks.write",
+                                                "policies.read",
+                                                "policies.write",
+                                                "project.policies.read",
+                                                "project.policies.write",
+                                                "project.oauth2.read",
+                                                "project.oauth2.write",
+                                                "templates.read",
+                                                "templates.write",
+                                                "stages.read",
+                                                "stages.write",
+                                                "users.read",
+                                                "users.write",
+                                                "sessions.read",
+                                                "sessions.write",
+                                                "teams.read",
+                                                "teams.write",
+                                                "databases.read",
+                                                "databases.write",
+                                                "tables.read",
+                                                "tables.write",
+                                                "columns.read",
+                                                "columns.write",
+                                                "indexes.read",
+                                                "indexes.write",
+                                                "rows.read",
+                                                "rows.write",
+                                                "embeddings.write",
+                                                "collections.read",
+                                                "collections.write",
+                                                "attributes.read",
+                                                "attributes.write",
+                                                "documents.read",
+                                                "documents.write",
+                                                "buckets.read",
+                                                "buckets.write",
+                                                "files.read",
+                                                "files.write",
+                                                "tokens.read",
+                                                "tokens.write",
+                                                "functions.read",
+                                                "functions.write",
+                                                "executions.read",
+                                                "executions.write",
+                                                "execution.read",
+                                                "execution.write",
+                                                "sites.read",
+                                                "sites.write",
+                                                "log.read",
+                                                "log.write",
+                                                "providers.read",
+                                                "providers.write",
+                                                "topics.read",
+                                                "topics.write",
+                                                "subscribers.read",
+                                                "subscribers.write",
+                                                "targets.read",
+                                                "targets.write",
+                                                "messages.read",
+                                                "messages.write",
+                                                "rules.read",
+                                                "rules.write",
+                                                "webhooks.read",
+                                                "webhooks.write",
+                                                "locale.read",
+                                                "avatars.read",
+                                                "health.read",
+                                                "assistant.read",
+                                                "migrations.read",
+                                                "migrations.write",
+                                                "schedules.read",
+                                                "schedules.write",
+                                                "vcs.read",
+                                                "vcs.write",
+                                                "insights.read",
+                                                "insights.write",
+                                                "reports.read",
+                                                "reports.write",
+                                                "presences.read",
+                                                "presences.write",
+                                                "backups.policies.read",
+                                                "backups.policies.write",
+                                                "archives.read",
+                                                "archives.write",
+                                                "restorations.read",
+                                                "restorations.write",
+                                                "domains.read",
+                                                "domains.write",
+                                                "wafRules.read",
+                                                "wafRules.write",
+                                                "events.read",
+                                                "proxy.invalidations.write",
+                                                "apps.read",
+                                                "apps.write",
+                                                "oauth2.read",
+                                                "oauth2.write",
+                                                "oauth2.introspect",
+                                                "usage.read"
+                                            ]
+                                        },
+                                        "x-nullable": true
                                     }
                                 },
                                 "required": [
@@ -58866,6 +58998,363 @@
                 }
             }
         },
+        "\/tablesdb\/{databaseId}\/migrations": {
+            "get": {
+                "summary": "List migrations",
+                "operationId": "tablesDBListMigrations",
+                "tags": [
+                    "tablesDB"
+                ],
+                "description": "List the dedicated migrations for a TablesDB database. A database has at most one in-flight migration.",
+                "responses": {
+                    "200": {
+                        "description": "Database Migrations List",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/databaseMigrationList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "listMigrations",
+                    "group": "migrations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "tablesdb\/list-migrations.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "migrations.read",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": [],
+                        "Key": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create migration",
+                "operationId": "tablesDBCreateMigration",
+                "tags": [
+                    "tablesDB"
+                ],
+                "description": "Start migrating a serverless TablesDB database onto a dedicated MySQL compute. Data is copied to the target while the source stays live, with a brief read-only window during cutover.",
+                "responses": {
+                    "201": {
+                        "description": "Database Migration",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/databaseMigration"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "createMigration",
+                    "group": "migrations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "tablesdb\/create-migration.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "migrations.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": [],
+                        "Key": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "specification": {
+                                        "type": "string",
+                                        "description": "Dedicated compute specification to provision as the migration target (e.g. s-2vcpu-4gb). The migration always targets a dedicated compute, so `serverless` is not accepted.",
+                                        "x-example": "s-1vcpu-1gb"
+                                    },
+                                    "autoCutover": {
+                                        "type": "boolean",
+                                        "description": "Whether to cut over automatically once the copy is verified. When disabled the migration parks at ready_to_cutover and holds there until the cutover is performed manually.",
+                                        "default": true,
+                                        "x-example": false
+                                    }
+                                },
+                                "required": [
+                                    "specification"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/tablesdb\/{databaseId}\/migrations\/{migrationId}": {
+            "get": {
+                "summary": "Get migration",
+                "operationId": "tablesDBGetMigration",
+                "tags": [
+                    "tablesDB"
+                ],
+                "description": "Get a single dedicated migration for a TablesDB database by its ID.",
+                "responses": {
+                    "200": {
+                        "description": "Database Migration",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/databaseMigration"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getMigration",
+                    "group": "migrations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "tablesdb\/get-migration.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "migrations.read",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": [],
+                        "Key": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "migrationId",
+                        "description": "Migration ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<MIGRATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete migration",
+                "operationId": "tablesDBDeleteMigration",
+                "tags": [
+                    "tablesDB"
+                ],
+                "description": "Abort an in-flight TablesDB dedicated migration. Only allowed before cutover; once the migration has cut over it cannot be aborted.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "deleteMigration",
+                    "group": "migrations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "tablesdb\/delete-migration.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "migrations.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "produces": [
+                        "application\/json"
+                    ],
+                    "auth": {
+                        "Project": [],
+                        "Key": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "migrationId",
+                        "description": "Migration ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<MIGRATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/tablesdb\/{databaseId}\/migrations\/{migrationId}\/cutover": {
+            "post": {
+                "summary": "Cutover migration",
+                "operationId": "tablesDBCutoverMigration",
+                "tags": [
+                    "tablesDB"
+                ],
+                "description": "Cut a verified TablesDB migration over to its dedicated compute. Only applies to a migration created with `autoCutover` disabled, which waits at `ready_to_cutover` until this is called. The routing flip happens shortly after this returns, with a brief read-only window. One call buys one attempt: a cutover that fails a check returns the migration to `verifying` and parks it again, so call this once more to retry.",
+                "responses": {
+                    "200": {
+                        "description": "Database Migration",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/databaseMigration"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "cutoverMigration",
+                    "group": "migrations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "tablesdb\/cutover-migration.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "migrations.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": [],
+                        "Key": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "migrationId",
+                        "description": "Migration ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<MIGRATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
         "\/tablesdb\/{databaseId}\/operations": {
             "get": {
                 "summary": "List operations",
@@ -59291,7 +59780,7 @@
                                     },
                                     "columns": {
                                         "type": "array",
-                                        "description": "Array of column definitions to create. Each column should contain: key (string), type (string: string, integer, float, boolean, datetime, relationship), size (integer, required for string type), required (boolean, optional), default (mixed, optional), array (boolean, optional), and type-specific options.",
+                                        "description": "Array of column definitions to create. Each column should contain: key (string), type (string: string, varchar, text, mediumtext, longtext, integer, bigint, double, boolean, datetime, point, linestring, polygon, email, url, ip, enum), size (integer, required for string and varchar types), required (boolean, optional), default (mixed, optional), array (boolean, optional), and type-specific options.",
                                         "default": [],
                                         "x-example": null,
                                         "items": {
@@ -62956,7 +63445,7 @@
                                     },
                                     "type": {
                                         "type": "string",
-                                        "description": "Relation type",
+                                        "description": "Relationship type. Possible values are: oneToOne, oneToMany, manyToOne, manyToMany.",
                                         "x-example": "oneToOne",
                                         "enum": [
                                             "oneToOne",
@@ -62992,7 +63481,7 @@
                                     },
                                     "onDelete": {
                                         "type": "string",
-                                        "description": "Constraints option",
+                                        "description": "Delete constraint. Possible values are: cascade, restrict, setNull.",
                                         "default": "restrict",
                                         "x-example": "cascade",
                                         "enum": [
@@ -64350,7 +64839,7 @@
                                 "properties": {
                                     "onDelete": {
                                         "type": "string",
-                                        "description": "Constraints option",
+                                        "description": "Delete constraint. Possible values are: cascade, restrict, setNull.",
                                         "x-example": "cascade",
                                         "enum": [
                                             "cascade",
@@ -70034,6 +70523,106 @@
                             "x-enum-keys": [
                                 "totp"
                             ]
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/users\/{userId}\/mfa\/challenges\/{challengeId}": {
+            "get": {
+                "summary": "Get MFA challenge",
+                "operationId": "usersGetMFAChallenge",
+                "tags": [
+                    "users"
+                ],
+                "description": "Get a custom MFA challenge for a user, including the code to be delivered through your own channel.",
+                "responses": {
+                    "200": {
+                        "description": "MFA Challenge Secret",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/mfaChallengeSecret"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getMFAChallenge",
+                    "group": "mfa",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "users\/get-mfa-challenge.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "users.read",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "methods": [
+                        {
+                            "name": "getMFAChallenge",
+                            "namespace": "users",
+                            "desc": "",
+                            "auth": {
+                                "Project": [],
+                                "Key": []
+                            },
+                            "parameters": [
+                                "userId",
+                                "challengeId"
+                            ],
+                            "required": [
+                                "userId",
+                                "challengeId"
+                            ],
+                            "responses": [
+                                {
+                                    "code": 200,
+                                    "model": "#\/components\/schemas\/mfaChallengeSecret"
+                                }
+                            ],
+                            "description": "",
+                            "demo": "users\/get-mfa-challenge.md",
+                            "public": true
+                        }
+                    ],
+                    "auth": {
+                        "Project": [],
+                        "Key": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "description": "User ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<USER_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "challengeId",
+                        "description": "ID of the challenge.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<CHALLENGE_ID>"
                         },
                         "in": "path"
                     }
@@ -76148,6 +76737,19 @@
                                         "default": "ip",
                                         "x-example": "ip"
                                     },
+                                    "strategy": {
+                                        "type": "string",
+                                        "description": "Rate limit strategy. `fixedWindow` counts requests in discrete intervals, `slidingWindow` weights the previous interval for smoother limiting, and `tokenBucket` refills allowance continuously to permit short bursts.",
+                                        "default": "fixedWindow",
+                                        "x-example": "fixedWindow"
+                                    },
+                                    "maxBucketSize": {
+                                        "type": "integer",
+                                        "description": "Maximum number of tokens the bucket can hold for the `tokenBucket` strategy, controlling how large a burst is allowed. The sustained refill rate is `limit \/ interval`. Defaults to `limit` when omitted. Ignored by other strategies.",
+                                        "x-example": 1,
+                                        "format": "int32",
+                                        "x-nullable": true
+                                    },
                                     "priority": {
                                         "type": "integer",
                                         "description": "Evaluation priority. Lower numbers run earlier.",
@@ -76290,6 +76892,13 @@
                                         "type": "string",
                                         "description": "Rate limit key. Use `ip` to limit per client IP or `userId` to limit per authenticated user. Requests without an authenticated user skip `userId` rules.",
                                         "x-example": "ip",
+                                        "x-nullable": true
+                                    },
+                                    "maxBucketSize": {
+                                        "type": "integer",
+                                        "description": "Maximum number of tokens the bucket can hold for the `tokenBucket` strategy, controlling how large a burst is allowed. The sustained refill rate is `limit \/ interval`. Ignored by other strategies. The strategy itself cannot be changed after creation.",
+                                        "x-example": 1,
+                                        "format": "int32",
                                         "x-nullable": true
                                     },
                                     "priority": {
@@ -77223,10 +77832,6 @@
             "description": "The Locale service allows you to customize your app based on your users' location."
         },
         {
-            "name": "users",
-            "description": "The Users service allows you to manage your project users."
-        },
-        {
             "name": "messaging",
             "description": "The Messaging service allows you to send messages to any provider type (SMTP, push notification, SMS, etc.)."
         },
@@ -77273,6 +77878,10 @@
         {
             "name": "tokens",
             "description": "The Tokens service allows you to create and manage resource tokens for secure file access."
+        },
+        {
+            "name": "users",
+            "description": "The Users service allows you to manage your project users."
         },
         {
             "name": "storage",
@@ -78325,6 +78934,9 @@
                                     "$ref": "#\/components\/schemas\/policyMembershipPrivacy"
                                 },
                                 {
+                                    "$ref": "#\/components\/schemas\/policyMfaFactors"
+                                },
+                                {
                                     "$ref": "#\/components\/schemas\/policyDenyAliasedEmail"
                                 },
                                 {
@@ -78350,6 +78962,7 @@
                                     "session-limit": "#\/components\/schemas\/policySessionLimit",
                                     "user-limit": "#\/components\/schemas\/policyUserLimit",
                                     "membership-privacy": "#\/components\/schemas\/policyMembershipPrivacy",
+                                    "mfa-factors": "#\/components\/schemas\/policyMfaFactors",
                                     "deny-aliased-email": "#\/components\/schemas\/policyDenyAliasedEmail",
                                     "deny-disposable-email": "#\/components\/schemas\/policyDenyDisposableEmail",
                                     "deny-free-email": "#\/components\/schemas\/policyDenyFreeEmail",
@@ -85669,6 +86282,14 @@
                         "description": "Status of latest deployment. Possible values are \"waiting\", \"processing\", \"building\", \"ready\", and \"failed\".",
                         "x-example": "ready"
                     },
+                    "scopes": {
+                        "type": "array",
+                        "description": "Allowed permission scopes.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": "users.read"
+                    },
                     "vars": {
                         "type": "array",
                         "description": "Site variables.",
@@ -85793,6 +86414,7 @@
                     "latestDeploymentId",
                     "latestDeploymentCreatedAt",
                     "latestDeploymentStatus",
+                    "scopes",
                     "vars",
                     "timeout",
                     "installCommand",
@@ -85829,6 +86451,7 @@
                     "latestDeploymentId": "5e5ea5c16897e",
                     "latestDeploymentCreatedAt": "2020-10-15T06:38:00.000+00:00",
                     "latestDeploymentStatus": "ready",
+                    "scopes": "users.read",
                     "vars": [],
                     "timeout": 300,
                     "installCommand": "npm install",
@@ -86912,6 +87535,17 @@
                         ],
                         "nullable": true
                     },
+                    "oAuth2ServerInstallationScopes": {
+                        "type": "array",
+                        "description": "Scopes an application may request when installed on a team",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "project:all"
+                        ],
+                        "nullable": true
+                    },
                     "oAuth2ServerAuthorizationDetailsTypes": {
                         "type": "array",
                         "description": "OAuth2 server accepted RFC 9396 authorization_details types",
@@ -87067,6 +87701,9 @@
                     ],
                     "oAuth2ServerDefaultScopes": [
                         "read"
+                    ],
+                    "oAuth2ServerInstallationScopes": [
+                        "project:all"
                     ],
                     "oAuth2ServerAuthorizationDetailsTypes": [
                         "calendar"
@@ -89788,6 +90425,51 @@
                     "userAccessedAt": true
                 }
             },
+            "policyMfaFactors": {
+                "description": "Policy MFA Factors",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Policy ID.",
+                        "x-example": "password-dictionary"
+                    },
+                    "totp": {
+                        "type": "boolean",
+                        "description": "Whether TOTP can be used to complete an MFA challenge.",
+                        "x-example": true
+                    },
+                    "email": {
+                        "type": "boolean",
+                        "description": "Whether email can be used to complete an MFA challenge.",
+                        "x-example": true
+                    },
+                    "phone": {
+                        "type": "boolean",
+                        "description": "Whether phone (SMS) can be used to complete an MFA challenge.",
+                        "x-example": true
+                    },
+                    "custom": {
+                        "type": "boolean",
+                        "description": "Whether the custom factor can be used to complete an MFA challenge.",
+                        "x-example": true
+                    }
+                },
+                "required": [
+                    "$id",
+                    "totp",
+                    "email",
+                    "phone",
+                    "custom"
+                ],
+                "example": {
+                    "$id": "password-dictionary",
+                    "totp": true,
+                    "email": true,
+                    "phone": true,
+                    "custom": true
+                }
+            },
             "platformWeb": {
                 "description": "Platform Web",
                 "type": "object",
@@ -90673,6 +91355,51 @@
                     "expire": "2020-10-15T06:38:00.000+00:00"
                 }
             },
+            "mfaChallengeSecret": {
+                "description": "MFA Challenge Secret",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Token ID.",
+                        "x-example": "bb8ea5c16897e"
+                    },
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "Token creation date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "description": "User ID.",
+                        "x-example": "5e5ea5c168bb8"
+                    },
+                    "expire": {
+                        "type": "string",
+                        "description": "Token expiration date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "code": {
+                        "type": "string",
+                        "description": "Challenge code to be delivered to the end user through a custom channel.",
+                        "x-example": "446372"
+                    }
+                },
+                "required": [
+                    "$id",
+                    "$createdAt",
+                    "userId",
+                    "expire",
+                    "code"
+                ],
+                "example": {
+                    "$id": "bb8ea5c16897e",
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "userId": "5e5ea5c168bb8",
+                    "expire": "2020-10-15T06:38:00.000+00:00",
+                    "code": "446372"
+                }
+            },
             "mfaRecoveryCodes": {
                 "description": "MFA Recovery Codes",
                 "type": "object",
@@ -90746,19 +91473,26 @@
                         "type": "boolean",
                         "description": "Can recovery code be used for MFA challenge for this account.",
                         "x-example": true
+                    },
+                    "custom": {
+                        "type": "boolean",
+                        "description": "Can custom factor be used for MFA challenge for this account.",
+                        "x-example": true
                     }
                 },
                 "required": [
                     "totp",
                     "phone",
                     "email",
-                    "recoveryCode"
+                    "recoveryCode",
+                    "custom"
                 ],
                 "example": {
                     "totp": true,
                     "phone": true,
                     "email": true,
-                    "recoveryCode": true
+                    "recoveryCode": true,
+                    "custom": true
                 }
             },
             "provider": {
@@ -93344,6 +94078,130 @@
                     "branches": []
                 }
             },
+            "databaseMigration": {
+                "description": "Database Migration",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Database migration ID.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "Migration creation time in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "$updatedAt": {
+                        "type": "string",
+                        "description": "Migration update time in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "Project ID that owns the migrating database.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "databaseId": {
+                        "type": "string",
+                        "description": "Logical database ID being migrated.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "specification": {
+                        "type": "string",
+                        "description": "Dedicated compute specification provisioned for the migration target.",
+                        "x-example": "s-2vcpu-4gb"
+                    },
+                    "phase": {
+                        "type": "string",
+                        "description": "Migration phase. Possible values: pending, provisioned, capturing, backfilling, catching_up, verifying, ready_to_cutover, cutover, soaking, done, failed, rolled_back.",
+                        "x-example": "pending"
+                    },
+                    "attempt": {
+                        "type": "integer",
+                        "description": "Number of times a migration step has failed and been recorded.",
+                        "x-example": 0,
+                        "format": "int32"
+                    },
+                    "lastError": {
+                        "type": "string",
+                        "description": "Reason the most recent migration step failed, empty while none has.",
+                        "x-example": ""
+                    },
+                    "lagDocuments": {
+                        "type": "integer",
+                        "description": "Number of documents still pending replication to the target.",
+                        "x-example": 0,
+                        "format": "int32"
+                    },
+                    "verifiedAt": {
+                        "type": "string",
+                        "description": "Time the migrated data was verified against the source in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "cutoverAt": {
+                        "type": "string",
+                        "description": "Time routing was flipped to the target in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "soakUntil": {
+                        "type": "string",
+                        "description": "Time the post-cutover soak window ends in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "autoCutover": {
+                        "type": "boolean",
+                        "description": "Whether the migration cuts over automatically once ready. Set when the migration is created and never changed afterwards, so it always reports what was asked for.",
+                        "x-example": true
+                    },
+                    "cutoverRequested": {
+                        "type": "boolean",
+                        "description": "Whether a cutover has been requested and not yet attempted. Set by the cutover endpoint and cleared when the attempt is made, so a cutover that fails a check parks the migration again rather than retrying on its own.",
+                        "x-example": false
+                    },
+                    "paused": {
+                        "type": "boolean",
+                        "description": "Whether the migration is paused.",
+                        "x-example": false
+                    }
+                },
+                "required": [
+                    "$id",
+                    "$createdAt",
+                    "$updatedAt",
+                    "projectId",
+                    "databaseId",
+                    "specification",
+                    "phase",
+                    "attempt",
+                    "lastError",
+                    "lagDocuments",
+                    "verifiedAt",
+                    "cutoverAt",
+                    "soakUntil",
+                    "autoCutover",
+                    "cutoverRequested",
+                    "paused"
+                ],
+                "example": {
+                    "$id": "5e5ea5c16897e",
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                    "projectId": "5e5ea5c16897e",
+                    "databaseId": "5e5ea5c16897e",
+                    "specification": "s-2vcpu-4gb",
+                    "phase": "pending",
+                    "attempt": 0,
+                    "lastError": "",
+                    "lagDocuments": 0,
+                    "verifiedAt": "2020-10-15T06:38:00.000+00:00",
+                    "cutoverAt": "2020-10-15T06:38:00.000+00:00",
+                    "soakUntil": "2020-10-15T06:38:00.000+00:00",
+                    "autoCutover": true,
+                    "cutoverRequested": false,
+                    "paused": false
+                }
+            },
             "dedicatedDatabase": {
                 "description": "DedicatedDatabase",
                 "type": "object",
@@ -93507,12 +94365,6 @@
                         "description": "Replication sync mode: async, sync, or quorum.",
                         "x-example": "async"
                     },
-                    "crossRegionReplicas": {
-                        "type": "integer",
-                        "description": "Number of cross-region replicas. Cross-region availability is enabled when greater than 0.",
-                        "x-example": 1,
-                        "format": "int32"
-                    },
                     "networkMaxConnections": {
                         "type": "integer",
                         "description": "Maximum concurrent client connections. This is the limit a client pool may reach; the engine's own max_connections reported by the status endpoint is a smaller backend limit the pooler multiplexes onto and does not constrain a client pool.",
@@ -93651,7 +94503,6 @@
                     "nodePool",
                     "replicas",
                     "syncMode",
-                    "crossRegionReplicas",
                     "networkMaxConnections",
                     "networkIdleTimeoutSeconds",
                     "networkIPAllowlist",
@@ -93702,7 +94553,6 @@
                     "nodePool": "db-pool-4vcpu-8gb",
                     "replicas": 2,
                     "syncMode": "async",
-                    "crossRegionReplicas": 1,
                     "networkMaxConnections": 500,
                     "networkIdleTimeoutSeconds": 900,
                     "networkIPAllowlist": [
@@ -93835,7 +94685,12 @@
                     },
                     "databaseId": {
                         "type": "string",
-                        "description": "Database ID being restored.",
+                        "description": "Database ID being restored into.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "sourceDatabaseId": {
+                        "type": "string",
+                        "description": "Source database ID when restoring a backup into another database.",
                         "x-example": "5e5ea5c16897e"
                     },
                     "projectId": {
@@ -93883,6 +94738,7 @@
                     "$id",
                     "$createdAt",
                     "databaseId",
+                    "sourceDatabaseId",
                     "projectId",
                     "backupId",
                     "type",
@@ -93896,6 +94752,7 @@
                     "$id": "5e5ea5c16897e",
                     "$createdAt": "2020-10-15T06:38:00.000+00:00",
                     "databaseId": "5e5ea5c16897e",
+                    "sourceDatabaseId": "5e5ea5c16897e",
                     "projectId": "5e5ea5c16897e",
                     "backupId": "5e5ea5c16897e",
                     "type": "backup",
@@ -93912,7 +94769,7 @@
                 "properties": {
                     "health": {
                         "type": "string",
-                        "description": "Overall health status: healthy, degraded, or unhealthy.",
+                        "description": "Overall health status: healthy, degraded, unhealthy, or unknown when nothing could be measured.",
                         "x-example": "healthy"
                     },
                     "ready": {
@@ -93979,8 +94836,9 @@
                     },
                     "syncStateConfirmed": {
                         "type": "boolean",
-                        "description": "Whether the reported sync state was read from the engine. When false the state could not be confirmed and the other sync fields carry no reading.",
-                        "x-example": true
+                        "description": "Whether the other sync fields are an engine reading rather than a recorded estimate. True when the primary answered what it is enforcing, including when that answer contradicted the record, in which case the contradicted values are replaced by the ones the engine reports. False when the reading could not be taken: the probe did not answer, there was no engine to ask, or the values describe a configuration change just applied rather than anything measured. Absent when no engine was asked at all, so an unprobed database is distinguishable from an unconfirmed one. False never means a standby was found lagging, because it is the absence of a reading rather than a negative one, so draw no conclusion about replication health from it or from a response that omits it.",
+                        "x-example": true,
+                        "nullable": true
                     },
                     "replicas": {
                         "type": "array",
@@ -94030,7 +94888,6 @@
                     "syncDegraded",
                     "syncAcknowledgements",
                     "syncStandbyCount",
-                    "syncStateConfirmed",
                     "replicas",
                     "volumes"
                 ],
@@ -94220,8 +95077,8 @@
                     },
                     "errorCode": {
                         "type": "string",
-                        "description": "Machine-readable failure code. `LockLost` marks an attempt that was fenced and abandoned because another worker took over the database.",
-                        "x-example": "LockLost"
+                        "description": "Machine-readable failure code. `Interrupted` marks an attempt that ended before its outcome could be confirmed.",
+                        "x-example": "Interrupted"
                     },
                     "errorMessage": {
                         "type": "string",
@@ -94249,7 +95106,7 @@
                     "requestedAt": "2020-10-15T06:38:00.000+00:00",
                     "startedAt": "2020-10-15T06:38:00.000+00:00",
                     "completedAt": "2020-10-15T06:38:00.000+00:00",
-                    "errorCode": "LockLost",
+                    "errorCode": "Interrupted",
                     "errorMessage": ""
                 }
             },
@@ -94321,8 +95178,9 @@
                     },
                     "syncStateConfirmed": {
                         "type": "boolean",
-                        "description": "Whether the reported sync state was read from the engine. When false the state could not be confirmed and the other sync fields carry no reading.",
-                        "x-example": true
+                        "description": "Whether the other sync fields are an engine reading rather than a recorded estimate. True when the primary answered what it is enforcing, including when that answer contradicted the record, in which case the contradicted values are replaced by the ones the engine reports. False when the reading could not be taken: the probe did not answer, there was no engine to ask, or the values describe a configuration change just applied rather than anything measured. Absent when no engine was asked at all, so an unprobed database is distinguishable from an unconfirmed one. False never means a standby was found lagging, because it is the absence of a reading rather than a negative one, so draw no conclusion about replication health from it or from a response that omits it.",
+                        "x-example": true,
+                        "nullable": true
                     },
                     "members": {
                         "type": "array",
@@ -94339,7 +95197,6 @@
                     "syncDegraded",
                     "syncAcknowledgements",
                     "syncStandbyCount",
-                    "syncStateConfirmed",
                     "members"
                 ],
                 "example": {
@@ -95360,12 +96217,6 @@
                         "x-example": 1,
                         "format": "double"
                     },
-                    "crossRegionReplicaRate": {
-                        "type": "number",
-                        "description": "Cross-region replica price as a fraction of the specification cost.",
-                        "x-example": 1,
-                        "format": "double"
-                    },
                     "pitrRate": {
                         "type": "number",
                         "description": "Point-in-time recovery price as a fraction of the specification cost.",
@@ -95377,14 +96228,12 @@
                     "storageOverageRate",
                     "bandwidthOverageRate",
                     "replicaRate",
-                    "crossRegionReplicaRate",
                     "pitrRate"
                 ],
                 "example": {
                     "storageOverageRate": 0.125,
                     "bandwidthOverageRate": 0.08,
                     "replicaRate": 1,
-                    "crossRegionReplicaRate": 1,
                     "pitrRate": 0.2
                 }
             },
@@ -97431,6 +98280,17 @@
                         "type": "string",
                         "description": "Rate limit key: `ip` limits per client IP, `userId` limits per authenticated user.",
                         "x-example": "userId"
+                    },
+                    "strategy": {
+                        "type": "string",
+                        "description": "Rate limit strategy: `fixedWindow`, `slidingWindow`, or `tokenBucket`.",
+                        "x-example": "slidingWindow"
+                    },
+                    "maxBucketSize": {
+                        "type": "integer",
+                        "description": "Maximum burst capacity in tokens, applied by the `tokenBucket` strategy. The sustained refill rate is `limit \/ interval`. Defaults to `limit`.",
+                        "x-example": 200,
+                        "format": "int32"
                     }
                 },
                 "required": [
@@ -97450,7 +98310,9 @@
                     "config",
                     "limit",
                     "interval",
-                    "key"
+                    "key",
+                    "strategy",
+                    "maxBucketSize"
                 ],
                 "example": {
                     "$id": "wafRule1",
@@ -97477,7 +98339,9 @@
                     "config": [],
                     "limit": 1000,
                     "interval": 60,
-                    "key": "userId"
+                    "key": "userId",
+                    "strategy": "slidingWindow",
+                    "maxBucketSize": 200
                 }
             },
             "wafRuleRedirect": {
@@ -97928,6 +98792,34 @@
                 "example": {
                     "total": 5,
                     "restorations": ""
+                }
+            },
+            "databaseMigrationList": {
+                "description": "Database Migrations List",
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of migrations that matched your query.",
+                        "x-example": 5,
+                        "format": "int32"
+                    },
+                    "migrations": {
+                        "type": "array",
+                        "description": "List of migrations.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/databaseMigration"
+                        },
+                        "x-example": ""
+                    }
+                },
+                "required": [
+                    "total",
+                    "migrations"
+                ],
+                "example": {
+                    "total": 5,
+                    "migrations": ""
                 }
             },
             "dedicatedDatabaseList": {
