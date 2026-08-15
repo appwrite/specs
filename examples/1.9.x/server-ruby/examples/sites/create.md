@@ -34,6 +34,7 @@ result = sites.create(
     provider_paths: [], # optional
     build_specification: '', # optional
     runtime_specification: '', # optional
-    deployment_retention: 0 # optional
+    deployment_retention: 0, # optional
+    scopes: [ProjectKeyScopes::PROJECT_READ] # optional
 )
 ```

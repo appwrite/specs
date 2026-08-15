@@ -19,6 +19,7 @@ query {
         latestDeploymentId
         latestDeploymentCreatedAt
         latestDeploymentStatus
+        scopes
         vars {
             _id
             _createdAt

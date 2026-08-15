@@ -21,7 +21,8 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "userCodeLength": 6,
   "userCodeFormat": "numeric",
   "deviceCodeDuration": 60,
-  "defaultScopes": []
+  "defaultScopes": [],
+  "installationScopes": []
 }
 
 {
@@ -39,6 +40,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "userCodeLength": 6,
   "userCodeFormat": "numeric",
   "deviceCodeDuration": 60,
-  "defaultScopes": []
+  "defaultScopes": [],
+  "installationScopes": []
 }
 ```

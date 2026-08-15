@@ -7,6 +7,7 @@ query {
         phone
         email
         recoveryCode
+        custom
     }
 }
 ```

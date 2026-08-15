@@ -34,7 +34,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Some(vec![]), // optional
         Some(""), // optional
         Some(""), // optional
-        Some(0) // optional
+        Some(0), // optional
+        Some(vec![appwrite::enums::ProjectKeyScopes::ProjectRead]) // optional
     ).await?;
 
     let _ = result;

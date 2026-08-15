@@ -34,5 +34,6 @@ Site result = await sites.Update(
     providerPaths: new List<string>(), // optional
     buildSpecification: "", // optional
     runtimeSpecification: "", // optional
-    deploymentRetention: 0 // optional
+    deploymentRetention: 0, // optional
+    scopes: new List&lt;ProjectKeyScopes&gt; { ProjectKeyScopes.ProjectRead } // optional
 );```

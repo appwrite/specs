@@ -2,6 +2,7 @@
 from appwrite_console.client import Client
 from appwrite_console.services.usage import Usage
 from appwrite_console.models import UsageEventList
+from appwrite_console.enums import UsageEventMetric
 from appwrite_console.enums import UsageInterval
 from appwrite_console.enums import UsageEventDimension
 from appwrite_console.enums import UsageOrderBy
@@ -14,7 +15,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 usage = Usage(client)
 
 result: UsageEventList = usage.list_events(
-    metrics = [],
+    metrics = [UsageEventMetric.NETWORK_REQUESTS],
     queries = [], # optional
     interval = UsageInterval.ONE_MINUTE, # optional
     dimensions = [UsageEventDimension.PATH], # optional

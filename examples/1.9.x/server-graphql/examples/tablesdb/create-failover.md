@@ -34,7 +34,6 @@ mutation {
         nodePool
         replicas
         syncMode
-        crossRegionReplicas
         networkMaxConnections
         networkIdleTimeoutSeconds
         networkIPAllowlist
@@ -90,7 +89,6 @@ mutation {
         nodePool
         replicas
         syncMode
-        crossRegionReplicas
         networkMaxConnections
         networkIdleTimeoutSeconds
         networkIPAllowlist

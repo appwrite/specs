@@ -31,6 +31,7 @@ const result = await sites.update({
     providerPaths: [], // optional
     buildSpecification: '', // optional
     runtimeSpecification: '', // optional
-    deploymentRetention: 0 // optional
+    deploymentRetention: 0, // optional
+    scopes: [sdk.ProjectKeyScopes.ProjectRead] // optional
 });
 ```

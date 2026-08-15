@@ -15,7 +15,8 @@ mutation {
         userCodeLength: 6,
         userCodeFormat: "numeric",
         deviceCodeDuration: 60,
-        defaultScopes: []
+        defaultScopes: [],
+        installationScopes: []
     ) {
         _id
         _createdAt
@@ -89,6 +90,7 @@ mutation {
         oAuth2ServerAuthorizationUrl
         oAuth2ServerScopes
         oAuth2ServerDefaultScopes
+        oAuth2ServerInstallationScopes
         oAuth2ServerAuthorizationDetailsTypes
         oAuth2ServerAccessTokenDuration
         oAuth2ServerRefreshTokenDuration
@@ -119,7 +121,8 @@ mutation {
         userCodeLength: 6,
         userCodeFormat: "numeric",
         deviceCodeDuration: 60,
-        defaultScopes: []
+        defaultScopes: [],
+        installationScopes: []
     ) {
         _id
         _createdAt
@@ -193,6 +196,7 @@ mutation {
         oAuth2ServerAuthorizationUrl
         oAuth2ServerScopes
         oAuth2ServerDefaultScopes
+        oAuth2ServerInstallationScopes
         oAuth2ServerAuthorizationDetailsTypes
         oAuth2ServerAccessTokenDuration
         oAuth2ServerRefreshTokenDuration

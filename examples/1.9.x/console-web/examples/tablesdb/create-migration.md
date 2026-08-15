@@ -9,7 +9,8 @@ const tablesDB = new TablesDB(client);
 
 const result = await tablesDB.createMigration({
     databaseId: '<DATABASE_ID>',
-    specification: 's-1vcpu-1gb'
+    specification: 's-1vcpu-1gb',
+    autoCutover: false // optional
 });
 
 console.log(result);

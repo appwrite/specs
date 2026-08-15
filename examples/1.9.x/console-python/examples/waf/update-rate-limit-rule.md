@@ -18,6 +18,7 @@ result: WafRuleRateLimit = waf.update_rate_limit_rule(
     limit = 1, # optional
     interval = 1, # optional
     key = 'ip', # optional
+    max_bucket_size = 1, # optional
     priority = -100000, # optional
     enabled = False, # optional
     conditions = '' # optional

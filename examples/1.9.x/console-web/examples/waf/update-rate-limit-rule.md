@@ -16,6 +16,7 @@ const result = await waf.updateRateLimitRule({
     limit: 1, // optional
     interval: 1, // optional
     key: 'ip', // optional
+    maxBucketSize: 1, // optional
     priority: -100000, // optional
     enabled: false, // optional
     conditions: '' // optional
