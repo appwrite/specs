@@ -847,8 +847,7 @@
                     "scope": "account",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -860,8 +859,7 @@
                 "security": [
                     {
                         "Project": [],
-                        "Session": [],
-                        "JWT": []
+                        "Session": []
                     }
                 ],
                 "requestBody": {
@@ -1538,20 +1536,22 @@
                                 "properties": {
                                     "factor": {
                                         "type": "string",
-                                        "description": "Factor used for verification. Must be one of following: `email`, `phone`, `totp`, `recoveryCode`.",
+                                        "description": "Factor used for verification. Must be one of following: `email`, `phone`, `totp`, `recoveryCode`, `custom`.",
                                         "x-example": "email",
                                         "enum": [
                                             "email",
                                             "phone",
                                             "totp",
-                                            "recoverycode"
+                                            "recoverycode",
+                                            "custom"
                                         ],
                                         "x-enum-name": "AuthenticationFactor",
                                         "x-enum-keys": [
                                             "email",
                                             "phone",
                                             "totp",
-                                            "recoverycode"
+                                            "recoverycode",
+                                            "custom"
                                         ]
                                     }
                                 },
@@ -3332,7 +3332,7 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to get the current device session. Defaults to 'current'.",
+                        "description": "Session ID. Use the string 'current' to get the current device session.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -3395,7 +3395,7 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to update the current device session. Defaults to 'current'.",
+                        "description": "Session ID. Use the string 'current' to update the current device session.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -3451,7 +3451,7 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to delete the current device session. Defaults to 'current'.",
+                        "description": "Session ID. Use the string 'current' to delete the current device session.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -5015,7 +5015,7 @@
                 "parameters": [
                     {
                         "name": "appId",
-                        "description": "Application unique ID or HTTPS client ID metadata document URL.",
+                        "description": "Application unique ID.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -5215,7 +5215,7 @@
                                     },
                                     "installationScopes": {
                                         "type": "array",
-                                        "description": "Scopes the application requests when installed on a team. Organization-level and project-level scopes only; use the list scopes endpoint with `type=installation` to discover available values. Maximum of 100 scopes are allowed.",
+                                        "description": "Scopes the application requests when installed on a team. Only scopes allowed by the project's OAuth2 server installation scopes configuration are accepted; use the list installation scopes endpoint to discover available values. Maximum of 100 scopes are allowed.",
                                         "default": [],
                                         "x-example": null,
                                         "items": {
@@ -12662,7 +12662,7 @@
         "\/oauth2\/{project_id}\/authorize": {
             "get": {
                 "summary": "OAuth2 Authorize",
-                "operationId": "oauth2AuthorizeGet",
+                "operationId": "oauth2Authorize",
                 "tags": [
                     "oauth2"
                 ],
@@ -13296,7 +13296,7 @@
         "\/oauth2\/{project_id}\/logout": {
             "get": {
                 "summary": "OAuth2 Logout",
-                "operationId": "oauth2LogoutGet",
+                "operationId": "oauth2Logout",
                 "tags": [
                     "oauth2"
                 ],
@@ -22891,19 +22891,26 @@
                         "type": "boolean",
                         "description": "Can recovery code be used for MFA challenge for this account.",
                         "x-example": true
+                    },
+                    "custom": {
+                        "type": "boolean",
+                        "description": "Can custom factor be used for MFA challenge for this account.",
+                        "x-example": true
                     }
                 },
                 "required": [
                     "totp",
                     "phone",
                     "email",
-                    "recoveryCode"
+                    "recoveryCode",
+                    "custom"
                 ],
                 "example": {
                     "totp": true,
                     "phone": true,
                     "email": true,
-                    "recoveryCode": true
+                    "recoveryCode": true,
+                    "custom": true
                 }
             },
             "transaction": {

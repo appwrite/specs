@@ -1388,8 +1388,7 @@
                     "scope": "account",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -1401,8 +1400,7 @@
                 "security": [
                     {
                         "Project": [],
-                        "Session": [],
-                        "JWT": []
+                        "Session": []
                     }
                 ],
                 "requestBody": {
@@ -2445,20 +2443,22 @@
                                 "properties": {
                                     "factor": {
                                         "type": "string",
-                                        "description": "Factor used for verification. Must be one of following: `email`, `phone`, `totp`, `recoveryCode`.",
+                                        "description": "Factor used for verification. Must be one of following: `email`, `phone`, `totp`, `recoveryCode`, `custom`.",
                                         "x-example": "email",
                                         "enum": [
                                             "email",
                                             "phone",
                                             "totp",
-                                            "recoverycode"
+                                            "recoverycode",
+                                            "custom"
                                         ],
                                         "x-enum-name": "AuthenticationFactor",
                                         "x-enum-keys": [
                                             "email",
                                             "phone",
                                             "totp",
-                                            "recoverycode"
+                                            "recoverycode",
+                                            "custom"
                                         ]
                                     }
                                 },
@@ -4703,7 +4703,7 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to get the current device session. Defaults to 'current'.",
+                        "description": "Session ID. Use the string 'current' to get the current device session.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -4766,7 +4766,7 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to update the current device session. Defaults to 'current'.",
+                        "description": "Session ID. Use the string 'current' to update the current device session.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -4822,7 +4822,7 @@
                 "parameters": [
                     {
                         "name": "sessionId",
-                        "description": "Session ID. Use the string 'current' to delete the current device session. Defaults to 'current'.",
+                        "description": "Session ID. Use the string 'current' to delete the current device session.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -6986,7 +6986,7 @@
                 "parameters": [
                     {
                         "name": "appId",
-                        "description": "Application unique ID or HTTPS client ID metadata document URL.",
+                        "description": "Application unique ID.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -7187,7 +7187,7 @@
                                     },
                                     "installationScopes": {
                                         "type": "array",
-                                        "description": "Scopes the application requests when installed on a team. Organization-level and project-level scopes only; use the list scopes endpoint with `type=installation` to discover available values. Maximum of 100 scopes are allowed.",
+                                        "description": "Scopes the application requests when installed on a team. Only scopes allowed by the project's OAuth2 server installation scopes configuration are accepted; use the list installation scopes endpoint to discover available values. Maximum of 100 scopes are allowed.",
                                         "default": [],
                                         "x-example": null,
                                         "items": {
@@ -14689,7 +14689,7 @@
                                     },
                                     "attributes": {
                                         "type": "array",
-                                        "description": "Array of attribute definitions to create. Each attribute should contain: key (string), type (string: string, integer, float, boolean, datetime), size (integer, required for string type), required (boolean, optional), default (mixed, optional), array (boolean, optional), and type-specific options.",
+                                        "description": "Array of attribute definitions to create. Each attribute should contain: key (string), type (string: string, varchar, text, mediumtext, longtext, integer, bigint, double, boolean, datetime, point, linestring, polygon, email, url, ip, enum), size (integer, required for string and varchar types), required (boolean, optional), default (mixed, optional), array (boolean, optional), and type-specific options.",
                                         "default": [],
                                         "x-example": null,
                                         "items": {
@@ -18298,7 +18298,7 @@
                                     },
                                     "type": {
                                         "type": "string",
-                                        "description": "Relation type",
+                                        "description": "Relationship type. Possible values are: oneToOne, oneToMany, manyToOne, manyToMany.",
                                         "x-example": "oneToOne",
                                         "enum": [
                                             "oneToOne",
@@ -18334,7 +18334,7 @@
                                     },
                                     "onDelete": {
                                         "type": "string",
-                                        "description": "Constraints option",
+                                        "description": "Delete constraint. Possible values are: cascade, restrict, setNull.",
                                         "default": "restrict",
                                         "x-example": "cascade",
                                         "enum": [
@@ -18451,7 +18451,7 @@
                                 "properties": {
                                     "onDelete": {
                                         "type": "string",
-                                        "description": "Constraints option",
+                                        "description": "Delete constraint. Possible values are: cascade, restrict, setNull.",
                                         "x-example": "cascade",
                                         "enum": [
                                             "cascade",
@@ -22484,7 +22484,7 @@
                                     },
                                     "attributes": {
                                         "type": "array",
-                                        "description": "Array of attribute definitions to create. Each attribute should contain: key (string), type (string: string, integer, float, boolean, datetime, relationship), size (integer, required for string type), required (boolean, optional), default (mixed, optional), array (boolean, optional), and type-specific options.",
+                                        "description": "Array of attribute definitions to create. Each attribute should contain: key (string), type (string: string, varchar, text, mediumtext, longtext, integer, bigint, double, boolean, datetime, point, linestring, polygon, email, url, ip, enum), size (integer, required for string and varchar types), required (boolean, optional), default (mixed, optional), array (boolean, optional), and type-specific options.",
                                         "default": [],
                                         "x-example": null,
                                         "items": {
@@ -29206,7 +29206,7 @@
                     "rate-limit": 120,
                     "rate-time": 60,
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
-                    "scope": "documents.write",
+                    "scope": "embeddings.write",
                     "platforms": [
                         "console",
                         "server"
@@ -29741,6 +29741,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -29799,7 +29800,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -29849,6 +29849,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -29907,7 +29908,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -30101,7 +30101,7 @@
                 "parameters": [
                     {
                         "name": "type",
-                        "description": "Specification type to list. Can be one of: runtimes, builds.",
+                        "description": "Specification type to list. Can be one of: runtimes, builds. Defaults to runtimes.",
                         "required": false,
                         "schema": {
                             "type": "string",
@@ -30922,6 +30922,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -30980,7 +30981,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -31030,6 +31030,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -31088,7 +31089,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -41451,12 +41451,6 @@
                                         "x-example": "async",
                                         "x-nullable": true
                                     },
-                                    "standbyRegion": {
-                                        "type": "string",
-                                        "description": "Standby region for a cross-region replica. When set, a replica is provisioned in this region for cross-region high availability. Must differ from the database region.",
-                                        "x-example": "<STANDBY_REGION>",
-                                        "x-nullable": true
-                                    },
                                     "networkIdleTimeoutSeconds": {
                                         "type": "integer",
                                         "description": "Connection idle timeout in seconds.",
@@ -41726,19 +41720,6 @@
                                         "type": "string",
                                         "description": "Replication sync mode preference. Allowed values: async, sync, quorum.",
                                         "x-example": "async",
-                                        "x-nullable": true
-                                    },
-                                    "crossRegionReplicas": {
-                                        "type": "integer",
-                                        "description": "Number of cross-region standby replicas (0-1). Cross-region replication is enabled when greater than 0.",
-                                        "x-example": 0,
-                                        "format": "int32",
-                                        "x-nullable": true
-                                    },
-                                    "standbyRegion": {
-                                        "type": "string",
-                                        "description": "Standby region for the cross-region replica. Required when enabling cross-region replication and no standby region is already configured. Must differ from the database region.",
-                                        "x-example": "<STANDBY_REGION>",
                                         "x-nullable": true
                                     },
                                     "networkIdleTimeoutSeconds": {
@@ -43664,6 +43645,12 @@
                                         "x-example": "<BACKUP_ID>",
                                         "x-nullable": true
                                     },
+                                    "targetDatabaseId": {
+                                        "type": "string",
+                                        "description": "Existing database ID to restore into. The target must be distinct, ready, and use the same engine and version.",
+                                        "x-example": "<TARGET_DATABASE_ID>",
+                                        "x-nullable": true
+                                    },
                                     "targetTime": {
                                         "type": "string",
                                         "description": "Target time for PITR (required for pitr type) as an [ISO 8601](https:\/\/www.iso.org\/iso-8601-date-and-time-format.html) datetime.",
@@ -44043,12 +44030,6 @@
                                         "x-example": "async",
                                         "x-nullable": true
                                     },
-                                    "standbyRegion": {
-                                        "type": "string",
-                                        "description": "Standby region for a cross-region replica. When set, a replica is provisioned in this region for cross-region high availability. Must differ from the database region.",
-                                        "x-example": "<STANDBY_REGION>",
-                                        "x-nullable": true
-                                    },
                                     "networkIdleTimeoutSeconds": {
                                         "type": "integer",
                                         "description": "Connection idle timeout in seconds.",
@@ -44318,19 +44299,6 @@
                                         "type": "string",
                                         "description": "Replication sync mode preference. Allowed values: async, sync, quorum.",
                                         "x-example": "async",
-                                        "x-nullable": true
-                                    },
-                                    "crossRegionReplicas": {
-                                        "type": "integer",
-                                        "description": "Number of cross-region standby replicas (0-1). Cross-region replication is enabled when greater than 0.",
-                                        "x-example": 0,
-                                        "format": "int32",
-                                        "x-nullable": true
-                                    },
-                                    "standbyRegion": {
-                                        "type": "string",
-                                        "description": "Standby region for the cross-region replica. Required when enabling cross-region replication and no standby region is already configured. Must differ from the database region.",
-                                        "x-example": "<STANDBY_REGION>",
                                         "x-nullable": true
                                     },
                                     "networkIdleTimeoutSeconds": {
@@ -46531,6 +46499,12 @@
                                         "x-example": "<BACKUP_ID>",
                                         "x-nullable": true
                                     },
+                                    "targetDatabaseId": {
+                                        "type": "string",
+                                        "description": "Existing database ID to restore into. The target must be distinct, ready, and use the same engine and version.",
+                                        "x-example": "<TARGET_DATABASE_ID>",
+                                        "x-nullable": true
+                                    },
                                     "targetTime": {
                                         "type": "string",
                                         "description": "Target time for PITR (required for pitr type) as an [ISO 8601](https:\/\/www.iso.org\/iso-8601-date-and-time-format.html) datetime.",
@@ -46996,7 +46970,7 @@
         "\/oauth2\/{project_id}\/authorize": {
             "get": {
                 "summary": "OAuth2 Authorize",
-                "operationId": "oauth2AuthorizeGet",
+                "operationId": "oauth2Authorize",
                 "tags": [
                     "oauth2"
                 ],
@@ -47632,7 +47606,7 @@
         "\/oauth2\/{project_id}\/logout": {
             "get": {
                 "summary": "OAuth2 Logout",
-                "operationId": "oauth2LogoutGet",
+                "operationId": "oauth2Logout",
                 "tags": [
                     "oauth2"
                 ],
@@ -53879,12 +53853,6 @@
                                         "x-example": "async",
                                         "x-nullable": true
                                     },
-                                    "standbyRegion": {
-                                        "type": "string",
-                                        "description": "Standby region for a cross-region replica. When set, a replica is provisioned in this region for cross-region high availability. Must differ from the database region.",
-                                        "x-example": "<STANDBY_REGION>",
-                                        "x-nullable": true
-                                    },
                                     "networkIdleTimeoutSeconds": {
                                         "type": "integer",
                                         "description": "Connection idle timeout in seconds.",
@@ -54154,19 +54122,6 @@
                                         "type": "string",
                                         "description": "Replication sync mode preference. Allowed values: async, sync, quorum.",
                                         "x-example": "async",
-                                        "x-nullable": true
-                                    },
-                                    "crossRegionReplicas": {
-                                        "type": "integer",
-                                        "description": "Number of cross-region standby replicas (0-1). Cross-region replication is enabled when greater than 0.",
-                                        "x-example": 0,
-                                        "format": "int32",
-                                        "x-nullable": true
-                                    },
-                                    "standbyRegion": {
-                                        "type": "string",
-                                        "description": "Standby region for the cross-region replica. Required when enabling cross-region replication and no standby region is already configured. Must differ from the database region.",
-                                        "x-example": "<STANDBY_REGION>",
                                         "x-nullable": true
                                     },
                                     "networkIdleTimeoutSeconds": {
@@ -56577,6 +56532,12 @@
                                         "x-example": "<BACKUP_ID>",
                                         "x-nullable": true
                                     },
+                                    "targetDatabaseId": {
+                                        "type": "string",
+                                        "description": "Existing database ID to restore into. The target must be distinct, ready, and use the same engine and version.",
+                                        "x-example": "<TARGET_DATABASE_ID>",
+                                        "x-nullable": true
+                                    },
                                     "targetTime": {
                                         "type": "string",
                                         "description": "Target time for PITR (required for pitr type) as an [ISO 8601](https:\/\/www.iso.org\/iso-8601-date-and-time-format.html) datetime.",
@@ -57651,8 +57612,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "keys.write",
                     "platforms": [
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -57662,8 +57622,7 @@
                 },
                 "security": [
                     {
-                        "Project": [],
-                        "Key": []
+                        "Project": []
                     }
                 ],
                 "requestBody": {
@@ -57726,6 +57685,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -57784,7 +57744,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -57834,6 +57793,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -57892,7 +57852,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -58021,6 +57980,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -58079,7 +58039,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -58129,6 +58088,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -58187,7 +58147,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -58390,6 +58349,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -58448,7 +58408,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -58498,6 +58457,7 @@
                                                 "indexes.write",
                                                 "rows.read",
                                                 "rows.write",
+                                                "embeddings.write",
                                                 "collections.read",
                                                 "collections.write",
                                                 "attributes.read",
@@ -58556,7 +58516,6 @@
                                                 "archives.write",
                                                 "restorations.read",
                                                 "restorations.write",
-                                                "dedicatedDatabases.execute",
                                                 "domains.read",
                                                 "domains.write",
                                                 "wafRules.read",
@@ -59283,6 +59242,15 @@
                                     "defaultScopes": {
                                         "type": "array",
                                         "description": "List of OAuth2 scopes used when an authorization request omits the scope parameter. Every default scope must also be allowed by the OAuth2 server. Maximum of 100 scopes are allowed, each up to 128 characters long.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "installationScopes": {
+                                        "type": "array",
+                                        "description": "List of scopes an application may request when installed on a team. Omitting the parameter clears the list, so no installation scopes can be granted. Maximum of 100 scopes are allowed, each up to 128 characters long.",
                                         "default": [],
                                         "x-example": null,
                                         "items": {
@@ -64634,6 +64602,89 @@
                 }
             }
         },
+        "\/project\/policies\/mfa-factors": {
+            "patch": {
+                "summary": "Update MFA factors policy",
+                "operationId": "projectUpdateMFAFactorsPolicy",
+                "tags": [
+                    "project"
+                ],
+                "description": "Updating this policy allows you to control which factors users can use to complete an MFA challenge. Disabled factors cannot be used to create a challenge and are reported as unavailable when listing factors. The custom factor is disabled by default; enable it to deliver challenge codes through your own channel. Recovery codes always remain available as a fallback.",
+                "responses": {
+                    "200": {
+                        "description": "Project",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/project"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "updateMFAFactorsPolicy",
+                    "group": "policies",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "project\/update-mfa-factors-policy.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": [
+                        "policies.write",
+                        "project.policies.write"
+                    ],
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "totp": {
+                                        "type": "boolean",
+                                        "description": "Set to true to allow TOTP to complete an MFA challenge, or false to disable it.",
+                                        "x-example": false
+                                    },
+                                    "email": {
+                                        "type": "boolean",
+                                        "description": "Set to true to allow email to complete an MFA challenge, or false to disable it.",
+                                        "x-example": false
+                                    },
+                                    "phone": {
+                                        "type": "boolean",
+                                        "description": "Set to true to allow phone (SMS) to complete an MFA challenge, or false to disable it.",
+                                        "x-example": false
+                                    },
+                                    "custom": {
+                                        "type": "boolean",
+                                        "description": "Set to true to allow the custom factor to complete an MFA challenge, or false to disable it.",
+                                        "x-example": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/project\/policies\/password-dictionary": {
             "patch": {
                 "summary": "Update password dictionary policy",
@@ -65307,7 +65358,7 @@
                 "description": "Get a policy by its unique ID. This endpoint returns the current configuration for the requested project policy.",
                 "responses": {
                     "200": {
-                        "description": "Policy Password Dictionary, or Policy Password History, or Policy Password Strength, or Policy Password Personal Data, or Policy Session Alert, or Policy Session Duration, or Policy Session Invalidation, or Policy Session Limit, or Policy User Limit, or Policy Membership Privacy, or Policy Deny Aliased Email, or Policy Deny Disposable Email, or Policy Deny Free Email, or Policy Deny Corporate Email",
+                        "description": "Policy Password Dictionary, or Policy Password History, or Policy Password Strength, or Policy Password Personal Data, or Policy Session Alert, or Policy Session Duration, or Policy Session Invalidation, or Policy Session Limit, or Policy User Limit, or Policy Membership Privacy, or Policy MFA Factors, or Policy Deny Aliased Email, or Policy Deny Disposable Email, or Policy Deny Free Email, or Policy Deny Corporate Email",
                         "content": {
                             "application\/json": {
                                 "schema": {
@@ -65343,6 +65394,9 @@
                                             "$ref": "#\/components\/schemas\/policyMembershipPrivacy"
                                         },
                                         {
+                                            "$ref": "#\/components\/schemas\/policyMfaFactors"
+                                        },
+                                        {
                                             "$ref": "#\/components\/schemas\/policyDenyAliasedEmail"
                                         },
                                         {
@@ -65368,6 +65422,7 @@
                                             "session-limit": "#\/components\/schemas\/policySessionLimit",
                                             "user-limit": "#\/components\/schemas\/policyUserLimit",
                                             "membership-privacy": "#\/components\/schemas\/policyMembershipPrivacy",
+                                            "mfa-factors": "#\/components\/schemas\/policyMfaFactors",
                                             "deny-aliased-email": "#\/components\/schemas\/policyDenyAliasedEmail",
                                             "deny-disposable-email": "#\/components\/schemas\/policyDenyDisposableEmail",
                                             "deny-free-email": "#\/components\/schemas\/policyDenyFreeEmail",
@@ -65412,7 +65467,7 @@
                 "parameters": [
                     {
                         "name": "policyId",
-                        "description": "Policy ID. Can be one of: password-dictionary, password-history, password-strength, password-personal-data, session-alert, session-duration, session-invalidation, session-limit, user-limit, membership-privacy, deny-aliased-email, deny-disposable-email, deny-free-email, deny-corporate-email.",
+                        "description": "Policy ID. Can be one of: password-dictionary, password-history, password-strength, password-personal-data, session-alert, session-duration, session-invalidation, session-limit, user-limit, membership-privacy, mfa-factors, deny-aliased-email, deny-disposable-email, deny-free-email, deny-corporate-email.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -65428,6 +65483,7 @@
                                 "session-limit",
                                 "user-limit",
                                 "membership-privacy",
+                                "mfa-factors",
                                 "deny-aliased-email",
                                 "deny-disposable-email",
                                 "deny-free-email",
@@ -65445,6 +65501,7 @@
                                 "session-limit",
                                 "user-limit",
                                 "membership-privacy",
+                                "mfa-factors",
                                 "deny-aliased-email",
                                 "deny-disposable-email",
                                 "deny-free-email",
@@ -70020,6 +70077,230 @@
                                         "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
+                                    },
+                                    "scopes": {
+                                        "type": "array",
+                                        "description": "List of scopes allowed for API key auto-generated for every site build and SSR execution. Maximum of 200 scopes are allowed.",
+                                        "default": [],
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string",
+                                            "enum": [
+                                                "project.read",
+                                                "project.write",
+                                                "keys.read",
+                                                "keys.write",
+                                                "platforms.read",
+                                                "platforms.write",
+                                                "mocks.read",
+                                                "mocks.write",
+                                                "policies.read",
+                                                "policies.write",
+                                                "project.policies.read",
+                                                "project.policies.write",
+                                                "project.oauth2.read",
+                                                "project.oauth2.write",
+                                                "templates.read",
+                                                "templates.write",
+                                                "stages.read",
+                                                "stages.write",
+                                                "users.read",
+                                                "users.write",
+                                                "sessions.read",
+                                                "sessions.write",
+                                                "teams.read",
+                                                "teams.write",
+                                                "databases.read",
+                                                "databases.write",
+                                                "tables.read",
+                                                "tables.write",
+                                                "columns.read",
+                                                "columns.write",
+                                                "indexes.read",
+                                                "indexes.write",
+                                                "rows.read",
+                                                "rows.write",
+                                                "embeddings.write",
+                                                "collections.read",
+                                                "collections.write",
+                                                "attributes.read",
+                                                "attributes.write",
+                                                "documents.read",
+                                                "documents.write",
+                                                "buckets.read",
+                                                "buckets.write",
+                                                "files.read",
+                                                "files.write",
+                                                "tokens.read",
+                                                "tokens.write",
+                                                "functions.read",
+                                                "functions.write",
+                                                "executions.read",
+                                                "executions.write",
+                                                "execution.read",
+                                                "execution.write",
+                                                "sites.read",
+                                                "sites.write",
+                                                "log.read",
+                                                "log.write",
+                                                "providers.read",
+                                                "providers.write",
+                                                "topics.read",
+                                                "topics.write",
+                                                "subscribers.read",
+                                                "subscribers.write",
+                                                "targets.read",
+                                                "targets.write",
+                                                "messages.read",
+                                                "messages.write",
+                                                "rules.read",
+                                                "rules.write",
+                                                "webhooks.read",
+                                                "webhooks.write",
+                                                "locale.read",
+                                                "avatars.read",
+                                                "health.read",
+                                                "assistant.read",
+                                                "migrations.read",
+                                                "migrations.write",
+                                                "schedules.read",
+                                                "schedules.write",
+                                                "vcs.read",
+                                                "vcs.write",
+                                                "insights.read",
+                                                "insights.write",
+                                                "reports.read",
+                                                "reports.write",
+                                                "presences.read",
+                                                "presences.write",
+                                                "backups.policies.read",
+                                                "backups.policies.write",
+                                                "archives.read",
+                                                "archives.write",
+                                                "restorations.read",
+                                                "restorations.write",
+                                                "domains.read",
+                                                "domains.write",
+                                                "wafRules.read",
+                                                "wafRules.write",
+                                                "events.read",
+                                                "proxy.invalidations.write",
+                                                "apps.read",
+                                                "apps.write",
+                                                "oauth2.read",
+                                                "oauth2.write",
+                                                "oauth2.introspect",
+                                                "usage.read"
+                                            ],
+                                            "x-enum-name": "ProjectKeyScopes",
+                                            "x-enum-keys": [
+                                                "project.read",
+                                                "project.write",
+                                                "keys.read",
+                                                "keys.write",
+                                                "platforms.read",
+                                                "platforms.write",
+                                                "mocks.read",
+                                                "mocks.write",
+                                                "policies.read",
+                                                "policies.write",
+                                                "project.policies.read",
+                                                "project.policies.write",
+                                                "project.oauth2.read",
+                                                "project.oauth2.write",
+                                                "templates.read",
+                                                "templates.write",
+                                                "stages.read",
+                                                "stages.write",
+                                                "users.read",
+                                                "users.write",
+                                                "sessions.read",
+                                                "sessions.write",
+                                                "teams.read",
+                                                "teams.write",
+                                                "databases.read",
+                                                "databases.write",
+                                                "tables.read",
+                                                "tables.write",
+                                                "columns.read",
+                                                "columns.write",
+                                                "indexes.read",
+                                                "indexes.write",
+                                                "rows.read",
+                                                "rows.write",
+                                                "embeddings.write",
+                                                "collections.read",
+                                                "collections.write",
+                                                "attributes.read",
+                                                "attributes.write",
+                                                "documents.read",
+                                                "documents.write",
+                                                "buckets.read",
+                                                "buckets.write",
+                                                "files.read",
+                                                "files.write",
+                                                "tokens.read",
+                                                "tokens.write",
+                                                "functions.read",
+                                                "functions.write",
+                                                "executions.read",
+                                                "executions.write",
+                                                "execution.read",
+                                                "execution.write",
+                                                "sites.read",
+                                                "sites.write",
+                                                "log.read",
+                                                "log.write",
+                                                "providers.read",
+                                                "providers.write",
+                                                "topics.read",
+                                                "topics.write",
+                                                "subscribers.read",
+                                                "subscribers.write",
+                                                "targets.read",
+                                                "targets.write",
+                                                "messages.read",
+                                                "messages.write",
+                                                "rules.read",
+                                                "rules.write",
+                                                "webhooks.read",
+                                                "webhooks.write",
+                                                "locale.read",
+                                                "avatars.read",
+                                                "health.read",
+                                                "assistant.read",
+                                                "migrations.read",
+                                                "migrations.write",
+                                                "schedules.read",
+                                                "schedules.write",
+                                                "vcs.read",
+                                                "vcs.write",
+                                                "insights.read",
+                                                "insights.write",
+                                                "reports.read",
+                                                "reports.write",
+                                                "presences.read",
+                                                "presences.write",
+                                                "backups.policies.read",
+                                                "backups.policies.write",
+                                                "archives.read",
+                                                "archives.write",
+                                                "restorations.read",
+                                                "restorations.write",
+                                                "domains.read",
+                                                "domains.write",
+                                                "wafRules.read",
+                                                "wafRules.write",
+                                                "events.read",
+                                                "proxy.invalidations.write",
+                                                "apps.read",
+                                                "apps.write",
+                                                "oauth2.read",
+                                                "oauth2.write",
+                                                "oauth2.introspect",
+                                                "usage.read"
+                                            ]
+                                        }
                                     }
                                 },
                                 "required": [
@@ -70133,7 +70414,7 @@
                 "parameters": [
                     {
                         "name": "type",
-                        "description": "Specification type to list. Can be one of: runtimes, builds.",
+                        "description": "Specification type to list. Can be one of: runtimes, builds. Defaults to runtimes.",
                         "required": false,
                         "schema": {
                             "type": "string",
@@ -70859,6 +71140,230 @@
                                         "default": 0,
                                         "x-example": 0,
                                         "format": "int32"
+                                    },
+                                    "scopes": {
+                                        "type": "array",
+                                        "description": "List of scopes allowed for API key auto-generated for every site build and SSR execution. Maximum of 200 scopes are allowed.",
+                                        "x-example": null,
+                                        "items": {
+                                            "type": "string",
+                                            "enum": [
+                                                "project.read",
+                                                "project.write",
+                                                "keys.read",
+                                                "keys.write",
+                                                "platforms.read",
+                                                "platforms.write",
+                                                "mocks.read",
+                                                "mocks.write",
+                                                "policies.read",
+                                                "policies.write",
+                                                "project.policies.read",
+                                                "project.policies.write",
+                                                "project.oauth2.read",
+                                                "project.oauth2.write",
+                                                "templates.read",
+                                                "templates.write",
+                                                "stages.read",
+                                                "stages.write",
+                                                "users.read",
+                                                "users.write",
+                                                "sessions.read",
+                                                "sessions.write",
+                                                "teams.read",
+                                                "teams.write",
+                                                "databases.read",
+                                                "databases.write",
+                                                "tables.read",
+                                                "tables.write",
+                                                "columns.read",
+                                                "columns.write",
+                                                "indexes.read",
+                                                "indexes.write",
+                                                "rows.read",
+                                                "rows.write",
+                                                "embeddings.write",
+                                                "collections.read",
+                                                "collections.write",
+                                                "attributes.read",
+                                                "attributes.write",
+                                                "documents.read",
+                                                "documents.write",
+                                                "buckets.read",
+                                                "buckets.write",
+                                                "files.read",
+                                                "files.write",
+                                                "tokens.read",
+                                                "tokens.write",
+                                                "functions.read",
+                                                "functions.write",
+                                                "executions.read",
+                                                "executions.write",
+                                                "execution.read",
+                                                "execution.write",
+                                                "sites.read",
+                                                "sites.write",
+                                                "log.read",
+                                                "log.write",
+                                                "providers.read",
+                                                "providers.write",
+                                                "topics.read",
+                                                "topics.write",
+                                                "subscribers.read",
+                                                "subscribers.write",
+                                                "targets.read",
+                                                "targets.write",
+                                                "messages.read",
+                                                "messages.write",
+                                                "rules.read",
+                                                "rules.write",
+                                                "webhooks.read",
+                                                "webhooks.write",
+                                                "locale.read",
+                                                "avatars.read",
+                                                "health.read",
+                                                "assistant.read",
+                                                "migrations.read",
+                                                "migrations.write",
+                                                "schedules.read",
+                                                "schedules.write",
+                                                "vcs.read",
+                                                "vcs.write",
+                                                "insights.read",
+                                                "insights.write",
+                                                "reports.read",
+                                                "reports.write",
+                                                "presences.read",
+                                                "presences.write",
+                                                "backups.policies.read",
+                                                "backups.policies.write",
+                                                "archives.read",
+                                                "archives.write",
+                                                "restorations.read",
+                                                "restorations.write",
+                                                "domains.read",
+                                                "domains.write",
+                                                "wafRules.read",
+                                                "wafRules.write",
+                                                "events.read",
+                                                "proxy.invalidations.write",
+                                                "apps.read",
+                                                "apps.write",
+                                                "oauth2.read",
+                                                "oauth2.write",
+                                                "oauth2.introspect",
+                                                "usage.read"
+                                            ],
+                                            "x-enum-name": "ProjectKeyScopes",
+                                            "x-enum-keys": [
+                                                "project.read",
+                                                "project.write",
+                                                "keys.read",
+                                                "keys.write",
+                                                "platforms.read",
+                                                "platforms.write",
+                                                "mocks.read",
+                                                "mocks.write",
+                                                "policies.read",
+                                                "policies.write",
+                                                "project.policies.read",
+                                                "project.policies.write",
+                                                "project.oauth2.read",
+                                                "project.oauth2.write",
+                                                "templates.read",
+                                                "templates.write",
+                                                "stages.read",
+                                                "stages.write",
+                                                "users.read",
+                                                "users.write",
+                                                "sessions.read",
+                                                "sessions.write",
+                                                "teams.read",
+                                                "teams.write",
+                                                "databases.read",
+                                                "databases.write",
+                                                "tables.read",
+                                                "tables.write",
+                                                "columns.read",
+                                                "columns.write",
+                                                "indexes.read",
+                                                "indexes.write",
+                                                "rows.read",
+                                                "rows.write",
+                                                "embeddings.write",
+                                                "collections.read",
+                                                "collections.write",
+                                                "attributes.read",
+                                                "attributes.write",
+                                                "documents.read",
+                                                "documents.write",
+                                                "buckets.read",
+                                                "buckets.write",
+                                                "files.read",
+                                                "files.write",
+                                                "tokens.read",
+                                                "tokens.write",
+                                                "functions.read",
+                                                "functions.write",
+                                                "executions.read",
+                                                "executions.write",
+                                                "execution.read",
+                                                "execution.write",
+                                                "sites.read",
+                                                "sites.write",
+                                                "log.read",
+                                                "log.write",
+                                                "providers.read",
+                                                "providers.write",
+                                                "topics.read",
+                                                "topics.write",
+                                                "subscribers.read",
+                                                "subscribers.write",
+                                                "targets.read",
+                                                "targets.write",
+                                                "messages.read",
+                                                "messages.write",
+                                                "rules.read",
+                                                "rules.write",
+                                                "webhooks.read",
+                                                "webhooks.write",
+                                                "locale.read",
+                                                "avatars.read",
+                                                "health.read",
+                                                "assistant.read",
+                                                "migrations.read",
+                                                "migrations.write",
+                                                "schedules.read",
+                                                "schedules.write",
+                                                "vcs.read",
+                                                "vcs.write",
+                                                "insights.read",
+                                                "insights.write",
+                                                "reports.read",
+                                                "reports.write",
+                                                "presences.read",
+                                                "presences.write",
+                                                "backups.policies.read",
+                                                "backups.policies.write",
+                                                "archives.read",
+                                                "archives.write",
+                                                "restorations.read",
+                                                "restorations.write",
+                                                "domains.read",
+                                                "domains.write",
+                                                "wafRules.read",
+                                                "wafRules.write",
+                                                "events.read",
+                                                "proxy.invalidations.write",
+                                                "apps.read",
+                                                "apps.write",
+                                                "oauth2.read",
+                                                "oauth2.write",
+                                                "oauth2.introspect",
+                                                "usage.read"
+                                            ]
+                                        },
+                                        "x-nullable": true
                                     }
                                 },
                                 "required": [
@@ -74845,9 +75350,10 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "databases.read",
+                    "scope": "migrations.read",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
@@ -74857,7 +75363,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "parameters": [
@@ -74902,9 +75409,10 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "databases.write",
+                    "scope": "migrations.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
@@ -74914,7 +75422,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "parameters": [
@@ -74939,6 +75448,12 @@
                                         "type": "string",
                                         "description": "Dedicated compute specification to provision as the migration target (e.g. s-2vcpu-4gb). The migration always targets a dedicated compute, so `serverless` is not accepted.",
                                         "x-example": "s-1vcpu-1gb"
+                                    },
+                                    "autoCutover": {
+                                        "type": "boolean",
+                                        "description": "Whether to cut over automatically once the copy is verified. When disabled the migration parks at ready_to_cutover and holds there until the cutover is performed manually.",
+                                        "default": true,
+                                        "x-example": false
                                     }
                                 },
                                 "required": [
@@ -74980,9 +75495,10 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "databases.read",
+                    "scope": "migrations.read",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
@@ -74992,7 +75508,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "parameters": [
@@ -75040,9 +75557,10 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "databases.write",
+                    "scope": "migrations.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
@@ -75055,7 +75573,79 @@
                 },
                 "security": [
                     {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "migrationId",
+                        "description": "Migration ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<MIGRATION_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/tablesdb\/{databaseId}\/migrations\/{migrationId}\/cutover": {
+            "post": {
+                "summary": "Cutover migration",
+                "operationId": "tablesDBCutoverMigration",
+                "tags": [
+                    "tablesDB"
+                ],
+                "description": "Cut a verified TablesDB migration over to its dedicated compute. Only applies to a migration created with `autoCutover` disabled, which waits at `ready_to_cutover` until this is called. The routing flip happens shortly after this returns, with a brief read-only window. One call buys one attempt: a cutover that fails a check returns the migration to `verifying` and parks it again, so call this once more to retry.",
+                "responses": {
+                    "200": {
+                        "description": "Database Migration",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/databaseMigration"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "cutoverMigration",
+                    "group": "migrations",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "tablesdb\/cutover-migration.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "migrations.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
                         "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "parameters": [
@@ -75502,7 +76092,7 @@
                                     },
                                     "columns": {
                                         "type": "array",
-                                        "description": "Array of column definitions to create. Each column should contain: key (string), type (string: string, integer, float, boolean, datetime, relationship), size (integer, required for string type), required (boolean, optional), default (mixed, optional), array (boolean, optional), and type-specific options.",
+                                        "description": "Array of column definitions to create. Each column should contain: key (string), type (string: string, varchar, text, mediumtext, longtext, integer, bigint, double, boolean, datetime, point, linestring, polygon, email, url, ip, enum), size (integer, required for string and varchar types), required (boolean, optional), default (mixed, optional), array (boolean, optional), and type-specific options.",
                                         "default": [],
                                         "x-example": null,
                                         "items": {
@@ -79136,7 +79726,7 @@
                                     },
                                     "type": {
                                         "type": "string",
-                                        "description": "Relation type",
+                                        "description": "Relationship type. Possible values are: oneToOne, oneToMany, manyToOne, manyToMany.",
                                         "x-example": "oneToOne",
                                         "enum": [
                                             "oneToOne",
@@ -79172,7 +79762,7 @@
                                     },
                                     "onDelete": {
                                         "type": "string",
-                                        "description": "Constraints option",
+                                        "description": "Delete constraint. Possible values are: cascade, restrict, setNull.",
                                         "default": "restrict",
                                         "x-example": "cascade",
                                         "enum": [
@@ -80519,7 +81109,7 @@
                                 "properties": {
                                     "onDelete": {
                                         "type": "string",
-                                        "description": "Constraints option",
+                                        "description": "Delete constraint. Possible values are: cascade, restrict, setNull.",
                                         "x-example": "cascade",
                                         "enum": [
                                             "cascade",
@@ -84328,14 +84918,107 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "type": "string"
+                                "type": "string",
+                                "enum": [
+                                    "network.requests",
+                                    "network.inbound",
+                                    "network.outbound",
+                                    "executions",
+                                    "executions.compute",
+                                    "executions.mbSeconds",
+                                    "functions.executions",
+                                    "sites.executions",
+                                    "functions.executions.compute",
+                                    "sites.executions.compute",
+                                    "functions.executions.mbSeconds",
+                                    "sites.executions.mbSeconds",
+                                    "builds",
+                                    "builds.success",
+                                    "builds.failed",
+                                    "builds.compute",
+                                    "builds.compute.success",
+                                    "builds.compute.failed",
+                                    "builds.mbSeconds",
+                                    "databases.operations.reads",
+                                    "databases.operations.writes",
+                                    "documentsdb.databases.operations.reads",
+                                    "documentsdb.databases.operations.writes",
+                                    "vectorsdb.databases.operations.reads",
+                                    "vectorsdb.databases.operations.writes",
+                                    "files.imagesTransformed",
+                                    "avatars.screenshotsGenerated",
+                                    "realtime.messages.sent",
+                                    "realtime.inbound",
+                                    "realtime.outbound",
+                                    "embeddings.text",
+                                    "embeddings.text.totalTokens",
+                                    "embeddings.text.totalDuration",
+                                    "embeddings.text.totalErrors",
+                                    "waf.requests.denied",
+                                    "waf.requests.challenged",
+                                    "waf.requests.rateLimited",
+                                    "waf.requests.redirected",
+                                    "affiliates.clicks",
+                                    "affiliates.signups",
+                                    "affiliates.conversions",
+                                    "dedicatedDatabases.{databaseInternalId}.inbound",
+                                    "dedicatedDatabases.{databaseInternalId}.outbound",
+                                    "dedicatedDatabases.{databaseInternalId}.compute"
+                                ],
+                                "x-enum-name": "UsageEventMetric",
+                                "x-enum-keys": [
+                                    "network.requests",
+                                    "network.inbound",
+                                    "network.outbound",
+                                    "executions",
+                                    "executions.compute",
+                                    "executions.mbSeconds",
+                                    "functions.executions",
+                                    "sites.executions",
+                                    "functions.executions.compute",
+                                    "sites.executions.compute",
+                                    "functions.executions.mbSeconds",
+                                    "sites.executions.mbSeconds",
+                                    "builds",
+                                    "builds.success",
+                                    "builds.failed",
+                                    "builds.compute",
+                                    "builds.compute.success",
+                                    "builds.compute.failed",
+                                    "builds.mbSeconds",
+                                    "databases.operations.reads",
+                                    "databases.operations.writes",
+                                    "documentsdb.databases.operations.reads",
+                                    "documentsdb.databases.operations.writes",
+                                    "vectorsdb.databases.operations.reads",
+                                    "vectorsdb.databases.operations.writes",
+                                    "files.imagesTransformed",
+                                    "avatars.screenshotsGenerated",
+                                    "realtime.messages.sent",
+                                    "realtime.inbound",
+                                    "realtime.outbound",
+                                    "embeddings.text",
+                                    "embeddings.text.totalTokens",
+                                    "embeddings.text.totalDuration",
+                                    "embeddings.text.totalErrors",
+                                    "waf.requests.denied",
+                                    "waf.requests.challenged",
+                                    "waf.requests.rateLimited",
+                                    "waf.requests.redirected",
+                                    "affiliates.clicks",
+                                    "affiliates.signups",
+                                    "affiliates.conversions",
+                                    "dedicatedDatabases.{databaseInternalId}.inbound",
+                                    "dedicatedDatabases.{databaseInternalId}.outbound",
+                                    "dedicatedDatabases.{databaseInternalId}.compute"
+                                ]
                             }
                         },
                         "in": "query"
                     },
                     {
                         "name": "queries",
-                        "description": "Up to 10 filter queries in Utopia syntax. Allowed attributes: path, method, status, service, resourceType, resourceId, teamId, country, continentCode, city, region, hostname, ip, osName, clientType, clientName, deviceName, sdk, sdkVersion. Allowed methods: equal, notEqual, contains, startsWith, endsWith, isNull, isNotNull. Example: `queries[]=equal(\"resourceType\", [\"bucket\"])`.",
+                        "description": "Up to 10 filter queries in Utopia syntax. Allowed attributes, also published as the `UsageEventDimension` enum: path, method, status, service, resourceType, resourceId, teamId, country, continentCode, city, region, hostname, ip, osName, clientType, clientName, deviceName, sdk, sdkVersion. Allowed methods: equal, notEqual, contains, startsWith, endsWith, isNull, isNotNull. Example: `queries[]=equal(\"resourceType\", [\"bucket\"])`.",
                         "required": false,
                         "schema": {
                             "type": "array",
@@ -84525,7 +85208,7 @@
                 "tags": [
                     "usage"
                 ],
-                "description": "Aggregate usage gauge snapshots. Gauges are point-in-time values (storage totals, resource counts, \u2026); each point carries the latest snapshot in its interval via `argMax(value, time)`. `metrics[]` (1-10) is required; the response always contains one entry per requested metric, each with its own `points[]` time series.\n\nA metric with no stored samples in the window returns an empty `points[]`. A metric that really did read zero returns a point whose `value` is `0`, so \"no such series\" and \"a genuine zero\" are different answers.\n\n**Two response shapes**:\n- Omit `interval` for a flat top-N table \u2014 `argMax(value, time)` per dimension combination over the whole window, no time axis. Useful for \"top 10 resources by current storage\".\n- Pass `interval` (`1m`, `15m`, `30m`, `1h`, `1d`) for a time series \u2014 one snapshot per (time bucket \u00d7 dimension combination).\n\n`dimensions[]` breaks each point down further. Supported on gauges: `resourceId`, `teamId`, `service`, `resourceType`, `ordinal`. `service` and `resourceType` enable per-service \/ per-resource-type panels (e.g. storage-by-service: group `files.storage`, `deployments.storage`, `builds.storage`, `databases.storage` by `service`). `ordinal` separates per-node series for multi-node resources such as dedicated databases. It is a stable per-node identity, not a role \u2014 ordinal 0 is the first member created, and a failover can leave the primary on any ordinal, so read the role from the database's replicas endpoint rather than inferring it here. `queries[]` filters the underlying rows using the standard Utopia query syntax \u2014 `equal(\"resourceType\", [\"bucket\"])`, `equal(\"resourceId\", [\"abc123\"])`, `equal(\"teamId\", [\"team_x\"])`, `equal(\"ordinal\", [\"0\"])`, `isNotNull(\"teamId\")`. Supported attributes: see `queries[]` param. Supported methods: `equal`, `notEqual`, `isNull`, `isNotNull`. Pass multiple metrics to render stacked charts in one round-trip. `orderBy=value`+`orderDir=desc`+`limit=N` returns the top-N. When `startAt` is omitted, the default window adapts to interval (or 7d when interval is omitted).",
+                "description": "Aggregate usage gauge snapshots. Gauges are point-in-time values (storage totals, resource counts, \u2026); each point carries the latest snapshot in its interval via `argMax(value, time)`. `metrics[]` (1-10) is required; the response always contains one entry per requested metric, each with its own `points[]` time series.\n\nA metric with no stored samples in the window returns an empty `points[]`. A metric that really did read zero returns a point whose `value` is `0`, so \"no such series\" and \"a genuine zero\" are different answers.\n\n**Two response shapes**:\n- Omit `interval` for a flat top-N table \u2014 `argMax(value, time)` per dimension combination over the whole window, no time axis. Useful for \"top 10 resources by current storage\".\n- Pass `interval` (`1m`, `15m`, `30m`, `1h`, `1d`) for a time series \u2014 one snapshot per (time bucket \u00d7 dimension combination).\n\n`dimensions[]` breaks each point down further. Supported on gauges: `resourceId`, `teamId`, `service`, `resourceType`, `ordinal`. `service` and `resourceType` enable per-service \/ per-resource-type panels (e.g. storage-by-service: group `files.storage`, `deployments.storage`, `builds.storage`, `databases.storage` by `service`). `ordinal` separates per-node series for multi-node resources such as dedicated databases. It is a stable per-node identity, not a role \u2014 ordinal 0 is the first member created, and a failover can leave the primary on any ordinal, so read the role from the database's replicas endpoint rather than inferring it here. `queries[]` filters the underlying rows using the standard Utopia query syntax \u2014 `equal(\"resourceType\", [\"bucket\"])`, `equal(\"resourceId\", [\"abc123\"])`, `equal(\"teamId\", [\"team_x\"])`, `equal(\"ordinal\", [\"0\"])`, `isNotNull(\"teamId\")`. Supported attributes: see `queries[]` param. Supported methods: `equal`, `notEqual`, `isNull`, `isNotNull`. Pass multiple metrics to render stacked charts in one round-trip. `orderBy=value`+`orderDir=desc`+`limit=N` returns the top-N. When `startAt` is omitted, the default window adapts to interval (or 7d when interval is omitted).\n\n`aggregate` selects how the samples in a bucket are combined: `last` (default) is the latest reading \u2014 correct for a snapshot such as storage \u2014 while `max` is the highest reading. Use `max` for a sampled level series: peak concurrent realtime connections is `metrics[]=realtime.connections&aggregate=max`, at whatever `interval` the chart needs, since the peak of a set of samples is just the max of their per-bucket maxima. `realtime.connections` is served only here - it is a concurrency level, not a countable event, so `\/v1\/usage\/events` rejects it.",
                 "responses": {
                     "200": {
                         "description": "usageGaugeList",
@@ -84573,14 +85256,115 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "type": "string"
+                                "type": "string",
+                                "enum": [
+                                    "teams",
+                                    "users",
+                                    "messages",
+                                    "sessions",
+                                    "databases",
+                                    "collections",
+                                    "documents",
+                                    "databases.storage",
+                                    "documentsdb.databases",
+                                    "documentsdb.collections",
+                                    "documentsdb.documents",
+                                    "documentsdb.databases.storage",
+                                    "vectorsdb.databases",
+                                    "vectorsdb.collections",
+                                    "vectorsdb.documents",
+                                    "vectorsdb.databases.storage",
+                                    "buckets",
+                                    "files",
+                                    "files.storage",
+                                    "sites",
+                                    "functions",
+                                    "deployments",
+                                    "deployments.storage",
+                                    "builds",
+                                    "builds.storage",
+                                    "users.mau",
+                                    "users.dau",
+                                    "users.wau",
+                                    "webhooks",
+                                    "platforms",
+                                    "providers",
+                                    "topics",
+                                    "targets",
+                                    "keys",
+                                    "domains",
+                                    "realtime.connections",
+                                    "backups.policies",
+                                    "backups.storage",
+                                    "dedicatedDatabases.storage",
+                                    "dedicatedDatabases.connections",
+                                    "dedicatedDatabases.cpu",
+                                    "dedicatedDatabases.memory",
+                                    "dedicatedDatabases.qps",
+                                    "dedicatedDatabases.iopsRead",
+                                    "dedicatedDatabases.iopsWrite",
+                                    "apps",
+                                    "apps.users",
+                                    "apps.installations"
+                                ],
+                                "x-enum-name": "UsageGaugeMetric",
+                                "x-enum-keys": [
+                                    "teams",
+                                    "users",
+                                    "messages",
+                                    "sessions",
+                                    "databases",
+                                    "collections",
+                                    "documents",
+                                    "databases.storage",
+                                    "documentsdb.databases",
+                                    "documentsdb.collections",
+                                    "documentsdb.documents",
+                                    "documentsdb.databases.storage",
+                                    "vectorsdb.databases",
+                                    "vectorsdb.collections",
+                                    "vectorsdb.documents",
+                                    "vectorsdb.databases.storage",
+                                    "buckets",
+                                    "files",
+                                    "files.storage",
+                                    "sites",
+                                    "functions",
+                                    "deployments",
+                                    "deployments.storage",
+                                    "builds",
+                                    "builds.storage",
+                                    "users.mau",
+                                    "users.dau",
+                                    "users.wau",
+                                    "webhooks",
+                                    "platforms",
+                                    "providers",
+                                    "topics",
+                                    "targets",
+                                    "keys",
+                                    "domains",
+                                    "realtime.connections",
+                                    "backups.policies",
+                                    "backups.storage",
+                                    "dedicatedDatabases.storage",
+                                    "dedicatedDatabases.connections",
+                                    "dedicatedDatabases.cpu",
+                                    "dedicatedDatabases.memory",
+                                    "dedicatedDatabases.qps",
+                                    "dedicatedDatabases.iopsRead",
+                                    "dedicatedDatabases.iopsWrite",
+                                    "apps",
+                                    "apps.users",
+                                    "apps.installations"
+                                ]
                             }
                         },
                         "in": "query"
                     },
                     {
                         "name": "queries",
-                        "description": "Up to 10 filter queries in Utopia syntax. Allowed attributes: service, resourceType, resourceId, teamId, ordinal. Allowed methods: equal, notEqual, isNull, isNotNull. Example: `queries[]=equal(\"resourceType\", [\"bucket\"])`.",
+                        "description": "Up to 10 filter queries in Utopia syntax. Allowed attributes, also published as the `UsageGaugeDimension` enum: service, resourceType, resourceId, teamId, ordinal. Allowed methods: equal, notEqual, isNull, isNotNull. Example: `queries[]=equal(\"resourceType\", [\"bucket\"])`.",
                         "required": false,
                         "schema": {
                             "type": "array",
@@ -84729,6 +85513,17 @@
                             "format": "int32",
                             "x-example": 0,
                             "default": 0
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "aggregate",
+                        "description": "How to combine the samples in each bucket. `last` (default) returns the latest reading \u2014 the right answer for a snapshot such as storage. `max` returns the highest reading, which is what a sampled level series needs: peak concurrent realtime connections is the max of `realtime.connections` over the window.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "last",
+                            "default": "last"
                         },
                         "in": "query"
                     }
@@ -86757,6 +87552,104 @@
                             "x-enum-keys": [
                                 "totp"
                             ]
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/users\/{userId}\/mfa\/challenges\/{challengeId}": {
+            "get": {
+                "summary": "Get MFA challenge",
+                "operationId": "usersGetMFAChallenge",
+                "tags": [
+                    "users"
+                ],
+                "description": "Get a custom MFA challenge for a user, including the code to be delivered through your own channel.",
+                "responses": {
+                    "200": {
+                        "description": "MFA Challenge Secret",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/mfaChallengeSecret"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "method": "getMFAChallenge",
+                    "group": "mfa",
+                    "cookies": false,
+                    "type": "",
+                    "demo": "users\/get-mfa-challenge.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "users.read",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "methods": [
+                        {
+                            "name": "getMFAChallenge",
+                            "namespace": "users",
+                            "desc": "",
+                            "auth": {
+                                "Project": []
+                            },
+                            "parameters": [
+                                "userId",
+                                "challengeId"
+                            ],
+                            "required": [
+                                "userId",
+                                "challengeId"
+                            ],
+                            "responses": [
+                                {
+                                    "code": 200,
+                                    "model": "#\/components\/schemas\/mfaChallengeSecret"
+                                }
+                            ],
+                            "description": "",
+                            "demo": "users\/get-mfa-challenge.md",
+                            "public": true
+                        }
+                    ],
+                    "auth": {
+                        "Project": []
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "description": "User ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<USER_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "challengeId",
+                        "description": "ID of the challenge.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "x-example": "<CHALLENGE_ID>"
                         },
                         "in": "path"
                     }
@@ -93734,6 +94627,19 @@
                                         "default": "ip",
                                         "x-example": "ip"
                                     },
+                                    "strategy": {
+                                        "type": "string",
+                                        "description": "Rate limit strategy. `fixedWindow` counts requests in discrete intervals, `slidingWindow` weights the previous interval for smoother limiting, and `tokenBucket` refills allowance continuously to permit short bursts.",
+                                        "default": "fixedWindow",
+                                        "x-example": "fixedWindow"
+                                    },
+                                    "maxBucketSize": {
+                                        "type": "integer",
+                                        "description": "Maximum number of tokens the bucket can hold for the `tokenBucket` strategy, controlling how large a burst is allowed. The sustained refill rate is `limit \/ interval`. Defaults to `limit` when omitted. Ignored by other strategies.",
+                                        "x-example": 1,
+                                        "format": "int32",
+                                        "x-nullable": true
+                                    },
                                     "priority": {
                                         "type": "integer",
                                         "description": "Evaluation priority. Lower numbers run earlier.",
@@ -93875,6 +94781,13 @@
                                         "type": "string",
                                         "description": "Rate limit key. Use `ip` to limit per client IP or `userId` to limit per authenticated user. Requests without an authenticated user skip `userId` rules.",
                                         "x-example": "ip",
+                                        "x-nullable": true
+                                    },
+                                    "maxBucketSize": {
+                                        "type": "integer",
+                                        "description": "Maximum number of tokens the bucket can hold for the `tokenBucket` strategy, controlling how large a burst is allowed. The sustained refill rate is `limit \/ interval`. Ignored by other strategies. The strategy itself cannot be changed after creation.",
+                                        "x-example": 1,
+                                        "format": "int32",
                                         "x-nullable": true
                                     },
                                     "priority": {
@@ -94798,10 +95711,6 @@
             "description": "The Locale service allows you to customize your app based on your users' location."
         },
         {
-            "name": "users",
-            "description": "The Users service allows you to manage your project users."
-        },
-        {
             "name": "messaging",
             "description": "The Messaging service allows you to send messages to any provider type (SMTP, push notification, SMS, etc.)."
         },
@@ -94860,6 +95769,10 @@
         {
             "name": "tokens",
             "description": "The Tokens service allows you to create and manage resource tokens for secure file access."
+        },
+        {
+            "name": "users",
+            "description": "The Users service allows you to manage your project users."
         },
         {
             "name": "storage",
@@ -96243,6 +97156,9 @@
                                     "$ref": "#\/components\/schemas\/policyMembershipPrivacy"
                                 },
                                 {
+                                    "$ref": "#\/components\/schemas\/policyMfaFactors"
+                                },
+                                {
                                     "$ref": "#\/components\/schemas\/policyDenyAliasedEmail"
                                 },
                                 {
@@ -96268,6 +97184,7 @@
                                     "session-limit": "#\/components\/schemas\/policySessionLimit",
                                     "user-limit": "#\/components\/schemas\/policyUserLimit",
                                     "membership-privacy": "#\/components\/schemas\/policyMembershipPrivacy",
+                                    "mfa-factors": "#\/components\/schemas\/policyMfaFactors",
                                     "deny-aliased-email": "#\/components\/schemas\/policyDenyAliasedEmail",
                                     "deny-disposable-email": "#\/components\/schemas\/policyDenyDisposableEmail",
                                     "deny-free-email": "#\/components\/schemas\/policyDenyFreeEmail",
@@ -103813,6 +104730,14 @@
                         "description": "Status of latest deployment. Possible values are \"waiting\", \"processing\", \"building\", \"ready\", and \"failed\".",
                         "x-example": "ready"
                     },
+                    "scopes": {
+                        "type": "array",
+                        "description": "Allowed permission scopes.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": "users.read"
+                    },
                     "vars": {
                         "type": "array",
                         "description": "Site variables.",
@@ -103937,6 +104862,7 @@
                     "latestDeploymentId",
                     "latestDeploymentCreatedAt",
                     "latestDeploymentStatus",
+                    "scopes",
                     "vars",
                     "timeout",
                     "installCommand",
@@ -103973,6 +104899,7 @@
                     "latestDeploymentId": "5e5ea5c16897e",
                     "latestDeploymentCreatedAt": "2020-10-15T06:38:00.000+00:00",
                     "latestDeploymentStatus": "ready",
+                    "scopes": "users.read",
                     "vars": [],
                     "timeout": 300,
                     "installCommand": "npm install",
@@ -105999,6 +106926,17 @@
                         ],
                         "nullable": true
                     },
+                    "oAuth2ServerInstallationScopes": {
+                        "type": "array",
+                        "description": "Scopes an application may request when installed on a team",
+                        "items": {
+                            "type": "string"
+                        },
+                        "x-example": [
+                            "project:all"
+                        ],
+                        "nullable": true
+                    },
                     "oAuth2ServerAuthorizationDetailsTypes": {
                         "type": "array",
                         "description": "OAuth2 server accepted RFC 9396 authorization_details types",
@@ -106154,6 +107092,9 @@
                     ],
                     "oAuth2ServerDefaultScopes": [
                         "read"
+                    ],
+                    "oAuth2ServerInstallationScopes": [
+                        "project:all"
                     ],
                     "oAuth2ServerAuthorizationDetailsTypes": [
                         "calendar"
@@ -108875,6 +109816,51 @@
                     "userAccessedAt": true
                 }
             },
+            "policyMfaFactors": {
+                "description": "Policy MFA Factors",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Policy ID.",
+                        "x-example": "password-dictionary"
+                    },
+                    "totp": {
+                        "type": "boolean",
+                        "description": "Whether TOTP can be used to complete an MFA challenge.",
+                        "x-example": true
+                    },
+                    "email": {
+                        "type": "boolean",
+                        "description": "Whether email can be used to complete an MFA challenge.",
+                        "x-example": true
+                    },
+                    "phone": {
+                        "type": "boolean",
+                        "description": "Whether phone (SMS) can be used to complete an MFA challenge.",
+                        "x-example": true
+                    },
+                    "custom": {
+                        "type": "boolean",
+                        "description": "Whether the custom factor can be used to complete an MFA challenge.",
+                        "x-example": true
+                    }
+                },
+                "required": [
+                    "$id",
+                    "totp",
+                    "email",
+                    "phone",
+                    "custom"
+                ],
+                "example": {
+                    "$id": "password-dictionary",
+                    "totp": true,
+                    "email": true,
+                    "phone": true,
+                    "custom": true
+                }
+            },
             "platformWeb": {
                 "description": "Platform Web",
                 "type": "object",
@@ -111030,6 +112016,51 @@
                     "expire": "2020-10-15T06:38:00.000+00:00"
                 }
             },
+            "mfaChallengeSecret": {
+                "description": "MFA Challenge Secret",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Token ID.",
+                        "x-example": "bb8ea5c16897e"
+                    },
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "Token creation date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "description": "User ID.",
+                        "x-example": "5e5ea5c168bb8"
+                    },
+                    "expire": {
+                        "type": "string",
+                        "description": "Token expiration date in ISO 8601 format.",
+                        "x-example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "code": {
+                        "type": "string",
+                        "description": "Challenge code to be delivered to the end user through a custom channel.",
+                        "x-example": "446372"
+                    }
+                },
+                "required": [
+                    "$id",
+                    "$createdAt",
+                    "userId",
+                    "expire",
+                    "code"
+                ],
+                "example": {
+                    "$id": "bb8ea5c16897e",
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "userId": "5e5ea5c168bb8",
+                    "expire": "2020-10-15T06:38:00.000+00:00",
+                    "code": "446372"
+                }
+            },
             "mfaRecoveryCodes": {
                 "description": "MFA Recovery Codes",
                 "type": "object",
@@ -111103,19 +112134,26 @@
                         "type": "boolean",
                         "description": "Can recovery code be used for MFA challenge for this account.",
                         "x-example": true
+                    },
+                    "custom": {
+                        "type": "boolean",
+                        "description": "Can custom factor be used for MFA challenge for this account.",
+                        "x-example": true
                     }
                 },
                 "required": [
                     "totp",
                     "phone",
                     "email",
-                    "recoveryCode"
+                    "recoveryCode",
+                    "custom"
                 ],
                 "example": {
                     "totp": true,
                     "phone": true,
                     "email": true,
-                    "recoveryCode": true
+                    "recoveryCode": true,
+                    "custom": true
                 }
             },
             "provider": {
@@ -115337,8 +116375,13 @@
                     },
                     "autoCutover": {
                         "type": "boolean",
-                        "description": "Whether the migration cuts over automatically once ready.",
+                        "description": "Whether the migration cuts over automatically once ready. Set when the migration is created and never changed afterwards, so it always reports what was asked for.",
                         "x-example": true
+                    },
+                    "cutoverRequested": {
+                        "type": "boolean",
+                        "description": "Whether a cutover has been requested and not yet attempted. Set by the cutover endpoint and cleared when the attempt is made, so a cutover that fails a check parks the migration again rather than retrying on its own.",
+                        "x-example": false
                     },
                     "paused": {
                         "type": "boolean",
@@ -115361,6 +116404,7 @@
                     "cutoverAt",
                     "soakUntil",
                     "autoCutover",
+                    "cutoverRequested",
                     "paused"
                 ],
                 "example": {
@@ -115378,6 +116422,7 @@
                     "cutoverAt": "2020-10-15T06:38:00.000+00:00",
                     "soakUntil": "2020-10-15T06:38:00.000+00:00",
                     "autoCutover": true,
+                    "cutoverRequested": false,
                     "paused": false
                 }
             },
@@ -115544,12 +116589,6 @@
                         "description": "Replication sync mode: async, sync, or quorum.",
                         "x-example": "async"
                     },
-                    "crossRegionReplicas": {
-                        "type": "integer",
-                        "description": "Number of cross-region replicas. Cross-region availability is enabled when greater than 0.",
-                        "x-example": 1,
-                        "format": "int32"
-                    },
                     "networkMaxConnections": {
                         "type": "integer",
                         "description": "Maximum concurrent client connections. This is the limit a client pool may reach; the engine's own max_connections reported by the status endpoint is a smaller backend limit the pooler multiplexes onto and does not constrain a client pool.",
@@ -115688,7 +116727,6 @@
                     "nodePool",
                     "replicas",
                     "syncMode",
-                    "crossRegionReplicas",
                     "networkMaxConnections",
                     "networkIdleTimeoutSeconds",
                     "networkIPAllowlist",
@@ -115739,7 +116777,6 @@
                     "nodePool": "db-pool-4vcpu-8gb",
                     "replicas": 2,
                     "syncMode": "async",
-                    "crossRegionReplicas": 1,
                     "networkMaxConnections": 500,
                     "networkIdleTimeoutSeconds": 900,
                     "networkIPAllowlist": [
@@ -115872,7 +116909,12 @@
                     },
                     "databaseId": {
                         "type": "string",
-                        "description": "Database ID being restored.",
+                        "description": "Database ID being restored into.",
+                        "x-example": "5e5ea5c16897e"
+                    },
+                    "sourceDatabaseId": {
+                        "type": "string",
+                        "description": "Source database ID when restoring a backup into another database.",
                         "x-example": "5e5ea5c16897e"
                     },
                     "projectId": {
@@ -115920,6 +116962,7 @@
                     "$id",
                     "$createdAt",
                     "databaseId",
+                    "sourceDatabaseId",
                     "projectId",
                     "backupId",
                     "type",
@@ -115933,6 +116976,7 @@
                     "$id": "5e5ea5c16897e",
                     "$createdAt": "2020-10-15T06:38:00.000+00:00",
                     "databaseId": "5e5ea5c16897e",
+                    "sourceDatabaseId": "5e5ea5c16897e",
                     "projectId": "5e5ea5c16897e",
                     "backupId": "5e5ea5c16897e",
                     "type": "backup",
@@ -115949,7 +116993,7 @@
                 "properties": {
                     "health": {
                         "type": "string",
-                        "description": "Overall health status: healthy, degraded, or unhealthy.",
+                        "description": "Overall health status: healthy, degraded, unhealthy, or unknown when nothing could be measured.",
                         "x-example": "healthy"
                     },
                     "ready": {
@@ -116016,8 +117060,9 @@
                     },
                     "syncStateConfirmed": {
                         "type": "boolean",
-                        "description": "Whether the reported sync state was read from the engine. When false the state could not be confirmed and the other sync fields carry no reading.",
-                        "x-example": true
+                        "description": "Whether the other sync fields are an engine reading rather than a recorded estimate. True when the primary answered what it is enforcing, including when that answer contradicted the record, in which case the contradicted values are replaced by the ones the engine reports. False when the reading could not be taken: the probe did not answer, there was no engine to ask, or the values describe a configuration change just applied rather than anything measured. Absent when no engine was asked at all, so an unprobed database is distinguishable from an unconfirmed one. False never means a standby was found lagging, because it is the absence of a reading rather than a negative one, so draw no conclusion about replication health from it or from a response that omits it.",
+                        "x-example": true,
+                        "nullable": true
                     },
                     "replicas": {
                         "type": "array",
@@ -116067,7 +117112,6 @@
                     "syncDegraded",
                     "syncAcknowledgements",
                     "syncStandbyCount",
-                    "syncStateConfirmed",
                     "replicas",
                     "volumes"
                 ],
@@ -117053,8 +118097,8 @@
                     },
                     "errorCode": {
                         "type": "string",
-                        "description": "Machine-readable failure code. `LockLost` marks an attempt that was fenced and abandoned because another worker took over the database.",
-                        "x-example": "LockLost"
+                        "description": "Machine-readable failure code. `Interrupted` marks an attempt that ended before its outcome could be confirmed.",
+                        "x-example": "Interrupted"
                     },
                     "errorMessage": {
                         "type": "string",
@@ -117082,7 +118126,7 @@
                     "requestedAt": "2020-10-15T06:38:00.000+00:00",
                     "startedAt": "2020-10-15T06:38:00.000+00:00",
                     "completedAt": "2020-10-15T06:38:00.000+00:00",
-                    "errorCode": "LockLost",
+                    "errorCode": "Interrupted",
                     "errorMessage": ""
                 }
             },
@@ -117154,8 +118198,9 @@
                     },
                     "syncStateConfirmed": {
                         "type": "boolean",
-                        "description": "Whether the reported sync state was read from the engine. When false the state could not be confirmed and the other sync fields carry no reading.",
-                        "x-example": true
+                        "description": "Whether the other sync fields are an engine reading rather than a recorded estimate. True when the primary answered what it is enforcing, including when that answer contradicted the record, in which case the contradicted values are replaced by the ones the engine reports. False when the reading could not be taken: the probe did not answer, there was no engine to ask, or the values describe a configuration change just applied rather than anything measured. Absent when no engine was asked at all, so an unprobed database is distinguishable from an unconfirmed one. False never means a standby was found lagging, because it is the absence of a reading rather than a negative one, so draw no conclusion about replication health from it or from a response that omits it.",
+                        "x-example": true,
+                        "nullable": true
                     },
                     "members": {
                         "type": "array",
@@ -117172,7 +118217,6 @@
                     "syncDegraded",
                     "syncAcknowledgements",
                     "syncStandbyCount",
-                    "syncStateConfirmed",
                     "members"
                 ],
                 "example": {
@@ -118051,30 +119095,10 @@
                 "description": "PlanChangeLimits",
                 "type": "object",
                 "properties": {
-                    "totalProjects": {
-                        "type": "integer",
-                        "description": "Total number of projects in the organization",
-                        "x-example": 5,
-                        "format": "int32"
-                    },
-                    "nonCompliantProjects": {
-                        "type": "integer",
-                        "description": "Number of projects exceeding target plan limits",
-                        "x-example": 2,
-                        "format": "int32"
-                    },
                     "canChangePlan": {
                         "type": "boolean",
                         "description": "Whether the plan change is allowed",
                         "x-example": false
-                    },
-                    "projects": {
-                        "type": "array",
-                        "description": "Project compliance details",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/planChangeProjectCompliance"
-                        },
-                        "x-example": []
                     },
                     "unsupportedAddons": {
                         "type": "array",
@@ -118085,23 +119109,71 @@
                         "x-example": [
                             "baa"
                         ]
+                    },
+                    "projects": {
+                        "type": "object",
+                        "description": "Project count against the target plan limit",
+                        "x-example": {},
+                        "allOf": [
+                            {
+                                "$ref": "#\/components\/schemas\/planChangeResourceCompliance"
+                            }
+                        ]
+                    },
+                    "members": {
+                        "type": "object",
+                        "description": "Organization member count against the target plan limit",
+                        "x-example": {},
+                        "allOf": [
+                            {
+                                "$ref": "#\/components\/schemas\/planChangeResourceCompliance"
+                            }
+                        ]
+                    },
+                    "domains": {
+                        "type": "object",
+                        "description": "Custom domain count against the target plan limit",
+                        "x-example": {},
+                        "allOf": [
+                            {
+                                "$ref": "#\/components\/schemas\/planChangeResourceCompliance"
+                            }
+                        ]
+                    },
+                    "nonCompliantProjects": {
+                        "type": "integer",
+                        "description": "Number of projects exceeding target plan limits",
+                        "x-example": 2,
+                        "format": "int32"
+                    },
+                    "projectCompliance": {
+                        "type": "array",
+                        "description": "Per-project compliance details. Populated for downgrades only.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/planChangeProjectCompliance"
+                        },
+                        "x-example": []
                     }
                 },
                 "required": [
-                    "totalProjects",
-                    "nonCompliantProjects",
                     "canChangePlan",
+                    "unsupportedAddons",
                     "projects",
-                    "unsupportedAddons"
+                    "members",
+                    "domains",
+                    "nonCompliantProjects",
+                    "projectCompliance"
                 ],
                 "example": {
-                    "totalProjects": 5,
-                    "nonCompliantProjects": 2,
                     "canChangePlan": false,
-                    "projects": [],
                     "unsupportedAddons": [
                         "baa"
-                    ]
+                    ],
+                    "projects": {},
+                    "members": {},
+                    "domains": {},
+                    "nonCompliantProjects": 2,
+                    "projectCompliance": []
                 }
             },
             "planChangeProjectCompliance": {
@@ -118175,7 +119247,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "Compliance status",
+                        "description": "Compliance status. Either `over_limit` or `within_limit`.",
                         "x-example": "over_limit"
                     },
                     "excess": {
@@ -118186,7 +119258,7 @@
                     },
                     "resolutionHint": {
                         "type": "string",
-                        "description": "Suggestion for resolving the compliance issue",
+                        "description": "Suggestion for resolving the compliance issue. Empty when the resource is within limits.",
                         "x-example": "Delete or migrate 2 databases."
                     }
                 },
@@ -118980,12 +120052,6 @@
                         "x-example": 1,
                         "format": "double"
                     },
-                    "crossRegionReplicaRate": {
-                        "type": "number",
-                        "description": "Cross-region replica price as a fraction of the specification cost.",
-                        "x-example": 1,
-                        "format": "double"
-                    },
                     "pitrRate": {
                         "type": "number",
                         "description": "Point-in-time recovery price as a fraction of the specification cost.",
@@ -118997,14 +120063,12 @@
                     "storageOverageRate",
                     "bandwidthOverageRate",
                     "replicaRate",
-                    "crossRegionReplicaRate",
                     "pitrRate"
                 ],
                 "example": {
                     "storageOverageRate": 0.125,
                     "bandwidthOverageRate": 0.08,
                     "replicaRate": 1,
-                    "crossRegionReplicaRate": 1,
                     "pitrRate": 0.2
                 }
             },
@@ -121868,6 +122932,17 @@
                         "type": "string",
                         "description": "Rate limit key: `ip` limits per client IP, `userId` limits per authenticated user.",
                         "x-example": "userId"
+                    },
+                    "strategy": {
+                        "type": "string",
+                        "description": "Rate limit strategy: `fixedWindow`, `slidingWindow`, or `tokenBucket`.",
+                        "x-example": "slidingWindow"
+                    },
+                    "maxBucketSize": {
+                        "type": "integer",
+                        "description": "Maximum burst capacity in tokens, applied by the `tokenBucket` strategy. The sustained refill rate is `limit \/ interval`. Defaults to `limit`.",
+                        "x-example": 200,
+                        "format": "int32"
                     }
                 },
                 "required": [
@@ -121887,7 +122962,9 @@
                     "config",
                     "limit",
                     "interval",
-                    "key"
+                    "key",
+                    "strategy",
+                    "maxBucketSize"
                 ],
                 "example": {
                     "$id": "wafRule1",
@@ -121914,7 +122991,9 @@
                     "config": [],
                     "limit": 1000,
                     "interval": 60,
-                    "key": "userId"
+                    "key": "userId",
+                    "strategy": "slidingWindow",
+                    "maxBucketSize": 200
                 }
             },
             "wafRuleRedirect": {
