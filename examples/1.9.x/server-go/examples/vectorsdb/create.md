@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/client"
-    "github.com/appwrite/sdk-for-go/vectorsdb"
+    "github.com/appwrite/sdk-for-go/v7/client"
+    "github.com/appwrite/sdk-for-go/v7/vectorsdb"
 )
 
 client := client.New(
@@ -19,5 +19,8 @@ response, error := service.Create(
     "<DATABASE_ID>",
     "<NAME>",
     vectorsdb.WithCreateEnabled(false),
+    vectorsdb.WithCreateSpecification("serverless"),
+    vectorsdb.WithCreateReplicas(0),
+    vectorsdb.WithCreateSyncMode("async"),
 )
 ```

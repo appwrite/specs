@@ -14,6 +14,7 @@ query {
             _id
             role
             status
+            replicating
             lagSeconds
         }
     }

@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/client"
-    "github.com/appwrite/sdk-for-go/documentsdb"
+    "github.com/appwrite/sdk-for-go/v7/client"
+    "github.com/appwrite/sdk-for-go/v7/documentsdb"
 )
 
 client := client.New(
@@ -17,7 +17,6 @@ service := documentsdb.New(client)
 
 response, error := service.List(
     documentsdb.WithListQueries([]string{}),
-    documentsdb.WithListSearch("<SEARCH>"),
     documentsdb.WithListTotal(false),
 )
 ```

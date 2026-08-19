@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v6/client"
-    "github.com/appwrite/sdk-for-go/v6/mysql"
+    "github.com/appwrite/sdk-for-go/v7/client"
+    "github.com/appwrite/sdk-for-go/v7/mysql"
 )
 
 client := client.New(
@@ -30,6 +30,5 @@ response, error := service.Create(
     mysql.WithCreateStorageAutoscaling(false),
     mysql.WithCreateStorageAutoscalingThresholdPercent(50),
     mysql.WithCreateStorageAutoscalingMaxGb(0),
-    mysql.WithCreateApi("nativedb"),
 )
 ```

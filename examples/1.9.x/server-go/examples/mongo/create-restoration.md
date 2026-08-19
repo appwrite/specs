@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/v6/client"
-    "github.com/appwrite/sdk-for-go/v6/mongo"
+    "github.com/appwrite/sdk-for-go/v7/client"
+    "github.com/appwrite/sdk-for-go/v7/mongo"
 )
 
 client := client.New(
@@ -19,6 +19,7 @@ response, error := service.CreateRestoration(
     "<DATABASE_ID>",
     mongo.WithCreateRestorationType("backup"),
     mongo.WithCreateRestorationBackupId("<BACKUP_ID>"),
+    mongo.WithCreateRestorationTargetDatabaseId("<TARGET_DATABASE_ID>"),
     mongo.WithCreateRestorationTargetTime("2020-10-15T06:38:00.000+00:00"),
 )
 ```

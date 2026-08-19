@@ -179,6 +179,7 @@ mutation {
             supportsMockNumbers
             supportsOrganizationRoles
             supportsCredits
+            supportsDedicatedDatabases
             supportsDisposableEmailValidation
             supportsCanonicalEmailValidation
             supportsFreeEmailValidation
@@ -211,6 +212,7 @@ mutation {
                 external
                 billingPlanId
             }
+            databaseComputeCredit
             dedicatedDatabases {
                 minCpu
                 maxCpu
@@ -448,6 +450,7 @@ mutation {
             supportsMockNumbers
             supportsOrganizationRoles
             supportsCredits
+            supportsDedicatedDatabases
             supportsDisposableEmailValidation
             supportsCanonicalEmailValidation
             supportsFreeEmailValidation
@@ -480,6 +483,7 @@ mutation {
                 external
                 billingPlanId
             }
+            databaseComputeCredit
             dedicatedDatabases {
                 minCpu
                 maxCpu

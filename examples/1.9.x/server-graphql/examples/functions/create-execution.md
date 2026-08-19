@@ -13,7 +13,8 @@ mutation {
         _createdAt
         _updatedAt
         _permissions
-        functionId
+        resourceId
+        resourceType
         deploymentId
         trigger
         status
@@ -49,7 +50,8 @@ mutation {
         _createdAt
         _updatedAt
         _permissions
-        functionId
+        resourceId
+        resourceType
         deploymentId
         trigger
         status
