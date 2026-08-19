@@ -177,6 +177,7 @@ query {
             supportsMockNumbers
             supportsOrganizationRoles
             supportsCredits
+            supportsDedicatedDatabases
             supportsDisposableEmailValidation
             supportsCanonicalEmailValidation
             supportsFreeEmailValidation
@@ -209,6 +210,7 @@ query {
                 external
                 billingPlanId
             }
+            databaseComputeCredit
             dedicatedDatabases {
                 minCpu
                 maxCpu

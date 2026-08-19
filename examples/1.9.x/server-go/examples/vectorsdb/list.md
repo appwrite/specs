@@ -3,8 +3,8 @@ package main
 
 import (
     "fmt"
-    "github.com/appwrite/sdk-for-go/client"
-    "github.com/appwrite/sdk-for-go/vectorsdb"
+    "github.com/appwrite/sdk-for-go/v7/client"
+    "github.com/appwrite/sdk-for-go/v7/vectorsdb"
 )
 
 client := client.New(
@@ -17,7 +17,6 @@ service := vectorsdb.New(client)
 
 response, error := service.List(
     vectorsdb.WithListQueries([]string{}),
-    vectorsdb.WithListSearch("<SEARCH>"),
     vectorsdb.WithListTotal(false),
 )
 ```

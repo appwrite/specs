@@ -22,6 +22,7 @@ query {
             index
             role
             healthy
+            replicating
             lagSeconds
         }
         volumes {

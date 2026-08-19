@@ -8,7 +8,8 @@ query {
         _createdAt
         _updatedAt
         _permissions
-        functionId
+        resourceId
+        resourceType
         deploymentId
         trigger
         status
