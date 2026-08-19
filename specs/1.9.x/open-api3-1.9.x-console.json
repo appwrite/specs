@@ -94806,7 +94806,8 @@
                         "description": "List of rows.",
                         "items": {
                             "$ref": "#\/components\/schemas\/row"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -94833,7 +94834,8 @@
                         "description": "List of documents.",
                         "items": {
                             "$ref": "#\/components\/schemas\/document"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -94860,7 +94862,8 @@
                         "description": "List of presences.",
                         "items": {
                             "$ref": "#\/components\/schemas\/presence"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -94887,7 +94890,8 @@
                         "description": "List of tables.",
                         "items": {
                             "$ref": "#\/components\/schemas\/table"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -94914,7 +94918,8 @@
                         "description": "List of collections.",
                         "items": {
                             "$ref": "#\/components\/schemas\/collection"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -94941,7 +94946,8 @@
                         "description": "List of databases.",
                         "items": {
                             "$ref": "#\/components\/schemas\/database"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -94968,7 +94974,8 @@
                         "description": "List of indexes.",
                         "items": {
                             "$ref": "#\/components\/schemas\/index"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -94995,7 +95002,8 @@
                         "description": "List of indexes.",
                         "items": {
                             "$ref": "#\/components\/schemas\/columnIndex"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95022,7 +95030,8 @@
                         "description": "List of users.",
                         "items": {
                             "$ref": "#\/components\/schemas\/user"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95049,7 +95058,8 @@
                         "description": "List of sessions.",
                         "items": {
                             "$ref": "#\/components\/schemas\/session"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95076,7 +95086,8 @@
                         "description": "List of identities.",
                         "items": {
                             "$ref": "#\/components\/schemas\/identity"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95103,7 +95114,8 @@
                         "description": "List of notifications.",
                         "items": {
                             "$ref": "#\/components\/schemas\/notification"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95130,7 +95142,8 @@
                         "description": "List of logs.",
                         "items": {
                             "$ref": "#\/components\/schemas\/log"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95157,7 +95170,8 @@
                         "description": "List of files.",
                         "items": {
                             "$ref": "#\/components\/schemas\/file"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95184,7 +95198,8 @@
                         "description": "List of buckets.",
                         "items": {
                             "$ref": "#\/components\/schemas\/bucket"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95211,7 +95226,8 @@
                         "description": "List of tokens.",
                         "items": {
                             "$ref": "#\/components\/schemas\/resourceToken"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95238,7 +95254,8 @@
                         "description": "List of teams.",
                         "items": {
                             "$ref": "#\/components\/schemas\/team"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95265,7 +95282,8 @@
                         "description": "List of memberships.",
                         "items": {
                             "$ref": "#\/components\/schemas\/membership"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95292,7 +95310,8 @@
                         "description": "List of sites.",
                         "items": {
                             "$ref": "#\/components\/schemas\/site"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95319,7 +95338,8 @@
                         "description": "List of templates.",
                         "items": {
                             "$ref": "#\/components\/schemas\/templateSite"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95346,7 +95366,8 @@
                         "description": "List of functions.",
                         "items": {
                             "$ref": "#\/components\/schemas\/function"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95373,7 +95394,8 @@
                         "description": "List of templates.",
                         "items": {
                             "$ref": "#\/components\/schemas\/templateFunction"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95400,7 +95422,8 @@
                         "description": "List of installations.",
                         "items": {
                             "$ref": "#\/components\/schemas\/installation"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95427,7 +95450,8 @@
                         "description": "List of frameworkProviderRepositories.",
                         "items": {
                             "$ref": "#\/components\/schemas\/providerRepositoryFramework"
-                        }
+                        },
+                        "example": []
                     },
                     "type": {
                         "type": "string",
@@ -95461,7 +95485,8 @@
                         "description": "List of runtimeProviderRepositories.",
                         "items": {
                             "$ref": "#\/components\/schemas\/providerRepositoryRuntime"
-                        }
+                        },
+                        "example": []
                     },
                     "type": {
                         "type": "string",
@@ -95540,7 +95565,8 @@
                         "description": "List of namespaces.",
                         "items": {
                             "$ref": "#\/components\/schemas\/vcsNamespace"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95567,7 +95593,8 @@
                         "description": "List of branches.",
                         "items": {
                             "$ref": "#\/components\/schemas\/branch"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95594,7 +95621,8 @@
                         "description": "List of frameworks.",
                         "items": {
                             "$ref": "#\/components\/schemas\/framework"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95621,7 +95649,8 @@
                         "description": "List of runtimes.",
                         "items": {
                             "$ref": "#\/components\/schemas\/runtime"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95648,7 +95677,8 @@
                         "description": "List of deployments.",
                         "items": {
                             "$ref": "#\/components\/schemas\/deployment"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95675,7 +95705,8 @@
                         "description": "List of executions.",
                         "items": {
                             "$ref": "#\/components\/schemas\/execution"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95702,7 +95733,8 @@
                         "description": "List of projects.",
                         "items": {
                             "$ref": "#\/components\/schemas\/project"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95729,7 +95761,8 @@
                         "description": "List of webhooks.",
                         "items": {
                             "$ref": "#\/components\/schemas\/webhook"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95756,7 +95789,8 @@
                         "description": "List of keys.",
                         "items": {
                             "$ref": "#\/components\/schemas\/key"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95783,7 +95817,8 @@
                         "description": "List of devKeys.",
                         "items": {
                             "$ref": "#\/components\/schemas\/devKey"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95810,7 +95845,8 @@
                         "description": "List of countries.",
                         "items": {
                             "$ref": "#\/components\/schemas\/country"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95837,7 +95873,8 @@
                         "description": "List of continents.",
                         "items": {
                             "$ref": "#\/components\/schemas\/continent"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95864,7 +95901,8 @@
                         "description": "List of languages.",
                         "items": {
                             "$ref": "#\/components\/schemas\/language"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95891,7 +95929,8 @@
                         "description": "List of currencies.",
                         "items": {
                             "$ref": "#\/components\/schemas\/currency"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95918,7 +95957,8 @@
                         "description": "List of phones.",
                         "items": {
                             "$ref": "#\/components\/schemas\/phone"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95945,7 +95985,8 @@
                         "description": "List of variables.",
                         "items": {
                             "$ref": "#\/components\/schemas\/variable"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -95972,7 +96013,8 @@
                         "description": "List of mockNumbers.",
                         "items": {
                             "$ref": "#\/components\/schemas\/mockNumber"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96065,7 +96107,8 @@
                                     "deny-corporate-email": "#\/components\/schemas\/policyDenyCorporateEmail"
                                 }
                             }
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96092,7 +96135,8 @@
                         "description": "List of templates.",
                         "items": {
                             "$ref": "#\/components\/schemas\/emailTemplate"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96119,7 +96163,8 @@
                         "description": "List of rules.",
                         "items": {
                             "$ref": "#\/components\/schemas\/proxyRule"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96146,7 +96191,8 @@
                         "description": "List of schedules.",
                         "items": {
                             "$ref": "#\/components\/schemas\/schedule"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96167,7 +96213,8 @@
                         "description": "List of stages.",
                         "items": {
                             "$ref": "#\/components\/schemas\/stage"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96192,7 +96239,8 @@
                         "description": "List of localeCodes.",
                         "items": {
                             "$ref": "#\/components\/schemas\/localeCode"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96219,7 +96267,8 @@
                         "description": "List of providers.",
                         "items": {
                             "$ref": "#\/components\/schemas\/provider"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96246,7 +96295,8 @@
                         "description": "List of messages.",
                         "items": {
                             "$ref": "#\/components\/schemas\/message"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96273,7 +96323,8 @@
                         "description": "List of topics.",
                         "items": {
                             "$ref": "#\/components\/schemas\/topic"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96300,7 +96351,8 @@
                         "description": "List of subscribers.",
                         "items": {
                             "$ref": "#\/components\/schemas\/subscriber"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96327,7 +96379,8 @@
                         "description": "List of targets.",
                         "items": {
                             "$ref": "#\/components\/schemas\/target"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96354,7 +96407,8 @@
                         "description": "List of transactions.",
                         "items": {
                             "$ref": "#\/components\/schemas\/transaction"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96381,7 +96435,8 @@
                         "description": "List of migrations.",
                         "items": {
                             "$ref": "#\/components\/schemas\/migration"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96408,7 +96463,8 @@
                         "description": "List of specifications.",
                         "items": {
                             "$ref": "#\/components\/schemas\/specification"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96435,7 +96491,8 @@
                         "description": "List of contents.",
                         "items": {
                             "$ref": "#\/components\/schemas\/vcsContent"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96462,7 +96519,8 @@
                         "description": "List of collections.",
                         "items": {
                             "$ref": "#\/components\/schemas\/vectorsdbCollection"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96489,7 +96547,8 @@
                         "description": "List of embeddings.",
                         "items": {
                             "$ref": "#\/components\/schemas\/embedding"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96516,7 +96575,8 @@
                         "description": "List of insights.",
                         "items": {
                             "$ref": "#\/components\/schemas\/insight"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -96543,7 +96603,8 @@
                         "description": "List of reports.",
                         "items": {
                             "$ref": "#\/components\/schemas\/report"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -97138,7 +97199,8 @@
                                     }
                                 }
                             }
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -99566,7 +99628,8 @@
                                     }
                                 }
                             }
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -105755,7 +105818,8 @@
                         "description": "Project blocks information",
                         "items": {
                             "$ref": "#\/components\/schemas\/block"
-                        }
+                        },
+                        "example": []
                     },
                     "consoleAccessedAt": {
                         "type": "string",
@@ -108391,7 +108455,8 @@
                                     "microsoft": "#\/components\/schemas\/oAuth2Microsoft"
                                 }
                             }
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -109098,7 +109163,8 @@
                                     "linux": "#\/components\/schemas\/platformLinux"
                                 }
                             }
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -110765,7 +110831,8 @@
                         "description": "List of parameters required to configure this OAuth2 provider.",
                         "items": {
                             "$ref": "#\/components\/schemas\/consoleOAuth2ProviderParameter"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -110792,7 +110859,8 @@
                         "description": "List of OAuth2 providers, each with the parameters required to configure it.",
                         "items": {
                             "$ref": "#\/components\/schemas\/consoleOAuth2Provider"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -110857,7 +110925,8 @@
                         "description": "List of key scopes, each with its ID and description.",
                         "items": {
                             "$ref": "#\/components\/schemas\/consoleKeyScope"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -112778,7 +112847,8 @@
                         "description": "List of links.",
                         "items": {
                             "$ref": "#\/components\/schemas\/affiliateLink"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -112885,7 +112955,8 @@
                         "description": "List of referrals.",
                         "items": {
                             "$ref": "#\/components\/schemas\/affiliateReferral"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -112993,7 +113064,8 @@
                         "description": "List of rewards.",
                         "items": {
                             "$ref": "#\/components\/schemas\/affiliateReward"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -113035,7 +113107,8 @@
                         "description": "",
                         "items": {
                             "$ref": "#\/components\/schemas\/usageResources"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -114966,6 +115039,7 @@
                         "items": {
                             "$ref": "#\/components\/schemas\/review"
                         },
+                        "example": [],
                         "nullable": true
                     },
                     "onlyNewOrgs": {
@@ -117078,7 +117152,8 @@
                         "description": "List of operations.",
                         "items": {
                             "$ref": "#\/components\/schemas\/dedicatedDatabaseOperation"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -117605,7 +117680,8 @@
                         "description": "Selected projects",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -118768,7 +118844,8 @@
                         "description": "List of restorations.",
                         "items": {
                             "$ref": "#\/components\/schemas\/dedicatedDatabaseRestoration"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -119482,7 +119559,8 @@
                         "description": "One entry per requested metric, each carrying its own points[] time series (sums per bucket \/ dimension over time).",
                         "items": {
                             "$ref": "#\/components\/schemas\/usageMetric"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -119508,7 +119586,8 @@
                         "description": "One entry per requested metric, each carrying its own points[] time series (latest-snapshot per bucket \/ dimension via argMax over time).",
                         "items": {
                             "$ref": "#\/components\/schemas\/usageMetric"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -119534,7 +119613,8 @@
                         "description": "Data points for this metric, ordered by time ascending. With `interval`, each entry is one bucket; without, each entry is one row of the dimensional or aggregate breakdown.",
                         "items": {
                             "$ref": "#\/components\/schemas\/usageDataPoint"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122108,7 +122188,8 @@
                         "description": "List of rules.",
                         "items": {
                             "$ref": "#\/components\/schemas\/wafRule"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122183,7 +122264,8 @@
                         "description": "List of projects.",
                         "items": {
                             "$ref": "#\/components\/schemas\/oauth2Project"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122210,7 +122292,8 @@
                         "description": "List of organizations.",
                         "items": {
                             "$ref": "#\/components\/schemas\/oauth2Organization"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122237,7 +122320,8 @@
                         "description": "List of consents.",
                         "items": {
                             "$ref": "#\/components\/schemas\/oauth2Consent"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122264,7 +122348,8 @@
                         "description": "List of tokens.",
                         "items": {
                             "$ref": "#\/components\/schemas\/oauth2ConsentToken"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122291,7 +122376,8 @@
                         "description": "List of events.",
                         "items": {
                             "$ref": "#\/components\/schemas\/activityEvent"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122318,7 +122404,8 @@
                         "description": "List of addons.",
                         "items": {
                             "$ref": "#\/components\/schemas\/addon"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122345,7 +122432,8 @@
                         "description": "List of aggregations.",
                         "items": {
                             "$ref": "#\/components\/schemas\/aggregationTeam"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122372,7 +122460,8 @@
                         "description": "List of archives.",
                         "items": {
                             "$ref": "#\/components\/schemas\/backupArchive"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122399,7 +122488,8 @@
                         "description": "List of policies.",
                         "items": {
                             "$ref": "#\/components\/schemas\/backupPolicy"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122426,7 +122516,8 @@
                         "description": "List of restorations.",
                         "items": {
                             "$ref": "#\/components\/schemas\/backupRestoration"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122453,7 +122544,8 @@
                         "description": "List of billingAddresses.",
                         "items": {
                             "$ref": "#\/components\/schemas\/billingAddress"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122480,7 +122572,8 @@
                         "description": "List of invoices.",
                         "items": {
                             "$ref": "#\/components\/schemas\/invoice"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122507,7 +122600,8 @@
                         "description": "List of plans.",
                         "items": {
                             "$ref": "#\/components\/schemas\/billingPlan"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122534,7 +122628,8 @@
                         "description": "List of blocks.",
                         "items": {
                             "$ref": "#\/components\/schemas\/block"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122561,7 +122656,8 @@
                         "description": "List of migrations.",
                         "items": {
                             "$ref": "#\/components\/schemas\/databaseMigration"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122588,7 +122684,8 @@
                         "description": "List of databases.",
                         "items": {
                             "$ref": "#\/components\/schemas\/dedicatedDatabase"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122615,7 +122712,8 @@
                         "description": "List of dnsRecords.",
                         "items": {
                             "$ref": "#\/components\/schemas\/dnsRecord"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122642,7 +122740,8 @@
                         "description": "List of suggestions.",
                         "items": {
                             "$ref": "#\/components\/schemas\/domainSuggestion"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122669,7 +122768,8 @@
                         "description": "List of domains.",
                         "items": {
                             "$ref": "#\/components\/schemas\/domain"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122696,7 +122796,8 @@
                         "description": "List of teams.",
                         "items": {
                             "$ref": "#\/components\/schemas\/organization"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122723,7 +122824,8 @@
                         "description": "List of paymentMethods.",
                         "items": {
                             "$ref": "#\/components\/schemas\/paymentMethod"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122750,7 +122852,8 @@
                         "description": "List of extensions.",
                         "items": {
                             "$ref": "#\/components\/schemas\/postgresExtension"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122777,7 +122880,8 @@
                         "description": "List of regions.",
                         "items": {
                             "$ref": "#\/components\/schemas\/consoleRegion"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122804,7 +122908,8 @@
                         "description": "List of apps.",
                         "items": {
                             "$ref": "#\/components\/schemas\/app"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122831,7 +122936,8 @@
                         "description": "List of secrets.",
                         "items": {
                             "$ref": "#\/components\/schemas\/appSecret"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122858,7 +122964,8 @@
                         "description": "List of scopes.",
                         "items": {
                             "$ref": "#\/components\/schemas\/appScope"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122885,7 +122992,8 @@
                         "description": "List of installations.",
                         "items": {
                             "$ref": "#\/components\/schemas\/appInstallation"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -122912,7 +123020,8 @@
                         "description": "List of keys.",
                         "items": {
                             "$ref": "#\/components\/schemas\/appKey"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
