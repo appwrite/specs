@@ -20138,7 +20138,8 @@
                         "description": "List of rows.",
                         "items": {
                             "$ref": "#\/components\/schemas\/row"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20165,7 +20166,8 @@
                         "description": "List of documents.",
                         "items": {
                             "$ref": "#\/components\/schemas\/document"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20192,7 +20194,8 @@
                         "description": "List of presences.",
                         "items": {
                             "$ref": "#\/components\/schemas\/presence"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20219,7 +20222,8 @@
                         "description": "List of sessions.",
                         "items": {
                             "$ref": "#\/components\/schemas\/session"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20246,7 +20250,8 @@
                         "description": "List of identities.",
                         "items": {
                             "$ref": "#\/components\/schemas\/identity"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20273,7 +20278,8 @@
                         "description": "List of logs.",
                         "items": {
                             "$ref": "#\/components\/schemas\/log"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20300,7 +20306,8 @@
                         "description": "List of files.",
                         "items": {
                             "$ref": "#\/components\/schemas\/file"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20327,7 +20334,8 @@
                         "description": "List of teams.",
                         "items": {
                             "$ref": "#\/components\/schemas\/team"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20354,7 +20362,8 @@
                         "description": "List of memberships.",
                         "items": {
                             "$ref": "#\/components\/schemas\/membership"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20381,7 +20390,8 @@
                         "description": "List of executions.",
                         "items": {
                             "$ref": "#\/components\/schemas\/execution"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20408,7 +20418,8 @@
                         "description": "List of countries.",
                         "items": {
                             "$ref": "#\/components\/schemas\/country"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20435,7 +20446,8 @@
                         "description": "List of continents.",
                         "items": {
                             "$ref": "#\/components\/schemas\/continent"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20462,7 +20474,8 @@
                         "description": "List of languages.",
                         "items": {
                             "$ref": "#\/components\/schemas\/language"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20489,7 +20502,8 @@
                         "description": "List of currencies.",
                         "items": {
                             "$ref": "#\/components\/schemas\/currency"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20516,7 +20530,8 @@
                         "description": "List of phones.",
                         "items": {
                             "$ref": "#\/components\/schemas\/phone"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20543,7 +20558,8 @@
                         "description": "List of localeCodes.",
                         "items": {
                             "$ref": "#\/components\/schemas\/localeCode"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -20570,7 +20586,8 @@
                         "description": "List of transactions.",
                         "items": {
                             "$ref": "#\/components\/schemas\/transaction"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -24213,7 +24230,8 @@
                         "description": "List of projects.",
                         "items": {
                             "$ref": "#\/components\/schemas\/oauth2Project"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -24240,7 +24258,8 @@
                         "description": "List of organizations.",
                         "items": {
                             "$ref": "#\/components\/schemas\/oauth2Organization"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -24267,7 +24286,8 @@
                         "description": "List of consents.",
                         "items": {
                             "$ref": "#\/components\/schemas\/oauth2Consent"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -24294,7 +24314,8 @@
                         "description": "List of tokens.",
                         "items": {
                             "$ref": "#\/components\/schemas\/oauth2ConsentToken"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -24321,7 +24342,8 @@
                         "description": "List of apps.",
                         "items": {
                             "$ref": "#\/components\/schemas\/app"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -24348,7 +24370,8 @@
                         "description": "List of secrets.",
                         "items": {
                             "$ref": "#\/components\/schemas\/appSecret"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -24375,7 +24398,8 @@
                         "description": "List of scopes.",
                         "items": {
                             "$ref": "#\/components\/schemas\/appScope"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -24402,7 +24426,8 @@
                         "description": "List of installations.",
                         "items": {
                             "$ref": "#\/components\/schemas\/appInstallation"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
@@ -24429,7 +24454,8 @@
                         "description": "List of keys.",
                         "items": {
                             "$ref": "#\/components\/schemas\/appKey"
-                        }
+                        },
+                        "example": []
                     }
                 },
                 "required": [
