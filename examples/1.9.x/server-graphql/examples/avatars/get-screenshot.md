@@ -15,7 +15,7 @@ query {
         longitude: -122.4194,
         accuracy: 100,
         touch: true,
-        permissions: ["geolocation","notifications"],
+        permissions: ["geolocation", "notifications"],
         sleep: 3,
         width: 800,
         height: 600,

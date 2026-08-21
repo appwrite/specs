@@ -13,12 +13,4 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "enabled": false,
   "purge": false
 }
-
-{
-  "name": "<NAME>",
-  "permissions": ["read(\"any\")"],
-  "documentSecurity": false,
-  "enabled": false,
-  "purge": false
-}
 ```

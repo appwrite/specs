@@ -4,7 +4,7 @@ mutation {
         databaseId: "<DATABASE_ID>",
         tableId: "<TABLE_ID>",
         name: "<NAME>",
-        permissions: ["read("any")"],
+        permissions: ["read(\"any\")"],
         rowSecurity: false,
         enabled: false,
         purge: false
@@ -39,7 +39,7 @@ mutation {
         databaseId: "<DATABASE_ID>",
         tableId: "<TABLE_ID>",
         name: "<NAME>",
-        permissions: ["read("any")"],
+        permissions: ["read(\"any\")"],
         rowSecurity: false,
         enabled: false,
         purge: false

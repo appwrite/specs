@@ -19,7 +19,7 @@ response, error := service.CreateFile(
     "<BUCKET_ID>",
     "<FILE_ID>",
     file.NewInputFile("/path/to/file.png", "file.png"),
-    storage.WithCreateFilePermissions([]string{"read("any")"}),
+    storage.WithCreateFilePermissions([]string{"read(\"any\")"}),
     storage.WithCreateFileFolder(""),
 )
 ```

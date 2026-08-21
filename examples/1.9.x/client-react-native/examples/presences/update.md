@@ -12,7 +12,7 @@ const result = await presences.update({
     status: '<STATUS>', // optional
     expiresAt: '2020-10-15T06:38:00.000+00:00', // optional
     metadata: {}, // optional
-    permissions: ["read("any")"], // optional
+    permissions: ["read(\"any\")"], // optional
     purge: false // optional
 });
 

@@ -19,7 +19,7 @@ response, error := service.CreateCollection(
     "<DATABASE_ID>",
     "<COLLECTION_ID>",
     "<NAME>",
-    documentsdb.WithCreateCollectionPermissions([]string{"read("any")"}),
+    documentsdb.WithCreateCollectionPermissions([]string{"read(\"any\")"}),
     documentsdb.WithCreateCollectionDocumentSecurity(false),
     documentsdb.WithCreateCollectionEnabled(false),
     documentsdb.WithCreateCollectionAttributes([]interface{}{}),

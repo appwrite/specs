@@ -15,14 +15,4 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "columns": [],
   "indexes": []
 }
-
-{
-  "tableId": "<TABLE_ID>",
-  "name": "<NAME>",
-  "permissions": ["read(\"any\")"],
-  "rowSecurity": false,
-  "enabled": false,
-  "columns": [],
-  "indexes": []
-}
 ```

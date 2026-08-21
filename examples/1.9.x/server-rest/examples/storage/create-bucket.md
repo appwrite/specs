@@ -19,18 +19,4 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "antivirus": false,
   "transformations": false
 }
-
-{
-  "bucketId": "<BUCKET_ID>",
-  "name": "<NAME>",
-  "permissions": ["read(\"any\")"],
-  "fileSecurity": false,
-  "enabled": false,
-  "maximumFileSize": 1,
-  "allowedFileExtensions": [],
-  "compression": "none",
-  "encryption": false,
-  "antivirus": false,
-  "transformations": false
-}
 ```

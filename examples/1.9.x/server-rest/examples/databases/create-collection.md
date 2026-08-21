@@ -15,14 +15,4 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "attributes": [],
   "indexes": []
 }
-
-{
-  "collectionId": "<COLLECTION_ID>",
-  "name": "<NAME>",
-  "permissions": ["read(\"any\")"],
-  "documentSecurity": false,
-  "enabled": false,
-  "attributes": [],
-  "indexes": []
-}
 ```

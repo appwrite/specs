@@ -12,11 +12,4 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "expiresAt": "2020-10-15T06:38:00.000+00:00",
   "metadata": {}
 }
-
-{
-  "status": "<STATUS>",
-  "permissions": ["read(\"any\")"],
-  "expiresAt": "2020-10-15T06:38:00.000+00:00",
-  "metadata": {}
-}
 ```
