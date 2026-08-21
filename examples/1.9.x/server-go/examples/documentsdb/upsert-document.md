@@ -20,7 +20,7 @@ response, error := service.UpsertDocument(
     "<COLLECTION_ID>",
     "<DOCUMENT_ID>",
     documentsdb.WithUpsertDocumentData(map[string]interface{}{}),
-    documentsdb.WithUpsertDocumentPermissions([]string{"read("any")"}),
+    documentsdb.WithUpsertDocumentPermissions([]string{"read(\"any\")"}),
     documentsdb.WithUpsertDocumentTransactionId("<TRANSACTION_ID>"),
 )
 ```

@@ -19,7 +19,7 @@ response, error := service.UpdateCollection(
     "<DATABASE_ID>",
     "<COLLECTION_ID>",
     "<NAME>",
-    documentsdb.WithUpdateCollectionPermissions([]string{"read("any")"}),
+    documentsdb.WithUpdateCollectionPermissions([]string{"read(\"any\")"}),
     documentsdb.WithUpdateCollectionDocumentSecurity(false),
     documentsdb.WithUpdateCollectionEnabled(false),
     documentsdb.WithUpdateCollectionPurge(false),

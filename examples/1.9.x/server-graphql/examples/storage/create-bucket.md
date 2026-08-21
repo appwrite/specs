@@ -3,7 +3,7 @@ mutation {
     storageCreateBucket(
         bucketId: "<BUCKET_ID>",
         name: "<NAME>",
-        permissions: ["read("any")"],
+        permissions: ["read(\"any\")"],
         fileSecurity: false,
         enabled: false,
         maximumFileSize: 1,
@@ -33,7 +33,7 @@ mutation {
     storageCreateBucket(
         bucketId: "<BUCKET_ID>",
         name: "<NAME>",
-        permissions: ["read("any")"],
+        permissions: ["read(\"any\")"],
         fileSecurity: false,
         enabled: false,
         maximumFileSize: 1,

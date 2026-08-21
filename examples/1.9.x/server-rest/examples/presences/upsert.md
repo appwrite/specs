@@ -9,7 +9,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 {
   "userId": "<USER_ID>",
   "status": "<STATUS>",
-  "permissions": ["read(\"any\")"],
+  "permissions": ["read(\\\"any\\\")"],
   "expiresAt": "2020-10-15T06:38:00.000+00:00",
   "metadata": {}
 }
@@ -17,7 +17,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 {
   "userId": "<USER_ID>",
   "status": "<STATUS>",
-  "permissions": ["read(\"any\")"],
+  "permissions": ["read(\\\"any\\\")"],
   "expiresAt": "2020-10-15T06:38:00.000+00:00",
   "metadata": {}
 }

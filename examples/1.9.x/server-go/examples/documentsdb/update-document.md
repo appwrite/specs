@@ -20,7 +20,7 @@ response, error := service.UpdateDocument(
     "<COLLECTION_ID>",
     "<DOCUMENT_ID>",
     documentsdb.WithUpdateDocumentData(map[string]interface{}{}),
-    documentsdb.WithUpdateDocumentPermissions([]string{"read("any")"}),
+    documentsdb.WithUpdateDocumentPermissions([]string{"read(\"any\")"}),
     documentsdb.WithUpdateDocumentTransactionId("<TRANSACTION_ID>"),
 )
 ```

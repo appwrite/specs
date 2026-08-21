@@ -20,7 +20,7 @@ response, error := service.CreateCollection(
     "<COLLECTION_ID>",
     "<NAME>",
     1,
-    vectorsdb.WithCreateCollectionPermissions([]string{"read("any")"}),
+    vectorsdb.WithCreateCollectionPermissions([]string{"read(\"any\")"}),
     vectorsdb.WithCreateCollectionDocumentSecurity(false),
     vectorsdb.WithCreateCollectionEnabled(false),
 )

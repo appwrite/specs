@@ -26,6 +26,6 @@ response, error := service.CreateDocument(
         "age": 30,
         "isAdmin": false
     },
-    documentsdb.WithCreateDocumentPermissions([]string{"read("any")"}),
+    documentsdb.WithCreateDocumentPermissions([]string{"read(\"any\")"}),
 )
 ```

@@ -18,7 +18,7 @@ const result = await tablesDB.upsertRow({
         "age": 33,
         "isAdmin": false
     }, // optional
-    permissions: ["read("any")"], // optional
+    permissions: ["read(\"any\")"], // optional
     transactionId: '<TRANSACTION_ID>' // optional
 });
 

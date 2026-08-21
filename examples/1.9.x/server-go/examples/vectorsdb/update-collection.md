@@ -20,7 +20,7 @@ response, error := service.UpdateCollection(
     "<COLLECTION_ID>",
     "<NAME>",
     vectorsdb.WithUpdateCollectionDimension(1),
-    vectorsdb.WithUpdateCollectionPermissions([]string{"read("any")"}),
+    vectorsdb.WithUpdateCollectionPermissions([]string{"read(\"any\")"}),
     vectorsdb.WithUpdateCollectionDocumentSecurity(false),
     vectorsdb.WithUpdateCollectionEnabled(false),
 )

@@ -4,7 +4,7 @@ mutation {
         bucketId: "<BUCKET_ID>",
         fileId: "<FILE_ID>",
         name: "<NAME>",
-        permissions: ["read("any")"]
+        permissions: ["read(\"any\")"]
     ) {
         _id
         bucketId
@@ -29,7 +29,7 @@ mutation {
         bucketId: "<BUCKET_ID>",
         fileId: "<FILE_ID>",
         name: "<NAME>",
-        permissions: ["read("any")"]
+        permissions: ["read(\"any\")"]
     ) {
         _id
         bucketId

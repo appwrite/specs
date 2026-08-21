@@ -14,7 +14,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
     "age": 30,
     "isAdmin": false
   },
-  "permissions": ["read(\"any\")"],
+  "permissions": ["read(\\\"any\\\")"],
   "transactionId": "<TRANSACTION_ID>"
 }
 
@@ -26,7 +26,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
     "age": 30,
     "isAdmin": false
   },
-  "permissions": ["read(\"any\")"],
+  "permissions": ["read(\\\"any\\\")"],
   "transactionId": "<TRANSACTION_ID>"
 }
 ```

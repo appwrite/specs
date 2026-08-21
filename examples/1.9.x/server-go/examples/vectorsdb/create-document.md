@@ -30,6 +30,6 @@ response, error := service.CreateDocument(
             "key": "value"
         }
     },
-    vectorsdb.WithCreateDocumentPermissions([]string{"read("any")"}),
+    vectorsdb.WithCreateDocumentPermissions([]string{"read(\"any\")"}),
 )
 ```
