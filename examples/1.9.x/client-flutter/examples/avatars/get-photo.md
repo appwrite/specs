@@ -1,4 +1,7 @@
 ```dart
+import 'dart:io';
+import 'dart:typed_data';
+import 'package:flutter/material.dart';
 import 'package:appwrite/appwrite.dart';
 
 Client client = Client()
@@ -14,24 +17,24 @@ Uint8List bytes = await avatars.getPhoto(
     quality: 0, // optional
     output: 'png', // optional
     rating: 'g', // optional
-)
+);
 
 final file = File('path_to_file/filename.ext');
 file.writeAsBytesSync(bytes);
 
 // Displaying image preview
-FutureBuilder(
+FutureBuilder<Uint8List>(
     future: avatars.getPhoto(
-    width:0 , // optional
-    height:0 , // optional
-    quality:0 , // optional
-    output:'png' , // optional
-    rating:'g' , // optional
-), // Works for both public file and private file, for private files you need to be logged in
+        width: 0, // optional
+        height: 0, // optional
+        quality: 0, // optional
+        output: 'png', // optional
+        rating: 'g', // optional
+    ), // Works for both public file and private file, for private files you need to be logged in
     builder: (context, snapshot) {
-      return snapshot.hasData && snapshot.data != null
-          ? Image.memory(snapshot.data)
-          : CircularProgressIndicator();
-    }
+        return snapshot.hasData && snapshot.data != null
+            ? Image.memory(snapshot.data!)
+            : const CircularProgressIndicator();
+    },
 );
 ```

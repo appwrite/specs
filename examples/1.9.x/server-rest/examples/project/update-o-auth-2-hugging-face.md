@@ -11,10 +11,4 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "clientSecret": "<CLIENT_SECRET>",
   "enabled": false
 }
-
-{
-  "clientId": "<CLIENT_ID>",
-  "clientSecret": "<CLIENT_SECRET>",
-  "enabled": false
-}
 ```

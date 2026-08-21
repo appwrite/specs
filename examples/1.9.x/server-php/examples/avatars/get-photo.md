@@ -17,4 +17,6 @@ $result = $avatars->getPhoto(
     quality: 0, // optional
     output: 'png', // optional
     rating: 'g' // optional
-);```
+);
+
+```

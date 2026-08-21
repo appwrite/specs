@@ -8,15 +8,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
   "name": "<NAME>",
-  "permissions": ["read(\\\"any\\\")"],
-  "rowSecurity": false,
-  "enabled": false,
-  "purge": false
-}
-
-{
-  "name": "<NAME>",
-  "permissions": ["read(\\\"any\\\")"],
+  "permissions": ["read(\"any\")"],
   "rowSecurity": false,
   "enabled": false,
   "purge": false

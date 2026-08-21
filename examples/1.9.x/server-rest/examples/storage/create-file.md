@@ -20,7 +20,7 @@ cf 94 84 24 8d c4 91 10 0f dc 54 26 6c 8e 4b bc e8 ee 55 94 29 e7 94 89 19 26 28
 --cec8e8123c05ba25
 Content-Disposition: form-data; name="permissions[]"
 
-["read(\\\"any\\\")"]
+["read(\"any\")"]
 
 --cec8e8123c05ba25
 Content-Disposition: form-data; name="folder"
@@ -28,11 +28,4 @@ Content-Disposition: form-data; name="folder"
 ""
 
 --cec8e8123c05ba25--
-
-{
-  "fileId": "<FILE_ID>",
-  "file": cf 94 84 24 8d c4 91 10 0f dc 54 26 6c 8e 4b bc e8 ee 55 94 29 e7 94 89 19 26 28 01 26 29 3f 16...,
-  "permissions": ["read(\\\"any\\\")"],
-  "folder": ""
-}
 ```

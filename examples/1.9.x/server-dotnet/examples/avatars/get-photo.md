@@ -16,4 +16,6 @@ byte[] result = await avatars.GetPhoto(
     quality: 0, // optional
     output: "png", // optional
     rating: "g" // optional
-);```
+);
+
+```
