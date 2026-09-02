@@ -13,4 +13,6 @@ DocumentsDB documentsDB = new DocumentsDB(client);
 await documentsDB.DeleteCollection(
     databaseId: "<DATABASE_ID>",
     collectionId: "<COLLECTION_ID>"
-);```
+);
+
+```

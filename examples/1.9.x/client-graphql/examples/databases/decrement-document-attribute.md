@@ -4,28 +4,8 @@ mutation {
         databaseId: "<DATABASE_ID>",
         collectionId: "<COLLECTION_ID>",
         documentId: "<DOCUMENT_ID>",
-        attribute: "",
-        value: 0,
-        min: 0,
-        transactionId: "<TRANSACTION_ID>"
-    ) {
-        _id
-        _sequence
-        _collectionId
-        _databaseId
-        _createdAt
-        _updatedAt
-        _permissions
-        data
-    }
-}
-mutation {
-    databasesDecrementDocumentAttribute(
-        databaseId: "<DATABASE_ID>",
-        collectionId: "<COLLECTION_ID>",
-        documentId: "<DOCUMENT_ID>",
-        attribute: "",
-        value: 0,
+        attribute: "<ATTRIBUTE>",
+        value: 1,
         min: 0,
         transactionId: "<TRANSACTION_ID>"
     ) {

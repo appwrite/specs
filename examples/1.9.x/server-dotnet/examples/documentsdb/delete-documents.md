@@ -15,4 +15,6 @@ await documentsDB.DeleteDocuments(
     collectionId: "<COLLECTION_ID>",
     queries: new List<string>(), // optional
     transactionId: "<TRANSACTION_ID>" // optional
-);```
+);
+
+```

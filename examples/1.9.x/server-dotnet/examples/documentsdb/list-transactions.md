@@ -12,4 +12,6 @@ DocumentsDB documentsDB = new DocumentsDB(client);
 
 TransactionList result = await documentsDB.ListTransactions(
     queries: new List<string>() // optional
-);```
+);
+
+```

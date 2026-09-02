@@ -15,7 +15,10 @@ byte[] result = await avatars.GetPhoto(
     height: 0, // optional
     quality: 0, // optional
     output: "png", // optional
-    rating: "g" // optional
+    rating: "g", // optional
+    userId: "current()", // optional
+    emailHash: "<EMAIL_HASH>", // optional
+    name: "<NAME>" // optional
 );
 
 ```

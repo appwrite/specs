@@ -11,7 +11,7 @@ webhooks = Webhooks(client)
 
 result: Webhook = webhooks.create(
     webhook_id = '<WEBHOOK_ID>',
-    url = '',
+    url = 'https://example.com/webhook',
     name = '<NAME>',
     events = [],
     enabled = False, # optional

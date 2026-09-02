@@ -16,9 +16,10 @@ $vectorsDB = new VectorsDB($client);
 $result = $vectorsDB->createIndex(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: '',
+    key: '<KEY>',
     type: VectorsDBIndexType::HNSWEUCLIDEAN(),
     attributes: [],
     orders: [OrderBy::ASC()], // optional
     lengths: [] // optional
-);```
+);
+```

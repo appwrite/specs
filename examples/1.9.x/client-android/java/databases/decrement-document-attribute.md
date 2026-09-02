@@ -1,4 +1,6 @@
 ```java
+import android.util.Log;
+
 import io.appwrite.Client;
 import io.appwrite.coroutines.CoroutineCallback;
 import io.appwrite.services.Databases;
@@ -13,8 +15,8 @@ databases.decrementDocumentAttribute(
     "<DATABASE_ID>", // databaseId 
     "<COLLECTION_ID>", // collectionId 
     "<DOCUMENT_ID>", // documentId 
-    "", // attribute 
-    0, // value (optional)
+    "<ATTRIBUTE>", // attribute 
+    1, // value (optional)
     0, // min (optional)
     "<TRANSACTION_ID>", // transactionId (optional)
     new CoroutineCallback<>((result, error) -> {

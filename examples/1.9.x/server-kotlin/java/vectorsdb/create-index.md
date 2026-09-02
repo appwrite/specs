@@ -15,7 +15,7 @@ VectorsDB vectorsDB = new VectorsDB(client);
 vectorsDB.createIndex(
     "<DATABASE_ID>", // databaseId
     "<COLLECTION_ID>", // collectionId
-    "", // key
+    "<KEY>", // key
     VectorsDBIndexType.HNSW_EUCLIDEAN, // type
     List.of(), // attributes
     List.of(OrderBy.ASC), // orders (optional)

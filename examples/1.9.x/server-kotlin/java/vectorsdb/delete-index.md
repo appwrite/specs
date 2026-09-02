@@ -13,7 +13,7 @@ VectorsDB vectorsDB = new VectorsDB(client);
 vectorsDB.deleteIndex(
     "<DATABASE_ID>", // databaseId
     "<COLLECTION_ID>", // collectionId
-    "", // key
+    "<KEY>", // key
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {
             error.printStackTrace();

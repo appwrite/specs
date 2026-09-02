@@ -15,6 +15,6 @@ const result = await vectorsDB.createCollection({
     dimension: 1,
     permissions: [sdk.Permission.read(sdk.Role.any())], // optional
     documentSecurity: false, // optional
-    enabled: false // optional
+    enabled: false, // optional
 });
 ```

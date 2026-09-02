@@ -14,8 +14,9 @@ $databases = new Databases($client);
 $result = $databases->createBooleanAttribute(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: '',
+    key: '<KEY>',
     required: false,
     default: false, // optional
     array: false // optional
-);```
+);
+```

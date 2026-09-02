@@ -12,7 +12,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 proxy = Proxy(client)
 
 result: ProxyRule = proxy.create_redirect_rule(
-    domain = '',
+    domain = 'example.com',
     url = 'https://example.com',
     status_code = StatusCode.MOVEDPERMANENTLY,
     resource_id = '<RESOURCE_ID>',

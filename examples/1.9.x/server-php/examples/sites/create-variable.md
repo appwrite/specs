@@ -17,4 +17,5 @@ $result = $sites->createVariable(
     key: '<KEY>',
     value: '<VALUE>',
     secret: false // optional
-);```
+);
+```

@@ -14,9 +14,10 @@ $client = (new Client())
 $proxy = new Proxy($client);
 
 $result = $proxy->createRedirectRule(
-    domain: '',
+    domain: 'example.com',
     url: 'https://example.com',
     statusCode: StatusCode::MOVEDPERMANENTLY(),
     resourceId: '<RESOURCE_ID>',
     resourceType: ProxyResourceType::SITE()
-);```
+);
+```

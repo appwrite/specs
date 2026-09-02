@@ -1,5 +1,13 @@
 ```javascript
-import { Client, Usage, UsageGaugeMetric, UsageInterval, UsageGaugeDimension, UsageOrderBy, UsageOrderDirection } from "@appwrite.io/console";
+import {
+    Client,
+    Usage,
+    UsageGaugeMetric,
+    UsageInterval,
+    UsageGaugeDimension,
+    UsageOrderBy,
+    UsageOrderDirection,
+} from '@appwrite.io/console';
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -18,7 +26,7 @@ const result = await usage.listGauges({
     orderDir: UsageOrderDirection.Asc, // optional
     limit: 1, // optional
     offset: 0, // optional
-    aggregate: 'last' // optional
+    aggregate: 'last', // optional
 });
 
 console.log(result);

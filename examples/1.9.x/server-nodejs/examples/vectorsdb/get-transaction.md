@@ -9,6 +9,6 @@ const client = new sdk.Client()
 const vectorsDB = new sdk.VectorsDB(client);
 
 const result = await vectorsDB.getTransaction({
-    transactionId: '<TRANSACTION_ID>'
+    transactionId: '<TRANSACTION_ID>',
 });
 ```

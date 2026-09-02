@@ -12,4 +12,6 @@ VectorsDB vectorsDB = new VectorsDB(client);
 
 await vectorsDB.Delete(
     databaseId: "<DATABASE_ID>"
-);```
+);
+
+```

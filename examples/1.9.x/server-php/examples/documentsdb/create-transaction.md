@@ -13,4 +13,5 @@ $documentsDB = new DocumentsDB($client);
 
 $result = $documentsDB->createTransaction(
     ttl: 60 // optional
-);```
+);
+```

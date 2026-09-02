@@ -1,5 +1,5 @@
 ```javascript
-import { Client, Postgresql } from "@appwrite.io/console";
+import { Client, Postgresql } from '@appwrite.io/console';
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -21,7 +21,7 @@ const result = await postgresql.create({
     pitrRetentionDays: 1, // optional
     storageAutoscaling: false, // optional
     storageAutoscalingThresholdPercent: 50, // optional
-    storageAutoscalingMaxGb: 0 // optional
+    storageAutoscalingMaxGb: 0, // optional
 });
 
 console.log(result);

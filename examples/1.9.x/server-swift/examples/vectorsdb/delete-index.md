@@ -11,7 +11,7 @@ let vectorsDB = VectorsDB(client)
 let result = try await vectorsDB.deleteIndex(
     databaseId: "<DATABASE_ID>",
     collectionId: "<COLLECTION_ID>",
-    key: ""
+    key: "<KEY>"
 )
 
 ```

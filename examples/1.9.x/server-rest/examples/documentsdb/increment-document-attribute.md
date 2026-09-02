@@ -3,18 +3,12 @@ PATCH /v1/documentsdb/{databaseId}/collections/{collectionId}/documents/{documen
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 1.9.5
+X-Appwrite-Response-Format: 2.0.0
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
-  "value": 0,
-  "max": 0,
-  "transactionId": "<TRANSACTION_ID>"
-}
-
-{
-  "value": 0,
-  "max": 0,
+  "value": 1,
+  "max": 100,
   "transactionId": "<TRANSACTION_ID>"
 }
 ```

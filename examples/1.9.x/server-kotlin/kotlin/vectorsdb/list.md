@@ -12,7 +12,6 @@ val vectorsDB = VectorsDB(client)
 
 val response = vectorsDB.list(
     queries = listOf(), // optional
-    search = "<SEARCH>", // optional
     total = false // optional
 )
 ```

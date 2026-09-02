@@ -14,9 +14,11 @@ DocumentsDB documentsDB = new DocumentsDB(client);
 Index result = await documentsDB.CreateIndex(
     databaseId: "<DATABASE_ID>",
     collectionId: "<COLLECTION_ID>",
-    key: "",
+    key: "<KEY>",
     type: DocumentsDBIndexType.Key,
     attributes: new List<string>(),
     orders: new List&lt;OrderBy&gt; { OrderBy.Asc }, // optional
     lengths: new List<long>() // optional
-);```
+);
+
+```

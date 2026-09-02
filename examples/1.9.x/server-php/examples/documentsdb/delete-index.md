@@ -14,5 +14,6 @@ $documentsDB = new DocumentsDB($client);
 $result = $documentsDB->deleteIndex(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: ''
-);```
+    key: '<KEY>'
+);
+```

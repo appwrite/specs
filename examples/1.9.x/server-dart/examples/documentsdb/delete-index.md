@@ -11,6 +11,6 @@ DocumentsDB documentsDB = DocumentsDB(client);
 await documentsDB.deleteIndex(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: '',
+    key: '<KEY>',
 );
 ```

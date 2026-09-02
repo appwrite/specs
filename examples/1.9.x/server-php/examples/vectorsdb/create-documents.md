@@ -14,5 +14,7 @@ $vectorsDB = new VectorsDB($client);
 $result = $vectorsDB->createDocuments(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    documents: []
-);```
+    documents: [],
+    transactionId: '<TRANSACTION_ID>' // optional
+);
+```

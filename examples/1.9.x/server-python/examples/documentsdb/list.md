@@ -12,7 +12,6 @@ documents_db = DocumentsDB(client)
 
 result: DatabaseList = documents_db.list(
     queries = [], # optional
-    search = '<SEARCH>', # optional
     total = False # optional
 )
 

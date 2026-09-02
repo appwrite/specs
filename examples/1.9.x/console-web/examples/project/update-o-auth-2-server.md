@@ -1,5 +1,5 @@
 ```javascript
-import { Client, Project } from "@appwrite.io/console";
+import { Client, Project } from '@appwrite.io/console';
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -23,7 +23,7 @@ const result = await project.updateOAuth2Server({
     userCodeFormat: 'numeric', // optional
     deviceCodeDuration: 60, // optional
     defaultScopes: [], // optional
-    installationScopes: [] // optional
+    installationScopes: [], // optional
 });
 
 console.log(result);

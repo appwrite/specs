@@ -11,8 +11,8 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 project = Project(client)
 
 result: ProjectModel = project.update_smtp(
-    host = '', # optional
-    port = None, # optional
+    host = 'example.com', # optional
+    port = 587, # optional
     username = '<USERNAME>', # optional
     password = 'password', # optional
     sender_email = 'email@example.com', # optional

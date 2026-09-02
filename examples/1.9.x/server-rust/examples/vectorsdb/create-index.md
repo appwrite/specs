@@ -14,7 +14,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let result = vectors_db.create_index(
         "<DATABASE_ID>",
         "<COLLECTION_ID>",
-        "",
+        "<KEY>",
         appwrite::enums::VectorsDBIndexType::HnswEuclidean,
         vec![],
         Some(vec![appwrite::enums::OrderBy::Asc]), // optional

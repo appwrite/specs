@@ -10,7 +10,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 proxy = Proxy(client)
 
 result: ProxyRule = proxy.create_function_rule(
-    domain = '',
+    domain = 'example.com',
     function_id = '<FUNCTION_ID>',
     branch = '<BRANCH>' # optional
 )

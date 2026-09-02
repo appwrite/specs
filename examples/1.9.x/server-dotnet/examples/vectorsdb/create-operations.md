@@ -23,4 +23,6 @@ Transaction result = await vectorsDB.CreateOperations(
 	        }
 	    }
 	] // optional
-);```
+);
+
+```

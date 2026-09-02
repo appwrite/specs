@@ -9,6 +9,6 @@ const client = new sdk.Client()
 const vectorsDB = new sdk.VectorsDB(client);
 
 const result = await vectorsDB.createTransaction({
-    ttl: 60 // optional
+    ttl: 60, // optional
 });
 ```

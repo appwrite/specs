@@ -11,10 +11,10 @@ const vectorsDB = new sdk.VectorsDB(client);
 const result = await vectorsDB.createIndex({
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: '',
+    key: '<KEY>',
     type: sdk.VectorsDBIndexType.HnswEuclidean,
     attributes: [],
     orders: [sdk.OrderBy.Asc], // optional
-    lengths: [] // optional
+    lengths: [], // optional
 });
 ```

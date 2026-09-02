@@ -2,7 +2,7 @@
 query {
     tablesDBListOperations(
         databaseId: "<DATABASE_ID>",
-        status: "running",
+        status: "queued",
         limit: 1,
         offset: 0
     ) {

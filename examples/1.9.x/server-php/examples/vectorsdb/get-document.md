@@ -17,4 +17,5 @@ $result = $vectorsDB->getDocument(
     documentId: '<DOCUMENT_ID>',
     queries: [], // optional
     transactionId: '<TRANSACTION_ID>' // optional
-);```
+);
+```

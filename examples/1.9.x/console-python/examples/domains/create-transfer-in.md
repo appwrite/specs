@@ -10,7 +10,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 domains = Domains(client)
 
 result: DomainPurchase = domains.create_transfer_in(
-    domain = '',
+    domain = 'example.com',
     organization_id = '<ORGANIZATION_ID>',
     auth_code = '<AUTH_CODE>',
     payment_method_id = '<PAYMENT_METHOD_ID>',

@@ -13,7 +13,7 @@ $webhooks = new Webhooks($client);
 
 $result = $webhooks->create(
     webhookId: '<WEBHOOK_ID>',
-    url: '',
+    url: 'https://example.com/webhook',
     name: '<NAME>',
     events: [],
     enabled: false, // optional
@@ -21,4 +21,5 @@ $result = $webhooks->create(
     authUsername: '<AUTH_USERNAME>', // optional
     authPassword: 'password', // optional
     secret: '<SECRET>' // optional
-);```
+);
+```

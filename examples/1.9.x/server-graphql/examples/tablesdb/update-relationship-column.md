@@ -3,33 +3,9 @@ mutation {
     tablesDBUpdateRelationshipColumn(
         databaseId: "<DATABASE_ID>",
         tableId: "<TABLE_ID>",
-        key: "",
+        key: "<KEY>",
         onDelete: "cascade",
-        newKey: ""
-    ) {
-        key
-        type
-        status
-        error
-        required
-        array
-        _createdAt
-        _updatedAt
-        relatedTable
-        relationType
-        twoWay
-        twoWayKey
-        onDelete
-        side
-    }
-}
-mutation {
-    tablesDBUpdateRelationshipColumn(
-        databaseId: "<DATABASE_ID>",
-        tableId: "<TABLE_ID>",
-        key: "",
-        onDelete: "cascade",
-        newKey: ""
+        newKey: "<NEW_KEY>"
     ) {
         key
         type

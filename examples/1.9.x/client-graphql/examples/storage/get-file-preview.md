@@ -8,11 +8,11 @@ query {
         gravity: "center",
         quality: -1,
         borderWidth: 0,
-        borderColor: "",
+        borderColor: "FFFFFF",
         borderRadius: 0,
         opacity: 0,
         rotation: -360,
-        background: "",
+        background: "FFFFFF",
         output: "jpg",
         token: "<TOKEN>"
     ) {

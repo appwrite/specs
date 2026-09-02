@@ -16,7 +16,7 @@ $result = $messaging->createSMTPProvider(
     providerId: '<PROVIDER_ID>',
     name: '<NAME>',
     host: '<HOST>',
-    port: 1, // optional
+    port: 587, // optional
     username: '<USERNAME>', // optional
     password: 'password', // optional
     encryption: SmtpEncryption::NONE(), // optional
@@ -27,4 +27,5 @@ $result = $messaging->createSMTPProvider(
     replyToName: '<REPLY_TO_NAME>', // optional
     replyToEmail: 'email@example.com', // optional
     enabled: false // optional
-);```
+);
+```

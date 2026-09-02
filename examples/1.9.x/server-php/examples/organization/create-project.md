@@ -13,7 +13,8 @@ $client = (new Client())
 $organization = new Organization($client);
 
 $result = $organization->createProject(
-    projectId: '',
+    projectId: '<PROJECT_ID>',
     name: '<NAME>',
     region: Region::FRA() // optional
-);```
+);
+```

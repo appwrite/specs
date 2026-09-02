@@ -16,9 +16,10 @@ $databases = new Databases($client);
 $result = $databases->createIndex(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: '',
+    key: '<KEY>',
     type: DatabasesIndexType::KEY(),
     attributes: [],
     orders: [OrderBy::ASC()], // optional
     lengths: [] // optional
-);```
+);
+```

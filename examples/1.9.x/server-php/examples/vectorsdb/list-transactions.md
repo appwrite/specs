@@ -13,4 +13,5 @@ $vectorsDB = new VectorsDB($client);
 
 $result = $vectorsDB->listTransactions(
     queries: [] // optional
-);```
+);
+```

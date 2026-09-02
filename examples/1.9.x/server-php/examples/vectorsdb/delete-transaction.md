@@ -13,4 +13,5 @@ $vectorsDB = new VectorsDB($client);
 
 $result = $vectorsDB->deleteTransaction(
     transactionId: '<TRANSACTION_ID>'
-);```
+);
+```

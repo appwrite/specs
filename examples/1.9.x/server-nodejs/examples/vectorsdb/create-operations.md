@@ -11,15 +11,15 @@ const vectorsDB = new sdk.VectorsDB(client);
 const result = await vectorsDB.createOperations({
     transactionId: '<TRANSACTION_ID>',
     operations: [
-	    {
-	        "action": "create",
-	        "databaseId": "<DATABASE_ID>",
-	        "collectionId": "<COLLECTION_ID>",
-	        "documentId": "<DOCUMENT_ID>",
-	        "data": {
-	            "name": "Walter O'Brien"
-	        }
-	    }
-	] // optional
+        {
+            action: 'create',
+            databaseId: '<DATABASE_ID>',
+            collectionId: '<COLLECTION_ID>',
+            documentId: '<DOCUMENT_ID>',
+            data: {
+                name: "Walter O'Brien",
+            },
+        },
+    ], // optional
 });
 ```

@@ -3,7 +3,7 @@ query {
     tablesDBGetIndex(
         databaseId: "<DATABASE_ID>",
         tableId: "<TABLE_ID>",
-        key: ""
+        key: "<KEY>"
     ) {
         _id
         _createdAt

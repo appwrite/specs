@@ -12,6 +12,7 @@ VectorsDB vectorsDB = new VectorsDB(client);
 
 DatabaseList result = await vectorsDB.List(
     queries: new List<string>(), // optional
-    search: "<SEARCH>", // optional
     total: false // optional
-);```
+);
+
+```

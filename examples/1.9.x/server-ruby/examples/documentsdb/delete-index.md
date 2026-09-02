@@ -13,6 +13,6 @@ documents_db = DocumentsDB.new(client)
 result = documents_db.delete_index(
     database_id: '<DATABASE_ID>',
     collection_id: '<COLLECTION_ID>',
-    key: ''
+    key: '<KEY>'
 )
 ```

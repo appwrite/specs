@@ -10,6 +10,6 @@ const documentsDB = new sdk.DocumentsDB(client);
 
 const result = await documentsDB.deleteCollection({
     databaseId: '<DATABASE_ID>',
-    collectionId: '<COLLECTION_ID>'
+    collectionId: '<COLLECTION_ID>',
 });
 ```

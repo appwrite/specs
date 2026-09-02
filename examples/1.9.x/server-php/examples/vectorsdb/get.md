@@ -13,4 +13,5 @@ $vectorsDB = new VectorsDB($client);
 
 $result = $vectorsDB->get(
     databaseId: '<DATABASE_ID>'
-);```
+);
+```

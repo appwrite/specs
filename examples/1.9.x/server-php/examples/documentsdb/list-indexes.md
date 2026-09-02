@@ -16,4 +16,5 @@ $result = $documentsDB->listIndexes(
     collectionId: '<COLLECTION_ID>',
     queries: [], // optional
     total: false // optional
-);```
+);
+```

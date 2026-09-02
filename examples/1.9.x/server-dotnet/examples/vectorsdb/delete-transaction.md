@@ -12,4 +12,6 @@ VectorsDB vectorsDB = new VectorsDB(client);
 
 await vectorsDB.DeleteTransaction(
     transactionId: "<TRANSACTION_ID>"
-);```
+);
+
+```

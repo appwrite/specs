@@ -12,7 +12,7 @@ let vectorsDB = VectorsDB(client)
 let index = try await vectorsDB.createIndex(
     databaseId: "<DATABASE_ID>",
     collectionId: "<COLLECTION_ID>",
-    key: "",
+    key: "<KEY>",
     type: .hnswEuclidean,
     attributes: [],
     orders: [.asc], // optional

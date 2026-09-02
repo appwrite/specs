@@ -12,7 +12,7 @@ let documentsDB = DocumentsDB(client)
 let index = try await documentsDB.createIndex(
     databaseId: "<DATABASE_ID>",
     collectionId: "<COLLECTION_ID>",
-    key: "",
+    key: "<KEY>",
     type: .key,
     attributes: [],
     orders: [.asc], // optional

@@ -9,6 +9,6 @@ const client = new sdk.Client()
 const vectorsDB = new sdk.VectorsDB(client);
 
 const result = await vectorsDB.listTransactions({
-    queries: [] // optional
+    queries: [], // optional
 });
 ```

@@ -12,4 +12,6 @@ DocumentsDB documentsDB = new DocumentsDB(client);
 
 Database result = await documentsDB.Get(
     databaseId: "<DATABASE_ID>"
-);```
+);
+
+```

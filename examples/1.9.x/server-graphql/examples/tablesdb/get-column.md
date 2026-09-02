@@ -3,7 +3,7 @@ query {
     tablesDBGetColumn(
         databaseId: "<DATABASE_ID>",
         tableId: "<TABLE_ID>",
-        key: ""
+        key: "<KEY>"
     ) {
         key
         type

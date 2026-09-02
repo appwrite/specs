@@ -13,5 +13,7 @@ VectorsDB vectorsDB = new VectorsDB(client);
 Index result = await vectorsDB.GetIndex(
     databaseId: "<DATABASE_ID>",
     collectionId: "<COLLECTION_ID>",
-    key: ""
-);```
+    key: "<KEY>"
+);
+
+```

@@ -11,6 +11,6 @@ const vectorsDB = new sdk.VectorsDB(client);
 const result = await vectorsDB.updateTransaction({
     transactionId: '<TRANSACTION_ID>',
     commit: false, // optional
-    rollback: false // optional
+    rollback: false, // optional
 });
 ```

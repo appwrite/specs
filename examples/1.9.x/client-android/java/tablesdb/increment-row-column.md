@@ -1,4 +1,6 @@
 ```java
+import android.util.Log;
+
 import io.appwrite.Client;
 import io.appwrite.coroutines.CoroutineCallback;
 import io.appwrite.services.TablesDB;
@@ -13,9 +15,9 @@ tablesDB.incrementRowColumn(
     "<DATABASE_ID>", // databaseId 
     "<TABLE_ID>", // tableId 
     "<ROW_ID>", // rowId 
-    "", // column 
-    0, // value (optional)
-    0, // max (optional)
+    "<COLUMN>", // column 
+    1, // value (optional)
+    100, // max (optional)
     "<TRANSACTION_ID>", // transactionId (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {

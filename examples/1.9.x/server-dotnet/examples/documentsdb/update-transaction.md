@@ -14,4 +14,6 @@ Transaction result = await documentsDB.UpdateTransaction(
     transactionId: "<TRANSACTION_ID>",
     commit: false, // optional
     rollback: false // optional
-);```
+);
+
+```

@@ -16,4 +16,5 @@ $result = $vectorsDB->listIndexes(
     collectionId: '<COLLECTION_ID>',
     queries: [], // optional
     total: false // optional
-);```
+);
+```

@@ -11,7 +11,7 @@ documents_db = DocumentsDB(client)
 
 result: DedicatedDatabaseOperationList = documents_db.list_operations(
     database_id = '<DATABASE_ID>',
-    status = 'running', # optional
+    status = 'queued', # optional
     limit = 1, # optional
     offset = 0 # optional
 )

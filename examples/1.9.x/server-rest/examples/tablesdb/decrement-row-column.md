@@ -3,17 +3,11 @@ PATCH /v1/tablesdb/{databaseId}/tables/{tableId}/rows/{rowId}/{column}/decrement
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 1.9.6
+X-Appwrite-Response-Format: 2.0.0
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
-  "value": 0,
-  "min": 0,
-  "transactionId": "<TRANSACTION_ID>"
-}
-
-{
-  "value": 0,
+  "value": 1,
   "min": 0,
   "transactionId": "<TRANSACTION_ID>"
 }

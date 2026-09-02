@@ -13,4 +13,6 @@ DocumentsDB documentsDB = new DocumentsDB(client);
 Collection result = await documentsDB.GetCollection(
     databaseId: "<DATABASE_ID>",
     collectionId: "<COLLECTION_ID>"
-);```
+);
+
+```

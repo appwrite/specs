@@ -3,27 +3,7 @@ mutation {
     tablesDBCreateBooleanColumn(
         databaseId: "<DATABASE_ID>",
         tableId: "<TABLE_ID>",
-        key: "",
-        required: false,
-        default: false,
-        array: false
-    ) {
-        key
-        type
-        status
-        error
-        required
-        array
-        _createdAt
-        _updatedAt
-        default
-    }
-}
-mutation {
-    tablesDBCreateBooleanColumn(
-        databaseId: "<DATABASE_ID>",
-        tableId: "<TABLE_ID>",
-        key: "",
+        key: "<KEY>",
         required: false,
         default: false,
         array: false

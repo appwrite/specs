@@ -11,6 +11,6 @@ VectorsDB vectorsDB = VectorsDB(client);
 Index result = await vectorsDB.getIndex(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: '',
+    key: '<KEY>',
 );
 ```

@@ -1,5 +1,5 @@
 ```javascript
-import { Client, TablesDB } from "@appwrite.io/console";
+import { Client, TablesDB } from '@appwrite.io/console';
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -10,7 +10,7 @@ const tablesDB = new TablesDB(client);
 const result = await tablesDB.createMigration({
     databaseId: '<DATABASE_ID>',
     specification: 's-1vcpu-1gb',
-    autoCutover: false // optional
+    autoCutover: false, // optional
 });
 
 console.log(result);

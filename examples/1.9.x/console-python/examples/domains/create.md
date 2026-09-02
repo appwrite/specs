@@ -11,7 +11,7 @@ domains = Domains(client)
 
 result: Domain = domains.create(
     team_id = '<TEAM_ID>',
-    domain = ''
+    domain = 'example.com'
 )
 
 print(result.model_dump())

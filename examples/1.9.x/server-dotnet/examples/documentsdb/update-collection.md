@@ -18,4 +18,6 @@ Collection result = await documentsDB.UpdateCollection(
     documentSecurity: false, // optional
     enabled: false, // optional
     purge: false // optional
-);```
+);
+
+```

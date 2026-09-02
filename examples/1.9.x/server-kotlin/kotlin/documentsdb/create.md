@@ -13,6 +13,9 @@ val documentsDB = DocumentsDB(client)
 val response = documentsDB.create(
     databaseId = "<DATABASE_ID>",
     name = "<NAME>",
-    enabled = false // optional
+    enabled = false, // optional
+    specification = "serverless", // optional
+    replicas = 0, // optional
+    syncMode = "async" // optional
 )
 ```

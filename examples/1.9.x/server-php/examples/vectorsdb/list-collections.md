@@ -16,4 +16,5 @@ $result = $vectorsDB->listCollections(
     queries: [], // optional
     search: '<SEARCH>', // optional
     total: false // optional
-);```
+);
+```

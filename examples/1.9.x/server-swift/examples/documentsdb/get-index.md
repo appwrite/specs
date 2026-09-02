@@ -11,7 +11,7 @@ let documentsDB = DocumentsDB(client)
 let index = try await documentsDB.getIndex(
     databaseId: "<DATABASE_ID>",
     collectionId: "<COLLECTION_ID>",
-    key: ""
+    key: "<KEY>"
 )
 
 ```
