@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "version": "1.9.6",
+        "version": "2.0.0",
         "title": "Appwrite",
         "description": "Appwrite backend as a service cuts up to 70% of the time and costs required for building a modern application. We abstract and simplify common development tasks behind a REST APIs, to help you develop your app in a fast and secure way. For full API documentation and tutorials go to [https:\/\/appwrite.io\/docs](https:\/\/appwrite.io\/docs)",
         "termsOfService": "https:\/\/appwrite.io\/policy\/terms",
@@ -2974,7 +2974,7 @@
                 "parameters": [
                     {
                         "name": "provider",
-                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, appwrite, auth0, authentik, autodesk, bitbucket, bitly, box, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, fusionauth, github, gitlab, google, huggingface, keycloak, kick, linkedin, microsoft, notion, oidc, okta, paypal, paypalSandbox, podio, salesforce, slack, spotify, stripe, tradeshift, tradeshiftBox, twitch, wordpress, x, yahoo, yammer, yandex, zoho, zoom.",
+                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, appwrite, auth0, authentik, autodesk, bitbucket, bitly, box, cloudflare, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, fusionauth, github, gitlab, google, huggingface, keycloak, kick, linkedin, microsoft, notion, oidc, okta, paypal, paypalSandbox, podio, resend, salesforce, slack, spotify, stripe, tradeshift, tradeshiftBox, twitch, wordpress, x, yahoo, yammer, yandex, zoho, zoom.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -3043,6 +3043,13 @@
                                         "box"
                                     ],
                                     "title": "box"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "cloudflare"
+                                    ],
+                                    "title": "cloudflare"
                                 },
                                 {
                                     "type": "string",
@@ -3197,6 +3204,13 @@
                                         "podio"
                                     ],
                                     "title": "podio"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "resend"
+                                    ],
+                                    "title": "resend"
                                 },
                                 {
                                     "type": "string",
@@ -4187,7 +4201,7 @@
                 "parameters": [
                     {
                         "name": "provider",
-                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, appwrite, auth0, authentik, autodesk, bitbucket, bitly, box, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, fusionauth, github, gitlab, google, huggingface, keycloak, kick, linkedin, microsoft, notion, oidc, okta, paypal, paypalSandbox, podio, salesforce, slack, spotify, stripe, tradeshift, tradeshiftBox, twitch, wordpress, x, yahoo, yammer, yandex, zoho, zoom.",
+                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, appwrite, auth0, authentik, autodesk, bitbucket, bitly, box, cloudflare, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, fusionauth, github, gitlab, google, huggingface, keycloak, kick, linkedin, microsoft, notion, oidc, okta, paypal, paypalSandbox, podio, resend, salesforce, slack, spotify, stripe, tradeshift, tradeshiftBox, twitch, wordpress, x, yahoo, yammer, yandex, zoho, zoom.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -4256,6 +4270,13 @@
                                         "box"
                                     ],
                                     "title": "box"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "cloudflare"
+                                    ],
+                                    "title": "cloudflare"
                                 },
                                 {
                                     "type": "string",
@@ -4410,6 +4431,13 @@
                                         "podio"
                                     ],
                                     "title": "podio"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "resend"
+                                    ],
+                                    "title": "resend"
                                 },
                                 {
                                     "type": "string",
@@ -8872,6 +8900,7 @@
                         "required": false,
                         "schema": {
                             "type": "string",
+                            "example": "FFFFFF",
                             "default": ""
                         },
                         "in": "query"
@@ -8886,7 +8915,7 @@
                 "tags": [
                     "avatars"
                 ],
-                "description": "Returns the best available profile photo for the currently authenticated user. The endpoint tries each source in priority order and returns the first successful result: Gravatar, Libavatar, Appwrite Initials, built-in static fallback file.",
+                "description": "Returns the best available profile photo for a user. The endpoint tries each source in priority order and returns the first successful result: OAuth2 identity photo, Gravatar, Libravatar, Appwrite Initials, built-in static fallback.\n\nPassing `userId` \u2014 `current()` for the authenticated user \u2014 resolves the photo from everything known about that user: identity photos, email, and name. An explicit `emailHash` or `name` then overrides just that value, and the user's remaining sources stay in the chain. Without `userId`, passing `emailHash` and\/or `name` resolves the avatar from those values alone: the hash is looked up on Gravatar and Libravatar, the name is rendered as initials, and the session user stays out of the chain so their own photo never shadows the avatar being asked for. When nothing is passed, the photo resolves for the currently authenticated user. Emails are only ever accepted pre-hashed, so no address ends up in a URL.",
                 "responses": {
                     "200": {
                         "description": "Image",
@@ -8986,6 +9015,39 @@
                             "type": "string",
                             "example": "g",
                             "default": "g"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "userId",
+                        "description": "User ID to resolve the photo for. Pass 'current()' for the currently authenticated user. When omitted, the session user is used only if no emailHash and no name is passed.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "current()",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "emailHash",
+                        "description": "SHA256 hash of the lowercase, trimmed email address to look up on Gravatar and Libravatar instead of the user's own email. Pass the hash, never the address itself.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "<EMAIL_HASH>",
+                            "default": ""
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "name",
+                        "description": "Name to render initials from instead of the user's own name. Max length: 128 chars.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "<NAME>",
+                            "default": ""
                         },
                         "in": "query"
                     }
@@ -13858,7 +13920,8 @@
                         "description": "Attribute key.",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "<ATTRIBUTE>"
                         },
                         "in": "path"
                     }
@@ -13873,11 +13936,13 @@
                                         "description": "Value to increment the attribute by. The value must be a number.",
                                         "type": "number",
                                         "default": 1,
+                                        "example": 1,
                                         "format": "float"
                                     },
                                     "min": {
                                         "description": "Minimum value for the attribute. If the current value is lesser than this value, an exception will be thrown.",
                                         "type": "number",
+                                        "example": 0,
                                         "format": "float",
                                         "nullable": true
                                     },
@@ -13983,7 +14048,8 @@
                         "description": "Attribute key.",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "<ATTRIBUTE>"
                         },
                         "in": "path"
                     }
@@ -13998,11 +14064,13 @@
                                         "description": "Value to increment the attribute by. The value must be a number.",
                                         "type": "number",
                                         "default": 1,
+                                        "example": 1,
                                         "format": "float"
                                     },
                                     "max": {
                                         "description": "Maximum value for the attribute. If the current value is greater than this value, an error will be thrown.",
                                         "type": "number",
+                                        "example": 100,
                                         "format": "float",
                                         "nullable": true
                                     },
@@ -14048,7 +14116,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.read",
+                    "scope": "documentsdb.documents.read",
                     "platforms": [
                         "console",
                         "server",
@@ -14112,7 +14180,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.write",
+                    "scope": "documentsdb.documents.write",
                     "platforms": [
                         "console",
                         "server",
@@ -14181,7 +14249,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.read",
+                    "scope": "documentsdb.documents.read",
                     "platforms": [
                         "console",
                         "server",
@@ -14242,7 +14310,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.write",
+                    "scope": "documentsdb.documents.write",
                     "platforms": [
                         "console",
                         "server",
@@ -14319,7 +14387,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.write",
+                    "scope": "documentsdb.documents.write",
                     "platforms": [
                         "console",
                         "server",
@@ -14382,7 +14450,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.write",
+                    "scope": "documentsdb.documents.write",
                     "platforms": [
                         "server",
                         "client"
@@ -14474,7 +14542,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.read",
+                    "scope": "documentsdb.documents.read",
                     "platforms": [
                         "console",
                         "client",
@@ -14591,7 +14659,7 @@
                     "rate-limit": 120,
                     "rate-time": 60,
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
-                    "scope": "documents.write",
+                    "scope": "documentsdb.documents.write",
                     "platforms": [
                         "console",
                         "client",
@@ -14613,7 +14681,8 @@
                                 "collectionId",
                                 "documentId",
                                 "data",
-                                "permissions"
+                                "permissions",
+                                "transactionId"
                             ],
                             "required": [
                                 "databaseId",
@@ -14641,7 +14710,8 @@
                             "parameters": [
                                 "databaseId",
                                 "collectionId",
-                                "documents"
+                                "documents",
+                                "transactionId"
                             ],
                             "required": [
                                 "databaseId",
@@ -14781,7 +14851,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.read",
+                    "scope": "documentsdb.documents.read",
                     "platforms": [
                         "console",
                         "client",
@@ -14885,7 +14955,7 @@
                     "rate-limit": 120,
                     "rate-time": 60,
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
-                    "scope": "documents.write",
+                    "scope": "documentsdb.documents.write",
                     "platforms": [
                         "console",
                         "client",
@@ -15030,7 +15100,7 @@
                     "rate-limit": 120,
                     "rate-time": 60,
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
-                    "scope": "documents.write",
+                    "scope": "documentsdb.documents.write",
                     "platforms": [
                         "console",
                         "client",
@@ -15136,7 +15206,7 @@
                     "rate-limit": 60,
                     "rate-time": 60,
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
-                    "scope": "documents.write",
+                    "scope": "documentsdb.documents.write",
                     "platforms": [
                         "console",
                         "client",
@@ -15229,7 +15299,7 @@
                     "rate-limit": 120,
                     "rate-time": 60,
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
-                    "scope": "documents.write",
+                    "scope": "documentsdb.documents.write",
                     "platforms": [
                         "client",
                         "server",
@@ -15285,7 +15355,8 @@
                         "description": "Attribute key.",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "<ATTRIBUTE>"
                         },
                         "in": "path"
                     }
@@ -15300,11 +15371,13 @@
                                         "description": "Value to decrement the attribute by. The value must be a number.",
                                         "type": "number",
                                         "default": 1,
+                                        "example": 1,
                                         "format": "float"
                                     },
                                     "min": {
                                         "description": "Minimum value for the attribute. If the current value is lesser than this value, an exception will be thrown.",
                                         "type": "number",
+                                        "example": 0,
                                         "format": "float"
                                     },
                                     "transactionId": {
@@ -15348,7 +15421,7 @@
                     "rate-limit": 120,
                     "rate-time": 60,
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
-                    "scope": "documents.write",
+                    "scope": "documentsdb.documents.write",
                     "platforms": [
                         "client",
                         "server",
@@ -15404,7 +15477,8 @@
                         "description": "Attribute key.",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "<ATTRIBUTE>"
                         },
                         "in": "path"
                     }
@@ -15419,11 +15493,13 @@
                                         "description": "Value to increment the attribute by. The value must be a number.",
                                         "type": "number",
                                         "default": 1,
+                                        "example": 1,
                                         "format": "float"
                                     },
                                     "max": {
                                         "description": "Maximum value for the attribute. If the current value is greater than this value, an error will be thrown.",
                                         "type": "number",
+                                        "example": 100,
                                         "format": "float"
                                     },
                                     "transactionId": {
@@ -19120,7 +19196,6 @@
                                         "description": "File ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
                                         "type": "string",
                                         "example": "<FILE_ID>",
-                                        "x-upload-id": true,
                                         "x-appwrite": {
                                             "idGenerator": "ID.unique"
                                         }
@@ -19144,7 +19219,8 @@
                                     "folder": {
                                         "description": "Virtual folder to place the file in, for example \"photos\/2026\". Nest folders with `\/`. Defaults to the bucket root.",
                                         "type": "string",
-                                        "default": ""
+                                        "default": "",
+                                        "example": "photos\/2026"
                                     }
                                 },
                                 "required": [
@@ -19683,6 +19759,7 @@
                         "required": false,
                         "schema": {
                             "type": "string",
+                            "example": "FFFFFF",
                             "default": ""
                         },
                         "in": "query"
@@ -19729,6 +19806,7 @@
                         "required": false,
                         "schema": {
                             "type": "string",
+                            "example": "FFFFFF",
                             "default": ""
                         },
                         "in": "query"
@@ -21195,7 +21273,8 @@
                         "description": "Column key.",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "<COLUMN>"
                         },
                         "in": "path"
                     }
@@ -21210,11 +21289,13 @@
                                         "description": "Value to increment the column by. The value must be a number.",
                                         "type": "number",
                                         "default": 1,
+                                        "example": 1,
                                         "format": "float"
                                     },
                                     "min": {
                                         "description": "Minimum value for the column. If the current value is lesser than this value, an exception will be thrown.",
                                         "type": "number",
+                                        "example": 0,
                                         "format": "float",
                                         "nullable": true
                                     },
@@ -21319,7 +21400,8 @@
                         "description": "Column key.",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "<COLUMN>"
                         },
                         "in": "path"
                     }
@@ -21334,11 +21416,13 @@
                                         "description": "Value to increment the column by. The value must be a number.",
                                         "type": "number",
                                         "default": 1,
+                                        "example": 1,
                                         "format": "float"
                                     },
                                     "max": {
                                         "description": "Maximum value for the column. If the current value is greater than this value, an error will be thrown.",
                                         "type": "number",
+                                        "example": 100,
                                         "format": "float",
                                         "nullable": true
                                     },
@@ -22836,7 +22920,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.read",
+                    "scope": "vectorsdb.documents.read",
                     "platforms": [
                         "console",
                         "server",
@@ -22900,7 +22984,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.write",
+                    "scope": "vectorsdb.documents.write",
                     "platforms": [
                         "console",
                         "server",
@@ -22969,7 +23053,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.read",
+                    "scope": "vectorsdb.documents.read",
                     "platforms": [
                         "console",
                         "server",
@@ -23030,7 +23114,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.write",
+                    "scope": "vectorsdb.documents.write",
                     "platforms": [
                         "console",
                         "server",
@@ -23107,7 +23191,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.write",
+                    "scope": "vectorsdb.documents.write",
                     "platforms": [
                         "console",
                         "server",
@@ -23170,7 +23254,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.write",
+                    "scope": "vectorsdb.documents.write",
                     "platforms": [
                         "console",
                         "server",
@@ -23263,7 +23347,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.read",
+                    "scope": "vectorsdb.documents.read",
                     "platforms": [
                         "console",
                         "client",
@@ -23380,7 +23464,7 @@
                     "rate-limit": 120,
                     "rate-time": 60,
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
-                    "scope": "documents.write",
+                    "scope": "vectorsdb.documents.write",
                     "platforms": [
                         "console",
                         "client",
@@ -23402,7 +23486,8 @@
                                 "collectionId",
                                 "documentId",
                                 "data",
-                                "permissions"
+                                "permissions",
+                                "transactionId"
                             ],
                             "required": [
                                 "databaseId",
@@ -23547,7 +23632,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.read",
+                    "scope": "vectorsdb.documents.read",
                     "platforms": [
                         "console",
                         "client",
@@ -23657,7 +23742,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "documents.read",
+                    "scope": "vectorsdb.documents.read",
                     "platforms": [
                         "console",
                         "client",
@@ -23761,7 +23846,7 @@
                     "rate-limit": 120,
                     "rate-time": 60,
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
-                    "scope": "documents.write",
+                    "scope": "vectorsdb.documents.write",
                     "platforms": [
                         "console",
                         "client",
@@ -23909,7 +23994,7 @@
                     "rate-limit": 120,
                     "rate-time": 60,
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
-                    "scope": "documents.write",
+                    "scope": "vectorsdb.documents.write",
                     "platforms": [
                         "console",
                         "client",
@@ -24015,7 +24100,7 @@
                     "rate-limit": 60,
                     "rate-time": 60,
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
-                    "scope": "documents.write",
+                    "scope": "vectorsdb.documents.write",
                     "platforms": [
                         "console",
                         "client",
