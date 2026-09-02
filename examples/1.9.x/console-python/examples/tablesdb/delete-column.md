@@ -11,6 +11,6 @@ tables_db = TablesDB(client)
 result = tables_db.delete_column(
     database_id = '<DATABASE_ID>',
     table_id = '<TABLE_ID>',
-    key = ''
+    key = '<KEY>'
 )
 ```

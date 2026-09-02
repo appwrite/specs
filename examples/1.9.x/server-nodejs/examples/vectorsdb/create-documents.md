@@ -11,6 +11,7 @@ const vectorsDB = new sdk.VectorsDB(client);
 const result = await vectorsDB.createDocuments({
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    documents: []
+    documents: [],
+    transactionId: '<TRANSACTION_ID>', // optional
 });
 ```

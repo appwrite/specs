@@ -15,6 +15,7 @@ query {
             attempt
             lastError
             lagDocuments
+            changelogWatermark
             verifiedAt
             cutoverAt
             soakUntil

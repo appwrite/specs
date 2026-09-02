@@ -12,7 +12,6 @@ documents_db = DocumentsDB.new(client)
 
 result = documents_db.list(
     queries: [], # optional
-    search: '<SEARCH>', # optional
     total: false # optional
 )
 ```

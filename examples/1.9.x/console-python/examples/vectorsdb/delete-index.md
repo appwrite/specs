@@ -11,6 +11,6 @@ vectors_db = VectorsDB(client)
 result = vectors_db.delete_index(
     database_id = '<DATABASE_ID>',
     collection_id = '<COLLECTION_ID>',
-    key = ''
+    key = '<KEY>'
 )
 ```

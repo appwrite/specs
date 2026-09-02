@@ -16,7 +16,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Some(0), // optional
         Some(0), // optional
         Some("png"), // optional
-        Some("g") // optional
+        Some("g"), // optional
+        Some("current()"), // optional
+        Some("<EMAIL_HASH>"), // optional
+        Some("<NAME>") // optional
     ).await?;
 
     let _ = result;

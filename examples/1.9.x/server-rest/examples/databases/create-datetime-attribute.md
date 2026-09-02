@@ -3,18 +3,11 @@ POST /v1/databases/{databaseId}/collections/{collectionId}/attributes/datetime H
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 1.9.6
+X-Appwrite-Response-Format: 2.0.0
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
-  "key": "",
-  "required": false,
-  "default": "2020-10-15T06:38:00.000+00:00",
-  "array": false
-}
-
-{
-  "key": "",
+  "key": "<KEY>",
   "required": false,
   "default": "2020-10-15T06:38:00.000+00:00",
   "array": false

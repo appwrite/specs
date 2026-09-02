@@ -13,7 +13,8 @@ $client = (new Client())
 $proxy = new Proxy($client);
 
 $result = $proxy->createInvalidation(
-    domain: '',
+    domain: 'example.com',
     type: InvalidationType::TAG(),
     reference: '<REFERENCE>' // optional
-);```
+);
+```

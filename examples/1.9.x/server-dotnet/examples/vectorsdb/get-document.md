@@ -16,4 +16,6 @@ Document result = await vectorsDB.GetDocument(
     documentId: "<DOCUMENT_ID>",
     queries: new List<string>(), // optional
     transactionId: "<TRANSACTION_ID>" // optional
-);```
+);
+
+```

@@ -51,6 +51,7 @@ query {
             activityLogs
             usageLogs
             usageLogsIntervals
+            usageAggregateOnlyMetrics
             projectInactivityDays
             alertLimit
             usage {

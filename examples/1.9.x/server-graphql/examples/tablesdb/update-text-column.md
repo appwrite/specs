@@ -3,31 +3,10 @@ mutation {
     tablesDBUpdateTextColumn(
         databaseId: "<DATABASE_ID>",
         tableId: "<TABLE_ID>",
-        key: "",
+        key: "<KEY>",
         required: false,
-        default: "<DEFAULT>",
-        newKey: ""
-    ) {
-        key
-        type
-        status
-        error
-        required
-        array
-        _createdAt
-        _updatedAt
-        default
-        encrypt
-    }
-}
-mutation {
-    tablesDBUpdateTextColumn(
-        databaseId: "<DATABASE_ID>",
-        tableId: "<TABLE_ID>",
-        key: "",
-        required: false,
-        default: "<DEFAULT>",
-        newKey: ""
+        default: "Hello World",
+        newKey: "<NEW_KEY>"
     ) {
         key
         type

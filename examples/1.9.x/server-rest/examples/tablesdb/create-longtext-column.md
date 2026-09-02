@@ -3,21 +3,13 @@ POST /v1/tablesdb/{databaseId}/tables/{tableId}/columns/longtext HTTP/1.1
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 1.9.6
+X-Appwrite-Response-Format: 2.0.0
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
-  "key": "",
+  "key": "<KEY>",
   "required": false,
-  "default": "<DEFAULT>",
-  "array": false,
-  "encrypt": false
-}
-
-{
-  "key": "",
-  "required": false,
-  "default": "<DEFAULT>",
+  "default": "Hello World",
   "array": false,
   "encrypt": false
 }

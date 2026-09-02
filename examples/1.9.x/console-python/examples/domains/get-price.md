@@ -11,7 +11,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 domains = Domains(client)
 
 result: DomainPrice = domains.get_price(
-    domain = '',
+    domain = 'example.com',
     period_years = None, # optional
     registration_type = DomainRegistrationType.NEW # optional
 )

@@ -4,7 +4,7 @@ query {
         name: "<NAME>",
         width: 0,
         height: 0,
-        background: ""
+        background: "FFFFFF"
     ) {
         status
     }

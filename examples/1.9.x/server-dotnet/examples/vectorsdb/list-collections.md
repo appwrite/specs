@@ -15,4 +15,6 @@ VectorsdbCollectionList result = await vectorsDB.ListCollections(
     queries: new List<string>(), // optional
     search: "<SEARCH>", // optional
     total: false // optional
-);```
+);
+
+```

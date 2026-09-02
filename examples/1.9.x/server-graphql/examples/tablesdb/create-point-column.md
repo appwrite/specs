@@ -3,26 +3,7 @@ mutation {
     tablesDBCreatePointColumn(
         databaseId: "<DATABASE_ID>",
         tableId: "<TABLE_ID>",
-        key: "",
-        required: false,
-        default: [1, 2]
-    ) {
-        key
-        type
-        status
-        error
-        required
-        array
-        _createdAt
-        _updatedAt
-        default
-    }
-}
-mutation {
-    tablesDBCreatePointColumn(
-        databaseId: "<DATABASE_ID>",
-        tableId: "<TABLE_ID>",
-        key: "",
+        key: "<KEY>",
         required: false,
         default: [1, 2]
     ) {

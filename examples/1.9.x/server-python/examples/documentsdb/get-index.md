@@ -13,7 +13,7 @@ documents_db = DocumentsDB(client)
 result: Index = documents_db.get_index(
     database_id = '<DATABASE_ID>',
     collection_id = '<COLLECTION_ID>',
-    key = ''
+    key = '<KEY>'
 )
 
 print(result.model_dump())

@@ -13,6 +13,9 @@ query {
         engine
         specification
         replicas
+        error
+        containerStatus
+        lifecycleState
         policies {
             _id
             name

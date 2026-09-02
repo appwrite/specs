@@ -13,6 +13,6 @@ $documentsDB = new DocumentsDB($client);
 
 $result = $documentsDB->list(
     queries: [], // optional
-    search: '<SEARCH>', // optional
     total: false // optional
-);```
+);
+```

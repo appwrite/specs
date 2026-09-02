@@ -14,10 +14,11 @@ $webhooks = new Webhooks($client);
 $result = $webhooks->update(
     webhookId: '<WEBHOOK_ID>',
     name: '<NAME>',
-    url: '',
+    url: 'https://example.com/webhook',
     events: [],
     enabled: false, // optional
     tls: false, // optional
     authUsername: '<AUTH_USERNAME>', // optional
     authPassword: 'password' // optional
-);```
+);
+```

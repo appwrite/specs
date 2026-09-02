@@ -3,31 +3,9 @@ mutation {
     databasesCreateTextAttribute(
         databaseId: "<DATABASE_ID>",
         collectionId: "<COLLECTION_ID>",
-        key: "",
+        key: "<KEY>",
         required: false,
-        default: "<DEFAULT>",
-        array: false,
-        encrypt: false
-    ) {
-        key
-        type
-        status
-        error
-        required
-        array
-        _createdAt
-        _updatedAt
-        default
-        encrypt
-    }
-}
-mutation {
-    databasesCreateTextAttribute(
-        databaseId: "<DATABASE_ID>",
-        collectionId: "<COLLECTION_ID>",
-        key: "",
-        required: false,
-        default: "<DEFAULT>",
+        default: "Hello World",
         array: false,
         encrypt: false
     ) {

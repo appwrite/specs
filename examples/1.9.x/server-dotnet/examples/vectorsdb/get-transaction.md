@@ -12,4 +12,6 @@ VectorsDB vectorsDB = new VectorsDB(client);
 
 Transaction result = await vectorsDB.GetTransaction(
     transactionId: "<TRANSACTION_ID>"
-);```
+);
+
+```

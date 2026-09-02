@@ -13,6 +13,6 @@ $vectorsDB = new VectorsDB($client);
 
 $result = $vectorsDB->list(
     queries: [], // optional
-    search: '<SEARCH>', // optional
     total: false // optional
-);```
+);
+```

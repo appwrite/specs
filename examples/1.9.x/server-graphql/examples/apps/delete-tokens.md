@@ -6,11 +6,4 @@ mutation {
         status
     }
 }
-mutation {
-    appsDeleteTokens(
-        appId: "<APP_ID>"
-    ) {
-        status
-    }
-}
 ```

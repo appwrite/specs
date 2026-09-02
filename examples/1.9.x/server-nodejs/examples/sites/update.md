@@ -29,9 +29,9 @@ const result = await sites.update({
     providerRootDirectory: '<PROVIDER_ROOT_DIRECTORY>', // optional
     providerBranches: [], // optional
     providerPaths: [], // optional
-    buildSpecification: '', // optional
-    runtimeSpecification: '', // optional
+    buildSpecification: 's-1vcpu-512mb', // optional
+    runtimeSpecification: 's-1vcpu-512mb', // optional
     deploymentRetention: 0, // optional
-    scopes: [sdk.ProjectKeyScopes.ProjectRead] // optional
+    scopes: [sdk.ProjectKeyScopes.ProjectRead], // optional
 });
 ```

@@ -3,34 +3,11 @@ mutation {
     tablesDBUpdateEnumColumn(
         databaseId: "<DATABASE_ID>",
         tableId: "<TABLE_ID>",
-        key: "",
-        elements: [],
+        key: "<KEY>",
+        elements: ["active", "inactive"],
         required: false,
-        default: "<DEFAULT>",
-        newKey: ""
-    ) {
-        key
-        type
-        status
-        error
-        required
-        array
-        _createdAt
-        _updatedAt
-        elements
-        format
-        default
-    }
-}
-mutation {
-    tablesDBUpdateEnumColumn(
-        databaseId: "<DATABASE_ID>",
-        tableId: "<TABLE_ID>",
-        key: "",
-        elements: [],
-        required: false,
-        default: "<DEFAULT>",
-        newKey: ""
+        default: "active",
+        newKey: "<NEW_KEY>"
     ) {
         key
         type

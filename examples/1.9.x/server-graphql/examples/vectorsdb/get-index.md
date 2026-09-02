@@ -3,7 +3,7 @@ query {
     vectorsDBGetIndex(
         databaseId: "<DATABASE_ID>",
         collectionId: "<COLLECTION_ID>",
-        key: ""
+        key: "<KEY>"
     ) {
         _id
         _createdAt

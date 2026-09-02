@@ -3,34 +3,10 @@ mutation {
     tablesDBCreateBigIntColumn(
         databaseId: "<DATABASE_ID>",
         tableId: "<TABLE_ID>",
-        key: "",
+        key: "<KEY>",
         required: false,
         min: 0,
-        max: 0,
-        default: 0,
-        array: false
-    ) {
-        key
-        type
-        status
-        error
-        required
-        array
-        _createdAt
-        _updatedAt
-        min
-        max
-        default
-    }
-}
-mutation {
-    tablesDBCreateBigIntColumn(
-        databaseId: "<DATABASE_ID>",
-        tableId: "<TABLE_ID>",
-        key: "",
-        required: false,
-        min: 0,
-        max: 0,
+        max: 1000000,
         default: 0,
         array: false
     ) {

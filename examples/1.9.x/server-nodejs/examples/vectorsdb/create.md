@@ -11,6 +11,9 @@ const vectorsDB = new sdk.VectorsDB(client);
 const result = await vectorsDB.create({
     databaseId: '<DATABASE_ID>',
     name: '<NAME>',
-    enabled: false // optional
+    enabled: false, // optional
+    specification: 'serverless', // optional
+    replicas: 0, // optional
+    syncMode: 'async', // optional
 });
 ```

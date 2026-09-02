@@ -12,7 +12,7 @@ VectorsDB vectorsDB = VectorsDB(client);
 Index result = await vectorsDB.createIndex(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: '',
+    key: '<KEY>',
     type: enums.VectorsDBIndexType.hnswEuclidean,
     attributes: [],
     orders: [enums.OrderBy.asc], // (optional)

@@ -13,4 +13,5 @@ $documentsDB = new DocumentsDB($client);
 
 $result = $documentsDB->get(
     databaseId: '<DATABASE_ID>'
-);```
+);
+```

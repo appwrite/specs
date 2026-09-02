@@ -13,6 +13,6 @@ val documentsDB = DocumentsDB(client)
 val response = documentsDB.getIndex(
     databaseId = "<DATABASE_ID>",
     collectionId = "<COLLECTION_ID>",
-    key = ""
+    key = "<KEY>"
 )
 ```

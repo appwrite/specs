@@ -12,7 +12,7 @@ DocumentsDB documentsDB = DocumentsDB(client);
 Index result = await documentsDB.createIndex(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: '',
+    key: '<KEY>',
     type: enums.DocumentsDBIndexType.key,
     attributes: [],
     orders: [enums.OrderBy.asc], // (optional)

@@ -12,4 +12,6 @@ VectorsDB vectorsDB = new VectorsDB(client);
 
 TransactionList result = await vectorsDB.ListTransactions(
     queries: new List<string>() // optional
-);```
+);
+
+```

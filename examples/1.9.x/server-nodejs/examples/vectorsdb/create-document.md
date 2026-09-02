@@ -13,16 +13,12 @@ const result = await vectorsDB.createDocument({
     collectionId: '<COLLECTION_ID>',
     documentId: '<DOCUMENT_ID>',
     data: {
-        "embeddings": [
-            0.12,
-            -0.55,
-            0.88,
-            1.02
-        ],
-        "metadata": {
-            "key": "value"
-        }
+        embeddings: [0.12, -0.55, 0.88, 1.02],
+        metadata: {
+            key: 'value',
+        },
     },
-    permissions: [sdk.Permission.read(sdk.Role.any())] // optional
+    permissions: [sdk.Permission.read(sdk.Role.any())], // optional
+    transactionId: '<TRANSACTION_ID>', // optional
 });
 ```

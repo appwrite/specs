@@ -20,4 +20,5 @@ $result = $vectorsDB->updateDocument(
     data: [], // optional
     permissions: [Permission::read(Role::any())], // optional
     transactionId: '<TRANSACTION_ID>' // optional
-);```
+);
+```

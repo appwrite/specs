@@ -10,7 +10,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 domains = Domains(client)
 
 result: DomainPurchase = domains.create_purchase(
-    domain = '',
+    domain = 'example.com',
     organization_id = '<ORGANIZATION_ID>',
     first_name = '<FIRST_NAME>',
     last_name = '<LAST_NAME>',

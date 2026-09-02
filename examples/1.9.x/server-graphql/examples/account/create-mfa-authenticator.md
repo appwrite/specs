@@ -7,12 +7,4 @@ mutation {
         uri
     }
 }
-mutation {
-    accountCreateMFAAuthenticator(
-        type: "totp"
-    ) {
-        secret
-        uri
-    }
-}
 ```

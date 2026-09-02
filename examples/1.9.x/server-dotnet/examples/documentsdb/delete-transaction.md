@@ -12,4 +12,6 @@ DocumentsDB documentsDB = new DocumentsDB(client);
 
 await documentsDB.DeleteTransaction(
     transactionId: "<TRANSACTION_ID>"
-);```
+);
+
+```

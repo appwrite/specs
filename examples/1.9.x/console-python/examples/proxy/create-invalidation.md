@@ -11,7 +11,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 proxy = Proxy(client)
 
 result: ProxyInvalidation = proxy.create_invalidation(
-    domain = '',
+    domain = 'example.com',
     type = InvalidationType.TAG,
     reference = '<REFERENCE>' # optional
 )

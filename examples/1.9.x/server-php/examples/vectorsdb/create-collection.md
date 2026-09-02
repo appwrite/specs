@@ -21,4 +21,5 @@ $result = $vectorsDB->createCollection(
     permissions: [Permission::read(Role::any())], // optional
     documentSecurity: false, // optional
     enabled: false // optional
-);```
+);
+```

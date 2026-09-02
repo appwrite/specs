@@ -3,31 +3,10 @@ mutation {
     databasesUpdateIpAttribute(
         databaseId: "<DATABASE_ID>",
         collectionId: "<COLLECTION_ID>",
-        key: "",
+        key: "<KEY>",
         required: false,
-        default: "",
-        newKey: ""
-    ) {
-        key
-        type
-        status
-        error
-        required
-        array
-        _createdAt
-        _updatedAt
-        format
-        default
-    }
-}
-mutation {
-    databasesUpdateIpAttribute(
-        databaseId: "<DATABASE_ID>",
-        collectionId: "<COLLECTION_ID>",
-        key: "",
-        required: false,
-        default: "",
-        newKey: ""
+        default: "192.0.2.0",
+        newKey: "<NEW_KEY>"
     ) {
         key
         type

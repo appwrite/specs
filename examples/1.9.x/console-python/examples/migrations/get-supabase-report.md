@@ -17,7 +17,7 @@ result: MigrationReport = migrations.get_supabase_report(
     database_host = '<DATABASE_HOST>',
     username = '<USERNAME>',
     password = 'password',
-    port = None # optional
+    port = 5432 # optional
 )
 
 print(result.model_dump())

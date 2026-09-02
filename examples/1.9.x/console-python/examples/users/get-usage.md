@@ -11,7 +11,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 users = Users(client)
 
 result: UsageUsers = users.get_usage(
-    range = UsageRange.24H # optional
+    range = UsageRange.VALUE24H # optional
 )
 
 print(result.model_dump())

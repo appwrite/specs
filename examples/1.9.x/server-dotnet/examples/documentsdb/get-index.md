@@ -13,5 +13,7 @@ DocumentsDB documentsDB = new DocumentsDB(client);
 Index result = await documentsDB.GetIndex(
     databaseId: "<DATABASE_ID>",
     collectionId: "<COLLECTION_ID>",
-    key: ""
-);```
+    key: "<KEY>"
+);
+
+```

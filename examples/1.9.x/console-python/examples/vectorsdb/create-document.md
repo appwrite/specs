@@ -26,7 +26,8 @@ result: Document = vectors_db.create_document(
             "key": "value"
         }
     },
-    permissions = [Permission.read(Role.any())] # optional
+    permissions = [Permission.read(Role.any())], # optional
+    transaction_id = '<TRANSACTION_ID>' # optional
 )
 
 print(result.model_dump())

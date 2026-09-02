@@ -1,4 +1,6 @@
 ```java
+import android.util.Log;
+
 import io.appwrite.Client;
 import io.appwrite.coroutines.CoroutineCallback;
 import io.appwrite.services.Storage;
@@ -19,11 +21,11 @@ storage.getFilePreview(
     ImageGravity.CENTER, // gravity (optional)
     -1, // quality (optional)
     0, // borderWidth (optional)
-    "", // borderColor (optional)
+    "FFFFFF", // borderColor (optional)
     0, // borderRadius (optional)
     0, // opacity (optional)
     -360, // rotation (optional)
-    "", // background (optional)
+    "FFFFFF", // background (optional)
     ImageFormat.JPG, // output (optional)
     "<TOKEN>", // token (optional)
     new CoroutineCallback<>((result, error) -> {

@@ -11,10 +11,10 @@ const documentsDB = new sdk.DocumentsDB(client);
 const result = await documentsDB.createIndex({
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: '',
+    key: '<KEY>',
     type: sdk.DocumentsDBIndexType.Key,
     attributes: [],
     orders: [sdk.OrderBy.Asc], // optional
-    lengths: [] // optional
+    lengths: [], // optional
 });
 ```

@@ -9,6 +9,6 @@ const client = new sdk.Client()
 const documentsDB = new sdk.DocumentsDB(client);
 
 const result = await documentsDB.get({
-    databaseId: '<DATABASE_ID>'
+    databaseId: '<DATABASE_ID>',
 });
 ```

@@ -15,7 +15,7 @@ DocumentsDB documentsDB = new DocumentsDB(client);
 documentsDB.createIndex(
     "<DATABASE_ID>", // databaseId
     "<COLLECTION_ID>", // collectionId
-    "", // key
+    "<KEY>", // key
     DocumentsDBIndexType.KEY, // type
     List.of(), // attributes
     List.of(OrderBy.ASC), // orders (optional)

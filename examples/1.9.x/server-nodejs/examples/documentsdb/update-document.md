@@ -14,6 +14,6 @@ const result = await documentsDB.updateDocument({
     documentId: '<DOCUMENT_ID>',
     data: {}, // optional
     permissions: [sdk.Permission.read(sdk.Role.any())], // optional
-    transactionId: '<TRANSACTION_ID>' // optional
+    transactionId: '<TRANSACTION_ID>', // optional
 });
 ```

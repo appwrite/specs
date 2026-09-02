@@ -12,4 +12,6 @@ DocumentsDB documentsDB = new DocumentsDB(client);
 
 Transaction result = await documentsDB.GetTransaction(
     transactionId: "<TRANSACTION_ID>"
-);```
+);
+
+```

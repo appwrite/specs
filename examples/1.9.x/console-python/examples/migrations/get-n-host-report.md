@@ -18,7 +18,7 @@ result: MigrationReport = migrations.get_n_host_report(
     database = '<DATABASE>',
     username = '<USERNAME>',
     password = 'password',
-    port = None # optional
+    port = 5432 # optional
 )
 
 print(result.model_dump())

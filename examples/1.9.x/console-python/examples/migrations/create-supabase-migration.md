@@ -17,7 +17,7 @@ result: Migration = migrations.create_supabase_migration(
     database_host = '<DATABASE_HOST>',
     username = '<USERNAME>',
     password = 'password',
-    port = None # optional
+    port = 5432 # optional
 )
 
 print(result.model_dump())

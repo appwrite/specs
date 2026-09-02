@@ -13,6 +13,6 @@ val vectorsDB = VectorsDB(client)
 val response = vectorsDB.deleteIndex(
     databaseId = "<DATABASE_ID>",
     collectionId = "<COLLECTION_ID>",
-    key = ""
+    key = "<KEY>"
 )
 ```

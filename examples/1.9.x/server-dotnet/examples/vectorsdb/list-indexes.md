@@ -15,4 +15,6 @@ IndexList result = await vectorsDB.ListIndexes(
     collectionId: "<COLLECTION_ID>",
     queries: new List<string>(), // optional
     total: false // optional
-);```
+);
+
+```

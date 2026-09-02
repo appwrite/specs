@@ -1,5 +1,5 @@
 ```javascript
-import { Client, Postgresql } from "@appwrite.io/console";
+import { Client, Postgresql } from '@appwrite.io/console';
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -28,7 +28,7 @@ const result = await postgresql.update({
     sqlApiAllowedStatements: [], // optional
     sqlApiMaxRows: 1, // optional
     sqlApiMaxBytes: 1024, // optional
-    sqlApiTimeoutSeconds: 1 // optional
+    sqlApiTimeoutSeconds: 1, // optional
 });
 
 console.log(result);

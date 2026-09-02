@@ -16,9 +16,10 @@ $documentsDB = new DocumentsDB($client);
 $result = $documentsDB->createIndex(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: '',
+    key: '<KEY>',
     type: DocumentsDBIndexType::KEY(),
     attributes: [],
     orders: [OrderBy::ASC()], // optional
     lengths: [] // optional
-);```
+);
+```

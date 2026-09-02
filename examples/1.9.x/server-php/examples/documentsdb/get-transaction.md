@@ -13,4 +13,5 @@ $documentsDB = new DocumentsDB($client);
 
 $result = $documentsDB->getTransaction(
     transactionId: '<TRANSACTION_ID>'
-);```
+);
+```

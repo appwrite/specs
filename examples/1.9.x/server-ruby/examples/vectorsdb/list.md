@@ -12,7 +12,6 @@ vectors_db = VectorsDB.new(client)
 
 result = vectors_db.list(
     queries: [], # optional
-    search: '<SEARCH>', # optional
     total: false # optional
 )
 ```

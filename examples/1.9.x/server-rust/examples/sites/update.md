@@ -32,8 +32,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Some("<PROVIDER_ROOT_DIRECTORY>"), // optional
         Some(vec![]), // optional
         Some(vec![]), // optional
-        Some(""), // optional
-        Some(""), // optional
+        Some("s-1vcpu-512mb"), // optional
+        Some("s-1vcpu-512mb"), // optional
         Some(0), // optional
         Some(vec![appwrite::enums::ProjectKeyScopes::ProjectRead]) // optional
     ).await?;

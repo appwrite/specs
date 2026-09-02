@@ -12,4 +12,6 @@ DocumentsDB documentsDB = new DocumentsDB(client);
 
 await documentsDB.Delete(
     databaseId: "<DATABASE_ID>"
-);```
+);
+
+```

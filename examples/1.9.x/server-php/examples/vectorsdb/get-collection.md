@@ -14,4 +14,5 @@ $vectorsDB = new VectorsDB($client);
 $result = $vectorsDB->getCollection(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>'
-);```
+);
+```

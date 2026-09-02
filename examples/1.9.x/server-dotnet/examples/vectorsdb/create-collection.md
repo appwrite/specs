@@ -18,4 +18,6 @@ VectorsdbCollection result = await vectorsDB.CreateCollection(
     permissions: new List<string> { Permission.Read(Role.Any()) }, // optional
     documentSecurity: false, // optional
     enabled: false // optional
-);```
+);
+
+```

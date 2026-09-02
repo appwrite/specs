@@ -14,5 +14,6 @@ $vectorsDB = new VectorsDB($client);
 $result = $vectorsDB->getIndex(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: ''
-);```
+    key: '<KEY>'
+);
+```

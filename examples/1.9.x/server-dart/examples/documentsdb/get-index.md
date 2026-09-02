@@ -11,6 +11,6 @@ DocumentsDB documentsDB = DocumentsDB(client);
 Index result = await documentsDB.getIndex(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: '',
+    key: '<KEY>',
 );
 ```

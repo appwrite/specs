@@ -4,9 +4,4 @@ mutation {
         recoveryCodes
     }
 }
-mutation {
-    accountCreateMFARecoveryCodes {
-        recoveryCodes
-    }
-}
 ```

@@ -6,11 +6,4 @@ mutation {
         status
     }
 }
-mutation {
-    accountDeleteConsent(
-        consentId: "<CONSENT_ID>"
-    ) {
-        status
-    }
-}
 ```

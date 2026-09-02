@@ -22,4 +22,5 @@ $result = $documentsDB->createCollection(
     enabled: false, // optional
     attributes: [], // optional
     indexes: [] // optional
-);```
+);
+```

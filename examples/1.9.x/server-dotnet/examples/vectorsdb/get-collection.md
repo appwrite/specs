@@ -13,4 +13,6 @@ VectorsDB vectorsDB = new VectorsDB(client);
 VectorsdbCollection result = await vectorsDB.GetCollection(
     databaseId: "<DATABASE_ID>",
     collectionId: "<COLLECTION_ID>"
-);```
+);
+
+```

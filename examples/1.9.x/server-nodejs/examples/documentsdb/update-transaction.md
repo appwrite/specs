@@ -11,6 +11,6 @@ const documentsDB = new sdk.DocumentsDB(client);
 const result = await documentsDB.updateTransaction({
     transactionId: '<TRANSACTION_ID>',
     commit: false, // optional
-    rollback: false // optional
+    rollback: false, // optional
 });
 ```

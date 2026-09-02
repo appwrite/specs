@@ -13,5 +13,7 @@ VectorsDB vectorsDB = new VectorsDB(client);
 await vectorsDB.DeleteIndex(
     databaseId: "<DATABASE_ID>",
     collectionId: "<COLLECTION_ID>",
-    key: ""
-);```
+    key: "<KEY>"
+);
+
+```

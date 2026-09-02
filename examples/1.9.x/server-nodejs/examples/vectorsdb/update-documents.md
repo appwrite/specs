@@ -13,6 +13,6 @@ const result = await vectorsDB.updateDocuments({
     collectionId: '<COLLECTION_ID>',
     data: {}, // optional
     queries: [], // optional
-    transactionId: '<TRANSACTION_ID>' // optional
+    transactionId: '<TRANSACTION_ID>', // optional
 });
 ```

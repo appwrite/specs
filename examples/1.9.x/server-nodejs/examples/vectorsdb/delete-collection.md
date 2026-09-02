@@ -10,6 +10,6 @@ const vectorsDB = new sdk.VectorsDB(client);
 
 const result = await vectorsDB.deleteCollection({
     databaseId: '<DATABASE_ID>',
-    collectionId: '<COLLECTION_ID>'
+    collectionId: '<COLLECTION_ID>',
 });
 ```

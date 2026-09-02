@@ -11,6 +11,6 @@ const documentsDB = new sdk.DocumentsDB(client);
 const result = await documentsDB.getIndex({
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: ''
+    key: '<KEY>',
 });
 ```

@@ -14,8 +14,9 @@ $databases = new Databases($client);
 $result = $databases->createUrlAttribute(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>',
-    key: '',
+    key: '<KEY>',
     required: false,
     default: 'https://example.com', // optional
     array: false // optional
-);```
+);
+```

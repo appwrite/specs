@@ -12,4 +12,6 @@ VectorsDB vectorsDB = new VectorsDB(client);
 
 Database result = await vectorsDB.Get(
     databaseId: "<DATABASE_ID>"
-);```
+);
+
+```

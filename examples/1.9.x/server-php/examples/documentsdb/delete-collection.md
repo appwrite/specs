@@ -14,4 +14,5 @@ $documentsDB = new DocumentsDB($client);
 $result = $documentsDB->deleteCollection(
     databaseId: '<DATABASE_ID>',
     collectionId: '<COLLECTION_ID>'
-);```
+);
+```

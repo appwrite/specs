@@ -17,4 +17,5 @@ $result = $vectorsDB->updateDocuments(
     data: [], // optional
     queries: [], // optional
     transactionId: '<TRANSACTION_ID>' // optional
-);```
+);
+```

@@ -17,4 +17,6 @@ Document result = await vectorsDB.UpdateDocument(
     data: [object], // optional
     permissions: new List<string> { Permission.Read(Role.Any()) }, // optional
     transactionId: "<TRANSACTION_ID>" // optional
-);```
+);
+
+```

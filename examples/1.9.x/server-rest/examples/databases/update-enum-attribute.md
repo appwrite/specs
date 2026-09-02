@@ -3,20 +3,13 @@ PATCH /v1/databases/{databaseId}/collections/{collectionId}/attributes/enum/{key
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 1.9.6
+X-Appwrite-Response-Format: 2.0.0
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
-  "elements": [],
+  "elements": ["active", "inactive"],
   "required": false,
-  "default": "<DEFAULT>",
-  "newKey": ""
-}
-
-{
-  "elements": [],
-  "required": false,
-  "default": "<DEFAULT>",
-  "newKey": ""
+  "default": "active",
+  "newKey": "<NEW_KEY>"
 }
 ```

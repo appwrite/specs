@@ -5,7 +5,10 @@ query {
         height: 0,
         quality: 0,
         output: "png",
-        rating: "g"
+        rating: "g",
+        userId: "current()",
+        emailHash: "<EMAIL_HASH>",
+        name: "<NAME>"
     ) {
         status
     }

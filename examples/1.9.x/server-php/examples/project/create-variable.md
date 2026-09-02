@@ -16,4 +16,5 @@ $result = $project->createVariable(
     key: '<KEY>',
     value: '<VALUE>',
     secret: false // optional
-);```
+);
+```

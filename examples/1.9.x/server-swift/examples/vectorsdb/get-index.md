@@ -11,7 +11,7 @@ let vectorsDB = VectorsDB(client)
 let index = try await vectorsDB.getIndex(
     databaseId: "<DATABASE_ID>",
     collectionId: "<COLLECTION_ID>",
-    key: ""
+    key: "<KEY>"
 )
 
 ```

@@ -3,20 +3,13 @@ PATCH /v1/databases/{databaseId}/collections/{collectionId}/attributes/varchar/{
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 1.9.6
+X-Appwrite-Response-Format: 2.0.0
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
   "required": false,
-  "default": "<DEFAULT>",
+  "default": "Hello World",
   "size": 1,
-  "newKey": ""
-}
-
-{
-  "required": false,
-  "default": "<DEFAULT>",
-  "size": 1,
-  "newKey": ""
+  "newKey": "<NEW_KEY>"
 }
 ```

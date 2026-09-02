@@ -1,5 +1,5 @@
 ```javascript
-import { Client, Avatars } from "@appwrite.io/console";
+import { Client, Avatars } from '@appwrite.io/console';
 
 const client = new Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -12,7 +12,10 @@ const result = avatars.getPhoto({
     height: 0, // optional
     quality: 0, // optional
     output: 'png', // optional
-    rating: 'g' // optional
+    rating: 'g', // optional
+    userId: 'current()', // optional
+    emailHash: '<EMAIL_HASH>', // optional
+    name: '<NAME>', // optional
 });
 
 console.log(result);

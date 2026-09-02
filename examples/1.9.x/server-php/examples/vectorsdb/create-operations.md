@@ -24,4 +24,5 @@ $result = $vectorsDB->createOperations(
 	        }
 	    }
 	] // optional
-);```
+);
+```
