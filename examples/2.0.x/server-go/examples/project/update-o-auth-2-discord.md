@@ -1,0 +1,27 @@
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/appwrite/sdk-for-go/appwrite"
+	"github.com/appwrite/sdk-for-go/project"
+)
+
+func main() {
+	client := appwrite.NewClient(
+		appwrite.WithEndpoint("https://<REGION>.cloud.appwrite.io/v1"),
+		appwrite.WithProject("<YOUR_PROJECT_ID>"),
+		appwrite.WithKey("<YOUR_API_KEY>"),
+	)
+
+	service := project.New(client)
+
+	response, err := service.UpdateOAuth2Discord(
+		service.WithUpdateOAuth2DiscordClientId("<CLIENT_ID>"),
+		service.WithUpdateOAuth2DiscordClientSecret("<CLIENT_SECRET>"),
+		service.WithUpdateOAuth2DiscordEnabled(false),
+	)
+	fmt.Println(response, err)
+}
+```

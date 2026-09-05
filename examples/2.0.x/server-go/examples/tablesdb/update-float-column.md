@@ -1,0 +1,32 @@
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/appwrite/sdk-for-go/appwrite"
+	"github.com/appwrite/sdk-for-go/tablesdb"
+)
+
+func main() {
+	client := appwrite.NewClient(
+		appwrite.WithEndpoint("https://<REGION>.cloud.appwrite.io/v1"),
+		appwrite.WithProject("<YOUR_PROJECT_ID>"),
+		appwrite.WithKey("<YOUR_API_KEY>"),
+	)
+
+	service := tablesdb.New(client)
+
+	response, err := service.UpdateFloatColumn(
+		"<DATABASE_ID>",
+		"<TABLE_ID>",
+		"<KEY>",
+		false,
+		10.5,
+		service.WithUpdateFloatColumnMin(0),
+		service.WithUpdateFloatColumnMax(100),
+		service.WithUpdateFloatColumnNewKey("<NEW_KEY>"),
+	)
+	fmt.Println(response, err)
+}
+```

@@ -1,0 +1,29 @@
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/appwrite/sdk-for-go/appwrite"
+	"github.com/appwrite/sdk-for-go/project"
+)
+
+func main() {
+	client := appwrite.NewClient(
+		appwrite.WithEndpoint("https://<REGION>.cloud.appwrite.io/v1"),
+		appwrite.WithProject("<YOUR_PROJECT_ID>"),
+		appwrite.WithKey("<YOUR_API_KEY>"),
+	)
+
+	service := project.New(client)
+
+	response, err := service.UpdateOAuth2Okta(
+		service.WithUpdateOAuth2OktaClientId("<CLIENT_ID>"),
+		service.WithUpdateOAuth2OktaClientSecret("<CLIENT_SECRET>"),
+		service.WithUpdateOAuth2OktaDomain("example.com"),
+		service.WithUpdateOAuth2OktaAuthorizationServerId("<AUTHORIZATION_SERVER_ID>"),
+		service.WithUpdateOAuth2OktaEnabled(false),
+	)
+	fmt.Println(response, err)
+}
+```
