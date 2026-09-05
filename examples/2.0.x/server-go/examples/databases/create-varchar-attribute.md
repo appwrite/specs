@@ -1,0 +1,32 @@
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/appwrite/sdk-for-go/appwrite"
+	"github.com/appwrite/sdk-for-go/databases"
+)
+
+func main() {
+	client := appwrite.NewClient(
+		appwrite.WithEndpoint("https://<REGION>.cloud.appwrite.io/v1"),
+		appwrite.WithProject("<YOUR_PROJECT_ID>"),
+		appwrite.WithKey("<YOUR_API_KEY>"),
+	)
+
+	service := databases.New(client)
+
+	response, err := service.CreateVarcharAttribute(
+		"<DATABASE_ID>",
+		"<COLLECTION_ID>",
+		"<KEY>",
+		1,
+		false,
+		service.WithCreateVarcharAttributeDefault("Hello World"),
+		service.WithCreateVarcharAttributeArray(false),
+		service.WithCreateVarcharAttributeEncrypt(false),
+	)
+	fmt.Println(response, err)
+}
+```

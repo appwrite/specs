@@ -1,0 +1,29 @@
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/appwrite/sdk-for-go/appwrite"
+	"github.com/appwrite/sdk-for-go/project"
+)
+
+func main() {
+	client := appwrite.NewClient(
+		appwrite.WithEndpoint("https://<REGION>.cloud.appwrite.io/v1"),
+		appwrite.WithProject("<YOUR_PROJECT_ID>"),
+		appwrite.WithKey("<YOUR_API_KEY>"),
+	)
+
+	service := project.New(client)
+
+	response, err := service.UpdatePasswordStrengthPolicy(
+		service.WithUpdatePasswordStrengthPolicyMin(8),
+		service.WithUpdatePasswordStrengthPolicyUppercase(false),
+		service.WithUpdatePasswordStrengthPolicyLowercase(false),
+		service.WithUpdatePasswordStrengthPolicyNumber(false),
+		service.WithUpdatePasswordStrengthPolicySymbols(false),
+	)
+	fmt.Println(response, err)
+}
+```
