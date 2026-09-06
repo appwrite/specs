@@ -55,8 +55,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "account",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/get.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -69,7 +67,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/get.md",
                     "auth": {
                         "Project": []
                     }
@@ -104,8 +101,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "account",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -118,7 +113,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create.md",
                     "auth": {
                         "Project": []
                     }
@@ -197,8 +191,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "consents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/list-consents.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -273,8 +265,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "consents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/get-consent.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -326,8 +316,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "consents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/delete-consent.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -391,8 +379,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "consents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/list-consent-tokens.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -477,8 +463,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "consents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/get-consent-token.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -540,8 +524,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "consents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/delete-consent-token.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -615,8 +597,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "account",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-email.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -629,7 +609,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-email.md",
                     "auth": {
                         "Project": []
                     }
@@ -693,8 +672,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "identities",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/list-identities.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -707,7 +684,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/list-identities.md",
                     "auth": {
                         "Project": []
                     }
@@ -763,8 +739,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "identities",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/delete-identity.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -777,7 +751,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/delete-identity.md",
                     "auth": {
                         "Project": []
                     }
@@ -826,8 +799,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "tokens",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-jwt.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -839,7 +810,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-jwt.md",
                     "auth": {
                         "Project": []
                     }
@@ -893,8 +863,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "logs",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/list-logs.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -907,7 +875,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/list-logs.md",
                     "auth": {
                         "Project": []
                     }
@@ -970,8 +937,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "mfa",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-mfa.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -984,7 +949,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-mfa.md",
                     "auth": {
                         "Project": []
                     }
@@ -1040,8 +1004,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "mfa",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-mfa-authenticator.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -1054,7 +1016,6 @@
                     ],
                     "packaging": false,
                     "public": false,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-mfa-authenticator.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "account.createMFAAuthenticator"
@@ -1063,6 +1024,11 @@
                         {
                             "name": "createMfaAuthenticator",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1090,6 +1056,11 @@
                         {
                             "name": "createMFAAuthenticator",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1167,8 +1138,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "mfa",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-mfa-authenticator.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -1181,7 +1150,6 @@
                     ],
                     "packaging": false,
                     "public": false,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-mfa-authenticator.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "account.updateMFAAuthenticator"
@@ -1190,6 +1158,11 @@
                         {
                             "name": "updateMfaAuthenticator",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1219,6 +1192,11 @@
                         {
                             "name": "updateMFAAuthenticator",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1310,8 +1288,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "mfa",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/delete-mfa-authenticator.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -1324,7 +1300,6 @@
                     ],
                     "packaging": false,
                     "public": false,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/delete-mfa-authenticator.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "account.deleteMFAAuthenticator"
@@ -1333,6 +1308,11 @@
                         {
                             "name": "deleteMfaAuthenticator",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1359,6 +1339,11 @@
                         {
                             "name": "deleteMFAAuthenticator",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1437,8 +1422,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "mfa",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-mfa-challenge.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -1451,7 +1434,6 @@
                     ],
                     "packaging": false,
                     "public": false,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-mfa-challenge.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "account.createMFAChallenge"
@@ -1460,6 +1442,11 @@
                         {
                             "name": "createMfaChallenge",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1487,6 +1474,11 @@
                         {
                             "name": "createMFAChallenge",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1599,8 +1591,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "mfa",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-mfa-challenge.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -1613,7 +1603,6 @@
                     ],
                     "packaging": false,
                     "public": false,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-mfa-challenge.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "account.updateMFAChallenge"
@@ -1622,6 +1611,11 @@
                         {
                             "name": "updateMfaChallenge",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1651,6 +1645,11 @@
                         {
                             "name": "updateMFAChallenge",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1735,8 +1734,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "mfa",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/list-mfa-factors.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -1749,7 +1746,6 @@
                     ],
                     "packaging": false,
                     "public": false,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/list-mfa-factors.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "account.listMFAFactors"
@@ -1758,6 +1754,11 @@
                         {
                             "name": "listMfaFactors",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1781,6 +1782,11 @@
                         {
                             "name": "listMFAFactors",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1834,8 +1840,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "mfa",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/get-mfa-recovery-codes.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -1848,7 +1852,6 @@
                     ],
                     "packaging": false,
                     "public": false,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/get-mfa-recovery-codes.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "account.getMFARecoveryCodes"
@@ -1857,6 +1860,11 @@
                         {
                             "name": "getMfaRecoveryCodes",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1880,6 +1888,11 @@
                         {
                             "name": "getMFARecoveryCodes",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1931,8 +1944,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "mfa",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-mfa-recovery-codes.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -1945,7 +1956,6 @@
                     ],
                     "packaging": false,
                     "public": false,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-mfa-recovery-codes.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "account.createMFARecoveryCodes"
@@ -1954,6 +1964,11 @@
                         {
                             "name": "createMfaRecoveryCodes",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -1977,6 +1992,11 @@
                         {
                             "name": "createMFARecoveryCodes",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -2028,8 +2048,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "mfa",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-mfa-recovery-codes.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -2042,7 +2060,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-mfa-recovery-codes.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "account.updateMFARecoveryCodes"
@@ -2051,6 +2068,11 @@
                         {
                             "name": "updateMfaRecoveryCodes",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -2074,6 +2096,11 @@
                         {
                             "name": "updateMFARecoveryCodes",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -2127,8 +2154,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "account",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-name.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -2141,7 +2166,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-name.md",
                     "auth": {
                         "Project": []
                     }
@@ -2197,8 +2221,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "account",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-password.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -2211,7 +2233,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-password.md",
                     "auth": {
                         "Project": []
                     }
@@ -2275,8 +2296,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "account",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-phone.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -2289,7 +2308,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-phone.md",
                     "auth": {
                         "Project": []
                     }
@@ -2353,8 +2371,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "account",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/get-prefs.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -2367,7 +2383,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/get-prefs.md",
                     "auth": {
                         "Project": []
                     }
@@ -2402,8 +2417,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "account",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-prefs.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -2416,7 +2429,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-prefs.md",
                     "auth": {
                         "Project": []
                     }
@@ -2477,8 +2489,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "recovery",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-recovery.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -2494,7 +2504,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-recovery.md",
                     "auth": {
                         "Project": []
                     }
@@ -2556,8 +2565,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "recovery",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-recovery.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -2570,7 +2577,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-recovery.md",
                     "auth": {
                         "Project": []
                     }
@@ -2639,8 +2645,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "sessions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/list-sessions.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -2653,7 +2657,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/list-sessions.md",
                     "auth": {
                         "Project": []
                     }
@@ -2681,8 +2684,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "sessions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/delete-sessions.md",
                     "rate-limit": 100,
                     "rate-time": 3600,
@@ -2695,7 +2696,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/delete-sessions.md",
                     "auth": {
                         "Project": []
                     }
@@ -2732,8 +2732,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "sessions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-anonymous-session.md",
                     "rate-limit": 50,
                     "rate-time": 3600,
@@ -2746,7 +2744,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-session-anonymous.md",
                     "auth": {
                         "Project": []
                     }
@@ -2783,8 +2780,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "sessions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-email-password-session.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -2797,7 +2792,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-session-email-password.md",
                     "auth": {
                         "Project": []
                     }
@@ -2861,8 +2855,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "sessions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-magic-url-session.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -2875,7 +2867,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-session.md",
                     "deprecated": {
                         "since": "1.6.0",
                         "replaceWith": "account.createSession"
@@ -2945,8 +2936,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "sessions",
-                    "cookies": false,
-                    "type": "webAuth",
                     "demo": "account\/create-o-auth-2-session.md",
                     "rate-limit": 50,
                     "rate-time": 3600,
@@ -2954,12 +2943,10 @@
                     "scope": "sessions.write",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-session-oauth2.md",
                     "auth": {
                         "Project": []
                     }
@@ -3377,8 +3364,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "sessions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-phone-session.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -3391,7 +3376,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-session.md",
                     "deprecated": {
                         "since": "1.6.0",
                         "replaceWith": "account.createSession"
@@ -3460,8 +3444,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "sessions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-session.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -3474,7 +3456,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-session.md",
                     "auth": {
                         "Project": []
                     }
@@ -3539,8 +3520,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "sessions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/get-session.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -3553,7 +3532,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/get-session.md",
                     "auth": {
                         "Project": []
                     }
@@ -3601,8 +3579,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "sessions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-session.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -3615,7 +3591,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-session.md",
                     "auth": {
                         "Project": []
                     }
@@ -3656,8 +3631,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "sessions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/delete-session.md",
                     "rate-limit": 100,
                     "rate-time": 3600,
@@ -3670,7 +3643,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/delete-session.md",
                     "auth": {
                         "Project": []
                     }
@@ -3720,8 +3692,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "account",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-status.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -3734,7 +3704,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-status.md",
                     "auth": {
                         "Project": []
                     }
@@ -3771,8 +3740,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "pushTargets",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-push-target.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -3784,7 +3751,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-push-target.md",
                     "auth": {
                         "Project": []
                     }
@@ -3854,8 +3820,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "pushTargets",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-push-target.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -3867,7 +3831,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-push-target.md",
                     "auth": {
                         "Project": []
                     }
@@ -3925,8 +3888,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "pushTargets",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/delete-push-target.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -3938,7 +3899,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/delete-push-target.md",
                     "auth": {
                         "Project": []
                     }
@@ -3986,8 +3946,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "tokens",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-email-token.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -4003,7 +3961,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-token-email.md",
                     "auth": {
                         "Project": []
                     }
@@ -4075,8 +4032,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "tokens",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-magic-url-token.md",
                     "rate-limit": 60,
                     "rate-time": 3600,
@@ -4092,7 +4047,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-token-magic-url.md",
                     "auth": {
                         "Project": []
                     }
@@ -4172,8 +4126,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "tokens",
-                    "cookies": false,
-                    "type": "webAuth",
                     "demo": "account\/create-o-auth-2-token.md",
                     "rate-limit": 50,
                     "rate-time": 3600,
@@ -4186,7 +4138,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-token-oauth2.md",
                     "auth": {
                         "Project": []
                     }
@@ -4604,8 +4555,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "tokens",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-phone-token.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -4621,7 +4570,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-token-phone.md",
                     "auth": {
                         "Project": []
                     }
@@ -4687,8 +4635,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "verification",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-email-verification.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -4701,11 +4647,15 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-email-verification.md",
                     "methods": [
                         {
                             "name": "createEmailVerification",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -4729,6 +4679,11 @@
                         {
                             "name": "createVerification",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -4808,8 +4763,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "verification",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-email-verification.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -4822,11 +4775,15 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-email-verification.md",
                     "methods": [
                         {
                             "name": "updateEmailVerification",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -4852,6 +4809,11 @@
                         {
                             "name": "updateVerification",
                             "namespace": "account",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -4940,8 +4902,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "verification",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/create-phone-verification.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -4957,7 +4917,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/create-phone-verification.md",
                     "auth": {
                         "Project": []
                     }
@@ -4992,8 +4951,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "verification",
-                    "cookies": false,
-                    "type": "",
                     "demo": "account\/update-phone-verification.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -5006,7 +4963,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/account\/update-phone-verification.md",
                     "auth": {
                         "Project": []
                     }
@@ -5068,8 +5024,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "apps",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/list.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -5142,8 +5096,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "apps",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/create.md",
                     "rate-limit": 10,
                     "rate-time": 60,
@@ -5338,8 +5290,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "scopes",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/list-installation-scopes.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -5388,8 +5338,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "scopes",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/list-o-auth-2-scopes.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -5438,8 +5386,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "apps",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/get.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -5498,8 +5444,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "apps",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/update.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -5697,8 +5641,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "apps",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/delete.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -5762,8 +5704,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "installations",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/list-installations.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -5851,8 +5791,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "installations",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/get-installation.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -5917,8 +5855,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "installations",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/delete-installation.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -5992,8 +5928,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "installations",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/create-installation-token.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -6067,8 +6001,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "keys",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/list-keys.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -6151,8 +6083,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "keys",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/create-key.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -6213,8 +6143,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "keys",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/get-key.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -6276,8 +6204,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "keys",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/delete-key.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -6351,8 +6277,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "secrets",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/list-secrets.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -6435,8 +6359,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "secrets",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/create-secret.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -6497,8 +6419,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "secrets",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/get-secret.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -6560,8 +6480,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "secrets",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/delete-secret.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -6635,8 +6553,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "apps",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/update-team.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -6709,8 +6625,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "apps",
-                    "cookies": false,
-                    "type": "",
                     "demo": "apps\/delete-tokens.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -6775,8 +6689,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "location",
                     "demo": "avatars\/get-browser.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -6789,7 +6701,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-browser.md",
                     "auth": {
                         "Project": [],
                         "ImpersonateUserId": []
@@ -6978,8 +6889,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "location",
                     "demo": "avatars\/get-credit-card.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -6992,7 +6901,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-credit-card.md",
                     "auth": {
                         "Project": [],
                         "ImpersonateUserId": []
@@ -7202,8 +7110,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "location",
                     "demo": "avatars\/get-favicon.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -7216,7 +7122,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-favicon.md",
                     "auth": {
                         "Project": [],
                         "ImpersonateUserId": []
@@ -7269,8 +7174,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "location",
                     "demo": "avatars\/get-flag.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -7283,7 +7186,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-flag.md",
                     "auth": {
                         "Project": [],
                         "ImpersonateUserId": []
@@ -8739,8 +8641,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "location",
                     "demo": "avatars\/get-image.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -8753,7 +8653,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-image.md",
                     "auth": {
                         "Project": [],
                         "ImpersonateUserId": []
@@ -8830,8 +8729,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "location",
                     "demo": "avatars\/get-initials.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -8844,7 +8741,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-initials.md",
                     "auth": {
                         "Project": [],
                         "ImpersonateUserId": []
@@ -8932,8 +8828,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "location",
                     "demo": "avatars\/get-photo.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -9078,8 +8972,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "location",
                     "demo": "avatars\/get-qr.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -9092,7 +8984,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-qr.md",
                     "auth": {
                         "Project": [],
                         "ImpersonateUserId": []
@@ -9179,8 +9070,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "location",
                     "demo": "avatars\/get-screenshot.md",
                     "rate-limit": 60,
                     "rate-time": 3600,
@@ -9193,7 +9082,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/avatars\/get-screenshot.md",
                     "auth": {
                         "Project": [],
                         "ImpersonateUserId": []
@@ -12621,8 +12509,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/list-transactions.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -12635,7 +12521,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/list-transactions.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.listTransactions"
@@ -12689,8 +12574,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/create-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -12703,7 +12586,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/create-transaction.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.createTransaction"
@@ -12762,8 +12644,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/get-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -12776,7 +12656,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/get-transaction.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.getTransaction"
@@ -12827,8 +12706,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/update-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -12841,7 +12718,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/update-transaction.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.updateTransaction"
@@ -12908,8 +12784,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/delete-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -12922,7 +12796,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/delete-transaction.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.deleteTransaction"
@@ -12975,8 +12848,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/create-operations.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -12989,7 +12860,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/create-operations.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.createOperations"
@@ -13072,8 +12942,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/list-documents.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -13086,7 +12954,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/list-documents.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.listRows"
@@ -13193,8 +13060,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/create-document.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -13207,7 +13072,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/create-document.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.createRow"
@@ -13216,6 +13080,11 @@
                         {
                             "name": "createDocument",
                             "namespace": "databases",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "Create document",
                             "auth": {
                                 "Project": []
@@ -13367,8 +13236,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/get-document.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -13381,7 +13248,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/get-document.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.getRow"
@@ -13475,8 +13341,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/upsert-document.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -13489,7 +13353,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/upsert-document.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.upsertRow"
@@ -13498,6 +13361,11 @@
                         {
                             "name": "upsertDocument",
                             "namespace": "databases",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -13639,8 +13507,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/update-document.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -13653,7 +13519,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/update-document.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.updateRow"
@@ -13757,8 +13622,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/delete-document.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -13771,7 +13634,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/delete-document.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.deleteRow"
@@ -13854,8 +13716,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/decrement-document-attribute.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -13868,7 +13728,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/decrement-document-attribute.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.decrementRowColumn"
@@ -13982,8 +13841,6 @@
                 "deprecated": true,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "databases\/increment-document-attribute.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -13996,7 +13853,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/databases\/increment-document-attribute.md",
                     "deprecated": {
                         "since": "1.8.0",
                         "replaceWith": "tablesDB.incrementRowColumn"
@@ -14110,8 +13966,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/list-transactions.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -14124,7 +13978,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/list-transactions.md",
                     "auth": {
                         "Project": []
                     }
@@ -14174,8 +14027,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/create-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -14188,7 +14039,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/create-transaction.md",
                     "auth": {
                         "Project": []
                     }
@@ -14243,8 +14093,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/get-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -14257,7 +14105,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/get-transaction.md",
                     "auth": {
                         "Project": []
                     }
@@ -14304,8 +14151,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/update-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -14318,7 +14163,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/update-transaction.md",
                     "auth": {
                         "Project": []
                     }
@@ -14381,8 +14225,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/delete-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -14395,7 +14237,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/delete-transaction.md",
                     "auth": {
                         "Project": []
                     }
@@ -14444,8 +14285,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/create-operations.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -14457,7 +14296,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/create-operations.md",
                     "auth": {
                         "Project": []
                     }
@@ -14536,8 +14374,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/list-documents.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -14550,7 +14386,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/list-documents.md",
                     "auth": {
                         "Project": []
                     }
@@ -14653,8 +14488,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/create-document.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -14667,11 +14500,15 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/create-document.md",
                     "methods": [
                         {
                             "name": "createDocument",
                             "namespace": "documentsDB",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "Create document",
                             "auth": {
                                 "Project": []
@@ -14703,6 +14540,11 @@
                         {
                             "name": "createDocuments",
                             "namespace": "documentsDB",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "Create documents",
                             "auth": {
                                 "Project": []
@@ -14845,8 +14687,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/get-document.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -14859,7 +14699,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/get-document.md",
                     "auth": {
                         "Project": []
                     }
@@ -14949,8 +14788,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/upsert-document.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -14963,11 +14800,15 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/upsert-document.md",
                     "methods": [
                         {
                             "name": "upsertDocument",
                             "namespace": "documentsDB",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -15094,8 +14935,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/update-document.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -15108,7 +14947,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/update-document.md",
                     "auth": {
                         "Project": []
                     }
@@ -15200,8 +15038,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/delete-document.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -15214,7 +15050,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/delete-document.md",
                     "auth": {
                         "Project": []
                     }
@@ -15293,8 +15128,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/decrement-document-attribute.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -15307,7 +15140,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/decrement-document-attribute.md",
                     "auth": {
                         "Project": []
                     }
@@ -15415,8 +15247,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "documentsdb\/increment-document-attribute.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -15429,7 +15259,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/documentsdb\/increment-document-attribute.md",
                     "auth": {
                         "Project": []
                     }
@@ -15537,8 +15366,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "executions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "functions\/list-executions.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -15624,8 +15451,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "executions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "functions\/create-execution.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -15788,8 +15613,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "executions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "functions\/get-execution.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -15863,8 +15686,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "graphql",
-                    "cookies": false,
-                    "type": "graphql",
                     "demo": "graphql\/query.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -15877,7 +15698,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/graphql\/post.md",
                     "auth": {
                         "Project": []
                     }
@@ -15934,8 +15754,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "graphql",
-                    "cookies": false,
-                    "type": "graphql",
                     "demo": "graphql\/mutation.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -15948,7 +15766,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/graphql\/post.md",
                     "auth": {
                         "Project": []
                     }
@@ -16005,8 +15822,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "locale\/get.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -16019,7 +15834,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/locale\/get-locale.md",
                     "auth": {
                         "Project": []
                     }
@@ -16056,8 +15870,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "locale\/list-codes.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -16070,7 +15882,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/locale\/list-locale-codes.md",
                     "auth": {
                         "Project": []
                     }
@@ -16107,8 +15918,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "locale\/list-continents.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -16121,7 +15930,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/locale\/list-continents.md",
                     "auth": {
                         "Project": []
                     }
@@ -16158,8 +15966,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "locale\/list-countries.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -16172,7 +15978,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/locale\/list-countries.md",
                     "auth": {
                         "Project": []
                     }
@@ -16209,8 +16014,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "locale\/list-countries-eu.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -16223,7 +16026,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/locale\/list-countries-eu.md",
                     "auth": {
                         "Project": []
                     }
@@ -16260,8 +16062,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "locale\/list-countries-phones.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -16274,7 +16074,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/locale\/list-countries-phones.md",
                     "auth": {
                         "Project": []
                     }
@@ -16311,8 +16110,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "locale\/list-currencies.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -16325,7 +16122,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/locale\/list-currencies.md",
                     "auth": {
                         "Project": []
                     }
@@ -16362,8 +16158,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "locale\/list-languages.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -16376,7 +16170,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/locale\/list-languages.md",
                     "auth": {
                         "Project": []
                     }
@@ -16413,8 +16206,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "subscribers",
-                    "cookies": false,
-                    "type": "",
                     "demo": "messaging\/create-subscriber.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -16427,7 +16218,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/messaging\/create-subscriber.md",
                     "auth": {
                         "Project": []
                     }
@@ -16497,8 +16287,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "subscribers",
-                    "cookies": false,
-                    "type": "",
                     "demo": "messaging\/delete-subscriber.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -16511,7 +16299,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/messaging\/delete-subscriber.md",
                     "auth": {
                         "Project": []
                     }
@@ -16570,8 +16357,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "authorization",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/approve.md",
                     "rate-limit": 10,
                     "rate-time": 60,
@@ -16663,8 +16448,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "authorization",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/authorize.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -16877,8 +16660,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "authorization",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/authorize.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -17035,8 +16816,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "authorization",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/create-device-authorization.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -17137,8 +16916,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "grants",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/create-grant.md",
                     "rate-limit": 10,
                     "rate-time": 60,
@@ -17218,8 +16995,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "grants",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/get-grant.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -17283,8 +17058,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "tokens",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/logout.md",
                     "rate-limit": 10,
                     "rate-time": 60,
@@ -17404,8 +17177,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "tokens",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/logout.md",
                     "rate-limit": 10,
                     "rate-time": 60,
@@ -17515,8 +17286,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "platform",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/list-organizations.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -17612,8 +17381,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "authorization",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/create-par.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -17766,8 +17533,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "platform",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/list-projects.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -17863,8 +17628,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "authorization",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/reject.md",
                     "rate-limit": 10,
                     "rate-time": 60,
@@ -17945,8 +17708,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "tokens",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/revoke.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -18044,8 +17805,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "tokens",
-                    "cookies": false,
-                    "type": "",
                     "demo": "oauth2\/create-token.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -18179,8 +17938,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "installations",
-                    "cookies": false,
-                    "type": "",
                     "demo": "organization\/list-installations.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -18253,8 +18010,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "installations",
-                    "cookies": false,
-                    "type": "",
                     "demo": "organization\/create-installation.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -18328,8 +18083,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "installations",
-                    "cookies": false,
-                    "type": "",
                     "demo": "organization\/get-installation.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -18388,8 +18141,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "installations",
-                    "cookies": false,
-                    "type": "",
                     "demo": "organization\/update-installation.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -18458,8 +18209,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "installations",
-                    "cookies": false,
-                    "type": "",
                     "demo": "organization\/delete-installation.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -18523,8 +18272,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "ping\/get.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -18573,8 +18320,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "presences",
-                    "cookies": false,
-                    "type": "",
                     "demo": "presences\/list.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -18587,7 +18332,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/list.md",
                     "auth": {
                         "Project": []
                     }
@@ -18662,8 +18406,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "presences",
-                    "cookies": false,
-                    "type": "",
                     "demo": "presences\/get.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -18676,7 +18418,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/get.md",
                     "auth": {
                         "Project": []
                     }
@@ -18723,8 +18464,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "presences",
-                    "cookies": false,
-                    "type": "",
                     "demo": "presences\/upsert.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -18732,15 +18471,19 @@
                     "scope": "presences.write",
                     "platforms": [
                         "client",
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/upsert.md",
                     "methods": [
                         {
                             "name": "upsert",
                             "namespace": "presences",
+                            "platforms": [
+                                "client",
+                                "console"
+                            ],
                             "desc": "Upsert presence",
                             "auth": {
                                 "Project": []
@@ -18858,8 +18601,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "presences",
-                    "cookies": false,
-                    "type": "",
                     "demo": "presences\/update.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -18867,15 +18608,19 @@
                     "scope": "presences.write",
                     "platforms": [
                         "client",
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/update.md",
                     "methods": [
                         {
                             "name": "update",
                             "namespace": "presences",
+                            "platforms": [
+                                "client",
+                                "console"
+                            ],
                             "desc": "Update presence",
                             "auth": {
                                 "Project": []
@@ -18989,8 +18734,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "presences",
-                    "cookies": false,
-                    "type": "",
                     "demo": "presences\/delete.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -19003,7 +18746,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/presences\/delete.md",
                     "auth": {
                         "Project": []
                     }
@@ -19052,8 +18794,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "files",
-                    "cookies": false,
-                    "type": "",
                     "demo": "storage\/list-files.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -19066,7 +18806,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/storage\/list-files.md",
                     "auth": {
                         "Project": []
                     }
@@ -19148,8 +18887,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "files",
-                    "cookies": false,
-                    "type": "upload",
                     "demo": "storage\/create-file.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -19162,7 +18899,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/storage\/create-file.md",
                     "auth": {
                         "Project": []
                     }
@@ -19256,8 +18992,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "files",
-                    "cookies": false,
-                    "type": "",
                     "demo": "storage\/get-file.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -19270,7 +19004,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/storage\/get-file.md",
                     "auth": {
                         "Project": []
                     }
@@ -19327,8 +19060,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "files",
-                    "cookies": false,
-                    "type": "",
                     "demo": "storage\/update-file.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -19341,7 +19072,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/storage\/update-file.md",
                     "auth": {
                         "Project": []
                     }
@@ -19418,8 +19148,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "files",
-                    "cookies": false,
-                    "type": "",
                     "demo": "storage\/delete-file.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -19432,7 +19160,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/storage\/delete-file.md",
                     "auth": {
                         "Project": []
                     }
@@ -19492,8 +19219,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "files",
-                    "cookies": false,
-                    "type": "location",
                     "demo": "storage\/get-file-download.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -19506,7 +19231,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/storage\/get-file-download.md",
                     "auth": {
                         "Project": [],
                         "ImpersonateUserId": []
@@ -19579,8 +19303,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "files",
-                    "cookies": false,
-                    "type": "location",
                     "demo": "storage\/get-file-preview.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -19593,7 +19315,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/storage\/get-file-preview.md",
                     "auth": {
                         "Project": [],
                         "ImpersonateUserId": []
@@ -19912,8 +19633,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "files",
-                    "cookies": false,
-                    "type": "location",
                     "demo": "storage\/get-file-view.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -19926,7 +19645,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/storage\/get-file-view.md",
                     "auth": {
                         "Project": [],
                         "ImpersonateUserId": []
@@ -19998,8 +19716,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/list-transactions.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -20015,7 +19731,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/list-transactions.md",
                     "auth": {
                         "Project": []
                     }
@@ -20065,8 +19780,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/create-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -20082,7 +19795,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/create-transaction.md",
                     "auth": {
                         "Project": []
                     }
@@ -20137,8 +19849,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/get-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -20154,7 +19864,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/get-transaction.md",
                     "auth": {
                         "Project": []
                     }
@@ -20201,8 +19910,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/update-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -20218,7 +19925,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/update-transaction.md",
                     "auth": {
                         "Project": []
                     }
@@ -20281,8 +19987,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/delete-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -20298,7 +20002,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/delete-transaction.md",
                     "auth": {
                         "Project": []
                     }
@@ -20347,8 +20050,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/create-operations.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -20364,7 +20065,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/create-operations.md",
                     "auth": {
                         "Project": []
                     }
@@ -20443,8 +20143,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "rows",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/list-rows.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -20460,7 +20158,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/list-rows.md",
                     "auth": {
                         "Project": []
                     }
@@ -20563,8 +20260,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "rows",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/create-row.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -20580,11 +20275,15 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/create-row.md",
                     "methods": [
                         {
                             "name": "createRow",
                             "namespace": "tablesDB",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "Create row",
                             "auth": {
                                 "Project": []
@@ -20732,8 +20431,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "rows",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/get-row.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -20749,7 +20446,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/get-row.md",
                     "auth": {
                         "Project": []
                     }
@@ -20839,8 +20535,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "rows",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/upsert-row.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -20856,11 +20550,15 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/upsert-row.md",
                     "methods": [
                         {
                             "name": "upsertRow",
                             "namespace": "tablesDB",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -20995,8 +20693,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "rows",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/update-row.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -21012,7 +20708,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/update-row.md",
                     "auth": {
                         "Project": []
                     }
@@ -21112,8 +20807,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "rows",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/delete-row.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -21129,7 +20822,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/delete-row.md",
                     "auth": {
                         "Project": []
                     }
@@ -21208,8 +20900,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "rows",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/decrement-row-column.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -21225,7 +20915,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/decrement-row-column.md",
                     "auth": {
                         "Project": []
                     }
@@ -21335,8 +21024,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "rows",
-                    "cookies": false,
-                    "type": "",
                     "demo": "tablesdb\/increment-row-column.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -21352,7 +21039,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/tablesdb\/increment-row-column.md",
                     "auth": {
                         "Project": []
                     }
@@ -21462,8 +21148,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "teams",
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/list.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -21476,7 +21160,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/teams\/list-teams.md",
                     "auth": {
                         "Project": []
                     }
@@ -21548,8 +21231,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "teams",
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/create.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -21562,7 +21243,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/teams\/create-team.md",
                     "auth": {
                         "Project": []
                     }
@@ -21637,8 +21317,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "teams",
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/get.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -21651,7 +21329,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/teams\/get-team.md",
                     "auth": {
                         "Project": []
                     }
@@ -21698,8 +21375,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "teams",
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/update-name.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -21712,7 +21387,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/teams\/update-team-name.md",
                     "auth": {
                         "Project": []
                     }
@@ -21771,8 +21445,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "teams",
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/delete.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -21785,7 +21457,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/teams\/delete-team.md",
                     "auth": {
                         "Project": []
                     }
@@ -21834,8 +21505,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/list-installations.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -21918,8 +21587,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/create-installation.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -22005,8 +21672,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/get-installation.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -22075,8 +21740,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/update-installation.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -22155,8 +21818,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": null,
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/delete-installation.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -22230,8 +21891,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "memberships",
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/list-memberships.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -22244,7 +21903,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/teams\/list-team-members.md",
                     "auth": {
                         "Project": []
                     }
@@ -22326,8 +21984,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "memberships",
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/create-membership.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
@@ -22340,7 +21996,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/teams\/create-team-membership.md",
                     "auth": {
                         "Project": []
                     }
@@ -22443,8 +22098,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "memberships",
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/get-membership.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -22457,7 +22110,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/teams\/get-team-member.md",
                     "auth": {
                         "Project": []
                     }
@@ -22514,8 +22166,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "memberships",
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/update-membership.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -22528,7 +22178,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/teams\/update-team-membership.md",
                     "auth": {
                         "Project": []
                     }
@@ -22599,8 +22248,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "memberships",
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/delete-membership.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -22613,7 +22260,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/teams\/delete-team-membership.md",
                     "auth": {
                         "Project": []
                     }
@@ -22672,8 +22318,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "memberships",
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/update-membership-status.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -22686,7 +22330,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/teams\/update-team-membership-status.md",
                     "auth": {
                         "Project": []
                     }
@@ -22770,8 +22413,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "teams",
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/get-prefs.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -22784,7 +22425,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/teams\/get-team-prefs.md",
                     "auth": {
                         "Project": []
                     }
@@ -22831,8 +22471,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "teams",
-                    "cookies": false,
-                    "type": "",
                     "demo": "teams\/update-prefs.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -22845,7 +22483,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/teams\/update-team-prefs.md",
                     "auth": {
                         "Project": []
                     }
@@ -22914,8 +22551,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "vectorsdb\/list-transactions.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -22928,7 +22563,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/list-transactions.md",
                     "auth": {
                         "Project": []
                     }
@@ -22978,8 +22612,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "vectorsdb\/create-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -22992,7 +22624,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/create-transaction.md",
                     "auth": {
                         "Project": []
                     }
@@ -23047,8 +22678,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "vectorsdb\/get-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -23061,7 +22690,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/get-transaction.md",
                     "auth": {
                         "Project": []
                     }
@@ -23108,8 +22736,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "vectorsdb\/update-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -23122,7 +22748,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/update-transaction.md",
                     "auth": {
                         "Project": []
                     }
@@ -23185,8 +22810,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "vectorsdb\/delete-transaction.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -23199,7 +22822,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/delete-transaction.md",
                     "auth": {
                         "Project": []
                     }
@@ -23248,8 +22870,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "transactions",
-                    "cookies": false,
-                    "type": "",
                     "demo": "vectorsdb\/create-operations.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -23262,7 +22882,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/create-operations.md",
                     "auth": {
                         "Project": []
                     }
@@ -23341,8 +22960,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "vectorsdb\/list-documents.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -23355,7 +22972,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/list-documents.md",
                     "auth": {
                         "Project": []
                     }
@@ -23458,8 +23074,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "vectorsdb\/create-document.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -23472,11 +23086,15 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/create-document.md",
                     "methods": [
                         {
                             "name": "createDocument",
                             "namespace": "vectorsDB",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "Create document",
                             "auth": {
                                 "Project": []
@@ -23626,8 +23244,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "vectorsdb\/create-query.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -23640,7 +23256,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/create-query.md",
                     "auth": {
                         "Project": []
                     }
@@ -23736,8 +23351,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "vectorsdb\/get-document.md",
                     "rate-limit": 0,
                     "rate-time": 3600,
@@ -23750,7 +23363,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/get-document.md",
                     "auth": {
                         "Project": []
                     }
@@ -23840,8 +23452,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "vectorsdb\/upsert-document.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -23854,11 +23464,15 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/upsert-document.md",
                     "methods": [
                         {
                             "name": "upsertDocument",
                             "namespace": "vectorsDB",
+                            "platforms": [
+                                "console",
+                                "client",
+                                "server"
+                            ],
                             "desc": "",
                             "auth": {
                                 "Project": []
@@ -23988,8 +23602,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "vectorsdb\/update-document.md",
                     "rate-limit": 120,
                     "rate-time": 60,
@@ -24002,7 +23614,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/update-document.md",
                     "auth": {
                         "Project": []
                     }
@@ -24094,8 +23705,6 @@
                 "deprecated": false,
                 "x-appwrite": {
                     "group": "documents",
-                    "cookies": false,
-                    "type": "",
                     "demo": "vectorsdb\/delete-document.md",
                     "rate-limit": 60,
                     "rate-time": 60,
@@ -24108,7 +23717,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "edit": "https:\/\/github.com\/appwrite\/appwrite\/edit\/master\/docs\/references\/vectorsdb\/delete-document.md",
                     "auth": {
                         "Project": []
                     }
