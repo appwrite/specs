@@ -4,8 +4,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/appwrite/sdk-for-go/appwrite"
-	"github.com/appwrite/sdk-for-go/tablesdb"
+	"github.com/appwrite/sdk-for-go/v7/appwrite"
+	"github.com/appwrite/sdk-for-go/v7/tablesdb"
 )
 
 func main() {
@@ -21,6 +21,9 @@ func main() {
 		"<DATABASE_ID>",
 		service.WithUpdateName("<NAME>"),
 		service.WithUpdateEnabled(false),
+		service.WithUpdateSpecification("serverless"),
+		service.WithUpdateReplicas(0),
+		service.WithUpdateSyncMode("async"),
 	)
 	fmt.Println(response, err)
 }

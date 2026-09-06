@@ -13,7 +13,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let result = documents_db.list(
         Some(vec![]), // optional
-        Some("<SEARCH>"), // optional
         Some(false) // optional
     ).await?;
 

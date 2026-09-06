@@ -11,7 +11,7 @@ Client client = new Client()
 
 Avatars avatars = new Avatars(client);
 
-byte[] result = await avatars.GetFlag(
+ result = await avatars.GetFlag(
     code: Flag.Afghanistan,
     width: 0, // optional
     height: 0, // optional

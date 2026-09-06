@@ -10,7 +10,7 @@ val client = Client()
 
 val avatars = Avatars(client)
 
-val result = avatars.getInitials(
+val response = avatars.getInitials(
     name = "<NAME>", // optional
     width = 0, // optional
     height = 0, // optional

@@ -13,7 +13,10 @@ tables_db = TablesDB(client)
 result: Database = tables_db.create(
     database_id = '<DATABASE_ID>',
     name = '<NAME>',
-    enabled = False # optional
+    enabled = False, # optional
+    specification = 'serverless', # optional
+    replicas = 0, # optional
+    sync_mode = 'async' # optional
 )
 
 print(result.model_dump())

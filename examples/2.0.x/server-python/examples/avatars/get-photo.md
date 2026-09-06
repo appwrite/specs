@@ -9,7 +9,7 @@ client.set_session('') # The user session to authenticate with
 
 avatars = Avatars(client)
 
-result: bytes = avatars.get_photo(
+result = avatars.get_photo(
     width = 0, # optional
     height = 0, # optional
     quality = 0, # optional

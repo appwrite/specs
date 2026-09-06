@@ -10,7 +10,7 @@ const organization = new Organization(client);
 const result = await organization.createProject({
     projectId: '<PROJECT_ID>',
     name: '<NAME>',
-    region: Region.Default, // optional
+    region: Region.Fra, // optional
 });
 
 console.log(result);

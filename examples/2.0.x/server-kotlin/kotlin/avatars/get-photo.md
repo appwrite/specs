@@ -10,7 +10,7 @@ val client = Client()
 
 val avatars = Avatars(client)
 
-val result = avatars.getPhoto(
+val response = avatars.getPhoto(
     width = 0, // optional
     height = 0, // optional
     quality = 0, // optional

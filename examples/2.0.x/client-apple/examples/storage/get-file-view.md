@@ -7,7 +7,7 @@ let client = Client()
 
 let storage = Storage(client)
 
-let bytes = try await storage.getFileView(
+let result = try await storage.getFileView(
     bucketId: "<BUCKET_ID>",
     fileId: "<FILE_ID>",
     token: "<TOKEN>" // optional

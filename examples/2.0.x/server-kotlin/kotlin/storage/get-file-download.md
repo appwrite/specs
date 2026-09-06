@@ -10,7 +10,7 @@ val client = Client()
 
 val storage = Storage(client)
 
-val result = storage.getFileDownload(
+val response = storage.getFileDownload(
     bucketId = "<BUCKET_ID>",
     fileId = "<FILE_ID>",
     token = "<TOKEN>" // optional

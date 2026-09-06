@@ -11,7 +11,7 @@ val client = Client()
 
 val sites = Sites(client)
 
-val result = sites.getDeploymentDownload(
+val response = sites.getDeploymentDownload(
     siteId = "<SITE_ID>",
     deploymentId = "<DEPLOYMENT_ID>",
     type = DeploymentDownloadType.SOURCE, // optional

@@ -9,7 +9,7 @@ let client = Client()
 
 let avatars = Avatars(client)
 
-let bytes = try await avatars.getCreditCard(
+let result = try await avatars.getCreditCard(
     code: .americanExpress,
     width: 0, // optional
     height: 0, // optional

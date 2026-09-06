@@ -13,7 +13,7 @@ client.set_session('') # The user session to authenticate with
 
 avatars = Avatars(client)
 
-result: bytes = avatars.get_screenshot(
+result = avatars.get_screenshot(
     url = 'https://example.com',
     headers = {
         "Authorization": "Bearer token123",

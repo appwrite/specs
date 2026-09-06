@@ -4,8 +4,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/appwrite/sdk-for-go/appwrite"
-	"github.com/appwrite/sdk-for-go/organization"
+	"github.com/appwrite/sdk-for-go/v7/appwrite"
+	"github.com/appwrite/sdk-for-go/v7/organization"
 )
 
 func main() {
@@ -20,7 +20,7 @@ func main() {
 	response, err := service.CreateProject(
 		"<PROJECT_ID>",
 		"<NAME>",
-		service.WithCreateProjectRegion("default"),
+		service.WithCreateProjectRegion("fra"),
 	)
 	fmt.Println(response, err)
 }

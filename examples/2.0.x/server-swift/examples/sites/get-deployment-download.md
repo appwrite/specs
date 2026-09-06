@@ -9,7 +9,7 @@ let client = Client()
 
 let sites = Sites(client)
 
-let bytes = try await sites.getDeploymentDownload(
+let result = try await sites.getDeploymentDownload(
     siteId: "<SITE_ID>",
     deploymentId: "<DEPLOYMENT_ID>",
     type: .source, // optional

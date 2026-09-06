@@ -9,6 +9,9 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 {
   "databaseId": "<DATABASE_ID>",
   "name": "<NAME>",
-  "enabled": false
+  "enabled": false,
+  "specification": "serverless",
+  "replicas": 0,
+  "syncMode": "async"
 }
 ```

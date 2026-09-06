@@ -9,7 +9,7 @@ Client client = Client()
 
 Storage storage = Storage(client);
 
-Uint8List result = await storage.getFilePreview(
+ result = await storage.getFilePreview(
     bucketId: '<BUCKET_ID>',
     fileId: '<FILE_ID>',
     width: 0, // (optional)

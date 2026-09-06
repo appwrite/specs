@@ -7,10 +7,12 @@ const client = new Client()
 
 const account = new Account(client);
 
-account.createOAuth2Token({
+const result = await account.createOAuth2Token({
     provider: OAuthProvider.Amazon,
     success: 'https://example.com', // optional
     failure: 'https://example.com', // optional
     scopes: [], // optional
 });
+
+console.log(result);
 ```

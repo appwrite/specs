@@ -4,8 +4,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/appwrite/sdk-for-go/account"
-	"github.com/appwrite/sdk-for-go/appwrite"
+	"github.com/appwrite/sdk-for-go/v7/account"
+	"github.com/appwrite/sdk-for-go/v7/appwrite"
 )
 
 func main() {

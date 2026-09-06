@@ -11,7 +11,7 @@ Client client = new Client()
 
 Avatars avatars = new Avatars(client);
 
-byte[] result = await avatars.GetCreditCard(
+ result = await avatars.GetCreditCard(
     code: CreditCard.AmericanExpress,
     width: 0, // optional
     height: 0, // optional

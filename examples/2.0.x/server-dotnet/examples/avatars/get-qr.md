@@ -10,7 +10,7 @@ Client client = new Client()
 
 Avatars avatars = new Avatars(client);
 
-byte[] result = await avatars.GetQR(
+ result = await avatars.GetQR(
     text: "<TEXT>",
     size: 1, // optional
     margin: 0, // optional

@@ -13,6 +13,9 @@ vectors_db = VectorsDB.new(client)
 result = vectors_db.update(
     database_id: '<DATABASE_ID>',
     name: '<NAME>',
-    enabled: false # optional
+    enabled: false, # optional
+    specification: 'serverless', # optional
+    replicas: 0, # optional
+    sync_mode: 'async' # optional
 )
 ```

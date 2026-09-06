@@ -9,7 +9,7 @@ Client client = Client()
 
 Avatars avatars = Avatars(client);
 
-Uint8List result = await avatars.getFlag(
+ result = await avatars.getFlag(
     code: enums.Flag.afghanistan,
     width: 0, // (optional)
     height: 0, // (optional)

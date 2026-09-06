@@ -3,7 +3,7 @@ mutation {
     organizationCreateProject(
         projectId: "<PROJECT_ID>",
         name: "<NAME>",
-        region: "default"
+        region: "fra"
     ) {
         _id
         _createdAt
@@ -48,9 +48,48 @@ mutation {
             _id
             enabled
         }
-        blocks
+        blocks {
+            _createdAt
+            resourceType
+            resourceId
+            mode
+            reason
+            expiredAt
+            projectName
+            region
+            organizationName
+            organizationId
+            billingPlan
+        }
         consoleAccessedAt
         wafEnabled
+        billingLimits {
+            bandwidth
+            storage
+            users
+            executions
+            GBHours
+            imageTransformations
+            authPhone
+            budgetLimit
+        }
+        oAuth2ServerEnabled
+        oAuth2ServerAuthorizationUrl
+        oAuth2ServerScopes
+        oAuth2ServerDefaultScopes
+        oAuth2ServerInstallationScopes
+        oAuth2ServerAuthorizationDetailsTypes
+        oAuth2ServerAccessTokenDuration
+        oAuth2ServerRefreshTokenDuration
+        oAuth2ServerPublicAccessTokenDuration
+        oAuth2ServerPublicRefreshTokenDuration
+        oAuth2ServerInstallationAccessTokenDuration
+        oAuth2ServerConfidentialPkce
+        oAuth2ServerVerificationUrl
+        oAuth2ServerUserCodeLength
+        oAuth2ServerUserCodeFormat
+        oAuth2ServerDeviceCodeDuration
+        oAuth2ServerDiscoveryUrl
     }
 }
 ```

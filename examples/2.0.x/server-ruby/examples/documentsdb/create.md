@@ -13,6 +13,9 @@ documents_db = DocumentsDB.new(client)
 result = documents_db.create(
     database_id: '<DATABASE_ID>',
     name: '<NAME>',
-    enabled: false # optional
+    enabled: false, # optional
+    specification: 'serverless', # optional
+    replicas: 0, # optional
+    sync_mode: 'async' # optional
 )
 ```

@@ -15,6 +15,6 @@ $organization = new Organization($client);
 $result = $organization->createProject(
     projectId: '<PROJECT_ID>',
     name: '<NAME>',
-    region: Region::DEFAULT() // optional
+    region: Region::FRA() // optional
 );
 ```

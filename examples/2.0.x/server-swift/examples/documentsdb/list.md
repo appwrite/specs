@@ -10,7 +10,6 @@ let documentsDB = DocumentsDB(client)
 
 let databaseList = try await documentsDB.list(
     queries: [], // optional
-    search: "<SEARCH>", // optional
     total: false // optional
 )
 
