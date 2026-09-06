@@ -12,7 +12,7 @@ let organization = Organization(client)
 let project = try await organization.createProject(
     projectId: "<PROJECT_ID>",
     name: "<NAME>",
-    region: .default // optional
+    region: .fra // optional
 )
 
 ```

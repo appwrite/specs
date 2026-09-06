@@ -9,7 +9,7 @@ Client client = Client()
 
 Avatars avatars = Avatars(client);
 
-Uint8List result = await avatars.getScreenshot(
+ result = await avatars.getScreenshot(
     url: 'https://example.com',
     headers: {
         "Authorization": "Bearer token123",

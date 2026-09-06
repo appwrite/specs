@@ -10,7 +10,6 @@ let vectorsDB = VectorsDB(client)
 
 let databaseList = try await vectorsDB.list(
     queries: [], // optional
-    search: "<SEARCH>", // optional
     total: false // optional
 )
 

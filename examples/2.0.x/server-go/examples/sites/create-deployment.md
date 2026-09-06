@@ -4,9 +4,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/appwrite/sdk-for-go/appwrite"
-	"github.com/appwrite/sdk-for-go/file"
-	"github.com/appwrite/sdk-for-go/sites"
+	"github.com/appwrite/sdk-for-go/v7/appwrite"
+	"github.com/appwrite/sdk-for-go/v7/file"
+	"github.com/appwrite/sdk-for-go/v7/sites"
 )
 
 func main() {

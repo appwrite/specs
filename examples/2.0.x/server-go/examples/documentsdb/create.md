@@ -4,8 +4,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/appwrite/sdk-for-go/appwrite"
-	"github.com/appwrite/sdk-for-go/documentsdb"
+	"github.com/appwrite/sdk-for-go/v7/appwrite"
+	"github.com/appwrite/sdk-for-go/v7/documentsdb"
 )
 
 func main() {
@@ -21,6 +21,9 @@ func main() {
 		"<DATABASE_ID>",
 		"<NAME>",
 		service.WithCreateEnabled(false),
+		service.WithCreateSpecification("serverless"),
+		service.WithCreateReplicas(0),
+		service.WithCreateSyncMode("async"),
 	)
 	fmt.Println(response, err)
 }

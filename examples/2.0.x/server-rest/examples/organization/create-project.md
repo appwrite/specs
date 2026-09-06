@@ -9,6 +9,6 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 {
   "projectId": "<PROJECT_ID>",
   "name": "<NAME>",
-  "region": "default"
+  "region": "fra"
 }
 ```

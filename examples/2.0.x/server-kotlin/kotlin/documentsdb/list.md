@@ -12,7 +12,6 @@ val documentsDB = DocumentsDB(client)
 
 val response = documentsDB.list(
     queries = listOf(), // optional
-    search = "<SEARCH>", // optional
     total = false // optional
 )
 ```

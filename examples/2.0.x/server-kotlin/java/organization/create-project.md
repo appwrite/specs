@@ -14,7 +14,7 @@ Organization organization = new Organization(client);
 organization.createProject(
     "<PROJECT_ID>", // projectId
     "<NAME>", // name
-    Region.DEFAULT, // region (optional)
+    Region.FRA, // region (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {
             error.printStackTrace();

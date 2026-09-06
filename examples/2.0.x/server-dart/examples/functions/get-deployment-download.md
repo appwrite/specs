@@ -9,7 +9,7 @@ Client client = Client()
 
 Functions functions = Functions(client);
 
-Uint8List result = await functions.getDeploymentDownload(
+ result = await functions.getDeploymentDownload(
     functionId: '<FUNCTION_ID>',
     deploymentId: '<DEPLOYMENT_ID>',
     type: enums.DeploymentDownloadType.source, // (optional)

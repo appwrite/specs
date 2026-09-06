@@ -2,6 +2,7 @@
 import {
     Client,
     Usage,
+    UsageEventMetric,
     UsageInterval,
     UsageEventDimension,
     UsageOrderBy,
@@ -15,7 +16,7 @@ const client = new Client()
 const usage = new Usage(client);
 
 const result = await usage.listEvents({
-    metrics: [],
+    metrics: [UsageEventMetric.NetworkRequests],
     queries: [], // optional
     interval: UsageInterval.OneMinute, // optional
     dimensions: [UsageEventDimension.Path], // optional

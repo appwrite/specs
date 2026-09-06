@@ -8,7 +8,7 @@ Client client = Client()
 
 Avatars avatars = Avatars(client);
 
-Uint8List result = await avatars.getQR(
+ result = await avatars.getQR(
     text: '<TEXT>',
     size: 1, // (optional)
     margin: 0, // (optional)

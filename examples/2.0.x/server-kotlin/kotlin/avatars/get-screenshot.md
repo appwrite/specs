@@ -14,7 +14,7 @@ val client = Client()
 
 val avatars = Avatars(client)
 
-val result = avatars.getScreenshot(
+val response = avatars.getScreenshot(
     url = "https://example.com",
     headers = mapOf(
         "Authorization" to "Bearer token123",

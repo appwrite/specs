@@ -8,7 +8,7 @@ let client = Client()
 
 let avatars = Avatars(client)
 
-let bytes = try await avatars.getQR(
+let result = try await avatars.getQR(
     text: "<TEXT>",
     size: 1, // optional
     margin: 0, // optional

@@ -10,7 +10,7 @@ Client client = new Client()
 
 Avatars avatars = new Avatars(client);
 
-byte[] result = await avatars.GetFavicon(
+ result = await avatars.GetFavicon(
     url: "https://example.com"
 );
 

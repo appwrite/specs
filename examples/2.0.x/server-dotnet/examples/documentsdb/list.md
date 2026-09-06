@@ -12,7 +12,6 @@ DocumentsDB documentsDB = new DocumentsDB(client);
 
 DatabaseList result = await documentsDB.List(
     queries: new List<string>(), // optional
-    search: "<SEARCH>", // optional
     total: false // optional
 );
 

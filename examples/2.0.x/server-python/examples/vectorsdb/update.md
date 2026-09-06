@@ -13,7 +13,10 @@ vectors_db = VectorsDB(client)
 result: Database = vectors_db.update(
     database_id = '<DATABASE_ID>',
     name = '<NAME>',
-    enabled = False # optional
+    enabled = False, # optional
+    specification = 'serverless', # optional
+    replicas = 0, # optional
+    sync_mode = 'async' # optional
 )
 
 print(result.model_dump())

@@ -8,6 +8,9 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
   "name": "<NAME>",
-  "enabled": false
+  "enabled": false,
+  "specification": "serverless",
+  "replicas": 0,
+  "syncMode": "async"
 }
 ```

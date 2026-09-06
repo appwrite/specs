@@ -8,7 +8,7 @@ Client client = Client()
 
 Avatars avatars = Avatars(client);
 
-Uint8List result = await avatars.getImage(
+ result = await avatars.getImage(
     url: 'https://example.com',
     width: 0, // (optional)
     height: 0, // (optional)

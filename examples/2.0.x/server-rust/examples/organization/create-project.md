@@ -14,7 +14,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let result = organization.create_project(
         "<PROJECT_ID>",
         "<NAME>",
-        Some(appwrite::enums::Region::Default) // optional
+        Some(appwrite::enums::Region::Fra) // optional
     ).await?;
 
     let _ = result;

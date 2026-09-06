@@ -11,7 +11,7 @@ val client = Client()
 
 val avatars = Avatars(client)
 
-val result = avatars.getFlag(
+val response = avatars.getFlag(
     code = Flag.AFGHANISTAN,
     width = 0, // optional
     height = 0, // optional

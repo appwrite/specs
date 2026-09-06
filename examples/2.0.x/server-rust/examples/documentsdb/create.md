@@ -14,7 +14,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let result = documents_db.create(
         "<DATABASE_ID>",
         "<NAME>",
-        Some(false) // optional
+        Some(false), // optional
+        Some("serverless"), // optional
+        Some(0), // optional
+        Some("async") // optional
     ).await?;
 
     let _ = result;

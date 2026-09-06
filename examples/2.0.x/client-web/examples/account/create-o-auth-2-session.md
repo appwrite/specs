@@ -7,10 +7,12 @@ const client = new Client()
 
 const account = new Account(client);
 
-account.createOAuth2Session({
+const result = await account.createOAuth2Session({
     provider: OAuthProvider.Amazon,
     success: 'https://example.com', // optional
     failure: 'https://example.com', // optional
     scopes: [], // optional
 });
+
+console.log(result);
 ```

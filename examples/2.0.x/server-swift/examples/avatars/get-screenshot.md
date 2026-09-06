@@ -9,7 +9,7 @@ let client = Client()
 
 let avatars = Avatars(client)
 
-let bytes = try await avatars.getScreenshot(
+let result = try await avatars.getScreenshot(
     url: "https://example.com",
     headers: [
         "Authorization": "Bearer token123",

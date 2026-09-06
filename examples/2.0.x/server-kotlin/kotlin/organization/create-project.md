@@ -14,6 +14,6 @@ val organization = Organization(client)
 val response = organization.createProject(
     projectId = "<PROJECT_ID>",
     name = "<NAME>",
-    region = Region.DEFAULT // optional
+    region = Region.FRA // optional
 )
 ```

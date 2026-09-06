@@ -10,7 +10,6 @@ DocumentsDB documentsDB = DocumentsDB(client);
 
 DatabaseList result = await documentsDB.list(
     queries: [], // (optional)
-    search: '<SEARCH>', // (optional)
     total: false, // (optional)
 );
 ```

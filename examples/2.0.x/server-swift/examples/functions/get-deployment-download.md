@@ -9,7 +9,7 @@ let client = Client()
 
 let functions = Functions(client)
 
-let bytes = try await functions.getDeploymentDownload(
+let result = try await functions.getDeploymentDownload(
     functionId: "<FUNCTION_ID>",
     deploymentId: "<DEPLOYMENT_ID>",
     type: .source, // optional

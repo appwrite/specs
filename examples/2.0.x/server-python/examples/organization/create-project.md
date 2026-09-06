@@ -14,7 +14,7 @@ organization = Organization(client)
 result: Project = organization.create_project(
     project_id = '<PROJECT_ID>',
     name = '<NAME>',
-    region = Region.DEFAULT # optional
+    region = Region.FRA # optional
 )
 
 print(result.model_dump())

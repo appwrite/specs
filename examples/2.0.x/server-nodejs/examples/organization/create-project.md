@@ -11,6 +11,6 @@ const organization = new sdk.Organization(client);
 const result = await organization.createProject({
     projectId: '<PROJECT_ID>',
     name: '<NAME>',
-    region: sdk.Region.Default, // optional
+    region: sdk.Region.Fra, // optional
 });
 ```

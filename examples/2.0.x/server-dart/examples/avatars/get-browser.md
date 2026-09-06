@@ -9,7 +9,7 @@ Client client = Client()
 
 Avatars avatars = Avatars(client);
 
-Uint8List result = await avatars.getBrowser(
+ result = await avatars.getBrowser(
     code: enums.Browser.avantBrowser,
     width: 0, // (optional)
     height: 0, // (optional)

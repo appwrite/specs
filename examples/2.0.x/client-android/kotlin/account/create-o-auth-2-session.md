@@ -10,7 +10,7 @@ val client = Client(context)
 
 val account = Account(client)
 
-account.createOAuth2Session(
+val result = account.createOAuth2Session(
     provider = OAuthProvider.AMAZON,
     success = "https://example.com", // (optional)
     failure = "https://example.com", // (optional)

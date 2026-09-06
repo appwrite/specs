@@ -2,6 +2,7 @@
 import {
     Client,
     Usage,
+    UsageGaugeMetric,
     UsageInterval,
     UsageGaugeDimension,
     UsageOrderBy,
@@ -15,7 +16,7 @@ const client = new Client()
 const usage = new Usage(client);
 
 const result = await usage.listGauges({
-    metrics: [],
+    metrics: [UsageGaugeMetric.Teams],
     queries: [], // optional
     interval: UsageInterval.OneMinute, // optional
     dimensions: [UsageGaugeDimension.ResourceId], // optional

@@ -14,7 +14,7 @@ Organization organization = new Organization(client);
 Project result = await organization.CreateProject(
     projectId: "<PROJECT_ID>",
     name: "<NAME>",
-    region: Region.Default // optional
+    region: Region.Fra // optional
 );
 
 ```

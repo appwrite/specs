@@ -13,7 +13,10 @@ VectorsDB vectorsDB = new VectorsDB(client);
 Database result = await vectorsDB.Update(
     databaseId: "<DATABASE_ID>",
     name: "<NAME>",
-    enabled: false // optional
+    enabled: false, // optional
+    specification: "serverless", // optional
+    replicas: 0, // optional
+    syncMode: "async" // optional
 );
 
 ```

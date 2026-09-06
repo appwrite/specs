@@ -1,0 +1,15 @@
+```python
+from appwrite_console.client import Client
+from appwrite_console.services.locale import Locale
+from appwrite_console.models import CountryList
+
+client = Client()
+client.set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
+client.set_project('<YOUR_PROJECT_ID>') # Your project ID
+
+locale = Locale(client)
+
+result: CountryList = locale.list_countries_eu()
+
+print(result.model_dump())
+```
