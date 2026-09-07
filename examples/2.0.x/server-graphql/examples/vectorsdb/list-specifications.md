@@ -5,6 +5,10 @@ query {
             slug
             name
             price
+            storageOverageRate
+            bandwidthOverageRate
+            replicaRate
+            pitrRate
             cpu
             memory
             maxConnections
@@ -13,12 +17,6 @@ query {
             enabled
         }
         total
-        pricing {
-            storageOverageRate
-            bandwidthOverageRate
-            replicaRate
-            pitrRate
-        }
     }
 }
 ```

@@ -28291,6 +28291,9 @@
                 "description": "Your project ID",
                 "in": "header",
                 "x-appwrite": {
+                    "platforms": [
+                        "client"
+                    ],
                     "demo": "<YOUR_PROJECT_ID>"
                 }
             },
@@ -28302,6 +28305,9 @@
                 "x-appwrite": {
                     "location": "path",
                     "param": "project_id",
+                    "platforms": [
+                        "client"
+                    ],
                     "demo": "<YOUR_PROJECT_ID>"
                 }
             },
@@ -28311,6 +28317,9 @@
                 "description": "Your secret JSON Web Token",
                 "in": "header",
                 "x-appwrite": {
+                    "platforms": [
+                        "client"
+                    ],
                     "demo": "<YOUR_JWT>"
                 }
             },
@@ -28318,7 +28327,12 @@
                 "type": "http",
                 "scheme": "bearer",
                 "bearerFormat": "JWT",
-                "description": "The OAuth access token to authenticate with"
+                "description": "The OAuth access token to authenticate with",
+                "x-appwrite": {
+                    "platforms": [
+                        "client"
+                    ]
+                }
             },
             "Locale": {
                 "type": "apiKey",
@@ -28326,6 +28340,9 @@
                 "description": "",
                 "in": "header",
                 "x-appwrite": {
+                    "platforms": [
+                        "client"
+                    ],
                     "demo": "en"
                 }
             },
@@ -28333,19 +28350,34 @@
                 "type": "apiKey",
                 "name": "X-Appwrite-Session",
                 "description": "The user session to authenticate with",
-                "in": "header"
+                "in": "header",
+                "x-appwrite": {
+                    "platforms": [
+                        "client"
+                    ]
+                }
             },
             "DevKey": {
                 "type": "apiKey",
                 "name": "X-Appwrite-Dev-Key",
                 "description": "Your secret dev API key",
-                "in": "header"
+                "in": "header",
+                "x-appwrite": {
+                    "platforms": [
+                        "client"
+                    ]
+                }
             },
             "Cookie": {
                 "type": "apiKey",
                 "name": "Cookie",
                 "description": "The user cookie to authenticate with. Used by SDKs that forward an incoming Cookie header in server-side runtimes.",
-                "in": "header"
+                "in": "header",
+                "x-appwrite": {
+                    "platforms": [
+                        "client"
+                    ]
+                }
             },
             "ImpersonateUserId": {
                 "type": "apiKey",
@@ -28353,7 +28385,10 @@
                 "description": "Impersonate a user by ID",
                 "in": "header",
                 "x-appwrite": {
-                    "optional": true
+                    "optional": true,
+                    "platforms": [
+                        "client"
+                    ]
                 }
             },
             "ImpersonateUserEmail": {
@@ -28362,7 +28397,10 @@
                 "description": "Impersonate a user by email",
                 "in": "header",
                 "x-appwrite": {
-                    "optional": true
+                    "optional": true,
+                    "platforms": [
+                        "client"
+                    ]
                 }
             },
             "ImpersonateUserPhone": {
@@ -28371,7 +28409,10 @@
                 "description": "Impersonate a user by phone",
                 "in": "header",
                 "x-appwrite": {
-                    "optional": true
+                    "optional": true,
+                    "platforms": [
+                        "client"
+                    ]
                 }
             }
         }

@@ -30,6 +30,9 @@ mutation {
         cpu
         memory
         storage
+        storageStatus
+        storageTargetGb
+        storageResizeStartedAt
         storageClass
         storageMaxGb
         nodePool
