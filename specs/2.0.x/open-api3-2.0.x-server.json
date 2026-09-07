@@ -21340,7 +21340,7 @@
                 "tags": [
                     "documentsDB"
                 ],
-                "description": "List the dedicated database specifications available on the current plan. Each specification reports its resource limits, pricing, and whether it is enabled for the organization.",
+                "description": "List the dedicated database specifications available on the current plan. Each specification reports its resource limits, its own prices and overage rates, and whether it is enabled for the organization.",
                 "responses": {
                     "200": {
                         "description": "SpecificationList",
@@ -36229,7 +36229,7 @@
                                     "storageAutoscaling": {
                                         "description": "Enable automatic storage expansion when usage exceeds threshold.",
                                         "type": "boolean",
-                                        "default": false,
+                                        "default": true,
                                         "example": false
                                     },
                                     "storageAutoscalingThresholdPercent": {
@@ -36240,11 +36240,11 @@
                                         "format": "int32"
                                     },
                                     "storageAutoscalingMaxGb": {
-                                        "description": "Maximum storage size in GB for autoscaling. 0 means no limit.",
+                                        "description": "Maximum storage size in GB for autoscaling. Defaults to 3 times the specification's storage. 0 means no limit.",
                                         "type": "integer",
-                                        "default": 0,
                                         "example": 0,
-                                        "format": "int32"
+                                        "format": "int32",
+                                        "nullable": true
                                     }
                                 },
                                 "required": [
@@ -36264,7 +36264,7 @@
                 "tags": [
                     "mongo"
                 ],
-                "description": "List the dedicated database specifications available on the current plan. Each specification reports its resource limits, pricing, and whether it is enabled for the organization.",
+                "description": "List the dedicated database specifications available on the current plan. Each specification reports its resource limits, its own prices and overage rates, and whether it is enabled for the organization.",
                 "responses": {
                     "200": {
                         "description": "SpecificationList",
@@ -38740,7 +38740,7 @@
                                     "storageAutoscaling": {
                                         "description": "Enable automatic storage expansion when usage exceeds threshold.",
                                         "type": "boolean",
-                                        "default": false,
+                                        "default": true,
                                         "example": false
                                     },
                                     "storageAutoscalingThresholdPercent": {
@@ -38751,11 +38751,11 @@
                                         "format": "int32"
                                     },
                                     "storageAutoscalingMaxGb": {
-                                        "description": "Maximum storage size in GB for autoscaling. 0 means no limit.",
+                                        "description": "Maximum storage size in GB for autoscaling. Defaults to 3 times the specification's storage. 0 means no limit.",
                                         "type": "integer",
-                                        "default": 0,
                                         "example": 0,
-                                        "format": "int32"
+                                        "format": "int32",
+                                        "nullable": true
                                     }
                                 },
                                 "required": [
@@ -38775,7 +38775,7 @@
                 "tags": [
                     "mysql"
                 ],
-                "description": "List the dedicated database specifications available on the current plan. Each specification reports its resource limits, pricing, and whether it is enabled for the organization.",
+                "description": "List the dedicated database specifications available on the current plan. Each specification reports its resource limits, its own prices and overage rates, and whether it is enabled for the organization.",
                 "responses": {
                     "200": {
                         "description": "SpecificationList",
@@ -44816,7 +44816,7 @@
                                     "storageAutoscaling": {
                                         "description": "Enable automatic storage expansion when usage exceeds threshold.",
                                         "type": "boolean",
-                                        "default": false,
+                                        "default": true,
                                         "example": false
                                     },
                                     "storageAutoscalingThresholdPercent": {
@@ -44827,11 +44827,11 @@
                                         "format": "int32"
                                     },
                                     "storageAutoscalingMaxGb": {
-                                        "description": "Maximum storage size in GB for autoscaling. 0 means no limit.",
+                                        "description": "Maximum storage size in GB for autoscaling. Defaults to 3 times the specification's storage. 0 means no limit.",
                                         "type": "integer",
-                                        "default": 0,
                                         "example": 0,
-                                        "format": "int32"
+                                        "format": "int32",
+                                        "nullable": true
                                     }
                                 },
                                 "required": [
@@ -44851,7 +44851,7 @@
                 "tags": [
                     "postgresql"
                 ],
-                "description": "List the dedicated database specifications available on the current plan. Each specification reports its resource limits, pricing, and whether it is enabled for the organization.",
+                "description": "List the dedicated database specifications available on the current plan. Each specification reports its resource limits, its own prices and overage rates, and whether it is enabled for the organization.",
                 "responses": {
                     "200": {
                         "description": "SpecificationList",
@@ -68987,7 +68987,7 @@
                 "tags": [
                     "tablesDB"
                 ],
-                "description": "List the dedicated database specifications available on the current plan. Each specification reports its resource limits, pricing, and whether it is enabled for the organization.",
+                "description": "List the dedicated database specifications available on the current plan. Each specification reports its resource limits, its own prices and overage rates, and whether it is enabled for the organization.",
                 "responses": {
                     "200": {
                         "description": "SpecificationList",
@@ -83287,7 +83287,7 @@
                 "tags": [
                     "vectorsDB"
                 ],
-                "description": "List the dedicated database specifications available on the current plan. Each specification reports its resource limits, pricing, and whether it is enabled for the organization.",
+                "description": "List the dedicated database specifications available on the current plan. Each specification reports its resource limits, its own prices and overage rates, and whether it is enabled for the organization.",
                 "responses": {
                     "200": {
                         "description": "SpecificationList",
@@ -106815,6 +106815,23 @@
                         "format": "int32",
                         "example": 100
                     },
+                    "storageStatus": {
+                        "type": "string",
+                        "description": "Storage resize status. Possible values: idle (no resize in flight), resizing (the volume is growing towards storageTargetGb).",
+                        "example": "resizing"
+                    },
+                    "storageTargetGb": {
+                        "type": "integer",
+                        "description": "Size in GB the volume is growing towards while storageStatus is resizing. 0 when no resize is in flight.",
+                        "format": "int32",
+                        "example": 120
+                    },
+                    "storageResizeStartedAt": {
+                        "type": "string",
+                        "description": "Time the in-flight storage resize started, in ISO 8601 format.",
+                        "example": "2020-10-15T06:38:00.000+00:00",
+                        "nullable": true
+                    },
                     "storageClass": {
                         "type": "string",
                         "description": "Storage class. Currently always 'ssd'; DigitalOcean exposes a single block-storage class.",
@@ -106894,9 +106911,9 @@
                     },
                     "storageAutoscalingMaxGb": {
                         "type": "integer",
-                        "description": "Maximum storage size in GB for autoscaling. 0 means no limit.",
+                        "description": "Maximum storage size in GB for autoscaling. Defaults to 3 times the specification's storage. 0 means no limit.",
                         "format": "int32",
-                        "example": 500
+                        "example": 30
                     },
                     "maintenanceWindowDay": {
                         "type": "string",
@@ -106978,6 +106995,8 @@
                     "cpu",
                     "memory",
                     "storage",
+                    "storageStatus",
+                    "storageTargetGb",
                     "storageClass",
                     "storageMaxGb",
                     "nodePool",
@@ -107029,6 +107048,9 @@
                     "cpu": 2000,
                     "memory": 4096,
                     "storage": 100,
+                    "storageStatus": "resizing",
+                    "storageTargetGb": 120,
+                    "storageResizeStartedAt": "2020-10-15T06:38:00.000+00:00",
                     "storageClass": "ssd",
                     "storageMaxGb": 100,
                     "nodePool": "db-pool-4vcpu-8gb",
@@ -107045,7 +107067,7 @@
                     "pitrRetentionDays": 14,
                     "storageAutoscaling": true,
                     "storageAutoscalingThresholdPercent": 85,
-                    "storageAutoscalingMaxGb": 500,
+                    "storageAutoscalingMaxGb": 30,
                     "maintenanceWindowDay": "sun",
                     "maintenanceWindowHourUtc": 3,
                     "metricsEnabled": false,
@@ -108595,6 +108617,30 @@
                         "format": "double",
                         "example": 20
                     },
+                    "storageOverageRate": {
+                        "type": "number",
+                        "description": "Price per GB of storage above the included amount, per month, in USD.",
+                        "format": "double",
+                        "example": 0.125
+                    },
+                    "bandwidthOverageRate": {
+                        "type": "number",
+                        "description": "Price per GB of bandwidth above the included amount, per month, in USD.",
+                        "format": "double",
+                        "example": 0.08
+                    },
+                    "replicaRate": {
+                        "type": "number",
+                        "description": "High availability replica price as a fraction of the specification price.",
+                        "format": "double",
+                        "example": 1
+                    },
+                    "pitrRate": {
+                        "type": "number",
+                        "description": "Point-in-time recovery price as a fraction of the specification price.",
+                        "format": "double",
+                        "example": 0.2
+                    },
                     "cpu": {
                         "type": "integer",
                         "description": "Allocated CPU in millicores.",
@@ -108635,6 +108681,10 @@
                     "slug",
                     "name",
                     "price",
+                    "storageOverageRate",
+                    "bandwidthOverageRate",
+                    "replicaRate",
+                    "pitrRate",
                     "cpu",
                     "memory",
                     "maxConnections",
@@ -108646,6 +108696,10 @@
                     "slug": "s-2vcpu-2gb",
                     "name": "Standard",
                     "price": 20,
+                    "storageOverageRate": 0.125,
+                    "bandwidthOverageRate": 0.08,
+                    "replicaRate": 1,
+                    "pitrRate": 0.2,
                     "cpu": 2000,
                     "memory": 2048,
                     "maxConnections": 200,
@@ -108671,68 +108725,15 @@
                         "description": "Total number of specifications.",
                         "format": "int32",
                         "example": 9
-                    },
-                    "pricing": {
-                        "type": "object",
-                        "description": "Overage and add-on pricing shared across all specifications.",
-                        "allOf": [
-                            {
-                                "$ref": "#\/components\/schemas\/dedicatedDatabaseSpecificationPricing"
-                            }
-                        ]
                     }
                 },
                 "required": [
                     "specifications",
-                    "total",
-                    "pricing"
+                    "total"
                 ],
                 "example": {
                     "specifications": [],
-                    "total": 9,
-                    "pricing": null
-                }
-            },
-            "dedicatedDatabaseSpecificationPricing": {
-                "description": "SpecificationPricing",
-                "type": "object",
-                "properties": {
-                    "storageOverageRate": {
-                        "type": "number",
-                        "description": "Price per GB of storage above the included amount, per month, in USD.",
-                        "format": "double",
-                        "example": 0.125
-                    },
-                    "bandwidthOverageRate": {
-                        "type": "number",
-                        "description": "Price per GB of bandwidth above the included amount, per month, in USD.",
-                        "format": "double",
-                        "example": 0.08
-                    },
-                    "replicaRate": {
-                        "type": "number",
-                        "description": "High availability replica price as a fraction of the specification cost.",
-                        "format": "double",
-                        "example": 1
-                    },
-                    "pitrRate": {
-                        "type": "number",
-                        "description": "Point-in-time recovery price as a fraction of the specification cost.",
-                        "format": "double",
-                        "example": 0.2
-                    }
-                },
-                "required": [
-                    "storageOverageRate",
-                    "bandwidthOverageRate",
-                    "replicaRate",
-                    "pitrRate"
-                ],
-                "example": {
-                    "storageOverageRate": 0.125,
-                    "bandwidthOverageRate": 0.08,
-                    "replicaRate": 1,
-                    "pitrRate": 0.2
+                    "total": 9
                 }
             },
             "databaseStatusConnections": {
@@ -111686,6 +111687,9 @@
                 "description": "Your project ID",
                 "in": "header",
                 "x-appwrite": {
+                    "platforms": [
+                        "server"
+                    ],
                     "demo": "<YOUR_PROJECT_ID>"
                 }
             },
@@ -111697,6 +111701,9 @@
                 "x-appwrite": {
                     "location": "path",
                     "param": "project_id",
+                    "platforms": [
+                        "server"
+                    ],
                     "demo": "<YOUR_PROJECT_ID>"
                 }
             },
@@ -111706,6 +111713,9 @@
                 "description": "Your secret API key",
                 "in": "header",
                 "x-appwrite": {
+                    "platforms": [
+                        "server"
+                    ],
                     "demo": "<YOUR_API_KEY>"
                 }
             },
@@ -111715,6 +111725,9 @@
                 "description": "Your organization ID",
                 "in": "header",
                 "x-appwrite": {
+                    "platforms": [
+                        "server"
+                    ],
                     "demo": "<YOUR_ORGANIZATION_ID>"
                 }
             },
@@ -111724,6 +111737,9 @@
                 "description": "Your secret JSON Web Token",
                 "in": "header",
                 "x-appwrite": {
+                    "platforms": [
+                        "server"
+                    ],
                     "demo": "<YOUR_JWT>"
                 }
             },
@@ -111731,7 +111747,12 @@
                 "type": "http",
                 "scheme": "bearer",
                 "bearerFormat": "JWT",
-                "description": "The OAuth access token to authenticate with"
+                "description": "The OAuth access token to authenticate with",
+                "x-appwrite": {
+                    "platforms": [
+                        "server"
+                    ]
+                }
             },
             "Locale": {
                 "type": "apiKey",
@@ -111739,6 +111760,9 @@
                 "description": "",
                 "in": "header",
                 "x-appwrite": {
+                    "platforms": [
+                        "server"
+                    ],
                     "demo": "en"
                 }
             },
@@ -111746,25 +111770,45 @@
                 "type": "apiKey",
                 "name": "X-Appwrite-Session",
                 "description": "The user session to authenticate with",
-                "in": "header"
+                "in": "header",
+                "x-appwrite": {
+                    "platforms": [
+                        "server"
+                    ]
+                }
             },
             "ForwardedUserAgent": {
                 "type": "apiKey",
                 "name": "X-Forwarded-User-Agent",
                 "description": "The user agent string of the client that made the request",
-                "in": "header"
+                "in": "header",
+                "x-appwrite": {
+                    "platforms": [
+                        "server"
+                    ]
+                }
             },
             "DevKey": {
                 "type": "apiKey",
                 "name": "X-Appwrite-Dev-Key",
                 "description": "Your secret dev API key",
-                "in": "header"
+                "in": "header",
+                "x-appwrite": {
+                    "platforms": [
+                        "server"
+                    ]
+                }
             },
             "Cookie": {
                 "type": "apiKey",
                 "name": "Cookie",
                 "description": "The user cookie to authenticate with. Used by SDKs that forward an incoming Cookie header in server-side runtimes.",
-                "in": "header"
+                "in": "header",
+                "x-appwrite": {
+                    "platforms": [
+                        "server"
+                    ]
+                }
             },
             "ImpersonateUserId": {
                 "type": "apiKey",
@@ -111772,7 +111816,10 @@
                 "description": "Impersonate a user by ID",
                 "in": "header",
                 "x-appwrite": {
-                    "optional": true
+                    "optional": true,
+                    "platforms": [
+                        "server"
+                    ]
                 }
             },
             "ImpersonateUserEmail": {
@@ -111781,7 +111828,10 @@
                 "description": "Impersonate a user by email",
                 "in": "header",
                 "x-appwrite": {
-                    "optional": true
+                    "optional": true,
+                    "platforms": [
+                        "server"
+                    ]
                 }
             },
             "ImpersonateUserPhone": {
@@ -111790,7 +111840,10 @@
                 "description": "Impersonate a user by phone",
                 "in": "header",
                 "x-appwrite": {
-                    "optional": true
+                    "optional": true,
+                    "platforms": [
+                        "server"
+                    ]
                 }
             }
         }
