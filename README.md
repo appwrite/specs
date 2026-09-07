@@ -10,8 +10,9 @@ This repository contains the official [Appwrite](https://appwrite.io) API specif
 ```
 specs/
   {version}/
-    swagger2-{version}-{platform}.json
-    open-api3-{version}-{platform}.json
+    open-api3-{version}.json               # 2.0.x and later: one document, all platforms
+    open-api3-{version}-{platform}.json    # up to 1.9.x
+    swagger2-{version}-{platform}.json     # up to 1.8.x
 examples/
   {version}/
     {platform}-{sdk}/
@@ -22,7 +23,7 @@ examples/
 
 ### Specs
 
-API specification files in [Swagger 2.0](https://swagger.io/specification/v2/) and [OpenAPI 3.0](https://swagger.io/specification/) formats, organized by version and platform:
+API specification files in [Swagger 2.0](https://swagger.io/specification/v2/) and [OpenAPI 3.0](https://swagger.io/specification/) formats, organized by version. From 2.0.x there is one OpenAPI 3 document per version; each operation, method alias and security scheme lists the SDK platforms it is available on under `x-appwrite.platforms`. Older versions ship one document per platform:
 
 - **client** - Client-side APIs (web, mobile)
 - **server** - Server-side APIs (backend SDKs)
@@ -66,10 +67,10 @@ You can use these specs with any OpenAPI-compatible tool. For example, to genera
 
 ```bash
 # Download the spec
-curl -O https://raw.githubusercontent.com/appwrite/specs/main/specs/1.9.x/open-api3-1.9.x-server.json
+curl -O https://raw.githubusercontent.com/appwrite/specs/main/specs/2.0.x/open-api3-2.0.x.json
 
 # Generate a client
-openapi-generator generate -i open-api3-1.9.x-server.json -g python -o ./sdk
+openapi-generator generate -i open-api3-2.0.x.json -g python -o ./sdk
 ```
 
 Or import directly into tools like [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/), or [Swagger UI](https://swagger.io/tools/swagger-ui/).
