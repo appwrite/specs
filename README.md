@@ -69,8 +69,15 @@ You can use these specs with any OpenAPI-compatible tool. For example, to genera
 # Download the spec
 curl -O https://raw.githubusercontent.com/appwrite/specs/main/specs/2.0.x/open-api3-2.0.x.json
 
+# The document covers every platform. Keep the operations available to one of
+# them (client, server or console) by filtering on x-appwrite.platforms.
+jq --arg platform server '
+  .paths |= (map_values(with_entries(select(.value["x-appwrite"].platforms | index($platform))))
+    | with_entries(select(.value | length > 0)))
+' open-api3-2.0.x.json > open-api3-2.0.x-server.json
+
 # Generate a client
-openapi-generator generate -i open-api3-2.0.x.json -g python -o ./sdk
+openapi-generator generate -i open-api3-2.0.x-server.json -g python -o ./sdk
 ```
 
 Or import directly into tools like [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/), or [Swagger UI](https://swagger.io/tools/swagger-ui/).
