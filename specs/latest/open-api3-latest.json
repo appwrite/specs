@@ -564,9 +564,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -770,9 +767,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -1005,9 +999,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -1826,9 +1817,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -3841,9 +3829,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -7365,9 +7350,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -8313,9 +8295,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -8557,9 +8536,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -8956,9 +8932,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -9357,9 +9330,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -9522,9 +9492,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -15774,9 +15741,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -16239,9 +16203,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -32586,9 +32547,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -35715,9 +35673,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -42877,9 +42832,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "manager": []
                     }
@@ -44041,10 +43993,7 @@
                         "manager"
                     ],
                     "packaging": false,
-                    "public": true,
-                    "produces": [
-                        "application\/json"
-                    ]
+                    "public": true
                 },
                 "parameters": [
                     {
@@ -44110,10 +44059,7 @@
                         "manager"
                     ],
                     "packaging": false,
-                    "public": true,
-                    "produces": [
-                        "application\/json"
-                    ]
+                    "public": true
                 },
                 "requestBody": {
                     "content": {
@@ -44163,10 +44109,7 @@
                         "manager"
                     ],
                     "packaging": false,
-                    "public": true,
-                    "produces": [
-                        "application\/json"
-                    ]
+                    "public": true
                 },
                 "requestBody": {
                     "content": {
@@ -44317,10 +44260,7 @@
                         "manager"
                     ],
                     "packaging": false,
-                    "public": true,
-                    "produces": [
-                        "application\/json"
-                    ]
+                    "public": true
                 },
                 "parameters": [
                     {
@@ -44530,10 +44470,7 @@
                         "manager"
                     ],
                     "packaging": false,
-                    "public": true,
-                    "produces": [
-                        "application\/json"
-                    ]
+                    "public": true
                 },
                 "requestBody": {
                     "content": {
@@ -53931,9 +53868,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -54516,9 +54450,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -54777,9 +54708,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -56597,9 +56525,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -57182,9 +57107,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -57443,9 +57365,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -59903,9 +59822,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "ProjectPath": []
@@ -60027,9 +59943,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "ProjectPath": []
@@ -61335,9 +61248,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -63169,9 +63079,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -63463,9 +63370,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -63931,9 +63835,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -66794,9 +66695,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -67379,9 +67277,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -67640,9 +67535,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -84496,9 +84388,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -84696,9 +84585,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -85463,9 +85349,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -86372,9 +86255,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "manager": []
                     }
@@ -86674,10 +86554,7 @@
                         "manager"
                     ],
                     "packaging": false,
-                    "public": true,
-                    "produces": [
-                        "application\/json"
-                    ]
+                    "public": true
                 },
                 "requestBody": {
                     "content": {
@@ -86768,10 +86645,7 @@
                         "manager"
                     ],
                     "packaging": false,
-                    "public": true,
-                    "produces": [
-                        "application\/json"
-                    ]
+                    "public": true
                 },
                 "requestBody": {
                     "content": {
@@ -86971,9 +86845,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "manager": []
                     }
@@ -87023,9 +86894,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "manager": []
                     }
@@ -92984,9 +92852,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -96295,9 +96160,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -104842,9 +104704,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -112452,9 +112311,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
@@ -117696,9 +117552,6 @@
                     ],
                     "packaging": false,
                     "public": true,
-                    "produces": [
-                        "application\/json"
-                    ],
                     "auth": {
                         "console": {
                             "Project": []
