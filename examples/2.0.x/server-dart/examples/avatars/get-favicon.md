@@ -8,7 +8,7 @@ Client client = Client()
 
 Avatars avatars = Avatars(client);
 
- result = await avatars.getFavicon(
+Uint8List result = await avatars.getFavicon(
     url: 'https://example.com',
 );
 ```

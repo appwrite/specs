@@ -8,7 +8,7 @@ Client client = Client()
 
 Account account = Account(client);
 
- result = await account.createOAuth2Token(
+await account.createOAuth2Token(
     provider: enums.OAuthProvider.amazon,
     success: 'https://example.com', // optional
     failure: 'https://example.com', // optional

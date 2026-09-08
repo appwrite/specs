@@ -7,7 +7,7 @@ const client = new Client()
 
 const storage = new Storage(client);
 
-const result = await storage.getFileDownload({
+const result = storage.getFileDownload({
     bucketId: '<BUCKET_ID>',
     fileId: '<FILE_ID>',
     token: '<TOKEN>', // optional

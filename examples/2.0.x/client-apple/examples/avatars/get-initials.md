@@ -7,7 +7,7 @@ let client = Client()
 
 let avatars = Avatars(client)
 
-let result = try await avatars.getInitials(
+let bytes = try await avatars.getInitials(
     name: "<NAME>", // optional
     width: 0, // optional
     height: 0, // optional

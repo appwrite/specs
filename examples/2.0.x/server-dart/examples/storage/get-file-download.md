@@ -8,7 +8,7 @@ Client client = Client()
 
 Storage storage = Storage(client);
 
- result = await storage.getFileDownload(
+Uint8List result = await storage.getFileDownload(
     bucketId: '<BUCKET_ID>',
     fileId: '<FILE_ID>',
     token: '<TOKEN>', // (optional)

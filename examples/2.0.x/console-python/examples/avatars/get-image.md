@@ -8,7 +8,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 avatars = Avatars(client)
 
-result = avatars.get_image(
+result: bytes = avatars.get_image(
     url = 'https://example.com',
     width = 0, # optional
     height = 0 # optional

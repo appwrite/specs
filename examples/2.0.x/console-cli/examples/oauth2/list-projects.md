@@ -1,3 +1,4 @@
 ```bash
-appwrite list-projects
+appwrite list-projects \
+    --project-id '<PROJECT_ID>'
 ```

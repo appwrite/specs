@@ -11,7 +11,7 @@ Client client = new Client()
 
 Functions functions = new Functions(client);
 
- result = await functions.GetDeploymentDownload(
+byte[] result = await functions.GetDeploymentDownload(
     functionId: "<FUNCTION_ID>",
     deploymentId: "<DEPLOYMENT_ID>",
     type: DeploymentDownloadType.Source, // optional

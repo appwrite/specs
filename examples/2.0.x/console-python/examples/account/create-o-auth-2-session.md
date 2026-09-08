@@ -9,7 +9,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 account = Account(client)
 
-result = account.create_o_auth2_session(
+result: str = account.create_o_auth2_session(
     provider = OAuthProvider.AMAZON,
     success = 'https://example.com', # optional
     failure = 'https://example.com', # optional

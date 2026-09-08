@@ -5,7 +5,7 @@ query {
         fileId: "<FILE_ID>",
         width: 0,
         height: 0,
-        gravity: "center",
+        gravity: "auto",
         quality: -1,
         borderWidth: 0,
         borderColor: "FFFFFF",

@@ -10,7 +10,7 @@ val client = Client()
 
 val avatars = Avatars(client)
 
-val response = avatars.getFavicon(
+val result = avatars.getFavicon(
     url = "https://example.com"
 )
 ```

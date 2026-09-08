@@ -7,7 +7,7 @@ const client = new Client()
 
 const sites = new Sites(client);
 
-const result = await sites.getDeploymentDownload({
+const result = sites.getDeploymentDownload({
     siteId: '<SITE_ID>',
     deploymentId: '<DEPLOYMENT_ID>',
     type: DeploymentDownloadType.Source, // optional

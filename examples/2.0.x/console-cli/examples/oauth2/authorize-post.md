@@ -1,3 +1,4 @@
 ```bash
-appwrite oauth2 authorize-post
+appwrite oauth2 authorize-post \
+    --project-id '<PROJECT_ID>'
 ```
