@@ -9073,7 +9073,7 @@
                                 "type": "object",
                                 "properties": {
                                     "labels": {
-                                        "description": "Array of application labels. Replaces the previous labels. Maximum of 1000 labels are allowed, each up to 36 alphanumeric characters long.",
+                                        "description": "Array of application labels. Replaces the previous labels. Maximum of 1000 labels are allowed, each up to 36 alphanumeric characters long. Reserved labels are rejected.",
                                         "type": "array",
                                         "items": {
                                             "type": "string"
@@ -31822,7 +31822,7 @@
                 "tags": [
                     "domains"
                 ],
-                "description": "Check availability and get the registration price for one or more domain names. Availability is resolved for all domains in a single registrar lookup. A domain whose price could not be resolved, for example because its TLD is not supported, is returned with a null price.",
+                "description": "Check availability and get the requested registration price for one or more domain names. Availability is resolved for all domains in a single registrar lookup. Unavailable domains have a null price for new registrations, but can still be priced for renewal, transfer, or trade. Every priced domain also carries its renewal price for the same period, so a separate renewal lookup is not needed. A domain whose price could not be resolved, for example because its TLD is not supported, is returned with a null price.",
                 "responses": {
                     "200": {
                         "description": "Domain prices list",
@@ -31839,7 +31839,7 @@
                 "x-appwrite": {
                     "group": null,
                     "demo": "domains\/list-prices.md",
-                    "rate-limit": 50,
+                    "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.read",
@@ -36697,6 +36697,13 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
+                                                    "dart-3.13"
+                                                ],
+                                                "title": "dart-3.13"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
                                                     "dotnet-6.0"
                                                 ],
                                                 "title": "dotnet-6.0"
@@ -36987,6 +36994,13 @@
                                                     "flutter-3.44"
                                                 ],
                                                 "title": "flutter-3.44"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "flutter-3.47"
+                                                ],
+                                                "title": "flutter-3.47"
                                             }
                                         ]
                                     },
@@ -38534,6 +38548,13 @@
                                     {
                                         "type": "string",
                                         "enum": [
+                                            "dart-3.13"
+                                        ],
+                                        "title": "dart-3.13"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "enum": [
                                             "dotnet-6.0"
                                         ],
                                         "title": "dotnet-6.0"
@@ -38824,6 +38845,13 @@
                                             "flutter-3.44"
                                         ],
                                         "title": "flutter-3.44"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "flutter-3.47"
+                                        ],
+                                        "title": "flutter-3.47"
                                     }
                                 ]
                             },
@@ -39515,6 +39543,13 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
+                                                    "dart-3.13"
+                                                ],
+                                                "title": "dart-3.13"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
                                                     "dotnet-6.0"
                                                 ],
                                                 "title": "dotnet-6.0"
@@ -39805,6 +39840,13 @@
                                                     "flutter-3.44"
                                                 ],
                                                 "title": "flutter-3.44"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "flutter-3.47"
+                                                ],
+                                                "title": "flutter-3.47"
                                             }
                                         ]
                                     },
@@ -64817,11 +64859,12 @@
                 "description": "Download invoice in PDF",
                 "responses": {
                     "200": {
-                        "description": "paymentMethod",
+                        "description": "File",
                         "content": {
-                            "application\/json": {
+                            "*\/*": {
                                 "schema": {
-                                    "$ref": "#\/components\/schemas\/paymentMethod"
+                                    "type": "string",
+                                    "format": "binary"
                                 }
                             }
                         }
@@ -65042,11 +65085,12 @@
                 "description": "View invoice in PDF",
                 "responses": {
                     "200": {
-                        "description": "paymentMethod",
+                        "description": "File",
                         "content": {
-                            "application\/json": {
+                            "*\/*": {
                                 "schema": {
-                                    "$ref": "#\/components\/schemas\/paymentMethod"
+                                    "type": "string",
+                                    "format": "binary"
                                 }
                             }
                         }
@@ -88070,6 +88114,13 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
+                                                    "dart-3.13"
+                                                ],
+                                                "title": "dart-3.13"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
                                                     "dotnet-6.0"
                                                 ],
                                                 "title": "dotnet-6.0"
@@ -88360,6 +88411,13 @@
                                                     "flutter-3.44"
                                                 ],
                                                 "title": "flutter-3.44"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "flutter-3.47"
+                                                ],
+                                                "title": "flutter-3.47"
                                             }
                                         ]
                                     },
@@ -90454,6 +90512,13 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
+                                                    "dart-3.13"
+                                                ],
+                                                "title": "dart-3.13"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
                                                     "dotnet-6.0"
                                                 ],
                                                 "title": "dotnet-6.0"
@@ -90744,6 +90809,13 @@
                                                     "flutter-3.44"
                                                 ],
                                                 "title": "flutter-3.44"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "flutter-3.47"
+                                                ],
+                                                "title": "flutter-3.47"
                                             }
                                         ]
                                     },
@@ -94602,13 +94674,20 @@
                     },
                     {
                         "name": "gravity",
-                        "description": "Image crop gravity. Can be one of center,top-left,top,top-right,left,right,bottom-left,bottom,bottom-right",
+                        "description": "Image crop gravity. Can be one of auto,center,top-left,top,top-right,left,right,bottom-left,bottom,bottom-right",
                         "required": false,
                         "schema": {
                             "type": "string",
-                            "example": "center",
+                            "example": "auto",
                             "title": "ImageGravity",
                             "oneOf": [
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "auto"
+                                    ],
+                                    "title": "auto"
+                                },
                                 {
                                     "type": "string",
                                     "enum": [
@@ -142401,6 +142480,19 @@
                         "type": "boolean",
                         "description": "Whether the domain is a premium domain.",
                         "example": false
+                    },
+                    "renewalPrice": {
+                        "type": "number",
+                        "description": "Domain renewal price for the same period. Null when the domain was not priced or the registrar has no renewal price for it.",
+                        "format": "double",
+                        "example": 27.99,
+                        "nullable": true
+                    },
+                    "renewalPeriodYears": {
+                        "type": "integer",
+                        "description": "Renewal price period in years.",
+                        "format": "int32",
+                        "example": 1
                     }
                 },
                 "required": [
@@ -142408,7 +142500,8 @@
                     "tld",
                     "available",
                     "periodYears",
-                    "premium"
+                    "premium",
+                    "renewalPeriodYears"
                 ],
                 "example": {
                     "domain": "example.com",
@@ -142416,7 +142509,9 @@
                     "available": true,
                     "price": 25.99,
                     "periodYears": 1,
-                    "premium": false
+                    "premium": false,
+                    "renewalPrice": 27.99,
+                    "renewalPeriodYears": 1
                 }
             },
             "domainPurchase": {

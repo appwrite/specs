@@ -8,7 +8,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 avatars = Avatars(client)
 
-result = avatars.get_favicon(
+result: bytes = avatars.get_favicon(
     url = 'https://example.com'
 )
 ```

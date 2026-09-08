@@ -11,7 +11,7 @@ val client = Client()
 
 val avatars = Avatars(client)
 
-val response = avatars.getCreditCard(
+val result = avatars.getCreditCard(
     code = CreditCard.AMERICAN_EXPRESS,
     width = 0, // optional
     height = 0, // optional

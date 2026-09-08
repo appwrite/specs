@@ -8,7 +8,7 @@ Client client = Client()
 
 Storage storage = Storage(client);
 
- result = await storage.getFileView(
+Uint8List result = await storage.getFileView(
     bucketId: '<BUCKET_ID>',
     fileId: '<FILE_ID>',
     token: '<TOKEN>', // (optional)

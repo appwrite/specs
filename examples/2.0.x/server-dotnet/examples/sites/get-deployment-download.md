@@ -11,7 +11,7 @@ Client client = new Client()
 
 Sites sites = new Sites(client);
 
- result = await sites.GetDeploymentDownload(
+byte[] result = await sites.GetDeploymentDownload(
     siteId: "<SITE_ID>",
     deploymentId: "<DEPLOYMENT_ID>",
     type: DeploymentDownloadType.Source, // optional

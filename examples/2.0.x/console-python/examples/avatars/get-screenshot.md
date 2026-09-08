@@ -12,7 +12,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 avatars = Avatars(client)
 
-result = avatars.get_screenshot(
+result: bytes = avatars.get_screenshot(
     url = 'https://example.com',
     headers = {
         "Authorization": "Bearer token123",

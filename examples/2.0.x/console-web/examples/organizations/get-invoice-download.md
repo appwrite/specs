@@ -7,7 +7,7 @@ const client = new Client()
 
 const organizations = new Organizations(client);
 
-const result = await organizations.getInvoiceDownload({
+const result = organizations.getInvoiceDownload({
     organizationId: '<ORGANIZATION_ID>',
     invoiceId: '<INVOICE_ID>',
 });

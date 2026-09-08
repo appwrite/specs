@@ -7,7 +7,7 @@ let client = Client()
 
 let avatars = Avatars(client)
 
-let result = try await avatars.getFavicon(
+let bytes = try await avatars.getFavicon(
     url: "https://example.com"
 )
 

@@ -11,7 +11,7 @@ Client client = new Client()
 
 Avatars avatars = new Avatars(client);
 
- result = await avatars.GetBrowser(
+byte[] result = await avatars.GetBrowser(
     code: Browser.AvantBrowser,
     width: 0, // optional
     height: 0, // optional

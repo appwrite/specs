@@ -9,7 +9,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 functions = Functions(client)
 
-result = functions.get_deployment_download(
+result: bytes = functions.get_deployment_download(
     function_id = '<FUNCTION_ID>',
     deployment_id = '<DEPLOYMENT_ID>',
     type = DeploymentDownloadType.SOURCE, # optional

@@ -11,12 +11,12 @@ Client client = new Client()
 
 Storage storage = new Storage(client);
 
- result = await storage.GetFilePreview(
+byte[] result = await storage.GetFilePreview(
     bucketId: "<BUCKET_ID>",
     fileId: "<FILE_ID>",
     width: 0, // optional
     height: 0, // optional
-    gravity: ImageGravity.Center, // optional
+    gravity: ImageGravity.Auto, // optional
     quality: -1, // optional
     borderWidth: 0, // optional
     borderColor: "FFFFFF", // optional

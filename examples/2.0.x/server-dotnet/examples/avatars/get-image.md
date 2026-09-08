@@ -10,7 +10,7 @@ Client client = new Client()
 
 Avatars avatars = new Avatars(client);
 
- result = await avatars.GetImage(
+byte[] result = await avatars.GetImage(
     url: "https://example.com",
     width: 0, // optional
     height: 0 // optional

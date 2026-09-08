@@ -9,7 +9,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 avatars = Avatars(client)
 
-result = avatars.get_browser(
+result: bytes = avatars.get_browser(
     code = Browser.AVANT_BROWSER,
     width = 0, # optional
     height = 0, # optional

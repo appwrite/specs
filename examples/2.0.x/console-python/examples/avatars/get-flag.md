@@ -9,7 +9,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 avatars = Avatars(client)
 
-result = avatars.get_flag(
+result: bytes = avatars.get_flag(
     code = Flag.AFGHANISTAN,
     width = 0, # optional
     height = 0, # optional

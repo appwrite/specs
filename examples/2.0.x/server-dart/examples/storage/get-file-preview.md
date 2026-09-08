@@ -9,12 +9,12 @@ Client client = Client()
 
 Storage storage = Storage(client);
 
- result = await storage.getFilePreview(
+Uint8List result = await storage.getFilePreview(
     bucketId: '<BUCKET_ID>',
     fileId: '<FILE_ID>',
     width: 0, // (optional)
     height: 0, // (optional)
-    gravity: enums.ImageGravity.center, // (optional)
+    gravity: enums.ImageGravity.auto, // (optional)
     quality: -1, // (optional)
     borderWidth: 0, // (optional)
     borderColor: 'FFFFFF', // (optional)

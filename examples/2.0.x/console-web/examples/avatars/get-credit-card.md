@@ -7,7 +7,7 @@ const client = new Client()
 
 const avatars = new Avatars(client);
 
-const result = await avatars.getCreditCard({
+const result = avatars.getCreditCard({
     code: CreditCard.AmericanExpress,
     width: 0, // optional
     height: 0, // optional

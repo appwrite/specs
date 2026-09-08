@@ -8,7 +8,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 storage = Storage(client)
 
-result = storage.get_file_view(
+result: bytes = storage.get_file_view(
     bucket_id = '<BUCKET_ID>',
     file_id = '<FILE_ID>',
     token = '<TOKEN>' # optional

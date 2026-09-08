@@ -11,7 +11,7 @@ Client client = new Client()
 
 Avatars avatars = new Avatars(client);
 
- result = await avatars.GetScreenshot(
+byte[] result = await avatars.GetScreenshot(
     url: "https://example.com",
     headers: new {
         Authorization = "Bearer token123",

@@ -12,12 +12,12 @@ val client = Client()
 
 val storage = Storage(client)
 
-val response = storage.getFilePreview(
+val result = storage.getFilePreview(
     bucketId = "<BUCKET_ID>",
     fileId = "<FILE_ID>",
     width = 0, // optional
     height = 0, // optional
-    gravity = ImageGravity.CENTER, // optional
+    gravity = ImageGravity.AUTO, // optional
     quality = -1, // optional
     borderWidth = 0, // optional
     borderColor = "FFFFFF", // optional

@@ -10,7 +10,7 @@ Client client = new Client()
 
 Avatars avatars = new Avatars(client);
 
- result = await avatars.GetPhoto(
+byte[] result = await avatars.GetPhoto(
     width: 0, // optional
     height: 0, // optional
     quality: 0, // optional

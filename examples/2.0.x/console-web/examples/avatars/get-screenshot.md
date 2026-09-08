@@ -14,7 +14,7 @@ const client = new Client()
 
 const avatars = new Avatars(client);
 
-const result = await avatars.getScreenshot({
+const result = avatars.getScreenshot({
     url: 'https://example.com',
     headers: {
         Authorization: 'Bearer token123',

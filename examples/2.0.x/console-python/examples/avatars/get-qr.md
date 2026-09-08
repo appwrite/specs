@@ -8,7 +8,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 avatars = Avatars(client)
 
-result = avatars.get_qr(
+result: bytes = avatars.get_qr(
     text = '<TEXT>',
     size = 1, # optional
     margin = 0, # optional

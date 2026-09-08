@@ -11,7 +11,7 @@ const client = new Client()
 
 const functions = new Functions(client);
 
-const result = await functions.getDeploymentDownload({
+const result = functions.getDeploymentDownload({
     functionId: '<FUNCTION_ID>',
     deploymentId: '<DEPLOYMENT_ID>',
     type: DeploymentDownloadType.Source, // optional

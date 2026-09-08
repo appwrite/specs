@@ -9,7 +9,7 @@ let client = Client()
 
 let avatars = Avatars(client)
 
-let result = try await avatars.getBrowser(
+let bytes = try await avatars.getBrowser(
     code: .avantBrowser,
     width: 0, // optional
     height: 0, // optional
