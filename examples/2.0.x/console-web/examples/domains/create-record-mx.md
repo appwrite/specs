@@ -12,7 +12,7 @@ const result = await domains.createRecordMX({
     name: '',
     value: '<VALUE>',
     ttl: 1,
-    priority: null,
+    priority: 0,
     comment: '<COMMENT>', // optional
 });
 

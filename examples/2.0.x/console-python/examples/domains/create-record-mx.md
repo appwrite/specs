@@ -14,7 +14,7 @@ result: DnsRecord = domains.create_record_mx(
     name = '',
     value = '<VALUE>',
     ttl = 1,
-    priority = None,
+    priority = 0,
     comment = '<COMMENT>' # optional
 )
 

@@ -12,9 +12,9 @@ const result = await domains.createRecordSRV({
     name: '',
     value: '<VALUE>',
     ttl: 1,
-    priority: null,
-    weight: null,
-    port: null,
+    priority: 0,
+    weight: 0,
+    port: 0,
     comment: '<COMMENT>', // optional
 });
 
