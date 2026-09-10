@@ -11,7 +11,9 @@ let messaging = Messaging(client)
 let topic = try await messaging.createTopic(
     topicId: "<TOPIC_ID>",
     name: "<NAME>",
-    subscribe: ["any"] // optional
+    subscribe: [
+        "any"
+    ] // optional
 )
 
 ```

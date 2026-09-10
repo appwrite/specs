@@ -13,7 +13,7 @@ const result = await domains.updateRecordMX({
     name: '',
     value: '<VALUE>',
     ttl: 1,
-    priority: null,
+    priority: 0,
     comment: '<COMMENT>', // optional
 });
 

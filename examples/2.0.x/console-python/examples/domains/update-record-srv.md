@@ -15,9 +15,9 @@ result: DnsRecord = domains.update_record_srv(
     name = '',
     value = '<VALUE>',
     ttl = 1,
-    priority = None,
-    weight = None,
-    port = None,
+    priority = 0,
+    weight = 0,
+    port = 0,
     comment = '<COMMENT>' # optional
 )
 
