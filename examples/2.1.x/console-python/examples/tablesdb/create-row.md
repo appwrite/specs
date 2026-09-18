@@ -1,0 +1,30 @@
+```python
+from appwrite_console.client import Client
+from appwrite_console.services.tables_db import TablesDB
+from appwrite_console.models import Row
+from appwrite_console.permission import Permission
+from appwrite_console.role import Role
+
+client = Client()
+client.set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
+client.set_project('<YOUR_PROJECT_ID>') # Your project ID
+
+tables_db = TablesDB(client)
+
+result: Row = tables_db.create_row(
+    database_id = '<DATABASE_ID>',
+    table_id = '<TABLE_ID>',
+    row_id = '<ROW_ID>',
+    data = {
+        "username": "walter.obrien",
+        "email": "walter.obrien@example.com",
+        "fullName": "Walter O'Brien",
+        "age": 30,
+        "isAdmin": False
+    },
+    permissions = [Permission.read(Role.any())], # optional
+    transaction_id = '<TRANSACTION_ID>' # optional
+)
+
+print(result.model_dump())
+```

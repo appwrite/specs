@@ -1,0 +1,5 @@
+```bash
+appwrite users list-targets \
+    --user-id '<USER_ID>' \
+    --limit 25
+```

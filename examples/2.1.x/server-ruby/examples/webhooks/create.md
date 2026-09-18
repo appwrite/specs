@@ -1,0 +1,24 @@
+```ruby
+require 'appwrite'
+
+include Appwrite
+
+client = Client.new
+    .set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
+    .set_project('<YOUR_PROJECT_ID>') # Your project ID
+    .set_key('<YOUR_API_KEY>') # Your secret API key
+
+webhooks = Webhooks.new(client)
+
+result = webhooks.create(
+    webhook_id: '<WEBHOOK_ID>',
+    url: 'https://example.com/webhook',
+    name: '<NAME>',
+    events: [],
+    enabled: false, # optional
+    tls: false, # optional
+    auth_username: '<AUTH_USERNAME>', # optional
+    auth_password: 'password', # optional
+    secret: '<SECRET>' # optional
+)
+```
