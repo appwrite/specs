@@ -1,0 +1,22 @@
+```php
+<?php
+
+use Appwrite\Client;
+use Appwrite\Services\Databases;
+
+$client = (new Client())
+    ->setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
+    ->setProject('<YOUR_PROJECT_ID>') // Your project ID
+    ->setKey('<YOUR_API_KEY>'); // Your secret API key
+
+$databases = new Databases($client);
+
+$result = $databases->updateDatetimeAttribute(
+    databaseId: '<DATABASE_ID>',
+    collectionId: '<COLLECTION_ID>',
+    key: '<KEY>',
+    required: false,
+    default: '2020-10-15T06:38:00.000+00:00',
+    newKey: '<NEW_KEY>' // optional
+);
+```
