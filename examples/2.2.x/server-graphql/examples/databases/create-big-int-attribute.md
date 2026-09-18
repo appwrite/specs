@@ -1,0 +1,26 @@
+```graphql
+mutation {
+    databasesCreateBigIntAttribute(
+        databaseId: "<DATABASE_ID>",
+        collectionId: "<COLLECTION_ID>",
+        key: "<KEY>",
+        required: false,
+        min: 0,
+        max: 1000000,
+        default: 0,
+        array: false
+    ) {
+        key
+        type
+        status
+        error
+        required
+        array
+        _createdAt
+        _updatedAt
+        min
+        max
+        default
+    }
+}
+```

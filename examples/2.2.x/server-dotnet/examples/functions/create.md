@@ -1,0 +1,39 @@
+```csharp
+using Appwrite;
+using Appwrite.Enums;
+using Appwrite.Models;
+using Appwrite.Services;
+
+Client client = new Client()
+    .SetEndPoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
+    .SetProject("<YOUR_PROJECT_ID>") // Your project ID
+    .SetKey("<YOUR_API_KEY>"); // Your secret API key
+
+Functions functions = new Functions(client);
+
+Function result = await functions.Create(
+    functionId: "<FUNCTION_ID>",
+    name: "<NAME>",
+    runtime: Runtime.Node145,
+    execute: ["any"], // optional
+    events: new List<string>(), // optional
+    schedule: "0 0 * * *", // optional
+    timeout: 1, // optional
+    enabled: false, // optional
+    logging: false, // optional
+    entrypoint: "<ENTRYPOINT>", // optional
+    commands: "<COMMANDS>", // optional
+    scopes: new List&lt;ProjectKeyScopes&gt; { ProjectKeyScopes.ProjectRead }, // optional
+    installationId: "<INSTALLATION_ID>", // optional
+    providerRepositoryId: "<PROVIDER_REPOSITORY_ID>", // optional
+    providerBranch: "<PROVIDER_BRANCH>", // optional
+    providerSilentMode: false, // optional
+    providerRootDirectory: "<PROVIDER_ROOT_DIRECTORY>", // optional
+    providerBranches: new List<string>(), // optional
+    providerPaths: new List<string>(), // optional
+    buildSpecification: "s-1vcpu-512mb", // optional
+    runtimeSpecification: "s-1vcpu-512mb", // optional
+    deploymentRetention: 0 // optional
+);
+
+```
