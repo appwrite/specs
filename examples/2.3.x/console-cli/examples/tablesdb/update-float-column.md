@@ -1,0 +1,8 @@
+```bash
+appwrite tablesdb update-float-column \
+    --database-id '<DATABASE_ID>' \
+    --table-id '<TABLE_ID>' \
+    --key '<KEY>' \
+    --required false \
+    --default 10.5
+```
