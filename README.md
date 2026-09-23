@@ -38,6 +38,7 @@ SDK code examples for each supported language, organized by version, platform, a
 | Version | Specs | Examples |
 |---------|-------|----------|
 | latest  | [specs/latest](specs/latest) | - |
+| 2.3.x   | [specs/2.3.x](specs/2.3.x) | [examples/2.3.x](examples/2.3.x) |
 | 2.2.x   | [specs/2.2.x](specs/2.2.x) | [examples/2.2.x](examples/2.2.x) |
 | 2.1.x   | [specs/2.1.x](specs/2.1.x) | [examples/2.1.x](examples/2.1.x) |
 | 2.0.x   | [specs/2.0.x](specs/2.0.x) | [examples/2.0.x](examples/2.0.x) |
@@ -70,17 +71,17 @@ You can use these specs with any OpenAPI-compatible tool. For example, to genera
 
 ```bash
 # Download the spec
-curl -O https://raw.githubusercontent.com/appwrite/specs/main/specs/2.2.x/open-api3-2.2.x.json
+curl -O https://raw.githubusercontent.com/appwrite/specs/main/specs/2.3.x/open-api3-2.3.x.json
 
 # The document covers every platform. Keep the operations available to one of
 # them (client, server or console) by filtering on x-appwrite.platforms.
 jq --arg platform server '
   .paths |= (map_values(with_entries(select(.value["x-appwrite"].platforms | index($platform))))
     | with_entries(select(.value | length > 0)))
-' open-api3-2.2.x.json > open-api3-2.2.x-server.json
+' open-api3-2.3.x.json > open-api3-2.3.x-server.json
 
 # Generate a client
-openapi-generator generate -i open-api3-2.2.x-server.json -g python -o ./sdk
+openapi-generator generate -i open-api3-2.3.x-server.json -g python -o ./sdk
 ```
 
 Or import directly into tools like [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/), or [Swagger UI](https://swagger.io/tools/swagger-ui/).
@@ -94,7 +95,7 @@ Each example file is a Markdown document showing how to call a specific API meth
 Specs and examples are generated from the [appwrite/appwrite](https://github.com/appwrite/appwrite) codebase using the `specs` CLI task:
 
 ```bash
-php app/cli.php specs --version=2.2.x --git=yes --message="Update specs for 2.2.x"
+php app/cli.php specs --version=2.3.x --git=yes --message="Update specs for 2.3.x"
 ```
 
 The task writes the API specification for that version, regenerates SDK examples for every supported language, and opens a PR in this repository. Releases run it through Appwrite's deployment automation rather than by hand, which is why the PRs here are authored by a bot.

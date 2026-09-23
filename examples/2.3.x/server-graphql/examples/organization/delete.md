@@ -1,0 +1,7 @@
+```graphql
+mutation {
+    organizationDelete {
+        status
+    }
+}
+```
