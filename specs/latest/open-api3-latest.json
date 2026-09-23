@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "version": "2.2.0",
+        "version": "2.3.0",
         "title": "Appwrite",
         "description": "Appwrite backend as a service cuts up to 70% of the time and costs required for building a modern application. We abstract and simplify common development tasks behind a REST APIs, to help you develop your app in a fast and secure way. For full API documentation and tutorials go to [https:\/\/appwrite.io\/docs](https:\/\/appwrite.io\/docs)",
         "termsOfService": "https:\/\/appwrite.io\/policy\/terms",
@@ -4309,6 +4309,179 @@
                 }
             }
         },
+        "\/account\/recovery\/otp": {
+            "post": {
+                "summary": "Create password recovery (OTP)",
+                "operationId": "accountCreateRecoveryOTP",
+                "tags": [
+                    "account"
+                ],
+                "description": "Use this endpoint to send a 6-digit password recovery code to the user's email address. Unlike [createRecovery](https:\/\/appwrite.io\/docs\/references\/cloud\/client-web\/account#createRecovery), this method requires no redirect URL, which makes it suitable for mobile and desktop apps that cannot host a recovery page. Learn more about how to [complete the recovery process](https:\/\/appwrite.io\/docs\/references\/cloud\/client-web\/account#updateRecoveryOTP). The code sent to the user's email address is valid for 15 minutes.\n\nEnable the **phrase** parameter to include a randomly generated security phrase in both the email and the response. Showing that phrase in your app lets the user confirm the email genuinely came from your request, which helps protect against phishing.\n",
+                "responses": {
+                    "201": {
+                        "description": "Token",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/token"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "recovery",
+                    "demo": "account\/create-recovery-otp.md",
+                    "rate-limit": 10,
+                    "rate-time": 3600,
+                    "rate-key": [
+                        "url:{url},email:{param-email}",
+                        "url:{url},ip:{ip}"
+                    ],
+                    "scope": "sessions.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        },
+                        "client": {
+                            "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Session": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "description": "User email.",
+                                        "type": "string",
+                                        "example": "email@example.com",
+                                        "format": "email"
+                                    },
+                                    "phrase": {
+                                        "description": "Toggle for security phrase. If enabled, email will be sent with a randomly generated phrase and the phrase will also be included in the response. Confirming phrases match increases the security of your authentication flow.",
+                                        "type": "boolean",
+                                        "default": false,
+                                        "example": false
+                                    }
+                                },
+                                "required": [
+                                    "email"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update password recovery (OTP)",
+                "operationId": "accountUpdateRecoveryOTP",
+                "tags": [
+                    "account"
+                ],
+                "description": "Use this endpoint to complete the user password recovery process using the 6-digit code that was emailed by [createRecoveryOTP](https:\/\/appwrite.io\/docs\/references\/cloud\/client-web\/account#createRecoveryOTP). Pass the **userId** of the user along with the **secret** code from the email and the new **password** to set. If confirmed, this route will return a 200 status code, the code is consumed and the user's password is updated.\n",
+                "responses": {
+                    "200": {
+                        "description": "Token",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/token"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "recovery",
+                    "demo": "account\/update-recovery-otp.md",
+                    "rate-limit": 10,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},userId:{param-userId}",
+                    "scope": "sessions.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        },
+                        "client": {
+                            "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Session": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "userId": {
+                                        "description": "User ID.",
+                                        "type": "string",
+                                        "example": "<USER_ID>"
+                                    },
+                                    "secret": {
+                                        "description": "Valid recovery OTP code.",
+                                        "type": "string",
+                                        "example": "<SECRET>"
+                                    },
+                                    "password": {
+                                        "description": "New user password. Must be between 8 and 256 chars.",
+                                        "type": "string",
+                                        "example": "password",
+                                        "format": "password"
+                                    }
+                                },
+                                "required": [
+                                    "userId",
+                                    "secret",
+                                    "password"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/account\/sessions": {
             "get": {
                 "summary": "List sessions",
@@ -5644,7 +5817,7 @@
                 "tags": [
                     "account"
                 ],
-                "description": "Use this endpoint to register a device for push notifications. Provide a target ID (custom or generated using ID.unique()), a device identifier (usually a device token), and optionally specify which provider should send notifications to this target. The target is automatically linked to the current session and includes device information like brand and model.",
+                "description": "Use this endpoint to register a device for push notifications. Provide a target ID (custom or generated using ID.unique()), a device identifier (usually a device token), and optionally specify which provider should send notifications to this target. The target is automatically linked to the current session and includes device information like brand and model. A session holds one push target per provider, so if one already exists this endpoint updates and returns that target instead of creating a second one, and a device that rotates its token is never notified twice.",
                 "responses": {
                     "201": {
                         "description": "Target",
@@ -18181,6 +18354,13 @@
                                 {
                                     "type": "string",
                                     "enum": [
+                                        "pushledger"
+                                    ],
+                                    "title": "push_ledger"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
                                         "topics"
                                     ],
                                     "title": "topics"
@@ -18640,7 +18820,7 @@
                 "parameters": [
                     {
                         "name": "templateId",
-                        "description": "Email template type. Can be one of: verification, magicSession, recovery, invitation, mfaChallenge, sessionAlert, otpSession, otpVerification",
+                        "description": "Email template type. Can be one of: verification, magicSession, recovery, invitation, mfaChallenge, sessionAlert, otpSession, otpVerification, otpRecovery",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -18702,6 +18882,13 @@
                                         "otpVerification"
                                     ],
                                     "title": "otpVerification"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "otpRecovery"
+                                    ],
+                                    "title": "otpRecovery"
                                 }
                             ]
                         },
@@ -31894,19 +32081,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.read",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -31964,19 +32158,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "requestBody": {
@@ -32035,7 +32236,8 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.read",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
@@ -32046,12 +32248,18 @@
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -32150,19 +32358,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.read",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -32839,19 +33054,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.read",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -32888,19 +33110,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33023,19 +33252,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33100,19 +33336,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33158,19 +33401,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33214,19 +33464,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33272,19 +33529,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33328,19 +33592,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33386,19 +33657,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33442,19 +33720,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33500,19 +33785,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33556,19 +33848,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33614,19 +33913,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33670,19 +33976,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33728,19 +34041,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33784,19 +34104,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33842,19 +34169,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.read",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -33913,19 +34247,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -34007,19 +34348,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -34111,19 +34459,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -34205,19 +34560,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -34309,19 +34671,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -34404,19 +34773,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -34509,19 +34885,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -34603,19 +34986,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -34707,19 +35097,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -34802,19 +35199,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -34907,19 +35311,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -35002,19 +35413,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -35107,19 +35525,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -35209,19 +35634,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -35321,19 +35753,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -35416,19 +35855,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -35521,19 +35967,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -35637,19 +36090,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -35763,19 +36223,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -35858,19 +36325,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -35963,19 +36437,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.read",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -36022,19 +36503,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -36090,19 +36578,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -36167,19 +36662,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.read",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -36225,19 +36727,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.read",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -36281,19 +36790,26 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "domains.write",
                     "platforms": [
-                        "console"
+                        "console",
+                        "server"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
                         "console": {
                             "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
                         }
                     }
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": [],
+                        "Organization": []
                     }
                 ],
                 "parameters": [
@@ -43173,12 +43689,12 @@
         },
         "\/growth\/installations": {
             "post": {
-                "summary": "Create or update a self-hosted installation record",
+                "summary": "Record a self-hosted installation",
                 "operationId": "growthCreateInstallation",
                 "tags": [
                     "growth"
                 ],
-                "description": "Create or update a self-hosted installation record.",
+                "description": "Record a self-hosted installation. Every report is stored as its own row; the admin email is optional because headless CLI installs create no account.",
                 "responses": {
                     "204": {
                         "description": "No content"
@@ -43213,10 +43729,12 @@
                                 "type": "object",
                                 "properties": {
                                     "email": {
-                                        "description": "Admin email from the installation.",
+                                        "description": "Admin email from the installation, when an account was created.",
                                         "type": "string",
+                                        "default": "",
                                         "example": "email@example.com",
-                                        "format": "email"
+                                        "format": "email",
+                                        "nullable": true
                                     },
                                     "name": {
                                         "description": "Admin name.",
@@ -43276,10 +43794,7 @@
                                         "type": "integer",
                                         "format": "int32"
                                     }
-                                },
-                                "required": [
-                                    "email"
-                                ]
+                                }
                             }
                         }
                     }
@@ -43760,11 +44275,11 @@
                 "description": "Creates a new resource block.",
                 "responses": {
                     "201": {
-                        "description": "Block",
+                        "description": "ManagerBlock",
                         "content": {
                             "application\/json": {
                                 "schema": {
-                                    "$ref": "#\/components\/schemas\/block"
+                                    "$ref": "#\/components\/schemas\/managerBlock"
                                 }
                             }
                         }
@@ -43928,11 +44443,11 @@
                 "description": "Deletes resource blocks for a project.",
                 "responses": {
                     "200": {
-                        "description": "BlockDelete",
+                        "description": "ManagerBlockDelete",
                         "content": {
                             "application\/json": {
                                 "schema": {
-                                    "$ref": "#\/components\/schemas\/blockDelete"
+                                    "$ref": "#\/components\/schemas\/managerBlockDelete"
                                 }
                             }
                         }
@@ -44064,11 +44579,11 @@
                 "description": "Lists all resource blocks for a project.",
                 "responses": {
                     "200": {
-                        "description": "Blocks list",
+                        "description": "Manager blocks list",
                         "content": {
                             "application\/json": {
                                 "schema": {
-                                    "$ref": "#\/components\/schemas\/blockList"
+                                    "$ref": "#\/components\/schemas\/managerBlockList"
                                 }
                             }
                         }
@@ -45566,6 +46081,19 @@
                                             "type": "string"
                                         }
                                     },
+                                    "replyToEmail": {
+                                        "description": "Email address to reply to. If not set, defaults to the sender email address.",
+                                        "type": "string",
+                                        "default": "",
+                                        "example": "email@example.com",
+                                        "format": "email"
+                                    },
+                                    "replyToName": {
+                                        "description": "Name of the reply to recipient. If not set, defaults to the sender name.",
+                                        "type": "string",
+                                        "default": "",
+                                        "example": "<REPLY_TO_NAME>"
+                                    },
                                     "draft": {
                                         "description": "Is message a draft",
                                         "type": "boolean",
@@ -45727,6 +46255,19 @@
                                         "items": {
                                             "type": "string"
                                         },
+                                        "nullable": true
+                                    },
+                                    "replyToEmail": {
+                                        "description": "Email address to reply to. Pass an empty string to restore the provider or sender default.",
+                                        "type": "string",
+                                        "example": "email@example.com",
+                                        "format": "email",
+                                        "nullable": true
+                                    },
+                                    "replyToName": {
+                                        "description": "Name of the reply to recipient. Pass an empty string to restore the provider or sender default.",
+                                        "type": "string",
+                                        "example": "<REPLY_TO_NAME>",
                                         "nullable": true
                                     },
                                     "scheduledAt": {
@@ -47274,6 +47815,204 @@
                                         "description": "Use APNS sandbox environment.",
                                         "type": "boolean",
                                         "example": false,
+                                        "nullable": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/messaging\/providers\/appwrite": {
+            "post": {
+                "summary": "Create Appwrite provider",
+                "operationId": "messagingCreateAppwriteProvider",
+                "tags": [
+                    "messaging"
+                ],
+                "description": "Create a new Appwrite push provider.",
+                "responses": {
+                    "201": {
+                        "description": "Provider",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/provider"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "providers",
+                    "demo": "messaging\/create-appwrite-provider.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "providers.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "providerId": {
+                                        "description": "Provider ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
+                                        "type": "string",
+                                        "example": "<PROVIDER_ID>"
+                                    },
+                                    "name": {
+                                        "description": "Provider name.",
+                                        "type": "string",
+                                        "example": "<NAME>"
+                                    },
+                                    "enabled": {
+                                        "description": "Set as enabled.",
+                                        "type": "boolean",
+                                        "example": false,
+                                        "nullable": true
+                                    },
+                                    "qos": {
+                                        "description": "Default QoS for topics on this provider (0 or 1). Null lets the subscriber choose.",
+                                        "type": "integer",
+                                        "example": 0,
+                                        "format": "int32",
+                                        "nullable": true
+                                    },
+                                    "expiry": {
+                                        "description": "Default message retention in seconds for offline delivery. Max 7 days (604800).",
+                                        "type": "integer",
+                                        "example": 0,
+                                        "format": "int32",
+                                        "nullable": true
+                                    }
+                                },
+                                "required": [
+                                    "providerId",
+                                    "name"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/messaging\/providers\/appwrite\/{providerId}": {
+            "patch": {
+                "summary": "Update Appwrite provider",
+                "operationId": "messagingUpdateAppwriteProvider",
+                "tags": [
+                    "messaging"
+                ],
+                "description": "Update an Appwrite push provider by its unique ID.",
+                "responses": {
+                    "200": {
+                        "description": "Provider",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/provider"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "providers",
+                    "demo": "messaging\/update-appwrite-provider.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "providers.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "providerId",
+                        "description": "Provider ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "<PROVIDER_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "description": "Provider name.",
+                                        "type": "string",
+                                        "default": "",
+                                        "example": "<NAME>"
+                                    },
+                                    "enabled": {
+                                        "description": "Set as enabled.",
+                                        "type": "boolean",
+                                        "example": false,
+                                        "nullable": true
+                                    },
+                                    "qos": {
+                                        "description": "Default QoS for topics on this provider (0 or 1). Null lets the subscriber choose.",
+                                        "type": "integer",
+                                        "example": 0,
+                                        "format": "int32",
+                                        "nullable": true
+                                    },
+                                    "expiry": {
+                                        "description": "Default message retention in seconds for offline delivery. Max 7 days (604800).",
+                                        "type": "integer",
+                                        "example": 0,
+                                        "format": "int32",
                                         "nullable": true
                                     }
                                 }
@@ -50493,6 +51232,20 @@
                                         "items": {
                                             "type": "string"
                                         }
+                                    },
+                                    "qos": {
+                                        "description": "MQTT delivery quality of service for this topic. 0 is fire-and-forget (delivered only to clients connected at publish time). 1 persists each message and replays it when a client reconnects without having acknowledged it. Null lets the subscriber choose.",
+                                        "type": "integer",
+                                        "example": 0,
+                                        "format": "int32",
+                                        "nullable": true
+                                    },
+                                    "expiry": {
+                                        "description": "Message retention in seconds for offline delivery. Max 7 days (604800).",
+                                        "type": "integer",
+                                        "example": 0,
+                                        "format": "int32",
+                                        "nullable": true
                                     }
                                 },
                                 "required": [
@@ -50650,6 +51403,20 @@
                                         "items": {
                                             "type": "string"
                                         },
+                                        "nullable": true
+                                    },
+                                    "qos": {
+                                        "description": "MQTT delivery quality of service for this topic. 0 is fire-and-forget (delivered only to clients connected at publish time). 1 persists each message and replays it when a client reconnects without having acknowledged it. Null lets the subscriber choose.",
+                                        "type": "integer",
+                                        "example": 0,
+                                        "format": "int32",
+                                        "nullable": true
+                                    },
+                                    "expiry": {
+                                        "description": "Message retention in seconds for offline delivery. Max 7 days (604800).",
+                                        "type": "integer",
+                                        "example": 0,
+                                        "format": "int32",
                                         "nullable": true
                                     }
                                 }
@@ -83777,7 +84544,7 @@
                 "tags": [
                     "project"
                 ],
-                "description": "Updating this policy allows you to control if passwords are checked against the Have I Been Pwned breach database. When enabled, a password that appears in any known breach cannot be set or changed. Enable `sessions` to check passwords on sign-in too. Only the first five characters of the password hash are ever shared with the service. Options left out keep their current value.",
+                "description": "Updating this policy allows you to control if passwords are checked against the Have I Been Pwned breach database. When enabled, every password a user signs up, signs in or resets with is checked and the result is recorded on the user as `passwordPwned`. On its own the policy only records. Enable `users` to reject a breached password when a user signs up or sets a new password, and `sessions` to refuse a sign-in with a breached password until it is reset. Only the first five characters of the password hash are ever shared with the service. Options left out keep their current value.",
                 "responses": {
                     "200": {
                         "description": "Project",
@@ -83830,17 +84597,17 @@
                                 "type": "object",
                                 "properties": {
                                     "enabled": {
-                                        "description": "Toggle password pwned policy. Set to true to block passwords exposed in known data breaches, or false to allow them. Default is true. When changing this policy, existing passwords remain valid.",
+                                        "description": "Toggle password pwned policy. Set to true to check passwords against known data breaches and record the result on the user, or false to never check. Default is true. On its own this only records; use `users` and `sessions` to block. When changing this policy, existing passwords remain valid.",
                                         "type": "boolean",
                                         "example": false
                                     },
                                     "sessions": {
-                                        "description": "Whether passwords are checked when a session is created. When enabled, signing in records whether the password appears in a known data breach. Default is false.",
+                                        "description": "Whether a sign-in with a breached password is refused until the password is reset. Default is false, which allows the sign-in and only records the result.",
                                         "type": "boolean",
                                         "example": false
                                     },
                                     "users": {
-                                        "description": "Whether users signing in with a breached password are blocked until they reset it. Only applies when sessions are checked. Default is false, which allows the sign-in.",
+                                        "description": "Whether a breached password is rejected when a user signs up or sets a new password. Default is false, which allows the password and only records the result.",
                                         "type": "boolean",
                                         "example": false
                                     }
@@ -85238,7 +86005,7 @@
                                 "type": "object",
                                 "properties": {
                                     "templateId": {
-                                        "description": "Custom email template type. Can be one of: verification, magicSession, recovery, invitation, mfaChallenge, sessionAlert, otpSession, otpVerification",
+                                        "description": "Custom email template type. Can be one of: verification, magicSession, recovery, invitation, mfaChallenge, sessionAlert, otpSession, otpVerification, otpRecovery",
                                         "type": "string",
                                         "example": "verification",
                                         "title": "ProjectEmailTemplateId",
@@ -85298,6 +86065,13 @@
                                                     "otpVerification"
                                                 ],
                                                 "title": "otpVerification"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "otpRecovery"
+                                                ],
+                                                "title": "otpRecovery"
                                             }
                                         ]
                                     },
@@ -86327,7 +87101,7 @@
                 "parameters": [
                     {
                         "name": "templateId",
-                        "description": "Custom email template type. Can be one of: verification, magicSession, recovery, invitation, mfaChallenge, sessionAlert, otpSession, otpVerification",
+                        "description": "Custom email template type. Can be one of: verification, magicSession, recovery, invitation, mfaChallenge, sessionAlert, otpSession, otpVerification, otpRecovery",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -86389,6 +87163,13 @@
                                         "otpVerification"
                                     ],
                                     "title": "otpVerification"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "otpRecovery"
+                                    ],
+                                    "title": "otpRecovery"
                                 }
                             ]
                         },
@@ -90753,6 +91534,13 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
+                                                    "jaspr"
+                                                ],
+                                                "title": "jaspr"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
                                                     "react-native"
                                                 ],
                                                 "title": "react-native"
@@ -92740,6 +93528,13 @@
                                     {
                                         "type": "string",
                                         "enum": [
+                                            "jaspr"
+                                        ],
+                                        "title": "jaspr"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "enum": [
                                             "react-native"
                                         ],
                                         "title": "react-native"
@@ -93152,6 +93947,13 @@
                                                     "flutter"
                                                 ],
                                                 "title": "flutter"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "jaspr"
+                                                ],
+                                                "title": "jaspr"
                                             },
                                             {
                                                 "type": "string",
@@ -103826,6 +104628,142 @@
                 }
             }
         },
+        "\/tablesdb\/{databaseId}\/tables\/{tableId}\/columns\/relationship\/{key}": {
+            "patch": {
+                "summary": "Update relationship column",
+                "operationId": "tablesDBUpdateRelationshipColumn",
+                "tags": [
+                    "tablesDB"
+                ],
+                "description": "Update relationship column. [Learn more about relationship columns](https:\/\/appwrite.io\/docs\/databases-relationships#relationship-columns).\n",
+                "responses": {
+                    "200": {
+                        "description": "ColumnRelationship",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/columnRelationship"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "columns",
+                    "demo": "tablesdb\/update-relationship-column.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": [
+                        "tables.write",
+                        "collections.write",
+                        "columns.write",
+                        "attributes.write"
+                    ],
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "databaseId",
+                        "description": "Database ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "<DATABASE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "tableId",
+                        "description": "Table ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "<TABLE_ID>"
+                        },
+                        "in": "path"
+                    },
+                    {
+                        "name": "key",
+                        "description": "Column Key.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "<KEY>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "onDelete": {
+                                        "description": "Delete constraint. Possible values are: cascade, restrict, setNull.",
+                                        "type": "string",
+                                        "example": "cascade",
+                                        "title": "RelationMutate",
+                                        "oneOf": [
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "cascade"
+                                                ],
+                                                "title": "cascade"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "restrict"
+                                                ],
+                                                "title": "restrict"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "setNull"
+                                                ],
+                                                "title": "setNull"
+                                            }
+                                        ],
+                                        "nullable": true
+                                    },
+                                    "newKey": {
+                                        "description": "New Column Key.",
+                                        "type": "string",
+                                        "example": "<NEW_KEY>",
+                                        "nullable": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/tablesdb\/{databaseId}\/tables\/{tableId}\/columns\/string": {
             "post": {
                 "summary": "Create string column",
@@ -105222,142 +106160,6 @@
                         "in": "path"
                     }
                 ]
-            }
-        },
-        "\/tablesdb\/{databaseId}\/tables\/{tableId}\/columns\/{key}\/relationship": {
-            "patch": {
-                "summary": "Update relationship column",
-                "operationId": "tablesDBUpdateRelationshipColumn",
-                "tags": [
-                    "tablesDB"
-                ],
-                "description": "Update relationship column. [Learn more about relationship columns](https:\/\/appwrite.io\/docs\/databases-relationships#relationship-columns).\n",
-                "responses": {
-                    "200": {
-                        "description": "ColumnRelationship",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/columnRelationship"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "group": "columns",
-                    "demo": "tablesdb\/update-relationship-column.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": [
-                        "tables.write",
-                        "collections.write",
-                        "columns.write",
-                        "attributes.write"
-                    ],
-                    "platforms": [
-                        "console",
-                        "server"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "auth": {
-                        "console": {
-                            "Project": []
-                        },
-                        "server": {
-                            "Project": [],
-                            "Key": []
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "Project": [],
-                        "Key": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "databaseId",
-                        "description": "Database ID.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "example": "<DATABASE_ID>"
-                        },
-                        "in": "path"
-                    },
-                    {
-                        "name": "tableId",
-                        "description": "Table ID.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "example": "<TABLE_ID>"
-                        },
-                        "in": "path"
-                    },
-                    {
-                        "name": "key",
-                        "description": "Column Key.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "example": "<KEY>"
-                        },
-                        "in": "path"
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application\/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "onDelete": {
-                                        "description": "Delete constraint. Possible values are: cascade, restrict, setNull.",
-                                        "type": "string",
-                                        "example": "cascade",
-                                        "title": "RelationMutate",
-                                        "oneOf": [
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "cascade"
-                                                ],
-                                                "title": "cascade"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "restrict"
-                                                ],
-                                                "title": "restrict"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "setNull"
-                                                ],
-                                                "title": "setNull"
-                                            }
-                                        ],
-                                        "nullable": true
-                                    },
-                                    "newKey": {
-                                        "description": "New Column Key.",
-                                        "type": "string",
-                                        "example": "<NEW_KEY>",
-                                        "nullable": true
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
             }
         },
         "\/tablesdb\/{databaseId}\/tables\/{tableId}\/indexes": {
@@ -137862,17 +138664,17 @@
                     },
                     "enabled": {
                         "type": "boolean",
-                        "description": "Whether password pwned policy is enabled.",
+                        "description": "Whether passwords are checked against known data breaches and the result recorded on the user.",
                         "example": true
                     },
                     "sessions": {
                         "type": "boolean",
-                        "description": "Whether passwords are checked when a session is created.",
+                        "description": "Whether a sign-in with a breached password is refused until the password is reset.",
                         "example": false
                     },
                     "users": {
                         "type": "boolean",
-                        "description": "Whether users signing in with a breached password are blocked until they reset it. Only applies when sessions are checked.",
+                        "description": "Whether a breached password is rejected when a user signs up or sets a new password.",
                         "example": false
                     }
                 },
@@ -140697,6 +141499,20 @@
                         "example": [
                             "users"
                         ]
+                    },
+                    "qos": {
+                        "type": "integer",
+                        "description": "MQTT QoS for delivery on this topic. Null lets the subscriber choose their level.",
+                        "format": "int32",
+                        "example": 1,
+                        "nullable": true
+                    },
+                    "expiry": {
+                        "type": "integer",
+                        "description": "Message retention in seconds for offline delivery.",
+                        "format": "int32",
+                        "example": 604800,
+                        "nullable": true
                     }
                 },
                 "required": [
@@ -140717,7 +141533,9 @@
                     "emailTotal": 100,
                     "smsTotal": 100,
                     "pushTotal": 100,
-                    "subscribe": "users"
+                    "subscribe": "users",
+                    "qos": 1,
+                    "expiry": 604800
                 }
             },
             "transaction": {
@@ -144152,95 +144970,25 @@
                         "description": "Block mode. full blocks reads and writes; readOnly blocks writes only.",
                         "example": "readOnly"
                     },
-                    "reason": {
-                        "type": "string",
-                        "description": "Reason for the block. Can be null if no reason was provided.",
-                        "example": "Payment overdue",
-                        "nullable": true
-                    },
                     "expiredAt": {
                         "type": "string",
                         "description": "Block expiration date in ISO 8601 format. Can be null if the block does not expire.",
                         "example": "2020-10-15T06:38:00.000+00:00",
                         "nullable": true
-                    },
-                    "projectName": {
-                        "type": "string",
-                        "description": "Name of the project this block applies to.",
-                        "example": "My Project"
-                    },
-                    "region": {
-                        "type": "string",
-                        "description": "Region of the project this block applies to.",
-                        "example": "fra"
-                    },
-                    "organizationName": {
-                        "type": "string",
-                        "description": "Name of the organization that owns the project.",
-                        "example": "Acme Inc."
-                    },
-                    "organizationId": {
-                        "type": "string",
-                        "description": "ID of the organization that owns the project.",
-                        "example": "5e5ea5c16897e"
-                    },
-                    "billingPlan": {
-                        "type": "string",
-                        "description": "Billing plan of the organization that owns the project.",
-                        "example": "pro"
                     }
                 },
                 "required": [
                     "$createdAt",
                     "resourceType",
                     "resourceId",
-                    "mode",
-                    "projectName",
-                    "region",
-                    "organizationName",
-                    "organizationId",
-                    "billingPlan"
+                    "mode"
                 ],
                 "example": {
                     "$createdAt": "2020-10-15T06:38:00.000+00:00",
                     "resourceType": "project",
                     "resourceId": "5e5ea5c16897e",
                     "mode": "readOnly",
-                    "reason": "Payment overdue",
-                    "expiredAt": "2020-10-15T06:38:00.000+00:00",
-                    "projectName": "My Project",
-                    "region": "fra",
-                    "organizationName": "Acme Inc.",
-                    "organizationId": "5e5ea5c16897e",
-                    "billingPlan": "pro"
-                }
-            },
-            "blockDelete": {
-                "description": "BlockDelete",
-                "type": "object",
-                "properties": {
-                    "deleted": {
-                        "type": "integer",
-                        "description": "Number of blocks deleted",
-                        "format": "int32",
-                        "example": 1
-                    },
-                    "blocks": {
-                        "type": "array",
-                        "description": "List of deleted blocks",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/block"
-                        },
-                        "example": []
-                    }
-                },
-                "required": [
-                    "deleted",
-                    "blocks"
-                ],
-                "example": {
-                    "deleted": 1,
-                    "blocks": []
+                    "expiredAt": "2020-10-15T06:38:00.000+00:00"
                 }
             },
             "dedicatedDatabaseBranch": {
@@ -147022,6 +147770,121 @@
                     "dueAt": "2020-10-15T06:38:00.000+00:00",
                     "from": "2020-10-15T06:38:00.000+00:00",
                     "to": "2020-10-15T06:38:00.000+00:00"
+                }
+            },
+            "managerBlock": {
+                "description": "ManagerBlock",
+                "type": "object",
+                "properties": {
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "Block creation date in ISO 8601 format.",
+                        "example": "2020-10-15T06:38:00.000+00:00"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Resource type that is blocked",
+                        "example": "project"
+                    },
+                    "resourceId": {
+                        "type": "string",
+                        "description": "Resource identifier that is blocked",
+                        "example": "5e5ea5c16897e"
+                    },
+                    "mode": {
+                        "type": "string",
+                        "description": "Block mode. full blocks reads and writes; readOnly blocks writes only.",
+                        "example": "readOnly"
+                    },
+                    "expiredAt": {
+                        "type": "string",
+                        "description": "Block expiration date in ISO 8601 format. Can be null if the block does not expire.",
+                        "example": "2020-10-15T06:38:00.000+00:00",
+                        "nullable": true
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "Reason for the block. Can be null if no reason was provided.",
+                        "example": "Payment overdue",
+                        "nullable": true
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "Name of the project this block applies to.",
+                        "example": "My Project"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Region of the project this block applies to.",
+                        "example": "fra"
+                    },
+                    "organizationName": {
+                        "type": "string",
+                        "description": "Name of the organization that owns the project.",
+                        "example": "Acme Inc."
+                    },
+                    "organizationId": {
+                        "type": "string",
+                        "description": "ID of the organization that owns the project.",
+                        "example": "5e5ea5c16897e"
+                    },
+                    "billingPlan": {
+                        "type": "string",
+                        "description": "Billing plan of the organization that owns the project.",
+                        "example": "pro"
+                    }
+                },
+                "required": [
+                    "$createdAt",
+                    "resourceType",
+                    "resourceId",
+                    "mode",
+                    "projectName",
+                    "region",
+                    "organizationName",
+                    "organizationId",
+                    "billingPlan"
+                ],
+                "example": {
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "resourceType": "project",
+                    "resourceId": "5e5ea5c16897e",
+                    "mode": "readOnly",
+                    "expiredAt": "2020-10-15T06:38:00.000+00:00",
+                    "reason": "Payment overdue",
+                    "projectName": "My Project",
+                    "region": "fra",
+                    "organizationName": "Acme Inc.",
+                    "organizationId": "5e5ea5c16897e",
+                    "billingPlan": "pro"
+                }
+            },
+            "managerBlockDelete": {
+                "description": "ManagerBlockDelete",
+                "type": "object",
+                "properties": {
+                    "deleted": {
+                        "type": "integer",
+                        "description": "Number of blocks deleted",
+                        "format": "int32",
+                        "example": 1
+                    },
+                    "blocks": {
+                        "type": "array",
+                        "description": "List of deleted blocks",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/managerBlock"
+                        },
+                        "example": []
+                    }
+                },
+                "required": [
+                    "deleted",
+                    "blocks"
+                ],
+                "example": {
+                    "deleted": 1,
+                    "blocks": []
                 }
             },
             "managerDatabase": {
@@ -152901,8 +153764,8 @@
                     "plans": ""
                 }
             },
-            "blockList": {
-                "description": "Blocks list",
+            "managerBlockList": {
+                "description": "Manager blocks list",
                 "type": "object",
                 "properties": {
                     "total": {
@@ -152915,7 +153778,7 @@
                         "type": "array",
                         "description": "List of blocks.",
                         "items": {
-                            "$ref": "#\/components\/schemas\/block"
+                            "$ref": "#\/components\/schemas\/managerBlock"
                         },
                         "example": []
                     }
