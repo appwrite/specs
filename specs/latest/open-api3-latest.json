@@ -348,19 +348,22 @@
                                         "description": "Address line 2",
                                         "type": "string",
                                         "default": "",
-                                        "example": "<ADDRESS_LINE2>"
+                                        "example": "<ADDRESS_LINE2>",
+                                        "nullable": true
                                     },
                                     "state": {
                                         "description": "State or province",
                                         "type": "string",
                                         "default": "",
-                                        "example": "<STATE>"
+                                        "example": "<STATE>",
+                                        "nullable": true
                                     },
                                     "postalCode": {
                                         "description": "Postal code",
                                         "type": "string",
                                         "default": "",
-                                        "example": "<POSTAL_CODE>"
+                                        "example": "<POSTAL_CODE>",
+                                        "nullable": true
                                     }
                                 },
                                 "required": [
@@ -511,19 +514,22 @@
                                         "description": "Address line 2",
                                         "type": "string",
                                         "default": "",
-                                        "example": "<ADDRESS_LINE2>"
+                                        "example": "<ADDRESS_LINE2>",
+                                        "nullable": true
                                     },
                                     "state": {
                                         "description": "State or province",
                                         "type": "string",
                                         "default": "",
-                                        "example": "<STATE>"
+                                        "example": "<STATE>",
+                                        "nullable": true
                                     },
                                     "postalCode": {
                                         "description": "Postal code",
                                         "type": "string",
                                         "default": "",
-                                        "example": "<POSTAL_CODE>"
+                                        "example": "<POSTAL_CODE>",
+                                        "nullable": true
                                     }
                                 },
                                 "required": [
@@ -26151,7 +26157,7 @@
                 "description": "Get attribute by ID.",
                 "responses": {
                     "200": {
-                        "description": "AttributeBoolean, or AttributeInteger, or AttributeFloat, or AttributeEmail, or AttributeEnum, or AttributeURL, or AttributeIP, or AttributeDatetime, or AttributeRelationship, or AttributeString",
+                        "description": "AttributeBoolean, or AttributeBigInt, or AttributeInteger, or AttributeFloat, or AttributeEmail, or AttributeEnum, or AttributeURL, or AttributeIP, or AttributeDatetime, or AttributeRelationship, or AttributePoint, or AttributeLine, or AttributePolygon, or AttributeVarchar, or AttributeText, or AttributeMediumtext, or AttributeLongtext, or AttributeString",
                         "content": {
                             "application\/json": {
                                 "schema": {
@@ -26170,6 +26176,26 @@
                                                         "type": {
                                                             "enum": [
                                                                 "boolean"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/attributeBigint"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "bigint"
                                                             ]
                                                         }
                                                     }
@@ -26354,6 +26380,146 @@
                                                         "type": {
                                                             "enum": [
                                                                 "relationship"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/attributePoint"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "point"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/attributeLine"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "linestring"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/attributePolygon"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "polygon"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/attributeVarchar"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "varchar"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/attributeText"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "text"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/attributeMediumtext"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "mediumtext"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/attributeLongtext"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "longtext"
                                                             ]
                                                         }
                                                     }
@@ -46079,7 +46245,8 @@
                                         "default": [],
                                         "items": {
                                             "type": "string"
-                                        }
+                                        },
+                                        "nullable": true
                                     },
                                     "replyToEmail": {
                                         "description": "Email address to reply to. If not set, defaults to the sender email address.",
@@ -94753,7 +94920,8 @@
                                         "description": "Repository ID of the repo linked to the site.",
                                         "type": "string",
                                         "default": "",
-                                        "example": "<PROVIDER_REPOSITORY_ID>"
+                                        "example": "<PROVIDER_REPOSITORY_ID>",
+                                        "nullable": true
                                     },
                                     "providerBranch": {
                                         "description": "Production branch for the repo linked to the site.",
@@ -97771,7 +97939,8 @@
                                         "type": "integer",
                                         "default": {},
                                         "example": 1,
-                                        "format": "int32"
+                                        "format": "int32",
+                                        "nullable": true
                                     },
                                     "allowedFileExtensions": {
                                         "description": "Allowed file extensions. Maximum of 100 extensions are allowed, each 64 characters long.",
@@ -97809,13 +97978,15 @@
                                                 ],
                                                 "title": "zstd"
                                             }
-                                        ]
+                                        ],
+                                        "nullable": true
                                     },
                                     "encryption": {
                                         "description": "Is encryption enabled? For file size above 20MB encryption is skipped even if it's enabled",
                                         "type": "boolean",
                                         "default": true,
-                                        "example": false
+                                        "example": false,
+                                        "nullable": true
                                     },
                                     "antivirus": {
                                         "description": "Is virus scanning enabled? For file size above 20MB AntiVirus scanning is skipped even if it's enabled",
@@ -105778,7 +105949,7 @@
                 "description": "Get column by ID.",
                 "responses": {
                     "200": {
-                        "description": "ColumnBoolean, or ColumnInteger, or ColumnFloat, or ColumnEmail, or ColumnEnum, or ColumnURL, or ColumnIP, or ColumnDatetime, or ColumnRelationship, or ColumnString",
+                        "description": "ColumnBoolean, or ColumnBigInt, or ColumnInteger, or ColumnFloat, or ColumnEmail, or ColumnEnum, or ColumnURL, or ColumnIP, or ColumnDatetime, or ColumnRelationship, or ColumnPoint, or ColumnLine, or ColumnPolygon, or ColumnVarchar, or ColumnText, or ColumnMediumtext, or ColumnLongtext, or ColumnString",
                         "content": {
                             "application\/json": {
                                 "schema": {
@@ -105797,6 +105968,26 @@
                                                         "type": {
                                                             "enum": [
                                                                 "boolean"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/columnBigint"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "bigint"
                                                             ]
                                                         }
                                                     }
@@ -105981,6 +106172,146 @@
                                                         "type": {
                                                             "enum": [
                                                                 "relationship"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/columnPoint"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "point"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/columnLine"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "linestring"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/columnPolygon"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "polygon"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/columnVarchar"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "varchar"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/columnText"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "text"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/columnMediumtext"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "mediumtext"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#\/components\/schemas\/columnLongtext"
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "enum": [
+                                                                "longtext"
                                                             ]
                                                         }
                                                     }
@@ -111659,7 +111990,8 @@
                                         "type": "string",
                                         "default": "",
                                         "example": "password",
-                                        "format": "password"
+                                        "format": "password",
+                                        "nullable": true
                                     },
                                     "name": {
                                         "description": "User name. Max length: 128 chars.",
@@ -112890,7 +113222,7 @@
                 "tags": [
                     "users"
                 ],
-                "description": "Enable or disable whether a user can impersonate other users. When impersonation headers are used, the request runs as the target user for API behavior, while internal audit logs still attribute the action to the original impersonator and store the impersonated target details only in internal audit payload data.\n",
+                "description": "Enable or disable whether a user can impersonate other users. When impersonation headers are used, the request runs as the target user for API behavior, while internal audit logs still attribute the action to the original impersonator and store the impersonated target details only in internal audit payload data. Account endpoints are read-only while impersonating: they report the target's account, and anything that would change it is refused, so an impersonator cannot alter the target's credentials or delete their account.\n",
                 "responses": {
                     "200": {
                         "description": "User",
@@ -117938,7 +118270,8 @@
                                         "description": "Is collection enabled? When set to 'disabled', users cannot access the collection but Server SDKs with and API key can still read and write to the collection. No data is lost when this is toggled.",
                                         "type": "boolean",
                                         "default": true,
-                                        "example": false
+                                        "example": false,
+                                        "nullable": true
                                     }
                                 },
                                 "required": [
@@ -134147,6 +134480,11 @@
                         "type": "string",
                         "description": "VCS (Version Control System) installation ID.",
                         "example": "5322"
+                    },
+                    "organizationUrl": {
+                        "type": "string",
+                        "description": "VCS (Version Control System) organization URL. Points at the configured instance, which is not the provider's own host for a self-hosted install.",
+                        "example": "https:\/\/github.com\/appwrite"
                     }
                 },
                 "required": [
@@ -134155,7 +134493,8 @@
                     "$updatedAt",
                     "provider",
                     "organization",
-                    "providerInstallationId"
+                    "providerInstallationId",
+                    "organizationUrl"
                 ],
                 "example": {
                     "$id": "5e5ea5c16897e",
@@ -134163,7 +134502,8 @@
                     "$updatedAt": "2020-10-15T06:38:00.000+00:00",
                     "provider": "github",
                     "organization": "appwrite",
-                    "providerInstallationId": "5322"
+                    "providerInstallationId": "5322",
+                    "organizationUrl": "https:\/\/github.com\/appwrite"
                 }
             },
             "providerRepository": {
