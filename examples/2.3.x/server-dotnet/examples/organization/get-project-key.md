@@ -10,7 +10,7 @@ Client client = new Client()
 
 Organization organization = new Organization(client);
 
-Key result = await organization.GetProjectKey(
+Appwrite.Models.Key result = await organization.GetProjectKey(
     projectId: "<PROJECT_ID>",
     keyId: "<KEY_ID>"
 );

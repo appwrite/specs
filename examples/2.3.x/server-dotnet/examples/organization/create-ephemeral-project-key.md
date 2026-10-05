@@ -11,9 +11,9 @@ Client client = new Client()
 
 Organization organization = new Organization(client);
 
-EphemeralKey result = await organization.CreateEphemeralProjectKey(
+Appwrite.Models.EphemeralKey result = await organization.CreateEphemeralProjectKey(
     projectId: "<PROJECT_ID>",
-    scopes: new List&lt;ProjectKeyScopes&gt; { ProjectKeyScopes.ProjectRead },
+    scopes: new List&lt;ProjectKeyScopes&gt; { ProjectKeyScopes.UsersRead },
     duration: 600
 );
 

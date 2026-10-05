@@ -10,7 +10,8 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 databases = Databases(client)
 
 result: TransactionList = databases.list_transactions(
-    queries = [] # optional
+    queries = [], # optional
+    total = False # optional
 )
 
 print(result.model_dump())

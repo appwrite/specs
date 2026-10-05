@@ -9,7 +9,9 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 sites = Sites(client)
 
-result: FrameworkList = sites.list_frameworks()
+result: FrameworkList = sites.list_frameworks(
+    total = False # optional
+)
 
 print(result.model_dump())
 ```

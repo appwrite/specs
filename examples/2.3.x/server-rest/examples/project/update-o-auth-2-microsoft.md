@@ -10,6 +10,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "applicationId": "<APPLICATION_ID>",
   "applicationSecret": "<APPLICATION_SECRET>",
   "tenant": "<TENANT>",
+  "prompt": [],
   "enabled": false
 }
 ```

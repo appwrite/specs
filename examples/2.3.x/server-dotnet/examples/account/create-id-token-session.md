@@ -11,7 +11,7 @@ Client client = new Client()
 
 Account account = new Account(client);
 
-Session result = await account.CreateIdTokenSession(
+Appwrite.Models.Session result = await account.CreateIdTokenSession(
     provider: IdTokenProvider.Apple,
     idToken: "<ID_TOKEN>",
     nonce: "<NONCE>", // optional

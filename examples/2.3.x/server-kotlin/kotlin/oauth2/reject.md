@@ -11,6 +11,6 @@ val client = Client()
 val oauth2 = Oauth2(client)
 
 val response = oauth2.reject(
-    grant_id = "<GRANT_ID>"
+    grantId = "<GRANT_ID>"
 )
 ```

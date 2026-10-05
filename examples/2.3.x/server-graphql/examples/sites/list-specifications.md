@@ -1,7 +1,8 @@
 ```graphql
 query {
     sitesListSpecifications(
-        type: "runtimes"
+        type: "runtimes",
+        total: false
     ) {
         total
         specifications {

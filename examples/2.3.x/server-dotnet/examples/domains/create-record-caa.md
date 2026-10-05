@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-DnsRecord result = await domains.CreateRecordCAA(
+Appwrite.Models.DnsRecord result = await domains.CreateRecordCAA(
     domainId: "<DOMAIN_ID>",
     name: "",
     value: "",

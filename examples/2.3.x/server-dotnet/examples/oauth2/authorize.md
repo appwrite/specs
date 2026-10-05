@@ -10,7 +10,7 @@ Client client = new Client()
 
 Oauth2 oauth2 = new Oauth2(client);
 
-Oauth2Authorize result = await oauth2.Authorize(
+Appwrite.Models.Oauth2Authorize result = await oauth2.Authorize(
     client_id: "<CLIENT_ID>", // optional
     redirect_uri: "https://example.com", // optional
     response_type: "", // optional

@@ -15,11 +15,11 @@ mutation {
         enabled
         clientId
         clientSecret
+        prompt
         wellKnownURL
         authorizationURL
         tokenURL
         userInfoURL
-        prompt
         maxAge
     }
 }

@@ -10,7 +10,7 @@ Client client = new Client()
 
 Account account = new Account(client);
 
-Token result = await account.CreateRecoveryOTP(
+Appwrite.Models.Token result = await account.CreateRecoveryOTP(
     email: "email@example.com",
     phrase: false // optional
 );

@@ -9,7 +9,9 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 console = Console(client)
 
-result: ConsoleOAuth2ProviderList = console.list_o_auth2_providers()
+result: ConsoleOAuth2ProviderList = console.list_o_auth2_providers(
+    total = False # optional
+)
 
 print(result.model_dump())
 ```

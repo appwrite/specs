@@ -2,7 +2,7 @@
 query {
     avatarsGetScreenshot(
         url: "https://example.com",
-        headers: "{\"Authorization\":\"Bearer token123\",\"X-Custom-Header\":\"value\"}",
+        headers: "{\"Accept-Language\":\"en-US,en;q=0.9\"}",
         viewportWidth: 1920,
         viewportHeight: 1080,
         scale: 2,

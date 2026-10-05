@@ -2,11 +2,11 @@
 mutation {
     messagingUpdatePush(
         messageId: "<MESSAGE_ID>",
+        title: "<TITLE>",
+        body: "<BODY>",
         topics: [],
         users: [],
         targets: [],
-        title: "<TITLE>",
-        body: "<BODY>",
         data: "{}",
         action: "<ACTION>",
         image: "<ID1:ID2>",
@@ -19,7 +19,8 @@ mutation {
         scheduledAt: "2020-10-15T06:38:00.000+00:00",
         contentAvailable: false,
         critical: false,
-        priority: "normal"
+        priority: "normal",
+        channelId: "<CHANNEL_ID>"
     ) {
         _id
         _createdAt

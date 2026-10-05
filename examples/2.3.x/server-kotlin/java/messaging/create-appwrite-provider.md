@@ -14,8 +14,8 @@ messaging.createAppwriteProvider(
     "<PROVIDER_ID>", // providerId
     "<NAME>", // name
     false, // enabled (optional)
-    0, // qos (optional)
-    0, // expiry (optional)
+    0L, // qos (optional)
+    0L, // expiry (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {
             error.printStackTrace();

@@ -17,7 +17,7 @@ result: Index = databases.create_index(
     collection_id = '<COLLECTION_ID>',
     key = '<KEY>',
     type = DatabasesIndexType.KEY,
-    attributes = [],
+    attributes = ["username"],
     orders = [OrderBy.ASC], # optional
     lengths = [] # optional
 )

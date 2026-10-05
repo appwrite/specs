@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-DomainTransferStatus result = await domains.GetTransferStatus(
+Appwrite.Models.DomainTransferStatus result = await domains.GetTransferStatus(
     domainId: "<DOMAIN_ID>"
 );
 

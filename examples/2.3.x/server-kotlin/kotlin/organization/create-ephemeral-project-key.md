@@ -13,7 +13,7 @@ val organization = Organization(client)
 
 val response = organization.createEphemeralProjectKey(
     projectId = "<PROJECT_ID>",
-    scopes = listOf(ProjectKeyScopes.PROJECT_READ),
+    scopes = listOf(ProjectKeyScopes.USERS_READ),
     duration = 600
 )
 ```

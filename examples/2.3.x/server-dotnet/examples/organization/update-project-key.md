@@ -11,11 +11,11 @@ Client client = new Client()
 
 Organization organization = new Organization(client);
 
-Key result = await organization.UpdateProjectKey(
+Appwrite.Models.Key result = await organization.UpdateProjectKey(
     projectId: "<PROJECT_ID>",
     keyId: "<KEY_ID>",
     name: "<NAME>",
-    scopes: new List&lt;ProjectKeyScopes&gt; { ProjectKeyScopes.ProjectRead },
+    scopes: new List&lt;ProjectKeyScopes&gt; { ProjectKeyScopes.UsersRead },
     expire: "2020-10-15T06:38:00.000+00:00" // optional
 );
 

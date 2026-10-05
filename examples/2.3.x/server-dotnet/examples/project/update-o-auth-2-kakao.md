@@ -1,5 +1,6 @@
 ```csharp
 using Appwrite;
+using Appwrite.Enums;
 using Appwrite.Models;
 using Appwrite.Services;
 
@@ -10,9 +11,10 @@ Client client = new Client()
 
 Project project = new Project(client);
 
-OAuth2Kakao result = await project.UpdateOAuth2Kakao(
+Appwrite.Models.OAuth2Kakao result = await project.UpdateOAuth2Kakao(
     clientId: "<CLIENT_ID>", // optional
     clientSecret: "<CLIENT_SECRET>", // optional
+    prompt: new List&lt;ProjectOAuth2KakaoPrompt&gt; { ProjectOAuth2KakaoPrompt.None }, // optional
     enabled: false // optional
 );
 

@@ -9,7 +9,9 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 locale = Locale(client)
 
-result: CurrencyList = locale.list_currencies()
+result: CurrencyList = locale.list_currencies(
+    total = False # optional
+)
 
 print(result.model_dump())
 ```

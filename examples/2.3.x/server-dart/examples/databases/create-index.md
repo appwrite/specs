@@ -14,7 +14,7 @@ Index result = await databases.createIndex(
     collectionId: '<COLLECTION_ID>',
     key: '<KEY>',
     type: enums.DatabasesIndexType.key,
-    attributes: [],
+    attributes: ["username"],
     orders: [enums.OrderBy.asc], // (optional)
     lengths: [], // (optional)
 );

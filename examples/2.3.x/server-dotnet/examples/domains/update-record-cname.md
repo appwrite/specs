@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-DnsRecord result = await domains.UpdateRecordCNAME(
+Appwrite.Models.DnsRecord result = await domains.UpdateRecordCNAME(
     domainId: "<DOMAIN_ID>",
     recordId: "<RECORD_ID>",
     name: "",

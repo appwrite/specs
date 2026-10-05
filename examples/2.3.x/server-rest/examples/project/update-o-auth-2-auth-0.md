@@ -10,6 +10,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "clientId": "<CLIENT_ID>",
   "clientSecret": "<CLIENT_SECRET>",
   "endpoint": "<ENDPOINT>",
+  "prompt": [],
   "enabled": false
 }
 ```

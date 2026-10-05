@@ -14,7 +14,15 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 	        "collectionId": "<COLLECTION_ID>",
 	        "documentId": "<DOCUMENT_ID>",
 	        "data": {
-	            "name": "Walter O'Brien"
+	            "embeddings": [
+	                0.12,
+	                -0.55,
+	                0.88,
+	                1.02
+	            ],
+	            "metadata": {
+	                "name": "First document"
+	            }
 	        }
 	    }
 	]

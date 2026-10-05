@@ -9,6 +9,6 @@ Client client = Client()
 Project project = Project(client);
 
 Project result = await project.updateLabels(
-    labels: [],
+    labels: ["production"],
 );
 ```

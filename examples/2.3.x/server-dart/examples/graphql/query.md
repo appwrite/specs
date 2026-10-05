@@ -9,6 +9,8 @@ Client client = Client()
 Graphql graphql = Graphql(client);
 
 Any result = await graphql.query(
-    query: {},
+    query: {
+        "query": "query { localeGet { ip } }"
+    },
 );
 ```

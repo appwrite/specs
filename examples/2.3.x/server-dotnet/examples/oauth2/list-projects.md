@@ -10,7 +10,7 @@ Client client = new Client()
 
 Oauth2 oauth2 = new Oauth2(client);
 
-Oauth2ProjectList result = await oauth2.ListProjects(
+Appwrite.Models.Oauth2ProjectList result = await oauth2.ListProjects(
     limit: 1, // optional
     offset: 0, // optional
     search: "<SEARCH>" // optional

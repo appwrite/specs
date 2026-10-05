@@ -3,7 +3,7 @@ mutation {
     tablesDBDeleteRows(
         databaseId: "<DATABASE_ID>",
         tableId: "<TABLE_ID>",
-        queries: [],
+        queries: ["{\"method\":\"equal\", \"attribute\":\"$id\", \"values\":[\"<ROW_ID>\"]}"],
         transactionId: "<TRANSACTION_ID>"
     ) {
         total

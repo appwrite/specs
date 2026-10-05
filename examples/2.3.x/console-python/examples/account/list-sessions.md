@@ -9,7 +9,9 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 account = Account(client)
 
-result: SessionList = account.list_sessions()
+result: SessionList = account.list_sessions(
+    total = False # optional
+)
 
 print(result.model_dump())
 ```

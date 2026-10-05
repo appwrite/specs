@@ -13,7 +13,7 @@ organization = Organization.new(client)
 
 result = organization.create_ephemeral_project_key(
     project_id: '<PROJECT_ID>',
-    scopes: [ProjectKeyScopes::PROJECT_READ],
+    scopes: [ProjectKeyScopes::USERS_READ],
     duration: 600
 )
 ```

@@ -9,6 +9,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 {
   "customerKey": "<CUSTOMER_KEY>",
   "customerSecret": "<CUSTOMER_SECRET>",
+  "prompt": [],
   "enabled": false
 }
 ```

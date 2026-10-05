@@ -9,7 +9,9 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 console = Console(client)
 
-result: ConsoleKeyScopeList = console.list_organization_scopes()
+result: ConsoleKeyScopeList = console.list_organization_scopes(
+    total = False # optional
+)
 
 print(result.model_dump())
 ```

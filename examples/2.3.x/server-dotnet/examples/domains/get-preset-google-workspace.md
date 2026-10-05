@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-DnsRecordsList result = await domains.GetPresetGoogleWorkspace(
+Appwrite.Models.DnsRecordsList result = await domains.GetPresetGoogleWorkspace(
     domainId: "<DOMAIN_ID>"
 );
 

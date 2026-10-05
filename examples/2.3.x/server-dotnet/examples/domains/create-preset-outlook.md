@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-DnsRecordsList result = await domains.CreatePresetOutlook(
+Appwrite.Models.DnsRecordsList result = await domains.CreatePresetOutlook(
     domainId: "<DOMAIN_ID>"
 );
 

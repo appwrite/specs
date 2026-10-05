@@ -9,6 +9,6 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 project = Project(client)
 
 result = project.create_smtp_test(
-    emails = []
+    emails = ["recipient@example.com"]
 )
 ```

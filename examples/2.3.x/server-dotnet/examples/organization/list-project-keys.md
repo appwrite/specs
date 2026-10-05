@@ -10,7 +10,7 @@ Client client = new Client()
 
 Organization organization = new Organization(client);
 
-KeyList result = await organization.ListProjectKeys(
+Appwrite.Models.KeyList result = await organization.ListProjectKeys(
     projectId: "<PROJECT_ID>",
     queries: new List<string>(), // optional
     total: false // optional

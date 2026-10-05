@@ -7,18 +7,18 @@ X-Appwrite-Response-Format: 2.3.0
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
+  "subject": "<SUBJECT>",
+  "content": "<CONTENT>",
   "topics": [],
   "users": [],
   "targets": [],
-  "subject": "<SUBJECT>",
-  "content": "<CONTENT>",
-  "draft": false,
-  "html": false,
   "cc": [],
   "bcc": [],
+  "attachments": [],
   "replyToEmail": "email@example.com",
   "replyToName": "<REPLY_TO_NAME>",
-  "scheduledAt": "2020-10-15T06:38:00.000+00:00",
-  "attachments": []
+  "draft": false,
+  "html": false,
+  "scheduledAt": "2020-10-15T06:38:00.000+00:00"
 }
 ```

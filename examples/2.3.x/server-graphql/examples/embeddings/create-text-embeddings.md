@@ -1,7 +1,7 @@
 ```graphql
 mutation {
     embeddingsCreateTextEmbeddings(
-        texts: [],
+        texts: ["Appwrite helps developers build applications.", "Find documents with semantic search."],
         model: "nomic-embed-text"
     ) {
         total

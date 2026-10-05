@@ -14,7 +14,7 @@ ColumnIndex result = await tablesDB.createIndex(
     tableId: '<TABLE_ID>',
     key: '<KEY>',
     type: enums.TablesDBIndexType.key,
-    columns: [],
+    columns: ["username"],
     orders: [enums.OrderBy.asc], // (optional)
     lengths: [], // (optional)
 );

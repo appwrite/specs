@@ -10,7 +10,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 project = Project(client)
 
 result: ProjectModel = project.update_labels(
-    labels = []
+    labels = ["production"]
 )
 
 print(result.model_dump())

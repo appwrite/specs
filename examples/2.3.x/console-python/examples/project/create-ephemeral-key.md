@@ -11,7 +11,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 project = Project(client)
 
 result: EphemeralKey = project.create_ephemeral_key(
-    scopes = [ProjectKeyScopes.PROJECT_READ],
+    scopes = [ProjectKeyScopes.USERS_READ],
     duration = 600
 )
 

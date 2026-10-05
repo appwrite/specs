@@ -17,7 +17,7 @@ result: ColumnIndex = tables_db.create_index(
     table_id = '<TABLE_ID>',
     key = '<KEY>',
     type = TablesDBIndexType.KEY,
-    columns = [],
+    columns = ["username"],
     orders = [OrderBy.ASC], # optional
     lengths = [] # optional
 )

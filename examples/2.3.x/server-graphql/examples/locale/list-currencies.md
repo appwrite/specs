@@ -1,6 +1,8 @@
 ```graphql
 query {
-    localeListCurrencies {
+    localeListCurrencies(
+        total: false
+    ) {
         total
         currencies {
             symbol

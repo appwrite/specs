@@ -1,6 +1,8 @@
 ```graphql
 query {
-    functionsListRuntimes {
+    functionsListRuntimes(
+        total: false
+    ) {
         total
         runtimes {
             _id

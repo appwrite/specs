@@ -9,7 +9,9 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 functions = Functions(client)
 
-result: RuntimeList = functions.list_runtimes()
+result: RuntimeList = functions.list_runtimes(
+    total = False # optional
+)
 
 print(result.model_dump())
 ```

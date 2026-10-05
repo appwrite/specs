@@ -15,10 +15,10 @@ domains.updateRecordSRV(
     "<RECORD_ID>", // recordId
     "", // name
     "<VALUE>", // value
-    1, // ttl
-    0, // priority
-    0, // weight
-    0, // port
+    1L, // ttl
+    0L, // priority
+    0L, // weight
+    0L, // port
     "<COMMENT>", // comment (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {

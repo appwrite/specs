@@ -7,6 +7,6 @@ X-Appwrite-Response-Format: 2.3.0
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
-  "labels": []
+  "labels": ["subscriber"]
 }
 ```

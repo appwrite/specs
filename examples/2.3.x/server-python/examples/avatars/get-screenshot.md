@@ -16,8 +16,7 @@ avatars = Avatars(client)
 result: bytes = avatars.get_screenshot(
     url = 'https://example.com',
     headers = {
-        "Authorization": "Bearer token123",
-        "X-Custom-Header": "value"
+        "Accept-Language": "en-US,en;q=0.9"
     }, # optional
     viewport_width = 1920, # optional
     viewport_height = 1080, # optional

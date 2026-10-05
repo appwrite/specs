@@ -9,7 +9,9 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 locale = Locale(client)
 
-result: ContinentList = locale.list_continents()
+result: ContinentList = locale.list_continents(
+    total = False # optional
+)
 
 print(result.model_dump())
 ```

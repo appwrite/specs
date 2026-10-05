@@ -10,7 +10,7 @@ Client client = new Client()
 
 Oauth2 oauth2 = new Oauth2(client);
 
-Oauth2Reject result = await oauth2.Reject(
+Appwrite.Models.Oauth2Reject result = await oauth2.Reject(
     grant_id: "<GRANT_ID>"
 );
 

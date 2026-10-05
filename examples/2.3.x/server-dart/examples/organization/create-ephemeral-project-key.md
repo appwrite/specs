@@ -11,7 +11,7 @@ Organization organization = Organization(client);
 
 EphemeralKey result = await organization.createEphemeralProjectKey(
     projectId: '<PROJECT_ID>',
-    scopes: [enums.ProjectKeyScopes.projectRead],
+    scopes: [enums.ProjectKeyScopes.usersRead],
     duration: 600,
 );
 ```

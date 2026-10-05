@@ -13,7 +13,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let result = organization.create_ephemeral_project_key(
         "<PROJECT_ID>",
-        vec![appwrite::enums::ProjectKeyScopes::ProjectRead],
+        vec![appwrite::enums::ProjectKeyScopes::UsersRead],
         600
     ).await?;
 

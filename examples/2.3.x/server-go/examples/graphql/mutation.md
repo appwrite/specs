@@ -18,7 +18,7 @@ func main() {
 	service := graphql.New(client)
 
 	response, err := service.Mutation(
-		[]interface{}{},
+		map[string]interface{}{"query": "mutation { accountUpdateName(name: \"Walter\") { name } }"},
 	)
 	fmt.Println(response, err)
 }

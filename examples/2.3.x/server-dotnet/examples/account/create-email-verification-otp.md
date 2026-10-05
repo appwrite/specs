@@ -10,7 +10,7 @@ Client client = new Client()
 
 Account account = new Account(client);
 
-Token result = await account.CreateEmailVerificationOTP(
+Appwrite.Models.Token result = await account.CreateEmailVerificationOTP(
     phrase: false // optional
 );
 

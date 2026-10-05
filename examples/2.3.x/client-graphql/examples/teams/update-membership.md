@@ -3,7 +3,7 @@ mutation {
     teamsUpdateMembership(
         teamId: "<TEAM_ID>",
         membershipId: "<MEMBERSHIP_ID>",
-        roles: []
+        roles: ["editor"]
     ) {
         _id
         _createdAt

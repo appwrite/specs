@@ -1,7 +1,8 @@
 ```graphql
 query {
     functionsListSpecifications(
-        type: "runtimes"
+        type: "runtimes",
+        total: false
     ) {
         total
         specifications {

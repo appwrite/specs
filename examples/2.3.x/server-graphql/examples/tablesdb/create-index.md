@@ -5,7 +5,7 @@ mutation {
         tableId: "<TABLE_ID>",
         key: "<KEY>",
         type: "key",
-        columns: [],
+        columns: ["username"],
         orders: [],
         lengths: []
     ) {

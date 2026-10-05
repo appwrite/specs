@@ -1,7 +1,7 @@
 ```graphql
 mutation {
     projectCreateEphemeralKey(
-        scopes: [],
+        scopes: ["users.read"],
         duration: 600
     ) {
         _id

@@ -2,6 +2,7 @@
 from appwrite_console.client import Client
 from appwrite_console.services.tables_db import TablesDB
 from appwrite_console.models import ColumnBoolean
+from appwrite_console.models import ColumnBigint
 from appwrite_console.models import ColumnInteger
 from appwrite_console.models import ColumnFloat
 from appwrite_console.models import ColumnEmail
@@ -10,6 +11,13 @@ from appwrite_console.models import ColumnUrl
 from appwrite_console.models import ColumnIp
 from appwrite_console.models import ColumnDatetime
 from appwrite_console.models import ColumnRelationship
+from appwrite_console.models import ColumnPoint
+from appwrite_console.models import ColumnLine
+from appwrite_console.models import ColumnPolygon
+from appwrite_console.models import ColumnVarchar
+from appwrite_console.models import ColumnText
+from appwrite_console.models import ColumnMediumtext
+from appwrite_console.models import ColumnLongtext
 from appwrite_console.models import ColumnString
 from typing import Union
 
@@ -19,7 +27,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 tables_db = TablesDB(client)
 
-result: Union[ColumnBoolean, ColumnInteger, ColumnFloat, ColumnEmail, ColumnEnum, ColumnUrl, ColumnIp, ColumnDatetime, ColumnRelationship, ColumnString] = tables_db.get_column(
+result: Union[ColumnBoolean, ColumnBigint, ColumnInteger, ColumnFloat, ColumnEmail, ColumnEnum, ColumnUrl, ColumnIp, ColumnDatetime, ColumnRelationship, ColumnPoint, ColumnLine, ColumnPolygon, ColumnVarchar, ColumnText, ColumnMediumtext, ColumnLongtext, ColumnString] = tables_db.get_column(
     database_id = '<DATABASE_ID>',
     table_id = '<TABLE_ID>',
     key = '<KEY>'

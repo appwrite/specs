@@ -2,7 +2,8 @@
 mutation {
     accountCreateEmailPasswordSession(
         email: "email@example.com",
-        password: "password"
+        password: "password",
+        duration: 60
     ) {
         _id
         _createdAt

@@ -9,6 +9,8 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 graphql = Graphql(client)
 
 result = graphql.query(
-    query = {}
+    query = {
+        "query": "query { localeGet { ip } }"
+    }
 )
 ```

@@ -10,7 +10,7 @@ Client client = new Client()
 
 Project project = new Project(client);
 
-Project result = await project.UpdatePasswordPwnedPolicy(
+Appwrite.Models.Project result = await project.UpdatePasswordPwnedPolicy(
     enabled: false, // optional
     sessions: false, // optional
     users: false // optional

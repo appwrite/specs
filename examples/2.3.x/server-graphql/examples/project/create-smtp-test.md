@@ -1,7 +1,7 @@
 ```graphql
 mutation {
     projectCreateSMTPTest(
-        emails: []
+        emails: ["recipient@example.com"]
     ) {
         status
     }

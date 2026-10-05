@@ -15,7 +15,7 @@ domains.updateRecordCNAME(
     "<RECORD_ID>", // recordId
     "", // name
     "<VALUE>", // value
-    1, // ttl
+    1L, // ttl
     "<COMMENT>", // comment (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {

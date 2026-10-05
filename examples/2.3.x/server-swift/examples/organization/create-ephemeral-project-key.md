@@ -11,7 +11,7 @@ let organization = Organization(client)
 
 let ephemeralKey = try await organization.createEphemeralProjectKey(
     projectId: "<PROJECT_ID>",
-    scopes: [.projectRead],
+    scopes: [.usersRead],
     duration: 600
 )
 
