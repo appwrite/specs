@@ -15,7 +15,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 usage = Usage(client)
 
 result: UsageEventList = usage.list_events(
-    metrics = [UsageEventMetric.NETWORK_REQUESTS],
+    metrics = [UsageEventMetric.ANALYTICS_EVENTS],
     queries = [], # optional
     interval = UsageInterval.ONE_MINUTE, # optional
     dimensions = [UsageEventDimension.PATH], # optional

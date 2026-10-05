@@ -11,8 +11,8 @@ val client = Client()
 val oauth2 = Oauth2(client)
 
 val response = oauth2.approve(
-    grant_id = "<GRANT_ID>",
-    authorization_details = "<AUTHORIZATION_DETAILS>", // optional
+    grantId = "<GRANT_ID>",
+    authorizationDetails = "<AUTHORIZATION_DETAILS>", // optional
     scope = "<SCOPE>" // optional
 )
 ```

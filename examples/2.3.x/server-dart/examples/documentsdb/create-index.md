@@ -14,7 +14,7 @@ Index result = await documentsDB.createIndex(
     collectionId: '<COLLECTION_ID>',
     key: '<KEY>',
     type: enums.DocumentsDBIndexType.key,
-    attributes: [],
+    attributes: ["username"],
     orders: [enums.OrderBy.asc], // (optional)
     lengths: [], // (optional)
 );

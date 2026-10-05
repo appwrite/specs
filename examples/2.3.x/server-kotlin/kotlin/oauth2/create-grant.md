@@ -11,6 +11,6 @@ val client = Client()
 val oauth2 = Oauth2(client)
 
 val response = oauth2.createGrant(
-    user_code = "<USER_CODE>"
+    userCode = "<USER_CODE>"
 )
 ```

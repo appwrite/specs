@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-XDomain result = await domains.UpdateNameservers(
+Appwrite.Models.XDomain result = await domains.UpdateNameservers(
     domainId: "<DOMAIN_ID>",
     nameservers: new List<string>() // optional
 );

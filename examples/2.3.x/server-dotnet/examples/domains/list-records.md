@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-DnsRecordsList result = await domains.ListRecords(
+Appwrite.Models.DnsRecordsList result = await domains.ListRecords(
     domainId: "<DOMAIN_ID>",
     queries: new List<string>() // optional
 );

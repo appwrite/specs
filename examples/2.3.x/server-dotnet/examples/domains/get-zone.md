@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
- result = await domains.GetZone(
+string result = await domains.GetZone(
     domainId: "<DOMAIN_ID>"
 );
 

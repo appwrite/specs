@@ -3,7 +3,7 @@ mutation {
     databasesDeleteDocuments(
         databaseId: "<DATABASE_ID>",
         collectionId: "<COLLECTION_ID>",
-        queries: [],
+        queries: ["{\"method\":\"equal\", \"attribute\":\"$id\", \"values\":[\"<DOCUMENT_ID>\"]}"],
         transactionId: "<TRANSACTION_ID>"
     ) {
         total

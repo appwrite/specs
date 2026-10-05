@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-XDomain result = await domains.UpdateZone(
+Appwrite.Models.XDomain result = await domains.UpdateZone(
     domainId: "<DOMAIN_ID>",
     content: "<CONTENT>"
 );

@@ -1,6 +1,8 @@
 ```graphql
 query {
-    localeListLanguages {
+    localeListLanguages(
+        total: false
+    ) {
         total
         languages {
             name

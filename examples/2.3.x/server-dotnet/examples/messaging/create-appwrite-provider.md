@@ -10,7 +10,7 @@ Client client = new Client()
 
 Messaging messaging = new Messaging(client);
 
-Provider result = await messaging.CreateAppwriteProvider(
+Appwrite.Models.Provider result = await messaging.CreateAppwriteProvider(
     providerId: "<PROVIDER_ID>",
     name: "<NAME>",
     enabled: false, // optional

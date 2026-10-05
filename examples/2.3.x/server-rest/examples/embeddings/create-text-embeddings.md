@@ -7,7 +7,7 @@ X-Appwrite-Response-Format: 2.3.0
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
-  "texts": [],
+  "texts": ["Appwrite helps developers build applications.", "Find documents with semantic search."],
   "model": "nomic-embed-text"
 }
 ```

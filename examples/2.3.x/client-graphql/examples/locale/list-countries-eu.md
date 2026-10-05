@@ -1,6 +1,8 @@
 ```graphql
 query {
-    localeListCountriesEU {
+    localeListCountriesEU(
+        total: false
+    ) {
         total
         countries {
             name

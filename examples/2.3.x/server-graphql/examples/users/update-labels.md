@@ -2,7 +2,7 @@
 mutation {
     usersUpdateLabels(
         userId: "<USER_ID>",
-        labels: []
+        labels: ["subscriber"]
     ) {
         _id
         _createdAt

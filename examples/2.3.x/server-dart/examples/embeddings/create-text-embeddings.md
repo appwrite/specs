@@ -10,7 +10,7 @@ Client client = Client()
 Embeddings embeddings = Embeddings(client);
 
 EmbeddingList result = await embeddings.createTextEmbeddings(
-    texts: [],
+    texts: ["Appwrite helps developers build applications.", "Find documents with semantic search."],
     model: enums.EmbeddingModel.nomicEmbedText, // (optional)
 );
 ```

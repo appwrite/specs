@@ -13,7 +13,8 @@ result: BranchList = vcs.list_repository_branches(
     installation_id = '<INSTALLATION_ID>',
     provider_repository_id = '<PROVIDER_REPOSITORY_ID>',
     search = '<SEARCH>', # optional
-    queries = [] # optional
+    queries = [], # optional
+    total = False # optional
 )
 
 print(result.model_dump())

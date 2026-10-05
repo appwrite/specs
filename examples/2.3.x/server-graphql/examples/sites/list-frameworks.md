@@ -1,6 +1,8 @@
 ```graphql
 query {
-    sitesListFrameworks {
+    sitesListFrameworks(
+        total: false
+    ) {
         total
         frameworks {
             key

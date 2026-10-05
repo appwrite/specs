@@ -13,8 +13,8 @@ Organization organization = new Organization(client);
 
 organization.createEphemeralProjectKey(
     "<PROJECT_ID>", // projectId
-    List.of(ProjectKeyScopes.PROJECT_READ), // scopes
-    600, // duration
+    List.of(ProjectKeyScopes.USERS_READ), // scopes
+    600L, // duration
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {
             error.printStackTrace();

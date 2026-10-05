@@ -1,6 +1,8 @@
 ```graphql
 mutation {
-    accountDeleteSessions {
+    accountDeleteSessions(
+        current: false
+    ) {
         status
     }
 }

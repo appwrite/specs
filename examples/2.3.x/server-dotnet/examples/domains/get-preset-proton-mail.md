@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-DnsRecordsList result = await domains.GetPresetProtonMail(
+Appwrite.Models.DnsRecordsList result = await domains.GetPresetProtonMail(
     domainId: "<DOMAIN_ID>"
 );
 

@@ -12,7 +12,7 @@ client.set_key('<YOUR_API_KEY>') # Your secret API key
 project = Project(client)
 
 result: EphemeralKey = project.create_ephemeral_key(
-    scopes = [ProjectKeyScopes.PROJECT_READ],
+    scopes = [ProjectKeyScopes.USERS_READ],
     duration = 600
 )
 

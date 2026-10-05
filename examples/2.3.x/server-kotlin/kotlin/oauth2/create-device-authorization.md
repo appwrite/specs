@@ -11,9 +11,9 @@ val client = Client()
 val oauth2 = Oauth2(client)
 
 val response = oauth2.createDeviceAuthorization(
-    client_id = "<CLIENT_ID>", // optional
+    clientId = "<CLIENT_ID>", // optional
     scope = "<SCOPE>", // optional
-    authorization_details = "<AUTHORIZATION_DETAILS>", // optional
+    authorizationDetails = "<AUTHORIZATION_DETAILS>", // optional
     resource = "", // optional
     audience = "<AUDIENCE>" // optional
 )

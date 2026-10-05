@@ -15,7 +15,7 @@ result = organization.update_project_key(
     project_id: '<PROJECT_ID>',
     key_id: '<KEY_ID>',
     name: '<NAME>',
-    scopes: [ProjectKeyScopes::PROJECT_READ],
+    scopes: [ProjectKeyScopes::USERS_READ],
     expire: '2020-10-15T06:38:00.000+00:00' # optional
 )
 ```

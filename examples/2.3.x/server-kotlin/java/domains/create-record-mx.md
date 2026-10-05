@@ -14,8 +14,8 @@ domains.createRecordMX(
     "<DOMAIN_ID>", // domainId
     "", // name
     "<VALUE>", // value
-    1, // ttl
-    0, // priority
+    1L, // ttl
+    0L, // priority
     "<COMMENT>", // comment (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {

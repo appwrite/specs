@@ -1,6 +1,8 @@
 ```graphql
 query {
-    accountListSessions {
+    accountListSessions(
+        total: false
+    ) {
         total
         sessions {
             _id

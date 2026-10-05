@@ -1,7 +1,8 @@
 ```graphql
 query {
     vectorsDBListTransactions(
-        queries: []
+        queries: [],
+        total: false
     ) {
         total
         transactions {

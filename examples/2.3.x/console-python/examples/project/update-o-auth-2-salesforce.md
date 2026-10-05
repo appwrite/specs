@@ -2,6 +2,7 @@
 from appwrite_console.client import Client
 from appwrite_console.services.project import Project
 from appwrite_console.models import OAuth2Salesforce
+from appwrite_console.enums import ProjectOAuth2SalesforcePrompt
 
 client = Client()
 client.set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
@@ -12,6 +13,7 @@ project = Project(client)
 result: OAuth2Salesforce = project.update_o_auth2_salesforce(
     customer_key = '<CUSTOMER_KEY>', # optional
     customer_secret = '<CUSTOMER_SECRET>', # optional
+    prompt = [ProjectOAuth2SalesforcePrompt.LOGIN], # optional
     enabled = False # optional
 )
 

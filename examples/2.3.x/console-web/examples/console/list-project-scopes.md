@@ -7,7 +7,9 @@ const client = new Client()
 
 const xconsole = new Console(client);
 
-const result = await xconsole.listProjectScopes();
+const result = await xconsole.listProjectScopes({
+    total: false, // optional
+});
 
 console.log(result);
 ```

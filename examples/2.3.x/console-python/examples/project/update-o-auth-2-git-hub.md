@@ -2,6 +2,7 @@
 from appwrite_console.client import Client
 from appwrite_console.services.project import Project
 from appwrite_console.models import OAuth2Github
+from appwrite_console.enums import ProjectOAuth2GitHubPrompt
 
 client = Client()
 client.set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
@@ -12,6 +13,7 @@ project = Project(client)
 result: OAuth2Github = project.update_o_auth2_git_hub(
     client_id = '<CLIENT_ID>', # optional
     client_secret = '<CLIENT_SECRET>', # optional
+    prompt = [ProjectOAuth2GitHubPrompt.SELECT_ACCOUNT], # optional
     enabled = False # optional
 )
 

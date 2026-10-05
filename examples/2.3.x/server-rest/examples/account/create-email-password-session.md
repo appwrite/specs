@@ -8,6 +8,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
   "email": "email@example.com",
-  "password": "password"
+  "password": "password",
+  "duration": 60
 }
 ```

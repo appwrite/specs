@@ -10,6 +10,6 @@ Users users = Users(client);
 
 User result = await users.updateLabels(
     userId: '<USER_ID>',
-    labels: [],
+    labels: ["subscriber"],
 );
 ```

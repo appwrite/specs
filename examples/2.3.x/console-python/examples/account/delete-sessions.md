@@ -8,5 +8,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 account = Account(client)
 
-result = account.delete_sessions()
+result = account.delete_sessions(
+    current = False # optional
+)
 ```

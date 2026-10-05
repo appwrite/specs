@@ -8,7 +8,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
   "name": "<NAME>",
-  "scopes": [],
+  "scopes": ["users.read"],
   "expire": "2020-10-15T06:38:00.000+00:00"
 }
 ```

@@ -11,8 +11,8 @@ Client client = new Client()
 Oauth2 oauth2 = new Oauth2(client);
 
 oauth2.listProjects(
-    1, // limit (optional)
-    0, // offset (optional)
+    1L, // limit (optional)
+    0L, // offset (optional)
     "<SEARCH>", // search (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {

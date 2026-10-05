@@ -4,7 +4,7 @@ mutation {
         webhookId: "<WEBHOOK_ID>",
         url: "https://example.com/webhook",
         name: "<NAME>",
-        events: [],
+        events: ["users.*.create"],
         enabled: false,
         tls: false,
         authUsername: "<AUTH_USERNAME>",

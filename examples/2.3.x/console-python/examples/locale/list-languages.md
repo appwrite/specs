@@ -9,7 +9,9 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 locale = Locale(client)
 
-result: LanguageList = locale.list_languages()
+result: LanguageList = locale.list_languages(
+    total = False # optional
+)
 
 print(result.model_dump())
 ```

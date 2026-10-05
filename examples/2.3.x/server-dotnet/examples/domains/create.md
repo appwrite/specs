@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-XDomain result = await domains.Create(
+Appwrite.Models.XDomain result = await domains.Create(
     teamId: "<TEAM_ID>",
     domain: "example.com"
 );

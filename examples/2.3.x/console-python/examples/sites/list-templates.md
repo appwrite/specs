@@ -15,7 +15,8 @@ result: TemplateSiteList = sites.list_templates(
     frameworks = [Framework.ANALOG], # optional
     use_cases = [SiteTemplateUseCase.PORTFOLIO], # optional
     limit = 1, # optional
-    offset = 0 # optional
+    offset = 0, # optional
+    total = False # optional
 )
 
 print(result.model_dump())

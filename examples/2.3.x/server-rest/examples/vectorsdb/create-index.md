@@ -9,7 +9,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 {
   "key": "<KEY>",
   "type": "hnsw_euclidean",
-  "attributes": [],
+  "attributes": ["embeddings"],
   "orders": [],
   "lengths": []
 }

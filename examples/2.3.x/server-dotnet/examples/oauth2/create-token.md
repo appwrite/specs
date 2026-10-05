@@ -10,7 +10,7 @@ Client client = new Client()
 
 Oauth2 oauth2 = new Oauth2(client);
 
-Oauth2Token result = await oauth2.CreateToken(
+Appwrite.Models.Oauth2Token result = await oauth2.CreateToken(
     grant_type: "<GRANT_TYPE>",
     code: "<CODE>", // optional
     refresh_token: "<REFRESH_TOKEN>", // optional

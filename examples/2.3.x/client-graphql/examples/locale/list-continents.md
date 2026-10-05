@@ -1,6 +1,8 @@
 ```graphql
 query {
-    localeListContinents {
+    localeListContinents(
+        total: false
+    ) {
         total
         continents {
             name

@@ -4,7 +4,7 @@ mutation {
         databaseId: "<DATABASE_ID>",
         collectionId: "<COLLECTION_ID>",
         name: "<NAME>",
-        dimension: 1,
+        dimension: 4,
         permissions: ["read(\"any\")"],
         documentSecurity: false,
         enabled: false

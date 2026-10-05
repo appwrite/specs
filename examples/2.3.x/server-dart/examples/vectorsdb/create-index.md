@@ -14,7 +14,7 @@ Index result = await vectorsDB.createIndex(
     collectionId: '<COLLECTION_ID>',
     key: '<KEY>',
     type: enums.VectorsDBIndexType.hnswEuclidean,
-    attributes: [],
+    attributes: ["embeddings"],
     orders: [enums.OrderBy.asc], // (optional)
     lengths: [], // (optional)
 );

@@ -10,7 +10,7 @@ Client client = new Client()
 
 Oauth2 oauth2 = new Oauth2(client);
 
-Oauth2Grant result = await oauth2.GetGrant(
+Appwrite.Models.Oauth2Grant result = await oauth2.GetGrant(
     grant_id: "<GRANT_ID>"
 );
 

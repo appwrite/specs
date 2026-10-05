@@ -10,7 +10,7 @@ Client client = new Client()
 
 Project project = new Project(client);
 
-OAuth2TikTok result = await project.UpdateOAuth2TikTok(
+Appwrite.Models.OAuth2TikTok result = await project.UpdateOAuth2TikTok(
     clientId: "<CLIENT_ID>", // optional
     clientSecret: "<CLIENT_SECRET>", // optional
     enabled: false // optional

@@ -2,7 +2,7 @@
 mutation {
     teamsCreateMembership(
         teamId: "<TEAM_ID>",
-        roles: [],
+        roles: ["editor"],
         email: "email@example.com",
         userId: "<USER_ID>",
         phone: "+12065550100",

@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-XDomain result = await domains.VerifyNameservers(
+Appwrite.Models.XDomain result = await domains.VerifyNameservers(
     domainId: "<DOMAIN_ID>"
 );
 

@@ -14,7 +14,7 @@ $organization = new Organization($client);
 
 $result = $organization->createEphemeralProjectKey(
     projectId: '<PROJECT_ID>',
-    scopes: [ProjectKeyScopes::PROJECTREAD()],
+    scopes: [ProjectKeyScopes::USERSREAD()],
     duration: 600
 );
 ```

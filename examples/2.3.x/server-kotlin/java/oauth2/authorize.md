@@ -20,7 +20,7 @@ oauth2.authorize(
     "<CODE_CHALLENGE>", // code_challenge (optional)
     "s256", // code_challenge_method (optional)
     "<PROMPT>", // prompt (optional)
-    0, // max_age (optional)
+    0L, // max_age (optional)
     "<AUTHORIZATION_DETAILS>", // authorization_details (optional)
     "", // resource (optional)
     "<AUDIENCE>", // audience (optional)

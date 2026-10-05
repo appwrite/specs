@@ -10,7 +10,8 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 functions = Functions(client)
 
 result: SpecificationList = functions.list_specifications(
-    type = 'runtimes' # optional
+    type = 'runtimes', # optional
+    total = False # optional
 )
 
 print(result.model_dump())

@@ -10,7 +10,7 @@ Client client = new Client()
 
 Oauth2 oauth2 = new Oauth2(client);
 
-Oauth2PAR result = await oauth2.CreatePAR(
+Appwrite.Models.Oauth2PAR result = await oauth2.CreatePAR(
     client_id: "<CLIENT_ID>",
     redirect_uri: "https://example.com",
     response_type: "code",

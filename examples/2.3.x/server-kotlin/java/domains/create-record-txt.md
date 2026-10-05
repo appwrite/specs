@@ -13,7 +13,7 @@ Domains domains = new Domains(client);
 domains.createRecordTXT(
     "<DOMAIN_ID>", // domainId
     "", // name
-    1, // ttl
+    1L, // ttl
     "<VALUE>", // value (optional)
     "<COMMENT>", // comment (optional)
     new CoroutineCallback<>((result, error) -> {

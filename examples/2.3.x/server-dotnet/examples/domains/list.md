@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-DomainsList result = await domains.List(
+Appwrite.Models.DomainsList result = await domains.List(
     queries: new List<string>(), // optional
     search: "<SEARCH>" // optional
 );

@@ -16,7 +16,8 @@ result: Union[ProviderRepositoryRuntimeList, ProviderRepositoryFrameworkList] = 
     installation_id = '<INSTALLATION_ID>',
     type = VCSDetectionType.RUNTIME,
     search = '<SEARCH>', # optional
-    queries = [] # optional
+    queries = [], # optional
+    total = False # optional
 )
 
 print(result.model_dump())

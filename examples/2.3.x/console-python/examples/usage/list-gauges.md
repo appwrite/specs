@@ -15,7 +15,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 usage = Usage(client)
 
 result: UsageGaugeList = usage.list_gauges(
-    metrics = [UsageGaugeMetric.TEAMS],
+    metrics = [UsageGaugeMetric.ANALYTICS_PROPERTIES],
     queries = [], # optional
     interval = UsageInterval.ONE_MINUTE, # optional
     dimensions = [UsageGaugeDimension.RESOURCEID], # optional

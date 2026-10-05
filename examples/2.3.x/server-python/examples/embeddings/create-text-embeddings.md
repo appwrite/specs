@@ -12,7 +12,7 @@ client.set_key('<YOUR_API_KEY>') # Your secret API key
 embeddings = Embeddings(client)
 
 result: EmbeddingList = embeddings.create_text_embeddings(
-    texts = [],
+    texts = ["Appwrite helps developers build applications.", "Find documents with semantic search."],
     model = EmbeddingModel.NOMIC_EMBED_TEXT # optional
 )
 

@@ -1,7 +1,7 @@
 ```graphql
 mutation {
     projectUpdateLabels(
-        labels: []
+        labels: ["production"]
     ) {
         _id
         _createdAt

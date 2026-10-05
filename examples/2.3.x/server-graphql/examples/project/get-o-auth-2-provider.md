@@ -7,6 +7,7 @@ query {
         enabled
         clientId
         clientSecret
+        prompt
     }
 }
 ```

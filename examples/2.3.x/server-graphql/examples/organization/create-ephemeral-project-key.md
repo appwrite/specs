@@ -2,7 +2,7 @@
 mutation {
     organizationCreateEphemeralProjectKey(
         projectId: "<PROJECT_ID>",
-        scopes: [],
+        scopes: ["users.read"],
         duration: 600
     ) {
         _id

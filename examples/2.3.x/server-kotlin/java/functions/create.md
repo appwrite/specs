@@ -19,7 +19,7 @@ functions.create(
     List.of("any"), // execute (optional)
     List.of(), // events (optional)
     "0 0 * * *", // schedule (optional)
-    1, // timeout (optional)
+    1L, // timeout (optional)
     false, // enabled (optional)
     false, // logging (optional)
     "<ENTRYPOINT>", // entrypoint (optional)
@@ -34,7 +34,7 @@ functions.create(
     List.of(), // providerPaths (optional)
     "s-1vcpu-512mb", // buildSpecification (optional)
     "s-1vcpu-512mb", // runtimeSpecification (optional)
-    0, // deploymentRetention (optional)
+    0L, // deploymentRetention (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {
             error.printStackTrace();

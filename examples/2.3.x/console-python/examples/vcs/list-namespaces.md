@@ -12,7 +12,8 @@ vcs = Vcs(client)
 result: VcsNamespaceList = vcs.list_namespaces(
     installation_id = '<INSTALLATION_ID>',
     search = '<SEARCH>', # optional
-    queries = [] # optional
+    queries = [], # optional
+    total = False # optional
 )
 
 print(result.model_dump())

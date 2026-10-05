@@ -9,7 +9,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
 {
   "key": "<KEY>",
   "type": "key",
-  "attributes": [],
+  "attributes": ["username"],
   "orders": [],
   "lengths": []
 }

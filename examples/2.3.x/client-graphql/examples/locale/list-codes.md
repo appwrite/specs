@@ -1,6 +1,8 @@
 ```graphql
 query {
-    localeListCodes {
+    localeListCodes(
+        total: false
+    ) {
         total
         localeCodes {
             code

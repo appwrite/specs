@@ -5,7 +5,7 @@ mutation {
         collectionId: "<COLLECTION_ID>",
         key: "<KEY>",
         type: "hnsw_euclidean",
-        attributes: [],
+        attributes: ["embeddings"],
         orders: [],
         lengths: []
     ) {

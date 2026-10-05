@@ -9,6 +9,8 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 graphql = Graphql(client)
 
 result = graphql.mutation(
-    query = {}
+    query = {
+        "query": "mutation { accountUpdateName(name: \"Walter\") { name } }"
+    }
 )
 ```

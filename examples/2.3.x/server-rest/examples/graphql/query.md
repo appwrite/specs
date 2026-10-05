@@ -8,6 +8,8 @@ X-Appwrite-Response-Format: 2.3.0
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
-  "query": {}
+  "query": {
+  "query": "query { localeGet { ip } }"
+  }
 }
 ```

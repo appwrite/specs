@@ -10,7 +10,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "email": "email@example.com",
   "userId": "<USER_ID>",
   "phone": "+12065550100",
-  "roles": [],
+  "roles": ["editor"],
   "url": "https://example.com",
   "name": "<NAME>"
 }

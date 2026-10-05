@@ -11,7 +11,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 embeddings = Embeddings(client)
 
 result: EmbeddingList = embeddings.create_text_embeddings(
-    texts = [],
+    texts = ["Appwrite helps developers build applications.", "Find documents with semantic search."],
     model = EmbeddingModel.NOMIC_EMBED_TEXT # optional
 )
 

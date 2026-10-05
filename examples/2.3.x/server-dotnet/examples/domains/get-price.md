@@ -11,7 +11,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-DomainPrice result = await domains.GetPrice(
+Appwrite.Models.DomainPrice result = await domains.GetPrice(
     domain: "example.com",
     periodYears: 0, // optional
     registrationType: DomainRegistrationType.New // optional

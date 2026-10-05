@@ -10,7 +10,7 @@ Client client = new Client()
 
 Oauth2 oauth2 = new Oauth2(client);
 
-Oauth2OrganizationList result = await oauth2.ListOrganizations(
+Appwrite.Models.Oauth2OrganizationList result = await oauth2.ListOrganizations(
     limit: 1, // optional
     offset: 0, // optional
     search: "<SEARCH>" // optional

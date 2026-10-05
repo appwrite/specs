@@ -13,7 +13,7 @@ Domains domains = new Domains(client);
 
 domains.listPrices(
     List.of(), // domains
-    0, // periodYears (optional)
+    0L, // periodYears (optional)
     DomainRegistrationType.NEW, // registrationType (optional)
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {

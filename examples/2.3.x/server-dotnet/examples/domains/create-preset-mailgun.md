@@ -10,7 +10,7 @@ Client client = new Client()
 
 Domains domains = new Domains(client);
 
-DnsRecordsList result = await domains.CreatePresetMailgun(
+Appwrite.Models.DnsRecordsList result = await domains.CreatePresetMailgun(
     domainId: "<DOMAIN_ID>"
 );
 

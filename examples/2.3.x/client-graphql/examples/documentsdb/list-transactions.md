@@ -1,7 +1,8 @@
 ```graphql
 query {
     documentsDBListTransactions(
-        queries: []
+        queries: [],
+        total: false
     ) {
         total
         transactions {
