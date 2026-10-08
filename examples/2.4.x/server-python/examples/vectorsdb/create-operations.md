@@ -1,0 +1,37 @@
+```python
+from appwrite.client import Client
+from appwrite.services.vectors_db import VectorsDB
+from appwrite.models import Transaction
+
+client = Client()
+client.set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
+client.set_project('<YOUR_PROJECT_ID>') # Your project ID
+client.set_key('<YOUR_API_KEY>') # Your secret API key
+
+vectors_db = VectorsDB(client)
+
+result: Transaction = vectors_db.create_operations(
+    transaction_id = '<TRANSACTION_ID>',
+    operations = [
+	    {
+	        "action": "create",
+	        "databaseId": "<DATABASE_ID>",
+	        "collectionId": "<COLLECTION_ID>",
+	        "documentId": "<DOCUMENT_ID>",
+	        "data": {
+	            "embeddings": [
+	                0.12,
+	                -0.55,
+	                0.88,
+	                1.02
+	            ],
+	            "metadata": {
+	                "name": "First document"
+	            }
+	        }
+	    }
+	] # optional
+)
+
+print(result.model_dump())
+```
