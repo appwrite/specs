@@ -22,7 +22,7 @@ Appwrite.Models.Oauth2PAR result = await oauth2.CreatePAR(
     prompt: "<PROMPT>", // optional
     max_age: 0, // optional
     authorization_details: "<AUTHORIZATION_DETAILS>", // optional
-    resource: "", // optional
+    resource: new List<string>(), // optional
     audience: "<AUDIENCE>" // optional
 );
 

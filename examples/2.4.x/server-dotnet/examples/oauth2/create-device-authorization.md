@@ -14,7 +14,7 @@ Appwrite.Models.Oauth2DeviceAuthorization result = await oauth2.CreateDeviceAuth
     client_id: "<CLIENT_ID>", // optional
     scope: "<SCOPE>", // optional
     authorization_details: "<AUTHORIZATION_DETAILS>", // optional
-    resource: "", // optional
+    resource: new List<string>(), // optional
     audience: "<AUDIENCE>" // optional
 );
 

@@ -8,7 +8,7 @@ Client client = Client()
 
 Project project = Project(client);
 
- result = await project.createSMTPTest(
+models. result = await project.createSMTPTest(
     emails: ["recipient@example.com"],
 );
 ```

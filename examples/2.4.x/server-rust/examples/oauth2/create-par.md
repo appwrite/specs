@@ -23,7 +23,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Some("<PROMPT>"), // optional
         Some(0), // optional
         Some("<AUTHORIZATION_DETAILS>"), // optional
-        Some(""), // optional
+        Some(vec![]), // optional
         Some("<AUDIENCE>") // optional
     ).await?;
 

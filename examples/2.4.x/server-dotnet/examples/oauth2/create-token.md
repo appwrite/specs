@@ -19,7 +19,7 @@ Appwrite.Models.Oauth2Token result = await oauth2.CreateToken(
     client_secret: "<CLIENT_SECRET>", // optional
     code_verifier: "<CODE_VERIFIER>", // optional
     redirect_uri: "https://example.com", // optional
-    resource: "", // optional
+    resource: new List<string>(), // optional
     audience: "<AUDIENCE>" // optional
 );
 

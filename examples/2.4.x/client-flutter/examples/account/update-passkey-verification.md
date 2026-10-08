@@ -1,5 +1,6 @@
 ```dart
 import 'package:appwrite/appwrite.dart';
+import 'package:appwrite/models.dart' as models;
 
 Client client = Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -7,7 +8,7 @@ Client client = Client()
 
 Account account = Account(client);
 
-Passkey result = await account.updatePasskeyVerification(
+models.Passkey result = await account.updatePasskeyVerification(
     passkeyId: '<PASSKEY_ID>',
     credential: {},
 );

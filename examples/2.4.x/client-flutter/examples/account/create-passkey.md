@@ -1,5 +1,6 @@
 ```dart
 import 'package:appwrite/appwrite.dart';
+import 'package:appwrite/models.dart' as models;
 
 Client client = Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -7,7 +8,7 @@ Client client = Client()
 
 Account account = Account(client);
 
-PasskeyChallenge result = await account.createPasskey(
+models.PasskeyChallenge result = await account.createPasskey(
     passkeyId: '<PASSKEY_ID>', // optional
     name: '<NAME>', // optional
 );

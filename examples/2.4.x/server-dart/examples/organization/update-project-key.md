@@ -1,5 +1,6 @@
 ```dart
 import 'package:dart_appwrite/dart_appwrite.dart';
+import 'package:dart_appwrite/models.dart' as models;
 import 'package:dart_appwrite/enums.dart' as enums;
 
 Client client = Client()
@@ -9,7 +10,7 @@ Client client = Client()
 
 Organization organization = Organization(client);
 
-Key result = await organization.updateProjectKey(
+models.Key result = await organization.updateProjectKey(
     projectId: '<PROJECT_ID>',
     keyId: '<KEY_ID>',
     name: '<NAME>',

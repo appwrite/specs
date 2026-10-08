@@ -22,7 +22,7 @@ oauth2.authorizePost(
     "<PROMPT>", // prompt (optional)
     0L, // max_age (optional)
     "<AUTHORIZATION_DETAILS>", // authorization_details (optional)
-    "", // resource (optional)
+    List.of(), // resource (optional)
     "<AUDIENCE>", // audience (optional)
     "<REQUEST_URI>", // request_uri (optional)
     new CoroutineCallback<>((result, error) -> {

@@ -39800,27 +39800,6 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
-                                                    "deno-1.21"
-                                                ],
-                                                "title": "deno-1.21"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "deno-1.24"
-                                                ],
-                                                "title": "deno-1.24"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "deno-1.35"
-                                                ],
-                                                "title": "deno-1.35"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
                                                     "deno-1.40"
                                                 ],
                                                 "title": "deno-1.40"
@@ -41703,27 +41682,6 @@
                                     {
                                         "type": "string",
                                         "enum": [
-                                            "deno-1.21"
-                                        ],
-                                        "title": "deno-1.21"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "enum": [
-                                            "deno-1.24"
-                                        ],
-                                        "title": "deno-1.24"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "enum": [
-                                            "deno-1.35"
-                                        ],
-                                        "title": "deno-1.35"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "enum": [
                                             "deno-1.40"
                                         ],
                                         "title": "deno-1.40"
@@ -42693,27 +42651,6 @@
                                                     "python-ml-3.13"
                                                 ],
                                                 "title": "python-ml-3.13"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "deno-1.21"
-                                                ],
-                                                "title": "deno-1.21"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "deno-1.24"
-                                                ],
-                                                "title": "deno-1.24"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "deno-1.35"
-                                                ],
-                                                "title": "deno-1.35"
                                             },
                                             {
                                                 "type": "string",
@@ -63415,7 +63352,10 @@
                         "description": "RFC 8707 resource indicator URI or URI list. Each value must be an absolute URI without a fragment.",
                         "required": false,
                         "schema": {
-                            "type": "string",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
                             "default": []
                         },
                         "in": "query"
@@ -63588,8 +63528,11 @@
                                     },
                                     "resource": {
                                         "description": "RFC 8707 resource indicator URI or URI list. Each value must be an absolute URI without a fragment.",
-                                        "type": "string",
-                                        "default": []
+                                        "type": "array",
+                                        "default": [],
+                                        "items": {
+                                            "type": "string"
+                                        }
                                     },
                                     "audience": {
                                         "description": "Compatibility alias for a single OAuth2 resource indicator URI.",
@@ -63706,8 +63649,11 @@
                                     },
                                     "resource": {
                                         "description": "RFC 8707 resource indicator URI or URI list. Each value must be an absolute URI without a fragment.",
-                                        "type": "string",
-                                        "default": []
+                                        "type": "array",
+                                        "default": [],
+                                        "items": {
+                                            "type": "string"
+                                        }
                                     },
                                     "audience": {
                                         "description": "Compatibility alias for a single OAuth2 resource indicator URI.",
@@ -64472,8 +64418,11 @@
                                     },
                                     "resource": {
                                         "description": "RFC 8707 resource indicator URI or URI list. Each value must be an absolute URI without a fragment.",
-                                        "type": "string",
-                                        "default": []
+                                        "type": "array",
+                                        "default": [],
+                                        "items": {
+                                            "type": "string"
+                                        }
                                     },
                                     "audience": {
                                         "description": "Compatibility alias for a single OAuth2 resource indicator URI.",
@@ -64926,8 +64875,11 @@
                                     },
                                     "resource": {
                                         "description": "RFC 8707 resource indicator URI or URI list. Each value must be an absolute URI without a fragment.",
-                                        "type": "string",
-                                        "default": []
+                                        "type": "array",
+                                        "default": [],
+                                        "items": {
+                                            "type": "string"
+                                        }
                                     },
                                     "audience": {
                                         "description": "Compatibility alias for a single OAuth2 resource indicator URI.",
@@ -95606,27 +95558,6 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
-                                                    "deno-1.21"
-                                                ],
-                                                "title": "deno-1.21"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "deno-1.24"
-                                                ],
-                                                "title": "deno-1.24"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "deno-1.35"
-                                                ],
-                                                "title": "deno-1.35"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
                                                     "deno-1.40"
                                                 ],
                                                 "title": "deno-1.40"
@@ -98075,27 +98006,6 @@
                                                     "python-ml-3.13"
                                                 ],
                                                 "title": "python-ml-3.13"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "deno-1.21"
-                                                ],
-                                                "title": "deno-1.21"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "deno-1.24"
-                                                ],
-                                                "title": "deno-1.24"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "deno-1.35"
-                                                ],
-                                                "title": "deno-1.35"
                                             },
                                             {
                                                 "type": "string",
@@ -101382,7 +101292,7 @@
                                         "example": false
                                     },
                                     "maximumFileSize": {
-                                        "description": "Maximum file size allowed in bytes. Maximum allowed value is 0B.",
+                                        "description": "Maximum file size allowed in bytes. Maximum allowed value is 5GB.",
                                         "type": "integer",
                                         "default": {},
                                         "example": 1,
@@ -101614,7 +101524,7 @@
                                         "example": false
                                     },
                                     "maximumFileSize": {
-                                        "description": "Maximum file size allowed in bytes. Maximum allowed value is 0B.",
+                                        "description": "Maximum file size allowed in bytes. Maximum allowed value is 5GB.",
                                         "type": "integer",
                                         "default": {},
                                         "example": 1,
@@ -124953,8 +124863,11 @@
                                     },
                                     "conditions": {
                                         "description": "Array of condition strings generated using the WAF Condition builder. Maximum of 100 conditions are allowed, each 4096 characters long.",
-                                        "type": "string",
-                                        "default": []
+                                        "type": "array",
+                                        "default": [],
+                                        "items": {
+                                            "type": "string"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -125088,7 +125001,10 @@
                                     },
                                     "conditions": {
                                         "description": "Array of condition strings generated using the WAF Condition builder. Maximum of 100 conditions are allowed, each 4096 characters long.",
-                                        "type": "string",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
                                         "nullable": true
                                     }
                                 }
@@ -125202,8 +125118,11 @@
                                     },
                                     "conditions": {
                                         "description": "Array of condition strings generated using the WAF Condition builder. Maximum of 100 conditions are allowed, each 4096 characters long.",
-                                        "type": "string",
-                                        "default": []
+                                        "type": "array",
+                                        "default": [],
+                                        "items": {
+                                            "type": "string"
+                                        }
                                     },
                                     "difficulty": {
                                         "description": "Challenge difficulty from 1 (easiest) to 5 (hardest). Higher values demand more client-side proof-of-work.",
@@ -125357,7 +125276,10 @@
                                     },
                                     "conditions": {
                                         "description": "Array of condition strings generated using the WAF Condition builder. Maximum of 100 conditions are allowed, each 4096 characters long.",
-                                        "type": "string",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
                                         "nullable": true
                                     },
                                     "difficulty": {
@@ -125479,8 +125401,11 @@
                                     },
                                     "conditions": {
                                         "description": "Array of condition strings generated using the WAF Condition builder. Maximum of 100 conditions are allowed, each 4096 characters long.",
-                                        "type": "string",
-                                        "default": []
+                                        "type": "array",
+                                        "default": [],
+                                        "items": {
+                                            "type": "string"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -125614,7 +125539,10 @@
                                     },
                                     "conditions": {
                                         "description": "Array of condition strings generated using the WAF Condition builder. Maximum of 100 conditions are allowed, each 4096 characters long.",
-                                        "type": "string",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
                                         "nullable": true
                                     }
                                 }
@@ -125753,8 +125681,11 @@
                                     },
                                     "conditions": {
                                         "description": "Array of condition strings generated using the WAF Condition builder. Maximum of 100 conditions are allowed, each 4096 characters long.",
-                                        "type": "string",
-                                        "default": []
+                                        "type": "array",
+                                        "default": [],
+                                        "items": {
+                                            "type": "string"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -125919,7 +125850,10 @@
                                     },
                                     "conditions": {
                                         "description": "Array of condition strings generated using the WAF Condition builder. Maximum of 100 conditions are allowed, each 4096 characters long.",
-                                        "type": "string",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
                                         "nullable": true
                                     }
                                 }
@@ -126038,8 +125972,11 @@
                                     },
                                     "conditions": {
                                         "description": "Array of condition strings generated using the WAF Condition builder. Maximum of 100 conditions are allowed, each 4096 characters long.",
-                                        "type": "string",
-                                        "default": []
+                                        "type": "array",
+                                        "default": [],
+                                        "items": {
+                                            "type": "string"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -126190,7 +126127,10 @@
                                     },
                                     "conditions": {
                                         "description": "Array of condition strings generated using the WAF Condition builder. Maximum of 100 conditions are allowed, each 4096 characters long.",
-                                        "type": "string",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
                                         "nullable": true
                                     }
                                 }
@@ -126210,11 +126150,37 @@
                 "description": "Get a WAF rule by its ID.\n",
                 "responses": {
                     "200": {
-                        "description": "WafRule",
+                        "description": "WafRuleBypass, or WafRuleDeny, or WafRuleChallenge, or WafRuleRateLimit, or WafRuleRedirect",
                         "content": {
                             "application\/json": {
                                 "schema": {
-                                    "$ref": "#\/components\/schemas\/wafRule"
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#\/components\/schemas\/wafRuleBypass"
+                                        },
+                                        {
+                                            "$ref": "#\/components\/schemas\/wafRuleDeny"
+                                        },
+                                        {
+                                            "$ref": "#\/components\/schemas\/wafRuleChallenge"
+                                        },
+                                        {
+                                            "$ref": "#\/components\/schemas\/wafRuleRateLimit"
+                                        },
+                                        {
+                                            "$ref": "#\/components\/schemas\/wafRuleRedirect"
+                                        }
+                                    ],
+                                    "discriminator": {
+                                        "propertyName": "action",
+                                        "mapping": {
+                                            "bypass": "#\/components\/schemas\/wafRuleBypass",
+                                            "deny": "#\/components\/schemas\/wafRuleDeny",
+                                            "challenge": "#\/components\/schemas\/wafRuleChallenge",
+                                            "rateLimit": "#\/components\/schemas\/wafRuleRateLimit",
+                                            "redirect": "#\/components\/schemas\/wafRuleRedirect"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -158194,173 +158160,6 @@
                     "expire": "2020-10-15T06:38:00.000+00:00"
                 }
             },
-            "wafRule": {
-                "description": "WafRule",
-                "type": "object",
-                "properties": {
-                    "$id": {
-                        "type": "string",
-                        "description": "Rule ID.",
-                        "example": "wafRule1"
-                    },
-                    "$createdAt": {
-                        "type": "string",
-                        "description": "WAF rule creation time in ISO 8601 format.",
-                        "example": "2020-10-15T06:38:00.000+00:00"
-                    },
-                    "$updatedAt": {
-                        "type": "string",
-                        "description": "WAF rule last update time in ISO 8601 format.",
-                        "example": "2020-10-15T06:38:00.000+00:00"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "Human friendly rule name.",
-                        "example": "Block anonymous POST traffic"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Optional description for the rule.",
-                        "example": "Blocks anonymous POST calls to \/v1\/graphql"
-                    },
-                    "teamId": {
-                        "type": "string",
-                        "description": "Team ID.",
-                        "example": "5e5ea5c16897e"
-                    },
-                    "projectId": {
-                        "type": "string",
-                        "description": "Project ID.",
-                        "example": "cloudConsole"
-                    },
-                    "resourceType": {
-                        "type": "string",
-                        "description": "Resource type the rule is scoped to.",
-                        "example": "functions"
-                    },
-                    "resourceId": {
-                        "type": "string",
-                        "description": "Resource identifier. Empty for API-wide rules.",
-                        "example": "functionId"
-                    },
-                    "action": {
-                        "description": "Action performed when the rule matches.",
-                        "example": "deny",
-                        "title": "WafRuleAction",
-                        "type": "string",
-                        "oneOf": [
-                            {
-                                "type": "string",
-                                "enum": [
-                                    "bypass"
-                                ],
-                                "title": "bypass"
-                            },
-                            {
-                                "type": "string",
-                                "enum": [
-                                    "deny"
-                                ],
-                                "title": "deny"
-                            },
-                            {
-                                "type": "string",
-                                "enum": [
-                                    "challenge"
-                                ],
-                                "title": "challenge"
-                            },
-                            {
-                                "type": "string",
-                                "enum": [
-                                    "rateLimit"
-                                ],
-                                "title": "rateLimit"
-                            },
-                            {
-                                "type": "string",
-                                "enum": [
-                                    "redirect"
-                                ],
-                                "title": "redirect"
-                            }
-                        ]
-                    },
-                    "priority": {
-                        "type": "integer",
-                        "description": "Evaluation priority. Lower values execute earlier.",
-                        "format": "int32",
-                        "example": 100
-                    },
-                    "enabled": {
-                        "type": "boolean",
-                        "description": "Whether the rule is active.",
-                        "example": true
-                    },
-                    "conditions": {
-                        "type": "array",
-                        "description": "List of conditions evaluated for this rule.",
-                        "items": {
-                            "type": "object"
-                        },
-                        "example": [
-                            {
-                                "method": "equal",
-                                "attribute": "ip",
-                                "values": [
-                                    "127.0.0.1"
-                                ]
-                            }
-                        ]
-                    },
-                    "config": {
-                        "type": "object",
-                        "additionalProperties": true,
-                        "description": "Action specific configuration.",
-                        "example": {}
-                    }
-                },
-                "required": [
-                    "$id",
-                    "$createdAt",
-                    "$updatedAt",
-                    "name",
-                    "description",
-                    "teamId",
-                    "projectId",
-                    "resourceType",
-                    "resourceId",
-                    "action",
-                    "priority",
-                    "enabled",
-                    "conditions",
-                    "config"
-                ],
-                "example": {
-                    "$id": "wafRule1",
-                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
-                    "$updatedAt": "2020-10-15T06:38:00.000+00:00",
-                    "name": "Block anonymous POST traffic",
-                    "description": "Blocks anonymous POST calls to \/v1\/graphql",
-                    "teamId": "5e5ea5c16897e",
-                    "projectId": "cloudConsole",
-                    "resourceType": "functions",
-                    "resourceId": "functionId",
-                    "action": "deny",
-                    "priority": 100,
-                    "enabled": true,
-                    "conditions": [
-                        {
-                            "method": "equal",
-                            "attribute": "ip",
-                            "values": [
-                                "127.0.0.1"
-                            ]
-                        }
-                    ],
-                    "config": {}
-                }
-            },
             "wafRuleBypass": {
                 "description": "WafRuleBypass",
                 "type": "object",
@@ -159314,7 +159113,33 @@
                         "type": "array",
                         "description": "List of rules.",
                         "items": {
-                            "$ref": "#\/components\/schemas\/wafRule"
+                            "anyOf": [
+                                {
+                                    "$ref": "#\/components\/schemas\/wafRuleBypass"
+                                },
+                                {
+                                    "$ref": "#\/components\/schemas\/wafRuleDeny"
+                                },
+                                {
+                                    "$ref": "#\/components\/schemas\/wafRuleChallenge"
+                                },
+                                {
+                                    "$ref": "#\/components\/schemas\/wafRuleRateLimit"
+                                },
+                                {
+                                    "$ref": "#\/components\/schemas\/wafRuleRedirect"
+                                }
+                            ],
+                            "discriminator": {
+                                "propertyName": "action",
+                                "mapping": {
+                                    "bypass": "#\/components\/schemas\/wafRuleBypass",
+                                    "deny": "#\/components\/schemas\/wafRuleDeny",
+                                    "challenge": "#\/components\/schemas\/wafRuleChallenge",
+                                    "rateLimit": "#\/components\/schemas\/wafRuleRateLimit",
+                                    "redirect": "#\/components\/schemas\/wafRuleRedirect"
+                                }
+                            }
                         },
                         "example": []
                     }

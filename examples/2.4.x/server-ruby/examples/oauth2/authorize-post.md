@@ -22,7 +22,7 @@ result = oauth2.authorize_post(
     prompt: '<PROMPT>', # optional
     max_age: 0, # optional
     authorization_details: '<AUTHORIZATION_DETAILS>', # optional
-    resource: '', # optional
+    resource: [], # optional
     audience: '<AUDIENCE>', # optional
     request_uri: '<REQUEST_URI>' # optional
 )

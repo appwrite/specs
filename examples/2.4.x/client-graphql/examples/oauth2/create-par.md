@@ -12,7 +12,7 @@ mutation {
         prompt: "<PROMPT>",
         maxAge: 0,
         authorizationDetails: "<AUTHORIZATION_DETAILS>",
-        resource: "",
+        resource: [],
         audience: "<AUDIENCE>"
     ) {
         request_uri

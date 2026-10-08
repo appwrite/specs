@@ -19,7 +19,7 @@ result: WafRuleRedirect = waf.update_redirect_rule(
     status_code = 300, # optional
     priority = -100000, # optional
     enabled = False, # optional
-    conditions = '' # optional
+    conditions = [] # optional
 )
 
 print(result.model_dump())

@@ -9,7 +9,7 @@ X-Appwrite-Response-Format: 2.4.0
   "client_id": "<CLIENT_ID>",
   "scope": "<SCOPE>",
   "authorization_details": "<AUTHORIZATION_DETAILS>",
-  "resource": "",
+  "resource": [],
   "audience": "<AUDIENCE>"
 }
 ```
