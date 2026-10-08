@@ -1,0 +1,29 @@
+```csharp
+using Appwrite;
+using Appwrite.Models;
+using Appwrite.Services;
+
+Client client = new Client()
+    .SetEndPoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
+    .SetProject("<YOUR_PROJECT_ID>") // Your project ID
+    .SetSession(""); // The user session to authenticate with
+
+Analytics analytics = new Analytics(client);
+
+Appwrite.Models. result = await analytics.CreateEvent(
+    propertyId: "<PROPERTY_ID>",
+    name: "<NAME>",
+    url: "https://example.com",
+    domain: "<DOMAIN>", // optional
+    referrer: "<REFERRER>", // optional
+    screenWidth: 0, // optional
+    sessionHash: "<SESSION_HASH>", // optional
+    scrollDepth: 0, // optional
+    engagementTime: 0, // optional
+    props: new List<string>(), // optional
+    userId: "<USER_ID>", // optional
+    ip: "<IP>", // optional
+    userAgent: "<USER_AGENT>" // optional
+);
+
+```

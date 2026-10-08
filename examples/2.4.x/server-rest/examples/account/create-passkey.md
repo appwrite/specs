@@ -1,0 +1,13 @@
+```http
+POST /v1/account/passkeys HTTP/1.1
+Host: cloud.appwrite.io
+Content-Type: application/json
+Accept: application/json
+X-Appwrite-Response-Format: 2.4.0
+X-Appwrite-Project: <YOUR_PROJECT_ID>
+
+{
+  "passkeyId": "<PASSKEY_ID>",
+  "name": "<NAME>"
+}
+```

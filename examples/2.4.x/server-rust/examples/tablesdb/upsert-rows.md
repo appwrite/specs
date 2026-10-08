@@ -1,0 +1,25 @@
+```rust
+use appwrite::Client;
+use appwrite::services::TablesDB;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let client = Client::new();
+    client.set_endpoint("https://<REGION>.cloud.appwrite.io/v1"); // Your API Endpoint
+    client.set_project("<YOUR_PROJECT_ID>"); // Your project ID
+    client.set_key("<YOUR_API_KEY>"); // Your secret API key
+
+    let tables_db = TablesDB::new(&client);
+
+    let result = tables_db.upsert_rows(
+        "<DATABASE_ID>",
+        "<TABLE_ID>",
+        vec![serde_json::json!({"$id":"example1","username":"walter.obrien","email":"walter.obrien@example.com","fullName":"Walter O'Brien","age":30,"isAdmin":false})],
+        Some("<TRANSACTION_ID>") // optional
+    ).await?;
+
+    let _ = result;
+
+    Ok(())
+}
+```
