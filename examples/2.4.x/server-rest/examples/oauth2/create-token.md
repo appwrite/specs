@@ -14,7 +14,7 @@ X-Appwrite-Response-Format: 2.4.0
   "client_secret": "<CLIENT_SECRET>",
   "code_verifier": "<CODE_VERIFIER>",
   "redirect_uri": "https://example.com",
-  "resource": "",
+  "resource": [],
   "audience": "<AUDIENCE>"
 }
 ```

@@ -18,7 +18,7 @@ result: WafRuleChallenge = waf.create_challenge_rule(
     challenge_type = 'compute', # optional
     priority = -100000, # optional
     enabled = False, # optional
-    conditions = '', # optional
+    conditions = [], # optional
     difficulty = 1, # optional
     ttl = 900 # optional
 )

@@ -4,7 +4,7 @@ mutation {
         clientId: "<CLIENT_ID>",
         scope: "<SCOPE>",
         authorizationDetails: "<AUTHORIZATION_DETAILS>",
-        resource: "",
+        resource: [],
         audience: "<AUDIENCE>"
     ) {
         device_code

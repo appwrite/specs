@@ -21,7 +21,7 @@ result: WafRuleRateLimit = waf.update_rate_limit_rule(
     max_bucket_size = 1, # optional
     priority = -100000, # optional
     enabled = False, # optional
-    conditions = '' # optional
+    conditions = [] # optional
 )
 
 print(result.model_dump())

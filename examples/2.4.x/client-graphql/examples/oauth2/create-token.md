@@ -9,7 +9,7 @@ mutation {
         clientSecret: "<CLIENT_SECRET>",
         codeVerifier: "<CODE_VERIFIER>",
         redirectUri: "https://example.com",
-        resource: "",
+        resource: [],
         audience: "<AUDIENCE>"
     ) {
         access_token

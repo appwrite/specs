@@ -1,6 +1,7 @@
 ```dart
 import 'dart:io';
 import 'package:appwrite/appwrite.dart';
+import 'package:appwrite/models.dart' as models;
 
 Client client = Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -8,7 +9,7 @@ Client client = Client()
 
 Avatars avatars = Avatars(client);
 
-Account result = await avatars.updatePhoto(
+models.Account result = await avatars.updatePhoto(
     file: InputFile(path: './path-to-files/image.jpg', filename: 'image.jpg'),
 );
 ```

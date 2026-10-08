@@ -1,5 +1,6 @@
 ```dart
 import 'package:appwrite/appwrite.dart';
+import 'package:appwrite/models.dart' as models;
 
 Client client = Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -7,7 +8,7 @@ Client client = Client()
 
 Oauth2 oauth2 = Oauth2(client);
 
-Oauth2PAR result = await oauth2.createPAR(
+models.Oauth2PAR result = await oauth2.createPAR(
     clientId: '<CLIENT_ID>',
     redirectUri: 'https://example.com',
     responseType: 'code',
@@ -19,7 +20,7 @@ Oauth2PAR result = await oauth2.createPAR(
     prompt: '<PROMPT>', // optional
     maxAge: 0, // optional
     authorizationDetails: '<AUTHORIZATION_DETAILS>', // optional
-    resource: '', // optional
+    resource: [], // optional
     audience: '<AUDIENCE>', // optional
 );
 ```

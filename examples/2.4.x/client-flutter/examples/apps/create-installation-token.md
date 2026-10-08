@@ -1,5 +1,6 @@
 ```dart
 import 'package:appwrite/appwrite.dart';
+import 'package:appwrite/models.dart' as models;
 
 Client client = Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -7,7 +8,7 @@ Client client = Client()
 
 Apps apps = Apps(client);
 
-Oauth2Token result = await apps.createInstallationToken(
+models.Oauth2Token result = await apps.createInstallationToken(
     appId: '<APP_ID>',
     installationId: '<INSTALLATION_ID>',
 );

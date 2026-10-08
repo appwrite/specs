@@ -17,7 +17,7 @@ X-Appwrite-Response-Format: 2.4.0
   "prompt": "<PROMPT>",
   "max_age": 0,
   "authorization_details": "<AUTHORIZATION_DETAILS>",
-  "resource": "",
+  "resource": [],
   "audience": "<AUDIENCE>",
   "request_uri": "<REQUEST_URI>"
 }

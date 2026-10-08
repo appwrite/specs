@@ -1,5 +1,6 @@
 ```dart
 import 'package:dart_appwrite/dart_appwrite.dart';
+import 'package:dart_appwrite/models.dart' as models;
 
 Client client = Client()
     .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
@@ -8,12 +9,12 @@ Client client = Client()
 
 TablesDB tablesDB = TablesDB(client);
 
-RowList result = await tablesDB.upsertRows(
+models.RowList result = await tablesDB.upsertRows(
     databaseId: '<DATABASE_ID>',
     tableId: '<TABLE_ID>',
     rows: [
 	    {
-	        "$id": "example1",
+	        "\$id": "example1",
 	        "username": "walter.obrien",
 	        "email": "walter.obrien@example.com",
 	        "fullName": "Walter O'Brien",

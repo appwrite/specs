@@ -20,7 +20,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Some("<CLIENT_SECRET>"), // optional
         Some("<CODE_VERIFIER>"), // optional
         Some("https://example.com"), // optional
-        Some(""), // optional
+        Some(vec![]), // optional
         Some("<AUDIENCE>") // optional
     ).await?;
 

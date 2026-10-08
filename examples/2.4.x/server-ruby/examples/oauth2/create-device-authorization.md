@@ -14,7 +14,7 @@ result = oauth2.create_device_authorization(
     client_id: '<CLIENT_ID>', # optional
     scope: '<SCOPE>', # optional
     authorization_details: '<AUTHORIZATION_DETAILS>', # optional
-    resource: '', # optional
+    resource: [], # optional
     audience: '<AUDIENCE>' # optional
 )
 ```
