@@ -11,8 +11,7 @@ Client client = new Client()
 Project project = new Project(client);
 
 Appwrite.Models.Project result = await project.UpdatePasskeyPolicy(
-    rpId: "<RP_ID>", // optional
-    origins: new List<string>() // optional
+    rpId: "<RP_ID>"
 );
 
 ```

@@ -11,7 +11,6 @@ val client = Client()
 val project = Project(client)
 
 val response = project.updatePasskeyPolicy(
-    rpId = "<RP_ID>", // optional
-    origins = listOf() // optional
+    rpId = "<RP_ID>"
 )
 ```

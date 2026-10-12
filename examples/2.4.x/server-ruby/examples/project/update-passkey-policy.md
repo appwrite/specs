@@ -11,7 +11,6 @@ client = Client.new
 project = Project.new(client)
 
 result = project.update_passkey_policy(
-    rp_id: '<RP_ID>', # optional
-    origins: [] # optional
+    rp_id: '<RP_ID>'
 )
 ```

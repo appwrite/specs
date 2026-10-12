@@ -11,8 +11,7 @@ Client client = new Client()
 Project project = new Project(client);
 
 project.updatePasskeyPolicy(
-    "<RP_ID>", // rpId (optional)
-    List.of(), // origins (optional)
+    "<RP_ID>", // rpId
     new CoroutineCallback<>((result, error) -> {
         if (error != null) {
             error.printStackTrace();

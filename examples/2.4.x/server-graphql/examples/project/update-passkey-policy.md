@@ -1,8 +1,7 @@
 ```graphql
 mutation {
     projectUpdatePasskeyPolicy(
-        rpId: "<RP_ID>",
-        origins: []
+        rpId: "<RP_ID>"
     ) {
         _id
         _createdAt

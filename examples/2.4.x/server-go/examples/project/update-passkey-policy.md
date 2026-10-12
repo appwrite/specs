@@ -18,8 +18,7 @@ func main() {
 	service := project.New(client)
 
 	response, err := service.UpdatePasskeyPolicy(
-		service.WithUpdatePasskeyPolicyRpId("<RP_ID>"),
-		service.WithUpdatePasskeyPolicyOrigins([]string{"example"}),
+		"<RP_ID>",
 	)
 	fmt.Println(response, err)
 }
