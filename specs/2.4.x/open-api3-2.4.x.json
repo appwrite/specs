@@ -4813,8 +4813,7 @@
                     "scope": "sessions.write",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -4894,8 +4893,7 @@
                     "scope": "sessions.write",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -5262,8 +5260,7 @@
                     "scope": "sessions.write",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -7787,8 +7784,7 @@
                     "scope": "account",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -7859,8 +7855,7 @@
                     "scope": "public",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -14285,9 +14280,7 @@
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": "avatars.write",
                     "platforms": [
-                        "console",
-                        "client",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -14352,9 +14345,7 @@
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": "avatars.write",
                     "platforms": [
-                        "console",
-                        "client",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -50760,8 +50751,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "providers.write",
                     "platforms": [
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -50857,8 +50847,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "providers.write",
                     "platforms": [
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -83250,8 +83239,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "project.oauth2.write",
                     "platforms": [
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -84785,8 +84773,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "project.oauth2.write",
                     "platforms": [
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -85109,8 +85096,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "project.oauth2.write",
                     "platforms": [
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -87923,7 +87909,7 @@
                 "tags": [
                     "project"
                 ],
-                "description": "Configure the relying party passkeys are bound to. The relying party ID is the domain of your application, and origins are the exact web origins allowed to register and sign in with passkeys. Passkeys stay unavailable until both are set and the passkey auth method is enabled. The relying party ID cannot change while users have passkeys, and any change invalidates ceremonies in progress.",
+                "description": "Set the relying party ID passkeys are bound to: the domain of your application. Passkeys work on the project's web platforms on that domain or its subdomains, and on the domain itself for Apple apps. A localhost web platform enables passkeys for local development without a relying party ID. The relying party ID cannot change while users have passkeys, and any change invalidates ceremonies in progress.",
                 "responses": {
                     "200": {
                         "description": "Project",
@@ -87976,18 +87962,14 @@
                                 "type": "object",
                                 "properties": {
                                     "rpId": {
-                                        "description": "Relying party ID: the domain of your application, such as `example.com`. Use `localhost` for local development.",
+                                        "description": "Relying party ID: the domain of your application, such as `example.com`. Use `localhost` for local development, or an empty string to unset it.",
                                         "type": "string",
                                         "example": "<RP_ID>"
-                                    },
-                                    "origins": {
-                                        "description": "Web origins allowed to use passkeys, such as `https:\/\/example.com` or `https:\/\/app.example.com`. Each must be HTTPS on the relying party ID or one of its subdomains, without a path. HTTP is only allowed for `localhost`. Maximum of 10 origins.",
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string"
-                                        }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "rpId"
+                                ]
                             }
                         }
                     }
@@ -88250,8 +88232,7 @@
                         "project.policies.write"
                     ],
                     "platforms": [
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -144211,22 +144192,26 @@
                     "$id": {
                         "type": "string",
                         "description": "Policy ID.",
-                        "example": "password-dictionary"
+                        "example": "password-dictionary",
+                        "default": ""
                     },
                     "rpId": {
                         "type": "string",
                         "description": "Relying party ID passkeys are bound to. Empty until configured.",
-                        "example": "example.com"
+                        "example": "example.com",
+                        "default": ""
                     },
                     "origins": {
                         "type": "array",
-                        "description": "Web origins allowed to register and sign in with passkeys.",
+                        "description": "Web origins passkeys work on, from the project's platforms on the relying party ID and a localhost web platform. Read-only.",
                         "items": {
                             "type": "string"
                         },
                         "example": [
-                            "https:\/\/example.com"
-                        ]
+                            "https:\/\/app.example.com",
+                            "http:\/\/localhost"
+                        ],
+                        "default": []
                     }
                 },
                 "required": [
@@ -144238,7 +144223,8 @@
                     "$id": "password-dictionary",
                     "rpId": "example.com",
                     "origins": [
-                        "https:\/\/example.com"
+                        "https:\/\/app.example.com",
+                        "http:\/\/localhost"
                     ]
                 }
             },

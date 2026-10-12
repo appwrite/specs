@@ -9,7 +9,6 @@ Client client = Client()
 Project project = Project(client);
 
 Project result = await project.updatePasskeyPolicy(
-    rpId: '<RP_ID>', // (optional)
-    origins: [], // (optional)
+    rpId: '<RP_ID>',
 );
 ```

@@ -9,8 +9,7 @@ let client = Client()
 let project = Project(client)
 
 let project = try await project.updatePasskeyPolicy(
-    rpId: "<RP_ID>", // optional
-    origins: [] // optional
+    rpId: "<RP_ID>"
 )
 
 ```

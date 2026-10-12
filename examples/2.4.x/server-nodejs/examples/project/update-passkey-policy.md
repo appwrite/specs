@@ -9,7 +9,6 @@ const client = new sdk.Client()
 const project = new sdk.Project(client);
 
 const result = await project.updatePasskeyPolicy({
-    rpId: '<RP_ID>', // optional
-    origins: [], // optional
+    rpId: '<RP_ID>',
 });
 ```

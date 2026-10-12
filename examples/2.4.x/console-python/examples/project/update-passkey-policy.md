@@ -10,8 +10,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 project = Project(client)
 
 result: ProjectModel = project.update_passkey_policy(
-    rp_id = '<RP_ID>', # optional
-    origins = [] # optional
+    rp_id = '<RP_ID>'
 )
 
 print(result.model_dump())

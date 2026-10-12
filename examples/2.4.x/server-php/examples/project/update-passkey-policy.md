@@ -12,7 +12,6 @@ $client = (new Client())
 $project = new Project($client);
 
 $result = $project->updatePasskeyPolicy(
-    rpId: '<RP_ID>', // optional
-    origins: [] // optional
+    rpId: '<RP_ID>'
 );
 ```

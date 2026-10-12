@@ -12,8 +12,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let project = Project::new(&client);
 
     let result = project.update_passkey_policy(
-        Some("<RP_ID>"), // optional
-        Some(vec![]) // optional
+        "<RP_ID>"
     ).await?;
 
     let _ = result;

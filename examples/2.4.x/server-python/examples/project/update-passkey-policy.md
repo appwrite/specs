@@ -11,8 +11,7 @@ client.set_key('<YOUR_API_KEY>') # Your secret API key
 project = Project(client)
 
 result: ProjectModel = project.update_passkey_policy(
-    rp_id = '<RP_ID>', # optional
-    origins = [] # optional
+    rp_id = '<RP_ID>'
 )
 
 print(result.model_dump())

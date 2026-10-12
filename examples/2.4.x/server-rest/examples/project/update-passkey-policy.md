@@ -7,7 +7,6 @@ X-Appwrite-Response-Format: 2.4.0
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
-  "rpId": "<RP_ID>",
-  "origins": []
+  "rpId": "<RP_ID>"
 }
 ```
