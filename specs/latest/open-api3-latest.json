@@ -4813,8 +4813,7 @@
                     "scope": "sessions.write",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -4894,8 +4893,7 @@
                     "scope": "sessions.write",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -5262,8 +5260,7 @@
                     "scope": "sessions.write",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -7787,8 +7784,7 @@
                     "scope": "account",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -7859,8 +7855,7 @@
                     "scope": "public",
                     "platforms": [
                         "console",
-                        "client",
-                        "server"
+                        "client"
                     ],
                     "packaging": false,
                     "public": true,
@@ -14749,9 +14744,7 @@
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": "avatars.write",
                     "platforms": [
-                        "console",
-                        "client",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -14816,9 +14809,7 @@
                     "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": "avatars.write",
                     "platforms": [
-                        "console",
-                        "client",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -51301,8 +51292,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "providers.write",
                     "platforms": [
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -51398,8 +51388,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "providers.write",
                     "platforms": [
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -83791,8 +83780,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "project.oauth2.write",
                     "platforms": [
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -85326,8 +85314,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "project.oauth2.write",
                     "platforms": [
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -85650,8 +85637,7 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "project.oauth2.write",
                     "platforms": [
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -86963,14 +86949,6 @@
                                         "description": "Android application ID. Max length: 256 chars.",
                                         "type": "string",
                                         "example": "<APPLICATION_ID>"
-                                    },
-                                    "fingerprints": {
-                                        "description": "SHA-256 fingerprints of the certificates your app is signed with, such as \"14:6D:E9:...:2B:6A\". Passkeys created in the app are accepted when its signature matches one. Find them under App signing in Play Console, or with `.\/gradlew signingReport`.",
-                                        "type": "array",
-                                        "default": [],
-                                        "items": {
-                                            "type": "string"
-                                        }
                                     }
                                 },
                                 "required": [
@@ -87061,14 +87039,6 @@
                                         "description": "Android application ID. Max length: 256 chars.",
                                         "type": "string",
                                         "example": "<APPLICATION_ID>"
-                                    },
-                                    "fingerprints": {
-                                        "description": "SHA-256 fingerprints of the certificates your app is signed with, such as \"14:6D:E9:...:2B:6A\". Passkeys created in the app are accepted when its signature matches one. Find them under App signing in Play Console, or with `.\/gradlew signingReport`. Omit to keep the current list, or pass an empty array to clear it.",
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string"
-                                        },
-                                        "nullable": true
                                     }
                                 },
                                 "required": [
@@ -88803,8 +88773,7 @@
                         "project.policies.write"
                     ],
                     "platforms": [
-                        "console",
-                        "server"
+                        "console"
                     ],
                     "packaging": false,
                     "public": true,
@@ -88844,83 +88813,6 @@
                                         "description": "Whether a breached password is rejected when a user signs up or sets a new password. Default is false, which allows the password and only records the result.",
                                         "type": "boolean",
                                         "example": false
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "\/project\/policies\/password-rotation": {
-            "patch": {
-                "summary": "Update password rotation policy",
-                "operationId": "projectUpdatePasswordRotationPolicy",
-                "tags": [
-                    "project"
-                ],
-                "description": "Require a password reset when an email\/password sign-in uses a password older than the configured maximum age. Options left out keep their current value.",
-                "responses": {
-                    "200": {
-                        "description": "Project",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/project"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "group": "policies",
-                    "demo": "project\/update-password-rotation-policy.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": [
-                        "policies.write",
-                        "project.policies.write"
-                    ],
-                    "platforms": [
-                        "console",
-                        "server"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "auth": {
-                        "console": {
-                            "Project": []
-                        },
-                        "server": {
-                            "Project": [],
-                            "Key": []
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "Project": [],
-                        "Key": []
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application\/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "enabled": {
-                                        "description": "Enable password rotation. Disabled by default.",
-                                        "type": "boolean",
-                                        "example": false
-                                    },
-                                    "maxAge": {
-                                        "description": "Maximum password age in seconds. Minimum allowed value is 86400 seconds (1 day), and maximum is 10 years, which is 315360000 seconds. Defaults to 1 year, which is 31536000 seconds.",
-                                        "type": "integer",
-                                        "example": 86400,
-                                        "format": "int32"
                                     }
                                 }
                             }
@@ -113824,12 +113716,6 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "membershipId": {
-                                        "description": "Membership ID. Choose a custom ID or generate a random ID with `ID.unique()`. Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. Can't start with a special char. Max length is 36 chars.",
-                                        "type": "string",
-                                        "default": "",
-                                        "example": "<MEMBERSHIP_ID>"
-                                    },
                                     "email": {
                                         "description": "Email of the new team member.",
                                         "type": "string",
