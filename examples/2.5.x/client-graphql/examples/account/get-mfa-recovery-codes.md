@@ -1,0 +1,7 @@
+```graphql
+query {
+    accountGetMFARecoveryCodes {
+        recoveryCodes
+    }
+}
+```

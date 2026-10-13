@@ -1,0 +1,21 @@
+```dart
+import 'package:dart_appwrite/dart_appwrite.dart';
+import 'package:dart_appwrite/models.dart' as models;
+import 'package:dart_appwrite/enums.dart' as enums;
+
+Client client = Client()
+    .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
+    .setProject('<YOUR_PROJECT_ID>') // Your project ID
+    .setKey('<YOUR_API_KEY>'); // Your secret API key
+
+Project project = Project(client);
+
+models.OAuth2Okta result = await project.updateOAuth2Okta(
+    clientId: '<CLIENT_ID>', // (optional)
+    clientSecret: '<CLIENT_SECRET>', // (optional)
+    domain: 'example.com', // (optional)
+    authorizationServerId: '<AUTHORIZATION_SERVER_ID>', // (optional)
+    prompt: [enums.ProjectOAuth2OktaPrompt.none], // (optional)
+    enabled: false, // (optional)
+);
+```
