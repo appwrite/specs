@@ -1,0 +1,29 @@
+```java
+import io.appwrite.Client;
+import io.appwrite.coroutines.CoroutineCallback;
+import io.appwrite.services.Avatars;
+import io.appwrite.enums.Flag;
+
+Client client = new Client()
+    .setEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
+    .setProject("<YOUR_PROJECT_ID>") // Your project ID
+    .setSession(""); // The user session to authenticate with
+
+Avatars avatars = new Avatars(client);
+
+avatars.getFlag(
+    Flag.AFGHANISTAN, // code
+    0L, // width (optional)
+    0L, // height (optional)
+    -1L, // quality (optional)
+    new CoroutineCallback<>((result, error) -> {
+        if (error != null) {
+            error.printStackTrace();
+            return;
+        }
+
+        System.out.println(result);
+    })
+);
+
+```
