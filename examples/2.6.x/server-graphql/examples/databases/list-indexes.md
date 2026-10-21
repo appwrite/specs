@@ -1,0 +1,25 @@
+```graphql
+query {
+    databasesListIndexes(
+        databaseId: "<DATABASE_ID>",
+        collectionId: "<COLLECTION_ID>",
+        queries: [],
+        total: false
+    ) {
+        total
+        indexes {
+            _id
+            _createdAt
+            _updatedAt
+            key
+            description
+            type
+            status
+            error
+            attributes
+            lengths
+            orders
+        }
+    }
+}
+```

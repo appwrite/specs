@@ -1,0 +1,25 @@
+```csharp
+using Appwrite;
+using Appwrite.Models;
+using Appwrite.Services;
+
+Client client = new Client()
+    .SetEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
+    .SetProject("<YOUR_PROJECT_ID>") // Your project ID
+    .SetKey("<YOUR_API_KEY>"); // Your secret API key
+
+Webhooks webhooks = new Webhooks(client);
+
+Appwrite.Models.Webhook result = await webhooks.Update(
+    webhookId: "<WEBHOOK_ID>",
+    name: "<NAME>",
+    url: "https://example.com/webhook",
+    events: ["users.*.create"],
+    enabled: false, // optional
+    tls: false, // optional
+    authUsername: "<AUTH_USERNAME>", // optional
+    authPassword: "password", // optional
+    description: "<DESCRIPTION>" // optional
+);
+
+```
