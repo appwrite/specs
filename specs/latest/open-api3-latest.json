@@ -8329,6 +8329,362 @@
                 ]
             }
         },
+        "\/admin\/blocks": {
+            "get": {
+                "summary": "List blocks",
+                "operationId": "adminListBlocks",
+                "tags": [
+                    "admin"
+                ],
+                "description": "List the blocks placed on projects across the platform, expired ones included. Use queries to narrow the list to a project, a resource type or resource, a mode, or the threat whose detection placed the block.",
+                "responses": {
+                    "200": {
+                        "description": "Admin blocks list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/adminBlockList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "blocks",
+                    "demo": "admin\/list-blocks.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long. You may filter on the following attributes: projectId, resourceType, resourceId, mode, expiredAt, threatId",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "total",
+                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "example": false,
+                            "default": true
+                        },
+                        "in": "query"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create block",
+                "operationId": "adminCreateBlock",
+                "tags": [
+                    "admin"
+                ],
+                "description": "Block a project's traffic to a resource type, to one resource of that type, or to the whole project with `projects`. A `full` block refuses every request to the resource; a `readOnly` block, for databases only, refuses writes and still serves reads. The block holds in every region until it is deleted or `expiredAt` passes. The reason is for operators; the project's owners see the block without it.",
+                "responses": {
+                    "201": {
+                        "description": "AdminBlock",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/adminBlock"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "blocks",
+                    "demo": "admin\/create-block.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "projectId": {
+                                        "description": "Project ID.",
+                                        "type": "string",
+                                        "example": "<PROJECT_ID>"
+                                    },
+                                    "resourceType": {
+                                        "description": "Type of the resource to block. `projects` blocks the whole project.",
+                                        "type": "string",
+                                        "example": "projects",
+                                        "title": "BlockResourceType",
+                                        "oneOf": [
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "projects"
+                                                ],
+                                                "title": "projects"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "functions"
+                                                ],
+                                                "title": "functions"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "sites"
+                                                ],
+                                                "title": "sites"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "databases"
+                                                ],
+                                                "title": "databases"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "buckets"
+                                                ],
+                                                "title": "buckets"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "providers"
+                                                ],
+                                                "title": "providers"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "topics"
+                                                ],
+                                                "title": "topics"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "subscribers"
+                                                ],
+                                                "title": "subscribers"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "messages"
+                                                ],
+                                                "title": "messages"
+                                            }
+                                        ]
+                                    },
+                                    "resourceId": {
+                                        "description": "ID of the resource to block. Leave empty to block every resource of the type.",
+                                        "type": "string",
+                                        "default": "",
+                                        "example": "<RESOURCE_ID>"
+                                    },
+                                    "mode": {
+                                        "description": "Block mode. `full` refuses reads and writes; `readOnly`, for databases only, refuses writes and serves reads.",
+                                        "type": "string",
+                                        "default": "full",
+                                        "example": "full",
+                                        "title": "BlockMode",
+                                        "oneOf": [
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "full"
+                                                ],
+                                                "title": "full"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "readonly"
+                                                ],
+                                                "title": "readonly"
+                                            }
+                                        ]
+                                    },
+                                    "reason": {
+                                        "description": "Why the block was placed, for operators. The project's owners never see it.",
+                                        "type": "string",
+                                        "default": "",
+                                        "example": "<REASON>"
+                                    },
+                                    "expiredAt": {
+                                        "description": "When the block lifts itself, in ISO 8601 format. Leave empty for a block that holds until it is deleted.",
+                                        "type": "string",
+                                        "default": "",
+                                        "example": "2020-10-15T06:38:00.000+00:00",
+                                        "format": "datetime"
+                                    }
+                                },
+                                "required": [
+                                    "projectId",
+                                    "resourceType"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/admin\/blocks\/{blockId}": {
+            "get": {
+                "summary": "Get block",
+                "operationId": "adminGetBlock",
+                "tags": [
+                    "admin"
+                ],
+                "description": "Get a block by its unique ID, with the reason it was placed for and the threat that placed it, if a detection did.",
+                "responses": {
+                    "200": {
+                        "description": "AdminBlock",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/adminBlock"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "blocks",
+                    "demo": "admin\/get-block.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "blockId",
+                        "description": "Block ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "<BLOCK_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete block",
+                "operationId": "adminDeleteBlock",
+                "tags": [
+                    "admin"
+                ],
+                "description": "Lift a block. The project's traffic to the resource resumes with its next request, in every region.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "blocks",
+                    "demo": "admin\/delete-block.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "blockId",
+                        "description": "Block ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "<BLOCK_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
         "\/admin\/cache\/platform": {
             "delete": {
                 "summary": "Delete platform cache",
@@ -8699,6 +9055,584 @@
                 ]
             }
         },
+        "\/admin\/credits": {
+            "get": {
+                "summary": "List credits",
+                "operationId": "adminListCredits",
+                "tags": [
+                    "admin"
+                ],
+                "description": "List the credits granted across the platform, spent, expired and disabled ones included. Use queries to narrow the list to an organization, a coupon, a status or an expiry window.",
+                "responses": {
+                    "200": {
+                        "description": "Admin credits list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/adminCreditList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "credits",
+                    "demo": "admin\/list-credits.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long. You may filter on the following attributes: teamId, couponId, credits, expiration, status",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "total",
+                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "example": false,
+                            "default": true
+                        },
+                        "in": "query"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create credit",
+                "operationId": "adminCreateCredit",
+                "tags": [
+                    "admin"
+                ],
+                "description": "Grant an organization credits: a balance its invoices draw on before its card is charged, from the next invoice until the expiration passes. The organization's plan has to apply credits. The reason is kept in the audit log.",
+                "responses": {
+                    "201": {
+                        "description": "Credit",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/credit"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "credits",
+                    "demo": "admin\/create-credit.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "teamId": {
+                                        "description": "Organization ID.",
+                                        "type": "string",
+                                        "example": "<TEAM_ID>"
+                                    },
+                                    "credits": {
+                                        "description": "Amount to grant, in USD.",
+                                        "type": "number",
+                                        "example": 0.01,
+                                        "format": "float"
+                                    },
+                                    "expiration": {
+                                        "description": "When the balance expires, in ISO 8601 format. Must be in the future.",
+                                        "type": "string",
+                                        "example": "2020-10-15T06:38:00.000+00:00",
+                                        "format": "datetime"
+                                    },
+                                    "reason": {
+                                        "description": "Why the credits are granted, for the audit log.",
+                                        "type": "string",
+                                        "default": "",
+                                        "example": "<REASON>"
+                                    }
+                                },
+                                "required": [
+                                    "teamId",
+                                    "credits",
+                                    "expiration"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/admin\/credits\/{creditId}": {
+            "get": {
+                "summary": "Get credit",
+                "operationId": "adminGetCredit",
+                "tags": [
+                    "admin"
+                ],
+                "description": "Get a credit by its unique ID: what it was granted as, what is left of it, when it expires and whether it is active.",
+                "responses": {
+                    "200": {
+                        "description": "Credit",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/credit"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "credits",
+                    "demo": "admin\/get-credit.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "creditId",
+                        "description": "Credit ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "<CREDIT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/admin\/credits\/{creditId}\/status": {
+            "patch": {
+                "summary": "Update credit status",
+                "operationId": "adminUpdateCreditStatus",
+                "tags": [
+                    "admin"
+                ],
+                "description": "Disable a credit to take back what is left of it: a disabled credit is not spent on invoices and does not count towards the organization's available balance, while what it already paid for stays recorded. Enable it to hand the remainder back.",
+                "responses": {
+                    "200": {
+                        "description": "Credit",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/credit"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "credits",
+                    "demo": "admin\/update-credit-status.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "creditId",
+                        "description": "Credit ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "<CREDIT_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "status": {
+                                        "description": "Credit status. `disabled` takes the remainder back, `active` hands it back.",
+                                        "type": "string",
+                                        "example": "active",
+                                        "title": "CreditStatus",
+                                        "oneOf": [
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "active"
+                                                ],
+                                                "title": "active"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "disabled"
+                                                ],
+                                                "title": "disabled"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "status"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/admin\/invoices": {
+            "get": {
+                "summary": "List invoices",
+                "operationId": "adminListInvoices",
+                "tags": [
+                    "admin"
+                ],
+                "description": "List invoices across the platform in every status, the open cycle's pending ones included. Use queries to narrow the list to an organization, a status, a type, an amount or a date range.",
+                "responses": {
+                    "200": {
+                        "description": "Billing invoices list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/invoiceList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "invoices",
+                    "demo": "admin\/list-invoices.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long. You may filter on the following attributes: teamId, aggregationId, type, amount, currency, from, to, dueAt, attempts, status, grossAmount",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "total",
+                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "example": false,
+                            "default": true
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/admin\/invoices\/{invoiceId}": {
+            "get": {
+                "summary": "Get invoice",
+                "operationId": "adminGetInvoice",
+                "tags": [
+                    "admin"
+                ],
+                "description": "Get an invoice by its unique ID: its amounts, status, period and last payment error. Its payment attempts are on the payments list, filtered by invoiceId.",
+                "responses": {
+                    "200": {
+                        "description": "Invoice",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/invoice"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "invoices",
+                    "demo": "admin\/get-invoice.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "invoiceId",
+                        "description": "Invoice ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "<INVOICE_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/admin\/invoices\/{invoiceId}\/download": {
+            "get": {
+                "summary": "Get invoice download",
+                "operationId": "adminGetInvoiceDownload",
+                "tags": [
+                    "admin"
+                ],
+                "description": "Get an invoice as the PDF its organization receives, to download.",
+                "responses": {
+                    "200": {
+                        "description": "File",
+                        "content": {
+                            "*\/*": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "invoices",
+                    "demo": "admin\/get-invoice-download.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "invoiceId",
+                        "description": "Invoice ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "<INVOICE_ID>"
+                        },
+                        "in": "path"
+                    }
+                ]
+            }
+        },
+        "\/admin\/invoices\/{invoiceId}\/refunds": {
+            "post": {
+                "summary": "Create invoice refund",
+                "operationId": "adminCreateInvoiceRefund",
+                "tags": [
+                    "admin"
+                ],
+                "description": "Refund the payment that settled an invoice, in full or in part. The refund is made at the payment provider and recorded on the payment: a full refund, in one go or as the last of several partial ones, also marks the invoice refunded. A refund the provider still reports as pending counts as made, as it does in the provider's own refunded total. Only a succeeded or partially refunded payment can be refunded, and only up to what is left of it. Nothing else changes: the organization keeps its plan and anything the invoice paid for. The reason goes to the audit log.",
+                "responses": {
+                    "200": {
+                        "description": "Payment",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/payment"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "invoices",
+                    "demo": "admin\/create-invoice-refund.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "invoiceId",
+                        "description": "Invoice ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "<INVOICE_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "amount": {
+                                        "description": "Amount to refund, in the invoice currency. Leave empty to refund everything that is left of the payment.",
+                                        "type": "number",
+                                        "default": 0,
+                                        "example": 0,
+                                        "format": "float"
+                                    },
+                                    "reason": {
+                                        "description": "Why the payment is refunded, for the audit log.",
+                                        "type": "string",
+                                        "default": "",
+                                        "example": "<REASON>"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/admin\/organizations": {
             "get": {
                 "summary": "List organizations",
@@ -8922,88 +9856,6 @@
                 ]
             }
         },
-        "\/admin\/organizations\/{organizationId}\/credits": {
-            "get": {
-                "summary": "List organization credits",
-                "operationId": "adminListOrganizationCredits",
-                "tags": [
-                    "admin"
-                ],
-                "description": "List the credits applied to an organization, with the coupon each came from and the balance still available.",
-                "responses": {
-                    "200": {
-                        "description": "CreditList",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/creditList"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "group": "organizations",
-                    "demo": "admin\/list-organization-credits.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "console",
-                    "platforms": [
-                        "console"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "auth": {
-                        "console": {
-                            "Project": []
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "Project": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "organizationId",
-                        "description": "Organization ID.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "example": "<ORGANIZATION_ID>"
-                        },
-                        "in": "path"
-                    },
-                    {
-                        "name": "queries",
-                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long. You may filter on the following attributes: teamId, couponId, credits, expiration, status",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            },
-                            "default": []
-                        },
-                        "in": "query"
-                    },
-                    {
-                        "name": "total",
-                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean",
-                            "example": false,
-                            "default": true
-                        },
-                        "in": "query"
-                    }
-                ]
-            }
-        },
         "\/admin\/organizations\/{organizationId}\/domains": {
             "get": {
                 "summary": "List organization domains",
@@ -9080,88 +9932,6 @@
                             "type": "string",
                             "example": "<SEARCH>",
                             "default": ""
-                        },
-                        "in": "query"
-                    },
-                    {
-                        "name": "total",
-                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean",
-                            "example": false,
-                            "default": true
-                        },
-                        "in": "query"
-                    }
-                ]
-            }
-        },
-        "\/admin\/organizations\/{organizationId}\/invoices": {
-            "get": {
-                "summary": "List organization invoices",
-                "operationId": "adminListOrganizationInvoices",
-                "tags": [
-                    "admin"
-                ],
-                "description": "List an organization's invoices in every status. The invoice of the open billing cycle, which the console hides until it is due, is included; filter on status to narrow the list. The usage behind an invoice is on its aggregation.",
-                "responses": {
-                    "200": {
-                        "description": "Billing invoices list",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/invoiceList"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-appwrite": {
-                    "group": "organizations",
-                    "demo": "admin\/list-organization-invoices.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
-                    "scope": "console",
-                    "platforms": [
-                        "console"
-                    ],
-                    "packaging": false,
-                    "public": true,
-                    "auth": {
-                        "console": {
-                            "Project": []
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "Project": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "organizationId",
-                        "description": "Organization ID.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "example": "<ORGANIZATION_ID>"
-                        },
-                        "in": "path"
-                    },
-                    {
-                        "name": "queries",
-                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long. You may filter on the following attributes: teamId, aggregationId, type, amount, currency, from, to, dueAt, attempts, status, grossAmount",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            },
-                            "default": []
                         },
                         "in": "query"
                     },
@@ -9361,6 +10131,136 @@
                             "default": true
                         },
                         "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/admin\/payments": {
+            "get": {
+                "summary": "List payments",
+                "operationId": "adminListPayments",
+                "tags": [
+                    "admin"
+                ],
+                "description": "List payment attempts across the platform. Filter on invoiceId for one invoice's attempts and refunds, on teamId for an organization's, or on status to find the failed ones.",
+                "responses": {
+                    "200": {
+                        "description": "Payments list",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/paymentList"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "payments",
+                    "demo": "admin\/list-payments.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "queries",
+                        "description": "Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https:\/\/appwrite.io\/docs\/queries). Maximum of 100 queries are allowed, each 4096 characters long. You may filter on the following attributes: invoiceId, teamId, providerPaymentId, paymentMethodId, amount, currency, status, date",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "total",
+                        "description": "When set to false, the total count returned will be 0 and will not be calculated.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "example": false,
+                            "default": true
+                        },
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "\/admin\/payments\/{paymentId}": {
+            "get": {
+                "summary": "Get payment",
+                "operationId": "adminGetPayment",
+                "tags": [
+                    "admin"
+                ],
+                "description": "Get a payment attempt by its unique ID, with its provider ID, status and last error.",
+                "responses": {
+                    "200": {
+                        "description": "Payment",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/payment"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "payments",
+                    "demo": "admin\/get-payment.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "console",
+                    "platforms": [
+                        "console"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "paymentId",
+                        "description": "Payment ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "<PAYMENT_ID>"
+                        },
+                        "in": "path"
                     }
                 ]
             }
@@ -160317,6 +161217,95 @@
                     "blocks": []
                 }
             },
+            "adminBlock": {
+                "description": "AdminBlock",
+                "type": "object",
+                "properties": {
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "Block creation date in ISO 8601 format.",
+                        "example": "2020-10-15T06:38:00.000+00:00",
+                        "default": ""
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Resource type that is blocked",
+                        "example": "project",
+                        "default": ""
+                    },
+                    "resourceId": {
+                        "type": "string",
+                        "description": "Resource identifier that is blocked",
+                        "example": "5e5ea5c16897e",
+                        "default": ""
+                    },
+                    "mode": {
+                        "type": "string",
+                        "description": "Block mode. full blocks reads and writes; readOnly blocks writes only.",
+                        "example": "readOnly",
+                        "default": "full"
+                    },
+                    "expiredAt": {
+                        "type": "string",
+                        "description": "Block expiration date in ISO 8601 format. Can be null if the block does not expire.",
+                        "example": "2020-10-15T06:38:00.000+00:00",
+                        "nullable": true
+                    },
+                    "$id": {
+                        "type": "string",
+                        "description": "Block ID.",
+                        "example": "5e5ea5c16897e",
+                        "default": ""
+                    },
+                    "$updatedAt": {
+                        "type": "string",
+                        "description": "Block update date in ISO 8601 format.",
+                        "example": "2020-10-15T06:38:00.000+00:00",
+                        "default": ""
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "ID of the project the block is placed on.",
+                        "example": "5e5ea5c16897e",
+                        "default": ""
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "Why the block was placed, in the operator's words. Empty when none was given.",
+                        "example": "Chargeback under review",
+                        "default": ""
+                    },
+                    "threatId": {
+                        "type": "string",
+                        "description": "ID of the threat whose detection placed the block. Empty for a block an operator placed.",
+                        "example": "5e5ea5c16897e",
+                        "default": ""
+                    }
+                },
+                "required": [
+                    "$createdAt",
+                    "resourceType",
+                    "resourceId",
+                    "mode",
+                    "$id",
+                    "$updatedAt",
+                    "projectId",
+                    "reason",
+                    "threatId"
+                ],
+                "example": {
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "resourceType": "project",
+                    "resourceId": "5e5ea5c16897e",
+                    "mode": "readOnly",
+                    "expiredAt": "2020-10-15T06:38:00.000+00:00",
+                    "$id": "5e5ea5c16897e",
+                    "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                    "projectId": "5e5ea5c16897e",
+                    "reason": "Chargeback under review",
+                    "threatId": "5e5ea5c16897e"
+                }
+            },
             "threat": {
                 "description": "Threat",
                 "type": "object",
@@ -161502,6 +162491,112 @@
                     "markedForDeletion": "",
                     "platform": "imagine",
                     "projects": ""
+                }
+            },
+            "payment": {
+                "description": "Payment",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "Payment ID.",
+                        "example": "5e5ea5c16897e",
+                        "default": ""
+                    },
+                    "$createdAt": {
+                        "type": "string",
+                        "description": "Payment creation date in ISO 8601 format.",
+                        "example": "2020-10-15T06:38:00.000+00:00",
+                        "default": ""
+                    },
+                    "$updatedAt": {
+                        "type": "string",
+                        "description": "Payment update date in ISO 8601 format.",
+                        "example": "2020-10-15T06:38:00.000+00:00",
+                        "default": ""
+                    },
+                    "invoiceId": {
+                        "type": "string",
+                        "description": "ID of the invoice the payment collects.",
+                        "example": "5e5ea5c16897e",
+                        "default": ""
+                    },
+                    "teamId": {
+                        "type": "string",
+                        "description": "ID of the organization that is charged.",
+                        "example": "5e5ea5c16897e",
+                        "default": ""
+                    },
+                    "providerPaymentId": {
+                        "type": "string",
+                        "description": "ID of the payment at the payment provider.",
+                        "example": "pi_3P1ZbQ2eZvKYlo2C0QhL6b4n",
+                        "default": ""
+                    },
+                    "paymentMethodId": {
+                        "type": "string",
+                        "description": "ID of the payment method that was charged. Empty when none was.",
+                        "example": "5e5ea5c16897e",
+                        "default": ""
+                    },
+                    "amount": {
+                        "type": "number",
+                        "description": "Amount charged, in the invoice currency.",
+                        "format": "double",
+                        "example": 15,
+                        "default": 0
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "Currency the payment is in.",
+                        "example": "usd",
+                        "default": ""
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Payment status. One of `pending` (confirmation in progress), `processing`, `requires_authentication`, `succeeded`, `failed`, `disputed`, `partially_refunded` or `refunded`.",
+                        "example": "succeeded",
+                        "default": ""
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "When the payment was attempted, in ISO 8601 format.",
+                        "example": "2020-10-15T06:38:00.000+00:00",
+                        "default": ""
+                    },
+                    "lastError": {
+                        "type": "string",
+                        "description": "The provider's last error for a failed payment, or the refunded amount for a partially refunded one. Null otherwise.",
+                        "example": "Your card was declined.",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "$id",
+                    "$createdAt",
+                    "$updatedAt",
+                    "invoiceId",
+                    "teamId",
+                    "providerPaymentId",
+                    "paymentMethodId",
+                    "amount",
+                    "currency",
+                    "status",
+                    "date"
+                ],
+                "example": {
+                    "$id": "5e5ea5c16897e",
+                    "$createdAt": "2020-10-15T06:38:00.000+00:00",
+                    "$updatedAt": "2020-10-15T06:38:00.000+00:00",
+                    "invoiceId": "5e5ea5c16897e",
+                    "teamId": "5e5ea5c16897e",
+                    "providerPaymentId": "pi_3P1ZbQ2eZvKYlo2C0QhL6b4n",
+                    "paymentMethodId": "5e5ea5c16897e",
+                    "amount": 15,
+                    "currency": "usd",
+                    "status": "succeeded",
+                    "date": "2020-10-15T06:38:00.000+00:00",
+                    "lastError": "Your card was declined."
                 }
             },
             "paymentAuthentication": {
@@ -166959,6 +168054,35 @@
                     "invoices": ""
                 }
             },
+            "paymentList": {
+                "description": "Payments list",
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of payments that matched your query.",
+                        "format": "int32",
+                        "example": 5,
+                        "default": 0
+                    },
+                    "payments": {
+                        "type": "array",
+                        "description": "List of payments.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/payment"
+                        },
+                        "example": []
+                    }
+                },
+                "required": [
+                    "total",
+                    "payments"
+                ],
+                "example": {
+                    "total": 5,
+                    "payments": ""
+                }
+            },
             "billingPlanList": {
                 "description": "Billing plan list",
                 "type": "object",
@@ -167044,6 +168168,64 @@
                 "example": {
                     "total": 5,
                     "threats": ""
+                }
+            },
+            "adminCreditList": {
+                "description": "Admin credits list",
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of credits that matched your query.",
+                        "format": "int32",
+                        "example": 5,
+                        "default": 0
+                    },
+                    "credits": {
+                        "type": "array",
+                        "description": "List of credits.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/credit"
+                        },
+                        "example": []
+                    }
+                },
+                "required": [
+                    "total",
+                    "credits"
+                ],
+                "example": {
+                    "total": 5,
+                    "credits": ""
+                }
+            },
+            "adminBlockList": {
+                "description": "Admin blocks list",
+                "type": "object",
+                "properties": {
+                    "total": {
+                        "type": "integer",
+                        "description": "Total number of blocks that matched your query.",
+                        "format": "int32",
+                        "example": 5,
+                        "default": 0
+                    },
+                    "blocks": {
+                        "type": "array",
+                        "description": "List of blocks.",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/adminBlock"
+                        },
+                        "example": []
+                    }
+                },
+                "required": [
+                    "total",
+                    "blocks"
+                ],
+                "example": {
+                    "total": 5,
+                    "blocks": ""
                 }
             },
             "databaseMigrationList": {
