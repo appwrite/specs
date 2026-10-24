@@ -3,7 +3,7 @@ DELETE /v1/databases/{databaseId}/collections/{collectionId}/attributes/{key} HT
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 2.6.1
+X-Appwrite-Response-Format: 2.6.2
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 ```

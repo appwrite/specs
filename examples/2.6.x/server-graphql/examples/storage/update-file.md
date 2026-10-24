@@ -3,7 +3,6 @@ mutation {
     storageUpdateFile(
         bucketId: "<BUCKET_ID>",
         fileId: "<FILE_ID>",
-        name: "<NAME>",
         permissions: ["read(\"any\")"]
     ) {
         _id

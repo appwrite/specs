@@ -3,7 +3,7 @@ DELETE /v1/documentsdb/{databaseId}/collections/{collectionId}/documents/{docume
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 2.6.1
+X-Appwrite-Response-Format: 2.6.2
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 ```
