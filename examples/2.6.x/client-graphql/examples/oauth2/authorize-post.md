@@ -3,7 +3,6 @@ mutation {
     oauth2AuthorizePost(
         clientId: "<CLIENT_ID>",
         redirectUri: "https://example.com",
-        responseType: "",
         scope: "<SCOPE>",
         state: "<STATE>",
         nonce: "<NONCE>",

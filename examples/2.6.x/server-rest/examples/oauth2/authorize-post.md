@@ -3,12 +3,11 @@ POST /v1/oauth2/{project_id}/authorize HTTP/1.1
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 2.6.1
+X-Appwrite-Response-Format: 2.6.2
 
 {
   "client_id": "<CLIENT_ID>",
   "redirect_uri": "https://example.com",
-  "response_type": "",
   "scope": "<SCOPE>",
   "state": "<STATE>",
   "nonce": "<NONCE>",

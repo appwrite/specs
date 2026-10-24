@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "version": "2.6.1",
+        "version": "2.6.2",
         "title": "Appwrite",
         "description": "Appwrite backend as a service cuts up to 70% of the time and costs required for building a modern application. We abstract and simplify common development tasks behind a REST APIs, to help you develop your app in a fast and secure way. For full API documentation and tutorials go to [https:\/\/appwrite.io\/docs](https:\/\/appwrite.io\/docs)",
         "termsOfService": "https:\/\/appwrite.io\/policy\/terms",
@@ -5494,7 +5494,10 @@
                     "demo": "account\/update-magic-url-session.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
-                    "rate-key": "ip:{ip},userId:{param-userId}",
+                    "rate-key": [
+                        "ip:{ip},userId:{param-userId}",
+                        "projectId:{projectId},url:{url},userId:{param-userId}"
+                    ],
                     "scope": "sessions.write",
                     "platforms": [
                         "console",
@@ -6046,7 +6049,10 @@
                     "demo": "account\/update-phone-session.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
-                    "rate-key": "ip:{ip},userId:{param-userId}",
+                    "rate-key": [
+                        "ip:{ip},userId:{param-userId}",
+                        "projectId:{projectId},url:{url},userId:{param-userId}"
+                    ],
                     "scope": "sessions.write",
                     "platforms": [
                         "console",
@@ -6132,7 +6138,10 @@
                     "demo": "account\/create-session.md",
                     "rate-limit": 10,
                     "rate-time": 3600,
-                    "rate-key": "ip:{ip},userId:{param-userId}",
+                    "rate-key": [
+                        "ip:{ip},userId:{param-userId}",
+                        "projectId:{projectId},url:{url},userId:{param-userId}"
+                    ],
                     "scope": "sessions.write",
                     "platforms": [
                         "console",
@@ -14694,8 +14703,8 @@
                 "x-appwrite": {
                     "group": null,
                     "demo": "avatars\/get-favicon.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
+                    "rate-limit": 60,
+                    "rate-time": 60,
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "avatars.read",
                     "platforms": [
@@ -16261,8 +16270,8 @@
                 "x-appwrite": {
                     "group": null,
                     "demo": "avatars\/get-image.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
+                    "rate-limit": 60,
+                    "rate-time": 60,
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "avatars.read",
                     "platforms": [
@@ -24675,7 +24684,10 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "rows.read",
+                    "scope": [
+                        "documents.read",
+                        "rows.read"
+                    ],
                     "platforms": [
                         "console",
                         "server",
@@ -24758,9 +24770,9 @@
                 "x-appwrite": {
                     "group": "transactions",
                     "demo": "databases\/create-transaction.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": "documents.write",
                     "platforms": [
                         "console",
@@ -24841,7 +24853,10 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "rows.read",
+                    "scope": [
+                        "documents.read",
+                        "rows.read"
+                    ],
                     "platforms": [
                         "console",
                         "server",
@@ -24910,9 +24925,9 @@
                 "x-appwrite": {
                     "group": "transactions",
                     "demo": "databases\/update-transaction.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": "documents.write",
                     "platforms": [
                         "console",
@@ -25012,9 +25027,9 @@
                 "x-appwrite": {
                     "group": "transactions",
                     "demo": "databases\/delete-transaction.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": "documents.write",
                     "platforms": [
                         "console",
@@ -33986,9 +34001,9 @@
                 "x-appwrite": {
                     "group": "transactions",
                     "demo": "documentsdb\/create-transaction.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": "documentsdb.documents.write",
                     "platforms": [
                         "console",
@@ -34130,9 +34145,9 @@
                 "x-appwrite": {
                     "group": "transactions",
                     "demo": "documentsdb\/update-transaction.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": "documentsdb.documents.write",
                     "platforms": [
                         "console",
@@ -34228,9 +34243,9 @@
                 "x-appwrite": {
                     "group": "transactions",
                     "demo": "documentsdb\/delete-transaction.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": "documentsdb.documents.write",
                     "platforms": [
                         "console",
@@ -39711,7 +39726,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain).",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -39822,7 +39837,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain).",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -39923,7 +39938,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain).",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -40034,7 +40049,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain).",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -40135,7 +40150,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name.",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -40247,7 +40262,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name.",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -40349,7 +40364,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name.",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -40460,7 +40475,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name.",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -40561,7 +40576,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain).",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -40673,7 +40688,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain).",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -40775,7 +40790,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain).",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -40887,7 +40902,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain).",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -40989,7 +41004,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain).",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -41108,7 +41123,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain).",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -41217,7 +41232,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain).",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -41329,7 +41344,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain).",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -41431,7 +41446,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (service name).",
+                                        "description": "Record name relative to the domain: the service and protocol, such as `_sip._tcp`. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -41564,7 +41579,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (service name).",
+                                        "description": "Record name relative to the domain: the service and protocol, such as `_sip._tcp`. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -41687,7 +41702,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain) for the TXT record.",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -41799,7 +41814,7 @@
                                 "type": "object",
                                 "properties": {
                                     "name": {
-                                        "description": "Record name (subdomain) for the TXT record.",
+                                        "description": "Record name relative to the domain, such as `www`, or `@` for the domain itself. A full name ending in the domain is also accepted and stored relative to it.",
                                         "type": "string"
                                     },
                                     "value": {
@@ -42186,12 +42201,12 @@
                 ]
             },
             "put": {
-                "summary": "Update the DNS zone for the given domain using the provided zone file content. All parsed records are imported and then the main domain document is returned.",
+                "summary": "Update the DNS zone for the given domain using the provided zone file content. All parsed records the domain does not already have are imported and then the main domain document is returned.",
                 "operationId": "domainsUpdateZone",
                 "tags": [
                     "domains"
                 ],
-                "description": "Update the DNS zone for the given domain using the provided zone file content.\nAll parsed records are imported and then the main domain document is returned.",
+                "description": "Update the DNS zone for the given domain using the provided zone file content.\nAll parsed records the domain does not already have are imported and then the main domain document is returned.",
                 "responses": {
                     "201": {
                         "description": "Domain",
@@ -42770,6 +42785,13 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
+                                                    "python-3.15"
+                                                ],
+                                                "title": "python-3.15"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
                                                     "python-ml-3.11"
                                                 ],
                                                 "title": "python-ml-3.11"
@@ -42843,6 +42865,13 @@
                                                     "deno-2.6"
                                                 ],
                                                 "title": "deno-2.6"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "deno-2.9"
+                                                ],
+                                                "title": "deno-2.9"
                                             },
                                             {
                                                 "type": "string",
@@ -43176,9 +43205,23 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
+                                                    "go-1.27"
+                                                ],
+                                                "title": "go-1.27"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
                                                     "rust-1.83"
                                                 ],
                                                 "title": "rust-1.83"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "rust-1.99"
+                                                ],
+                                                "title": "rust-1.99"
                                             },
                                             {
                                                 "type": "string",
@@ -44686,6 +44729,13 @@
                                     {
                                         "type": "string",
                                         "enum": [
+                                            "python-3.15"
+                                        ],
+                                        "title": "python-3.15"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "enum": [
                                             "python-ml-3.11"
                                         ],
                                         "title": "python-ml-3.11"
@@ -44759,6 +44809,13 @@
                                             "deno-2.6"
                                         ],
                                         "title": "deno-2.6"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "deno-2.9"
+                                        ],
+                                        "title": "deno-2.9"
                                     },
                                     {
                                         "type": "string",
@@ -45092,9 +45149,23 @@
                                     {
                                         "type": "string",
                                         "enum": [
+                                            "go-1.27"
+                                        ],
+                                        "title": "go-1.27"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "enum": [
                                             "rust-1.83"
                                         ],
                                         "title": "rust-1.83"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "rust-1.99"
+                                        ],
+                                        "title": "rust-1.99"
                                     },
                                     {
                                         "type": "string",
@@ -45680,6 +45751,13 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
+                                                    "python-3.15"
+                                                ],
+                                                "title": "python-3.15"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
                                                     "python-ml-3.11"
                                                 ],
                                                 "title": "python-ml-3.11"
@@ -45753,6 +45831,13 @@
                                                     "deno-2.6"
                                                 ],
                                                 "title": "deno-2.6"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "deno-2.9"
+                                                ],
+                                                "title": "deno-2.9"
                                             },
                                             {
                                                 "type": "string",
@@ -46086,9 +46171,23 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
+                                                    "go-1.27"
+                                                ],
+                                                "title": "go-1.27"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
                                                     "rust-1.83"
                                                 ],
                                                 "title": "rust-1.83"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "rust-1.99"
+                                                ],
+                                                "title": "rust-1.99"
                                             },
                                             {
                                                 "type": "string",
@@ -57891,11 +57990,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.read",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -57903,7 +58007,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "parameters": [
@@ -57974,11 +58079,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -57986,7 +58096,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "requestBody": {
@@ -58376,11 +58487,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -58388,7 +58504,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "parameters": [
@@ -58750,11 +58867,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -58762,7 +58884,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "requestBody": {
@@ -58873,11 +58996,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -58885,7 +59013,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "requestBody": {
@@ -58992,11 +59121,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -59004,7 +59138,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "requestBody": {
@@ -59141,11 +59276,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -59153,7 +59293,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "parameters": [
@@ -59287,11 +59428,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -59299,7 +59445,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "requestBody": {
@@ -59386,11 +59533,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -59398,7 +59550,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "requestBody": {
@@ -59505,11 +59658,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -59517,7 +59675,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "requestBody": {
@@ -59699,11 +59858,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -59711,7 +59875,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "parameters": [
@@ -59915,11 +60080,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -59927,7 +60097,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "requestBody": {
@@ -60104,11 +60275,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -60116,7 +60292,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "parameters": [
@@ -60311,11 +60488,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.read",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -60323,7 +60505,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "parameters": [
@@ -60367,11 +60550,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -60379,7 +60567,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "parameters": [
@@ -60416,11 +60605,16 @@
                     "rate-key": "url:{url},ip:{ip}",
                     "scope": "migrations.write",
                     "platforms": [
+                        "server",
                         "console"
                     ],
                     "packaging": false,
                     "public": true,
                     "auth": {
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        },
                         "console": {
                             "Project": []
                         }
@@ -60428,7 +60622,8 @@
                 },
                 "security": [
                     {
-                        "Project": []
+                        "Project": [],
+                        "Key": []
                     }
                 ],
                 "parameters": [
@@ -68957,7 +69152,7 @@
                 "tags": [
                     "organization"
                 ],
-                "description": "Create a new organization API key.",
+                "description": "Create a new organization API key as an organization owner. Replace legacy keys with a new key to authorize organization deletion or owner membership grants.",
                 "responses": {
                     "201": {
                         "description": "Key",
@@ -99882,6 +100077,13 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
+                                                    "python-3.15"
+                                                ],
+                                                "title": "python-3.15"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
                                                     "python-ml-3.11"
                                                 ],
                                                 "title": "python-ml-3.11"
@@ -99955,6 +100157,13 @@
                                                     "deno-2.6"
                                                 ],
                                                 "title": "deno-2.6"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "deno-2.9"
+                                                ],
+                                                "title": "deno-2.9"
                                             },
                                             {
                                                 "type": "string",
@@ -100288,9 +100497,23 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
+                                                    "go-1.27"
+                                                ],
+                                                "title": "go-1.27"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
                                                     "rust-1.83"
                                                 ],
                                                 "title": "rust-1.83"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "rust-1.99"
+                                                ],
+                                                "title": "rust-1.99"
                                             },
                                             {
                                                 "type": "string",
@@ -102361,6 +102584,13 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
+                                                    "python-3.15"
+                                                ],
+                                                "title": "python-3.15"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
                                                     "python-ml-3.11"
                                                 ],
                                                 "title": "python-ml-3.11"
@@ -102434,6 +102664,13 @@
                                                     "deno-2.6"
                                                 ],
                                                 "title": "deno-2.6"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "deno-2.9"
+                                                ],
+                                                "title": "deno-2.9"
                                             },
                                             {
                                                 "type": "string",
@@ -102767,9 +103004,23 @@
                                             {
                                                 "type": "string",
                                                 "enum": [
+                                                    "go-1.27"
+                                                ],
+                                                "title": "go-1.27"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
                                                     "rust-1.83"
                                                 ],
                                                 "title": "rust-1.83"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "rust-1.99"
+                                                ],
+                                                "title": "rust-1.99"
                                             },
                                             {
                                                 "type": "string",
@@ -106468,8 +106719,7 @@
                                 "properties": {
                                     "name": {
                                         "description": "File name.",
-                                        "type": "string",
-                                        "example": "<NAME>"
+                                        "type": "string"
                                     },
                                     "permissions": {
                                         "description": "An array of permission strings. By default, the current permissions are inherited. [Learn more about permissions](https:\/\/appwrite.io\/docs\/permissions).",
@@ -107474,9 +107724,9 @@
                 "x-appwrite": {
                     "group": "transactions",
                     "demo": "tablesdb\/create-transaction.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": [
                         "documents.write",
                         "rows.write"
@@ -107624,9 +107874,9 @@
                 "x-appwrite": {
                     "group": "transactions",
                     "demo": "tablesdb\/update-transaction.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": [
                         "documents.write",
                         "rows.write"
@@ -107725,9 +107975,9 @@
                 "x-appwrite": {
                     "group": "transactions",
                     "demo": "tablesdb\/delete-transaction.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": [
                         "documents.write",
                         "rows.write"
@@ -120692,9 +120942,7 @@
                                     },
                                     "password": {
                                         "description": "User password hashed using Argon2.",
-                                        "type": "string",
-                                        "example": "password",
-                                        "format": "password"
+                                        "type": "string"
                                     },
                                     "name": {
                                         "description": "User name. Max length: 128 chars.",
@@ -120783,9 +121031,7 @@
                                     },
                                     "password": {
                                         "description": "User password hashed using Bcrypt.",
-                                        "type": "string",
-                                        "example": "password",
-                                        "format": "password"
+                                        "type": "string"
                                     },
                                     "name": {
                                         "description": "User name. Max length: 128 chars.",
@@ -121111,9 +121357,7 @@
                                     },
                                     "password": {
                                         "description": "User password hashed using PHPass.",
-                                        "type": "string",
-                                        "example": "password",
-                                        "format": "password"
+                                        "type": "string"
                                     },
                                     "name": {
                                         "description": "User name. Max length: 128 chars.",
@@ -121212,25 +121456,25 @@
                                         "example": "<PASSWORD_SALT>"
                                     },
                                     "passwordCpu": {
-                                        "description": "Optional CPU cost used to hash password.",
+                                        "description": "Optional CPU cost used to hash password. Must be a power of two, at most 65536.",
                                         "type": "integer",
                                         "example": 8,
                                         "format": "int32"
                                     },
                                     "passwordMemory": {
-                                        "description": "Optional memory cost used to hash password.",
+                                        "description": "Optional memory cost used to hash password. Maximum is 16.",
                                         "type": "integer",
-                                        "example": 65536,
+                                        "example": 14,
                                         "format": "int32"
                                     },
                                     "passwordParallel": {
-                                        "description": "Optional parallelization cost used to hash password.",
+                                        "description": "Optional parallelization cost used to hash password. Maximum is 4.",
                                         "type": "integer",
                                         "example": 1,
                                         "format": "int32"
                                     },
                                     "passwordLength": {
-                                        "description": "Optional hash length used to hash password.",
+                                        "description": "Optional hash length used to hash password. Must be between 16 and 128.",
                                         "type": "integer",
                                         "example": 64,
                                         "format": "int32"
@@ -122783,7 +123027,7 @@
                     "rate-limit": 0,
                     "rate-time": 3600,
                     "rate-key": "url:{url},ip:{ip}",
-                    "scope": "users.read",
+                    "scope": "users.write",
                     "platforms": [
                         "console",
                         "server"
@@ -126260,9 +126504,9 @@
                 "x-appwrite": {
                     "group": "transactions",
                     "demo": "vectorsdb\/create-transaction.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": "vectorsdb.documents.write",
                     "platforms": [
                         "console",
@@ -126404,9 +126648,9 @@
                 "x-appwrite": {
                     "group": "transactions",
                     "demo": "vectorsdb\/update-transaction.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 120,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": "vectorsdb.documents.write",
                     "platforms": [
                         "console",
@@ -126502,9 +126746,9 @@
                 "x-appwrite": {
                     "group": "transactions",
                     "demo": "vectorsdb\/delete-transaction.md",
-                    "rate-limit": 0,
-                    "rate-time": 3600,
-                    "rate-key": "url:{url},ip:{ip}",
+                    "rate-limit": 60,
+                    "rate-time": 60,
+                    "rate-key": "ip:{ip},method:{method},url:{url},userId:{userId}",
                     "scope": "vectorsdb.documents.write",
                     "platforms": [
                         "console",
@@ -129617,7 +129861,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Create a bypass WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
+                "description": "Create a bypass WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `accept`, `acceptLanguage`, `cookie`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "201": {
                         "description": "WafRuleBypass",
@@ -129746,7 +129990,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Update a bypass WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
+                "description": "Update a bypass WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `accept`, `acceptLanguage`, `cookie`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "200": {
                         "description": "WafRuleBypass",
@@ -129866,7 +130110,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Create a challenge WAF rule. Use `difficulty` (1 easiest to 5 hardest) to tune the client-side proof-of-work cost, and `ttl` to control how long, in seconds, a visitor stays cleared after passing the challenge before being challenged again. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
+                "description": "Create a challenge WAF rule. Use `difficulty` (1 easiest to 5 hardest) to tune the client-side proof-of-work cost, and `ttl` to control how long, in seconds, a visitor stays cleared after passing the challenge before being challenged again. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `accept`, `acceptLanguage`, `cookie`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "201": {
                         "description": "WafRuleChallenge",
@@ -130015,7 +130259,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Update a challenge WAF rule. Use `difficulty` (1 easiest to 5 hardest) to tune the client-side proof-of-work cost, and `ttl` to control how long, in seconds, a visitor stays cleared after passing the challenge before being challenged again. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
+                "description": "Update a challenge WAF rule. Use `difficulty` (1 easiest to 5 hardest) to tune the client-side proof-of-work cost, and `ttl` to control how long, in seconds, a visitor stays cleared after passing the challenge before being challenged again. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `accept`, `acceptLanguage`, `cookie`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "200": {
                         "description": "WafRuleChallenge",
@@ -130155,7 +130399,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Create a deny WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon. `sessionAge` and `mfaAge` hold the seconds since the request's session was created and since its last MFA challenge. Both are null for requests without a session, such as guests and API keys; on `functions` and `sites` rules the session comes from the `x-appwrite-user-jwt` header, and `mfaAge` is null when the session never completed MFA. A deny matching on `mfaAge` returns `user_challenge_required` and one matching on `sessionAge` returns `user_reauthentication_required`, both with status 401, so the user can sign in again and retry. To also deny requests without a session, combine `isNull` and `greaterThan` in an `or` condition.\n",
+                "description": "Create a deny WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `accept`, `acceptLanguage`, `cookie`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon. `sessionAge` and `mfaAge` hold the seconds since the request's session was created and since its last MFA challenge. Both are null for requests without a session, such as guests and API keys, while a request authenticated with the `x-appwrite-jwt` header carries the age of the session its token is bound to; on `functions` rules the session comes from the `x-appwrite-user-jwt` header, and `mfaAge` is null when the session never completed MFA. A deny matching on `mfaAge` returns `user_challenge_required` and one matching on `sessionAge` returns `user_reauthentication_required`, both with status 401, so the user can sign in again and retry. To also deny requests without a session, combine `isNull` and `greaterThan` in an `or` condition.\n",
                 "responses": {
                     "201": {
                         "description": "WafRuleDeny",
@@ -130284,7 +130528,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Update a deny WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon. `sessionAge` and `mfaAge` hold the seconds since the request's session was created and since its last MFA challenge. Both are null for requests without a session, such as guests and API keys; on `functions` and `sites` rules the session comes from the `x-appwrite-user-jwt` header, and `mfaAge` is null when the session never completed MFA. A deny matching on `mfaAge` returns `user_challenge_required` and one matching on `sessionAge` returns `user_reauthentication_required`, both with status 401, so the user can sign in again and retry. To also deny requests without a session, combine `isNull` and `greaterThan` in an `or` condition.\n",
+                "description": "Update a deny WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `accept`, `acceptLanguage`, `cookie`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon. `sessionAge` and `mfaAge` hold the seconds since the request's session was created and since its last MFA challenge. Both are null for requests without a session, such as guests and API keys, while a request authenticated with the `x-appwrite-jwt` header carries the age of the session its token is bound to; on `functions` rules the session comes from the `x-appwrite-user-jwt` header, and `mfaAge` is null when the session never completed MFA. A deny matching on `mfaAge` returns `user_challenge_required` and one matching on `sessionAge` returns `user_reauthentication_required`, both with status 401, so the user can sign in again and retry. To also deny requests without a session, combine `isNull` and `greaterThan` in an `or` condition.\n",
                 "responses": {
                     "200": {
                         "description": "WafRuleDeny",
@@ -130404,7 +130648,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Create a rate limit WAF rule. Use `key` to choose the counter: `ip` limits per client IP, while `userId` limits per authenticated user (requests without an authenticated user skip `userId` rules). Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
+                "description": "Create a rate limit WAF rule. Use `key` to choose the counter: `ip` limits per client IP, while `userId` limits per authenticated user (requests without an authenticated user skip `userId` rules). Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `accept`, `acceptLanguage`, `cookie`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "201": {
                         "description": "WafRuleRateLimit",
@@ -130568,7 +130812,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Update a rate limit WAF rule. Use `key` to choose the counter: `ip` limits per client IP, while `userId` limits per authenticated user (requests without an authenticated user skip `userId` rules). Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
+                "description": "Update a rate limit WAF rule. Use `key` to choose the counter: `ip` limits per client IP, while `userId` limits per authenticated user (requests without an authenticated user skip `userId` rules). Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `accept`, `acceptLanguage`, `cookie`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "200": {
                         "description": "WafRuleRateLimit",
@@ -130715,7 +130959,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Create a redirect WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
+                "description": "Create a redirect WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `accept`, `acceptLanguage`, `cookie`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "201": {
                         "description": "WafRuleRedirect",
@@ -130859,7 +131103,7 @@
                 "tags": [
                     "waf"
                 ],
-                "description": "Update a redirect WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
+                "description": "Update a redirect WAF rule. Conditions can match request attributes including `ip` (plain IPs or CIDR blocks like `10.0.0.0\/8`), `method`, `path`, `host`, `country`, `continent`, `headers.<name>`, `query.<key>`, `queryKeys`, `accept`, `acceptLanguage`, `cookie`, `userAgent`, `os`, `osVersion`, `browser`, and `browserVersion`. Conditions on `city` and `state` require the premium Geo DB addon.\n",
                 "responses": {
                     "200": {
                         "description": "WafRuleRedirect",
@@ -152901,6 +153145,12 @@
                         "description": "Appwrite-owned zone for function testing email addresses, delivered to {functionId}@{projectId}.{zone}. Empty when inbound email is not configured.",
                         "example": "appwrite.email",
                         "default": ""
+                    },
+                    "_APP_DOMAIN_TARGET_SMTP": {
+                        "type": "string",
+                        "description": "MX target a custom inbound email (SMTP) domain must point at. Empty when inbound email is not configured.",
+                        "example": "mail.appwrite.email",
+                        "default": ""
                     }
                 },
                 "required": [
@@ -152937,7 +153187,8 @@
                     "maxIndexLength",
                     "supportForIntegerIds",
                     "_APP_CONSOLE_EMAIL_VERIFICATION",
-                    "_APP_DOMAIN_EMAIL"
+                    "_APP_DOMAIN_EMAIL",
+                    "_APP_DOMAIN_TARGET_SMTP"
                 ],
                 "example": {
                     "_APP_DOMAIN_TARGET_CNAME": "appwrite.io",
@@ -152979,7 +153230,8 @@
                     "maxIndexLength": 768,
                     "supportForIntegerIds": true,
                     "_APP_CONSOLE_EMAIL_VERIFICATION": "true",
-                    "_APP_DOMAIN_EMAIL": "appwrite.email"
+                    "_APP_DOMAIN_EMAIL": "appwrite.email",
+                    "_APP_DOMAIN_TARGET_SMTP": "mail.appwrite.email"
                 }
             },
             "consoleOAuth2ProviderParameter": {
@@ -153592,7 +153844,7 @@
                     "credentials": {
                         "type": "object",
                         "additionalProperties": true,
-                        "description": "Provider credentials.",
+                        "description": "Provider credentials. Secret values are write-only and never returned.",
                         "example": {
                             "key": "123456789"
                         },
@@ -159534,7 +159786,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Record name or subdomain.",
+                        "description": "Record name relative to the domain, or `@` for the domain itself.",
                         "example": "mail",
                         "default": ""
                     },

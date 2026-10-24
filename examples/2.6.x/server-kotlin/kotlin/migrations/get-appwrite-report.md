@@ -1,0 +1,20 @@
+```kotlin
+import io.appwrite.Client
+import io.appwrite.coroutines.CoroutineCallback
+import io.appwrite.services.Migrations
+import io.appwrite.enums.AppwriteMigrationResource
+
+val client = Client()
+    .setEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
+    .setProject("<YOUR_PROJECT_ID>") // Your project ID
+    .setKey("<YOUR_API_KEY>") // Your secret API key
+
+val migrations = Migrations(client)
+
+val response = migrations.getAppwriteReport(
+    resources = listOf(AppwriteMigrationResource.USER),
+    endpoint = "https://example.com",
+    projectID = "<PROJECT_ID>",
+    key = "<KEY>"
+)
+```

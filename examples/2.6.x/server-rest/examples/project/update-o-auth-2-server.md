@@ -3,7 +3,7 @@ PUT /v1/project/oauth2-server HTTP/1.1
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 2.6.1
+X-Appwrite-Response-Format: 2.6.2
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {

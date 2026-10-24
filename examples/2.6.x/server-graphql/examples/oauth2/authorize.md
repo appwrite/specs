@@ -3,7 +3,6 @@ query {
     oauth2Authorize(
         clientId: "<CLIENT_ID>",
         redirectUri: "https://example.com",
-        responseType: "",
         scope: "<SCOPE>",
         state: "<STATE>",
         nonce: "<NONCE>",
