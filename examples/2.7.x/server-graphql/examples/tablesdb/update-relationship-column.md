@@ -1,0 +1,28 @@
+```graphql
+mutation {
+    tablesDBUpdateRelationshipColumn(
+        databaseId: "<DATABASE_ID>",
+        tableId: "<TABLE_ID>",
+        key: "<KEY>",
+        onDelete: "cascade",
+        newKey: "<NEW_KEY>",
+        description: "<DESCRIPTION>"
+    ) {
+        key
+        description
+        type
+        status
+        error
+        required
+        array
+        _createdAt
+        _updatedAt
+        relatedTable
+        relationType
+        twoWay
+        twoWayKey
+        onDelete
+        side
+    }
+}
+```

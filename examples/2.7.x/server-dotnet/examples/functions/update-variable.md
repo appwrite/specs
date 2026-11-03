@@ -1,0 +1,22 @@
+```csharp
+using Appwrite;
+using Appwrite.Models;
+using Appwrite.Services;
+
+Client client = new Client()
+    .SetEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
+    .SetProject("<YOUR_PROJECT_ID>") // Your project ID
+    .SetKey("<YOUR_API_KEY>"); // Your secret API key
+
+Functions functions = new Functions(client);
+
+Appwrite.Models.Variable result = await functions.UpdateVariable(
+    functionId: "<FUNCTION_ID>",
+    variableId: "<VARIABLE_ID>",
+    key: "<KEY>", // optional
+    @value: "<VALUE>", // optional
+    secret: false, // optional
+    description: "<DESCRIPTION>" // optional
+);
+
+```

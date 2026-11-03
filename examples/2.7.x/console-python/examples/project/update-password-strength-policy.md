@@ -1,0 +1,21 @@
+```python
+from appwrite_console.client import Client
+from appwrite_console.services.project import Project
+from appwrite_console.models import PolicyPasswordStrength
+
+client = Client()
+client.set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
+client.set_project('<YOUR_PROJECT_ID>') # Your project ID
+
+project = Project(client)
+
+result: PolicyPasswordStrength = project.update_password_strength_policy(
+    min = 8, # optional
+    uppercase = False, # optional
+    lowercase = False, # optional
+    number = False, # optional
+    symbols = False # optional
+)
+
+print(result.model_dump())
+```

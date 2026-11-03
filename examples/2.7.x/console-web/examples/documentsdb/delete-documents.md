@@ -1,0 +1,20 @@
+```javascript
+import { Client, DocumentsDB } from '@appwrite.io/console';
+
+const client = new Client()
+    .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
+    .setProject('<YOUR_PROJECT_ID>'); // Your project ID
+
+const documentsDB = new DocumentsDB(client);
+
+const result = await documentsDB.deleteDocuments({
+    databaseId: '<DATABASE_ID>',
+    collectionId: '<COLLECTION_ID>',
+    queries: [
+        '{"method":"equal", "attribute":"$id", "values":["<DOCUMENT_ID>"]}',
+    ], // optional
+    transactionId: '<TRANSACTION_ID>', // optional
+});
+
+console.log(result);
+```
