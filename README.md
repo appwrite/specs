@@ -38,6 +38,7 @@ SDK code examples for each supported language, organized by version, platform, a
 | Version | Specs | Examples |
 |---------|-------|----------|
 | latest  | [specs/latest](specs/latest) | - |
+| 2.7.x   | [specs/2.7.x](specs/2.7.x) | [examples/2.7.x](examples/2.7.x) |
 | 2.6.x   | [specs/2.6.x](specs/2.6.x) | [examples/2.6.x](examples/2.6.x) |
 | 2.5.x   | [specs/2.5.x](specs/2.5.x) | [examples/2.5.x](examples/2.5.x) |
 | 2.4.x   | [specs/2.4.x](specs/2.4.x) | [examples/2.4.x](examples/2.4.x) |
