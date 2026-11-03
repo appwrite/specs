@@ -1,0 +1,14 @@
+```graphql
+mutation {
+    accountCreateEmailVerification(
+        url: "https://example.com"
+    ) {
+        _id
+        _createdAt
+        userId
+        secret
+        expire
+        phrase
+    }
+}
+```

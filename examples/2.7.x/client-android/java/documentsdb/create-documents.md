@@ -1,0 +1,42 @@
+```java
+import android.util.Log;
+
+import io.appwrite.Client;
+import io.appwrite.coroutines.CoroutineCallback;
+import io.appwrite.exceptions.AppwriteException;
+import io.appwrite.services.DocumentsDB;
+import java.util.List;
+import java.util.Map;
+
+Client client = new Client(context)
+    .setEndpoint("https://<REGION>.cloud.appwrite.io/v1") // Your API Endpoint
+    .setProject("<YOUR_PROJECT_ID>"); // Your project ID
+
+DocumentsDB documentsDB = new DocumentsDB(client);
+
+try {
+    documentsDB.createDocuments(
+        "<DATABASE_ID>", // databaseId
+        "<COLLECTION_ID>", // collectionId
+        List.of(Map.of(
+            "$id", "example1",
+            "username", "walter.obrien",
+            "email", "walter.obrien@example.com",
+            "fullName", "Walter O'Brien",
+            "age", 30,
+            "isAdmin", false
+        )), // documents
+        "<TRANSACTION_ID>", // transactionId (optional)
+        new CoroutineCallback<>((result, error) -> {
+            if (error != null) {
+                error.printStackTrace();
+                return;
+            }
+
+            Log.d("Appwrite", result.toString());
+        })
+    );
+} catch (AppwriteException e) {
+    e.printStackTrace();
+}
+```

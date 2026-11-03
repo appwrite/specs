@@ -1,0 +1,21 @@
+```dart
+import 'package:dart_appwrite/dart_appwrite.dart';
+import 'package:dart_appwrite/models.dart' as models;
+
+Client client = Client()
+    .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
+    .setProject('<YOUR_PROJECT_ID>') // Your project ID
+    .setKey('<YOUR_API_KEY>'); // Your secret API key
+
+Mysql mysql = Mysql(client);
+
+models.BackupPolicy result = await mysql.createBackupPolicy(
+    databaseId: '<DATABASE_ID>',
+    policyId: '<POLICY_ID>',
+    name: '<NAME>',
+    schedule: '',
+    retention: 1,
+    type: 'full', // (optional)
+    enabled: false, // (optional)
+);
+```

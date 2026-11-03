@@ -1,0 +1,7 @@
+```graphql
+mutation {
+    accountCreateMFARecoveryCodes {
+        recoveryCodes
+    }
+}
+```

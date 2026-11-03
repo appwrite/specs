@@ -1,0 +1,25 @@
+```javascript
+const sdk = require('node-appwrite');
+
+const client = new sdk.Client()
+    .setEndpoint('https://<REGION>.cloud.appwrite.io/v1') // Your API Endpoint
+    .setProject('<YOUR_PROJECT_ID>') // Your project ID
+    .setKey('<YOUR_API_KEY>'); // Your secret API key
+
+const vectorsDB = new sdk.VectorsDB(client);
+
+const result = await vectorsDB.createDocuments({
+    databaseId: '<DATABASE_ID>',
+    collectionId: '<COLLECTION_ID>',
+    documents: [
+        {
+            $id: 'example1',
+            embeddings: [0.12, -0.55, 0.88, 1.02],
+            metadata: {
+                name: 'First document',
+            },
+        },
+    ],
+    transactionId: '<TRANSACTION_ID>', // optional
+});
+```
