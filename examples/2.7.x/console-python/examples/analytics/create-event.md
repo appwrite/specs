@@ -19,9 +19,9 @@ result = analytics.create_event(
     scroll_depth = 0, # optional
     engagement_time = 0, # optional
     props = [], # optional
-    interactive = False, # optional
     user_id = '<USER_ID>', # optional
     ip = '<IP>', # optional
-    user_agent = '<USER_AGENT>' # optional
+    user_agent = '<USER_AGENT>', # optional
+    interactive = False # optional
 )
 ```

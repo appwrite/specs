@@ -25,10 +25,10 @@ try {
         0L, // scrollDepth (optional)
         0L, // engagementTime (optional)
         List.of(), // props (optional)
-        false, // interactive (optional)
         "<USER_ID>", // userId (optional)
         "<IP>", // ip (optional)
         "<USER_AGENT>", // userAgent (optional)
+        false, // interactive (optional)
         new CoroutineCallback<>((result, error) -> {
             if (error != null) {
                 error.printStackTrace();
