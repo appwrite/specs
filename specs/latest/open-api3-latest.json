@@ -12247,12 +12247,6 @@
                                             "type": "string"
                                         }
                                     },
-                                    "interactive": {
-                                        "description": "Whether this event is a visitor interaction that ends a bounce. Set false for telemetry such as heartbeats or background syncs. Defaults to true for custom events and false for the automatic engagement, scroll and app lifecycle events. Ignored for views.",
-                                        "type": "boolean",
-                                        "example": false,
-                                        "nullable": true
-                                    },
                                     "userId": {
                                         "description": "Override user ID. Requires API-key auth with analytics.write scope.",
                                         "type": "string",
@@ -12270,6 +12264,12 @@
                                         "type": "string",
                                         "default": "",
                                         "example": "<USER_AGENT>"
+                                    },
+                                    "interactive": {
+                                        "description": "Whether this event is a visitor interaction that ends a bounce. Set false for telemetry such as heartbeats or background syncs. Defaults to true for custom events and false for the automatic engagement, scroll and app lifecycle events. Ignored for views.",
+                                        "type": "boolean",
+                                        "example": false,
+                                        "nullable": true
                                     }
                                 },
                                 "required": [

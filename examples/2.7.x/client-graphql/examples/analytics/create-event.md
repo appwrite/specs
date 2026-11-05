@@ -11,10 +11,10 @@ mutation {
         scrollDepth: 0,
         engagementTime: 0,
         props: [],
-        interactive: false,
         userId: "<USER_ID>",
         ip: "<IP>",
-        userAgent: "<USER_AGENT>"
+        userAgent: "<USER_AGENT>",
+        interactive: false
     ) {
         status
     }

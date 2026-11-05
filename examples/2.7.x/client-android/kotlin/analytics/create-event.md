@@ -20,9 +20,9 @@ val result = analytics.createEvent(
     scrollDepth = 0, // (optional)
     engagementTime = 0, // (optional)
     props = listOf(), // (optional)
-    interactive = false, // (optional)
     userId = "<USER_ID>", // (optional)
     ip = "<IP>", // (optional)
     userAgent = "<USER_AGENT>", // (optional)
+    interactive = false, // (optional)
 )
 ```
