@@ -17771,7 +17771,7 @@
                     "200": {
                         "description": "Image",
                         "content": {
-                            "image\/png": {
+                            "image\/*": {
                                 "schema": {
                                     "type": "string",
                                     "format": "binary"
@@ -109879,7 +109879,7 @@
                                         "example": false
                                     },
                                     "maximumFileSize": {
-                                        "description": "Maximum file size allowed in bytes. Maximum allowed value is 0B.",
+                                        "description": "Maximum file size allowed in bytes. Maximum allowed value is 5GB.",
                                         "type": "integer",
                                         "default": {},
                                         "example": 1,
@@ -110123,7 +110123,7 @@
                                         "example": false
                                     },
                                     "maximumFileSize": {
-                                        "description": "Maximum file size allowed in bytes. Maximum allowed value is 0B.",
+                                        "description": "Maximum file size allowed in bytes. Maximum allowed value is 5GB.",
                                         "type": "integer",
                                         "default": {},
                                         "example": 1,
