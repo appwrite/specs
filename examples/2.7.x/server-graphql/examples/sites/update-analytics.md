@@ -1,0 +1,60 @@
+```graphql
+mutation {
+    sitesUpdateAnalytics(
+        siteId: "<SITE_ID>",
+        enabled: false
+    ) {
+        _id
+        _createdAt
+        _updatedAt
+        name
+        description
+        enabled
+        live
+        logging
+        framework
+        deploymentRetention
+        deploymentId
+        deploymentCreatedAt
+        deploymentScreenshotLight
+        deploymentScreenshotDark
+        latestDeploymentId
+        latestDeploymentCreatedAt
+        latestDeploymentStatus
+        scopes
+        vars {
+            _id
+            _createdAt
+            _updatedAt
+            key
+            description
+            value
+            secret
+            resourceType
+            resourceId
+        }
+        timeout
+        installCommand
+        buildCommand
+        startCommand
+        outputDirectory
+        installationId
+        providerRepositoryId
+        providerBranch
+        providerRootDirectory
+        providerSilentMode
+        providerComments
+        providerDeployments
+        providerStatuses
+        providerBranches
+        providerPaths
+        buildSpecification
+        runtimeSpecification
+        buildRuntime
+        adapter
+        fallbackFile
+        analyticsEnabled
+        analyticsPropertyId
+    }
+}
+```

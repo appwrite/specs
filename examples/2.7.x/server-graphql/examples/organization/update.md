@@ -14,6 +14,7 @@ mutation {
         billingBudget
         budgetAlerts
         budgetNotify
+        budgetCritical
         billingPlan
         billingPlanId
         billingPlanDetails {

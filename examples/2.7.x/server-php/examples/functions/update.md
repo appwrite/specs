@@ -40,6 +40,9 @@ $result = $functions->update(
     deploymentRetention: 0, // optional
     interval: 0, // optional
     description: '<DESCRIPTION>', // optional
+    providerComments: false, // optional
+    providerDeployments: false, // optional
+    providerStatuses: false, // optional
     emailEnabled: false // optional
 );
 ```

@@ -34,7 +34,10 @@ let site = try await sites.create(
     runtimeSpecification: "s-1vcpu-512mb", // optional
     deploymentRetention: 0, // optional
     scopes: [.projectRead], // optional
-    description: "<DESCRIPTION>" // optional
+    description: "<DESCRIPTION>", // optional
+    providerComments: false, // optional
+    providerDeployments: false, // optional
+    providerStatuses: false // optional
 )
 
 ```

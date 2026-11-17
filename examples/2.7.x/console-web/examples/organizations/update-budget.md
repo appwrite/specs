@@ -12,6 +12,7 @@ const result = await organizations.updateBudget({
     budget: 0,
     alerts: [], // optional
     notify: [], // optional
+    critical: [], // optional
 });
 
 console.log(result);

@@ -10,7 +10,8 @@ mutation {
         description: "<DESCRIPTION>",
         priority: -100000,
         enabled: false,
-        conditions: []
+        conditions: [],
+        schedule: "{}"
     ) {
         _id
         _createdAt
@@ -26,6 +27,7 @@ mutation {
         enabled
         conditions
         config
+        schedule
         location
         statusCode
     }

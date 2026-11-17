@@ -25,7 +25,10 @@ mutation {
         runtimeSpecification: "s-1vcpu-512mb",
         deploymentRetention: 0,
         scopes: [],
-        description: "<DESCRIPTION>"
+        description: "<DESCRIPTION>",
+        providerComments: false,
+        providerDeployments: false,
+        providerStatuses: false
     ) {
         _id
         _createdAt
@@ -66,6 +69,9 @@ mutation {
         providerBranch
         providerRootDirectory
         providerSilentMode
+        providerComments
+        providerDeployments
+        providerStatuses
         providerBranches
         providerPaths
         buildSpecification
@@ -73,6 +79,8 @@ mutation {
         buildRuntime
         adapter
         fallbackFile
+        analyticsEnabled
+        analyticsPropertyId
     }
 }
 ```

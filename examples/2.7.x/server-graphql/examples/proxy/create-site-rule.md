@@ -20,6 +20,8 @@ mutation {
         status
         logs
         renewAt
+        expireAt
+        certificateStatus
         protocol
     }
 }

@@ -40,6 +40,9 @@ try {
         0L, // deploymentRetention (optional)
         0L, // interval (optional)
         "<DESCRIPTION>", // description (optional)
+        false, // providerComments (optional)
+        false, // providerDeployments (optional)
+        false, // providerStatuses (optional)
         new CoroutineCallback<>((result, error) -> {
             if (error != null) {
                 error.printStackTrace();

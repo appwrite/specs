@@ -12,7 +12,8 @@ mutation {
         maxBucketSize: 1,
         priority: -100000,
         enabled: false,
-        conditions: []
+        conditions: [],
+        schedule: "{}"
     ) {
         _id
         _createdAt
@@ -28,6 +29,7 @@ mutation {
         enabled
         conditions
         config
+        schedule
         limit
         interval
         key

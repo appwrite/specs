@@ -13,6 +13,7 @@ query {
         premium
         renewalPrice
         renewalPeriodYears
+        reason
     }
 }
 ```

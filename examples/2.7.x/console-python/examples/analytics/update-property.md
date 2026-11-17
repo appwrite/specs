@@ -2,6 +2,7 @@
 from appwrite_console.client import Client
 from appwrite_console.services.analytics import Analytics
 from appwrite_console.models import AnalyticsProperty
+from appwrite_console.enums.analytics_property_type import AnalyticsPropertyType
 
 client = Client()
 client.set_endpoint('https://<REGION>.cloud.appwrite.io/v1') # Your API Endpoint
@@ -14,7 +15,9 @@ result: AnalyticsProperty = analytics.update_property(
     name = '<NAME>', # optional
     domain = '<DOMAIN>', # optional
     enabled = False, # optional
-    allowed_origins = [] # optional
+    allowed_origins = [], # optional
+    identify_users = False, # optional
+    type = AnalyticsPropertyType.WEB # optional
 )
 
 print(result.model_dump())

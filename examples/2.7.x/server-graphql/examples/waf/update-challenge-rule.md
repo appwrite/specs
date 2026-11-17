@@ -11,7 +11,8 @@ mutation {
         enabled: false,
         conditions: [],
         difficulty: 1,
-        ttl: 900
+        ttl: 900,
+        schedule: "{}"
     ) {
         _id
         _createdAt
@@ -27,6 +28,7 @@ mutation {
         enabled
         conditions
         config
+        schedule
         challengeType
         difficulty
         ttl

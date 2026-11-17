@@ -25,6 +25,9 @@ mutation {
         deploymentRetention: 0,
         interval: 0,
         description: "<DESCRIPTION>",
+        providerComments: false,
+        providerDeployments: false,
+        providerStatuses: false,
         emailEnabled: false
     ) {
         _id
@@ -67,6 +70,9 @@ mutation {
         providerBranch
         providerRootDirectory
         providerSilentMode
+        providerComments
+        providerDeployments
+        providerStatuses
         providerBranches
         providerPaths
         buildSpecification

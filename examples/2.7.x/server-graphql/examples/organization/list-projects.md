@@ -23,6 +23,22 @@ query {
             smtpUsername
             smtpPassword
             smtpSecure
+            ldapEnabled
+            ldapHosts
+            ldapPort
+            ldapEncryption
+            ldapVerification
+            ldapCertificate
+            ldapTimeout
+            ldapBaseDn
+            ldapBindDn
+            ldapBindPassword
+            ldapUserFilter
+            ldapRequiredGroupDn
+            ldapIdAttribute
+            ldapEmailAttribute
+            ldapNameAttribute
+            ldapPhoneAttribute
             pingCount
             pingedAt
             labels

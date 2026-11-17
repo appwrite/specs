@@ -46,6 +46,9 @@ query {
             providerBranch
             providerRootDirectory
             providerSilentMode
+            providerComments
+            providerDeployments
+            providerStatuses
             providerBranches
             providerPaths
             buildSpecification
@@ -53,6 +56,8 @@ query {
             buildRuntime
             adapter
             fallbackFile
+            analyticsEnabled
+            analyticsPropertyId
         }
     }
 }

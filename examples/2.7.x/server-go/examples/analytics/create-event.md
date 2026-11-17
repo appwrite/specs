@@ -28,10 +28,10 @@ func main() {
 		service.WithCreateEventScrollDepth(0),
 		service.WithCreateEventEngagementTime(0),
 		service.WithCreateEventProps([]string{"example"}),
-		service.WithCreateEventInteractive(false),
 		service.WithCreateEventUserId("<USER_ID>"),
 		service.WithCreateEventIp("<IP>"),
 		service.WithCreateEventUserAgent("<USER_AGENT>"),
+		service.WithCreateEventInteractive(false),
 	)
 	fmt.Println(response, err)
 }

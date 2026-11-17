@@ -36,6 +36,9 @@ result = sites.update(
     runtime_specification: 's-1vcpu-512mb', # optional
     deployment_retention: 0, # optional
     scopes: [ProjectKeyScopes::PROJECT_READ], # optional
-    description: '<DESCRIPTION>' # optional
+    description: '<DESCRIPTION>', # optional
+    provider_comments: false, # optional
+    provider_deployments: false, # optional
+    provider_statuses: false # optional
 )
 ```
