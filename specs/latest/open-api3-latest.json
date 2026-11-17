@@ -5745,6 +5745,96 @@
                 }
             }
         },
+        "\/account\/sessions\/ldap": {
+            "post": {
+                "summary": "Create LDAP session",
+                "operationId": "accountCreateLDAPSession",
+                "tags": [
+                    "account"
+                ],
+                "description": "Allow the user to login into their account by providing the username and password they use in the project's LDAP directory. The directory verifies the password; on the first sign-in an account is created from the directory entry, and on later sign-ins the name, email and phone follow the directory. This endpoint requires LDAP to be configured and enabled for the project. A user is limited to 10 active sessions at a time by default. [Learn more about session limits](https:\/\/appwrite.io\/docs\/authentication-security#limits).",
+                "responses": {
+                    "201": {
+                        "description": "Session",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/session"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "sessions",
+                    "demo": "account\/create-ldap-session.md",
+                    "rate-limit": 10,
+                    "rate-time": 3600,
+                    "rate-key": "projectId:{projectId},url:{url},username:{param-username}",
+                    "scope": "sessions.write",
+                    "platforms": [
+                        "console",
+                        "client",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        },
+                        "client": {
+                            "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Session": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Session": [],
+                        "JWT": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {
+                                        "description": "Directory username, matched against the username attribute of the project's LDAP configuration.",
+                                        "type": "string",
+                                        "example": "<USERNAME>"
+                                    },
+                                    "password": {
+                                        "description": "Directory password.",
+                                        "type": "string",
+                                        "example": "password",
+                                        "format": "password"
+                                    },
+                                    "duration": {
+                                        "description": "Session length in seconds. Minimum is 60 seconds, and it cannot exceed the project maximum session length. Defaults to the project maximum session length.",
+                                        "type": "integer",
+                                        "example": 60,
+                                        "format": "int32",
+                                        "nullable": true
+                                    }
+                                },
+                                "required": [
+                                    "username",
+                                    "password"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/account\/sessions\/magic-url": {
             "put": {
                 "summary": "Update magic URL session",
@@ -5888,7 +5978,7 @@
                 "parameters": [
                     {
                         "name": "provider",
-                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, appwrite, auth0, authentik, autodesk, bitbucket, bitly, box, cloudflare, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, fusionauth, github, gitlab, google, huggingface, kakao, keycloak, kick, linkedin, microsoft, naver, notion, oidc, okta, paypal, paypalSandbox, podio, resend, salesforce, slack, spotify, stripe, tiktok, tradeshift, tradeshiftBox, twitch, vipps, vippsSandbox, webflow, wordpress, x, yahoo, yammer, yandex, zoho, zoom.",
+                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, appwrite, auth0, authentik, autodesk, bitbucket, bitly, box, cloudflare, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, fusionauth, github, gitlab, google, huggingface, kakao, keycloak, kick, linkedin, microsoft, naver, notion, oidc, okta, paypal, paypalSandbox, podio, resend, salesforce, slack, spotify, stripe, tiktok, tradeshift, tradeshiftBox, twitch, vipps, vippsSandbox, webflow, wordpress, workos, x, yahoo, yammer, yandex, zoho, zoom.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -6223,6 +6313,13 @@
                                         "wordpress"
                                     ],
                                     "title": "wordpress"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "workos"
+                                    ],
+                                    "title": "workos"
                                 },
                                 {
                                     "type": "string",
@@ -7243,7 +7340,7 @@
                 "parameters": [
                     {
                         "name": "provider",
-                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, appwrite, auth0, authentik, autodesk, bitbucket, bitly, box, cloudflare, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, fusionauth, github, gitlab, google, huggingface, kakao, keycloak, kick, linkedin, microsoft, naver, notion, oidc, okta, paypal, paypalSandbox, podio, resend, salesforce, slack, spotify, stripe, tiktok, tradeshift, tradeshiftBox, twitch, vipps, vippsSandbox, webflow, wordpress, x, yahoo, yammer, yandex, zoho, zoom.",
+                        "description": "OAuth2 Provider. Currently, supported providers are: amazon, apple, appwrite, auth0, authentik, autodesk, bitbucket, bitly, box, cloudflare, dailymotion, discord, disqus, dropbox, etsy, facebook, figma, fusionauth, github, gitlab, google, huggingface, kakao, keycloak, kick, linkedin, microsoft, naver, notion, oidc, okta, paypal, paypalSandbox, podio, resend, salesforce, slack, spotify, stripe, tiktok, tradeshift, tradeshiftBox, twitch, vipps, vippsSandbox, webflow, wordpress, workos, x, yahoo, yammer, yandex, zoho, zoom.",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -7578,6 +7675,13 @@
                                         "wordpress"
                                     ],
                                     "title": "wordpress"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "workos"
+                                    ],
+                                    "title": "workos"
                                 },
                                 {
                                     "type": "string",
@@ -12480,7 +12584,7 @@
                                         "nullable": true
                                     },
                                     "allowedOrigins": {
-                                        "description": "Allowed origins for tracking. Use [\"*\"] to allow all.",
+                                        "description": "Allowed origins for tracking. Use [\"*\"] to allow all. On a property linked to a site, Appwrite manages this list: it is rewritten from the site's production domains whenever they change.",
                                         "type": "array",
                                         "items": {
                                             "type": "string"
@@ -38807,7 +38911,7 @@
                 "tags": [
                     "domains"
                 ],
-                "description": "Check availability and get the requested registration price for one or more domain names. Availability is resolved for all domains in a single registrar lookup. Unavailable domains have a null price for new registrations, but can still be priced for renewal, transfer, or trade. Every priced domain also carries its renewal price for the same period, so a separate renewal lookup is not needed. A domain whose price could not be resolved, for example because its TLD is not supported, is returned with a null price.",
+                "description": "Check availability and get the requested registration price for one or more domain names. Availability is resolved for all domains in a single registrar lookup. Unavailable domains have a null price for new registrations, but can still be priced for renewal, transfer, or trade. Available domains have a null price for transfers, since an unregistered domain cannot be transferred, and the reason says so. Every priced domain also carries its renewal price for the same period, so a separate renewal lookup is not needed. A domain whose price could not be resolved, for example because its TLD is not supported, is returned with a null price.",
                 "responses": {
                     "200": {
                         "description": "Domain prices list",
@@ -44497,6 +44601,20 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "project.videos.profiles.read"
+                                                    ],
+                                                    "title": "project.videos.profiles.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.videos.profiles.write"
+                                                    ],
+                                                    "title": "project.videos.profiles.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "project.oauth2.read"
                                                     ],
                                                     "title": "project.oauth2.read"
@@ -44507,6 +44625,13 @@
                                                         "project.oauth2.write"
                                                     ],
                                                     "title": "project.oauth2.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.ldap.write"
+                                                    ],
+                                                    "title": "project.ldap.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -45183,6 +45308,27 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "videos.play"
+                                                    ],
+                                                    "title": "videos.play"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.read"
+                                                    ],
+                                                    "title": "videos.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.write"
+                                                    ],
+                                                    "title": "videos.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "dedicatedDatabases.execute"
                                                     ],
                                                     "title": "dedicatedDatabases.execute"
@@ -45342,7 +45488,7 @@
                                         "example": "<PROVIDER_BRANCH>"
                                     },
                                     "providerSilentMode": {
-                                        "description": "Is the VCS (Version Control System) connection in silent mode for the repo linked to the function? In silent mode, comments will not be made on commits and pull requests.",
+                                        "description": "Is the VCS (Version Control System) connection in silent mode for the repo linked to the function? In silent mode, no comments or checks are posted to commits and pull requests.",
                                         "type": "boolean",
                                         "default": false,
                                         "example": false
@@ -45400,6 +45546,24 @@
                                         "type": "string",
                                         "default": "",
                                         "example": "<DESCRIPTION>"
+                                    },
+                                    "providerComments": {
+                                        "description": "Post a build summary on pull requests for the repo linked to the function. Commit statuses are still reported when disabled. Ignored in silent mode.",
+                                        "type": "boolean",
+                                        "default": true,
+                                        "example": false
+                                    },
+                                    "providerDeployments": {
+                                        "description": "Deploy every push that matches the branch and path rules for the repo linked to the function. When disabled, deploy manually.",
+                                        "type": "boolean",
+                                        "default": true,
+                                        "example": false
+                                    },
+                                    "providerStatuses": {
+                                        "description": "Report the build status on each commit for the repo linked to the function. Ignored in silent mode.",
+                                        "type": "boolean",
+                                        "default": true,
+                                        "example": false
                                     }
                                 },
                                 "required": [
@@ -47504,6 +47668,20 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "project.videos.profiles.read"
+                                                    ],
+                                                    "title": "project.videos.profiles.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.videos.profiles.write"
+                                                    ],
+                                                    "title": "project.videos.profiles.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "project.oauth2.read"
                                                     ],
                                                     "title": "project.oauth2.read"
@@ -47514,6 +47692,13 @@
                                                         "project.oauth2.write"
                                                     ],
                                                     "title": "project.oauth2.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.ldap.write"
+                                                    ],
+                                                    "title": "project.ldap.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -48190,6 +48375,27 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "videos.play"
+                                                    ],
+                                                    "title": "videos.play"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.read"
+                                                    ],
+                                                    "title": "videos.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.write"
+                                                    ],
+                                                    "title": "videos.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "dedicatedDatabases.execute"
                                                     ],
                                                     "title": "dedicatedDatabases.execute"
@@ -48350,7 +48556,7 @@
                                         "example": "<PROVIDER_BRANCH>"
                                     },
                                     "providerSilentMode": {
-                                        "description": "Is the VCS (Version Control System) connection in silent mode for the repo linked to the function? In silent mode, comments will not be made on commits and pull requests.",
+                                        "description": "Is the VCS (Version Control System) connection in silent mode for the repo linked to the function? In silent mode, no comments or checks are posted to commits and pull requests.",
                                         "type": "boolean",
                                         "example": false,
                                         "nullable": true
@@ -48407,6 +48613,24 @@
                                         "description": "Optional description for the function.",
                                         "type": "string",
                                         "example": "<DESCRIPTION>",
+                                        "nullable": true
+                                    },
+                                    "providerComments": {
+                                        "description": "Post a build summary on pull requests for the repo linked to the function. Commit statuses are still reported when disabled. Ignored in silent mode.",
+                                        "type": "boolean",
+                                        "example": false,
+                                        "nullable": true
+                                    },
+                                    "providerDeployments": {
+                                        "description": "Deploy every push that matches the branch and path rules for the repo linked to the function. When disabled, deploy manually.",
+                                        "type": "boolean",
+                                        "example": false,
+                                        "nullable": true
+                                    },
+                                    "providerStatuses": {
+                                        "description": "Report the build status on each commit for the repo linked to the function. Ignored in silent mode.",
+                                        "type": "boolean",
+                                        "example": false,
                                         "nullable": true
                                     },
                                     "emailEnabled": {
@@ -72305,6 +72529,20 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "project.videos.profiles.read"
+                                                    ],
+                                                    "title": "project.videos.profiles.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.videos.profiles.write"
+                                                    ],
+                                                    "title": "project.videos.profiles.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "project.oauth2.read"
                                                     ],
                                                     "title": "project.oauth2.read"
@@ -72315,6 +72553,13 @@
                                                         "project.oauth2.write"
                                                     ],
                                                     "title": "project.oauth2.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.ldap.write"
+                                                    ],
+                                                    "title": "project.ldap.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -72987,6 +73232,27 @@
                                                         "presences.write"
                                                     ],
                                                     "title": "presences.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.play"
+                                                    ],
+                                                    "title": "videos.play"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.read"
+                                                    ],
+                                                    "title": "videos.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.write"
+                                                    ],
+                                                    "title": "videos.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -73332,6 +73598,20 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "project.videos.profiles.read"
+                                                    ],
+                                                    "title": "project.videos.profiles.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.videos.profiles.write"
+                                                    ],
+                                                    "title": "project.videos.profiles.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "project.oauth2.read"
                                                     ],
                                                     "title": "project.oauth2.read"
@@ -73342,6 +73622,13 @@
                                                         "project.oauth2.write"
                                                     ],
                                                     "title": "project.oauth2.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.ldap.write"
+                                                    ],
+                                                    "title": "project.ldap.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -74014,6 +74301,27 @@
                                                         "presences.write"
                                                     ],
                                                     "title": "presences.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.play"
+                                                    ],
+                                                    "title": "videos.play"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.read"
+                                                    ],
+                                                    "title": "videos.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.write"
+                                                    ],
+                                                    "title": "videos.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -74442,6 +74750,20 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "project.videos.profiles.read"
+                                                    ],
+                                                    "title": "project.videos.profiles.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.videos.profiles.write"
+                                                    ],
+                                                    "title": "project.videos.profiles.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "project.oauth2.read"
                                                     ],
                                                     "title": "project.oauth2.read"
@@ -74452,6 +74774,13 @@
                                                         "project.oauth2.write"
                                                     ],
                                                     "title": "project.oauth2.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.ldap.write"
+                                                    ],
+                                                    "title": "project.ldap.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -75124,6 +75453,27 @@
                                                         "presences.write"
                                                     ],
                                                     "title": "presences.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.play"
+                                                    ],
+                                                    "title": "videos.play"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.read"
+                                                    ],
+                                                    "title": "videos.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.write"
+                                                    ],
+                                                    "title": "videos.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -83635,7 +83985,7 @@
                 "parameters": [
                     {
                         "name": "methodId",
-                        "description": "Auth Method ID. Possible values: email-password,magic-url,email-otp,anonymous,invites,jwt,phone,passkey",
+                        "description": "Auth Method ID. Possible values: email-password,magic-url,email-otp,anonymous,invites,jwt,phone,passkey,ldap",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -83697,6 +84047,13 @@
                                         "passkey"
                                     ],
                                     "title": "passkey"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "ldap"
+                                    ],
+                                    "title": "ldap"
                                 }
                             ]
                         },
@@ -84576,6 +84933,20 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "project.videos.profiles.read"
+                                                    ],
+                                                    "title": "project.videos.profiles.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.videos.profiles.write"
+                                                    ],
+                                                    "title": "project.videos.profiles.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "project.oauth2.read"
                                                     ],
                                                     "title": "project.oauth2.read"
@@ -84586,6 +84957,13 @@
                                                         "project.oauth2.write"
                                                     ],
                                                     "title": "project.oauth2.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.ldap.write"
+                                                    ],
+                                                    "title": "project.ldap.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -85258,6 +85636,27 @@
                                                         "presences.write"
                                                     ],
                                                     "title": "presences.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.play"
+                                                    ],
+                                                    "title": "videos.play"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.read"
+                                                    ],
+                                                    "title": "videos.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.write"
+                                                    ],
+                                                    "title": "videos.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -85587,6 +85986,20 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "project.videos.profiles.read"
+                                                    ],
+                                                    "title": "project.videos.profiles.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.videos.profiles.write"
+                                                    ],
+                                                    "title": "project.videos.profiles.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "project.oauth2.read"
                                                     ],
                                                     "title": "project.oauth2.read"
@@ -85597,6 +86010,13 @@
                                                         "project.oauth2.write"
                                                     ],
                                                     "title": "project.oauth2.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.ldap.write"
+                                                    ],
+                                                    "title": "project.ldap.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -86269,6 +86689,27 @@
                                                         "presences.write"
                                                     ],
                                                     "title": "presences.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.play"
+                                                    ],
+                                                    "title": "videos.play"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.read"
+                                                    ],
+                                                    "title": "videos.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.write"
+                                                    ],
+                                                    "title": "videos.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -86669,6 +87110,20 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "project.videos.profiles.read"
+                                                    ],
+                                                    "title": "project.videos.profiles.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.videos.profiles.write"
+                                                    ],
+                                                    "title": "project.videos.profiles.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "project.oauth2.read"
                                                     ],
                                                     "title": "project.oauth2.read"
@@ -86679,6 +87134,13 @@
                                                         "project.oauth2.write"
                                                     ],
                                                     "title": "project.oauth2.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.ldap.write"
+                                                    ],
+                                                    "title": "project.ldap.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -87355,6 +87817,27 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "videos.play"
+                                                    ],
+                                                    "title": "videos.play"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.read"
+                                                    ],
+                                                    "title": "videos.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.write"
+                                                    ],
+                                                    "title": "videos.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "dedicatedDatabases.execute"
                                                     ],
                                                     "title": "dedicatedDatabases.execute"
@@ -87644,6 +88127,266 @@
                                 "required": [
                                     "labels"
                                 ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/project\/ldap": {
+            "patch": {
+                "summary": "Update project LDAP configuration",
+                "operationId": "projectUpdateLDAP",
+                "tags": [
+                    "project"
+                ],
+                "description": "Update the LDAP configuration for your project. Use this endpoint to connect your project to an LDAP directory, such as OpenLDAP or Active Directory, so users can sign in with their directory credentials. Omitted parameters keep their stored value. Enabling LDAP connects to the directory and binds as the service account, so a project cannot be left enabled with a configuration that cannot sign anyone in.",
+                "responses": {
+                    "200": {
+                        "description": "Project",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/project"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "ldap",
+                    "demo": "project\/update-ldap.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "project.ldap.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "enabled": {
+                                        "description": "Enable or disable LDAP sign-in. Enabling connects to the directory to validate the configuration.",
+                                        "type": "boolean",
+                                        "example": false,
+                                        "nullable": true
+                                    },
+                                    "hosts": {
+                                        "description": "Directory hostnames or IP addresses, tried in order until one answers. IPv6 addresses can be written with or without square brackets. Maximum of 10 hosts are allowed. For example: [\"ldap.example.com\"]",
+                                        "type": "array",
+                                        "example": [
+                                            "ldap.example.com"
+                                        ],
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "nullable": true
+                                    },
+                                    "port": {
+                                        "description": "Directory port. Defaults to 636 for LDAPS and 389 otherwise.",
+                                        "type": "integer",
+                                        "example": 636,
+                                        "format": "int32",
+                                        "nullable": true
+                                    },
+                                    "encryption": {
+                                        "description": "Transport encryption. Use \"ldaps\" for TLS from the first byte, \"starttls\" to upgrade a plain connection, or \"none\" for a trusted network only. Allowed values are: none, ldaps, starttls. Defaults to ldaps.",
+                                        "type": "string",
+                                        "example": "none",
+                                        "title": "ProjectLDAPEncryption",
+                                        "oneOf": [
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "none"
+                                                ],
+                                                "title": "none"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "ldaps"
+                                                ],
+                                                "title": "ldaps"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "starttls"
+                                                ],
+                                                "title": "starttls"
+                                            }
+                                        ],
+                                        "nullable": true
+                                    },
+                                    "verification": {
+                                        "description": "Certificate verification, false for disabled or true for enabled. Defaults to true. Has no effect when encryption is none.",
+                                        "type": "boolean",
+                                        "example": false,
+                                        "nullable": true
+                                    },
+                                    "certificate": {
+                                        "description": "Certificate in PEM format of the authority that signed the directory certificate, or the directory certificate itself when it is self-signed. Several certificates can be given one after another. Leave empty to use the system trust store. Pass an empty string to clear a previously set value.",
+                                        "type": "string",
+                                        "example": "<CERTIFICATE>",
+                                        "nullable": true
+                                    },
+                                    "timeout": {
+                                        "description": "Seconds to wait for the directory to connect and answer each operation. Maximum is 30 seconds. Defaults to 10.",
+                                        "type": "integer",
+                                        "example": 10,
+                                        "format": "int32",
+                                        "nullable": true
+                                    },
+                                    "baseDn": {
+                                        "description": "Subtree the user search starts from. For example: ou=people,dc=example,dc=com",
+                                        "type": "string",
+                                        "example": "ou=people,dc=example,dc=com",
+                                        "nullable": true
+                                    },
+                                    "bindDn": {
+                                        "description": "Service account used to search for users. Pass an empty string if the directory allows anonymous search. For example: cn=appwrite,ou=services,dc=example,dc=com",
+                                        "type": "string",
+                                        "example": "cn=appwrite,ou=services,dc=example,dc=com",
+                                        "nullable": true
+                                    },
+                                    "bindPassword": {
+                                        "description": "Service account password. This property is stored securely and cannot be read in future (write-only). Required again when hosts, port, encryption, verification, certificate or bindDn change.",
+                                        "type": "string",
+                                        "example": "password",
+                                        "format": "password",
+                                        "nullable": true
+                                    },
+                                    "userFilter": {
+                                        "description": "LDAP filter that finds the user signing in. {username} is replaced with the username they enter and must appear at least once. Pass an empty string to use the default, (uid={username}). For example: (sAMAccountName={username}) on Active Directory, or (|(uid={username})(mail={username})) to accept a username or an email address.",
+                                        "type": "string",
+                                        "example": "(uid={username})",
+                                        "nullable": true
+                                    },
+                                    "requiredGroupDn": {
+                                        "description": "Group a user must belong to in order to sign in, checked on every sign-in. Pass an empty string to allow every user the directory authenticates. For example: cn=staff,ou=groups,dc=example,dc=com",
+                                        "type": "string",
+                                        "example": "cn=staff,ou=groups,dc=example,dc=com",
+                                        "nullable": true
+                                    },
+                                    "idAttribute": {
+                                        "description": "Attribute holding the identifier that stays the same when an entry is renamed or moved. Defaults to entryUUID; use objectGUID on Active Directory.",
+                                        "type": "string",
+                                        "example": "entryUUID",
+                                        "nullable": true
+                                    },
+                                    "emailAttribute": {
+                                        "description": "Attribute holding the email address. Defaults to mail.",
+                                        "type": "string",
+                                        "example": "mail",
+                                        "nullable": true
+                                    },
+                                    "nameAttribute": {
+                                        "description": "Attribute holding the display name. Defaults to cn.",
+                                        "type": "string",
+                                        "example": "cn",
+                                        "nullable": true
+                                    },
+                                    "phoneAttribute": {
+                                        "description": "Attribute holding the phone number, in international format. Leave empty, the default, to leave the phone unmapped. For example: mobile",
+                                        "type": "string",
+                                        "example": "mobile",
+                                        "nullable": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/project\/ldap\/tests": {
+            "post": {
+                "summary": "Create project LDAP test",
+                "operationId": "projectCreateLDAPTest",
+                "tags": [
+                    "project"
+                ],
+                "description": "Test the stored LDAP configuration against the directory without signing anyone in. Connects to the directory, binds as the service account and reads the base DN. Pass a username to also look the user up and check the required group, and a password to also verify it. The error names the step that failed.",
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "ldap",
+                    "demo": "project\/create-ldap-test.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "project.ldap.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {
+                                        "description": "Username to look up in the directory. Leave empty to test the connection and service account only.",
+                                        "type": "string",
+                                        "default": "",
+                                        "example": "<USERNAME>"
+                                    },
+                                    "password": {
+                                        "description": "Password of the user to verify. Only used together with a username.",
+                                        "type": "string",
+                                        "default": "",
+                                        "example": "password",
+                                        "format": "password"
+                                    }
+                                }
                             }
                         }
                     }
@@ -92481,6 +93224,87 @@
                 }
             }
         },
+        "\/project\/oauth2\/workos": {
+            "patch": {
+                "summary": "Update project OAuth2 WorkOS",
+                "operationId": "projectUpdateOAuth2WorkOS",
+                "tags": [
+                    "project"
+                ],
+                "description": "Update the project OAuth2 WorkOS configuration.",
+                "responses": {
+                    "200": {
+                        "description": "OAuth2WorkOS",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/oAuth2WorkOS"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "oauth2",
+                    "demo": "project\/update-o-auth-2-work-os.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "project.oauth2.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "clientId": {
+                                        "description": "'Client ID' of WorkOS OAuth2 app. For example: client_01H0000000000000000000000",
+                                        "type": "string",
+                                        "example": "<CLIENT_ID>",
+                                        "nullable": true
+                                    },
+                                    "clientSecret": {
+                                        "description": "'Client Secret' of WorkOS OAuth2 app. For example: wos0000000000000000000000000000000000000000000000000000000000000",
+                                        "type": "string",
+                                        "example": "<CLIENT_SECRET>",
+                                        "nullable": true
+                                    },
+                                    "enabled": {
+                                        "description": "OAuth2 sign-in method status. Set to true to enable new session creation. Setting to true will trigger end-to-end credentials validation, and will throw if the credentials are invalid.",
+                                        "type": "boolean",
+                                        "example": false,
+                                        "nullable": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/project\/oauth2\/x": {
             "patch": {
                 "summary": "Update project OAuth2 X",
@@ -92914,7 +93738,7 @@
                 "description": "Get a single OAuth2 provider configuration. Credential fields (client secret, p8 file, key\/team IDs) are write-only and always returned empty.",
                 "responses": {
                     "200": {
-                        "description": "OAuth2GitHub, or OAuth2Discord, or OAuth2Figma, or OAuth2Dropbox, or OAuth2Dailymotion, or OAuth2Bitbucket, or OAuth2Bitly, or OAuth2Box, or OAuth2Autodesk, or OAuth2Google, or OAuth2Zoom, or OAuth2Zoho, or OAuth2Yandex, or OAuth2X, or OAuth2WordPress, or OAuth2Webflow, or OAuth2Twitch, or OAuth2Stripe, or OAuth2Spotify, or OAuth2Slack, or OAuth2Podio, or OAuth2Notion, or OAuth2Salesforce, or OAuth2Yahoo, or OAuth2HuggingFace, or OAuth2Resend, or OAuth2Cloudflare, or OAuth2Linkedin, or OAuth2Disqus, or OAuth2Amazon, or OAuth2Etsy, or OAuth2Facebook, or OAuth2Tradeshift, or OAuth2Paypal, or OAuth2Gitlab, or OAuth2Authentik, or OAuth2Auth0, or OAuth2FusionAuth, or OAuth2Keycloak, or OAuth2Oidc, or OAuth2Apple, or OAuth2Okta, or OAuth2Kick, or OAuth2Microsoft, or OAuth2TikTok, or OAuth2Kakao, or OAuth2Naver, or OAuth2Vipps",
+                        "description": "OAuth2GitHub, or OAuth2Discord, or OAuth2Figma, or OAuth2Dropbox, or OAuth2Dailymotion, or OAuth2Bitbucket, or OAuth2Bitly, or OAuth2Box, or OAuth2Autodesk, or OAuth2Google, or OAuth2Zoom, or OAuth2Zoho, or OAuth2Yandex, or OAuth2X, or OAuth2WordPress, or OAuth2Webflow, or OAuth2Twitch, or OAuth2Stripe, or OAuth2Spotify, or OAuth2Slack, or OAuth2Podio, or OAuth2Notion, or OAuth2Salesforce, or OAuth2Yahoo, or OAuth2HuggingFace, or OAuth2WorkOS, or OAuth2Resend, or OAuth2Cloudflare, or OAuth2Linkedin, or OAuth2Disqus, or OAuth2Amazon, or OAuth2Etsy, or OAuth2Facebook, or OAuth2Tradeshift, or OAuth2Paypal, or OAuth2Gitlab, or OAuth2Authentik, or OAuth2Auth0, or OAuth2FusionAuth, or OAuth2Keycloak, or OAuth2Oidc, or OAuth2Apple, or OAuth2Okta, or OAuth2Kick, or OAuth2Microsoft, or OAuth2TikTok, or OAuth2Kakao, or OAuth2Naver, or OAuth2Vipps",
                         "content": {
                             "application\/json": {
                                 "schema": {
@@ -92993,6 +93817,9 @@
                                         },
                                         {
                                             "$ref": "#\/components\/schemas\/oAuth2HuggingFace"
+                                        },
+                                        {
+                                            "$ref": "#\/components\/schemas\/oAuth2WorkOS"
                                         },
                                         {
                                             "$ref": "#\/components\/schemas\/oAuth2Resend"
@@ -93092,6 +93919,7 @@
                                             "salesforce": "#\/components\/schemas\/oAuth2Salesforce",
                                             "yahoo": "#\/components\/schemas\/oAuth2Yahoo",
                                             "huggingface": "#\/components\/schemas\/oAuth2HuggingFace",
+                                            "workos": "#\/components\/schemas\/oAuth2WorkOS",
                                             "resend": "#\/components\/schemas\/oAuth2Resend",
                                             "cloudflare": "#\/components\/schemas\/oAuth2Cloudflare",
                                             "linkedin": "#\/components\/schemas\/oAuth2Linkedin",
@@ -93493,6 +94321,13 @@
                                         "wordpress"
                                     ],
                                     "title": "wordpress"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "workos"
+                                    ],
+                                    "title": "workos"
                                 },
                                 {
                                     "type": "string",
@@ -104471,7 +105306,7 @@
                                         "example": "<PROVIDER_BRANCH>"
                                     },
                                     "providerSilentMode": {
-                                        "description": "Is the VCS (Version Control System) connection in silent mode for the repo linked to the site? In silent mode, comments will not be made on commits and pull requests.",
+                                        "description": "Is the VCS (Version Control System) connection in silent mode for the repo linked to the site? In silent mode, no comments or checks are posted to commits and pull requests.",
                                         "type": "boolean",
                                         "default": false,
                                         "example": false
@@ -104619,6 +105454,20 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "project.videos.profiles.read"
+                                                    ],
+                                                    "title": "project.videos.profiles.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.videos.profiles.write"
+                                                    ],
+                                                    "title": "project.videos.profiles.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "project.oauth2.read"
                                                     ],
                                                     "title": "project.oauth2.read"
@@ -104629,6 +105478,13 @@
                                                         "project.oauth2.write"
                                                     ],
                                                     "title": "project.oauth2.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.ldap.write"
+                                                    ],
+                                                    "title": "project.ldap.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -105305,6 +106161,27 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "videos.play"
+                                                    ],
+                                                    "title": "videos.play"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.read"
+                                                    ],
+                                                    "title": "videos.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.write"
+                                                    ],
+                                                    "title": "videos.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "dedicatedDatabases.execute"
                                                     ],
                                                     "title": "dedicatedDatabases.execute"
@@ -105450,6 +106327,24 @@
                                         "type": "string",
                                         "default": "",
                                         "example": "<DESCRIPTION>"
+                                    },
+                                    "providerComments": {
+                                        "description": "Post a build summary on pull requests for the repo linked to the site. Commit statuses are still reported when disabled. Ignored in silent mode.",
+                                        "type": "boolean",
+                                        "default": true,
+                                        "example": false
+                                    },
+                                    "providerDeployments": {
+                                        "description": "Deploy every push that matches the branch and path rules for the repo linked to the site. When disabled, deploy manually.",
+                                        "type": "boolean",
+                                        "default": true,
+                                        "example": false
+                                    },
+                                    "providerStatuses": {
+                                        "description": "Report the build status on each commit for the repo linked to the site. Ignored in silent mode.",
+                                        "type": "boolean",
+                                        "default": true,
+                                        "example": false
                                     }
                                 },
                                 "required": [
@@ -107022,7 +107917,7 @@
                                         "example": "<PROVIDER_BRANCH>"
                                     },
                                     "providerSilentMode": {
-                                        "description": "Is the VCS (Version Control System) connection in silent mode for the repo linked to the site? In silent mode, comments will not be made on commits and pull requests.",
+                                        "description": "Is the VCS (Version Control System) connection in silent mode for the repo linked to the site? In silent mode, no comments or checks are posted to commits and pull requests.",
                                         "type": "boolean",
                                         "example": false,
                                         "nullable": true
@@ -107169,6 +108064,20 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "project.videos.profiles.read"
+                                                    ],
+                                                    "title": "project.videos.profiles.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.videos.profiles.write"
+                                                    ],
+                                                    "title": "project.videos.profiles.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "project.oauth2.read"
                                                     ],
                                                     "title": "project.oauth2.read"
@@ -107179,6 +108088,13 @@
                                                         "project.oauth2.write"
                                                     ],
                                                     "title": "project.oauth2.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "project.ldap.write"
+                                                    ],
+                                                    "title": "project.ldap.write"
                                                 },
                                                 {
                                                     "type": "string",
@@ -107855,6 +108771,27 @@
                                                 {
                                                     "type": "string",
                                                     "enum": [
+                                                        "videos.play"
+                                                    ],
+                                                    "title": "videos.play"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.read"
+                                                    ],
+                                                    "title": "videos.read"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "videos.write"
+                                                    ],
+                                                    "title": "videos.write"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
                                                         "dedicatedDatabases.execute"
                                                     ],
                                                     "title": "dedicatedDatabases.execute"
@@ -108001,6 +108938,24 @@
                                         "type": "string",
                                         "example": "<DESCRIPTION>",
                                         "nullable": true
+                                    },
+                                    "providerComments": {
+                                        "description": "Post a build summary on pull requests for the repo linked to the site. Commit statuses are still reported when disabled. Ignored in silent mode.",
+                                        "type": "boolean",
+                                        "example": false,
+                                        "nullable": true
+                                    },
+                                    "providerDeployments": {
+                                        "description": "Deploy every push that matches the branch and path rules for the repo linked to the site. When disabled, deploy manually.",
+                                        "type": "boolean",
+                                        "example": false,
+                                        "nullable": true
+                                    },
+                                    "providerStatuses": {
+                                        "description": "Report the build status on each commit for the repo linked to the site. Ignored in silent mode.",
+                                        "type": "boolean",
+                                        "example": false,
+                                        "nullable": true
                                     }
                                 },
                                 "required": [
@@ -108066,6 +109021,89 @@
                         "in": "path"
                     }
                 ]
+            }
+        },
+        "\/sites\/{siteId}\/analytics": {
+            "patch": {
+                "summary": "Update site analytics",
+                "operationId": "sitesUpdateAnalytics",
+                "tags": [
+                    "sites"
+                ],
+                "description": "Turn analytics on or off for a site. Turning it on links an analytics property named after the site, creating one on first use, and injects the tracker into pages served on the site's production domains. Turning it on also needs the `analytics.write` scope. Turning it off stops the injection and keeps the property and its data.",
+                "responses": {
+                    "200": {
+                        "description": "Site",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/site"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-appwrite": {
+                    "group": "sites",
+                    "demo": "sites\/update-analytics.md",
+                    "rate-limit": 0,
+                    "rate-time": 3600,
+                    "rate-key": "url:{url},ip:{ip}",
+                    "scope": "sites.write",
+                    "platforms": [
+                        "console",
+                        "server"
+                    ],
+                    "packaging": false,
+                    "public": true,
+                    "auth": {
+                        "console": {
+                            "Project": []
+                        },
+                        "server": {
+                            "Project": [],
+                            "Key": []
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Project": [],
+                        "Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "siteId",
+                        "description": "Site ID.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "<SITE_ID>"
+                        },
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "enabled": {
+                                        "description": "Inject the analytics tracker into the site's production domains. Injected pageviews and events are billed as analytics usage.",
+                                        "type": "boolean",
+                                        "example": false
+                                    }
+                                },
+                                "required": [
+                                    "enabled"
+                                ]
+                            }
+                        }
+                    }
+                }
             }
         },
         "\/sites\/{siteId}\/deployment": {
@@ -112467,7 +113505,7 @@
                 "tags": [
                     "tablesDB"
                 ],
-                "description": "Start migrating a serverless TablesDB database onto a dedicated MySQL compute. Data is copied to the target while the source stays live. Reads continue throughout. Row writes are held for up to a few seconds while routing switches to the dedicated compute; a write the switch has not absorbed within that hold is refused with `database_migration_cutover` and can be retried. Schema changes (tables, columns, indexes) are refused from creation until the cutover completes, and resume once the migration is `soaking`.",
+                "description": "Start migrating a serverless TablesDB database onto a dedicated MySQL compute. Data is copied to the target while the source stays live. Reads continue throughout. Row writes are held for up to a few seconds while routing switches to the dedicated compute and are never refused; a write the switch has not absorbed within that hold proceeds and is carried across to the dedicated compute. Schema changes (tables, columns, indexes) are refused from creation until the cutover completes, and resume once the migration is `soaking`.",
                 "responses": {
                     "201": {
                         "description": "Database Migration",
@@ -112695,7 +113733,7 @@
                 "tags": [
                     "tablesDB"
                 ],
-                "description": "Cut a verified TablesDB migration over to its dedicated compute. Only applies to a migration created with `autoCutover` disabled, which waits at `ready_to_cutover` until this is called. The routing flip happens shortly after this returns. Reads are unaffected; row writes are held for up to a few seconds while it lands, and a write the flip has not absorbed within that hold is refused with `database_migration_cutover` and can be retried. One call buys one attempt: a cutover that fails a check returns the migration to `verifying` and parks it again, so call this once more to retry.",
+                "description": "Cut a verified TablesDB migration over to its dedicated compute. Only applies to a migration created with `autoCutover` disabled, which waits at `ready_to_cutover` until this is called. The routing flip happens shortly after this returns. Reads are unaffected; row writes are held for up to a few seconds while it lands and are never refused; a write the flip has not absorbed within that hold proceeds and is carried across to the dedicated compute. One call buys one attempt: a cutover that fails a check returns the migration to `verifying` and parks it again, so call this once more to retry.",
                 "responses": {
                     "200": {
                         "description": "Database Migration",
@@ -136123,6 +137161,10 @@
         {
             "name": "reviews",
             "description": "The Reviews service allows you to manage AI code review for your GitHub repositories."
+        },
+        {
+            "name": "videos",
+            "description": "The Videos service allows you to transcode video files into adaptive HLS and DASH streams."
         }
     ],
     "components": {
@@ -148577,6 +149619,24 @@
                         "example": false,
                         "default": false
                     },
+                    "providerComments": {
+                        "type": "boolean",
+                        "description": "Whether a build summary is posted on pull requests. Commit statuses are still reported when disabled.",
+                        "example": true,
+                        "default": true
+                    },
+                    "providerDeployments": {
+                        "type": "boolean",
+                        "description": "Whether pushes that match the branch and path rules are deployed automatically.",
+                        "example": true,
+                        "default": true
+                    },
+                    "providerStatuses": {
+                        "type": "boolean",
+                        "description": "Whether the build status is reported on each commit.",
+                        "example": true,
+                        "default": true
+                    },
                     "providerBranches": {
                         "type": "array",
                         "description": "List of branch name patterns that trigger automatic deployments. Supports glob wildcards. Empty list deploys on all branches.",
@@ -148628,6 +149688,18 @@
                         "type": "string",
                         "description": "Name of fallback file to use instead of 404 page. If null, Appwrite 404 page will be displayed.",
                         "example": "index.html"
+                    },
+                    "analyticsEnabled": {
+                        "type": "boolean",
+                        "description": "Whether the analytics tracker is injected into pages served on the site's production domains.",
+                        "example": false,
+                        "default": false
+                    },
+                    "analyticsPropertyId": {
+                        "type": "string",
+                        "description": "ID of the analytics property the site reports to. Kept when analytics is turned off, so turning it back on resumes the same property.",
+                        "example": "5e5ea5c16897e",
+                        "default": ""
                     }
                 },
                 "required": [
@@ -148660,13 +149732,18 @@
                     "providerBranch",
                     "providerRootDirectory",
                     "providerSilentMode",
+                    "providerComments",
+                    "providerDeployments",
+                    "providerStatuses",
                     "providerBranches",
                     "providerPaths",
                     "buildSpecification",
                     "runtimeSpecification",
                     "buildRuntime",
                     "adapter",
-                    "fallbackFile"
+                    "fallbackFile",
+                    "analyticsEnabled",
+                    "analyticsPropertyId"
                 ],
                 "example": {
                     "$id": "5e5ea5c16897e",
@@ -148698,6 +149775,9 @@
                     "providerBranch": "main",
                     "providerRootDirectory": "sites\/helloWorld",
                     "providerSilentMode": false,
+                    "providerComments": true,
+                    "providerDeployments": true,
+                    "providerStatuses": true,
                     "providerBranches": [
                         "main",
                         "feat\/*"
@@ -148710,7 +149790,9 @@
                     "runtimeSpecification": "s-1vcpu-512mb",
                     "buildRuntime": "node-22",
                     "adapter": "static",
-                    "fallbackFile": "index.html"
+                    "fallbackFile": "index.html",
+                    "analyticsEnabled": false,
+                    "analyticsPropertyId": "5e5ea5c16897e"
                 }
             },
             "templateSite": {
@@ -149135,6 +150217,24 @@
                         "example": false,
                         "default": false
                     },
+                    "providerComments": {
+                        "type": "boolean",
+                        "description": "Whether a build summary is posted on pull requests. Commit statuses are still reported when disabled.",
+                        "example": true,
+                        "default": true
+                    },
+                    "providerDeployments": {
+                        "type": "boolean",
+                        "description": "Whether pushes that match the branch and path rules are deployed automatically.",
+                        "example": true,
+                        "default": true
+                    },
+                    "providerStatuses": {
+                        "type": "boolean",
+                        "description": "Whether the build status is reported on each commit.",
+                        "example": true,
+                        "default": true
+                    },
                     "providerBranches": {
                         "type": "array",
                         "description": "List of branch name patterns that trigger automatic deployments. Supports glob wildcards. Empty list deploys on all branches.",
@@ -149208,6 +150308,9 @@
                     "providerBranch",
                     "providerRootDirectory",
                     "providerSilentMode",
+                    "providerComments",
+                    "providerDeployments",
+                    "providerStatuses",
                     "providerBranches",
                     "providerPaths",
                     "buildSpecification",
@@ -149245,6 +150348,9 @@
                     "providerBranch": "main",
                     "providerRootDirectory": "functions\/helloWorld",
                     "providerSilentMode": false,
+                    "providerComments": true,
+                    "providerDeployments": true,
+                    "providerStatuses": true,
                     "providerBranches": [
                         "main",
                         "feat\/*"
@@ -149580,6 +150686,12 @@
                         "description": "VCS (Version Control System) organization URL. Points at the configured instance, which is not the provider's own host for a self-hosted install.",
                         "example": "https:\/\/github.com\/appwrite",
                         "default": ""
+                    },
+                    "reviewNewRepositories": {
+                        "type": "boolean",
+                        "description": "Whether code review is turned on for repositories added to the installation later.",
+                        "example": false,
+                        "default": false
                     }
                 },
                 "required": [
@@ -149589,7 +150701,8 @@
                     "provider",
                     "organization",
                     "providerInstallationId",
-                    "organizationUrl"
+                    "organizationUrl",
+                    "reviewNewRepositories"
                 ],
                 "example": {
                     "$id": "5e5ea5c16897e",
@@ -149598,7 +150711,8 @@
                     "provider": "github",
                     "organization": "appwrite",
                     "providerInstallationId": "5322",
-                    "organizationUrl": "https:\/\/github.com\/appwrite"
+                    "organizationUrl": "https:\/\/github.com\/appwrite",
+                    "reviewNewRepositories": false
                 }
             },
             "providerRepository": {
@@ -150965,6 +152079,110 @@
                         "example": "tls",
                         "default": ""
                     },
+                    "ldapEnabled": {
+                        "type": "boolean",
+                        "description": "Status for LDAP sign-in",
+                        "example": false,
+                        "default": false
+                    },
+                    "ldapHosts": {
+                        "type": "array",
+                        "description": "LDAP directory hosts, tried in order.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "ldap.example.com"
+                        ],
+                        "default": []
+                    },
+                    "ldapPort": {
+                        "type": "integer",
+                        "description": "LDAP directory port.",
+                        "format": "int32",
+                        "example": 636,
+                        "default": 636
+                    },
+                    "ldapEncryption": {
+                        "type": "string",
+                        "description": "LDAP transport encryption: none, ldaps or starttls.",
+                        "example": "ldaps",
+                        "default": "ldaps"
+                    },
+                    "ldapVerification": {
+                        "type": "boolean",
+                        "description": "Whether the LDAP directory certificate is verified.",
+                        "example": true,
+                        "default": true
+                    },
+                    "ldapCertificate": {
+                        "type": "string",
+                        "description": "Certificate in PEM format of the authority that signed the LDAP directory certificate, or the directory certificate itself when it is self-signed. Empty for the system trust store.",
+                        "example": "",
+                        "default": ""
+                    },
+                    "ldapTimeout": {
+                        "type": "integer",
+                        "description": "Seconds to wait for the LDAP directory to connect and answer.",
+                        "format": "int32",
+                        "example": 10,
+                        "default": 10
+                    },
+                    "ldapBaseDn": {
+                        "type": "string",
+                        "description": "LDAP subtree the user search starts from.",
+                        "example": "ou=people,dc=example,dc=com",
+                        "default": ""
+                    },
+                    "ldapBindDn": {
+                        "type": "string",
+                        "description": "LDAP service account used to search for users, empty for anonymous search.",
+                        "example": "cn=appwrite,ou=services,dc=example,dc=com",
+                        "default": ""
+                    },
+                    "ldapBindPassword": {
+                        "type": "string",
+                        "description": "LDAP service account password. This property is write-only and always returned empty.",
+                        "format": "password",
+                        "example": "ldap-password",
+                        "default": ""
+                    },
+                    "ldapUserFilter": {
+                        "type": "string",
+                        "description": "LDAP filter that finds the user signing in, with {username} where the username they enter goes.",
+                        "example": "(uid={username})",
+                        "default": "(uid={username})"
+                    },
+                    "ldapRequiredGroupDn": {
+                        "type": "string",
+                        "description": "LDAP group a user must belong to in order to sign in, empty to allow every user.",
+                        "example": "cn=staff,ou=groups,dc=example,dc=com",
+                        "default": ""
+                    },
+                    "ldapIdAttribute": {
+                        "type": "string",
+                        "description": "LDAP attribute holding the identifier that stays the same when an entry is renamed or moved.",
+                        "example": "entryUUID",
+                        "default": "entryUUID"
+                    },
+                    "ldapEmailAttribute": {
+                        "type": "string",
+                        "description": "LDAP attribute holding the email address.",
+                        "example": "mail",
+                        "default": "mail"
+                    },
+                    "ldapNameAttribute": {
+                        "type": "string",
+                        "description": "LDAP attribute holding the display name.",
+                        "example": "cn",
+                        "default": "cn"
+                    },
+                    "ldapPhoneAttribute": {
+                        "type": "string",
+                        "description": "LDAP attribute holding the phone number, empty when unmapped.",
+                        "example": "mobile",
+                        "default": ""
+                    },
                     "pingCount": {
                         "type": "integer",
                         "description": "Number of times the ping was received for this project.",
@@ -151260,6 +152478,22 @@
                     "smtpUsername",
                     "smtpPassword",
                     "smtpSecure",
+                    "ldapEnabled",
+                    "ldapHosts",
+                    "ldapPort",
+                    "ldapEncryption",
+                    "ldapVerification",
+                    "ldapCertificate",
+                    "ldapTimeout",
+                    "ldapBaseDn",
+                    "ldapBindDn",
+                    "ldapBindPassword",
+                    "ldapUserFilter",
+                    "ldapRequiredGroupDn",
+                    "ldapIdAttribute",
+                    "ldapEmailAttribute",
+                    "ldapNameAttribute",
+                    "ldapPhoneAttribute",
                     "pingCount",
                     "pingedAt",
                     "labels",
@@ -151288,6 +152522,24 @@
                     "smtpUsername": "emailuser",
                     "smtpPassword": "smtp-password",
                     "smtpSecure": "tls",
+                    "ldapEnabled": false,
+                    "ldapHosts": [
+                        "ldap.example.com"
+                    ],
+                    "ldapPort": 636,
+                    "ldapEncryption": "ldaps",
+                    "ldapVerification": true,
+                    "ldapCertificate": "",
+                    "ldapTimeout": 10,
+                    "ldapBaseDn": "ou=people,dc=example,dc=com",
+                    "ldapBindDn": "cn=appwrite,ou=services,dc=example,dc=com",
+                    "ldapBindPassword": "ldap-password",
+                    "ldapUserFilter": "(uid={username})",
+                    "ldapRequiredGroupDn": "cn=staff,ou=groups,dc=example,dc=com",
+                    "ldapIdAttribute": "entryUUID",
+                    "ldapEmailAttribute": "mail",
+                    "ldapNameAttribute": "cn",
+                    "ldapPhoneAttribute": "mobile",
                     "pingCount": 1,
                     "pingedAt": "2020-10-15T06:38:00.000+00:00",
                     "labels": [
@@ -151403,6 +152655,13 @@
                                     "passkey"
                                 ],
                                 "title": "passkey"
+                            },
+                            {
+                                "type": "string",
+                                "enum": [
+                                    "ldap"
+                                ],
+                                "title": "ldap"
                             }
                         ]
                     },
@@ -154267,6 +155526,49 @@
                     "clientSecret": "oauth_app_secret_wcLhRtl000000000000000000000xbNdLt"
                 }
             },
+            "oAuth2WorkOS": {
+                "description": "OAuth2WorkOS",
+                "type": "object",
+                "properties": {
+                    "$id": {
+                        "type": "string",
+                        "description": "OAuth2 provider ID.",
+                        "example": "github",
+                        "default": ""
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "OAuth2 provider is active and can be used to create sessions.",
+                        "example": false,
+                        "default": false
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "WorkOS OAuth2 client ID.",
+                        "example": "client_01H0000000000000000000000",
+                        "default": ""
+                    },
+                    "clientSecret": {
+                        "type": "string",
+                        "description": "WorkOS OAuth2 client secret.",
+                        "format": "password",
+                        "example": "wos0000000000000000000000000000000000000000000000000000000000000",
+                        "default": ""
+                    }
+                },
+                "required": [
+                    "$id",
+                    "enabled",
+                    "clientId",
+                    "clientSecret"
+                ],
+                "example": {
+                    "$id": "github",
+                    "enabled": false,
+                    "clientId": "client_01H0000000000000000000000",
+                    "clientSecret": "wos0000000000000000000000000000000000000000000000000000000000000"
+                }
+            },
             "oAuth2Linkedin": {
                 "description": "OAuth2Linkedin",
                 "type": "object",
@@ -155764,6 +157066,9 @@
                                     "$ref": "#\/components\/schemas\/oAuth2HuggingFace"
                                 },
                                 {
+                                    "$ref": "#\/components\/schemas\/oAuth2WorkOS"
+                                },
+                                {
                                     "$ref": "#\/components\/schemas\/oAuth2Resend"
                                 },
                                 {
@@ -155830,6 +157135,7 @@
                                     "kick": "#\/components\/schemas\/oAuth2Kick",
                                     "microsoft": "#\/components\/schemas\/oAuth2Microsoft",
                                     "huggingface": "#\/components\/schemas\/oAuth2HuggingFace",
+                                    "workos": "#\/components\/schemas\/oAuth2WorkOS",
                                     "resend": "#\/components\/schemas\/oAuth2Resend",
                                     "cloudflare": "#\/components\/schemas\/oAuth2Cloudflare",
                                     "tiktok": "#\/components\/schemas\/oAuth2TikTok",
@@ -161737,7 +163043,7 @@
                     },
                     "allowedOrigins": {
                         "type": "array",
-                        "description": "List of origins allowed to send tracking events. Use [\"*\"] to allow all.",
+                        "description": "List of origins allowed to send tracking events. Use [\"*\"] to allow all. Managed by Appwrite for a property linked to a site, following the site's production domains.",
                         "items": {
                             "type": "string"
                         },
@@ -162700,7 +164006,7 @@
                         "type": "integer",
                         "description": "Maximum environments per project. 0 when the plan does not offer environments.",
                         "format": "int32",
-                        "example": 5,
+                        "example": 3,
                         "default": 0
                     },
                     "projects": {
@@ -163292,7 +164598,7 @@
                     "members": 25,
                     "webhooks": 25,
                     "wafRules": 2,
-                    "environments": 5,
+                    "environments": 3,
                     "projects": 2,
                     "platforms": 3,
                     "users": 25,
@@ -165622,6 +166928,13 @@
                         "format": "int32",
                         "example": 1,
                         "default": 1
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "Why the domain was not priced for the requested registration type, for example a transfer of an unregistered domain. Empty otherwise.",
+                        "example": "",
+                        "default": "",
+                        "nullable": true
                     }
                 },
                 "required": [
@@ -165640,7 +166953,8 @@
                     "periodYears": 1,
                     "premium": false,
                     "renewalPrice": 27.99,
-                    "renewalPeriodYears": 1
+                    "renewalPeriodYears": 1,
+                    "reason": ""
                 }
             },
             "domainPurchase": {
@@ -170203,6 +171517,20 @@
                             }
                         ],
                         "nullable": true
+                    },
+                    "analyticsPropertyId": {
+                        "type": "string",
+                        "description": "Analytics property ID whose tracker is injected into the site's production pages. Empty when analytics is off or the resource is not a site.",
+                        "example": "5e5ea5c16897e",
+                        "default": "",
+                        "nullable": true
+                    },
+                    "analyticsVersion": {
+                        "type": "string",
+                        "description": "Client Web SDK version that serves the analytics tracker script.",
+                        "example": "29.2.0",
+                        "default": "",
+                        "nullable": true
                     }
                 },
                 "required": [
@@ -170232,7 +171560,9 @@
                     "logging": true,
                     "image": "",
                     "command": "nohup helpers\/start.sh \"node index.js\"",
-                    "tags": ""
+                    "tags": "",
+                    "analyticsPropertyId": "5e5ea5c16897e",
+                    "analyticsVersion": "29.2.0"
                 }
             },
             "dedicatedDatabaseSpecification": {
