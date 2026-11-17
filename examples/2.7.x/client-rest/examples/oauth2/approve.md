@@ -3,7 +3,7 @@ POST /v1/oauth2/{project_id}/approve HTTP/1.1
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 2.7.0
+X-Appwrite-Response-Format: 2.7.2
 
 {
   "grant_id": "<GRANT_ID>",

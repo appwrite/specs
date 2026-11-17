@@ -35,6 +35,9 @@ result = functions.create(
     runtime_specification: 's-1vcpu-512mb', # optional
     deployment_retention: 0, # optional
     interval: 0, # optional
-    description: '<DESCRIPTION>' # optional
+    description: '<DESCRIPTION>', # optional
+    provider_comments: false, # optional
+    provider_deployments: false, # optional
+    provider_statuses: false # optional
 )
 ```

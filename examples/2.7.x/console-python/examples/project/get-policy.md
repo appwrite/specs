@@ -20,6 +20,7 @@ from appwrite_console.models import PolicyDenyFreeEmail
 from appwrite_console.models import PolicyDenyCorporateEmail
 from appwrite_console.models import PolicyDenyRealtimeGuests
 from appwrite_console.models import PolicyPasskey
+from appwrite_console.models import PolicyAccountDevices
 from typing import Union
 from appwrite_console.enums.project_policy_id import ProjectPolicyId
 
@@ -29,7 +30,7 @@ client.set_project('<YOUR_PROJECT_ID>') # Your project ID
 
 project = Project(client)
 
-result: Union[PolicyPasswordDictionary, PolicyPasswordHistory, PolicyPasswordStrength, PolicyPasswordPersonalData, PolicyPasswordPwned, PolicyPasswordRotation, PolicySessionAlert, PolicySessionDuration, PolicySessionInvalidation, PolicySessionLimit, PolicyUserLimit, PolicyMembershipPrivacy, PolicyMfaFactors, PolicyDenyAliasedEmail, PolicyDenyDisposableEmail, PolicyDenyFreeEmail, PolicyDenyCorporateEmail, PolicyDenyRealtimeGuests, PolicyPasskey] = project.get_policy(
+result: Union[PolicyPasswordDictionary, PolicyPasswordHistory, PolicyPasswordStrength, PolicyPasswordPersonalData, PolicyPasswordPwned, PolicyPasswordRotation, PolicySessionAlert, PolicySessionDuration, PolicySessionInvalidation, PolicySessionLimit, PolicyUserLimit, PolicyMembershipPrivacy, PolicyMfaFactors, PolicyDenyAliasedEmail, PolicyDenyDisposableEmail, PolicyDenyFreeEmail, PolicyDenyCorporateEmail, PolicyDenyRealtimeGuests, PolicyPasskey, PolicyAccountDevices] = project.get_policy(
     policy_id = ProjectPolicyId.PASSWORD_DICTIONARY
 )
 

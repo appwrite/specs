@@ -19,7 +19,8 @@ result: WafRuleRedirect = waf.create_redirect_rule(
     description = '<DESCRIPTION>', # optional
     priority = -100000, # optional
     enabled = False, # optional
-    conditions = [] # optional
+    conditions = [], # optional
+    schedule = {} # optional
 )
 
 print(result.model_dump())

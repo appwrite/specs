@@ -18,7 +18,7 @@ func main() {
 	service := project.New(client)
 
 	response, err := service.UpdatePrefs(
-		[]interface{}{},
+		map[string]interface{}{},
 	)
 	fmt.Println(response, err)
 }

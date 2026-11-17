@@ -18,6 +18,8 @@ query {
         status
         logs
         renewAt
+        expireAt
+        certificateStatus
         protocol
     }
 }

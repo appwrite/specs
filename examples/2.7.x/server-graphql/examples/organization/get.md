@@ -12,6 +12,7 @@ query {
         billingBudget
         budgetAlerts
         budgetNotify
+        budgetCritical
         billingPlan
         billingPlanId
         billingPlanDetails {

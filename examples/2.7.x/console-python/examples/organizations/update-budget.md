@@ -13,7 +13,8 @@ result: Organization = organizations.update_budget(
     organization_id = '<ORGANIZATION_ID>',
     budget = 0,
     alerts = [], # optional
-    notify = [] # optional
+    notify = [], # optional
+    critical = [] # optional
 )
 
 print(result.model_dump())

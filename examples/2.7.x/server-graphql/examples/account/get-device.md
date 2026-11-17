@@ -1,0 +1,46 @@
+```graphql
+query {
+    accountGetDevice(
+        deviceId: "<DEVICE_ID>"
+    ) {
+        _id
+        _createdAt
+        _updatedAt
+        expire
+        activeSessionId
+        sessions {
+            _id
+            _createdAt
+            _updatedAt
+            userId
+            userName
+            expire
+            provider
+            providerUid
+            providerAccessToken
+            providerAccessTokenExpiry
+            providerRefreshToken
+            ip
+            osCode
+            osName
+            osVersion
+            clientType
+            clientCode
+            clientName
+            clientVersion
+            clientEngine
+            clientEngineVersion
+            deviceName
+            deviceBrand
+            deviceModel
+            countryCode
+            countryName
+            current
+            factors
+            secret
+            mfaUpdatedAt
+        }
+        secret
+    }
+}
+```

@@ -17,6 +17,7 @@ query {
         enabled
         conditions
         config
+        schedule
     }
 }
 ```

@@ -43,6 +43,9 @@ mutation {
         providerBranch
         providerRootDirectory
         providerSilentMode
+        providerComments
+        providerDeployments
+        providerStatuses
         providerBranches
         providerPaths
         buildSpecification
@@ -50,6 +53,8 @@ mutation {
         buildRuntime
         adapter
         fallbackFile
+        analyticsEnabled
+        analyticsPropertyId
     }
 }
 ```

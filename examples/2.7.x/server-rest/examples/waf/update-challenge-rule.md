@@ -3,7 +3,7 @@ PATCH /v1/waf/rules/challenge/{ruleId} HTTP/1.1
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 2.7.0
+X-Appwrite-Response-Format: 2.7.2
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
@@ -16,6 +16,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "enabled": false,
   "conditions": [],
   "difficulty": 1,
-  "ttl": 900
+  "ttl": 900,
+  "schedule": {}
 }
 ```

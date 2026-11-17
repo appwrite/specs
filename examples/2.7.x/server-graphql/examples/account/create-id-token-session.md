@@ -12,6 +12,7 @@ mutation {
         _createdAt
         _updatedAt
         userId
+        userName
         expire
         provider
         providerUid

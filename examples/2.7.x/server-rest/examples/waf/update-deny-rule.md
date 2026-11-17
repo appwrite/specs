@@ -3,7 +3,7 @@ PATCH /v1/waf/rules/deny/{ruleId} HTTP/1.1
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 2.7.0
+X-Appwrite-Response-Format: 2.7.2
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
@@ -13,6 +13,7 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "description": "<DESCRIPTION>",
   "priority": -100000,
   "enabled": false,
-  "conditions": []
+  "conditions": [],
+  "schedule": {}
 }
 ```

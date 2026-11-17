@@ -3,7 +3,7 @@ POST /v1/sites HTTP/1.1
 Host: cloud.appwrite.io
 Content-Type: application/json
 Accept: application/json
-X-Appwrite-Response-Format: 2.7.0
+X-Appwrite-Response-Format: 2.7.2
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 
 {
@@ -31,6 +31,9 @@ X-Appwrite-Project: <YOUR_PROJECT_ID>
   "runtimeSpecification": "s-1vcpu-512mb",
   "deploymentRetention": 0,
   "scopes": [],
-  "description": "<DESCRIPTION>"
+  "description": "<DESCRIPTION>",
+  "providerComments": false,
+  "providerDeployments": false,
+  "providerStatuses": false
 }
 ```

@@ -2,6 +2,6 @@
 GET /v1/avatars/photo HTTP/1.1
 Host: cloud.appwrite.io
 Accept: image/*
-X-Appwrite-Response-Format: 2.7.0
+X-Appwrite-Response-Format: 2.7.2
 X-Appwrite-Project: <YOUR_PROJECT_ID>
 ```

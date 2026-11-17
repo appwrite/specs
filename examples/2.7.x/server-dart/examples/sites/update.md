@@ -36,5 +36,8 @@ models.Site result = await sites.update(
     deploymentRetention: 0, // (optional)
     scopes: [enums.ProjectKeyScopes.projectRead], // (optional)
     description: '<DESCRIPTION>', // (optional)
+    providerComments: false, // (optional)
+    providerDeployments: false, // (optional)
+    providerStatuses: false, // (optional)
 );
 ```
