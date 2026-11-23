@@ -13,6 +13,6 @@
         "validate:refs": "node scripts/validate-local-refs.js"
     },
     "devDependencies": {
-        "@apidevtools/swagger-parser": "^12.1.0"
+        "@apidevtools/swagger-parser": "^13.0.0"
     }
 }
